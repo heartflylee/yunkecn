@@ -10,15 +10,15 @@ uglify = require('gulp-uglify')
 autoprefixer = require('gulp-autoprefixer')
 spriter = require('gulp-css-spriter')
 plumber = require('gulp-plumber')
-#csso = require('gulp-csso')
+csso = require('gulp-csso')
 babel = require('gulp-babel')
 sourcemaps = require("gulp-sourcemaps")
+
 
 # 构建任务部分
 gulp.task('default', (callback) ->
   runSequence( ['build'], ['serve','watch'], callback)
 )
-
 
 gulp.task('build', (callback) ->
   runSequence( ['sassCss'], callback)
@@ -39,7 +39,7 @@ gulp.task('sassCss', ->
     flexbox: true
   }))
 #    .pipe(csso())
-#    .pipe(minify())
+    .pipe(minify())
     .pipe(sourcemaps.write("."))
     .pipe(plumber.stop())
     .pipe(gulp.dest('./web/css'))
