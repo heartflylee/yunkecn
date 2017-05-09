@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>团队客户</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/highcharts.js"></script>
+		<link href="../css/hDate.css" rel="stylesheet" />
+		<script type="text/javascript" src="../js/hDate.js"></script>
+		<script type="text/javascript" src="../js/audio.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+		<script type="text/javascript" src="../js/jedate/jedate.min.js"></script>
+		<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js"></script>
+		<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<div class="layer-6"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav">
+				<li>
+					<a href="">首页</a>
+				</li>
+				<li>
+					<a href="">行动</a>
+				</li>
+				<li>
+					<a href="" class="current">客户</a>
+				</li>
+				<li>
+					<a href="">账户</a>
+				</li>
+				<li>
+					<a href="">任务</a>
+				</li>
+				<li>
+					<a href="">设置</a>
+				</li>
+			</ul>
+			<ul class="header-right fr">
+				<li>
+					<a href="javascript:;"><i class="add"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="update"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="message"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="user">刘</a>
+				</li>
+			</ul>
+		</div>
+		<div class="tipArea">
+			<div class="wrap">
+				<ul class="ul-2">
+					<li>
+						<a href="settings.html">团队设置</a>
+					</li>
+					<li>
+						<a href="settings-1.html">外呼标签设置</a>
+					</li>
+					<li>
+						<a href="settings-2.html">短信模板设置</a>
+					</li>
+					<li>
+						<a href="settings-email.html">邮件账户设置</a>
+					</li>
+					<li>
+						<a href="settings-email1.html">邮件模板设置</a>
+					</li>
+					<li>
+						<a href="settings-call.html">挂机时间设置</a>
+					</li>
+					<li>
+						<a href="settings-sea.html">企业公海设置</a>
+					</li>
+					<li>
+						<a href="Recommend.html" class="current">推荐系统设置</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="contents">
+			<div class="table-tlt">
+				<a class="return-icon" href="Recommend.html"></a>
+				<i class="i"></i>关键词设置
+				<div class="weight-mark">
+					权重等级：<label class="weight-4"><i></i>高</label><label class="weight-3"><i></i>中</label><label class="weight-2"><i></i>低</label><label class="weight-1"><i></i>零</label><label class="weight-0"><i></i>负</label>
+				</div>
+			</div>
+			<div class="keywords-f">
+				<dl class="weight-chosen weight-chosen1">
+					<dt>公司名称类</dt>
+					<dd>
+						<span class="weight-4" data-weight="4" data-id="1" data-type="1" onclick="weightChange(this);"></span>
+						<span class="weight-4" data-weight="4" data-id="2" data-type="1" onclick="weightChange(this);">广东</span>
+						<span class="weight-3" data-weight="3" data-id="3" data-type="1" onclick="weightChange(this);">深圳</span>
+						<span class="weight-2" data-weight="2" data-id="4" data-type="1" onclick="weightChange(this);">上海</span>
+
+					</dd>
+				</dl>
+				<div class="line"></div>
+				<dl class="weight-chosen weight-chosen2">
+					<dt>行业类</dt>
+					<dd>
+						<span class="weight-4" data-weight="4" data-id="5" data-type="2" onclick="weightChange(this);">科技</span>
+						<span class="weight-4" data-weight="4" data-id="6" data-type="2" onclick="weightChange(this);">发展</span>
+						<span class="weight-3" data-weight="3" data-id="7" data-type="2" onclick="weightChange(this);">化工</span>
+						<span class="weight-2" data-weight="2" data-id="8" data-type="2" onclick="weightChange(this);">总经理</span>
+					</dd>
+				</dl>
+				<div class="line"></div>
+				<dl class="weight-chosen weight-chosen3">
+					<dt>经营范围</dt>
+					<dd>
+						<span class="weight-4" data-weight="4" data-id="9" data-type="3" onclick="weightChange(this);">科技</span>
+						<span class="weight-3" data-weight="3" data-id="10" data-type="3" onclick="weightChange(this);">发展</span>
+						<span class="weight-3" data-weight="3" data-id="11" data-type="3" onclick="weightChange(this);">化工</span>
+						<span class="weight-2" data-weight="2" data-id="12" data-type="3" onclick="weightChange(this);">总经理</span>
+						<span class="weight-2" data-weight="2" data-id="25" data-type="3" onclick="weightChange(this);">总经理 总经理 总经理</span>
+					</dd>
+				</dl>
+				<div class="line"></div>
+				<dl class="weight-chosen weight-chosen4">
+					<dt>职位类</dt>
+					<dd>
+						<span class="weight-4" data-weight="4" data-id="13" data-type="4" onclick="weightChange(this);">科技</span>
+						<span class="weight-4" data-weight="4" data-id="14" data-type="4" onclick="weightChange(this);">发展</span>
+						<span class="weight-3" data-weight="3" data-id="15" data-type="4" onclick="weightChange(this);">化工</span>
+						<span class="weight-2" data-weight="2" data-id="16" data-type="4" onclick="weightChange(this);">总经理</span>
+					</dd>
+				</dl>
+				<div class="line"></div>
+				<dl class="weight-chosen weight-chosen5">
+					<dt>零权重</dt>
+					<dd>
+						<span class="weight-1" data-weight="1" data-id="17" data-type="2" onclick="weightChange(this);">农林畜牧</span>
+						<span class="weight-1" data-weight="1" data-id="18" data-type="3" onclick="weightChange(this);">小学</span>
+						<span class="weight-1" data-weight="1" data-id="19" data-type="3" onclick="weightChange(this);">POS机</span>
+						<span class="weight-1" data-weight="1" data-id="20" data-type="4" onclick="weightChange(this);">代练</span>
+					</dd>
+				</dl>
+				<div class="line"></div>
+				<dl class="weight-chosen weight-chosen6">
+					<dt>负权重</dt>
+					<dd>
+						<span class="weight-0" data-weight="0" data-id="21" data-type="2" onclick="weightChange(this);">农林畜牧</span>
+						<span class="weight-0" data-weight="0" data-id="22" data-type="3" onclick="weightChange(this);">小学</span>
+						<span class="weight-0" data-weight="0" data-id="23" data-type="3" onclick="weightChange(this);">POS机</span>
+						<span class="weight-0" data-weight="0" data-id="24" data-type="4" onclick="weightChange(this);">代练</span>
+					</dd>
+				</dl>
+				<div class="line"></div>
+				<div class="weight-btn-f">
+					<input type="button" value="保存" class="" />
+					<input type="button" value="取消" class="cancle" />
+				</div>
+			</div>
+			<div class="weight-f" id="weight-f">
+				<div class="weight-t-f">
+					权重调整
+					<a class="close" href="javascript:;"></a>
+				</div>
+				<div class="weight-style">
+					<div class="weight-t">
+					</div>
+					<div class="weight-btn">
+						<div class="weight-change weight-add"></div>
+						<div class="weight-change weight-sub"></div>
+					</div>
+					<div class="btn-f">
+						<input type="button" class="btn" onclick="keywordMove();" value="提交" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="loading">
+
+		</div>
+		<script type="text/javascript">
+			var oldWeight = -1;
+			var weight = -1;
+			var weightId = -1;
+			$(function() {
+				$(".loading").show();
+				setTimeout(function() {
+					$(".loading").hide();
+				}, 1000);
+
+				$("#weight-f a.close").click(function() {
+					$("#weight-f").hide();
+				});
+				$("#weight-f .weight-add").click(function() {
+					if($(this).css("cursor") == "default") {
+						return false;
+					}
+					weight++;
+					$(this).parent().parent().attr("class", "weight-style weight-" + weight);
+					weightId = $("#weight-f").attr("weight-id");
+
+				});
+				$("#weight-f .weight-sub").click(function() {
+					if($(this).css("cursor") == "default") {
+						return false;
+					}
+					weight--;
+					$(this).parent().parent().attr("class", "weight-style weight-" + weight);
+					weightId = $("#weight-f").attr("weight-id");
+				});
+				$(window).click(function() {
+					$("#weight-f").hide();
+				});
+				$("#weight-f").click(function(e) {
+					e.stopPropagation();
+				});
+			});
+
+			function weightChange(obj) {
+				oldWeight = weight = $(obj).attr("data-weight");
+				var classname = $(obj).attr("class");
+				$("#weight-f").find(".weight-style").attr("class", "weight-style");
+				$("#weight-f").find(".weight-style").addClass(classname);
+				$("#weight-f").find(".weight-t").html($.trim($(obj).text()));
+				$("#weight-f").attr("weight-id", $(obj).attr("data-id"));
+				$("#weight-f").show();
+				var weightop = 0;
+				var weightleft = 0;
+				if($(obj).offset().top + $("#weight-f").height() > $(".contents").offset().top + $(".contents").outerHeight()) {
+					weightop = $(obj).offset().top - $(".contents").offset().top - $("#weight-f").height() + $(obj).outerHeight();
+				} else {
+					weightop = $(obj).offset().top - $(".contents").offset().top;
+				}
+				if($(obj).offset().left + $("#weight-f").width() + $(obj).outerWidth() > $(".contents").offset().left + $(".contents").outerWidth()) {
+					weightleft = $(obj).offset().left - $("#weight-f").width() - $(".contents").offset().left;
+				} else {
+					weightleft = $(obj).offset().left + $(obj).outerWidth();
+				}
+				$("#weight-f").css({
+					"top": weightop,
+					"left": weightleft
+				});
+				//				event.stopPropagation(); 
+				if(window.event) {
+					event.cancelBubble = true; // ie下阻止冒泡
+				} else {
+					event.stopPropagation(); // 其它浏览器下阻止冒泡
+				}
+			}
+
+			function keywordMove() {
+				$(".weight-chosen span[data-id=" + weightId + "]").attr("class", "weight-" + weight);
+				$(".weight-chosen span[data-id=" + weightId + "]").attr("data-weight", weight);
+
+				var weightSpan = $(".weight-chosen span[data-id=" + weightId + "]")[0];
+				if(weight == 1) {
+					if(!$(".weight-chosen span[data-id=" + weightId + "]").parent().parent().hasClass("weight-chosen5")) {
+						$(".weight-chosen span[data-id=" + weightId + "]").remove();
+						$(".weight-chosen5 dd").append(weightSpan);
+					}
+				} else if(weight == 0) {
+					if(!$(".weight-chosen span[data-id=" + weightId + "]").parent().parent().hasClass("weight-chosen6")) {
+						$(".weight-chosen span[data-id=" + weightId + "]").remove();
+						$(".weight-chosen6 dd").append(weightSpan);
+					}
+				} else if(weight >= 2) {
+					var dataType = $(".weight-chosen span[data-id=" + weightId + "]").attr("data-type");
+					if(oldWeight < 2) {
+						$(".weight-chosen span[data-id=" + weightId + "]").remove();
+						$(".weight-chosen" + dataType + " dd").append(weightSpan);
+					}
+				}
+				$(weightSpan).addClass("active");
+				setTimeout(function() {
+					$(weightSpan).removeClass("active");
+				}, 400);
+				console.log($(weightSpan));
+				$("#weight-f").hide();
+			}
+		</script>
+	</body>
+
+</html>

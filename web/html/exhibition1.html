@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/exhibition.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/template.js"></script>
+		<script type="text/javascript" src="../js/city.js"></script>
+		<script type="text/javascript" src="../js/form.js" ></script>
+		<script type="text/javascript" src="../js/tagsinput.js" ></script>
+	</head>
+
+	<body>
+		<div class="warp">
+			<div class="main">
+				<div class="ex-t">
+				</div>
+				<form name="form" id="formid" onsubmit="return formData();">
+					<div class="ex-main" id="customerShow">
+						<script type="text/html" id="customer">
+							{{each customer as value i}}
+							<!--{{if i == 0}}
+							<div class="ex-left">
+							{{/if}}
+							{{if i == 25 }}
+							<div class="ex-right">
+							{{/if}}-->
+							<div class="ex-li">
+								<div class="ex-name">
+									{{value.name}}：
+								</div>
+								<div class="ex-info">
+									{{if value.show == 'select'}}
+									<select class="ex-select" name="{{value.fname}}" {{if value.name=="省份" }}id="province" onchange="findCity()" {{/if}}{{if value.name="城市" }}id="city" {{/if}}>
+										<option value="">请选择{{value.name}}</option>
+										{{each value.select as select i}}
+										<option value="{{select}}">{{select}}</option>
+										{{/each}}
+									</select>
+									{{/if}} {{if value.show == 'normal'}} {{if value.more =="true"}}
+									<div class="ex-input-more input-more{{value.moreindex}}">
+										<input type="hidden" id="{{value.fname}}" data-interval="{{value.interval}}" name="{{value.fname}}" /> {{/if}}
+										{{if value.more =="false"}}
+											{{if value.moreindex == 0}}
+											<input class="ex-input" type="text" id="{{value.fname}}" name="{{value.fname}}" /> 
+											{{/if}}
+											{{if value.moreindex >= 1}}<input type="hidden" id="{{value.fname}}" name="{{value.fname}}" />
+											{{/if}}
+											{{if value.moreindex == 1}}
+											<div class="small">
+												<input class="ex-input small small1-1" type="text" />
+												<label class="small-label">-</label>
+												<input class="ex-input small small1-2" type="text" />
+												<label class="small-label">-</label>
+												<input class="ex-input small small1-3" type="text" />
+											</div>
+											{{/if}}
+											{{if value.moreindex == 2}}
+											<div class="small">
+												<input class="ex-input small small2-1" type="text" />
+												<label class="small-label">-</label>
+												<input class="ex-input small small2-2" type="text" />
+												<label class="small-label">-</label>
+												<input class="ex-input small small2-3" type="text" />
+											</div>
+											{{/if}}
+										{{/if}}
+										{{if value.more =='true'}}
+										<div class="ex-input-box more">
+											{{if value.moreindex == 0}}
+											<input class="ex-input" type="text" /> 
+											{{/if}}
+											{{if value.moreindex == 1}}
+												<input class="ex-input small small1-1" type="text" />
+												<label class="small-label">-</label>
+												<input class="ex-input small small1-2" type="text" />
+												<label class="small-label">-</label>
+												<input class="ex-input small small1-3" type="text" />
+											{{/if}}
+											{{if value.moreindex == 2}}
+												<input class="ex-input small small2-1" type="text" />
+												<label class="small-label">-</label>
+												<input class="ex-input small small2-2" type="text" />
+												<label class="small-label">-</label>
+												<input class="ex-input small small2-3" type="text" />
+											{{/if}}
+											<a class="info-btn remove" href="javascipt:void(0)" onclick="removebtn(this);"></a>
+										</div>
+									</div>
+									<a class="info-btn add" href="javascript:void(0);" onclick="addinput(this,{{value.moreindex}});"></a>
+									{{/if}} {{/if}} {{if value.show == 'checkbox'}} {{each value.select as select i}}
+									<div class="check-box">
+										<input type="checkbox" id="{{value.fname}}{{select}}" name="{{value.fname}}" value="{{select}}" />
+										<label for="{{value.fname}}{{select}}">{{select}}</label>
+									</div>
+									{{/each}} {{/if}} {{if value.show == 'radio'}} {{each value.select as select i}}
+									<div class="check-box">
+										<input type="radio" id="{{value.fname}}{{select}}" name="{{value.fname}}" value="{{select}}" />
+										<label for="{{value.fname}}{{select}}">{{select}}</label>
+									</div>
+									{{/each}} {{/if}}
+								</div>
+							</div> 
+							<!--{{if i == 24}}
+							</div>
+							{{/if}}
+							{{if i == 49 }}
+							</div>
+							{{/if}}-->
+							{{/each}}
+						</script>
+					</div>
+					<div class="ex-btn-f">
+						<a class="ex-btn ex-cancle" href="javascript:custom_close()">关闭</a>
+						<input class="ex-btn ex-submit" type="submit" value="保存" />
+					</div>
+				</form>
+			</div>
+			<script type="text/javascript">
+				$(function() {
+					$("#province").empty();
+					for(var i = 0; i < prolist.ps.length; i++) {
+						$("#province").append("<option value='" + prolist.ps[i].pname + "'>" + prolist.ps[i].pname + "</option>");
+					}
+				});
+
+				function findCity() {
+					var pname = $("#province").val();
+					$("#city").empty(); //清空城市列表
+					for(var i = 0; i < prolist.ps.length; i++) {
+						if(prolist.ps[i].pname == pname) {
+							for(var j = 0; j < prolist.ps[i].citys.length; j++) {
+								$("#city").append("<option value='" + prolist.ps[i].citys[j].cname + "'>" + prolist.ps[i].citys[j].cname + "</option>");
+							}
+						}
+					}
+				}
+				var normalHtml = '<div class="ex-input-box more">\
+					<input class="ex-input" type="text" />\
+					<a class="info-btn remove" href="javascipt:void(0)" onclick="removebtn(this);"></a>\
+					</div>';
+				var normal1Html = '<div class="ex-input-box more">\
+					<input class="ex-input small small1-1" type="text" /><label class="small-label">-</label><input class="ex-input small small1-2" type="text" /><label class="small-label">-</label><input class="ex-input small small1-3" type="text" />\
+					<a class="info-btn remove" href="javascipt:void(0)" onclick="removebtn(this);"></a>\
+					</div>';
+				var normal2Html = '<div class="ex-input-box more">\
+					<input class="ex-input small small2-1" type="text" /><label class="small-label">-</label><input class="ex-input small small2-1" type="text" /><label class="small-label">-</label><input class="ex-input small small2-1" type="text" />\
+					<a class="info-btn remove" href="javascipt:void(0)" onclick="removebtn(this);"></a>\
+					</div>';
+
+				function addinput(obj,index) {
+					var html = index==0?normalHtml:index==1?normal1Html:normal2Html;
+					$(obj).prev().append(html);
+				}
+
+				function removebtn(obj) {
+					$(obj).parent().remove();
+				}
+				var customerData = {
+					customer: [
+						{ name: '公司名称', size: 'normal', show: 'normal', fname: 'company', more: 'true',moreindex:0 ,interval:'、'},
+						{ name: '姓名', size: 'small', show: 'normal', fname: 'name', more: 'false',moreindex:0 },
+						{ name: '部门', size: 'small', show: 'normal', fname: 'department', more: 'false',moreindex:0 },
+						{ name: '称谓', size: 'small', show: 'radio', fname: 'title', more: 'false', select: ['先生', '女士'] ,moreindex:0},
+						{ name: '职位', size: 'normal', show: 'normal', fname: 'major', more: 'true' ,moreindex:0,interval:'、'},
+						{ name: '公司传真', size: 'small', show: 'normal', fname: 'companyFax', more: 'false',moreindex:1},
+						{ name: '公司地址', size: 'small', show: 'normal', fname: 'address', more: 'false',moreindex:0 },
+						{ name: '公司座机', size: 'small', show: 'normal', fname: 'comLandline', more: 'false',moreindex:1 },
+						{ name: '联系人座机1', size: 'small', show: 'normal', fname: 'linkmanLandline', more: 'false',moreindex:1 },
+						{ name: '联系人座机2', size: 'normal', show: 'normal', fname: 'linkmanLandline2', more: 'true',moreindex:1,interval:'、' },
+						{ name: '手机1', size: 'small', show: 'normal', fname: 'phone1', more: 'false' ,moreindex:0},
+						{ name: '手机2', size: 'normal', show: 'normal', fname: 'phone2', more: 'true' ,moreindex:0,interval:'、'},
+						{ name: '联系人地址1', size: 'small', show: 'normal', fname: 'linkmanAddress1', more: 'false',moreindex:0 },
+						{ name: '联系人地址2', size: 'normal', show: 'normal', fname: 'linkmanAddress2', more: 'true',moreindex:0 ,interval:'、'},
+						{ name: '邮箱1', size: 'small', show: 'normal', fname: 'email1', more: 'false' ,moreindex:0},
+						{ name: '邮箱2', size: 'normal', show: 'normal', fname: 'email2', more: 'true' ,moreindex:0,interval:'、'},
+						{ name: '省份', size: 'normal', show: 'select', fname: 'province', more: 'false', select: [] ,moreindex:0},
+						{ name: '城市', size: 'normal', show: 'select', fname: 'city', more: 'false', select: [] ,moreindex:0},
+						{ name: '邮编', size: 'small', show: 'normal', fname: 'postcode', more: 'false' ,moreindex:0},
+						{ name: '微信', size: 'normal', show: 'normal', fname: 'wx', more: 'true',moreindex:0 ,interval:'、'},
+						{ name: '传真1', size: 'small', show: 'normal', fname: 'fax1', more: 'false',moreindex:1 },
+						{ name: '传真2', size: 'normal', show: 'normal', fname: 'fax2', more: 'true' ,moreindex:1,interval:'、'},
+						{ name: '网址', size: 'normal', show: 'normal', fname: 'webSite', more: 'true',interval:'、',moreindex:0 },
+						{ name: '完成情况（单选）', size: 'normal', show: 'radio', fname: 'finish', more: 'false', select: ['已完成', '公司转行', '接通未完成', '未接通', '重复', '直接跳过'] ,moreindex:0},
+						{ name: '未接通情况（多选）', size: 'normal', show: 'checkbox', fname: 'nofinish', more: 'false', select: ['手机关机', '手机拒接', '手机空号', '手机忙音', '手机停机', '手机无法接通', '手机无人接', '手机占线', '座机关机', '座机拒接', '座机空号', '座机忙音', '座机停机', '座机无法接通', '座机无人接', '座机占线', '座机为传真'] ,moreindex:0},
+						{ name: '我展数据来源', size: 'normal', show: 'radio', fname: 'exhibitionDataSource', select: ['2017CTE预登记', '2017CKE预登记', '2017CLE预登记'], more: 'false' ,moreindex:0},
+						{ name: '企业性质', size: 'normal', show: 'checkbox', fname: 'enterpriseNature', more: 'true',interval:',', select: ['全国性代理经销商', '省级总代理', '省级代理经销商', '市级总代理', '市级代理经销商', '批发商', '玩具连锁零售店', '母婴连锁零售店', '亲子中心/早教机构', '幼儿园', '购物中心', '百货商场', '超市/大卖场', '线上渠道', '学校/教育机构', '进出口商/采购办事处', '制造商/品牌商', '新闻媒体', '图书/广告/咨询/法律等行业', '其他'] ,moreindex:0},
+						{ name: '二级企业性质', size: 'normal', show: 'checkbox', fname: 'secondEnterpriseNature', more: 'true',interval:',', select: ['天猫', '淘宝', '京东', '当当', '卓越', '一号店', '阿里巴巴', '苏宁', '唯品会', '聚美优品', '国美', '自建平台', '其他（输入）'] ,moreindex:0},
+						{ name: '一级品类', size: 'normal', show: 'checkbox', fname: 'firstCategory', more: 'false',interval:',', select: ['填充类', '木竹类', '纸类玩具', '婴幼儿玩具', '塑胶电子玩具', '塑胶非电子类', '模型机械玩具', '娃娃（公仔）类', '儿童骑乘类', '室内外游乐设施', '幼教用品与幼儿园设施', '益智类', '充气类', '户外及运动用品', '电子游戏类', '节日派对用品', '礼品类', '高科技玩具类', '被授权类', '喂养类', '婴儿车及配件', '汽车安全座椅及配件类', '婴童家具及家居用品', '媒体/行业服务', '原材料及配件类', '其他玩具类', '护理卫浴类', '食品类', '婴童服装服饰类', '孕妇装', '婴童家用纺织品类', '携带婴儿用品及配件', '安全用品', '原材料及配件类 ', '其他育婴童用品'] ,moreindex:0},
+						{ name: '二级品类', size: 'normal', show: 'radio', fname: 'secondCategory', more: 'false', select: ['儿童自行车', '三轮车', '电瓶车', '滑板车', '儿童溜冰鞋', '读物教材', '教具', '教学设备', '教育机构加盟', '滑板车', '儿童溜冰鞋', '其他（请说明）'] ,moreindex:0},
+						{ name: '经营品牌-玩具', size: 'normal', show: 'normal', fname: 'brandToy', more: 'true' ,interval:'、',moreindex:0},
+						{ name: '经营品牌-安全座椅', size: 'normal', show: 'normal', fname: 'brandSafetySeat', more: 'true',interval:'、',moreindex:0 },
+						{ name: '经营品牌-手推车', size: 'normal', show: 'normal', fname: 'brandTrolley', more: 'true' ,interval:'、',moreindex:0},
+						{ name: '经营品牌-奶瓶', size: 'normal', show: 'normal', fname: 'brandFeeder', more: 'true' ,interval:'、',moreindex:0},
+						{ name: '经营品牌-幼教', size: 'normal', show: 'normal', fname: 'brandPreschoolEdu', more: 'true',interval:'、' ,moreindex:0},
+						{ name: '经营品牌-其他品类', size: 'normal', show: 'normal', fname: 'brandOther', more: 'true' ,interval:'、',moreindex:0},
+						{ name: '经营品牌对应代理级别-玩具', size: 'normal', show: 'normal', fname: 'brandLevelToy', more: 'true',interval:';',moreindex:2 },
+						{ name: '经营品牌对应代理级别-安全座椅', size: 'normal', show: 'normal', fname: 'brandLevelSafetySeat', more: 'true',interval:';',moreindex:2 },
+						{ name: '经营品牌对应代理级别-手推车', size: 'normal', show: 'normal', fname: 'brandLevelTrolley', more: 'true',interval:';',moreindex:2},
+						{ name: '经营品牌对应代理级别-奶瓶', size: 'normal', show: 'normal', fname: 'brandLevelFeeder', more: 'true',interval:';',moreindex:2 },
+						{ name: '经营品牌对应代理级别-幼教', size: 'normal', show: 'normal', fname: 'brandLevelPreschoolEdu', more: 'true',interval:';',moreindex:2},
+						{ name: '经营品牌对应代理级别-其他品别', size: 'normal', show: 'normal', fname: 'brandLevelOther', more: 'true',interval:';',moreindex:2 },
+						{ name: '授权企业性质', size: 'normal', show: 'checkbox', fname: 'authorizeEnterpriseNature', more: 'false',interval:',', select: ['被授权商', '产品代理商/经销商/批发商', '零售商/电商', '百货商场/超市/连锁店', '制造商/OEM', '进出口商/贸易公司', '授权品牌商', '授权品牌代理商', '广告/咨询公司/法律机构', '媒体/商协会/政府机构', '其他'] ,moreindex:0},
+						{ name: '授权企业所从事的行业', size: 'normal', show: 'checkbox', fname: 'authorizeEnterpriseIndustry', more: 'false',interval:',', select: ['卡通动漫', '流行/生活时尚', '影视娱乐', '运动休闲', '名人品牌', '网络游戏', '文化艺术', '企业/品牌/商标', '知名学府', '其他'] ,moreindex:0},
+						{ name: '授权合作品类', size: 'normal', show: 'checkbox', fname: 'authorizeCoCategory', more: 'false', select: ['玩具/游艺', '婴童用品', '服装/鞋帽/配饰', '数码/电子/电器', '音乐/音像制品', '文化/文具/办公用品', '设计/广告/文化创意', '礼品/赠品/日常消费品', '家居/家纺/家具/装饰材料', '食品/饮料', '健康/美容/保养', '动漫/影视制作', '游戏/软件', '媒体渠道/互联网', '体育休闲用品', '出版印刷', '商业推广/商场美陈', '金融投资', '其他'] ,moreindex:0},
+						{ name: '已合作的授权品牌', size: 'normal', show: 'normal', fname: 'coAuthorizeBrand', more: 'true' ,interval:'、',moreindex:0},
+						{ name: '意向合作的授权品牌', size: 'normal', show: 'normal', fname: 'dispositionalAuthorizeBrand', more: 'true' ,interval:'、',moreindex:0},
+						{ name: '您是否意向参加授权行业培训？', size: 'normal', show: 'radio', fname: 'intentionTakeTrain', more: 'false', select: ['是', '否'],moreindex:0 },
+						{ name: '您是否意向参加授权匹配对接会？', size: 'normal', show: 'radio', fname: 'intentionToAuthorizeMatch', more: 'false', select: ['是', '否'] ,moreindex:0},
+						{ name: '接通未完成情况（多选）', size: 'normal', show: 'checkbox', fname: 'nofinished', more: 'false', select: ['基本信息已核实', '差个别其他信息未核实', '客户表示已核实过', '客户暂不配合', '客户说打错了，直接挂机', '手机错号-非页面人，是相关单位', '手机错号-非页面人，非相关单位，无座机联系方式', '是页面人，非相关单位', '座机错号-非相关单位，无手机联系方式', '页面人离职，未找到其他负责人', ] ,moreindex:0},
+					]
+				};
+
+				console.log(customerData);
+				var customerShow = template('customer', customerData);
+				$("#customerShow").html(customerShow);
+
+				function custom_close() {
+					if(confirm("您确定要关闭本页吗？")) {
+						window.opener = null;
+						window.open('', '_self');
+						window.close();
+					} else {}
+				}
+
+				function formData() {
+					
+					
+					
+					console.log($("#formid").serializeJson());
+					
+					return false;
+				}
+			</script>
+	</body>
+
+</html>

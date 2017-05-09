@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>团队客户</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+
+		<!--<script type="text/javascript" src="../js/audio.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.audio5js.js"></script>-->
+		<script type="text/javascript" src="../js/audio.js"></script>
+		<script type="text/javascript" src="../js/highcharts.js"></script>
+		<!--<link rel="stylesheet" href="../css/jedate.css" />-->
+		<!--<link href="../css/hDate.css" rel="stylesheet" />-->
+		<!--<script type="text/javascript" src="../js/hDate.js"></script>-->
+		<script type="text/javascript" src="../js/jedate/jedate.js"></script>
+		<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js"></script>
+		<link rel="stylesheet" href="../css/ios6switch.css" />
+		<script type="text/javascript" src="../js/ios6switch.min.js"></script>
+		<link rel="stylesheet" href="../css/select.css" />
+		<script type="text/javascript" src="../js/jquery.select.js"></script>
+		<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<div class="layer-6"></div>
+		<div class="layer-3"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+		</div>
+		<div class="contents">
+			<div class="table-tlt">
+				<i class="i"></i>客户列表
+			</div>
+			<div class="customer">
+				<table class="table-list" id="table-list">
+					<thead>
+						<tr>
+							<th>客户姓名</th>
+							<th>手机号码</th>
+							<th>职位</th>
+							<th>销售进度</th>
+							<th>创建时间</th>
+							<th>跟进人</th>
+							<th>公司名称</th>
+							<th>创建时间</th>
+							<th>跟进人</th>
+							<th>公司名称</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- 分页 -->
+			<p class="page-p">共20条</p>
+			<ul class="page-ul">
+				<li>
+					<<</li>
+						<li>
+							< </li>
+								<li> 1 </li>
+								<li> 2 </li>
+								<li class="page-d">...</li>
+								<li> 3 </li>
+								<li> > </li>
+								<li>>></li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				$(".customer").height($(window).height() - $(".customer").offset().top - 80);
+				$(".customer").css({
+					"overflow": "auto"
+				});
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>团队任务-销售任务</title>
+	<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+	<link href="../css/main.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/highcharts.js"></script> 
+	<link href="../css/hDate.css" rel="stylesheet" />
+	<script type="text/javascript" src="../js/hDate.js"></script>
+		<script type="text/javascript" src="../js/audio.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+	<script type="text/javascript" src="../js/jedate/jedate.min.js" ></script>
+	<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js" ></script>
+</head>
+
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<!-- 页面头部 header -->
+<div class="header">
+	<h1 class="logo fl"></h1>
+	<span class="mar fl">|</span>
+	<span class="fl"><em>团队版</em>[<a href="javascript:void(0)">点击切换</a>]</span>
+	<ul class="nav">
+		<li><a href="javascript:void(0)">首页</a></li>
+		<li><a href="">行动</a></li>
+		<li><a href="">客户</a></li>
+		<li><a href="">账户</a></li>
+		<li><a href="" class="current">任务</a></li>
+		<li><a href="">设置</a></li>
+	</ul>
+	<ul class="header-right fr">
+		<li><a href="javascript:void(0)"><i class="add"></i></a></li>
+		<li><a href="javascript:void(0)"><i class="update"></i></a></li>
+		<li><a href="javascript:void(0)"><i class="message"></i></a></li>
+		<li><a href="javascript:void(0)" class="user">刘</a></li>
+	</ul>
+</div>
+<!-- 汇总提示 tipArea -->
+<div class="tipArea">
+	<div class="wrap">
+		<span class="span-1 fr"><a href="task-applacation.html">员工任务申请</a><b class="b-news"></b></span>
+		<span class="fr">|</span>
+		<span class="span-1 fr" id="chooseStaff">选择员工<b class="b-icon"></b></span>
+		<span class="span-2 fl" id="add-tasks">新建任务</span>
+		<ul class="ul-1 taskul">
+			<li><a href="task.html">电话任务</a></li>
+			<li><a href="task-2.html">短信任务</a></li>
+			<li><a href="task-3.html" class="current">邮件任务</a></li>
+			<li><a href="task-1.html">委派云客</a></li>
+		</ul>
+		<div class="choose-staff">
+			<div class="position-relative searchBox-1 fr">
+				<input type="text" placeholder="查找员工" />
+				<a class="search-icon"></a>
+			</div>
+			<ul class="staff-ul">
+				<li><a href="javascript:void(0)" class="current"><img src="../images/all.png">所有员工<i class="right-icon"></i></a></li>
+				<li><a href="javascript:void(0)"><img src="../images/photo.png">有员工<i class="right-icon"></i></a></li>
+				<li><a href="javascript:void(0)"><img src="../images/photo.png">有员工<i class="right-icon"></i></a></li>
+			</ul>
+			<div class="employ_btn">
+				<input type="button" class="btn" value="提交" />
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 页面内容 -->
+<div class="wrap message_content email_f">
+	<!---->
+	<div class="fourItemsBox fl">
+		<div class="fib-tlt">进行中 - <b>3</b></div>
+		<!--
+		//过期加 overdue-status
+		//进行加 progress-status
+		//其他状态加 others-status
+		//未开始加 nostart-item
+		//已完成加  finished-item
+		//已终止加 stopped-item
+		-->
+		<div class="f-items overdue-status">
+			<i></i>
+			<em class="tlt-em">客户回馈活动-1</em>
+		</div>
+		<div class="f-items overdue-status">
+			<i></i>
+			<em class="tlt-em">客户回馈活动-1</em>
+		</div>
+		<div class="f-items progress-status">
+			<i></i>
+			<em class="tlt-em">客户回馈活动-1</em>
+		</div>
+		<div class="task_more">点击加载更多</div>
+	</div>
+	<!---->
+	<div class="fourItemsBox fl">
+		<div class="fib-tlt">已完成 - <b>3</b></div>
+		<div class="f-items-1 others-status finished-item">
+			<i></i>
+			<em class="tlt-em">客户回馈活动-1</em>
+		</div>
+		<div class="f-items-1 others-status finished-item">
+			<i></i>
+			<em class="tlt-em">客户回馈活动-1</em>
+		</div>
+		<div class="f-items-1 others-status finished-item" style="height:43px;">
+			<i></i>
+			<em class="tlt-em">客户回馈活动-1</em>
+		</div>
+		<div class="f-items-1 others-status" style="height:43px;">
+			<i></i>
+			<em class="tlt-em">客户回馈活动-1</em>
+		</div>
+		<div class="task_more">点击加载更多</div>
+	</div>
+	<!---->
+	<div class="fourItemsBox fl">
+		<div class="fib-tlt">已终止 - <b>4</b></div>
+		<div class="f-items-1 others-status stopped-item" style="height:43px;">
+			<i></i>
+			<em class="tlt-em">客户回馈活动-1</em>
+		</div>
+		<div class="f-items-1 others-status stopped-item" style="height:43px;">
+			<i></i>
+			<em class="tlt-em">客户回馈活动-1</em>
+		</div>
+		<div class="task_more">点击加载更多</div>
+	</div>
+</div>
+<!-- 新建邮件任务 -->
+		<div class="applyBox message_new message_new1 email_f email_new" id="applyBox-1">
+			<div class="tlt"><i></i>新建邮件任务
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="add_message">
+				<div class="input_f">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入任务名称" />
+				</div>
+				<div class="c-box select_row1">
+					<select class="select_message">
+						<option>请选择邮件模板</option>
+						<option>邮件模板1</option>
+						<option>邮件模板2</option>
+						<option>邮件模板3</option>
+					</select>
+				</div>
+				<div class="input_f">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入邮件标题" />
+				</div>
+				<div class="textarea_box message_text">
+					<textarea id="e3"></textarea>
+				</div>
+				<div class="c-box select_row1">
+					<select class="select_message">
+						<option>请选择数据来源</option>
+						<option>数据来源1</option>
+						<option>数据来源2</option>
+						<option>数据来源3</option>
+					</select>
+				</div>
+			</div>
+			<input type="button" class="btn" value="提交" id="">
+		</div>
+		<!-- 新建邮件任务 -->
+<!-- 任务-进行中 -->
+<div class="applyBox message_now email_f" id="applyBox-2">
+	<div class="tlt"><i></i>进行中<a href="javascript:void(0)" class="a-closed"></a></div>
+	<div class="tlt-small fl">客户回馈活动-1</div>
+	<p class="tlt-small-tip fl">数据来源：企业导入-联云测试</p>
+	<p class="tlt-small-tip fl tlt-time-tip">开始时间：2016年4月27日</p>
+	<a href="javascript:void(0)" class="a-stop">中止任务</a>
+	<div class="textbox fl">
+		<div class="message_t">
+			短信模板1
+		</div>
+		<div class="message_t">
+			你好
+		</div>
+		<div class="message_con">
+			【盛大游戏】为庆祝手游LoveLive全球玩家人数突破2500万，今日开始连续7天
+内，每日登录领取两颗Loveca或一张优等生招募劵，购买Loveca再赠优等生招募
+劵，游戏下载（http://t.cn/Rv1SMIx）,（官网：II.sdo.com），会TD退订
+		</div>
+	</div>
+</div>
+<!-- /任务-进行中 -->
+<!-- 任务-已终止 -->
+<div class="applyBox message_end email_f" id="applyBox-3">
+	<div class="tlt"><i></i>已终止<a href="javascript:void(0)" class="a-closed"></a></div>
+	<div class="tlt-small fl">客户回馈活动-1</div>
+	<p class="tlt-small-tip fl">数据来源：企业导入-联云测试</p>
+	<p class="tlt-small-tip fl tlt-time-tip">开始时间：2016年4月27日</p>
+	<a href="javascript:void(0)" class="a-reset">再开任务</a>
+	<div class="textbox fl">
+		<div class="message_t">
+			短信模板1
+		</div>
+		<div class="message_t">
+			你好
+		</div>
+		<div class="message_con">
+			【盛大游戏】为庆祝手游LoveLive全球玩家人数突破2500万，今日开始连续7天
+内，每日登录领取两颗Loveca或一张优等生招募劵，购买Loveca再赠优等生招募
+劵，游戏下载（http://t.cn/Rv1SMIx）,（官网：II.sdo.com），会TD退订
+		</div>
+	</div>
+	
+	<div class="datalisttab fl">
+		<div class="dltlt">线索列表
+		</div>
+	</div>
+	<div class="table-2" style="display:block">
+		<table class="table-list">
+			<thead>
+				<tr class="tabletle">
+					<th >客户姓名</th>
+					<th >公司名称</th>
+					<th >职位</th>
+					<th >发送状态</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="table-listodd">
+					<td>客户姓名</td>
+					<td>北京联云天下科技有限公司</td>
+					<td>客户姓名</td>
+					<td><span>已发送</span></td>
+				</tr>
+				<tr>
+					<td>客户姓名</td>
+					<td>北京联云天下科技有限公司</td>
+					<td>客户姓名</td>
+					<td><span class="message_error">未发送</span></td>
+				</tr>
+				<tr class="table-listodd">
+					<td>客户姓名</td>
+					<td>北京联云天下科技有限公司</td>
+					<td>客户姓名</td>
+					<td><span class="message_error">未发送</span></td>
+				</tr>
+				<tr>
+					<td>客户姓名</td>
+					<td>北京联云天下科技有限公司</td>
+					<td>客户姓名</td>
+					<td><span>已发送</span></td>
+				</tr>
+				<tr class="table-listodd">
+					<td>客户姓名</td>
+					<td>北京联云天下科技有限公司</td>
+					<td>客户姓名</td>
+					<td><span>已发送</span></td>
+				</tr>
+				<tr>
+					<td>客户姓名</td>
+					<td>北京联云天下科技有限公司</td>
+					<td>客户姓名</td>
+					<td><span>已发送</span></td>
+				</tr>
+				<tr class="table-listodd">
+					<td>客户姓名</td>
+					<td>北京联云天下科技有限公司</td>
+					<td>客户姓名</td>
+					<td><span>已发送</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- 分页 -->
+	<p class="page-more">点击加载更多</p>
+</div>
+<!-- /任务-已终止 -->
+<!-- 任务-已完成 -->
+<div class="applyBox message_complete email_f" id="applyBox-5">
+	<div class="tlt"><i></i>已完成<a href="javascript:void(0)" class="a-closed"></a></div>
+	<div class="tlt-small fl">客户回馈活动-1</div>
+	<p class="tlt-small-tip fl">数据来源：企业导入-联云测试</p>
+	<p class="tlt-small-tip fl tlt-time-tip">开始时间：2016年4月27日</p>
+	<div class="textbox fl">
+		<div class="message_t">
+			短信模板1
+		</div>
+		<div class="message_t">
+			你好
+		</div>
+		<div class="message_con">
+			【盛大游戏】为庆祝手游LoveLive全球玩家人数突破2500万，今日开始连续7天
+内，每日登录领取两颗Loveca或一张优等生招募劵，购买Loveca再赠优等生招募
+劵，游戏下载（http://t.cn/Rv1SMIx）,（官网：II.sdo.com），会TD退订
+		</div>
+	</div>
+	
+	<div class="datalisttab fl">
+		<div class="dltlt">线索列表
+		</div>
+	</div>
+	<div class="table-2" style="display:block">
+		<table class="table-list">
+			<thead>
+				<tr class="tabletle">
+					<th >客户姓名</th>
+					<th >公司名称</th>
+					<th >职位</th>
+					<th >发送状态</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="table-listodd">
+					<td>客户姓名</td>
+					<td>北京联云天下科技有限公司</td>
+					<td>销售总监</td>
+					<td><span>已发送</span></td>
+				</tr>
+				<tr>
+					<td>客户姓名</td>
+					<td>北京联云天下科技有限公司</td>
+					<td>销售总监</td>
+					<td><span class="message_error">未发送</span></td>
+				</tr>
+				<tr class="table-listodd">
+					<td>客户姓名</td>
+					<td>北京联云天下科技有限公司</td>
+					<td>销售总监</td>
+					<td><span class="message_error">未发送</span></td>
+				</tr>
+				<tr>
+					<td>客户姓名</td>
+					<td>北京联云天下科技有限公司</td>
+					<td>客户姓名</td>
+					<td><span>已发送</span></td>
+				</tr>
+				<tr class="table-listodd">
+					<td>客户姓名</td>
+					<td>北京联云天下科技有限公司</td>
+					<td>客户姓名</td>
+					<td><span>已发送</span></td>
+				</tr>
+				<tr>
+					<td>客户姓名</td>
+					<td>北京联云天下科技有限公司</td>
+					<td>客户姓名</td>
+					<td><span>已发送</span></td>
+				</tr>
+				<tr class="table-listodd">
+					<td>客户姓名</td>
+					<td>北京联云天下科技有限公司</td>
+					<td>客户姓名</td>
+					<td><span>已发送</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- 分页 -->
+	<p class="page-more">点击加载更多</p>
+</div>
+<!-- /任务-已完成 -->
+
+<script type="text/javascript">
+	$(function(){
+		
+		new tqEditor('e3',{toolbar:'full',width:'100%',resize:false,height:"150px"});
+		
+		$(".f-items").click(function(){
+			$(".message_now").show();
+			$(".layer").show();
+		});
+	})
+</script>
+
+</body>
+</html>

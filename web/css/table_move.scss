@@ -1,0 +1,37 @@
+.table-contain {
+    position: relative;
+    overflow: auto;
+    line-height: 40px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.table-th-box {
+    position: relative;
+    box-sizing: border-box;
+}
+.table-th-box:after,
+.table-td-box:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+}
+.table-th-box,
+.table-td-box {
+    height: 40px;
+    position: relative;
+}
+.table-th-box .table-th,
+.table-td-box .table-td {
+    display: inline-block;
+    white-space: nowrap;
+    min-width: 60px;
+    width: 9.7%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    top: 0;
+    position: absolute;
+}

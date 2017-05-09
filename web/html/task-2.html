@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>团队任务-销售任务</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/highcharts.js"></script>
+		<link href="../css/hDate.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<script type="text/javascript" src="../js/hDate.js"></script>
+		<script type="text/javascript" src="../js/audio.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+		<script type="text/javascript" src="../js/jedate/jedate.min.js"></script>
+		<link rel="stylesheet" href="../css/ios6switch.css" />
+		<script type="text/javascript" src="../js/ios6switch.min.js"></script>
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="javascript:void(0)">点击切换</a>]</span>
+			<ul class="nav">
+				<li>
+					<a href="javascript:void(0)">首页</a>
+				</li>
+				<li>
+					<a href="">行动</a>
+				</li>
+				<li>
+					<a href="">客户</a>
+				</li>
+				<li>
+					<a href="">账户</a>
+				</li>
+				<li>
+					<a href="" class="current">任务</a>
+				</li>
+				<li>
+					<a href="">设置</a>
+				</li>
+			</ul>
+			<ul class="header-right fr">
+				<li>
+					<a href="javascript:void(0)"><i class="add"></i></a>
+				</li>
+				<li>
+					<a href="javascript:void(0)"><i class="update"></i></a>
+				</li>
+				<li>
+					<a href="javascript:void(0)"><i class="message"></i></a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" class="user">刘</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 汇总提示 tipArea -->
+		<div class="tipArea">
+			<div class="wrap">
+				<span class="span-1 fr"><a href="task-applacation.html">员工任务申请</a><b class="b-news"></b></span>
+				<span class="fr">|</span>
+				<span class="span-1 fr" id="chooseStaff">选择员工<b class="b-icon"></b></span>
+				<span class="span-2 fl" id="add-tasks">新建任务</span>
+				<ul class="ul-1 taskul">
+					<li>
+						<a href="task.html">电话任务</a>
+					</li>
+					<li>
+						<a href="task-2.html" class="current">短信任务</a>
+					</li>
+					<li>
+						<a href="task-3.html">邮件任务</a>
+					</li>
+					<li>
+						<a href="task-1.html">委派云客</a>
+					</li>
+				</ul>
+				<div class="choose-staff">
+					<div class="position-relative searchBox-1 fr">
+						<input type="text" placeholder="查找员工" />
+						<a class="search-icon"></a>
+					</div>
+					<ul class="staff-ul">
+						<li>
+							<a href="javascript:void(0)" class="current"><img src="../images/all.png">所有员工<i class="right-icon"></i></a>
+						</li>
+						<li>
+							<a href="javascript:void(0)"><img src="../images/photo.png">有员工<i class="right-icon"></i></a>
+						</li>
+						<li>
+							<a href="javascript:void(0)"><img src="../images/photo.png">有员工<i class="right-icon"></i></a>
+						</li>
+					</ul>
+					<div class="employ_btn">
+						<input type="button" class="btn" value="提交" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 页面内容 -->
+		<div class="wrap message_content">
+			<!---->
+			<div class="fourItemsBox fl">
+				<div class="fib-tlt">进行中 - <b>3</b></div>
+				<!--
+		//过期加 overdue-status
+		//进行加 progress-status
+		//其他状态加 others-status
+		//未开始加 nostart-item
+		//已完成加  finished-item
+		//已终止加 stopped-item
+		-->
+				<div class="f-items overdue-status">
+					<i></i>
+					<em class="tlt-em">客户回馈活动-1<b class="red">（过期）</b></em>
+				</div>
+				<div class="f-items overdue-status">
+					<i></i>
+					<em class="tlt-em">客户回馈活动-1<b class="red">（过期）</b></em>
+				</div>
+				<div class="f-items progress-status">
+					<i></i>
+					<em class="tlt-em">客户回馈活动-1</em>
+				</div>
+				<div class="task_more">点击加载更多</div>
+			</div>
+			<!---->
+			<div class="fourItemsBox fl">
+				<div class="fib-tlt">未开始 - <b>4</b></div>
+				<div class="f-items-1 others-status nostart-item">
+					<i></i>
+					<em class="tlt-em">客户回馈活动-1</em>
+				</div>
+				<div class="f-items-1 others-status nostart-item">
+					<i></i>
+					<em class="tlt-em">客户回馈活动-1</em>
+				</div>
+				<div class="f-items-1 others-status nostart-item">
+					<i></i>
+					<em class="tlt-em">客户回馈活动-1</em>
+				</div>
+				<div class="f-items-1 others-status nostart-item">
+					<i></i>
+					<em class="tlt-em">客户回馈活动-1</em>
+				</div>
+				<div class="f-items-1 others-status nostart-item">
+					<i></i>
+					<em class="tlt-em">客户回馈活动-1</em>
+				</div>
+				<div class="task_more">点击加载更多</div>
+			</div>
+			<!---->
+			<div class="fourItemsBox fl">
+				<div class="fib-tlt">已完成 - <b>3</b></div>
+				<div class="f-items-1 others-status finished-item">
+					<i></i>
+					<em class="tlt-em">客户回馈活动-1</em>
+				</div>
+				<div class="f-items-1 others-status finished-item">
+					<i></i>
+					<em class="tlt-em">客户回馈活动-1</em>
+				</div>
+				<div class="f-items-1 others-status finished-item" style="height:43px;">
+					<i></i>
+					<em class="tlt-em">客户回馈活动-1</em>
+				</div>
+				<div class="f-items-1 others-status" style="height:43px;">
+					<i></i>
+					<em class="tlt-em">客户回馈活动-1</em>
+				</div>
+				<div class="task_more">点击加载更多</div>
+			</div>
+			<!---->
+			<div class="fourItemsBox fl">
+				<div class="fib-tlt">已终止 - <b>4</b></div>
+				<div class="f-items-1 others-status stopped-item" style="height:43px;">
+					<i></i>
+					<em class="tlt-em">客户回馈活动-1</em>
+				</div>
+				<div class="f-items-1 others-status stopped-item" style="height:43px;">
+					<i></i>
+					<em class="tlt-em">客户回馈活动-1</em>
+				</div>
+				<div class="task_more">点击加载更多</div>
+			</div>
+		</div>
+		<!-- 新建短信任务 -->
+		<div class="applyBox message_new message_new1" id="applyBox-1">
+			<div class="tlt"><i></i>新建短信任务
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="add_message message-task">
+				<div class="input_f">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入任务名称" />
+				</div>
+				<div class="c-box select_row1">
+					<select class="select_message">
+						<option>请选择短信模板</option>
+						<option>短信模板1</option>
+						<option>短信模板2</option>
+						<option>短信模板3</option>
+					</select>
+				</div>
+				<div class="textarea_box message_text">
+					<textarea disabled="disabled"></textarea>
+				</div>
+				<!--<div class="input_f">
+					<input type="text" class="inputBox-1 bg-gray" id="time" placeholder="请选择开始时间" />
+				</div>
+				<script type="text/javascript">
+					jeDate({
+						dateCell:"#time",  
+						format:"YYYY-MM-DD hh:mm:ss",
+						isinitVal:true,
+						isTime:true, 
+					});
+				</script>-->
+				<div class="c-box select_row1">
+					<select class="select_message">
+						<option>请选择数据来源</option>
+						<option>数据来源1</option>
+						<option>数据来源2</option>
+						<option>数据来源3</option>
+					</select>
+				</div>
+				<div class="checkbox-f">
+					<label class="checkbox-name">绑定电话任务</label>
+					<!--<input type="checkbox" class="mycheckboxes" checked="checked" />-->
+					<input type="checkbox" class="checkinner"  id="checked" />
+					<label for="checked">
+						<i></i>
+					</label>
+					<div class="checkbox-tip-f">
+						<i></i>
+						<div class="checkbox-tips">
+							短信发送完成后，状态为“打开链接”的线索直接新建电话任务平均分配给所选执行人员跟进
+						</div>
+					</div>
+				</div>
+				<div class="tbmember fl addpor addexecutives checkadd">
+					<div class="tbm-tlt">执行人员</div>
+					<ul class="choose-add clearfix">
+						<li class="del-sc">
+							<a href="javascript:void(0)"><img src="../images/member.png"><em>艾云鹤</em><i class="fffline"></i></a>
+						</li>
+						<li class="del-add">
+							<a href="javascript:void(0)"><img src="../images/all-members.png"><em>选择</em></a>
+							<div class="adddiv1">
+								<div class=" overy clearfix">
+									<div class="clear"></div>
+									<ul class="staff-ul bortop" style="height:253px">
+										<li>
+											<a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2016/06big/fe3e284cd8fb4c9c999bac0dd7fa1c76_myHeaderImage.png" memberid="2624A4F332F64B16A1469ED2D97DE406" realname="云客小助手"><img src="http://yunkecn.com/fileupload/fileupload/2016/06big/fe3e284cd8fb4c9c999bac0dd7fa1c76_myHeaderImage.png"><span>云客小助手</span><i class="right-icon"></i></a>
+										</li>
+										<li>
+											<a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2016/08big/4b3bfc243b5b4ed1bc2650b25e29fa76_head.jpg" memberid="C94DB37A3A7A463E8FCF6D58246136E4" realname="王佳印"><img src="http://yunkecn.com/fileupload/fileupload/2016/08big/4b3bfc243b5b4ed1bc2650b25e29fa76_head.jpg"><span>王佳印</span><i class="right-icon"></i></a>
+										</li>
+										<li>
+											<a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2015/09big/122437bc40b84e2eb10ac1756a3d6159_myHeaderImage.png" memberid="E30C6E5B007149BA9F86CA32131C9014" realname="刘小鱼"><img src="http://yunkecn.com/fileupload/fileupload/2015/09big/122437bc40b84e2eb10ac1756a3d6159_myHeaderImage.png"><span>刘小鱼</span><i class="right-icon"></i></a>
+										</li>
+										<li>
+											<a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2016/06big/59ecb3e0362a4f249d56b56fbac8ea38_iOS.png" memberid="F53C03BC582142808F809C5D32516E70" realname="田格非" class="current"><img src="http://yunkecn.com/fileupload/fileupload/2016/06big/59ecb3e0362a4f249d56b56fbac8ea38_iOS.png"><span>田格非</span><i class="right-icon"></i></a>
+										</li>
+									</ul>
+								</div>
+								<button class="addBut" type="button">确定</button>
+							</div>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+			<div class="tip">
+				*您已选择1000条线索。短信费0.08元/条，共计80元
+			</div>
+			<input type="button" class="btn" value="提交" id="">
+		</div>
+		<!-- 新建短信任务 -->
+		<!-- 任务-进行中 -->
+		<div class="applyBox message_now" id="applyBox-2">
+			<div class="tlt"><i></i>进行中
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="tlt-small fl">客户回馈活动-1<b class="red">（过期）</b></div>
+			<p class="tlt-small-tip fl">数据来源：企业导入-联云测试</p>
+			<p class="tlt-small-tip fl tlt-time-tip">开始时间：2016年4月27日</p>
+			<a href="javascript:void(0)" class="a-stop">中止任务</a>
+			<div class="textbox fl">
+				<div class="message_t">
+					短信模板1
+				</div>
+				<div class="message_con">
+					【盛大游戏】为庆祝手游LoveLive全球玩家人数突破2500万，今日开始连续7天 内，每日登录领取两颗Loveca或一张优等生招募劵，购买Loveca再赠优等生招募 劵，游戏下载（http://t.cn/Rv1SMIx）,（官网：II.sdo.com），会TD退订
+				</div>
+			</div>
+		</div>
+		<!-- /任务-进行中 -->
+		<!-- 任务-已终止 -->
+		<div class="applyBox message_end" id="applyBox-3">
+			<div class="tlt"><i></i>已终止
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="tlt-small fl">客户回馈活动-1</div>
+			<p class="tlt-small-tip fl">数据来源：企业导入-联云测试</p>
+			<p class="tlt-small-tip fl tlt-time-tip">开始时间：2016年4月27日</p>
+			<a href="javascript:void(0)" class="a-reset">再开任务</a>
+			<div class="textbox fl">
+				<div class="message_t">
+					短信模板1
+				</div>
+				<div class="message_con">
+					【盛大游戏】为庆祝手游LoveLive全球玩家人数突破2500万，今日开始连续7天 内，每日登录领取两颗Loveca或一张优等生招募劵，购买Loveca再赠优等生招募 劵，游戏下载（http://t.cn/Rv1SMIx）,（官网：II.sdo.com），会TD退订
+				</div>
+			</div>
+
+			<div class="datalisttab fl">
+				<div class="dltlt">线索列表
+				</div>
+			</div>
+			<div class="table-2" style="display:block">
+				<table class="table-list">
+					<thead>
+						<tr class="tabletle">
+							<th>客户姓名</th>
+							<th>公司名称</th>
+							<th>职位</th>
+							<th>发送状态</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="table-listodd">
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>客户姓名</td>
+							<td><span>发送成功</span></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>客户姓名</td>
+							<td><span class="message_error">发送失败</span></td>
+						</tr>
+						<tr class="table-listodd">
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>客户姓名</td>
+							<td><span class="message_href">已打开链接</span></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>客户姓名</td>
+							<td><span>发送成功</span></td>
+						</tr>
+						<tr class="table-listodd">
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>客户姓名</td>
+							<td><span>发送成功</span></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>客户姓名</td>
+							<td><span>发送成功</span></td>
+						</tr>
+						<tr class="table-listodd">
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>客户姓名</td>
+							<td><span>发送成功</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- 分页 -->
+			<p class="page-more">点击加载更多</p>
+		</div>
+		<!-- /任务-已终止 -->
+		<!-- 任务-未开始 -->
+		<div class="applyBox message_start" id="applyBox-4">
+			<div class="tlt"><i></i>未开始
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<input type="text" class="inputBox-1  bg-gray" value="客户回馈活动-1" style="width:450px;" placeholder="请输入任务名称" />
+			<a href="javascript:void(0)" class="a-stop delete_stop">中止任务</a>
+			<div class="c-box select_row1">
+				<select class="select_message">
+					<option>请选择短信模板</option>
+					<option>短信模板1</option>
+					<option>短信模板2</option>
+					<option>短信模板3</option>
+				</select>
+			</div>
+			<div class="textarea_box message_text">
+				<textarea disabled="disabled"></textarea>
+			</div>
+			<div class="input_f">
+				<input id="timetext3" type="text" class="inputBox-1 bg-gray" placeholder="请选择开始时间" />
+			</div>
+
+			<script type="text/javascript">
+				jeDate({
+					dateCell: "#timetext3",
+					format: "YYYY-MM-DD hh:mm:ss",
+					isinitVal: true,
+					isTime: true,
+				})
+			</script>
+
+			<div class="c-box select_row1">
+				<select class="select_message">
+					<option>委托云客-意向客户</option>
+					<option>企业导入-联云测试</option>
+					<option>短信模板2</option>
+					<option>短信模板3</option>
+				</select>
+			</div>
+
+			<input type="button" class="btn" value="确  认" id="applyTaskBtn-4">
+		</div>
+		<!-- /任务-未开始 -->
+		<!-- 任务-已完成 -->
+		<div class="applyBox message_complete" id="applyBox-5">
+			<div class="tlt"><i></i>已完成
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="tlt-small fl">客户回馈活动-1</div>
+			<p class="tlt-small-tip fl">数据来源：企业导入-联云测试</p>
+			<p class="tlt-small-tip fl tlt-time-tip">开始时间：2016年4月27日</p>
+			<div class="textbox fl">
+				<div class="message_t">
+					短信模板1
+				</div>
+				<div class="message_con">
+					【盛大游戏】为庆祝手游LoveLive全球玩家人数突破2500万，今日开始连续7天 内，每日登录领取两颗Loveca或一张优等生招募劵，购买Loveca再赠优等生招募 劵，游戏下载（http://t.cn/Rv1SMIx）,（官网：II.sdo.com），会TD退订
+				</div>
+			</div>
+			<div class="btn-f">
+				<input type="button" class="btn" onclick="ShowDetail();" value="查看结果" />
+			</div>
+		</div>
+		<!-- /任务-已完成 -->
+		<div class="tips-main task-tip" id="task-tip">
+			<div class="tip-box">
+			</div>
+			<div class="tips-show">
+				<div class="tips-line">
+				</div>
+				<div class="tips-box">
+					<div class="tips-t">
+						新建短信任务
+					</div>
+					<div class="tips-c">
+						企业导入数据或者云客推荐的数据直接一键群发。云客不仅告诉您哪些发送成功，还能告诉您谁打开了里面的链接
+					</div>
+					<div class="tips-btn">
+						<input type="button" value="关闭" class="btn" />
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<div class="applyBox custmor-layer">
+			<div class="table-tlt">
+				<i class="i"></i>客户列表
+				<span><b class="b1"></b>导出</span>
+				<div class="fr">
+					<a class="close-btn fr" href="javascript:closeCL();">
+						<i class="icon-closed"></i>
+					</a>
+					<ul class="gtabBox" id="gtabBox1">
+						<li>
+							<a class="current" href="javascript:void(0);">进行中</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">预约
+							<i class="n-new"></i></a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">二次呼叫</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">已完成</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="table-task" style="display: block;">
+				<table class="table-list">
+					<thead>
+						<tr>
+							<th class="th1"><i></i></th>
+							<th>客户姓名</th>
+							<th>手机号码</th>
+							<th>公司名称</th>
+							<th>职位</th>
+							<th>所属行业</th>
+							<th>通话录音</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容1</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="table-task">
+				<table class="table-list">
+					<thead>
+						<tr>
+							<th class="th1"><i></i></th>
+							<th>客户姓名</th>
+							<th>手机号码</th>
+							<th>公司名称</th>
+							<th>职位</th>
+							<th>所属行业</th>
+							<th>通话录音</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容2</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="table-task">
+				<table class="table-list">
+					<thead>
+						<tr>
+							<th class="th1"><i></i></th>
+							<th>客户姓名</th>
+							<th>手机号码</th>
+							<th>公司名称</th>
+							<th>职位</th>
+							<th>所属行业</th>
+							<th>通话录音</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容3</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="table-task">
+				<table class="table-list">
+					<thead>
+						<tr>
+							<th class="th1"><i></i></th>
+							<th>客户姓名</th>
+							<th>手机号码</th>
+							<th>公司名称</th>
+							<th>职位</th>
+							<th>所属行业</th>
+							<th>通话录音</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容4</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>杜玉容</td>
+							<td>13651368675</td>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>法人代表</td>
+							<td>IT/互联网</td>
+							<td>
+								0'18"
+								<span class="audio_f mgl25">
+									<label class="audio play mgr5" url="../recording.mp3" title="点击播放"></label>
+								</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="checkall-view">
+				<div class="check-f" onclick="checkall();"><i class="checkall"></i>全选</div>
+				<label>已选择<span id="checkNum">0</span>条</label>
+			</div>
+			<!-- 分页 -->
+			<p class="page-p">共20条</p>
+			<ul class="page-ul">
+				<li><<</li>
+				<li><</li>
+				<li class="current"> 1 </li>
+				<li> 2 </li>
+				<li class="page-d">...</li>
+				<li> 3 </li>
+				<li> > </li>
+				<li>>></li>
+			</ul>
+		</div>
+		
+		
+		
+		
+		<script type="text/javascript">
+			$(function() {
+				$(".f-items").click(function() {
+					$(".message_now").show();
+					$(".layer").show();
+				});
+
+				$("#task-tip").show().addClass("animate");
+				$("#task-tip").css("left", $("#add-tasks").offset().left - 10);
+				$("#task-tip .btn").click(function() {
+					$("#task-tip").hide();
+				});
+				$("#task-tip").click(function() {
+					event.stopPropagation();
+				});
+				$(window).one("click", function() {
+					$("#task-tip").hide();
+				});
+
+				$(".mycheckboxes").ios6switch({
+					switchoffText: "",
+					switchonText: "",
+					switchoffColor: "#d4d4d4",
+					switchonColor: "#50d2d2",
+					draggable: false
+				});
+				
+//				$(".addexecutives.checkadd").hide();
+//				$(".mycheckboxes")[0].onchange = function() {
+//					if($(".mycheckboxes")[0].checked) {
+//						$(".addexecutives").show();
+//						$(".message_new1 .add_message").animate({
+//							scrollTop:$(".message_new1 .add_message").height()
+//						},500);
+//					} else {
+//						$(".addexecutives").hide();
+//					}
+//				}
+				$(".addexecutives.checkadd").hide();
+				$(".checkinner")[0].onchange = function() {
+					if($(".checkinner")[0].checked) {
+						$(".addexecutives").show();
+						$(".message_new1 .add_message").animate({
+							scrollTop:$(".message_new1 .add_message").height()
+						},500);
+					} else {
+						$(".addexecutives").hide();
+					}
+				}
+				
+				
+				
+			$(".layer-6").click(function() {
+					closeCL();
+				});
+
+				// 选项卡
+				$('#gtabBox1 li').on('click', function() {
+					var num = $('#gtabBox1 li').index(this);
+					$('#gtabBox1 li a').removeClass('current');
+					$(this).find('a').addClass('current');
+					$('.table-task').hide();
+					$('.table-task').eq(num).show();
+				});
+
+				$('.table-task').find('th i').on('click', function() {
+					$(this).toggleClass('choose-all');
+					if($(this).hasClass("choosen")) {
+						$(this).parents('.table-task').find('th i').addClass('choose-all').removeClass('choosen');
+						$(this).parents('.table-task').find('td i').addClass('choose-right');
+						$("#checkNum").text($(this).parents('.table-task').find('td i').length);
+					} else if($(this).hasClass("choose-all")) {
+						$(this).parents('.table-task').find('td i').addClass('choose-right');
+						$("#checkNum").text($(this).parents('.table-task').find('td i').length);
+					} else {
+						$(this).parents('.table-task').find('td i').removeClass('choose-right');
+						$("#checkNum").text(0);
+					}
+				});
+				$('.table-task').find('td i').on('click', function() {
+					$(this).toggleClass('choose-right');
+					var len = $(this).parents('.table-task').find('td i').length;
+					var lenCur = $(this).parents('.table-task').find('td i.choose-right').length;
+
+					if(lenCur > 0) {
+						$(this).parents('.table-task').find('th i').addClass('choosen');
+					}
+					if(lenCur == 0) {
+						$(this).parents('.table-task').find('th i').removeClass("choosen");
+					}
+					if(len == lenCur) {
+						$(this).parents('.table-task').find('th i').addClass('choose-all').removeClass('choosen');
+					} else {
+						$(this).parents('.table-task').find('th i').removeClass('choose-all');
+					}
+					if(len > lenCur && lenCur != 0) {
+						$(this).parents('.table-task').find('th i').removeClass('choose-all').addClass('choosen');
+					}
+					$("#checkNum").text(lenCur);
+				});
+
+			});
+
+			function ShowDetail() {
+				$(".layer-6").show();
+				$(".custmor-layer").show();
+			}
+
+			function closeCL() {
+				$(".custmor-layer").hide();
+				$(".layer-6").hide();
+			}
+
+			function checkall() {
+				$('.table-task td i.choose-right').each(function() {
+					$(this).removeClass("choose-right");
+				})
+				$('.table-task th i').removeClass("choosen");
+				$('.table-task th i').removeClass('choose-all');
+				if($(".check-f").hasClass("checked")) {
+					$(".check-f").removeClass("checked");
+					$("#checkNum").text(0);
+				} else {
+					$(".check-f").addClass("checked");
+					//默认总数为20
+					$("#checkNum").text(20);
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

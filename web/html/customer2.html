@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>团队客户</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/highcharts.js"></script>
+		<link href="../css/hDate.css" rel="stylesheet" />
+		<script type="text/javascript" src="../js/hDate.js"></script>
+		<script type="text/javascript" src="../js/audio1.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+		<script type="text/javascript" src="../js/jedate/jedate.min.js"></script>
+		<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.livequery.js"></script>
+		<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<div class="layer-5"></div>
+		<div class="layer-6"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav">
+				<li><a href="">首页</a></li>
+				<li><a href="">行动</a></li>
+				<li><a href="" class="current">客户</a></li>
+				<li><a href="">账户</a></li>
+				<li><a href="">任务</a></li>
+				<li><a href="">设置</a></li>
+			</ul>
+			<ul class="header-right fr">
+				<li><a href="javascript:;"><i class="add"></i></a></li>
+				<li><a href="javascript:;"><i class="update"></i></a></li>
+				<li><a href="javascript:;"><i class="message"></i></a></li>
+				<li><a href="javascript:;" class="user">刘</a></li>
+			</ul>
+		</div>
+		<!-- 汇总提示 tipArea -->
+		<div class="tipArea">
+			<div class="wrap">
+				<span class="span-1" id="custom-header">自定义表头</span>
+				<span class="span-1" id="exporter">导入客户</span>
+				<div class="position-relative searchBox fr">
+					<input type="text" placeholder="请输入姓名、公司、手机号等相关信息" />
+					<a class="search-icon"></a>
+				</div>
+			</div>
+		</div>
+		<!-- 内容部分 contents -->
+		<div class="contents">
+			<div class="table-tlt">
+				<i class="i"></i>客户列表
+				<a class="a addtask_btn btn_r" id="change_btn" onclick="like_setting();">换一批</a>
+				<label class="likebtn_tip">根据您的喜好为您智能推荐出以下线索</label>
+				<a class="a addtask_btn btn_r" id="useData"  onclick="useData();">立即使用数据</a>
+			</div>
+			<div class="customer">
+				<table class="table-list" id="table-list">
+					<thead>
+						<tr>
+							<th class="th1"><i></i></th>
+							<th>客户姓名</th>
+							<th>手机号码</th>
+							<th>职位</th>
+							<th>销售进度</th>
+							<th>创建时间</th>
+							<th>跟进人</th>
+							<th>公司名称</th>
+							<th>创建时间</th>
+							<th>跟进人</th>
+							<th>公司名称</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- 分页 -->
+			<p class="page-p">共20条</p>
+			<ul class="page-ul">
+				<li>
+					< </li>
+						<li> 1 </li>
+						<li> 2 </li>
+						<li> 3 </li>
+						<li> > </li>
+			</ul>
+
+		</div>
+		<!-- 导入客户 changer-box -->
+		<div class="changer-box" id="changer-box-2" style="height:330px;">
+			<div class="tlt"><i></i>导入客户
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<input type="text" class="inputBox-1  bg-gray fl" style="height: 28px; width: 450px;" />
+			<div class="resetbox">
+				<input type="file" class="filereset" name="" id="" value="" />
+				<a class="a-resetfile">浏览</a>
+			</div>
+			<div style="clear: both;"></div>
+			<dl class="tip">
+				<dt>使用说明</dt>
+				<dd>1.请上传后缀名为xls的文件；</dd>
+				<dd>2.数据请勿放在合并的单元格中，且导入文件小于2MB；</dd>
+				<dd>3.为保证您导入的客户数据有效，请下载<a href="" class="a-c-gray">客户导入模板</a>，编辑后上传。</dd>
+			</dl>
+			<input type="button" class="btn" value="提交" id="changerBtn-2">
+		</div>
+		<!-- 自定义表头 customHeader -->
+		<div class="customHeaderBox" id="customHeaderBox">
+			<div class="tlt"><i></i>自定义表头
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="ctdivbox marleft20 fl">
+				<em>隐藏字段</em>
+				<div class="ctchooseBox" id="hiddenField">
+					<ul>
+						<li>创建时间</li>
+						<li>联系时间</li>
+						<li>公司地址</li>
+						<li>公司类型</li>
+						<li>经营范围</li>
+						<li>数据来源</li>
+						<li>备注</li>
+					</ul>
+				</div>
+			</div>
+			<i class="remove-icon" id="removeBtn"></i>
+			<i class="add-icon" id="addBtn"></i>
+			<div class="ctdivbox marright40 fr">
+				<em>显示字段</em>
+				<div class="ctchooseBox" id="showField">
+					<ul>
+						<li key="customerName">客户姓名</li>
+						<li>手机号</li>
+						<li>职位</li>
+						<li>销售进度</li>
+					</ul>
+				</div>
+			</div>
+			<i class="up-icon" id="upBtn"></i>
+			<i class="down-icon" id="downBtn"></i>
+			<input type="button" class="btn" value="提交" id="customBtn">
+		</div>
+		<!-- 客户详情 -->
+		<div class="introLayerBox" id="introLayerBox" style="display: block;">
+			<div class="tel-tlt">
+				<i class="i"></i> 沟通意向
+				<div class="time_btn">
+					<label class="time_modify"><i></i>编辑</label>
+					<label class="time_save">保存</label>
+				</div>
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<p class="p-infro"><i class="i-user"></i><em>王佳印</em><span class="time_name">姓名：<input type="text" class="time_name_input" value="王佳印" /></span><b>总经理</b><span class="time_marjor">职位：<b></b><input type="text" class="time_marjor_input" value="总经理" /></span></p>
+			<p class="p-infro"><i class="i-telphone"></i>手机号码：<b><input type="text" class="modify_input" readonly="readonly" value="13601129728" /></b></p>
+			<p class="p-infro"><i class="i-company"></i>公司名称：<b><input type="text" class="modify_input" readonly="readonly" value="北京联云天下科技有限公司" /></b></p>
+			<ul class="introTab fl" id="introTab">
+				<li><a href="javascript:;" class="current">时间轴</a></li>
+				<li><a href="javascript:;">详细信息</a></li>
+			</ul>
+			<div class="clear"></div>
+			<div id="timelinediv" class="introContent" style="display: block">
+				<div class="tlt-time">05-06 Fri</div>
+				<dl class="timeBase-dl"><dt>15:46<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="../8A5977CC566E4DDA9C90565C2F541E53_E22354E4161A493585B26149A7A0840C.mp3" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+				<dl class="timeBase-dl"><dt>15:43<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="http://m.icsoc.net/v2/wintelapi/api/record/playrecord?vcc_code=6016011901&amp;call_id=-1" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+				<dl class="timeBase-dl"><dt>15:43<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="http://m.icsoc.net/v2/wintelapi/api/record/playrecord?vcc_code=6016011901&amp;call_id=-1" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+				<dl class="timeBase-dl"><dt>15:42<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="http://m.icsoc.net/v2/wintelapi/api/record/playrecord?vcc_code=6016011901&amp;call_id=-1" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+				<dl class="timeBase-dl"><dt>15:46<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="http://m.icsoc.net/v2/wintelapi/api/record/playrecord?vcc_code=6016011901&amp;call_id=-1" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+				<dl class="timeBase-dl"><dt>15:43<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="http://m.icsoc.net/v2/wintelapi/api/record/playrecord?vcc_code=6016011901&amp;call_id=-1" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+				<dl class="timeBase-dl"><dt>15:43<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="http://m.icsoc.net/v2/wintelapi/api/record/playrecord?vcc_code=6016011901&amp;call_id=-1" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+				<dl class="timeBase-dl"><dt>15:42<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="http://m.icsoc.net/v2/wintelapi/api/record/playrecord?vcc_code=6016011901&amp;call_id=-1" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+				<dl class="timeBase-dl"><dt>15:46<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="http://m.icsoc.net/v2/wintelapi/api/record/playrecord?vcc_code=6016011901&amp;call_id=-1" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+				<dl class="timeBase-dl"><dt>15:43<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="http://m.icsoc.net/v2/wintelapi/api/record/playrecord?vcc_code=6016011901&amp;call_id=-1" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+				<dl class="timeBase-dl"><dt>15:43<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="http://m.icsoc.net/v2/wintelapi/api/record/playrecord?vcc_code=6016011901&amp;call_id=-1" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+				<dl class="timeBase-dl"><dt>15:42<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="http://m.icsoc.net/v2/wintelapi/api/record/playrecord?vcc_code=6016011901&amp;call_id=-1" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+				<dl class="timeBase-dl"><dt>15:46<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="http://m.icsoc.net/v2/wintelapi/api/record/playrecord?vcc_code=6016011901&amp;call_id=-1" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+				<dl class="timeBase-dl"><dt>15:43<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="http://m.icsoc.net/v2/wintelapi/api/record/playrecord?vcc_code=6016011901&amp;call_id=-1" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+				<dl class="timeBase-dl"><dt>15:43<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="http://m.icsoc.net/v2/wintelapi/api/record/playrecord?vcc_code=6016011901&amp;call_id=-1" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+				<dl class="timeBase-dl"><dt>15:42<span>PM</span><i class="i-t"></i></dt>
+					<dd>
+						<div class="span-2">打电话</div><span class="span-3"><em>备注：</em><span class="audio_f mgl25"><label url="http://m.icsoc.net/v2/wintelapi/api/record/playrecord?vcc_code=6016011901&amp;call_id=-1" class="play mgr5 audio" title="点击播放"></label>通话时长 0' 0".</span></span>
+					</dd>
+				</dl>
+			</div>
+			<div class="introContent">
+				<dl class="time_li clearfix">
+					<dt>手机号码2：</dt>
+					<dd><input type="text" value="13601129728" readonly="readonly" /></dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>QQ:</dt>
+					<dd><input type="text" value="382087754" readonly="readonly" /></dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>经营范围:</dt>
+					<dd><textarea readonly="readonly">爬行垫；安全座椅；画板；</textarea></dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>公司地址:</dt>
+					<dd><textarea readonly="readonly">北京市朝阳区建外soho西区12号楼2704</textarea></dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>邮箱地址:</dt>
+					<dd><input type="text" value="382087754@qq.com" readonly="readonly" /></dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>公司类型:</dt>
+					<dd>
+						<input type="text" value="私营企业" class="select_t" readonly="readonly" />
+						<select class="select_c">
+							<option>请选择公司类型</option>
+							<option>私营企业</option>
+							<option>国有企业</option>
+						</select>
+					</dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>销售进度:</dt>
+					<dd>
+						<input type="text" value="初步沟通" class="select_t" readonly="readonly" />
+						<select class="select_c">
+							<option>请选择销售进度</option>
+							<option>初步沟通</option>
+							<option>确认需求</option>
+							<option>确认报价</option>
+							<option>拟定合同</option>
+							<option>成单</option>
+						</select>
+					</dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>创建时间:</dt>
+					<dd>2016年5月18日</dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>上次联系时间:</dt>
+					<dd>--</dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>跟进人:</dt>
+					<dd>刘宇</dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>数据来源:</dt>
+					<dd>企业导入-导入模板</dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>沟通状态:</dt>
+					<dd>未沟通</dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>分配状态:</dt>
+					<dd>已分配</dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>微信号码:</dt>
+					<dd><input type="text" readonly="readonly" value="13601129728" /></dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>生日:</dt>
+					<dd><input type="text" readonly="readonly" value="1984年12月13日" /></dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>座机号码:</dt>
+					<dd><input type="text" readonly="readonly" value="010-55555555" /></dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>前台号码:</dt>
+					<dd><input type="text" readonly="readonly" value="010-55555555" /></dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>传真号码:</dt>
+					<dd><input type="text" readonly="readonly" value="010-55555555" /></dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>备注1:</dt>
+					<dd><textarea readonly="readonly"></textarea></dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>备注2:</dt>
+					<dd><textarea readonly="readonly"></textarea></dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>备注3:</dt>
+					<dd><textarea readonly="readonly"></textarea></dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>备注4:</dt>
+					<dd><textarea readonly="readonly"></textarea></dd>
+				</dl>
+				<dl class="time_li clearfix">
+					<dt>备注5:</dt>
+					<dd><textarea readonly="readonly"></textarea></dd>
+				</dl>
+			</div>
+		</div>
+
+		<div class="applyBox customerBox" id="customerBox">
+			<div class="tlt"><i></i>云客企业版
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="custom_f">
+				感谢您使用云客企业版，这里是50个客户资料，请笑纳
+			</div>
+
+			<input type="button" class="btn" value="立即查看" />
+		</div>
+
+		<div class="applyBox like_setting" id="like_setting">
+			<div class="tlt"><i></i>喜好设置
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="custom_f">
+				<div class="reg_jindu clearfix">
+					<div class="fl jindu1 jindu"></div>
+					<div class="fl jd_line jd_line1">
+
+					</div>
+					<div class="fl jindu2 jindu"></div>
+					<div class="fl  jd_line jd_line2">
+
+					</div>
+					<div class="fl jindu3 jindu"></div>
+				</div>
+				<div class="like_f like_f1">
+					<div class="layer_tip">您是否对客户所在<label>地区</label>感兴趣</div>
+					<div class="select_Box">
+						<div class="select_f">
+							<select>
+								<option>请选择所在地区</option>
+								<option>北京</option>
+								<option>天津</option>
+								<option>河北</option>
+								<option>山西</option>
+								<option>内蒙古</option>
+								<option>辽宁</option>
+								<option>吉林</option>
+								<option>黑龙江</option>
+								<option>上海</option>
+								<option>江苏</option>
+								<option>浙江</option>
+								<option>安徽</option>
+								<option>福建</option>
+								<option>江西</option>
+								<option>山东</option>
+								<option>河南</option>
+								<option>湖北</option>
+								<option>湖南</option>
+								<option>广东</option>
+								<option>广西</option>
+								<option>海南</option>
+								<option>重庆</option>
+								<option>四川</option>
+								<option>贵州</option>
+								<option>云南</option>
+								<option>西藏</option>
+								<option>陕西</option>
+								<option>甘肃</option>
+								<option>青海</option>
+								<option>宁夏</option>
+								<option>新疆</option>
+							</select>
+						</div>
+
+					</div>
+					<div class="addtask_btn">
+						<a id="addtask_btn" href="javascript:;">+添加一个感兴趣的地区</a>
+					</div>
+
+					<Div class="btn_f">
+						<input type="button" class="btn next" value="下一步" />
+						<input type="button" class="btn cancle next" value="不感兴趣" />
+					</Div>
+				</div>
+				<div class="like_f like_f2">
+					<div class="layer_tip">您是否对客户所在<label>职位</label>感兴趣</div>
+					<div class="select_Box">
+						<div class="select_f">
+							<select>
+							<option>请选择职位</option>
+							<option>总裁</option>
+							<option>总经理</option>
+							<option>经理</option>
+						</select>
+						</div>
+					</div>
+					<div class="addtask_btn">
+						<a id="addtask_btn1" href="javascript:;">+添加一个感兴趣的职位</a>
+					</div>
+
+					<Div class="btn_f">
+						<input type="button" class="btn prev" value="上一步" />
+						<input type="button" class="btn next" value="下一步" />
+						<input type="button" class="btn cancle next" value="不感兴趣" />
+					</Div>
+				</div>
+				<div class="like_f like_f3">
+					<div class="layer_tip">您是否对客户所在<label>行业</label>感兴趣</div>
+					<div class="select_Box">
+						<div class="select_f">
+							<select>
+								<option>请选择一级行业</option>
+								<option>IT</option>
+								<option>建筑</option>
+								<option>电子</option>
+							</select>
+							<select>
+								<option>请选择二级行业</option>
+								<option>IT</option>
+								<option>建筑</option>
+								<option>电子</option>
+							</select>
+						</div>
+					</div>
+					<div class="addtask_btn">
+						<a id="addtask_btn2" href="javascript:;">+添加一个感兴趣的行业</a>
+					</div>
+
+					<Div class="btn_f">
+						<input type="button" class="btn prev" value="上一步" />
+						<input type="button" class="btn next" value="完成设置" />
+						<input type="button" class="btn cancle next" value="不感兴趣" />
+					</Div>
+				</div>
+			</div>
+		</div>
+			<div class="applyBox like_setting" id="like_setting1">
+			<div class="tlt"><i></i>喜好设置
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="custom_f">
+				<div class="layer_tip com_tip">不满意？试试输入您感兴趣或已成单的公司名称吧</div>
+				<div class="select_Box">
+					<div class="input_f">
+						<input type="text" placeholder="请输入公司名称" />
+					</div>
+				</div>
+				<div class="addtask_btn">
+					<a id="addtask_btn3" href="javascript:;">+添加一个感兴趣或已成单公司</a>
+				</div>
+				<Div class="btn_f">
+					<input type="button" class="btn next" value="提交" />
+					<input type="button" class="btn cancle next" value="跳过" />
+				</Div>
+			</div>
+		</div>
+		<div class="applyBox userData_f" id="useData_f">
+			<div class="tlt"><i></i>使用线索数据
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="custom_f">
+				<div class="layer_tip com_tip">您可以对客户进行以下操作</div>
+				<div class="f_layer">
+					<div class="f_tli clearfix">
+						<i class="mail_i"></i>
+						<div class="f_tcon">
+							<div>群发邮件，看看哪些客户对您的产品感兴趣，<br/>再把他们分配给您的销售人员跟进。</div>
+							<a class="f_ta">群发邮件</a>
+						</div>
+					</div>
+					<div class="f_tli clearfix">
+						<i class="tel_i"></i>
+						<div class="f_tcon">
+							<div>直接分配给销售人员进行电话跟进，您可以检查销售进度，听电话录音。但首先您需要邀请一些跟进这些客户的销售人员</div>
+							<a class="f_ta enjoin_btn">立即邀请员工</a>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<!--邀请员工，输入公司-->
+		<div class="applyBox enjoin_com" id="enjoin_com">
+			<div class="tlt"><i></i>邀请员工
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="custom_f">
+				<div class="layer_tip com_tip">为了保证员工能及时绑定企业，请完善公司信息</div>
+				<div class="input_com_f first">
+					<input type="text" placeholder="请输入您的公司名称" class="com_input" />
+					<div class="com_f">
+						<div class="com_li">
+							北京联友天下科技有限公司
+						</div>
+						<div class="com_li">
+							北京联友天下科技有限公司
+						</div>
+					</div>
+					<div class="qy_have">企业已存在<a><i class="qy_search"></i></a></div>
+				</div> 
+				<div class="input_com_f">
+					<input type="text" placeholder="请输入您的姓名" />
+				</div>
+				<div class="com_none">
+					<a id="look_com">查看企业信息</a>
+				</div>
+				<div class="btn_f">
+					<input type="button" class="btn" id="join_btn" value="提交" />
+				</div>
+			</div>
+		</div>
+		<!--该企业已存在-->
+		<div class="applyBox qy_have_f" id="qy_have">
+			<div class="tlt"><i></i>该企业已存在
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="custom_f">
+				<div class="qy_tlt">该企业名称已被注册，管理者为：</div>
+				<div class="qy_tcon">刘宇<label>136******25</label></div>
+				<div class="qy_tcon">
+					如需更改管理者，请<a id="contact_btn">联系客服</a>
+				</div>
+				<div class="qy_tcon">
+					或者<a>成为该企业的销售人员</a>
+				</div>
+				<div class="btn_f">
+					<input type="button" class="btn" value="回到客户页" />
+				</div>
+			</div>
+		</div>
+		
+		<!--联系客服-->
+		<div class="applyBox contact" id="contact">
+			<div class="tlt"><i></i>联系客服
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="custom_f contact_info">
+				您可以拨打客服电话：<label>010-5620 0279</label>或  联系<a href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">在线客服</a>
+			</div>
+		</div>
+		
+		<!--查看公司信息-->
+		<div class="applyBox qy_message" id="qy_message">
+			<div class="tlt"><i></i>查看公司信息
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="custom_f">
+				<div class="com_row">
+					北京联云天下科技有限公司
+				</div>
+				<div class="com_row">
+					法人负责人:<label>刘晓辉</label>
+				</div>
+				<div class="com_row">
+					公司电话:<label>13699283847</label>
+				</div>
+				<div class="com_row">
+					公司邮箱:<label>liuxiaohui@yunkecn.com</label>
+				</div>
+				<div class="com_row">
+					公司地址:<label>北京市朝阳区建外SOHO西区12号楼2704</label>
+				</div>
+				<div class="com_row clearfix">
+					<div class="com_regist">注册号:<label>010-68920556</label></div>
+					<div class="com_regist">注册资本:<label>010-68920556</label></div>
+				</div>
+				<div class="com_row">
+					所属行业:<label>IT、通讯、电子、互联网/计算机软件</label>
+				</div>
+				<div class="com_row">
+					企业类型:<label>私营企业</label>
+				</div>
+				<div class="com_row">
+					主营产品:<label>传真产品</label>
+				</div>
+				<div class="com_row">
+					公司简介:<label><a class="look_introduce">查看公司简介</a></label>
+				</div>
+				<div><input type="button" value="关闭窗口" class="btn" /></div>
+			</div>
+		</div>
+		
+		<!--查看公司简介-->
+		<div class="applyBox qy_introduce" id="qy_introduce">
+			<div class="tlt"><i></i>公司简介
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="custom_f">
+				<div class="com_row">
+					北京联云天下科技有限公司
+				</div>
+				<div class="introduce">
+					北京联云天下科技有限公司成立于2015年, 致力于打造移动互联网时代的
+全新商务行动力管理工具。公司秉承“以人为本”和以用户体验为核心的经营
+理念，基于移动互联网，将商务管理、商务社交网络有效结合，打造真正
+“云+端”的商务行动应用—“云客”。
+      联云天下目前已经获得天使投资，创始团队均来自知名互联网公司，拥有
+多年互联网行业从业经验。
+      我们太了解受众的需求是什么、痛点在哪里、什么又称得上真正的好东西。
+与其每天纠结TA们为何不懂，不如将初心和热爱用在自己的产品上。
+      有的大拿不会Photoshop，有的大拿不会PPT，有的大拿不会卖萌，有
+的大拿不会骂人，有的大拿不会英文，有的大拿不会写简体中文……
+      你不会的东西，都不重要，重要的是，你会什么？
+      走心福利：
+1、股权激励制度，我们深知你想和团队一起成长，持续的股权激励政策，希望
+     若干年后的大家不再为生活奔波。
+2、这里没有官僚主义，我们会用期权和年终分红感激你对团队的贡献，专业工
+     作就需要成就感，做好事就要留名！
+3、每天的午后水果餐，萌妹子亲自送到你桌上。嘿！来劲了~
+4、桌游和图书就放在那里，你想看就看、想玩就玩，一切只为高效工作。
+5、这里不打卡，因为都是有理想、有抱负、有责任的人。
+6、时常组织个集体活动，郊游、聚餐、KTV、体育甚至LOL比赛，你总要会几
+     样。
+				</div>
+				<div><input type="button" value="关闭窗口" class="btn" /></div>
+			</div>
+		</div>
+		
+			<!--邀请员工-->
+			<div class="applyBox enjoin" id="enjoin">
+			<div class="tlt"><i></i>邀请员工
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="custom_f">
+				<div class="layer_tip com_tip enjoin_tip">以下是使用<label>北京联云天下科技有限公司</label>为公司名称的员工，您可以邀请他们绑定企业</div>
+				<ul class="choose-members">
+					<li>
+						<a href="javascript:void(0)"><img src="../images/member.png"><em>艾云鹤</em></a>
+					</li>
+					<li>
+						<a href="javascript:void(0)"><img src="../images/member.png"><em>艾云鹤</em></a>
+					</li>
+					
+				</ul>
+				<div class="join_text_t">
+					邀请新员工
+				</div>
+				<div class="join_input_f">
+					<input type="text" placeholder="请输入被邀请员工的手机号码" />
+				</div>
+				<div class="join_text">
+					邀请函将以短信形式发送到被邀请员工手机上，员工下载云客APP并完成注册后自动成为您企业的员工。
+				</div>
+				<div class="">
+					<input type="button" class="btn" value="确认邀请"  />
+				</div>
+			</div>
+		</div>
+			<script type="text/javascript">
+				$(function() {
+					$(".customer").height($(window).height() - $(".customer").offset().top - 80);
+					$(".customer").css({
+						"overflow": "auto"
+					});
+					$("#add_customer").click(function() {
+						$(".layer").show();
+						$("#applyBox-2").show();
+					});
+					$(".add_more a").click(function() {
+						$(".custom_more").show();
+						$(".add_more").hide();
+					});
+
+					//时间轴编辑
+					$(".time_modify").click(function() {
+						$(".time_li dd input,input.modify_input").removeAttr("readonly").css("border-color", "#d4d4d4");
+						$(".time_li dd textarea").removeAttr("readonly").css("border-color", "#d4d4d4");
+						$(".time_name,.time_marjor").show();
+						$(".time_name,.time_marjor").prev().hide();
+
+						$(".time_li input.select_t").hide();
+						$(".time_li select.select_c").show();
+						$(".time_modify").hide();
+						$(".time_save").show();
+					});
+					//时间轴保存
+					$(".time_save").click(function() {
+						$(".time_li dd input,input.modify_input").attr("readonly", "readonly").css("border-color", "transparent");
+						$(".time_li dd textarea").attr("readonly", "readonly").css("border-color", "transparent");
+						$(".time_name,.time_marjor").hide();
+						$(".time_name,.time_marjor").prev().show();
+
+						$(".time_li input.select_t").show();
+						$(".time_li select.select_c").hide();
+						$(".time_modify").show();
+						$(".time_save").hide();
+					});
+				
+				});
+				//第一次换一批
+					
+					function like_setting(){
+						$(".layer").show();
+						$("#like_setting").show();
+					}
+					function like_setting1(){
+						$(".layer").show();
+						$("#like_setting1").show();
+					}
+					
+					function useData(){
+						$(".layer").show();
+						$("#useData_f").show();
+					}
+					
+					$(function(){
+				
+					//第一次显示
+					$(".layer").show();
+					$("#customerBox").show();
+
+					//关闭默认弹框
+					$("#customerBox a.a-closed,#customerBox .btn").click(function() {
+						$(".layer").hide();
+						$("#customerBox").hide();
+					});
+					//关闭喜好设置
+					$("#like_setting a.a-closed").click(function(){
+						$(".layer").hide();
+						$("#like_setting").hide();
+					});
+					$("#like_setting1 a.a-closed").click(function(){
+						$(".layer").hide();
+						$("#like_setting1").hide();
+					});
+					
+					//添加地区
+					$("#addtask_btn").click(function() {
+						if ($(".like_f2 .select_Box .select_f").length >= 3) {
+							return false;
+						}
+						var select_f = '<div class="select_f">\
+						<select>\
+							<option>请选择所在地区</option>\
+							<option>北京</option>\
+							<option>天津</option>\
+							<option>河北</option>\
+							<option>山西</option>\
+							<option>内蒙古</option>\
+							<option>辽宁</option>\
+							<option>吉林</option>\
+							<option>黑龙江</option>\
+							<option>上海</option>\
+							<option>江苏</option>\
+							<option>浙江</option>\
+							<option>安徽</option>\
+							<option>福建</option>\
+							<option>江西</option>\
+							<option>山东</option>\
+							<option>河南</option>\
+							<option>湖北</option>\
+							<option>湖南</option>\
+							<option>广东</option>\
+							<option>广西</option>\
+							<option>海南</option>\
+							<option>重庆</option>\
+							<option>四川</option>\
+							<option>贵州</option>\
+							<option>云南</option>\
+							<option>西藏</option>\
+							<option>陕西</option>\
+							<option>甘肃</option>\
+							<option>青海</option>\
+							<option>宁夏</option>\
+							<option>新疆</option>\
+						</select>\
+						<span class="delete">删除</span>\
+					</div>';
+						$(".like_f1 .select_Box").append(select_f);
+						if ($(".like_f1 .select_Box .select_f").length >= 3) {
+							$(".like_f1 .addtask_btn").hide();
+						}
+					});
+
+					//删除地区
+					$(".like_f1 .select_f span.delete").livequery("click", function() {
+						$(this).parent().remove();
+						$(".like_f1 .addtask_btn").show();
+					});
+
+					//第一步的 下一步
+					$(".like_f1 .btn.next").click(function() {
+						$(".reg_jindu").addClass("active");
+						$(".like_f1").hide();
+						$(".like_f2").show();
+					});
+
+					//添加职位
+					$("#addtask_btn1").click(function() {
+						if ($(".like_f2 .select_Box .select_f").length >= 3) {
+							return false;
+						}
+						var select_f = '<div class="select_f">\
+						<select>\
+							<option>请选择职位</option>\
+							<option>总裁</option>\
+							<option>总经理</option>\
+							<option>经理</option>\
+						</select>\
+						<span class="delete">删除</span>\
+					</div>';
+						$(".like_f2 .select_Box").append(select_f);
+						if ($(".like_f2 .select_Box .select_f").length >= 3) {
+							$(".like_f2 .addtask_btn").hide();
+						}
+					});
+
+					//删除职位
+					$(".like_f2 .select_f span.delete").livequery("click", function() {
+						$(this).parent().remove();
+						$(".like_f2 .addtask_btn").show();
+					});
+
+					//第二步的上一步
+					$(".like_f2 .btn.prev").click(function() {
+						$(".reg_jindu").removeClass("active");
+						$(".like_f1").show();
+						$(".like_f2").hide();
+					});
+
+					//第二步的下一步
+					$(".like_f2 .btn.next").click(function() {
+						$(".reg_jindu").removeClass("active").addClass("active2");
+						$(".like_f3").show();
+						$(".like_f2").hide();
+					});
+					
+					
+					//添加行业
+					$("#addtask_btn2").click(function() {
+						if ($(".like_f3 .select_Box .select_f").length >= 3) {
+							return false;
+						}
+						var select_f = '<div class="select_f">\
+						<select>\
+							<option>请选择一级行业</option>\
+							<option>IT</option>\
+							<option>建筑</option>\
+							<option>电子</option>\
+						</select>\
+						<select>\
+							<option>请选择二级行业</option>\
+							<option>IT</option>\
+							<option>建筑</option>\
+							<option>电子</option>\
+						</select>\
+						<span class="delete">删除</span>\
+					</div>';
+						$(".like_f3 .select_Box").append(select_f);
+						if ($(".like_f3 .select_Box .select_f").length >= 3) {
+							$(".like_f3 .addtask_btn").hide();
+						}
+					});
+
+					//删除行业
+					$(".like_f3 .select_f span.delete").livequery("click", function() {
+						$(this).parent().remove();
+						$(".like_f3 .addtask_btn").show();
+					});
+					//第三步的上一步
+					$(".like_f3 .btn.prev").click(function() {
+						$(".reg_jindu").removeClass("active2").addClass("active");
+						$(".like_f2").show();
+						$(".like_f3").hide();
+					});
+
+					//第三步的完成
+					$(".like_f3 .btn.next").click(function() {
+						$(".reg_jindu").removeClass("active").removeClass("active2");
+						$(".like_f3").hide();
+						$(".like_f1").show();
+						$(".layer").hide();
+						$("#like_setting").hide();
+						
+//						$("#change_btn").after("<label class='likebtn_tip'>根据您的喜好为您智能推荐出以下线索</label>");
+						$("#change_btn").next("label").show();
+						$("#change_btn").attr("onclick","like_setting1()");
+					});
+					
+					//添加公司输入框
+					$('#addtask_btn3').click(function(){
+						if ($("#addtask_btn3 .select_Box .input_f").length >= 3) {
+							return false;
+						}
+						var input_f='<div class="input_f">\
+							<input type="text" placeholder="请输入公司名称" />\
+							<span class="delete">删除</span>\
+						</div>';
+						$("#like_setting1 .select_Box").append(input_f);
+						if ($("#like_setting1 .select_Box .input_f").length >= 3) {
+							$("#like_setting1 .addtask_btn").hide();
+						}
+					});
+					
+					//删除公司
+					$("#like_setting1 .select_f span.delete").livequery("click", function() {
+						$(this).parent().remove();
+						$("#like_setting1 .addtask_btn").show();
+					});
+					
+					//提交
+					$("#like_setting1 .btn.next").click(function(){
+						$(".layer").hide();
+						$("#like_setting1").hide();
+						$("#change_btn").hide();
+						$("#change_btn").next("label").hide();
+						$("#useData").show();
+					});
+					
+					//邀请员工按钮，显示完善公司信息
+					$("#useData_f .enjoin_btn").click(function(){
+						$("#useData_f").hide();
+						$("#enjoin_com").show();
+					});
+					$("#enjoin_com a.a-closed").click(function(){
+						$("#enjoin_com").hide();
+						$(".layer").hide();
+					});
+					
+					//完善公司信息，输入框输入
+					$(".com_input").bind("input propertychange",function(){
+						if($(this).val().length>0){
+							$(".com_f").show();
+						}else{
+							$(".com_f").hide();
+						}
+					});
+					
+					//选择公司
+					$(".com_li").click(function(){
+						$(".com_input").val($(this).text().trim());
+						$(".com_f").hide();
+						
+						//if企业存在 
+//						$(".qy_have").show();
+						//企业不存在
+						$(".com_none").show();
+						
+					});
+					
+					$("#enjoin .choose-members li a").click(function(){
+						$(this).toggleClass("current");
+					});
+					
+					//企业已存在
+					$(".qy_search").click(function(){
+						$(".layer-5").show();
+						$("#qy_have").show();
+					});
+					
+					$("#qy_have a.a-closed").click(function(){
+						$(".layer-5").hide();
+						$("#qy_have").hide();
+					});
+					
+					//联系客服按钮
+					$("#contact_btn").click(function(){
+						$("#contact").show();
+						$(".layer-6").show();
+					});
+					
+					$("#contact a.a-closed").click(function(){
+						$("#contact").hide();
+						$(".layer-6").hide();
+					});
+					
+					//查看公司信息
+					$("#look_com").click(function(){
+						$("#qy_message").show();
+						$(".layer-5").show();
+					});
+					
+					$("#qy_message a.a-closed,#qy_message .btn").click(function(){
+						$("#qy_message").hide();
+						$(".layer-5").hide();
+					});
+					//查看公司简介
+					$("#qy_message .look_introduce").click(function(){
+						$("#qy_introduce").show();
+						$(".layer-6").show();
+					});
+					$("#qy_introduce a.a-closed,#qy_introduce .btn").click(function(){
+						$(".layer-6").hide();
+						$("#qy_introduce").hide();
+					});
+					
+					//邀请员工
+					$("#join_btn").click(function(){
+						$("#enjoin").show();
+						$(".layer-6").show();
+					});
+					$("#enjoin a.a-closed").click(function(){
+						$("#enjoin").hide();
+						$(".layer-6").hide();
+					});
+					$("#enjoin .btn").click(function(){
+						$(".layer-6").hide();
+						$(".applyBox").hide();
+						$(".layer").hide();
+					});
+					
+				});
+			</script>
+	</body>
+
+</html>

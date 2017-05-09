@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>设置-新增邮件模版</title>
+	<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+	<link href="../css/main.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="../css/head.css" />
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/highcharts.js"></script> 
+	
+	<!--<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js" ></script>-->
+	
+ <link rel="stylesheet" type="text/css" href="../js/kindeditor/themes/default/default.css" />
+    <link rel="stylesheet" href="../js/kindeditor/plugins/code/prettify.css" />
+    <script charset="utf-8" src="../js/kindeditor/kindeditor-all.js"></script>
+    <script charset="utf-8" src="../js/kindeditor/lang/zh-CN.js"></script>
+    <script charset="utf-8" src="../js/kindeditor/plugins/code/prettify.js"></script>
+    <script>
+        KindEditor.ready(function (K) {
+            var editor1 = K.create('#e1', {
+                cssPath: '../js/kindeditor/plugins/code/prettify.css',
+                allowFileManager: true,
+                filterMode: false,
+                height:"150px",
+                width:"100%",
+                resizeMode:0
+            });
+            prettyPrint();
+        });
+        
+        </script>
+</head>
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<!-- 页面头部 header -->
+<div class="header">
+	<h1 class="logo fl"></h1>
+	<span class="mar fl">|</span>
+	<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+	<ul class="nav" style="width:210px;">
+				<li><a href="">客户</a></li>
+				<li><a href="">任务</a></li>
+				<li><a href="" class="current">设置</a></li>
+			</ul>
+	<ul class="header-right fr">
+		<li><a href="javascript:;"><i class="add"></i></a></li>
+		<li><a href="javascript:;"><i class="update"></i></a></li>
+		<li><a href="javascript:;"><i class="message"></i></a></li>
+		<li><a href="javascript:;" class="user">刘</a></li>
+	</ul>
+</div>
+<!-- 汇总提示 tipArea -->
+<div class="tipArea mail_set">
+			<div class="wrap">
+				<div class="count_f">
+					<span class="span-1 " id="">邮箱账户设置</span>
+					<span class="span-1 current" id="">邮箱模板设置</span>
+				</div>
+			</div>
+		</div>
+<!-- 内容部分 contents -->
+<div class="contents" style="background: #fff;">
+	<div class="table-tlt">
+		<a class="return-icon" href=""></a>
+		<i class="i"></i>邮箱模板设置
+	</div>
+	<!--  -->
+	<div class="table-1" style="display:block">
+		<form class="dxmb-form">
+			<dl>
+				<dt>模版标题</dt>
+				<dd>
+					<input type="text" value="">
+				</dd>
+			</dl>
+			<dl>
+				<dt>邮件标题</dt>
+				<dd>
+					<input type="text" value="">
+				</dd>
+			</dl>
+			<dl>
+				<dt>邮件内容</dt>
+				<dd>
+					<textarea class="editor_text" id="e1"></textarea>
+				</dd>
+			</dl>
+			<dl>
+				<dt>附件</dt>
+				<dd>
+					<div class="Enclosurebtn">
+						<a>上传附件</a>
+						<input type="file" />
+					</div>
+					<div class="Enclosurelist">
+						<div class="enclosurei">
+							<input type="text" disabled="disabled" /><a class="deletebtn">删除</a>
+						</div>
+						<div class="enclosurei">
+							<input type="text" disabled="disabled" /><a class="deletebtn">删除</a>
+						</div>
+						<div class="enclosurei">
+							<input type="text" disabled="disabled" /><a class="deletebtn">删除</a>
+						</div>
+					</div>
+				</dd>
+			</dl>
+			<input type="button" class="btn" value="提交" id="changerBtn">
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+//		new tqEditor('e1',{toolbar:'full',width:'100%',resize:false,height:"150px"});
+
+
+	});
+</script>
+<!--<script>
+		KindEditor.ready(function(K) {
+			var editor1 = K.create('#e1', {
+				
+				allowFileManager : true,
+				afterCreate : function() {
+					var self = this;
+					
+				}
+			});
+			prettyPrint();
+		});
+	</script>-->
+</body>
+</html>

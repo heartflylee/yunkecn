@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>设置-新增短信模版</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main1107.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/highcharts.js"></script>
+		<script type="text/javascript" src="../js/jquery.livequery.js"></script>
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav">
+				<li>
+					<a href="">首页</a>
+				</li>
+				<li>
+					<a href="">行动</a>
+				</li>
+				<li>
+					<a href="">客户</a>
+				</li>
+				<li>
+					<a href="">账户</a>
+				</li>
+				<li>
+					<a href="">任务</a>
+				</li>
+				<li>
+					<a href="" class="current">设置</a>
+				</li>
+			</ul>
+			<ul class="header-right fr">
+				<li>
+					<a href="javascript:;"><i class="add"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="update"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="message"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="user">刘</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 汇总提示 tipArea -->
+		<div class="tipArea">
+			<div class="wrap">
+				<ul class="ul-2">
+					<li>
+						<a href="settings.html">团队设置</a>
+					</li>
+					<li>
+						<a href="settings-1.html">外呼标签设置</a>
+					</li>
+					<li>
+						<a href="settings-2.html" class="current">短信模板设置</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 内容部分 contents -->
+		<div class="contents" style="background: #fff;">
+			<div class="table-tlt">
+				<a class="return-icon" href="settings-2.html"></a>
+				<i class="i"></i>新增短信模板
+			</div>
+			<!--  -->
+			<div class="table-1" style="display:block">
+				<form class="dxmb-form">
+					<dl>
+						<dt>模版标题</dt>
+						<dd>
+							<input type="text" value="">
+							<p class="p-4">模板备注用，只做识别使用</p>
+						</dd>
+					</dl>
+					<dl>
+						<dt>模版签名</dt>
+						<dd>
+							<input type="text" value="">
+							<p class="p-4">3-8个字，<b class="c-red">必须有中文</b>，不能有符号</p>
+						</dd>
+					</dl>
+					<dl>
+						<dt>模版内容</dt>
+						<dd class="m-f">
+							
+							<textarea onkeydown="messageLength(this);" onkeyup="messageLength(this);"></textarea>
+							<div class="message-Length">
+								<label id="length">0</label><label>字</label>
+								<span class="m-tip">
+									<i></i>
+									<div class="m-tip-text">运营商将按照短信字数计费，70字为一条；<br/>
+1.姓名（可在APP端进行设置）参数将默认按照3个字计算；但名字如超过3个字，短信将按照多条计费；<br/>
+2.电话（为现在登陆账号的注册手机号）参数将默认按照11个字计算；<br/>
+3.网址由于网址会由系统生成短链接，将默认按照24个字计算。<br/>
+<br/>
+*以上费用均由运营商短信发送规则制定。</div>
+								</span>
+							</div>
+						</dd>
+					</dl>
+					<div class="parameter">
+						<!--<dl>
+							<dt>参数{1}</dt>
+							<dd>
+								<select class="parameter_name">
+									<option>姓名</option>
+									<option>手机号码</option>
+									<option>网址</option>
+								</select>
+							</dd>
+						</dl>-->
+					</div>
+					<div class="parameter_add">
+						<a class="add_parameter">+添加参数</a>
+					</div>
+					<div class="messagetip">
+						<p class="p-4">示例：您好，我是刚才跟您通过电话的{1}，我的个人手机号码是{2}，如果您需要了解更多内容欢迎访问我们的网址{3}。<br/>
+							<span>模板内容必须为半角字符,全角字符将会影响审核和短信下发,其中的数字必须从1开始顺序排列</span><br/> 模版内容不可含有空格、换行、以及【】，否则自动删除非法字符
+						</p>
+					</div>
+					<dl>
+						<dt>模版预览</dt>
+						<dd>
+							<textarea class="message_preview" disabled="disabled"></textarea>
+						</dd>
+					</dl>
+					<input type="button" class="btn" value="提交" id="changerBtn">
+				</form>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				//添加参数
+				$(".add_parameter").click(function() {
+					if($(".parameter dl").length == 3) {
+						return;
+					}
+					$(".parameter dl .delete_btn").remove();
+					var dl = '<dl>\
+						<dt>参数{' + ($(".parameter dl").length + 1) + '}</dt>\
+						<dd>\
+							<select class="parameter_name">\
+								<option>姓名</option>\
+								<option>手机号码</option>\
+								<option>网址</option>\
+							</select>\
+							<span class="delete_btn">删除</span>\
+						</dd>\
+					</dl>';
+					$(".parameter").append(dl);
+					if($(".parameter dl").length == 3) {
+						$(".add_parameter").hide();
+					}
+				});
+				//下拉框改变
+				$(".parameter dl select").livequery("change", function() {
+					if($(this).find("option:selected").text() == "网址") {
+						$(this).after('<input id="weburl" type="text" value="http://" />');
+					} else {
+						$(this).next("input").remove();
+					}
+				});
+				//删除按钮
+				$(".delete_btn").livequery("click", function() {
+					var dl_index = $(".parameter dl").length;
+					if(dl_index != 2) {
+						$(".parameter dl:last-child").prev().find("dd").append('<span class="delete_btn">删除</span>');
+					}
+					$(".add_parameter").show();
+					$(".parameter dl:last-child").remove();
+				});
+
+			});
+
+			function messageLength(obj) {
+				var length = $(obj).val().length;
+				for(var i = 0; i < $(".parameter").find("dl").length; i++) {
+					if($(obj).val().indexOf("{" + (i + 1) + "}") >= 0) {
+						if($(".parameter").find("dl:eq(" + i + ") option:selected").text() == "姓名") {
+							length += 3;
+						}
+						if($(".parameter").find("dl:eq(" + i + ") option:selected").text() == "手机号码") {
+							length += 11;
+						}
+						if($(".parameter").find("dl:eq(" + i + ") option:selected").text() == "网址") {
+							length += 24;
+						}
+						length -= 3;
+					}
+				}
+				length+=6;
+				if(length>70){
+					$("#length").next().text("字，短信将分为"+ (parseInt(length/70)+1)+"条发送");
+				}else{
+					$("#length").next().text("字");
+				}
+				$("#length").text(length);
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>团队客户</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/highcharts.js"></script>
+		<link href="../css/hDate.css" rel="stylesheet" />
+		<!--<script type="text/javascript" src="../js/hDate.js"></script>-->
+		<script type="text/javascript" src="../js/audio.js"></script>
+
+		<script type="text/javascript" src="../js/keywordsinput.js"></script>
+		<!--<script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+		<script type="text/javascript" src="../js/jedate/jedate.min.js"></script>-->
+		<!--<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js"></script>-->
+		<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<div class="layer-6"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav">
+				<li>
+					<a href="">首页</a>
+				</li>
+				<li>
+					<a href="">行动</a>
+				</li>
+				<li>
+					<a href="">客户</a>
+				</li>
+				<li>
+					<a href="" class="current">线索</a>
+				</li>
+				<li>
+					<a href="">任务</a>
+				</li>
+				<li>
+					<a href="">设置</a>
+				</li>
+			</ul>
+			<ul class="header-right fr">
+				<li>
+					<a href="javascript:;"><i class="add"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="update"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="message"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="user">刘</a>
+				</li>
+			</ul>
+		</div>
+		<div class="tipArea">
+			<div class="wrap">
+				<ul class="ul-2">
+					<li>
+						<a href="listSearch.html">搜索引擎</a>
+					</li>
+					<li>
+						<a href="recommendNew.html" class="current">推荐引擎</a>
+					</li>
+					<li>
+						<a href="download.html">已下载线索</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="contents">
+			<div class="tag-box">
+				<div class="tags-li ">
+					<a href="recommendNew.html">推荐列表</a>
+				</div>
+				<div class="tags-li">
+					<a href="keywordsNew.html">关键词设置</a>
+				</div>
+				<div class="tags-li ">
+					<a href="recommendImport.html">导入数据样本</a>
+				</div>
+				<div class="tags-li active">
+					<a href="recommendImported.html">已导入样本</a>
+				</div>
+			</div>
+			<div class="title list-title">
+				<i></i><span>数据样本列表</span>
+				<a class="right-btn btn exportbtn" href="javascript:void(0);">导入数据样本</a>
+			</div>
+			<!--<div class="customer companylist recommendlist">-->
+			<div class="customer sample">
+				<div class="sample-none sample0" style="display: none;">
+					<div class="none-text">
+						暂无数据，点击
+						<a class="exportbtn" href="javascript:void(0);">导入数据样本</a>
+					</div>
+				</div>
+				
+				<table class="table-list" id="table-list">
+					<thead>
+						<tr>
+							<th>公司名称</th>
+							<th>主营产品</th>
+							<th>不感兴趣</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								北京联云天下科技有限公司
+								<div class="com-tip default">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>点击查看详情</span>
+								</div>
+							</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis"></div>
+								<div class="ellipsis-all"></div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+							<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+
+					</tbody>
+
+				</table>
+			</div>
+			<div class="bottom-btn clearfix search-bottom">
+				<a class="btn" id="keyword" href="javascript:void(0);">分析关键词</a>
+
+				<!-- 分页 -->
+				<p class="page-p">共20条</p>
+				<ul class="page-ul">
+					<li>
+						<<</li>
+							<li>
+								< </li>
+									<li> 1 </li>
+									<li> 2 </li>
+									<li class="page-d">...</li>
+									<li> 3 </li>
+									<li> > </li>
+									<li>>></li>
+				</ul>
+			</div>
+		</div>
+
+	
+		<!-- 公司信息补全 -->
+
+		<div class="applyBox  com-completion" id="com-tips">
+			<div class="tlt"><i></i>公司信息补全
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="layer_tip com_tip">
+				<i class="tip-red"></i>云客为您找到了该客户更全面的信息
+			</div>
+			<div class="btn-f">
+				<input type="button" class="btn" id="com-btn" value="立即查看" />
+				<input type="button" class="btn cancle" value="取消" id="">
+			</div>
+		</div>
+
+		<div class="applyBox  custom_new" id="completion">
+			<div class="tlt"><i></i>公司信息补全
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="customer_f">
+				<div class="message-li clearfix">
+					<div class="com-l">
+						公司名称：
+					</div>
+					<div class="com-r">
+						<input type="text" class="com-input" id="com-input" value="联云天下" />
+						<div class="com-f" id="com-f">
+							<div class="com-check">
+								北京联云天下科技有限公司
+							</div>
+							<div class="com-check">
+								北京联云天下科技有限公司
+							</div>
+							<div class="com-check">
+								北京联云天下科技有限公司
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="com-con" id="com-con1">
+					<div class="com-li clearfix">
+						<div class="com-l">公司地址：</div>
+						<div class="com-r">
+							北京市朝阳区建外soho西区12号楼2704室
+						</div>
+					</div>
+					<div class="com-li clearfix">
+						<div class="com-l">企业法人：</div>
+						<div class="com-r">
+							江燕
+						</div>
+					</div>
+					<div class="com-li clearfix">
+						<div class="com-l">注册资本：</div>
+						<div class="com-r">
+							30万人民币
+						</div>
+					</div>
+					<div class="com-li clearfix">
+						<div class="com-l">企业类型：</div>
+						<div class="com-r">
+							有限责任公司（自然人独资）
+						</div>
+					</div>
+					<div class="com-li clearfix">
+						<div class="com-l">经营范围：</div>
+						<div class="com-r">
+							技术开发、技术转让、技术服务、技术咨询；市场调查；经济贸易咨询；教育咨询；文化咨询；计算机技术培训；维修仪器仪表、维修办公设备；销售电子产品、家用电器、计算机、然间及辅助设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bt-btn-f">
+				<input type="button" class="btn" value="保存" id="">
+			</div>
+		</div>
+
+		<div class="applyBox keyword-box" id="keyword-box">
+			<div class="tlt"><i></i>分析关键词
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="layer-title">
+				根据您导入的数据样本，系统为您分析出以下关键词
+			</div>
+			<div class="">
+				<div class="keyword">
+					<div class="k-name k-border">
+						公司名称类：
+					</div>
+					<div class="k-input">
+						<span class="k-tag">
+							<span>商贸</span>
+						<a class="tagclose" href="javascript:void(0);"onclick="deletetag(this)"></a>
+						</span>
+						<span class="k-tag">
+							<span>技术</span>
+						<a class="tagclose" href="javascript:void(0);"onclick="deletetag(this)"></a>
+						</span>
+					</div>
+				</div>
+				<div class="keyword">
+					<div class="k-name k-border">
+						主营产品类：
+					</div>
+					<div class="k-input">
+						<span class="k-tag">
+							<span>商贸</span>
+						<a class="tagclose" href="javascript:void(0);" onclick="deletetag(this)"></a>
+						</span>
+						<span class="k-tag">
+							<span>技术</span>
+						<a class="tagclose" href="javascript:void(0);"  onclick="deletetag(this)"></a>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="btn-f">
+				<input type="button" class="btn" value="应用到当前关键词" />
+				<div class="bottom-tip">
+					*应用后将叠加到之前的关键词
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			$(function() {
+				tableChange();
+				$(window).resize(function() {
+					tableChange();
+				});
+				$(".customer").height($(window).height() - $(".customer").offset().top - 80);
+				$(".customer").css({
+					"overflow": "auto"
+				});
+				$(".detail").click(function() {
+					if($(this).next().next().css("display") == "block") {
+						$(this).next().next().hide();
+					} else {
+						$(".ellipsis-all").hide();
+						$(this).next().next().css({
+							"top": "auto",
+							"right": "-400px"
+						}).show();
+						var chosen_top = 0;
+						var chosen_left = 0;
+						if($(this).next().next().offset().top + $(".customer").scroll()[0].scrollTop - $(".customer").offset().top - 40 + $(this).next().next().outerHeight() > ($(".customer table").height() > $(".customer").height() ? $(".customer table").height() : $(".customer").height())) {
+							chosen_top = -1 * $(this).next().next().outerHeight() + 20;
+						} else {
+							chosen_top = 0;
+
+						}
+						//						if($(this).next().next().offset().top - $(".recommendlist").offset().top - 40 + $(this).next().next().outerHeight() > ($(".recommendlist table").height() > $(".recommendlist").height() ? $(".recommendlist table").height() : $(".recommendlist").height())) {
+						//							chosen_top = -1 * $(this).next().next().outerHeight() + 20;
+						//						} else {
+						//							chosen_top = 0;
+						//
+						//						}
+						if($(this).next().next().offset().left + $(this).next().next().outerWidth() - $(window).width() * 0.01 >= $(".customer").width()) {
+							chosen_left = 80;
+						} else {
+							chosen_left = -1 * $(this).next().next().outerWidth();
+						}
+						$(this).next().next().css({
+							"top": chosen_top,
+							"right": chosen_left
+						}).show();
+					}
+					event.stopPropagation();
+				});
+				$(window).click(function() {
+					$(".ellipsis-all").hide();
+				});
+				$(".ellipsis-all").click(function() {
+					event.stopPropagation();
+				});
+
+			});
+
+			function tableChange() {
+				$(".customer .ellipsis").width(($(".contents").width() - 153) * 0.6 - 50);
+				$(".recommendlist").css({
+					"overflow-x": "hidden"
+				});
+			}
+
+
+			$(function() {
+				//导入数据样本弹框
+				$(".exportbtn").click(function() {
+					//跳转到导入数据样本页面
+					window.location.href="recommendImport.html";
+				});
+				//公司补全
+				$(".com-tip.default .tip-dian").click(function() {
+					$(".layer-6").show();
+					$("#com-tips").show();
+				});
+				//关闭公司补全，取消
+				$(".layer-6,.com-completion a.a-closed,.com-completion .btn.cancle").click(function() {
+					$(".layer-6").hide();
+					$(".com-completion").hide();
+					$(".custom_new").hide();
+				});
+
+				//立即查看
+				$("#com-btn").click(function() {
+					$("#completion").show();
+					$("#com-tips").hide();
+					$("#com-input").focus();
+					$("#com-f").show();
+					$("#com-con1").hide();
+				});
+				//选择公司并显示公司信息
+				$("#com-f .com-check").click(function() {
+					$("#com-input").val($(this).text().trim());
+					$("#com-f").hide();
+					$("#com-con1").show();
+				});
+				//关闭补全信息弹框
+				$("#completion a.a-closed").click(function() {
+					$("#completion").hide();
+					$(".layer-6").hide();
+				});
+
+				//关键词分析
+				$("#keyword").click(function() {
+					if($(this).hasClass("btn-cancel")) {
+						return false;
+					}
+					$("#keyword-box").show();
+					$(".layer").show();
+				});
+				$(".layer,#keyword-box a.a-closed").click(function() {
+					$(".keyword-box").hide();
+					$(".layer").hide();
+				});
+			});
+			//删除关键词
+			function deletetag(obj){
+				$(obj).parent('.k-tag').remove();
+			}
+		</script>
+	</body>
+
+</html>

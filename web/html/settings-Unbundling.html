@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>设置</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<!--<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>-->
+		<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+		<script src="../js/audio.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<!--<script type="text/javascript" src="../js/highcharts.js"></script>-->
+		<!--<link rel="stylesheet" href="../css/jquery.enjoyhint.css" />-->
+		<!--<script type="text/javascript" src="../js/enjoyhint.js"></script>-->
+		<!--<script type="text/javascript" src="../js/jquery.enjoyhint.js" ></script>-->
+
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav">
+				<li>
+					<a href="">首页</a>
+				</li>
+				<li>
+					<a href="">行动</a>
+				</li>
+				<li>
+					<a href="">客户</a>
+				</li>
+				<li>
+					<a href="">账户</a>
+				</li>
+				<li>
+					<a href="">任务</a>
+				</li>
+				<li>
+					<a href="" class="current">设置</a>
+				</li>
+			</ul>
+			<ul class="header-right fr">
+				<li>
+					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes"><i class="qq"></i>
+						<div class="service">在线客服</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="nav-tip"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="update"></i></a>
+				</li>
+				<li class="active">
+					<a href="news.html">
+						<i class="message"></i>
+						<i class="message-tip">29</i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="user">刘</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 汇总提示 tipArea -->
+		<div class="tipArea">
+			<div class="wrap">
+				<ul class="ul-2">
+					<li>
+						<a href="settings.html" class="current">团队设置</a>
+					</li>
+					<li>
+						<a href="settings-1.html">外呼标签设置</a>
+					</li>
+					<li>
+						<a href="settings-2.html">短信模板设置</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 内容部分 contents -->
+		<div class="contents">
+			<!-- 左侧 -->
+			<div class="leftPage fl">
+				<a href="javascript:;" id="edit-com" class="edit-com"></a>
+				<dl class="left-user">
+					<dt><img src="../images/left-photo.png"></dt>
+					<dd>
+						<p>北京联云天下科技有限公司</p>
+						<span>赵科虎，夏云柯</span>
+					</dd>
+				</dl>
+				<div class="leftbindcompay" id="leftbindcompay">
+					<div class="tlt">绑定企业</div>
+					<div class="line"></div>
+					<p class="p">企业串码</p>
+					<p class="p-1 c-blue">382087754</p>
+					<div class="line"></div>
+					<p class="p">邀请团队成员</p>
+					<input type="text" class="text" placeholder="请输入手机号" />
+					<input type="button" class="btn" value="发送邀请码" />
+				</div>
+				<div class="leftbindcompay left-join" id="">
+					<p class="p">邀请云客·云电销</p>
+					<input type="button" class="btn" value="立即邀请" />
+				</div>
+			</div>
+			<!-- 右侧 -->
+			<div class="rightPage setting">
+				<div class="tabBox">
+					<ul id="tabBox">
+						<li class="li1">
+							<a href="settings.html" >申请绑定</a>
+						</li>
+						<li class="li1" id="buttons">
+							<a href="settings-Unbundling.html" class="current">解除绑定</a>
+						</li>
+						<li class="li1">
+							<a href="settings-Unbundled.html">已解绑账号</a>
+						</li>
+					</ul>
+
+				</div>
+				<div class="contentsbox-1" style="display: block;">
+					<table class="table-list" id="table-list-1">
+
+						<thead>
+							<tr>
+								<th>用户名</th>
+								<th>手机号</th>
+								<th>申请时间</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span class="phone-mark"></span>刘晓辉</td>
+								<td>13601129728</td>
+								<td>2016-03-09</td>
+								<td><a class="href" href="javascript:unbundling(1);">解绑</a></td>
+							</tr>
+							<tr>
+								<td>刘宇</td>
+								<td>13611126225</td>
+								<td>2016-03-09</td>
+								<td><a class="href"  href="javascript:unbundling(0);">解绑</a></td>
+							</tr>
+							<tr>
+								<td><span class="phone-mark"></span>刘晓辉</td>
+								<td>13601129728</td>
+								<td>2016-03-09</td>
+								<td><a class="href" href="javascript:unbundling(1);">解绑</a></td>
+							</tr>
+							<tr>
+								<td>刘宇</td>
+								<td>13611126225</td>
+								<td>2016-03-09</td>
+								<td><a class="href"  href="javascript:unbundling(0);">解绑</a></td>
+							</tr>
+							<tr>
+								<td><span class="phone-mark"></span>刘晓辉</td>
+								<td>13601129728</td>
+								<td>2016-03-09</td>
+								<td><a class="href" href="javascript:unbundling(1);">解绑</a></td>
+							</tr>
+							<tr>
+								<td>刘宇</td>
+								<td>13611126225</td>
+								<td>2016-03-09</td>
+								<td><a class="href"  href="javascript:unbundling(0);">解绑</a></td>
+							</tr>
+							<tr>
+								<td><span class="phone-mark"></span>刘晓辉</td>
+								<td>13601129728</td>
+								<td>2016-03-09</td>
+								<td><a class="href" href="javascript:unbundling(1);">解绑</a></td>
+							</tr>
+							<tr>
+								<td>刘宇</td>
+								<td>13611126225</td>
+								<td>2016-03-09</td>
+								<td><a class="href"  href="javascript:unbundling(0);">解绑</a></td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- 分页 -->
+					<p class="page-p">共20条</p>
+					<ul class="page-ul">
+						<li>
+							<</li>
+								<li>1</li>
+								<li>2</li>
+								<li>3</li>
+								<li>></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 编辑公司 -->
+		<div class="edit-company" id="edit-company">
+			<a href="javascript:;" class="a-closed"></a>
+			<div class="company-photo-box">
+				<img src="../images/company-photo.png">
+				<a href="javascript:;" class="a-edit-photo"></a>
+			</div>
+			<p class="p1">北京联云天下科技有限公司</p>
+			<p class="p2">赵科虎，夏云柯</p>
+			<form class="companyForm">
+				<input type="text" class="text" name="" placeholder="请输入企业名称">
+				<input type="text" class="text" name="" placeholder="请输入企业简介">
+				<input type="text" class="text" name="" id="asselect" placeholder="请选择所属行业">
+				<i class="select-icon"></i>
+				<div class="selectBox">
+					<a href="javascript:;">行业1</a>
+					<a href="javascript:;">行业2</a>
+					<a href="javascript:;">行业4</a>
+					<a href="javascript:;">行业1</a>
+					<a href="javascript:;">行业1</a>
+				</div>
+				<input type="button" class="btn" value="保存" id="submitBtn">
+			</form>
+		</div>
+
+		<div class="applyBox contact" id="unbundling">
+			<div class="tlt"><i></i>解绑员工
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="custom_f contact_info">
+				该员工已绑定手机，请先将员工与手机<label><a href="">解除绑定</a></label>
+			</div>
+			<div class="btn-f">
+				<input type="button" class="btn btn-cancel" value="取消">
+			</div>
+		</div>
+
+		<div class="applyBox unbundling-warp" id="data-unbundling">
+			<div class="tlt"><i></i>绑定员工
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="unbundling-box">
+				<div class="bundling-t">
+					请选择该员工所拥有数据去向
+				</div>
+				<div class="bundling-li">
+					<div class="radio-li">
+						<input type="radio" name="data-way" id="data-way1" />
+						<label class="radio-show" for="data-way1">
+							<i class="radio"></i>
+							数据进入公海（无跟进人）
+						</label>
+					</div>
+				</div>
+				<div class="bundling-li">
+					<div class="radio-li">
+						<input type="radio" name="data-way" id="data-way2" />
+						<label class="radio-show" for="data-way2">
+							<i class="radio"></i>
+							数据交接给其他员工（全部变更跟进人）
+						</label>
+					</div>
+					<div class="customer-choose">
+						<div class="choose-t">选择员工</div>
+						<ul class="choose-add clearfix">
+							<li class="del-sc">
+								<a href="javascript:void(0)"><img src="../images/member.png"><em>艾云鹤</em><i class="fffline"></i></a>
+							</li>
+							<li class="del-add">
+								<a href="javascript:void(0)"><img src="../images/add-member.png"><em>添加员工</em></a>
+								<div class="adddiv1" id="allmembers1">
+									<div class=" overy clearfix">
+										<div class="clear"></div>
+										<ul class="staff-ul bortop" style="height:253px">
+											<li>
+												<a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2016/06big/fe3e284cd8fb4c9c999bac0dd7fa1c76_myHeaderImage.png" memberid="2624A4F332F64B16A1469ED2D97DE406" realname="云客小助手"><img src="http://yunkecn.com/fileupload/fileupload/2016/06big/fe3e284cd8fb4c9c999bac0dd7fa1c76_myHeaderImage.png"><span>云客小助手</span><i class="right-icon"></i></a>
+											</li>
+											<li>
+												<a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2016/08big/4b3bfc243b5b4ed1bc2650b25e29fa76_head.jpg" memberid="C94DB37A3A7A463E8FCF6D58246136E4" realname="王佳印"><img src="http://yunkecn.com/fileupload/fileupload/2016/08big/4b3bfc243b5b4ed1bc2650b25e29fa76_head.jpg"><span>王佳印</span><i class="right-icon"></i></a>
+											</li>
+											<li>
+												<a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2015/09big/122437bc40b84e2eb10ac1756a3d6159_myHeaderImage.png" memberid="E30C6E5B007149BA9F86CA32131C9014" realname="刘小鱼"><img src="http://yunkecn.com/fileupload/fileupload/2015/09big/122437bc40b84e2eb10ac1756a3d6159_myHeaderImage.png"><span>刘小鱼</span><i class="right-icon"></i></a>
+											</li>
+											<li>
+												<a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2016/06big/59ecb3e0362a4f249d56b56fbac8ea38_iOS.png" memberid="F53C03BC582142808F809C5D32516E70" realname="田格非"><img src="http://yunkecn.com/fileupload/fileupload/2016/06big/59ecb3e0362a4f249d56b56fbac8ea38_iOS.png"><span>田格非</span><i class="right-icon"></i></a>
+											</li>
+										</ul>
+									</div>
+									<button class="addBut" type="button" onclick="javascript:selectmember1()">确定</button>
+								</div>
+							</li>
+						</ul>
+
+					</div>
+
+				</div>
+				<div class="bundling-li">
+					<div class="radio-li">
+						<input type="radio" name="data-way" id="data-way3" />
+						<label class="radio-show" for="data-way3">
+							<i class="radio"></i>
+							不进行数据转移（跟进人为原员工）
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="btn-f">
+				<input type="button" class="btn btn-cancel" value="取消">
+				<input type="button" class="btn" value="继续">
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		$(function() {
+//            $(".join_tip1 .join_btn a").click(function () {
+//                $(".join-tipf1").hide();
+//                $(".join-tipf2").show();
+//
+//            });
+//            $(".join_tip2 .join_btn a").click(function () {
+//                $(".join-tipf2").hide();
+////				$(".join_tip3").show();
+//            });
+//        });
+
+		function unbundling(index){
+		    if(index==0){
+                $("#data-unbundling").show();
+			}else {
+                $("#unbundling").show();
+			}
+			$(".layer").show();
+		}
+	</script>
+
+</html>

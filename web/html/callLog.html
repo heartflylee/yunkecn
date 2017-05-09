@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>团队客户</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+
+		<script type="text/javascript" src="../js/audio.js"></script>
+		<script type="text/javascript" src="../js/jedate/jedate.js"></script>
+		<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js"></script>
+		<link rel="stylesheet" href="../css/ios6switch.css" />
+		<script type="text/javascript" src="../js/ios6switch.min.js"></script>
+		<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<div class="layer-6"></div>
+		<div class="layer-3"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav">
+				<li>
+					<a href="">首页</a>
+				</li>
+				<li>
+					<a href="">行动</a>
+				</li>
+				<li>
+					<a href="" class="current">客户</a>
+				</li>
+				<li>
+					<a href="">账户</a>
+				</li>
+				<li>
+					<a href="">任务</a>
+				</li>
+				<li>
+					<a href="">设置</a>
+				</li>
+			</ul>
+			<ul class="header-right fr">
+				<li>
+					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes"><i class="qq"></i>
+						<div class="service">在线客服</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:guide1Show();"><i class="nav-tip"></i>
+						<div class="service">继续引导</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="update"></i></a>
+				</li>
+				<li class="active">
+					<a href="news.html">
+						<i class="message"></i>
+						<i class="message-tip">29</i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="user">刘</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 汇总提示 tipArea -->
+		<div class="tipArea">
+			<div class="wrap">
+				<span class="span-1 current" id="filter">筛选<b class="b-icon"></b></span>
+				<span class="span-1" id="custom-header">自定义表头</span>
+				<div class="position-relative searchBox fr">
+					<input type="text" placeholder="请输入姓名、公司、手机号等相关信息" />
+					<a class="search-icon"></a>
+				</div>
+			</div>
+		</div>
+		<!-- 筛选 filterBox -->
+		<div class="filterBox" id="filterBox">
+			<div class="wrap">
+				<p>
+					<label>最后一次通话时间</label>
+					<span class="time"><input type="text" id="timetext" /></span>
+					<label>至</label>
+					<span class="time"><input type="text" id="timetext-2" /></span>
+				</p>
+				<script type="text/javascript">
+					var start = {
+						format: 'YYYY-MM-DD hh:mm:ss',
+						maxDate: $.nowDate(0), //设定最小日期为当前日期
+						minDate: '1900-01-01 00:00:00', //最大日期
+						choosefun: function(elem, datas) {
+							end.minDate = datas; //开始日选好后，重置结束日的最小日期
+						}
+					};
+					var end = {
+						format: 'YYYY-MM-DD hh:mm:ss',
+						maxDate: $.nowDate(0), //设定最小日期为当前日期
+						//  festival:true,
+						minDate: '1900-01-01 00:00:00', //最大日期
+						choosefun: function(elem, datas) {
+							start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+						}
+					};
+					$('#timetext').jeDate(start);
+					$('#timetext-2').jeDate(end);
+
+				</script>
+				<p>
+					<label>通话人</label>
+					<select>
+						<option>请选择通话人</option>
+						<option value="">刘晓辉</option>
+						<option value="">刘宇</option>
+					</select>
+					<label>呼入/呼出</label>
+					<select>
+						<option>请选择呼入/呼出</option>
+						<option value="">呼入</option>
+						<option value="">呼出</option>
+					</select>
+					<label>接通状态</label>
+					<select>
+						<option>请选择接通状态</option>
+						<option value="">未接通</option>
+						<option value="">已接通</option>
+					</select>
+					<label>跟进人</label>
+					<select>
+						<option>请选择跟进人</option>
+						<option value="">刘晓辉</option>
+						<option value="">刘宇</option>
+					</select>
+				</p>
+				<p>
+					<label>电话结果</label>
+					<select>
+						<option>请选择电话结果</option>
+						<option>有意向</option>
+						<option>无意向</option>
+						<option value="">二次外呼</option>
+						<option value="">资料错误</option>
+					</select>
+					<label>二级标签</label>
+					<select>
+						<option>请选择二级标签</option>
+						<option value="">发短信</option>
+						<option value="">加微信</option>
+					</select>
+					<label>销售进度</label>
+					<select>
+						<option>请选择销售进度</option>
+						<option value="">未沟通</option>
+						<option value="">无需求</option>
+						<option value="">初步沟通</option>
+						<option value="">确认需求</option>
+						<option value="">报价</option>
+						<option value="">面谈</option>
+						<option value="">成交</option>
+						<option value="">输单</option>
+					</select>
+				</p>
+				<input type="button" class="btn" value="筛选结果" id="filterBtn">
+			</div>
+		</div>
+		<!-- 内容部分 contents -->
+		<div class="contents">
+			<div class="table-tlt">
+				<a class="return-icon" href=""></a>
+				<i class="i"></i>通话记录列表
+			</div>
+			<div class="customer">
+				<table class="table-list" id="table-list">
+					<thead>
+						<tr>
+							<th>客户姓名</th>
+							<th>电话号码</th>
+							<th>通话时间</th>
+							<th>通话人</th>
+							<th>跟进人</th>
+							<th>通话方式</th>
+							<th>呼入/呼出</th>
+							<th>接通状态</th>
+							<th>电话结果</th>
+							<th>二级标签</th>
+							<th>销售进度</th>
+							<th>操作</th>
+							<th>通话录音</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+							2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="red-status">呼入</span>
+							</td>
+							<td>
+								<span class="red-status">未接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<span class="mgr10" >转移至公海</span>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<a class="href mgr10" href="javascript:Complete();">补全信息</a>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>刘宇</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>刘晓辉</td>
+							<td>刘晓辉</td>
+							<td>PC端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="red-status">呼入</span>
+							</td>
+							<td>
+								<span class="red-status">未接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<span class="mgr10" >转移至公海</span>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<a class="href mgr10" href="javascript:Complete();">补全信息</a>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>刘宇</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>刘晓辉</td>
+							<td>刘晓辉</td>
+							<td>PC端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="red-status">呼入</span>
+							</td>
+							<td>
+								<span class="red-status">未接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<span class="mgr10" >转移至公海</span>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<a class="href mgr10" href="javascript:Complete();">补全信息</a>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>刘宇</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>刘晓辉</td>
+							<td>刘晓辉</td>
+							<td>PC端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="red-status">呼入</span>
+							</td>
+							<td>
+								<span class="red-status">未接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<span class="mgr10" >转移至公海</span>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<a class="href mgr10" href="javascript:Complete();">补全信息</a>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>刘宇</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>刘晓辉</td>
+							<td>刘晓辉</td>
+							<td>PC端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="red-status">呼入</span>
+							</td>
+							<td>
+								<span class="red-status">未接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<span class="mgr10" >转移至公海</span>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<a class="href mgr10" href="javascript:Complete();">补全信息</a>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>刘宇</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>刘晓辉</td>
+							<td>刘晓辉</td>
+							<td>PC端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="red-status">呼入</span>
+							</td>
+							<td>
+								<span class="red-status">未接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<span class="mgr10" >转移至公海</span>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<a class="href mgr10" href="javascript:Complete();">补全信息</a>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>刘宇</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>刘晓辉</td>
+							<td>刘晓辉</td>
+							<td>PC端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="red-status">呼入</span>
+							</td>
+							<td>
+								<span class="red-status">未接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<span class="mgr10" >转移至公海</span>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<a class="href mgr10" href="javascript:Complete();">补全信息</a>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>刘宇</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>刘晓辉</td>
+							<td>刘晓辉</td>
+							<td>PC端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="red-status">呼入</span>
+							</td>
+							<td>
+								<span class="red-status">未接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<span class="mgr10" >转移至公海</span>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<a class="href mgr10" href="javascript:Complete();">补全信息</a>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>刘宇</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>刘晓辉</td>
+							<td>刘晓辉</td>
+							<td>PC端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="red-status">呼入</span>
+							</td>
+							<td>
+								<span class="red-status">未接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<span class="mgr10" >转移至公海</span>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<a class="href mgr10" href="javascript:Complete();">补全信息</a>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>刘宇</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>刘晓辉</td>
+							<td>刘晓辉</td>
+							<td>PC端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="red-status">呼入</span>
+							</td>
+							<td>
+								<span class="red-status">未接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<span class="mgr10" >转移至公海</span>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>--</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>18513136768</td>
+							<td>18513136768</td>
+							<td>手机端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<a class="href mgr10" href="javascript:Complete();">补全信息</a>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+						<tr>
+							<td>刘宇</td>
+							<td>13300000000</td>
+							<td>
+								2017-04-25 14:50:22
+							</td>
+							<td>刘晓辉</td>
+							<td>刘晓辉</td>
+							<td>PC端</td>
+							<td>
+								<span class="green-status">呼出</span>
+							</td>
+							<td>
+								<span>已接通</span>
+							</td>
+							<td>有意向</td>
+							<td>加微信</td>
+							<td>初步沟通</td>
+							<td>
+								<span class="mgr10" >补全信息</span>
+								<a class="href mgr10" href="javascript:move();">转移至公海</a>
+							</td>
+							<td>
+								5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+				<div class="checkall-view">
+					<div class="check-f" onclick="checkall();"><i class="checkall"></i>全选</div>
+					<label>已选择<span  style="font-weight:bold;color:red;padding:0 5px 0 5px;">0</span>条</label>
+				</div>
+				<!-- 分页 -->
+				<p class="page-p">共20条</p>
+				<ul class="page-ul">
+					<li>
+						<<</li>
+							<li>
+								< </li>
+									<li> 1 </li>
+									<li> 2 </li>
+									<li class="page-d">...</li>
+									<li> 3 </li>
+									<li> > </li>
+									<li>>></li>
+				</ul>
+			</div>
+		</div>
+
+
+		<!-- 自定义表头 customHeader -->
+		<div class="customHeaderBox" id="customHeaderBox">
+			<div class="tlt"><i></i>自定义表头
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="ctdivbox marleft20 fl">
+				<em>隐藏字段</em>
+				<div class="ctchooseBox" id="hiddenField">
+					<ul>
+
+					</ul>
+				</div>
+			</div>
+			<i class="remove-icon" id="removeBtn"></i>
+			<i class="add-icon" id="addBtn"></i>
+			<div class="ctdivbox marright40 fr">
+				<em>显示字段</em>
+				<div class="ctchooseBox" id="showField">
+					<ul>
+						<li key="customerName">客户姓名</li>
+						<li>电话号码</li>
+						<li>通话时间</li>
+						<li>通话人</li>
+						<li>跟进人</li>
+						<li>通话方式</li>
+						<li>呼入/呼出</li>
+						<li>接通状态</li>
+						<li>电话结果</li>
+						<li>二级标签</li>
+						<li>销售进度</li>
+						<li>操作</li>
+						<li>通话录音</li>
+					</ul>
+				</div>
+			</div>
+			<i class="up-icon" id="upBtn"></i>
+			<i class="down-icon" id="downBtn"></i>
+			<input type="button" class="btn" value="提交" id="customBtn">
+		</div>
+
+
+		<!--补全信息 -->
+		<div class="applyBox custom_new" id="applyBox-2">
+			<div class="tlt"><i></i>补全信息
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="customer_f">
+				<div class="input_f not_none">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入客户姓名" />
+				</div>
+				<div class="input_f not_none">
+					<input type="text" class="inputBox-1 bg-gray com_input" placeholder="请输入公司名称" />
+					<div class="com_f">
+						<div class="com_info">北京联云天下科技有限公司</div>
+						<div class="com_info">北京联云天下科技有限公司</div>
+						<div class="com_info">北京联云天下科技有限公司</div>
+					</div>
+				</div>
+				<div class="input_f">
+					<input type="text" class="inputBox-1 bg-gray"value="13601129728" readonly="readonly" />
+				</div>
+				<div class="input_f">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入详细地址" />
+				</div>
+
+				<div class="input_f">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入职位" />
+				</div>
+				<div class="com-con" id="com-con">
+					<div class="com-li clearfix">
+						<div class="com-l">企业法人：</div>
+						<div class="com-r">
+							江燕
+						</div>
+					</div>
+					<div class="com-li clearfix">
+						<div class="com-l">注册资本：</div>
+						<div class="com-r">
+							30万人民币
+						</div>
+					</div>
+					<div class="com-li clearfix">
+						<div class="com-l">企业类型：</div>
+						<div class="com-r">
+							有限责任公司（自然人独资）
+						</div>
+					</div>
+					<div class="com-li clearfix">
+						<div class="com-l">经营范围：</div>
+						<div class="com-r">
+							技术开发、技术转让、技术服务、技术咨询；市场调查；经济贸易咨询；教育咨询；文化咨询；计算机技术培训；维修仪器仪表、维修办公设备；销售电子产品、家用电器、计算机、然间及辅助设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）
+						</div>
+					</div>
+				</div>
+				<div class="add_more">
+					<a>输入更多信息>></a>
+				</div>
+				<div class="custom_more">
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入手机号码2" />
+					</div>
+					<div class="input_f">
+						<select class="select_row">
+							<option>请选择企业资质</option>
+							<option>请选择企业资质</option>
+							<option>请选择企业资质</option>
+							<option>请选择企业资质</option>
+						</select>
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入经营范围" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入座机号码" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入邮箱地址" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入QQ号码" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入微信号码" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入生日" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入前台电话号码" />
+					</div>
+					<div class="input_f">
+						<textarea class="textarear_customer" placeholder="请输入备注"></textarea>
+					</div>
+				</div>
+			</div>
+			<input type="button" class="btn" value="提交" id=" 9">
+		</div>
+		<!--补全信息-->
+
+		<div class="applyBox " id="move">
+			<div class="tlt"><i></i>转移至公海
+				<a href="javascript:closemove();" class="a-closed"></a>
+			</div>
+			<div class="move-box">
+				<div class="move-t default">转移至公海前请先<a href="javascript:Complete();">补全客户信息</a>
+				</div>
+				<div class="move-t success">转移成功</div>
+			</div>
+			<div class="btn-f">
+				<a href="javascript:closemove();" id="moveCancel" class="btn btn-cancel">取消</a>
+			</div>
+		</div>
+
+		<div class="applyBox audio-box">
+			<div class="tlt"><i></i>通话录音
+				<a href="javascript:closeAudio();" class="audio-closed"></a>
+			</div>
+			<div class="audio-text-warp">
+				<div class="audio-name">
+					刘晓红
+				</div>
+				<div class="audio-text">
+					北京联云天下科技有限公司
+				</div>
+				<div class="audio-text">
+					电话结果：<label>有意向</label>
+				</div>
+				<div class="audio-text">
+					电话标签：<label>加微信</label>
+				</div>
+				<div class="audio-warp">
+					<audio preload="none"></audio>
+				</div>
+				<div class="audio-text">
+					<a class="download" href="http://www.baidu.com">下载录音</a>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			function closeAudio() {
+				$(".layer-3").hide();
+				$(".audio-box").hide();
+				audio1.pause();
+			}
+
+			//补全信息
+            function Complete (){
+                $(".layer").show();
+                $("#applyBox-2").show();
+            }
+            //转移至公海
+			function move(){
+				$("#move").show();
+                $(".layer-3").show();
+                var success = true;
+                if(success){
+                    $("#move .default").hide();
+                    $("#move .success").show();
+                    $("#moveCancel").removeClass("btn-cancel");
+				}
+				else{
+                    $("#move .default").show();
+                    $("#move .success").hide();
+                    $("#moveCancel").addClass("btn-cancel");
+				}
+
+			}
+			function closemove(){
+                $("#move").hide();
+                $(".layer-3").hide();
+			}
+			$(function() {
+				$(".customer").height($(window).height() - $(".customer").offset().top - 80);
+				$(".customer").css({
+					"overflow": "auto"
+				});
+
+				//补全信息更多信息
+                $(".add_more a").click(function() {
+                    $(".custom_more").show();
+                    $(".add_more").hide();
+                });
+
+				$(".com_input").bind("input propertychange", function() {
+					if($(this).val().length > 0) {
+						$(".com_f").show();
+					} else {
+						$(".com_f").hide();
+					}
+				});
+				$(window).click(function() {
+					$(".com_f").hide();
+				});
+				$(".com_f,.com_input").click(function() {
+					event.stopPropagation();
+				});
+				//选择公司
+				$(".com_f .com_info").click(function() {
+					$(".com_input").val($(this).text().trim());
+					$(".com_f").hide();
+					$("#com-con").show();
+				});
+			});
+		</script>
+	</body>
+
+</html>

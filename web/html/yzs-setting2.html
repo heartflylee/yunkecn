@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>团队首页</title>
+		<link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<link rel="stylesheet" href="../css/cropbox.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/highcharts.js"></script>
+		<script type="text/javascript" src="../js/cropbox.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<!--<script type="text/javascript" src="../js/index.js" ></script>-->
+
+		<link rel="stylesheet" href="../css/jqcloud.css" />
+		<script type="text/javascript" src="../js/jqcloud.js"></script>
+		<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+	</head>
+
+	<body class="yzs-f">
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>园区招商平台</em></span>
+			<ul class="nav">
+				<li>
+					<a href="" >首页</a>
+				</li>
+				<li>
+					<a href="">任务</a>
+				</li>
+				<li>
+					<a href="" class="current" id="top-setting">设置</a>
+				</li>
+			</ul>
+			<ul class="header-right fr">
+				<li>
+					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes"><i class="qq"></i>
+						<div class="service">在线客服</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="add"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="update"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="message"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="user"><img src="../images/a-1.png" /></a>
+					<div class="quit_down">
+						<div class="code">
+							<img src="../images/download.png" />
+							<span>扫一扫下载云客APP</span>
+						</div>
+						<div class="quit_li">
+							<a>下载软电话</a>
+						</div>
+						<div class="quit_li">
+							<a>退出登录</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- 汇总提示 tipArea -->
+		<div class="tipArea">
+			<div class="wrap">
+				<div class="count_f">
+					<span class="span-1" id="">团队设置</span>
+					<span class="span-1" id="">外呼标签设置</span>
+					<span class="span-1" id="">短信模板设置</span>
+					<span class="span-1" id="">园区基本信息</span>
+					<span class="span-1 current">入驻企业信息</span>
+				</div>
+			</div>
+		</div>
+		<!-- 内容部分 contents -->
+		<div class="contents">
+			<!-- 左侧 -->
+			<div class="leftPage fl">
+				<dl class="left-user">
+					<dt class="yzs-head" style="background-image: url(../images/yzs-head.jpg);"></dt>
+					<dd>
+						<p>北京联云天下科技有限公司</p>
+					</dd>
+				</dl>
+				<div class="btn-f">
+					<input type="button" class="btn" value="新建企业" />
+				</div>
+				<div class="leftContentBox">
+					<ul class="sellers yzs-sellers">
+						<li>北京天翔互动有限公司<span class="yzs-li-close"></span></li>
+						<li>北京联友天下有限公司<span class="yzs-li-close"></span></li>
+						<li>北京天翔互动有限公司总部<span class="yzs-li-close"></span></li>
+						<li>北京联友天下有限公司<span class="yzs-li-close"></span></li>
+						<li>北京天翔互动有限公司总部<span class="yzs-li-close"></span></li>
+						<li>北京联友天下有限公司<span class="yzs-li-close"></span></li>
+						<li>北京天翔互动有限公司总部<span class="yzs-li-close"></span></li>
+						<li>北京联友天下有限公司<span class="yzs-li-close"></span></li>
+						<li>北京联友天下有限公司<span class="yzs-li-close"></span></li>
+	
+					</ul>
+				</div>
+			</div>
+			<!-- 右侧 -->
+			<div class="rightPage">
+				<div class="add_account company-con">
+					<div class="account_li clearfix">
+						<div class="account_name">
+							企业名称
+						</div>
+						<div class="account_con">
+							<input type="text" class="account_input company-input" />
+							<div class="company-f">
+								<div class="company-li">
+									北京联云天下科技有限公司
+								</div>
+								<div class="company-li">
+									北京联云天下科技有限公司
+								</div>
+								<div class="company-li">
+									北京联云天下科技有限公司
+								</div>
+								<div class="company-li">
+									北京联云天下科技有限公司
+								</div>
+								<div class="company-li">
+									北京联云天下科技有限公司
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="account_li clearfix">
+						<div class="account_name">
+							法人代表
+						</div>
+						<div class="account_con">
+							<input type="text" class="account_input" />
+						</div>
+					</div>
+					<div class="account_li clearfix">
+						<div class="account_name">
+							注册资本
+						</div>
+						<div class="account_con">
+							<input type="text" class="account_input" />
+						</div>
+					</div>
+					<div class="account_li clearfix">
+						<div class="account_name">
+							联系人
+						</div>
+						<div class="account_con">
+							<input type="text" class="account_input" />
+						</div>
+					</div>
+					<div class="account_li clearfix">
+						<div class="account_name">
+							经营范围
+						</div>
+						<div class="account_con">
+							<input type="text" class="account_input"  />
+						</div>
+					</div>
+					<div class="account_li clearfix">
+						<div class="account_name">
+							年营业额
+						</div>
+						<div class="account_con">
+							<input type="text" class="account_input" />
+						</div>
+					</div>
+					<div class="account_li clearfix">
+						<div class="account_name">
+							人员规模
+						</div>
+						<div class="account_con">
+							<input type="text" class="account_input" />
+						</div>
+					</div>
+					<div class="account_li clearfix">
+						<div class="account_name">
+							联系电话
+						</div>
+						<div class="account_con">
+							<input type="text" class="account_input" />
+						</div>
+					</div>
+					<div class="account_li clearfix">
+						<div class="account_name">
+							主要作品
+						</div>
+						<div class="account_con">
+							<textarea name="" rows="" cols=""></textarea>
+						</div>
+					</div>
+					<div class="account_li clearfix">
+						<div class="account_name">
+							企业介绍
+						</div>
+						<div class="account_con">
+							<textarea name="" rows="" cols=""></textarea>
+						</div>
+					</div>
+					<div class="account_btn">
+						<input type="button" class="savebtn" id="save" value="保存" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				$(".company-input").bind("input propertychange",function(){
+					if($(this).val().length>2){
+						$(".company-f").show();
+					}else{
+						$(".company-f").hide();
+					}
+				});
+				$(window).click(function(){
+					$(".company-f").hide();
+				});
+				$(".company-f,.company-input").click(function(){
+					event.stopPropagation();
+				});
+				//选择公司
+				$(".company-f .company-li").click(function(){
+					$(".company-f").hide();
+					$(".company-input").val($(this).text().trim());
+				});
+			});
+		</script>
+	</body>
+
+</html>

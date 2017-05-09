@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>设置</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav">
+				<li>
+					<a href="">首页</a>
+				</li>
+				<li>
+					<a href="">行动</a>
+				</li>
+				<li>
+					<a href="">客户</a>
+				</li>
+				<li>
+					<a href="">账户</a>
+				</li>
+				<li>
+					<a href="">任务</a>
+				</li>
+				<li>
+					<a href="" class="current">设置</a>
+				</li>
+			</ul>
+			<ul class="header-right fr">
+				<li>
+					<a href="javascript:;"><i class="add"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="update"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="message"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="user">刘</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 汇总提示 tipArea -->
+		<div class="tipArea">
+			<div class="wrap">
+				<ul class="ul-2 nav-w">
+					<li>
+						<a href="settings.html">团队设置</a>
+					</li>
+					<li>
+						<a href="settings-1.html">外呼标签设置</a>
+					</li>
+					<li>
+						<a href="settings-2.html">短信模板设置</a>
+					</li>
+					<li>
+						<a href="settings-email.html">邮件账户设置</a>
+					</li>
+					<li>
+						<a href="settings-email1.html">邮件模板设置</a>
+					</li>
+					<li>
+						<a href="settings-call.html">挂机时间设置</a>
+					</li>
+					<li>
+						<a href="settings-sea.html">企业公海设置</a>
+					</li>
+					<li>
+						<a href="Recommend.html" class="current">推荐系统设置</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 内容部分 contents -->
+		<div class="contents">
+			<div class="table-tlt">
+				<i class="i"></i>推荐引擎初始化
+			</div>
+			<div class="recommend">
+				<div class="account_li clearfix">
+					<div class="account-t">
+						注入关键词
+					</div>
+				</div>
+				<div class="account_li clearfix">
+					<div class="account_name">
+						公司名称类
+					</div>
+					<div class="account_con">
+						<input type="text" class="account_input" placeholder="如：科技，广告，有限" />
+					</div>
+				</div>
+				<div class="account_li clearfix">
+					<div class="account_name">
+						行业类
+					</div>
+					<div class="account_con">
+						<input type="text" class="account_input" placeholder="如：互联网，数码，贸易" />
+					</div>
+				</div>
+				<div class="account_li clearfix">
+					<div class="account_name">
+						主营产品类
+					</div>
+					<div class="account_con">
+						<input type="text" class="account_input" placeholder="如：五金工具，日用品" />
+					</div>
+				</div>
+				<div class="account_li clearfix">
+					<div class="account_name">
+						职位类
+					</div>
+					<div class="account_con">
+						<input type="text" class="account_input" placeholder="如：企业法人，销售经理" />
+					</div>
+				</div>
+				<div class="account-tip">
+					每个分类最多添加3个关键字，请以逗号分隔
+				</div>
+				<div class="account_li clearfix import">
+					<div class="account_name">
+						导入公司
+					</div>
+					<div class="account_con">
+						<div class="file-f">
+							<input type="text" class="account_input" disabled="disabled" />
+							<input type="file" id="fileinput" class="fileinput" />
+							<a class="filebtn" id="filebtn" href="javascript:;">浏览</a>
+						</div>
+						<div class="importtext">
+							请上传后缀名为xls的文件；数据请勿放在合并的单元格中，且导入文件小于2MB；为保证您导入的客户数据有效，请下载
+							<a>客户导入模板</a>，编辑后上传。
+						</div>
+					</div>
+				</div>
+				<div class="account_li clearfix">
+					<div class="account_name">
+						录入公司
+					</div>
+					<div class="account_con">
+						<div class="inputcom">
+
+							<div class="qixin-f">
+								<input type="text" class="account_input" />
+								<div class="qixin-com">
+									
+								</div>
+								<a class="qixin-btn" onclick="Business();"><i></i>工商信息</a>
+							</div>
+						</div>
+						<a class="addcom" id="addcom">+添加一个公司</a>
+					</div>
+				</div>
+				<div class="account_btn">
+					<input type="button" class="savebtn" id="save" value="提交" />
+				</div>
+			</div>
+		</div>
+		<div class="applyBox custom_new" id="Business">
+			<div class="tlt"><i></i>工商信息
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="customer_f">
+				<div class="com-con update-f">
+					<div class="com-li clearfix">
+						<div class="com-l">公司名称：</div>
+						<div class="com-r">
+							北京希林宇森电子技术有限公司
+						</div>
+					</div>
+					<div class="com-li clearfix">
+						<div class="com-l">公司地址：</div>
+						<div class="com-r">
+							北京市海淀区北洼路90号16号楼1103室
+						</div>
+					</div>
+					<div class="com-li clearfix">
+						<div class="com-l">企业法人：</div>
+						<div class="com-r">
+							江燕
+						</div>
+					</div>
+					<div class="com-li clearfix">
+						<div class="com-l">注册资本：</div>
+						<div class="com-r">
+							30万人民币
+						</div>
+					</div>
+					<div class="com-li clearfix">
+						<div class="com-l">企业类型：</div>
+						<div class="com-r">
+							有限责任公司（自然人独资）
+						</div>
+					</div>
+					<div class="com-li clearfix">
+						<div class="com-l">经营范围：</div>
+						<div class="com-r">
+							技术开发、技术转让、技术服务、技术咨询；市场调查；经济贸易咨询；教育咨询；文化咨询；计算机技术培训；维修仪器仪表、维修办公设备；销售电子产品、家用电器、计算机、然间及辅助设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bt-btn-f">
+				<input type="button" class="btn" value="确定" id="">
+			</div>
+
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				
+				$("#filebtn").click(function(){
+					$("#fileinput").click();
+				});
+				$("#fileinput").change(function(){
+					$(this).prev().val($(this).val());
+				});
+				//新建公司
+				$("#addcom").click(function(){
+					var qixin='<div class="qixin-f">\
+								<input type="text" class="account_input" oninput="inputfocus(this);" onpropertychange="inputfocus(this);" />\
+								<div class="qixin-com">\
+								</div>\
+								<a class="qixin-btn" onclick="Business();"><i></i>工商信息</a>\
+							</div>';
+					$(this).prev().append(qixin);
+					if($(this).prev().find(".qixin-com").length>=3){
+						$(this).hide();
+						return false;
+					}
+				});
+				$("#addcom").prev().find("input[type='text']").bind("input propertychange",function(){
+					inputfocus(this);
+				});
+				
+				$("#Business .btn,#Business a.a-closed").click(function(){
+					$("#Business").hide();
+					$(".layer").hide();
+				});
+			});
+			
+			//显示工商信息
+			function Business(){
+				$(".layer").show();
+				$("#Business").show();
+			}
+			
+			function inputfocus(obj){
+				$(obj).next().show();
+					var comli='<div class="qixinli" onclick="checkcom(this);">\
+									北京联云天下科技有限公司\
+								</div>\
+								<div class="qixinli" onclick="checkcom(this);">\
+									北京联云天下科技有限公司\
+								</div>\
+								<div class="qixinli" onclick="checkcom(this);">\
+									北京联云天下科技有限公司\
+								</div>\
+								<div class="qixinli" onclick="checkcom(this);">\
+									北京联云天下科技有限公司\
+								</div>\
+								<div class="qixinli" onclick="checkcom(this);">\
+									北京联云天下科技有限公司\
+								</div>';
+					$(obj).next().html(comli);
+			}
+			function checkcom(obj){
+				$(obj).parent().prev().val($(obj).text().trim());
+				$(obj).parent().hide();
+				$(obj).parent().next().show();
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>设置</title>
+	<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+	<link href="../css/main.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="../css/head.css" />
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/highcharts.js"></script>
+	<script SRC="../js/audio.js"></script>
+</head>
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<!-- 页面头部 header -->
+<div class="header">
+	<h1 class="logo fl"></h1>
+	<span class="mar fl">|</span>
+	<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+	<ul class="nav">
+		<li><a href="">首页</a></li>
+		<li><a href="">行动</a></li>
+		<li><a href="">客户</a></li>
+		<li><a href="">账户</a></li>
+		<li><a href="">任务</a></li>
+		<li><a href="" class="current">设置</a></li>
+	</ul>
+	<ul class="header-right fr">
+		<li><a href="javascript:;"><i class="add"></i></a></li>
+		<li><a href="javascript:;"><i class="update"></i></a></li>
+		<li><a href="javascript:;"><i class="message"></i></a></li>
+		<li><a href="javascript:;" class="user">刘</a></li>
+	</ul>
+</div>
+<!-- 汇总提示 tipArea -->
+<div class="tipArea">
+	<div class="wrap">
+		<ul class="ul-2">
+			<li><a href="settings.html" >团队设置</a></li>
+			<li><a href="settings-1.html">外呼标签设置</a></li>
+			<li><a href="settings-2.html">短信模板设置</a></li>
+			<li><a href="settings-email.html">邮件账户设置</a></li>
+			<li><a href="settings-email1.html">邮件模板设置</a></li>
+			<li><a href="settings-activation.html" class="current">云客手机激活列表</a></li>
+		</ul>	
+	</div>
+</div>
+<!-- 内容部分 contents -->
+<div class="contents">
+			<div class="table-tlt">
+				<i class="i"></i>云客手机激活列表
+			</div>
+			<div class="customer activation-table" id="activation-table">
+				<table class="table-list">
+					<thead>
+						<tr>
+							<th>手机编号（MEID）</th>
+							<th>云客账号</th>
+							<th>SIM卡手机号</th>
+							<th>使用者姓名</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>8690-1102-9819-33</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td>18600326180</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td><label class="change-icon" onclick="historyShow(this,event);"></label>18600326180<a class="change-history" onclick="historyShow(this,event);">变更历史</a></td>
+						<td>刘宇</td>
+						<td>
+							未绑定
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-33</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td>18600326180</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td>18600326180<a class="change-history" onclick="historyShow(this,event);">变更历史</a></td>
+						<td>刘宇</td>
+						<td>
+							未绑定
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-33</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td>18600326180</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td><label class="change-icon" onclick="historyShow(this,event);"></label>18600326180<a class="change-history" onclick="historyShow(this,event);">变更历史</a></td>
+						<td>刘宇</td>
+						<td>
+							未绑定
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-33</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td>18600326180</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td><label class="change-icon" onclick="historyShow(this,event);"></label>18600326180<a class="change-history" onclick="historyShow(this,event);">变更历史</a></td>
+						<td>刘宇</td>
+						<td>
+							未绑定
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-33</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td>18600326180</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td><label class="change-icon" onclick="historyShow(this,event);"></label>18600326180<a class="change-history" onclick="historyShow(this,event);">变更历史</a></td>
+						<td>刘宇</td>
+						<td>
+							未绑定
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-33</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td>18600326180</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td><label class="change-icon" onclick="historyShow(this,event);"></label>18600326180<a class="change-history" onclick="historyShow(this,event);">变更历史</a></td>
+						<td>刘宇</td>
+						<td>
+							未绑定
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-33</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td>18600326180</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td><label class="change-icon" onclick="historyShow(this,event);"></label>18600326180<a class="change-history" onclick="historyShow(this,event);">变更历史</a></td>
+						<td>刘宇</td>
+						<td>
+							未绑定
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-33</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td>18600326180</td>
+						<td>13601129728</td>
+						<td>
+							<a class="href">解绑</a>
+						</td>
+					</tr>
+					<tr>
+						<td>8690-1102-9819-34</td>
+						<td>18600326180</td>
+						<td><label class="change-icon" onclick="historyShow(this,event);"></label>18600326180<a class="change-history" onclick="historyShow(this,event);">变更历史</a></td>
+						<td>刘宇</td>
+						<td>
+							未绑定
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<div class="change-warp" id="change-warp">
+					<div class="change-li">
+						初始号吗：<span>13601129728</span>
+					</div>
+					<div class="change-li">
+						第1次变更：<span>13601126225</span>
+					</div>
+					<div class="change-li">
+						第2次变更：<span>17793827356</span>
+					</div>
+				</div>
+			</div>
+	<p class="page-p">共20条</p>
+	<ul class="page-ul">
+		<li>
+			<<</li>
+		<li>
+			< </li>
+		<li> 1 </li>
+		<li> 2 </li>
+		<li class="page-d">...</li>
+		<li> 3 </li>
+		<li> > </li>
+		<li>>></li>
+	</ul>
+		</div>
+
+<div class="applyBox " id="unbundling">
+	<div class="tlt"><i></i>解绑手机
+		<a href="javascript:;" class="a-closed"></a>
+	</div>
+	<div class="cancel-box ">
+		<div class="cancel-t">是否确认解绑手机</div>
+	</div>
+	<div class="btn-f">
+		<input type="button" class="btn btn-cancel" value="取消">
+		<input type="button" class="btn" value="提交">
+	</div>
+</div>
+		<script type="text/javascript">
+	$(function(){
+		$(".customer").height($(window).height()-$(".customer").offset().top-80);
+
+		//解绑
+		$(".href").click(function () {
+			$("#unbundling").show();
+			$(".layer").show();
+        })
+
+		//隐藏变更历史
+		$(window).click(function(){
+		    $(".change-warp").hide();
+		})
+		$(".change-warp").click(function(event){
+		    event.stopPropagation();
+		})
+	});
+
+	//显示变更历史
+	function historyShow(obj,e){
+        var $offset;
+	    if($(obj)[0].tagName.toLowerCase() != "a"){
+			$offset = $(obj).siblings("a").offset();
+			$(obj).remove();
+    	}else{
+            $offset = $(obj).offset();
+            $(obj).siblings("label").remove();
+		}
+		var changeWarp = $("#change-warp");
+        changeWarp.show();
+		var tableOffset = $("#activation-table").offset();
+		var offsetTop = $offset.top-tableOffset.top+$("#activation-table").scroll()[0].scrollTop;
+		if(offsetTop+20 + changeWarp.outerHeight()>($(".customer table").height() > $(".customer").height() ? $(".customer table").height() : $(".customer").height())){
+            offsetTop = offsetTop - changeWarp.outerHeight();
+		}
+		else{
+            offsetTop += 20;
+		}
+        changeWarp.css({"left":$offset.left-tableOffset.left,"top":offsetTop});
+		e.stopPropagation();
+	}
+</script>
+</body>
+</html>

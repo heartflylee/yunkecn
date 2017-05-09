@@ -1,0 +1,4285 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>团队客户</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../css/main.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../css/head.css">
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/highcharts.js"></script>
+		<link href="../css/hDate.css" rel="stylesheet">
+		<!--<script type="text/javascript" src="../js/hDate.js"></script>-->
+		<script type="text/javascript" src="../js/audio.js"></script>
+
+		<script type="text/javascript" src="../js/keywordsinput.js"></script>
+		<script type="text/javascript" src="../js/template.js"></script>
+		<!--<script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+		<script type="text/javascript" src="../js/jedate/jedate.min.js"></script>-->
+		<!--<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js"></script>-->
+		<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+	</head>
+
+	<body style="height: 944px;">
+		<!-- 页面遮罩层 layer -->
+		<div class="layer" style="height: 2224px;"></div>
+		<div class="layer-1" style="height: 2114px;"></div>
+		<div class="layer-6"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav">
+				<li>
+					<a href="">首页</a>
+				</li>
+				<li>
+					<a href="">行动</a>
+				</li>
+				<li>
+					<a href="">客户</a>
+				</li>
+				<li>
+					<a href="" class="current">线索</a>
+				</li>
+				<li>
+					<a href="">任务</a>
+				</li>
+				<li>
+					<a href="">设置</a>
+				</li>
+			</ul>
+			<ul class="header-right fr">
+				<li>
+					<a href="javascript:;"><i class="add"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="update"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="message"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="user">刘</a>
+				</li>
+			</ul>
+		</div>
+		<div class="tipArea">
+			<div class="wrap">
+				<ul class="ul-2">
+					<li>
+						<a href="listSearch.html" class="current">搜索引擎</a>
+					</li>
+					<li>
+						<a href="recommendNew.html">推荐引擎</a>
+					</li>
+					<li>
+						<a href="download.html">已下载线索</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="contents">
+			<div class="tag-box">
+				<div class="tags-li active">
+					<a href="listSearch.html">搜索选项</a>
+				</div>
+				<div class="tags-li">
+					<a href="import.html">导入数据样本</a>
+				</div>
+				<div class="tags-li">
+					<a href="imported.html">已导入样本</a>
+				</div>
+			</div>
+			<div class="tag-main">
+				<form onsubmit="return submit12();">
+					<div class="keyword-search-box">
+						<div class="title s-title">
+							<i></i><span>当前关键词</span><label>关键词最多20个，每个关键词字数不超过6个字</label>
+						</div>
+						<div class="keyword-form">
+							<div class="keyword-search">
+								<div class="keyword">
+									<div class="k-name k-border">
+										公司名称类
+									</div>
+									<div class="k-input">
+										<input type="text" class="k-tags" id="company">
+									</div>
+								</div>
+								<div class="keyword">
+									<div class="k-name">
+										推荐关键词
+									</div>
+									<div class="k-input">
+										<span class="k-tag tag-text" data-type="company">商贸</span>
+										<span class="k-tag tag-text" data-type="company">技术</span>
+									</div>
+								</div>
+								<div class="keyword">
+									<div class="k-name k-border">
+										主营产品类
+									</div>
+									<div class="k-input">
+										<input type="text" class="k-tags" id="product">
+
+									</div>
+								</div>
+								<div class="keyword">
+									<div class="k-name">
+										推荐关键词
+									</div>
+									<div class="k-input">
+										<span class="k-tag tag-text" data-type="product">化妆品	</span>
+										<span class="k-tag tag-text" data-type="product">口红	</span>
+									</div>
+								</div>
+							</div>
+							<div class="keyword-search bt">
+								<div class="title">
+									<i></i><span>禁止出现的关键词</span><label>凡带有禁止出现关键词的线索将一律不显示</label>
+								</div>
+								<div class="keyword">
+									<div class="k-name k-border">
+										公司名称类
+									</div>
+									<div class="k-input">
+										<input type="text" class="k-tags">
+
+									</div>
+								</div>
+								<div class="keyword">
+									<div class="k-name k-border">
+										主营产品类
+									</div>
+									<div class="k-input">
+										<input type="text" class="k-tags">
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--<input type="submit" class="btn" value="提交">-->
+						<div class="upshow up">收起</div>
+						<div class="upshow down">展开</div>
+					</div>
+
+					<div class="keyword-search-box">
+						<div class="title s-title">
+							<i></i><span>条件筛选</span>
+						</div>
+						<div class="keyword-form">
+							<div class="keyword-search">
+								<div class="keyword">
+									<div class="k-name k-border">
+										地区：
+									</div>
+									<div class="k-input">
+										<div class="search-all">
+											<div class="check-box">
+												<input type="checkbox" id="dq-all">
+												<label for="dq-all">全部</label>
+											</div>
+											<label class="more">更多</label>
+											<label class="unmore">收起</label>
+										</div>
+										<div class="search-detail">
+											<ul class="tabList" id="cityList">
+
+												<li class="tab-li">
+													<span class="tab-tab">安徽省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq0-1" name="dq">
+															<label for="dq0-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-2" name="dq">
+															<label for="dq0-2">安庆市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-3" name="dq">
+															<label for="dq0-3">蚌埠市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-4" name="dq">
+															<label for="dq0-4">亳州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-5" name="dq">
+															<label for="dq0-5">池州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-6" name="dq">
+															<label for="dq0-6">滁州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-7" name="dq">
+															<label for="dq0-7">阜阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-8" name="dq">
+															<label for="dq0-8">合肥市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-9" name="dq">
+															<label for="dq0-9">淮北市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-10" name="dq">
+															<label for="dq0-10">淮南市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-11" name="dq">
+															<label for="dq0-11">黄山市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-12" name="dq">
+															<label for="dq0-12">六安市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-13" name="dq">
+															<label for="dq0-13">马鞍山市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-14" name="dq">
+															<label for="dq0-14">铜陵市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-15" name="dq">
+															<label for="dq0-15">芜湖市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-16" name="dq">
+															<label for="dq0-16">宿州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq0-17" name="dq">
+															<label for="dq0-17">宣城市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">北京市</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq1-1" name="dq">
+															<label for="dq1-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq1-2" name="dq">
+															<label for="dq1-2">北京市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">福建省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq2-1" name="dq">
+															<label for="dq2-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq2-2" name="dq">
+															<label for="dq2-2">福州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq2-3" name="dq">
+															<label for="dq2-3">龙岩市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq2-4" name="dq">
+															<label for="dq2-4">南平市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq2-5" name="dq">
+															<label for="dq2-5">宁德市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq2-6" name="dq">
+															<label for="dq2-6">莆田市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq2-7" name="dq">
+															<label for="dq2-7">泉州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq2-8" name="dq">
+															<label for="dq2-8">三明市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq2-9" name="dq">
+															<label for="dq2-9">厦门市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq2-10" name="dq">
+															<label for="dq2-10">漳州市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">甘肃省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq3-1" name="dq">
+															<label for="dq3-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq3-2" name="dq">
+															<label for="dq3-2">白银市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq3-3" name="dq">
+															<label for="dq3-3">定西市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq3-4" name="dq">
+															<label for="dq3-4">甘南藏族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq3-5" name="dq">
+															<label for="dq3-5">嘉峪关市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq3-6" name="dq">
+															<label for="dq3-6">金昌市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq3-7" name="dq">
+															<label for="dq3-7">酒泉市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq3-8" name="dq">
+															<label for="dq3-8">兰州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq3-9" name="dq">
+															<label for="dq3-9">临夏回族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq3-10" name="dq">
+															<label for="dq3-10">陇南市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq3-11" name="dq">
+															<label for="dq3-11">平凉市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq3-12" name="dq">
+															<label for="dq3-12">庆阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq3-13" name="dq">
+															<label for="dq3-13">天水市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq3-14" name="dq">
+															<label for="dq3-14">武威市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq3-15" name="dq">
+															<label for="dq3-15">张掖市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">广东省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq4-1" name="dq">
+															<label for="dq4-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-2" name="dq">
+															<label for="dq4-2">潮州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-3" name="dq">
+															<label for="dq4-3">东莞市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-4" name="dq">
+															<label for="dq4-4">佛山市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-5" name="dq">
+															<label for="dq4-5">广州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-6" name="dq">
+															<label for="dq4-6">河源市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-7" name="dq">
+															<label for="dq4-7">惠州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-8" name="dq">
+															<label for="dq4-8">江门市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-9" name="dq">
+															<label for="dq4-9">揭阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-10" name="dq">
+															<label for="dq4-10">茂名市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-11" name="dq">
+															<label for="dq4-11">梅州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-12" name="dq">
+															<label for="dq4-12">清远市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-13" name="dq">
+															<label for="dq4-13">汕头市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-14" name="dq">
+															<label for="dq4-14">汕尾市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-15" name="dq">
+															<label for="dq4-15">韶关市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-16" name="dq">
+															<label for="dq4-16">深圳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-17" name="dq">
+															<label for="dq4-17">阳江市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-18" name="dq">
+															<label for="dq4-18">云浮市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-19" name="dq">
+															<label for="dq4-19">湛江市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-20" name="dq">
+															<label for="dq4-20">肇庆市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-21" name="dq">
+															<label for="dq4-21">中山市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq4-22" name="dq">
+															<label for="dq4-22">珠海市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">广西壮族自治区</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq5-1" name="dq">
+															<label for="dq5-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq5-2" name="dq">
+															<label for="dq5-2">百色市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq5-3" name="dq">
+															<label for="dq5-3">北海市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq5-4" name="dq">
+															<label for="dq5-4">崇左市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq5-5" name="dq">
+															<label for="dq5-5">防城港市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq5-6" name="dq">
+															<label for="dq5-6">贵港市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq5-7" name="dq">
+															<label for="dq5-7">桂林市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq5-8" name="dq">
+															<label for="dq5-8">河池市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq5-9" name="dq">
+															<label for="dq5-9">贺州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq5-10" name="dq">
+															<label for="dq5-10">来宾市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq5-11" name="dq">
+															<label for="dq5-11">柳州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq5-12" name="dq">
+															<label for="dq5-12">南宁市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq5-13" name="dq">
+															<label for="dq5-13">钦州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq5-14" name="dq">
+															<label for="dq5-14">梧州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq5-15" name="dq">
+															<label for="dq5-15">玉林市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">贵州省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq6-1" name="dq">
+															<label for="dq6-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq6-2" name="dq">
+															<label for="dq6-2">安顺市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq6-3" name="dq">
+															<label for="dq6-3">毕节地区</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq6-4" name="dq">
+															<label for="dq6-4">贵阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq6-5" name="dq">
+															<label for="dq6-5">六盘水市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq6-6" name="dq">
+															<label for="dq6-6">黔东南苗族侗族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq6-7" name="dq">
+															<label for="dq6-7">黔南布依族苗族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq6-8" name="dq">
+															<label for="dq6-8">黔西南布依族苗族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq6-9" name="dq">
+															<label for="dq6-9">铜仁地区</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq6-10" name="dq">
+															<label for="dq6-10">遵义市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">海南省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq7-1" name="dq">
+															<label for="dq7-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq7-2" name="dq">
+															<label for="dq7-2">海口市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq7-3" name="dq">
+															<label for="dq7-3">三亚市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">河北省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq8-1" name="dq">
+															<label for="dq8-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq8-2" name="dq">
+															<label for="dq8-2">保定市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq8-3" name="dq">
+															<label for="dq8-3">沧州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq8-4" name="dq">
+															<label for="dq8-4">承德市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq8-5" name="dq">
+															<label for="dq8-5">邯郸市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq8-6" name="dq">
+															<label for="dq8-6">衡水市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq8-7" name="dq">
+															<label for="dq8-7">廊坊市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq8-8" name="dq">
+															<label for="dq8-8">秦皇岛市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq8-9" name="dq">
+															<label for="dq8-9">石家庄市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq8-10" name="dq">
+															<label for="dq8-10">唐山市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq8-11" name="dq">
+															<label for="dq8-11">邢台市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq8-12" name="dq">
+															<label for="dq8-12">张家口市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">河南省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq9-1" name="dq">
+															<label for="dq9-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-2" name="dq">
+															<label for="dq9-2">安阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-3" name="dq">
+															<label for="dq9-3">鹤壁市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-4" name="dq">
+															<label for="dq9-4">焦作市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-5" name="dq">
+															<label for="dq9-5">开封市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-6" name="dq">
+															<label for="dq9-6">洛阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-7" name="dq">
+															<label for="dq9-7">漯河市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-8" name="dq">
+															<label for="dq9-8">南阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-9" name="dq">
+															<label for="dq9-9">平顶山市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-10" name="dq">
+															<label for="dq9-10">濮阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-11" name="dq">
+															<label for="dq9-11">三门峡市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-12" name="dq">
+															<label for="dq9-12">商丘市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-13" name="dq">
+															<label for="dq9-13">新乡市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-14" name="dq">
+															<label for="dq9-14">信阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-15" name="dq">
+															<label for="dq9-15">许昌市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-16" name="dq">
+															<label for="dq9-16">郑州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-17" name="dq">
+															<label for="dq9-17">周口市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq9-18" name="dq">
+															<label for="dq9-18">驻马店市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">黑龙江省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq10-1" name="dq">
+															<label for="dq10-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq10-2" name="dq">
+															<label for="dq10-2">大庆市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq10-3" name="dq">
+															<label for="dq10-3">大兴安岭</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq10-4" name="dq">
+															<label for="dq10-4">哈尔滨市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq10-5" name="dq">
+															<label for="dq10-5">鹤岗市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq10-6" name="dq">
+															<label for="dq10-6">黑河市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq10-7" name="dq">
+															<label for="dq10-7">鸡西市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq10-8" name="dq">
+															<label for="dq10-8">佳木斯市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq10-9" name="dq">
+															<label for="dq10-9">牡丹江市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq10-10" name="dq">
+															<label for="dq10-10">七台河市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq10-11" name="dq">
+															<label for="dq10-11">齐齐哈尔市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq10-12" name="dq">
+															<label for="dq10-12">双鸭山市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq10-13" name="dq">
+															<label for="dq10-13">绥化市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq10-14" name="dq">
+															<label for="dq10-14">伊春市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">湖北省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq11-1" name="dq">
+															<label for="dq11-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq11-2" name="dq">
+															<label for="dq11-2">鄂州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq11-3" name="dq">
+															<label for="dq11-3">恩施土家族苗族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq11-4" name="dq">
+															<label for="dq11-4">黄冈市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq11-5" name="dq">
+															<label for="dq11-5">黄石市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq11-6" name="dq">
+															<label for="dq11-6">荆门市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq11-7" name="dq">
+															<label for="dq11-7">荆州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq11-8" name="dq">
+															<label for="dq11-8">十堰市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq11-9" name="dq">
+															<label for="dq11-9">随州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq11-10" name="dq">
+															<label for="dq11-10">武汉市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq11-11" name="dq">
+															<label for="dq11-11">咸宁市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq11-12" name="dq">
+															<label for="dq11-12">襄阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq11-13" name="dq">
+															<label for="dq11-13">孝感市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq11-14" name="dq">
+															<label for="dq11-14">宜昌市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">湖南省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq12-1" name="dq">
+															<label for="dq12-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq12-2" name="dq">
+															<label for="dq12-2">常德市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq12-3" name="dq">
+															<label for="dq12-3">郴州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq12-4" name="dq">
+															<label for="dq12-4">衡阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq12-5" name="dq">
+															<label for="dq12-5">怀化市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq12-6" name="dq">
+															<label for="dq12-6">娄底市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq12-7" name="dq">
+															<label for="dq12-7">邵阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq12-8" name="dq">
+															<label for="dq12-8">湘潭市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq12-9" name="dq">
+															<label for="dq12-9">湘西土家族苗族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq12-10" name="dq">
+															<label for="dq12-10">益阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq12-11" name="dq">
+															<label for="dq12-11">永州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq12-12" name="dq">
+															<label for="dq12-12">岳阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq12-13" name="dq">
+															<label for="dq12-13">张家界市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq12-14" name="dq">
+															<label for="dq12-14">长沙市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq12-15" name="dq">
+															<label for="dq12-15">株洲市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">吉林省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq13-1" name="dq">
+															<label for="dq13-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq13-2" name="dq">
+															<label for="dq13-2">白value</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq13-3" name="dq">
+															<label for="dq13-3">白山市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq13-4" name="dq">
+															<label for="dq13-4">吉林市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq13-5" name="dq">
+															<label for="dq13-5">辽源市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq13-6" name="dq">
+															<label for="dq13-6">四平市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq13-7" name="dq">
+															<label for="dq13-7">松原市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq13-8" name="dq">
+															<label for="dq13-8">通化市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq13-9" name="dq">
+															<label for="dq13-9">延边朝鲜族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq13-10" name="dq">
+															<label for="dq13-10">长春市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">江苏省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq14-1" name="dq">
+															<label for="dq14-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq14-2" name="dq">
+															<label for="dq14-2">常州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq14-3" name="dq">
+															<label for="dq14-3">淮安市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq14-4" name="dq">
+															<label for="dq14-4">连云港市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq14-5" name="dq">
+															<label for="dq14-5">南京市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq14-6" name="dq">
+															<label for="dq14-6">南通市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq14-7" name="dq">
+															<label for="dq14-7">苏州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq14-8" name="dq">
+															<label for="dq14-8">泰州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq14-9" name="dq">
+															<label for="dq14-9">无锡市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq14-10" name="dq">
+															<label for="dq14-10">宿迁市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq14-11" name="dq">
+															<label for="dq14-11">徐州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq14-12" name="dq">
+															<label for="dq14-12">盐城市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq14-13" name="dq">
+															<label for="dq14-13">扬州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq14-14" name="dq">
+															<label for="dq14-14">镇江市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">江西省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq15-1" name="dq">
+															<label for="dq15-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq15-2" name="dq">
+															<label for="dq15-2">抚州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq15-3" name="dq">
+															<label for="dq15-3">赣州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq15-4" name="dq">
+															<label for="dq15-4">吉安市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq15-5" name="dq">
+															<label for="dq15-5">景德镇市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq15-6" name="dq">
+															<label for="dq15-6">九江市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq15-7" name="dq">
+															<label for="dq15-7">南昌市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq15-8" name="dq">
+															<label for="dq15-8">萍乡市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq15-9" name="dq">
+															<label for="dq15-9">上饶市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq15-10" name="dq">
+															<label for="dq15-10">新余市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq15-11" name="dq">
+															<label for="dq15-11">宜春市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq15-12" name="dq">
+															<label for="dq15-12">鹰潭市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">辽宁省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq16-1" name="dq">
+															<label for="dq16-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq16-2" name="dq">
+															<label for="dq16-2">鞍山市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq16-3" name="dq">
+															<label for="dq16-3">本溪市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq16-4" name="dq">
+															<label for="dq16-4">朝阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq16-5" name="dq">
+															<label for="dq16-5">大连市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq16-6" name="dq">
+															<label for="dq16-6">丹东市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq16-7" name="dq">
+															<label for="dq16-7">抚顺市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq16-8" name="dq">
+															<label for="dq16-8">阜新市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq16-9" name="dq">
+															<label for="dq16-9">葫芦岛市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq16-10" name="dq">
+															<label for="dq16-10">锦州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq16-11" name="dq">
+															<label for="dq16-11">辽阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq16-12" name="dq">
+															<label for="dq16-12">盘锦市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq16-13" name="dq">
+															<label for="dq16-13">沈阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq16-14" name="dq">
+															<label for="dq16-14">铁岭市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq16-15" name="dq">
+															<label for="dq16-15">营口市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">内蒙古自治区</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq17-1" name="dq">
+															<label for="dq17-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq17-2" name="dq">
+															<label for="dq17-2">阿拉善盟</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq17-3" name="dq">
+															<label for="dq17-3">巴彦淖尔市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq17-4" name="dq">
+															<label for="dq17-4">包头市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq17-5" name="dq">
+															<label for="dq17-5">赤峰市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq17-6" name="dq">
+															<label for="dq17-6">鄂尔多斯市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq17-7" name="dq">
+															<label for="dq17-7">呼和浩特市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq17-8" name="dq">
+															<label for="dq17-8">呼伦贝尔市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq17-9" name="dq">
+															<label for="dq17-9">通辽市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq17-10" name="dq">
+															<label for="dq17-10">乌海市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq17-11" name="dq">
+															<label for="dq17-11">乌兰察布市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq17-12" name="dq">
+															<label for="dq17-12">锡林郭勒盟</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq17-13" name="dq">
+															<label for="dq17-13">兴安盟</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">宁夏回族自治区</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq18-1" name="dq">
+															<label for="dq18-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq18-2" name="dq">
+															<label for="dq18-2">固原市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq18-3" name="dq">
+															<label for="dq18-3">石嘴山市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq18-4" name="dq">
+															<label for="dq18-4">吴忠市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq18-5" name="dq">
+															<label for="dq18-5">银川市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq18-6" name="dq">
+															<label for="dq18-6">中卫市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">青海省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq19-1" name="dq">
+															<label for="dq19-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq19-2" name="dq">
+															<label for="dq19-2">果洛藏族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq19-3" name="dq">
+															<label for="dq19-3">海北藏族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq19-4" name="dq">
+															<label for="dq19-4">海东地区</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq19-5" name="dq">
+															<label for="dq19-5">海南藏族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq19-6" name="dq">
+															<label for="dq19-6">海西蒙古族藏族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq19-7" name="dq">
+															<label for="dq19-7">黄南藏族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq19-8" name="dq">
+															<label for="dq19-8">西宁市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq19-9" name="dq">
+															<label for="dq19-9">玉树藏族自治州</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">山东省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq20-1" name="dq">
+															<label for="dq20-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-2" name="dq">
+															<label for="dq20-2">滨州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-3" name="dq">
+															<label for="dq20-3">德州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-4" name="dq">
+															<label for="dq20-4">东营市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-5" name="dq">
+															<label for="dq20-5">菏泽市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-6" name="dq">
+															<label for="dq20-6">济南市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-7" name="dq">
+															<label for="dq20-7">济宁市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-8" name="dq">
+															<label for="dq20-8">莱芜市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-9" name="dq">
+															<label for="dq20-9">聊城市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-10" name="dq">
+															<label for="dq20-10">临沂市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-11" name="dq">
+															<label for="dq20-11">青岛市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-12" name="dq">
+															<label for="dq20-12">日照市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-13" name="dq">
+															<label for="dq20-13">泰安市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-14" name="dq">
+															<label for="dq20-14">威海市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-15" name="dq">
+															<label for="dq20-15">潍坊市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-16" name="dq">
+															<label for="dq20-16">烟台市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-17" name="dq">
+															<label for="dq20-17">枣庄市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq20-18" name="dq">
+															<label for="dq20-18">淄博市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">山西省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq21-1" name="dq">
+															<label for="dq21-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq21-2" name="dq">
+															<label for="dq21-2">大同市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq21-3" name="dq">
+															<label for="dq21-3">晋城市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq21-4" name="dq">
+															<label for="dq21-4">晋中市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq21-5" name="dq">
+															<label for="dq21-5">临汾市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq21-6" name="dq">
+															<label for="dq21-6">吕梁市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq21-7" name="dq">
+															<label for="dq21-7">朔州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq21-8" name="dq">
+															<label for="dq21-8">太原市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq21-9" name="dq">
+															<label for="dq21-9">忻州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq21-10" name="dq">
+															<label for="dq21-10">阳泉市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq21-11" name="dq">
+															<label for="dq21-11">运城市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq21-12" name="dq">
+															<label for="dq21-12">长治市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">陕西省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq22-1" name="dq">
+															<label for="dq22-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq22-2" name="dq">
+															<label for="dq22-2">安康市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq22-3" name="dq">
+															<label for="dq22-3">宝鸡市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq22-4" name="dq">
+															<label for="dq22-4">汉中市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq22-5" name="dq">
+															<label for="dq22-5">商洛市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq22-6" name="dq">
+															<label for="dq22-6">铜川市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq22-7" name="dq">
+															<label for="dq22-7">渭南市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq22-8" name="dq">
+															<label for="dq22-8">西安市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq22-9" name="dq">
+															<label for="dq22-9">咸阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq22-10" name="dq">
+															<label for="dq22-10">延安市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq22-11" name="dq">
+															<label for="dq22-11">榆林市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">上海市</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq23-1" name="dq">
+															<label for="dq23-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq23-2" name="dq">
+															<label for="dq23-2">上海市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">四川省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq24-1" name="dq">
+															<label for="dq24-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-2" name="dq">
+															<label for="dq24-2">阿坝藏族羌族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-3" name="dq">
+															<label for="dq24-3">巴中市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-4" name="dq">
+															<label for="dq24-4">成都市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-5" name="dq">
+															<label for="dq24-5">达州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-6" name="dq">
+															<label for="dq24-6">德阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-7" name="dq">
+															<label for="dq24-7">甘孜藏族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-8" name="dq">
+															<label for="dq24-8">广安市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-9" name="dq">
+															<label for="dq24-9">广元市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-10" name="dq">
+															<label for="dq24-10">乐山市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-11" name="dq">
+															<label for="dq24-11">凉山彝族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-12" name="dq">
+															<label for="dq24-12">泸州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-13" name="dq">
+															<label for="dq24-13">眉山市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-14" name="dq">
+															<label for="dq24-14">绵阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-15" name="dq">
+															<label for="dq24-15">南充市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-16" name="dq">
+															<label for="dq24-16">内江市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-17" name="dq">
+															<label for="dq24-17">攀枝花市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-18" name="dq">
+															<label for="dq24-18">遂宁市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-19" name="dq">
+															<label for="dq24-19">雅安市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-20" name="dq">
+															<label for="dq24-20">宜宾市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-21" name="dq">
+															<label for="dq24-21">资阳市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq24-22" name="dq">
+															<label for="dq24-22">自贡市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">台湾省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq25-1" name="dq">
+															<label for="dq25-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq25-2" name="dq">
+															<label for="dq25-2">高雄市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq25-3" name="dq">
+															<label for="dq25-3">基隆市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq25-4" name="dq">
+															<label for="dq25-4">嘉义市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq25-5" name="dq">
+															<label for="dq25-5">台北市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq25-6" name="dq">
+															<label for="dq25-6">台南市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq25-7" name="dq">
+															<label for="dq25-7">台中市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq25-8" name="dq">
+															<label for="dq25-8">新竹市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">天津市</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq26-1" name="dq">
+															<label for="dq26-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq26-2" name="dq">
+															<label for="dq26-2">天津市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">西藏自治区</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq27-1" name="dq">
+															<label for="dq27-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq27-2" name="dq">
+															<label for="dq27-2">阿里地区</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq27-3" name="dq">
+															<label for="dq27-3">昌都地区</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq27-4" name="dq">
+															<label for="dq27-4">拉萨市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq27-5" name="dq">
+															<label for="dq27-5">林芝地区</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq27-6" name="dq">
+															<label for="dq27-6">那曲地区</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq27-7" name="dq">
+															<label for="dq27-7">日喀则地区</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq27-8" name="dq">
+															<label for="dq27-8">山南地区</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">香港特别行政区</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq28-1" name="dq">
+															<label for="dq28-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq28-2" name="dq">
+															<label for="dq28-2">九龙</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq28-3" name="dq">
+															<label for="dq28-3">香港岛</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq28-4" name="dq">
+															<label for="dq28-4">新界</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">新疆维吾尔自治区</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq29-1" name="dq">
+															<label for="dq29-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-2" name="dq">
+															<label for="dq29-2">阿克苏地区</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-3" name="dq">
+															<label for="dq29-3">阿勒泰地区</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-4" name="dq">
+															<label for="dq29-4">巴音郭楞蒙古自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-5" name="dq">
+															<label for="dq29-5">博尔塔拉蒙古自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-6" name="dq">
+															<label for="dq29-6">昌吉回族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-7" name="dq">
+															<label for="dq29-7">哈密地区</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-8" name="dq">
+															<label for="dq29-8">和田地区</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-9" name="dq">
+															<label for="dq29-9">喀什地区</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-10" name="dq">
+															<label for="dq29-10">克拉玛依市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-11" name="dq">
+															<label for="dq29-11">克孜勒苏柯尔克孜自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-12" name="dq">
+															<label for="dq29-12">石河子市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-13" name="dq">
+															<label for="dq29-13">塔城地区</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-14" name="dq">
+															<label for="dq29-14">图木舒克市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-15" name="dq">
+															<label for="dq29-15">吐鲁番地区</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-16" name="dq">
+															<label for="dq29-16">乌鲁木齐市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-17" name="dq">
+															<label for="dq29-17">五家渠市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq29-18" name="dq">
+															<label for="dq29-18">伊犁哈萨克自治州</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">云南省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq30-1" name="dq">
+															<label for="dq30-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-2" name="dq">
+															<label for="dq30-2">保山市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-3" name="dq">
+															<label for="dq30-3">楚雄彝族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-4" name="dq">
+															<label for="dq30-4">大理白族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-5" name="dq">
+															<label for="dq30-5">德宏傣族景颇族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-6" name="dq">
+															<label for="dq30-6">迪庆藏族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-7" name="dq">
+															<label for="dq30-7">红河哈尼族彝族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-8" name="dq">
+															<label for="dq30-8">昆明市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-9" name="dq">
+															<label for="dq30-9">丽江市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-10" name="dq">
+															<label for="dq30-10">临沧市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-11" name="dq">
+															<label for="dq30-11">怒江傈僳族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-12" name="dq">
+															<label for="dq30-12">普洱市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-13" name="dq">
+															<label for="dq30-13">曲靖市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-14" name="dq">
+															<label for="dq30-14">文山壮族苗族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-15" name="dq">
+															<label for="dq30-15">西双版纳傣族自治州</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-16" name="dq">
+															<label for="dq30-16">玉溪市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq30-17" name="dq">
+															<label for="dq30-17">昭通市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">浙江省</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq31-1" name="dq">
+															<label for="dq31-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq31-2" name="dq">
+															<label for="dq31-2">杭州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq31-3" name="dq">
+															<label for="dq31-3">湖州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq31-4" name="dq">
+															<label for="dq31-4">嘉兴市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq31-5" name="dq">
+															<label for="dq31-5">金华市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq31-6" name="dq">
+															<label for="dq31-6">丽水市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq31-7" name="dq">
+															<label for="dq31-7">宁波市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq31-8" name="dq">
+															<label for="dq31-8">衢州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq31-9" name="dq">
+															<label for="dq31-9">绍兴市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq31-10" name="dq">
+															<label for="dq31-10">台州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq31-11" name="dq">
+															<label for="dq31-11">温州市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq31-12" name="dq">
+															<label for="dq31-12">舟山市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">重庆市</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq32-1" name="dq">
+															<label for="dq32-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq32-2" name="dq">
+															<label for="dq32-2">重庆市</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">其他</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="dq33-1" name="dq">
+															<label for="dq33-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq33-2" name="dq">
+															<label for="dq33-2">香港</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq33-3" name="dq">
+															<label for="dq33-3">澳门</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq33-4" name="dq">
+															<label for="dq33-4">台湾</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq33-5" name="dq">
+															<label for="dq33-5">省直辖</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq33-6" name="dq">
+															<label for="dq33-6">自治区直辖</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq33-7" name="dq">
+															<label for="dq33-7">无</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="dq33-8" name="dq">
+															<label for="dq33-8">缺省</label>
+														</div>
+
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="keyword">
+									<div class="k-name k-border">
+										行业：
+									</div>
+									<div class="k-input">
+										<div class="search-all">
+											<div class="check-box">
+												<input type="checkbox" id="hy-all">
+												<label for="hy-all">全部</label>
+											</div>
+											<label class="more">更多</label>
+											<label class="unmore">收起</label>
+										</div>
+										<div class="search-detail">
+											<ul class="tabList" id="tabList">
+												<li class="tab-li">
+													<span class="tab-tab">IT,通讯,电子,互联网</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy0-1" name="hy">
+															<label for="hy0-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy0-2" name="hy">
+															<label for="hy0-2">无</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy0-3" name="hy">
+															<label for="hy0-3">互联网与电子商务</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy0-4" name="hy">
+															<label for="hy0-4">计算机软件</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy0-5" name="hy">
+															<label for="hy0-5">IT服务</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy0-6" name="hy">
+															<label for="hy0-6">网络游戏</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy0-7" name="hy">
+															<label for="hy0-7">通信及通信设备</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy0-8" name="hy">
+															<label for="hy0-8">计算机硬件与电子技术</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">IT通讯</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy1-1" name="hy">
+															<label for="hy1-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy1-2" name="hy">
+															<label for="hy1-2">电子器件</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy1-3" name="hy">
+															<label for="hy1-3">软件及IT</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy1-4" name="hy">
+															<label for="hy1-4">通信通讯</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy1-5" name="hy">
+															<label for="hy1-5">互联网</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy1-6" name="hy">
+															<label for="hy1-6">智慧智能</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy1-7" name="hy">
+															<label for="hy1-7">电子数码</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy1-8" name="hy">
+															<label for="hy1-8">3G4G</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy1-9" name="hy">
+															<label for="hy1-9">安防监控</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">房地产，建筑业</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy2-1" name="hy">
+															<label for="hy2-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy2-2" name="hy">
+															<label for="hy2-2">无</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy2-3" name="hy">
+															<label for="hy2-3">装饰设计</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy2-4" name="hy">
+															<label for="hy2-4">销售租赁</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy2-5" name="hy">
+															<label for="hy2-5">建筑材料</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">纺织鞋服</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy3-1" name="hy">
+															<label for="hy3-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy3-2" name="hy">
+															<label for="hy3-2">女装</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy3-3" name="hy">
+															<label for="hy3-3">男装</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy3-4" name="hy">
+															<label for="hy3-4">面料辅料</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy3-5" name="hy">
+															<label for="hy3-5">服装制造</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy3-6" name="hy">
+															<label for="hy3-6">休闲运动</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy3-7" name="hy">
+															<label for="hy3-7">纺织染整</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy3-8" name="hy">
+															<label for="hy3-8">毛羽制品</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy3-9" name="hy">
+															<label for="hy3-9">皮革制品</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy3-10" name="hy">
+															<label for="hy3-10">制鞋业</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy3-11" name="hy">
+															<label for="hy3-11">服饰制造</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy3-12" name="hy">
+															<label for="hy3-12">童装</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">服务业</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy4-1" name="hy">
+															<label for="hy4-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy4-2" name="hy">
+															<label for="hy4-2">生活服务</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy4-3" name="hy">
+															<label for="hy4-3">卫生服务</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy4-4" name="hy">
+															<label for="hy4-4">旅游度假</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">化工化学</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy5-1" name="hy">
+															<label for="hy5-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy5-2" name="hy">
+															<label for="hy5-2">油气化工</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy5-3" name="hy">
+															<label for="hy5-3">橡胶塑料</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy5-4" name="hy">
+															<label for="hy5-4">化学制品</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy5-5" name="hy">
+															<label for="hy5-5">煤化工</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy5-6" name="hy">
+															<label for="hy5-6">美妆日化</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy5-7" name="hy">
+															<label for="hy5-7">化学助剂</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy5-8" name="hy">
+															<label for="hy5-8">化学原料</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy5-9" name="hy">
+															<label for="hy5-9">化工材料</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy5-10" name="hy">
+															<label for="hy5-10">化学纤维</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">机械设备</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy6-1" name="hy">
+															<label for="hy6-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy6-2" name="hy">
+															<label for="hy6-2">农业机械</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy6-3" name="hy">
+															<label for="hy6-3">工具配件</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy6-4" name="hy">
+															<label for="hy6-4">电工电气电器</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy6-5" name="hy">
+															<label for="hy6-5">仪器仪表</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy6-6" name="hy">
+															<label for="hy6-6">印刷包装机械</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy6-7" name="hy">
+															<label for="hy6-7">专用机械设备</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy6-8" name="hy">
+															<label for="hy6-8">工程机械</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy6-9" name="hy">
+															<label for="hy6-9">纺织机械</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy6-10" name="hy">
+															<label for="hy6-10">冶金化工机械</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy6-11" name="hy">
+															<label for="hy6-11">环保设备</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy6-12" name="hy">
+															<label for="hy6-12">通用机械设备</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy6-13" name="hy">
+															<label for="hy6-13">食品机械</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">家电家居</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy7-1" name="hy">
+															<label for="hy7-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy7-2" name="hy">
+															<label for="hy7-2">家纺装饰</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy7-3" name="hy">
+															<label for="hy7-3">清洁用品</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy7-4" name="hy">
+															<label for="hy7-4">厨具餐具</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy7-5" name="hy">
+															<label for="hy7-5">居家日用</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy7-6" name="hy">
+															<label for="hy7-6">生活电器</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy7-7" name="hy">
+															<label for="hy7-7">个人护理家电</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy7-8" name="hy">
+															<label for="hy7-8">大小家电</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy7-9" name="hy">
+															<label for="hy7-9">厨卫电器</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">建筑装饰</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy8-1" name="hy">
+															<label for="hy8-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy8-2" name="hy">
+															<label for="hy8-2">建材物料</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy8-3" name="hy">
+															<label for="hy8-3">工程咨询</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy8-4" name="hy">
+															<label for="hy8-4">装饰材料</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy8-5" name="hy">
+															<label for="hy8-5">装修装饰</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy8-6" name="hy">
+															<label for="hy8-6">房地产</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy8-7" name="hy">
+															<label for="hy8-7">建筑安装</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy8-8" name="hy">
+															<label for="hy8-8">土木工程</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">交通, 运输, 物流, 仓储</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy9-1" name="hy">
+															<label for="hy9-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy9-2" name="hy">
+															<label for="hy9-2">交通运输</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy9-3" name="hy">
+															<label for="hy9-3">仓储物流</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy9-4" name="hy">
+															<label for="hy9-4">船舶</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy9-5" name="hy">
+															<label for="hy9-5">航空</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy9-6" name="hy">
+															<label for="hy9-6">仓储</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy9-7" name="hy">
+															<label for="hy9-7">交通</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy9-8" name="hy">
+															<label for="hy9-8">水运</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy9-9" name="hy">
+															<label for="hy9-9">集装箱</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy9-10" name="hy">
+															<label for="hy9-10">邮政快递</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy9-11" name="hy">
+															<label for="hy9-11">物流</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy9-12" name="hy">
+															<label for="hy9-12">公路</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">金融业</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy10-1" name="hy">
+															<label for="hy10-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy10-2" name="hy">
+															<label for="hy10-2">租赁担保</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy10-3" name="hy">
+															<label for="hy10-3">证券期货</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy10-4" name="hy">
+															<label for="hy10-4">货币银行</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy10-5" name="hy">
+															<label for="hy10-5">信托典当</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy10-6" name="hy">
+															<label for="hy10-6">基金财务</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy10-7" name="hy">
+															<label for="hy10-7">支付抵押</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy10-8" name="hy">
+															<label for="hy10-8">保险服务</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy10-9" name="hy">
+															<label for="hy10-9">保险</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy10-10" name="hy">
+															<label for="hy10-10">投资</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy10-11" name="hy">
+															<label for="hy10-11">其他</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy10-12" name="hy">
+															<label for="hy10-12">银行</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">酒店旅游餐饮</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy11-1" name="hy">
+															<label for="hy11-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy11-2" name="hy">
+															<label for="hy11-2">餐饮</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy11-3" name="hy">
+															<label for="hy11-3">旅游</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy11-4" name="hy">
+															<label for="hy11-4">酒店</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">居民商务服务</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy12-1" name="hy">
+															<label for="hy12-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy12-2" name="hy">
+															<label for="hy12-2">维修保养清洁</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy12-3" name="hy">
+															<label for="hy12-3">知识产权</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy12-4" name="hy">
+															<label for="hy12-4">广告展览</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy12-5" name="hy">
+															<label for="hy12-5">社会居民服务</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy12-6" name="hy">
+															<label for="hy12-6">咨询调查</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy12-7" name="hy">
+															<label for="hy12-7">人力资源</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">贸易, 批发, 零售, 租赁业</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy13-1" name="hy">
+															<label for="hy13-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy13-2" name="hy">
+															<label for="hy13-2">无</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy13-3" name="hy">
+															<label for="hy13-3">烟酒食品</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy13-4" name="hy">
+															<label for="hy13-4">超市百货</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy13-5" name="hy">
+															<label for="hy13-5">服装服饰</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy13-6" name="hy">
+															<label for="hy13-6">日用日化</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy13-7" name="hy">
+															<label for="hy13-7">家居家具</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy13-8" name="hy">
+															<label for="hy13-8">其他</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">能源 / 矿产 / 环保</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy14-1" name="hy">
+															<label for="hy14-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy14-2" name="hy">
+															<label for="hy14-2">无</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy14-3" name="hy">
+															<label for="hy14-3">石油化工</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy14-4" name="hy">
+															<label for="hy14-4">矿业</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy14-5" name="hy">
+															<label for="hy14-5">环保</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy14-6" name="hy">
+															<label for="hy14-6">电力水利</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy14-7" name="hy">
+															<label for="hy14-7">化学产品</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">农林牧渔</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy15-1" name="hy">
+															<label for="hy15-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy15-2" name="hy">
+															<label for="hy15-2">无</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy15-3" name="hy">
+															<label for="hy15-3">畜牧业</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy15-4" name="hy">
+															<label for="hy15-4">农业</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy15-5" name="hy">
+															<label for="hy15-5">渔业</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy15-6" name="hy">
+															<label for="hy15-6">农产品加工</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy15-7" name="hy">
+															<label for="hy15-7">林业</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy15-8" name="hy">
+															<label for="hy15-8">农副生产</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy15-9" name="hy">
+															<label for="hy15-9">农林服务</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy15-10" name="hy">
+															<label for="hy15-10">化肥农药</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy15-11" name="hy">
+															<label for="hy15-11">养殖</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy15-12" name="hy">
+															<label for="hy15-12">植物花卉</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">汽车工业</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy16-1" name="hy">
+															<label for="hy16-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy16-2" name="hy">
+															<label for="hy16-2">电子电器</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy16-3" name="hy">
+															<label for="hy16-3">底盘系</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy16-4" name="hy">
+															<label for="hy16-4">其它</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy16-5" name="hy">
+															<label for="hy16-5">车身附件</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy16-6" name="hy">
+															<label for="hy16-6">动力传动系</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy16-7" name="hy">
+															<label for="hy16-7">保养维修件</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy16-8" name="hy">
+															<label for="hy16-8">汽车整车</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy16-9" name="hy">
+															<label for="hy16-9">特种专用车</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy16-10" name="hy">
+															<label for="hy16-10">通用工艺件</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">轻工业</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy17-1" name="hy">
+															<label for="hy17-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy17-2" name="hy">
+															<label for="hy17-2">造纸印染</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy17-3" name="hy">
+															<label for="hy17-3">木材家具</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy17-4" name="hy">
+															<label for="hy17-4">文体工艺</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy17-5" name="hy">
+															<label for="hy17-5">印刷包装</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">商业服务， 商业贸易</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy18-1" name="hy">
+															<label for="hy18-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy18-2" name="hy">
+															<label for="hy18-2">无</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy18-3" name="hy">
+															<label for="hy18-3">广告会展服务</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy18-4" name="hy">
+															<label for="hy18-4">办公相关服务</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy18-5" name="hy">
+															<label for="hy18-5">百货</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy18-6" name="hy">
+															<label for="hy18-6">批发</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy18-7" name="hy">
+															<label for="hy18-7">零售</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy18-8" name="hy">
+															<label for="hy18-8">便利店</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy18-9" name="hy">
+															<label for="hy18-9">商业</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy18-10" name="hy">
+															<label for="hy18-10">贸易</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy18-11" name="hy">
+															<label for="hy18-11">超市</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy18-12" name="hy">
+															<label for="hy18-12">连锁</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy18-13" name="hy">
+															<label for="hy18-13">其他商务服务</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">生产，加工，制造</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy19-1" name="hy">
+															<label for="hy19-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy19-2" name="hy">
+															<label for="hy19-2">无</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy19-3" name="hy">
+															<label for="hy19-3">工具制造</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy19-4" name="hy">
+															<label for="hy19-4">机电设备</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy19-5" name="hy">
+															<label for="hy19-5">办公用品</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy19-6" name="hy">
+															<label for="hy19-6">医药</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy19-7" name="hy">
+															<label for="hy19-7">印刷包装</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy19-8" name="hy">
+															<label for="hy19-8">航空航天</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy19-9" name="hy">
+															<label for="hy19-9">其他</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy19-10" name="hy">
+															<label for="hy19-10">加工制造</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy19-11" name="hy">
+															<label for="hy19-11">车类相关</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">食品饮料</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy20-1" name="hy">
+															<label for="hy20-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy20-2" name="hy">
+															<label for="hy20-2">食品加工</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy20-3" name="hy">
+															<label for="hy20-3">方便速食</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy20-4" name="hy">
+															<label for="hy20-4">营养保健</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy20-5" name="hy">
+															<label for="hy20-5">饮料饮品</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy20-6" name="hy">
+															<label for="hy20-6">粮油干货</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy20-7" name="hy">
+															<label for="hy20-7">生鲜食品</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy20-8" name="hy">
+															<label for="hy20-8">乳制品</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy20-9" name="hy">
+															<label for="hy20-9">添加助剂</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy20-10" name="hy">
+															<label for="hy20-10">调味调料</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy20-11" name="hy">
+															<label for="hy20-11">休闲食品</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy20-12" name="hy">
+															<label for="hy20-12">烟酒茶类</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy20-13" name="hy">
+															<label for="hy20-13">特种食品</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">文化教育创意</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy21-1" name="hy">
+															<label for="hy21-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy21-2" name="hy">
+															<label for="hy21-2">教育出版</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy21-3" name="hy">
+															<label for="hy21-3">文化艺术</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy21-4" name="hy">
+															<label for="hy21-4">体育休闲</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy21-5" name="hy">
+															<label for="hy21-5">创意设计</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy21-6" name="hy">
+															<label for="hy21-6">影视传媒</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy21-7" name="hy">
+															<label for="hy21-7">动漫娱乐</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">文教娱乐, 工艺美术, 体育传媒</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy22-1" name="hy">
+															<label for="hy22-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy22-2" name="hy">
+															<label for="hy22-2">无</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy22-3" name="hy">
+															<label for="hy22-3">礼品工艺品</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy22-4" name="hy">
+															<label for="hy22-4">教育培训</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy22-5" name="hy">
+															<label for="hy22-5">出版传媒</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy22-6" name="hy">
+															<label for="hy22-6">体育娱乐</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">冶金能源环保</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy23-1" name="hy">
+															<label for="hy23-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy23-2" name="hy">
+															<label for="hy23-2">钢铁冶金</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy23-3" name="hy">
+															<label for="hy23-3">新能源</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy23-4" name="hy">
+															<label for="hy23-4">油气煤炭</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy23-5" name="hy">
+															<label for="hy23-5">电力热力燃料及水</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy23-6" name="hy">
+															<label for="hy23-6">节能环保</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy23-7" name="hy">
+															<label for="hy23-7">金属材料及工具</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy23-8" name="hy">
+															<label for="hy23-8">非金属矿产</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy23-9" name="hy">
+															<label for="hy23-9">金属矿产</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">医疗保健</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy24-1" name="hy">
+															<label for="hy24-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy24-2" name="hy">
+															<label for="hy24-2">化学药</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy24-3" name="hy">
+															<label for="hy24-3">保健用品</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy24-4" name="hy">
+															<label for="hy24-4">原料药</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy24-5" name="hy">
+															<label for="hy24-5">医药</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy24-6" name="hy">
+															<label for="hy24-6">其它</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy24-7" name="hy">
+															<label for="hy24-7">医疗器械</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy24-8" name="hy">
+															<label for="hy24-8">医院</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy24-9" name="hy">
+															<label for="hy24-9">试剂和制剂</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy24-10" name="hy">
+															<label for="hy24-10">疫苗</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy24-11" name="hy">
+															<label for="hy24-11">生物制药</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy24-12" name="hy">
+															<label for="hy24-12">兽药</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy24-13" name="hy">
+															<label for="hy24-13">中成药</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy24-14" name="hy">
+															<label for="hy24-14">美容</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">政府, 非盈性机构</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy25-1" name="hy">
+															<label for="hy25-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy25-2" name="hy">
+															<label for="hy25-2">无</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy25-3" name="hy">
+															<label for="hy25-3">政府及其他机构</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy25-4" name="hy">
+															<label for="hy25-4">学术科研</label>
+														</div>
+
+													</div>
+												</li>
+
+												<li class="tab-li">
+													<span class="tab-tab">无</span>
+													<div class="tabmain">
+														<div class="check-box">
+															<input type="checkbox" id="hy26-1" name="hy">
+															<label for="hy26-1">全部</label>
+														</div>
+
+														<div class="check-box">
+															<input type="checkbox" id="hy26-2" name="hy">
+															<label for="hy26-2">无</label>
+														</div>
+
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="keyword">
+									<div class="k-name k-border">
+										职位：
+									</div>
+									<div class="k-input">
+										<div class="search-all">
+											<div class="check-box">
+												<input type="checkbox" id="zw-all">
+												<label for="zw-all">全部</label>
+											</div>
+											<label class="more">更多</label>
+											<label class="unmore">收起</label>
+										</div>
+										<div class="search-detail">
+											<div class="check-box">
+												<input type="checkbox" id="zw-1" name="zw">
+												<label for="zw-1">行政事业单位</label>
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="zw-2" name="zw">
+												<label for="zw-2">技术岗位</label>
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="zw-3" name="zw">
+												<label for="zw-3">个体经营</label>
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="zw-4" name="zw">
+												<label for="zw-4">部门高管</label>
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="zw-5" name="zw">
+												<label for="zw-5">人事行政</label>
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="zw-6" name="zw">
+												<label for="zw-6">法人负责人</label>
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="zw-7" name="zw">
+												<label for="zw-7">其他专业岗位</label>
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="zw-8" name="zw">
+												<label for="zw-8">其他</label>
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="zw-9" name="zw">
+												<label for="zw-9">市场推广销售采购</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="keyword">
+									<div class="k-name k-border">
+										成立时间：
+									</div>
+									<div class="k-input">
+										<div class="search-all">
+											<div class="check-box">
+												<input type="checkbox" id="time-all">
+												<label for="time-all">全部</label>
+											</div>
+											<label class="more">更多</label>
+											<label class="unmore">收起</label>
+										</div>
+										<div class="search-detail">
+											<div class="check-box">
+												<input type="radio" id="time-1" name="time">
+												<label for="time-1">1年以内</label>
+											</div>
+											<div class="check-box">
+												<input type="radio" id="time-2" name="time">
+												<label for="time-2">1-3年</label>
+											</div>
+											<div class="check-box">
+												<input type="radio" id="time-3" name="time">
+												<label for="time-3">3-5年</label>
+											</div>
+											<div class="check-box">
+												<input type="radio" id="time-4" name="time">
+												<label for="time-4">5-8年</label>
+											</div>
+											<div class="check-box">
+												<input type="radio" id="time-5" name="time">
+												<label for="time-5">8-10年</label>
+											</div>
+											<div class="check-box">
+												<input type="radio" id="time-6" name="time">
+												<label for="time-6">10年以上</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<input type="submit" class="btn" onclick="submit12();" value="提交">
+						</div>
+						<div class="upshow up">收起</div>
+						<div class="upshow down">展开</div>
+					</div>
+				</form>
+			</div>
+			<div class="title list-title">
+				<i></i><span>搜索列表</span><label class="lt-text">为您搜索出<label class="number">2966</label>条数据</label>
+			</div>
+			<!--<div class="customer companylist recommendlist">-->
+			<div class="companylist recommendlist search-table">
+				<table class="table-list" id="table-list">
+					<thead>
+						<tr style="background: rgb(247, 248, 248);">
+							<th>公司名称</th>
+							<th>主营产品</th>
+							<th>所属行业</th>
+							<th>联系人</th>
+							<th>手机号码</th>
+							<th>不感兴趣</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis"></div>
+								<div class="ellipsis-all" style="display: none;"></div>
+							</td>
+							<td>生产/加工/制造</td>
+							<td>徐东成</td>
+							<td>1360****728</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr  class="distribution">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+
+						<tr >
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(247, 248, 248);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(255, 255, 255);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(247, 248, 248);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(255, 255, 255);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(247, 248, 248);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(255, 255, 255);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(247, 248, 248);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(255, 255, 255);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(247, 248, 248);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(255, 255, 255);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(247, 248, 248);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(255, 255, 255);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(247, 248, 248);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(255, 255, 255);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(247, 248, 248);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(255, 255, 255);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(247, 248, 248);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(255, 255, 255);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+						<tr style="background: rgb(247, 248, 248);">
+							<td>北京鑫海莱光电科技有限公司</td>
+							<td>
+								<a class="detail">详情</a>
+								<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								<div class="ellipsis-all" style="display: none;">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+							</td>
+							<td>房地产/建筑业</td>
+							<td>饶泽华</td>
+							<td>1860****180</td>
+							<td>
+								<a class="unlike active"></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="bottom-btn clearfix search-bottom">
+				<a class="btn" href="javascript:void(0);" id="downBtn">下载线索</a>
+				<label>可选择单条不感兴趣，剩下的视为感兴趣并下载。</label>
+
+				<!-- 分页 -->
+				<p class="page-p">共20条</p>
+				<ul class="page-ul">
+					<li>&lt; </li>
+					<li>&lt;&lt; </li>
+					<li> 1 </li>
+					<li> 2 </li>
+					<li class="page-d">...</li>
+					<li> 3 </li>
+					<li> &gt; </li>
+					<li>&gt;&gt;</li>
+				</ul>
+			</div>
+		</div>
+		<div class="changer-box">
+			<div class="tlt"><i></i>下载线索
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="group-t">
+				建立线索分组
+			</div>
+			<form onsubmit="return false;">
+				<div class="group-input">
+					<div class="group-left">云客推荐&nbsp;&nbsp; - </div>
+					<div class="group-right">
+						<input type="text" class="group" placeholder="请输入分组名称">
+					</div>
+				</div>
+				<label class="group-tip">*分组将同时保存为数据来源，该类型数据来源无法在客户页筛选</label>
+				<input type="submit" class="btn" value="提交">
+			</form>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				tableChange();
+				$(window).resize(function() {
+					tableChange();
+				});
+				$(".detail").click(function(event) {
+					if($(this).next().next().css("display") == "block") {
+						$(this).next().next().hide();
+					} else {
+						$(".ellipsis-all").hide();
+						$(this).next().next().css({
+							"top": "auto",
+							"right": "-400px"
+						}).show();
+						var chosen_top = 0;
+						var chosen_left = 0;
+						//						if($(this).next().next().offset().top + $(".recommendlist").scroll()[0].scrollTop - $(".recommendlist").offset().top - 40 + $(this).next().next().outerHeight() > ($(".recommendlist table").height() > $(".recommendlist").height() ? $(".recommendlist table").height() : $(".recommendlist").height())) {
+						//							chosen_top = -1 * $(this).next().next().outerHeight() + 20;
+						//						} else {
+						//							chosen_top = 0;
+						//
+						//						}
+						if($(this).next().next().offset().top - $(".recommendlist").offset().top - 40 + $(this).next().next().outerHeight() > ($(".recommendlist table").height() > $(".recommendlist").height() ? $(".recommendlist table").height() : $(".recommendlist").height())) {
+							chosen_top = -1 * $(this).next().next().outerHeight() + 20;
+						} else {
+							chosen_top = 0;
+
+						}
+						if($(this).next().next().offset().left + $(this).next().next().outerWidth() - $(window).width() * 0.01 >= $(".recommendlist").width()) {
+							chosen_left = 80;
+						} else {
+							chosen_left = -1 * $(this).next().next().outerWidth();
+						}
+						$(this).next().next().css({
+							"top": chosen_top,
+							"right": chosen_left
+						}).show();
+					}
+					event.stopPropagation();
+				});
+				$(window).click(function() {
+					$(".ellipsis-all").hide();
+				});
+				$(".ellipsis-all").click(function(event) {
+					event.stopPropagation();
+				});
+
+				//输入关键词
+				$(".k-tags").keywordsInput({ width: '100%', height: 'auto' });
+
+				//添加到上方关键词
+				$(".tag-text").click(function() {
+					var $type = $("#" + $(this)[0].dataset.type);
+					$type.addTag($(this).text());
+					$(this).remove();
+				})
+
+				//收起展开关键词输入
+				$(".upshow").click(function() {
+					$(this).parent(".keyword-search-box").toggleClass("active");
+				});
+				//显示下载线索
+				$("#downBtn").click(function() {
+					$(".layer").show();
+					$(".changer-box").show();
+				});
+				//关闭下载线索
+				$(".changer-box a.a-closed").click(function() {
+					$(".layer").hide();
+					$(".changer-box").hide();
+				});
+
+				//行业
+				$(".tab-tab").click(function() {
+					var $partent = $(this).parent(".tab-li");
+					if($partent.hasClass("active")) {
+						$(".tab-li").removeClass("active");
+					} else {
+						$(".tab-li").removeClass("active");
+						$partent.addClass("active");
+						var tabTop = $partent.offset().top - $partent.parent().offset().top + $(this).outerHeight() - 1;
+						$partent.find(".tabmain").css("top", tabTop);
+					}
+				});
+
+				$(window).click(function() {
+					$(".tab-li").removeClass("active");
+				});
+				$(".tab-li").click(function(event) {
+					event.stopPropagation();
+				});
+
+				$(".k-input").find(".more").click(function() {
+					$(this).parents(".k-input").addClass("active");
+				});
+				$(".k-input").find(".unmore").click(function() {
+					$(this).parents(".k-input").removeClass("active");
+				});
+			});
+
+			function tableChange() {
+				//				$(".companylist .ellipsis").width(($(".contents").width() - 153) * 0.4 - 50);
+				//$(".recommendlist").css({
+				//	"overflow-x": "hidden"
+				//});
+			}
+
+			function submit12() {
+				console.log($("#company").val());
+				
+				return false;
+			}
+		</script>
+
+	</body>
+
+</html>

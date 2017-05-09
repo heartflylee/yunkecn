@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js标签云</title>
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js" ></script>
+<style>
+.tag{float: left; margin-left: 15px; margin-bottom: 10px; position: relative;}
+#desc{
+    width: 200px;
+    height: 40px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: #000;
+    color: #fff;
+    position: absolute;
+    z-index: 100;
+    display: none;
+    border-radius: 10px;
+}
+#icon{
+    border-color: #000 transparent;
+    border-style: solid;
+    border-width: 10px 6px 0 6px;
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: 101;
+    display: none;
+}
+</style>
+</head>
+<body>
+<div id="tagCloud" style="width: 400px; height: 400px; border: 1px solid #ccc; margin: 20px auto; padding: 100px; position: relative">
+    <!--<span id="desc"></span>-->
+    <!--<i id="icon"></i>-->
+
+    <span class="tag" id="tag1" desc="描述描述描述描述描述描述描述描述1">标签1</span>
+    <span class="tag" id="tag2" desc="描述描述描述描述描述描述描述描述2">标签2</span>
+    <span class="tag" id="tag3" desc="描述描述描述描述描述描述描述描述3">标签3</span>
+    <span class="tag" id="tag4" desc="描述描述描述描述描述描述描述描述4">标签4</span>
+    <span class="tag" id="tag5" desc="描述描述描述描述描述描述描述描述5">标签5</span>
+    <span class="tag" id="tag6" desc="描述描述描述描述描述描述描述描述6">标签6</span>
+    <span class="tag" id="tag7" desc="描述描述描述描述描述描述描述描述7">标签7</span>
+    <span class="tag" id="tag8" desc="描述描述描述描述描述描述描述描述8">标签8</span>
+    <span class="tag" id="tag9" desc="描述描述描述描述描述描述描述描述9">标签9</span>
+    <span class="tag" id="tag11" desc="描述描述描述描述描述描述描述描述11">标签11</span>
+    <span class="tag" id="tag12" desc="描述描述描述描述描述描述描述描述12">标签12</span>
+    <span class="tag" id="tag13" desc="描述描述描述描述描述描述描述描述13">标签13</span>
+    <span class="tag" id="tag14" desc="描述描述描述描述描述描述描述描述14">标签14</span>
+    <span class="tag" id="tag15" desc="描述描述描述描述描述描述描述描述15">标签15</span>
+    <span class="tag" id="tag16" desc="描述描述描述描述描述描述描述描述16">标签16</span>
+    <span class="tag" id="tag17" desc="描述描述描述描述描述描述描述描述17">标签17</span>
+    <span class="tag" id="tag18" desc="描述描述描述描述描述描述描述描述18">标签18</span>
+    <span class="tag" id="tag19" desc="描述描述描述描述描述描述描述描述19">标签19</span>
+    <span class="tag" id="tag20" desc="描述描述描述描述描述描述描述描述20">标签20</span>
+    <span class="tag" id="tag21" desc="描述描述描述描述描述描述描述描述21">标签21</span>
+    <span class="tag" id="tag22" desc="描述描述描述描述描述描述描述描述22">标签22</span>
+    <span class="tag" id="tag23" desc="描述描述描述描述描述描述描述描述23">标签23</span>
+    <span class="tag" id="tag24" desc="描述描述描述描述描述描述描述描述24">标签24</span>
+    <span class="tag" id="tag25" desc="描述描述描述描述描述描述描述描述25">标签25</span>
+    <span class="tag" id="tag26" desc="描述描述描述描述描述描述描述描述26">标签26</span>
+    <span class="tag" id="tag27" desc="描述描述描述描述描述描述描述描述27">标签27</span>
+    <span class="tag" id="tag28" desc="描述描述描述描述描述描述描述描述28">标签28</span>
+    <span class="tag" id="tag29" desc="描述描述描述描述描述描述描述描述29">标签29</span>
+    <span class="tag" id="tag30" desc="描述描述描述描述描述描述描述描述30">标签30</span>
+    <span class="tag" id="tag31" desc="描述描述描述描述描述描述描述描述31">标签31</span>
+    <span class="tag" id="tag32" desc="描述描述描述描述描述描述描述描述32">标签32</span>
+    <span class="tag" id="tag33" desc="描述描述描述描述描述描述描述描述33">标签33</span>
+    <span class="tag" id="tag34" desc="描述描述描述描述描述描述描述描述34">标签34</span>
+    <span class="tag" id="tag35" desc="描述描述描述描述描述描述描述描述35">标签35</span>
+    <span class="tag" id="tag36" desc="描述描述描述描述描述描述描述描述36">标签36</span>
+    <span class="tag" id="tag37" desc="描述描述描述描述描述描述描述描述37">标签37</span>
+    <span class="tag" id="tag38" desc="描述描述描述描述描述描述描述描述38">标签38</span>
+    <span class="tag" id="tag39" desc="描述描述描述描述描述描述描述描述39">标签39</span>
+    <span class="tag" id="tag40" desc="描述描述描述描述描述描述描述描述40">标签40</span>
+</div>
+<script>
+
+    var tags = $(".tag");
+    for (var i = tags.length - 1; i >= 0; i--) {
+        tags[i].style.fontSize = random_num(1,30) + 'px';
+        tags[i].style.color = random_color();
+    };
+    var tagCloud = $("#tagCloud");
+    var boxWidth = tagCloud.width();
+
+    tags[0].style.marginLeft = boxWidth / 2 - 50 + 'px';
+    tags[2].style.clear = 'left';
+    tags[2].style.marginLeft = boxWidth / 3 - 50 + 'px';
+    tags[6].style.clear = 'left';
+    tags[6].style.marginLeft = boxWidth / 4 - 50 + 'px';
+    tags[tags.length-2].style.clear = 'left';
+    tags[tags.length-2].style.marginLeft = boxWidth / 2 - 50 + 'px';
+    tags[tags.length-6].style.clear = 'left';
+    tags[tags.length-6].style.marginLeft = boxWidth / 3 - 50 + 'px';
+    tags[tags.length-12].style.clear = 'left';
+    tags[tags.length-12].style.marginLeft = boxWidth / 4 - 50 + 'px';
+
+    $("span:not(#desc)").click(function(){
+        var width = $(this).width();
+        var height = $(this).height();
+        var top = $(this).position().top;
+        var left = $(this).position().left;
+        var desc = $(this).attr('desc');
+
+        var descObj = $("#desc");
+        var iconObj = $("#icon");
+
+        // 隐藏
+        if (descObj.css('display') == 'none') {
+            descObj.fadeIn(300);
+            iconObj.fadeIn(300);
+            // descObj.css('display', 'block');
+            // iconObj.css('display', 'block');
+        }else{
+            if (descObj.text() != desc) {
+                descObj.hide().fadeIn(300);
+                iconObj.hide().fadeIn(300);
+                // descObj.css('display', 'block');
+                // iconObj.css('display', 'block');
+            }else{
+                descObj.fadeOut(100);
+                iconObj.fadeOut(100);
+                // descObj.css('display', 'none');
+                // iconObj.css('display', 'none');
+            }
+        }
+        descObj.text(desc);
+
+        // 定位描述框和小三角
+        var descWidth = descObj.width();
+        var descHeight = descObj.height();
+        descObj.css('top', top - descHeight - 30);
+        var marginLeft = parseInt($(this).css('marginLeft'));
+        iconObj.css('top', top - 10);
+
+        // 左侧防超长
+        if (marginLeft > 15) {
+            descObj.css('left', marginLeft)
+            iconObj.css('left', marginLeft + descWidth / 2 + width / 2 - 5);
+        }else{
+            descObj.css('left', left);
+            iconObj.css('left', left + 10 + width / 2);
+        }
+
+        // 右侧防超长
+        var descLeft = descObj.position().left;
+        var boxPaddingLeft = parseInt(tagCloud.css('paddingLeft'));
+        var boxPaddingRight = parseInt(tagCloud.css('paddingRight'));
+        var descRight = descLeft + descWidth + 24;
+        var boxRight = boxWidth + boxPaddingLeft + boxPaddingRight;
+        if (descRight > boxRight) {
+            var current_left = parseInt(descObj.css('left'));
+            descObj.css('left', current_left - (descRight - boxRight))
+        }
+
+    });
+
+    // 随机字号
+    function random_num(min,max){
+        return Math.floor(min+Math.random() * (max-min));
+    }
+    // 随机字体颜色
+    function random_color(){
+        return '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6);
+    }
+</script>
+</body>
+</html>

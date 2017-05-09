@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>账户</title>
+	<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+	<link href="../css/main.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="../css/head.css" />
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/highcharts.js"></script> 
+	<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+</head>
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<!-- 页面头部 header -->
+<div class="header">
+	<h1 class="logo fl"></h1>
+	<span class="mar fl">|</span>
+	<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+	<ul class="nav">
+		<li><a href="">首页</a></li>
+		<li><a href="">行动</a></li>
+		<li><a href="">客户</a></li>
+		<li><a href="" class="current">账户</a></li>
+		<li><a href="">任务</a></li>
+		<li><a href="">设置</a></li>
+	</ul>
+	<ul class="header-right fr">
+		<li><a href="javascript:;"><i class="add"></i></a></li>
+		<li><a href="javascript:;"><i class="update"></i></a></li>
+		<li><a href="javascript:;"><i class="message"></i></a></li>
+		<li><a href="javascript:;" class="user">刘</a></li>
+	</ul>
+</div>
+<!-- 汇总提示 tipArea -->
+<div class="tipArea">
+	<div class="wrap">
+		<ul class="ul-1" id="account-tab">
+			<li><a href="javascript:;" class="current">使用权限</a></li>
+			<li><a href="javascript:;">线索数据</a></li>
+		</ul>	
+	</div>
+</div>
+<!-- 内容部分 contents -->
+<div class="contents">
+	<div class="c-context" style="display: block;">
+		<div id="c-part-1">
+			<div class="table-tlt">
+				<i class="i"></i>使用权限
+			</div>
+			<dl class="c-dl">
+				<dt>账户余额</dt>
+				<dd><em class="blue-em">5237.40</em><span>元</span>[<a href="javascript:;" id="jymx-1">交易明细</a>]</dd>
+			</dl>
+			<dl class="c-dl">
+				<dt>已开通账户</dt>
+				<dd><em class="blue-em">5237.40</em><span>元</span><span>[<a href="">添加</a>/<a href="">删除</a>]</span><b class="time">有效期至 2016年4月14日</b></dd>
+			</dl>
+			<dl class="c-dl">
+				<dt>已开通坐席</dt>
+				<dd><em class="blue-em">5237.40</em><span>元</span><span>[<a href="">添加</a>/<a href="">删除</a>]</span><b class="time">有效期至 2016年4月14日</b><p class="n-tip">坐席数须小于等于账户数。账户如果到期，坐席将无法使用</p></dd>
+			</dl>
+			<dl class="c-dl">
+				<dt>总通话时常</dt>
+				<dd><em class="blue-em">40</em><span>分</span><em class="blue-em">40</em><span>秒</span><p class="n-tip">每次拨通电话将从您账户余额扣除通讯费，收费标准 0.1元/分钟，不足一分钟按一分钟收费</p></dd>
+			</dl>
+			<a href="paycenter.html"><input type="button" class="btn" value="充值"></a>
+		</div>
+		<!-- 使用权限 - 交易明细 -->
+		<div id="c-part-2">
+			<div class="table-tlt">
+				<a class="return-icon" href="javascript:;"></a>
+				<i class="i"></i>交易明细
+			</div>
+			<!--  -->
+			<div class="table-1" style="display:block">
+				<table class="table-list">
+					<thead>
+						<tr>
+							<th>交易时间</th>
+							<th>交易项目</th>
+							<th>交易金额</th>
+							<th>余额</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>客户姓名</td>
+							<td>111111111111</td>
+							<td class="c-blue">-330元</td>
+							<td>客户姓名</td>
+							
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>111111111111</td>
+							<td class="c-red">+300元</td>
+							<td>客户姓名</td>
+							
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>111111111111</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>111111111111</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							
+						</tr>
+							
+					</tbody>
+				</table>
+				
+			</div>
+		</div>
+	</div>
+	<div class="c-context">
+		<div id="c-part-3">
+			<div class="table-tlt">
+				<i class="i"></i>线索数据
+				<a href="javascript:;" id="jymx-2" class="c">[使用明细]</a>
+			</div>
+			<dl class="c-dl">
+				<dt>总赠送数据</dt>
+				<dd><em class="blue-em">5237.40</em><span>条</span><p class="n-tip">每开通一个账户每月将赠送1000条线索数据，请及时使用</p></dd>
+			</dl>
+			<dl class="c-dl">
+				<dt class="c-left">剩余</dt>
+				<dd><em class="blue-em">5237.40</em><span>条</span></dd>
+			</dl>
+			<dl class="c-dl martop50">
+				<dt>总购买数据</dt>
+				<dd><em class="blue-em">5237.40</em><span>条</span></dd>
+			</dl>
+			<dl class="c-dl">
+				<dt class="c-left">剩余</dt>
+				<dd><em class="blue-em">5237.40</em><span>条</span></dd>
+			</dl>
+			<a href="paycenter-1.html"><input type="button" class="btn" value="购买数据"></a>
+		</div>
+		<!-- 线索数据 - 交易明细 -->
+		<div id="c-part-4">
+			<div class="table-tlt">
+				<a class="return-icon" href="javascript:;"></a>
+				<i class="i"></i>交易明细
+			</div>
+			<!--  -->
+			<div class="table-1" style="display:block">
+				<table class="table-list">
+					<thead>
+						<tr>
+							<th>交易项目</th>
+							<th>交易对象</th>
+							<th>交易数量</th>
+							<th>交易日期</th>
+							<th>所属任务</th>
+							<th>剩余线索数量</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>客户姓名</td>
+							<td>111111111111</td>
+							<td class="c-blue">-330元</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>111111111111</td>
+							<td class="c-red">+300元</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>111111111111</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>111111111111</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+						</tr>
+							
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

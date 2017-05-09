@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>企业公海池</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/highcharts.js"></script>
+		<link href="../css/hDate.css" rel="stylesheet" />
+		<script type="text/javascript" src="../js/hDate.js"></script>
+		<script type="text/javascript" src="../js/audio.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+		<script type="text/javascript" src="../js/jedate/jedate.min.js" ></script>
+		<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js" ></script>
+		<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<div class="layer-6"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav">
+				<li><a href="">首页</a></li>
+				<li><a href="">行动</a></li>
+				<li><a href="" class="current">客户</a></li>
+				<li><a href="">账户</a></li>
+				<li><a href="">任务</a></li>
+				<li><a href="">设置</a></li>
+			</ul>
+			<ul class="header-right fr">
+				<li><a href="javascript:;"><i class="add"></i></a></li>
+				<li><a href="javascript:;"><i class="update"></i></a></li>
+				<li><a href="javascript:;"><i class="message"></i></a></li>
+				<li><a href="javascript:;" class="user">刘</a></li>
+			</ul>
+		</div>
+
+		<!-- 内容部分 contents -->
+		<div class="contents">
+			<div class="table-tlt">
+				<a class="return-icon" href=""></a>
+				<i class="i"></i>企业公海池
+				
+				<div class="fr">
+					<div class="position-relative searchBox fl">
+						<input type="text" placeholder="请输入姓名、公司、手机号等相关信息" />
+						<a class="search-icon"></a>
+					</div>
+					<div class="fl source-search-f">
+						<span class="span-4" id="source">来源筛选<b class="b-icon"></b></span>
+						<div class="source-search" id="source-search">
+							<ul>
+								<li>全部<i></i></li>
+								<li>云客推荐<i></i></li>
+								<li>客户导入<i></i></li>
+							</ul>
+						</div>
+					</div>
+					<span class="span-1" id="custom-header">自定义表头</span>
+					<a class="a" id="exporter">导入客户</a>
+					<a class="a" id="add_customer">新建客户</a>
+					<a class="a red" id="deleter">删除</a>
+				</div>
+			</div>
+			<div class="customer">
+				<table class="table-list" id="table-list">
+					<thead>
+						<tr>
+							<th class="th1"><i></i></th>
+							<th>客户姓名</th>
+							<th>手机号码</th>
+							<th>职位</th>
+							<th>销售进度</th>
+							<th>创建时间</th>
+							<th>跟进人</th>
+							<th>公司名称</th>
+							<th>创建时间</th>
+							<th>跟进人</th>
+							<th>公司名称</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>
+								北京联云天下科技有限公司
+							</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>
+								北京联云天下科技有限公司
+							</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+						<tr>
+							<td><i></i></td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>北京联云天下科技有限公司</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- 分页 -->
+			<p class="page-p">共20条</p>
+			<ul class="page-ul">
+				<li>
+					< </li>
+						<li> 1 </li>
+						<li> 2 </li>
+						<li> 3 </li>
+						<li> > </li>
+			</ul>
+
+		</div>
+		<!-- 导入客户 changer-box -->
+		<div class="changer-box" id="changer-box-2" style="height:330px;">
+			<div class="tlt"><i></i>导入客户
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<input type="text" class="inputBox-1  bg-gray fl" style="height: 28px; width: 450px;" />
+			<div class="resetbox">
+				<input type="file" class="filereset" name="" id="" value="" />
+				<a class="a-resetfile">浏览</a>
+			</div>
+			<div style="clear: both;"></div>
+			<dl class="tip">
+				<dt>使用说明</dt>
+				<dd>1.请上传后缀名为xls的文件；</dd>
+				<dd>2.数据请勿放在合并的单元格中，且导入文件小于2MB；</dd>
+				<dd>3.为保证您导入的客户数据有效，请下载<a href="" class="a-c-gray">客户导入模板</a>，编辑后上传。</dd>
+			</dl>
+			<input type="button" class="btn" value="提交" id="changerBtn-2">
+		</div>
+		<!-- 删除客户 提示 至少选择一项 changer-box -->
+		<div class="changer-box" id="changer-box-3" style=" height: 250px;">
+			<div class="tlt"><i></i>删除客户
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<p class="tip-1">请您至少选择一条数据</p>
+			<input type="button" class="btn" value="确定" id="changerBtn-3">
+		</div>
+		<!-- 删除客户 changer-box -->
+		<div class="changer-box" id="changer-box-1" style=" height: 250px;">
+			<div class="tlt"><i></i>删除客户
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<p class="tip-1">确认要删除所选数据吗？</p>
+			<input type="button" class="btn" value="确定" id="changerBtn-1" style="margin-left: 160px;">
+			<input type="button" class="btn-1" value="取消" id="changerBtn-1-1">
+		</div>
+	
+		<!-- 自定义表头 customHeader -->
+		<div class="customHeaderBox" id="customHeaderBox">
+			<div class="tlt"><i></i>自定义表头
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="ctdivbox marleft20 fl">
+				<em>隐藏字段</em>
+				<div class="ctchooseBox" id="hiddenField">
+					<ul>
+						<li>创建时间</li>
+						<li>联系时间</li>
+						<li>公司地址</li>
+						<li>公司类型</li>
+						<li>经营范围</li>
+						<li>数据来源</li>
+						<li>备注</li>
+					</ul>
+				</div>
+			</div>
+			<i class="remove-icon" id="removeBtn"></i>
+			<i class="add-icon" id="addBtn"></i>
+			<div class="ctdivbox marright40 fr">
+				<em>显示字段</em>
+				<div class="ctchooseBox" id="showField">
+					<ul>
+						<li key="customerName">客户姓名</li>
+						<li>手机号</li>
+						<li>职位</li>
+						<li>销售进度</li>
+					</ul>
+				</div>
+			</div>
+			<i class="up-icon" id="upBtn"></i>
+			<i class="down-icon" id="downBtn"></i>
+			<input type="button" class="btn" value="提交" id="customBtn">
+		</div>
+		<!-- 客户详情 -->
+		
+		<!--新建客户 -->
+		<div class="applyBox custom_new" id="applyBox-2">
+			<div class="tlt"><i></i>新建客户
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="customer_f">
+				<div class="input_f not_none">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入客户姓名" />
+				</div>
+				<div class="input_f not_none">
+					<input type="text" class="inputBox-1 bg-gray com_input" placeholder="请输入公司名称" />
+					<div class="com_f">
+						<div class="com_info">北京联云天下科技有限公司</div>
+						<div class="com_info">北京联云天下科技有限公司</div>
+						<div class="com_info">北京联云天下科技有限公司</div>
+					</div>
+				</div>
+				<div class="select_city">
+					<select>
+					<option>请选择省市</option>
+					<option>请选择省市</option>
+					<option>请选择省市</option>
+					<option>请选择省市</option>
+					<option>请选择省市</option>
+				</select>
+					<select>
+					<option>请选择城市</option>
+					<option>请选择城市</option>
+					<option>请选择城市</option>
+					<option>请选择城市</option>
+					<option>请选择城市</option>
+				</select>
+					<select>
+					<option>请选择地区</option>
+					<option>请选择地区</option>
+					<option>请选择地区</option>
+					<option>请选择地区</option>
+					<option>请选择地区</option>
+				</select>
+				</div>
+				<div class="input_f">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入详细地址" />
+				</div>
+				<div class="input_f not_none telephone existing">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入手机号码" />
+				</div>
+				<div class="input_f">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入职位" />
+				</div>
+				<div class="add_more">
+					<a>输入更多信息>></a>
+				</div>
+				<div class="custom_more">
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入手机号码2" />
+					</div>
+					<div class="input_f">
+						<select class="select_row">
+						<option>请选择企业资质</option>
+						<option>请选择企业资质</option>
+						<option>请选择企业资质</option>
+						<option>请选择企业资质</option>
+					</select>
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入经营范围" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入座机号码" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入邮箱地址" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入QQ号码" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入微信号码" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入生日" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入前台电话号码" />
+					</div>
+					<div class="input_f">
+						<textarea class="textarear_customer" placeholder="请输入备注"></textarea>
+					</div>
+				</div>
+			</div>
+			<input type="button" class="btn" value="提交" id="">
+		</div>
+		
+		<div class="applyBox sea-content" id="sea-content">
+			<div class="tlt"><i></i>公海池变动
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="sea-con">
+				<div class="ser-clues clearfix">
+					<span>昨日被领取线索</span>
+					<div class="cluse-count">
+						<label>300</label>条
+					</div>
+				</div>
+				<div class="ser-clues clearfix">
+					<span>被退回线索</span>
+					<div class="cluse-count return">
+						<label>300</label>条
+					</div>
+				</div>
+					
+			</div>
+			<div class="btn-f">
+				<input type="button" class="btn submit" value="提交" id="">
+				<input type="button" class="btn cancle" value="设置领取权限" id="" />
+			</div>
+			
+		</div>
+		
+		<script type="text/javascript">
+			$(function() {
+				
+//				new tqEditor('e2',{toolbar:'full',width:'100%',resize:false,height:"150px"});
+				
+				$(".customer").height($(window).height()-$(".customer").offset().top-80);
+				$(".customer").css({"overflow":"auto"});
+				
+				$("#add_customer").click(function() {
+					$(".layer").show();
+					$("#applyBox-2").show();
+				});
+				$(".add_more a").click(function() {
+					$(".custom_more").show();
+					$(".add_more").hide();
+				});
+			
+			//来源筛选
+			$("#source").click(function(){
+				$("#source-search").show();
+			});
+			$(window).click(function(){
+				$("#source-search").hide();
+			});
+			$("#source,#source-search").click(function(){
+				event.stopPropagation();
+			});
+		
+			
+			$("#source-search li").click(function(){
+				$("#source-search li").removeClass("active");
+				$(this).addClass("active");
+			});
+				
+			//公海池变动
+			$("#sea-content").show();
+			$(".layer").show();
+			
+			//公海池变动的关闭和提交
+			$("#sea-content a.a-closed,#sea-content .btn.submit").click(function(){
+				$("#sea-content").hide();
+				$(".layer").hide();
+			});
+				
+				$("#sea-content .btn.cancle").click(function(){
+					window.location.href="";
+				});
+				
+			});
+		</script>
+	</body>
+</html>

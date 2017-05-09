@@ -1,0 +1,115 @@
+
+@charset "utf-8";
+/* 2013317001 phoebe*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em,  img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b,  i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, span {
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+em, i, b{
+	font-style: normal;
+	font-weight: 100;
+}
+a{
+	text-decoration: none;
+}
+.clearfix:after{
+	content:"";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+	font-size:0;
+}
+.clearfix {}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Resetting HTML5! */
+section, article, aside, header, footer, nav, dialog, figure { display:block; }
+
+/*浮动 css*/
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+
+/* 页面 头部样式 header */
+
+.header span{ display: inline; font-size: 14px; color: transparent; line-height: 65px;}
+.header span a{color: #50d2c2;}
+.header span em{ color: #fff; padding-right: 3px;}
+.header p.p-tel{ color: #fff; font-size: 14px; padding-right: 10px; }
+i.white-tel{ display: inline-block; float: left; margin: 23px 5px 0 0; width: 15px; height: 15px; background: url(../images/white-tel.png) no-repeat; }
+
+.nav{ width: 420px;  margin: 0 auto;}
+.nav li{ width: 70px; height: 60px; font-size:18px; text-align: center; float: left;}
+
+/*.header-right{ width: 240px;}*/
+.header-right li{display: none; width: 59px; height: 60px;position: relative; /*border-left: 1px solid #434343;*/ float: left;}
+.header-right li:last-child{display: block;}
+.header-right li a.user,a.user-1{ display: block; width: 36px; height: 36px; border-radius: 20px; background: #fff; color: #3d3d3d; text-align: center; line-height: 36px; margin-top: 13px; }
+.header-right li a.user img{width:36px;height: 36px;border-radius: 50%;}
+a.user-1{ margin-right: 20px; }
+.header-right li a i{ display: block; width: 20px; height: 20px; margin: 21px auto;}
+i.add{ background: url(../images/add.png) no-repeat; }
+i.update{ background: url(../images/update.png) no-repeat; }
+i.message{ background: url(../images/message1.png) no-repeat; }
+i.qq{ background: url(../images/QQ1.png) no-repeat; }
+.header-right li:first-child{display: block;}
+.header-right li:first-child:hover .service{display: block;}
+.service{display: none; position: absolute;background: #fff;box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2);white-space: nowrap;padding: 0 20px;left: -20px;bottom: -45px;line-height: 50px;z-index: 9;}
+.header{ width: 100%; height:60px; background: #fff; line-height: 60px; border-bottom: 1px solid #e2e1e1;}
+.logo{ width: 48px; height: 19px; background: url(../images/dmlogo-blue.png) no-repeat center; margin: 22px 0 0 19px;background-size: cover;
+	-ms-behavior: url(backgroundsize.min.htc);
+	behavior: url(backgroundsize.min.htc);}
+.header span.mar{position: relative; margin: 22px 17px 0;width:1px;height: 20px; background: url(../images/yinyingline.png);background-size:100% 100%;}
+.header span.mar:after{content: "";position: absolute;top:-4px;left:13px; display: inline-block;background: url(../images/yunkeCRM.png);background-size: 100% 100%; width:62px;height: 27px;}
+.nav li a{ display: block; color: #a1a6b1;}
+.nav li a:hover,
+.nav li a.current{ height: 59px;border-bottom: 2px solid #40a7ff; color: #40a7ff; }

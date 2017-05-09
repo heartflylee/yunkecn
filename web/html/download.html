@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>团队客户</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/highcharts.js"></script>
+		<link href="../css/hDate.css" rel="stylesheet" />
+		<script type="text/javascript" src="../js/hDate.js"></script>
+		<script type="text/javascript" src="../js/audio.js"></script>
+
+		<script type="text/javascript" src="../js/jedate/jedate.js"></script>
+		<script type="text/javascript" src="../js/keywordsinput.js"></script>
+		<script type="text/javascript" src="../js/editor/kindeditor-min.js"></script>
+		<!--<script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+		<script type="text/javascript" src="../js/jedate/jedate.min.js"></script>-->
+		<!--<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js"></script>-->
+		<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<div class="layer-6"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav">
+				<li>
+					<a href="">首页</a>
+				</li>
+				<li>
+					<a href="">行动</a>
+				</li>
+				<li>
+					<a href="">客户</a>
+				</li>
+				<li>
+					<a href="" class="current">线索</a>
+				</li>
+				<li>
+					<a href="">任务</a>
+				</li>
+				<li>
+					<a href="">设置</a>
+				</li>
+			</ul>
+			<ul class="header-right fr">
+				<li>
+					<a href="javascript:;"><i class="add"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="update"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="message"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="user">刘</a>
+				</li>
+			</ul>
+		</div>
+		<div class="tipArea">
+			<div class="wrap">
+				<ul class="ul-2">
+					<li>
+						<a href="listSearch.html">搜索引擎</a>
+					</li>
+					<li>
+						<a href="recommendNew.html">推荐引擎</a>
+					</li>
+					<li>
+						<a href="download.html" class="current">已下载线索</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="contents">
+			<div class="d-menu-box">
+				<div class="menu-t">
+					数据分组
+				</div>
+				<div class="group-main">
+					<div class="group-li">
+						<i class="g-delete"></i> 不感兴趣线索
+					</div>
+					<div class="group-li active">
+						<i></i> 云客推荐-3月15日下载数据
+					</div>
+					<div class="group-li">
+						<i></i> 云客推荐-3月15日下载数据
+					</div>
+					<div class="group-li">
+						<i></i> 云客推荐-3月15日下载数据
+					</div>
+					<div class="group-li">
+						<i></i> 云客推荐-3月15日下载数据
+					</div>
+					<div class="group-li">
+						<i></i> 云客推荐-3月15日下载数据
+					</div>
+					<div class="group-li">
+						<i></i> 云客推荐-3月15日下载数据
+					</div>
+
+				</div>
+			</div>
+			<div class="d-main">
+				<div class="table-tlt">
+					<i class="i"></i>已下载线索
+					<div class="right-btn">
+						<a class="screen" id="custom-header" href="javascript:void(0);">自定义表头</a>
+						<a class="screen filter" id="filter1" href="javascript:void(0);">筛选<i></i></a>
+					</div>
+				</div>
+				<div class="filterBox d-filterBox" id="filterBox">
+					<div class="wrap">
+						<p>
+							<label>创建时间</label>
+							<span class="time"><input type="text" id="timetext" /></span>
+							<label>至</label>
+							<span class="time"><input type="text" id="timetext-2" /></span>
+							<label style="margin-left:40px;">联系时间</label>
+							<span class="time"><input type="text" id="timetext-1" /></span>
+							<label>至</label>
+							<span class="time"><input type="text" id="timetext-3" /></span>
+							<!-- <i class="time-icon" id="Text2"></i> -->
+						</p>
+						
+						<script type="text/javascript">
+            var minday_1;
+            var maxday_1;
+            var minday_2;
+            var maxday_2;
+            $("#timetext").click(function(e) {
+                maxday_1 = $("#timetext-2").val();
+                if (maxday_1 == "") {
+                    maxday_1 = (new Date()).toString("yyyy-MM-dd");
+                }
+                var ths = this;
+                calendar.show({
+                    id: this,
+                    maxDay:maxday_1.toString("yyyy-MM-dd")
+                });
+            });
+            $("#timetext-2").click(function(e) {
+                minday_1 = $("#timetext").val();
+                var ths = this;
+                calendar.show({
+                    id: this,
+                    maxDay:(new Date()).toString("yyyy-MM-dd"),
+                    minDay: minday_1.toString("yyyy-MM-dd")
+                });
+            });
+            $("#timetext-1").click(function(e) {
+                maxday_2 = $("#timetext-3").val();
+                if (maxday_2 == "") {
+                    maxday_2 =(new Date()).toString("yyyy-MM-dd");
+                }
+                var ths = this;
+                calendar.show({
+                    id: this,
+                    maxDay:maxday_2.toString("yyyy-MM-dd")
+                });
+            });
+
+            $("#timetext-3").click(function(e) {
+                minday_2 = $("#timetext-1").val();
+                var ths = this;
+                calendar.show({
+                    id: this,
+                    maxDay: (new Date()).toString("yyyy-MM-dd"),
+                    minDay: minday_2.toString("yyyy-MM-dd")
+                });
+            });
+        </script>
+
+
+						
+						<!--<script type="text/javascript">
+							var start = {
+								format: 'YYYY-MM-DD hh:mm:ss',
+								maxDate: $.nowDate(0), //设定最小日期为当前日期
+								minDate: '1900-01-01 00:00:00', //最大日期
+								choosefun: function(elem, datas) {
+									end.minDate = datas; //开始日选好后，重置结束日的最小日期
+								}
+							};
+							var end = {
+								format: 'YYYY-MM-DD hh:mm:ss',
+								maxDate: $.nowDate(0), //设定最小日期为当前日期
+								//  festival:true,
+								minDate: '1900-01-01 00:00:00', //最大日期
+								choosefun: function(elem, datas) {
+									start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+								}
+							};
+							$('#timetext').jeDate(start);
+							$('#timetext-2').jeDate(end);
+
+							var start1 = {
+								format: 'YYYY-MM-DD hh:mm:ss',
+								maxDate: $.nowDate(0), //设定最小日期为当前日期
+								minDate: '1900-01-01 00:00:00', //最大日期
+								choosefun: function(elem, datas) {
+									end1.minDate = datas; //开始日选好后，重置结束日的最小日期
+								}
+							};
+							var end1 = {
+								format: 'YYYY-MM-DD hh:mm:ss',
+								maxDate: $.nowDate(0), //设定最小日期为当前日期
+								//  festival:true,
+								minDate: '1900-01-01 00:00:00', //最大日期
+								choosefun: function(elem, datas) {
+									start1.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+								}
+							};
+							$('#timetext-1').jeDate(start1);
+							$('#timetext-3').jeDate(end1);
+						</script>-->
+						<p>
+							<label>销售进度</label>
+							<select class="Jselect">
+								<option>请选择销售进度</option>
+								<option value="">未沟通</option>
+								<option value="">无需求</option>
+								<option value="">初步沟通</option>
+								<option value="">确认需求</option>
+								<option value="">报价</option>
+								<option value="">面谈</option>
+								<option value="">成交</option>
+								<option value="">输单</option>
+							</select>
+							<label>分配状态</label>
+							<select class="Jselect">
+								<option>请选择分配状态</option>
+								<option value="">未分配</option>
+								<option value="">已分配</option>
+							</select>
+							<label>跟进人</label>
+							<select class="Jselect">
+								<option>请选择跟进人</option>
+								<option value="">未分配</option>
+								<option value="">艾云鹤</option>
+								<option value="">刘晓辉</option>
+								<option value="">刘宇</option>
+							</select>
+						</p>
+						<p>
+							<label>沟通状态</label>
+							<select class="Jselect">
+								<option>请选择沟通状态</option>
+								<option>初步接洽</option>
+								<option>确认需求</option>
+								<option>确认报价</option>
+								<option>拟定合同</option>
+								<option>成单</option>
+							</select>
+							<label>电话结果</label>
+							<select>
+								<option>请选择电话结果</option>
+								<option value="">有意向</option>
+								<option value="">无意向</option>
+								<option value="">资料错误</option>
+								<option value="">二次外呼</option>
+							</select>
+							<label>二级标签</label>
+							<select>
+								<option>请选择二级标签</option>
+							</select>
+						</p>
+						<p>
+							<label>短信发送状态</label>
+							<select class="Jselect">
+								<option>请选择短信发送状态</option>
+								<option>已发送</option>
+								<option>发送中</option>
+								<option value="">未发送</option>
+							</select>
+							<label>邮件发送状态</label>
+							<select>
+								<option>请选择邮件发送状态</option>
+								<option>已发送</option>
+								<option>发送中</option>
+								<option value="">未发送</option>
+							</select>
+						</p>
+						<input type="button" class="btn" value="筛选结果" id="filterBtn">
+					</div>
+				</div>
+				<!--<div class="customer companylist recommendlist">-->
+				<div class="customer sample">
+					<table class="table-list" id="table-list">
+						<thead>
+							<tr>
+								<th class="th1"><i></i></th>
+								<th>公司名称</th>
+								<th>主营产品</th>
+								<th>联系人</th>
+								<th>手机号码</th>
+								<th>分配状态</th>
+								<th>不感兴趣</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><i></i></td>
+								<td>
+									北京联云天下科技有限公司
+								</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">&nbsp;</div>
+									<div class="ellipsis-all"></div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike"></a>
+								</td>
+							</tr>
+							<tr class="distribution">
+								<td><i></i></td>
+								<td>
+									北京联云天下科技有限公司
+								</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis"></div>
+									<div class="ellipsis-all"></div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>已分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis" title="技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+							<tr>
+								<td><i></i></td>
+								<td>北京鑫海莱光电科技有限公司</td>
+								<td>
+									<a class="detail">详情</a>
+									<div class="ellipsis">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+									<div class="ellipsis-all">技术开发、技术转让、技术咨询、技术服务、技术推广；计算机技术培训；基础软件服务；应用软件服务（不含医用软件）；计算机系统服务；数据处理；维修计算机；设计、制作、代理、发布广告；会议服务；承办展览展示活动；投资咨询；企业管理咨询；销售计算机、软件及辅助设备、电子产品、机械设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</div>
+								</td>
+								<td>徐东成</td>
+								<td>1360****728</td>
+								<td>未分配</td>
+								<td>
+									<a class="unlike active"></a>
+								</td>
+							</tr>
+
+						</tbody>
+
+					</table>
+				</div>
+				<div class="bottom-btn clearfix search-bottom">
+					<div class="checkall-view">
+						<div class="check-f" onclick="checkall();"><i class="checkall"></i>全选</div>
+						<label>已选择<span  style="font-weight:bold;color:red;padding:0 5px 0 5px;">0</span>条</label>
+					</div>
+					<div class="dropbox">
+						<a class="dropbtn" href="javascript:void(0);" onclick="addtask(event);">添加任务</a>
+						<div class="drop-main">
+							<a class="drop-li call_task" href="javascript:void(0)">电话任务</a>
+							<a class="drop-li message_task" href="javascript:void(0)">群发短信</a>
+							<a class="drop-li email_task" href="javascript:void(0)">群发邮件</a>
+						</div>
+					</div>
+					<a class="btn" id="downBtn" href="javascript:void(0);">新建分组</a>
+					<a class="btn btn-delete" href="javascript:void(0);">不感兴趣</a>
+					<!-- 分页 -->
+					<p class="page-p">共20条</p>
+					<ul class="page-ul">
+						<li>
+							<<</li>
+								<li>
+									< </li>
+										<li> 1 </li>
+										<li> 2 </li>
+										<li class="page-d">...</li>
+										<li> 3 </li>
+										<li> > </li>
+										<li>>></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="customHeaderBox" id="customHeaderBox">
+			<div class="tlt"><i></i>自定义表头
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="ctdivbox marleft20 fl">
+				<em>隐藏字段</em>
+				<div class="ctchooseBox" id="hiddenField">
+					<ul>
+
+					</ul>
+				</div>
+			</div>
+			<i class="remove-icon" id="removeBtn"></i>
+			<i class="add-icon" id="addBtn"></i>
+			<div class="ctdivbox marright40 fr">
+				<em>显示字段</em>
+				<div class="ctchooseBox" id="showField">
+					<ul>
+						<li key="customerName">公司名称</li>
+						<li>分配状态</li>
+						<li>主营产品</li>
+						<li>联系人</li>
+						<li>手机号</li>
+						<li>创建时间</li>
+						<li>联系时间</li>
+						<li>销售进度</li>
+						<li>跟进人</li>
+						<li>通话录音</li>
+						<li>沟通状态</li>
+						<li>电话结果</li>
+						<li>二级标签</li>
+						<li>短信发送状态</li>
+						<li>邮件发送状态</li>
+						<li>挂机短信发送状态</li>
+						<li>挂机邮件发送状态</li>
+					</ul>
+				</div>
+			</div>
+			<i class="up-icon" id="upBtn"></i>
+			<i class="down-icon" id="downBtn"></i>
+			<input type="button" class="btn" value="提交" id="customBtn">
+		</div>
+		<div class="applyBox">
+			<div class="tlt"><i></i>新建电话任务
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="red-t">提示</div>
+			<div class="text-center">已选线索中包含已分配的数据，有可能出现装单现象，是否继续？</div>
+			<div class="btn-f">
+				<input type="button" class="btn btn-cancel" value="取消" />
+				<input type="button" class="btn" value="继续" />
+			</div>
+		</div>
+		<!-- 新建任务 -->
+		<div class="applyBox" style=" height:510px; margin-top:-255px;" id="applyBox-1">
+			<div class="tlt"><i></i>新建电话任务
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<input type="text" class="inputBox-1 bg-gray" placeholder="请输入任务名称" />
+			<div class="input-box time-box">
+				<div class="input-name">开始时间</div>
+				<div class="input-main">
+					<input id="timetext-4" type="text" class="time-input" autocomplete="off" placeholder="请输入开始时间" />
+					<script type="text/javascript">
+						$('#timetext-4').jeDate();
+						//						$("#timetext-4").click(function(e) {
+						//							var ths = this;
+						//							calendar.show({
+						//								id: this
+						//							});
+						//						});
+					</script>
+				</div>
+			</div>
+			<div class="input-box bor-b">
+				<div class="input-name">选择执行人员</div>
+				<div class="input-main">
+					<div class="check-box">
+						<input type="radio" name="zhixing" id="zx-seat" checked="checked" value="seat" onchange="radioChang()" />
+						<label for="zx-seat">坐席</label>
+					</div>
+					<div class="check-box">
+						<input type="radio" name="zhixing" id="zx-yunPin" value="yunPin" onchange="radioChang()" />
+						<label for="zx-yunPin">云电销</label>
+						<div class="row_tip_f">
+							<i class="row_tip"></i>
+							<div class="row_tip_con tip_con2">
+								您还未开通云电销功能，
+								<a href="javascript:void(0);">点击申请开通</a>后我们将第一时间与您联系
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="checkli seat active">
+				<div class="tbmember addpor">
+					<div class="input-name">选择坐席</div>
+					<ul class="choose-add clearfix">
+						<li class="del-sc">
+							<a href="javascript:void(0)"><img src="../images/member.png"><em>艾云鹤</em><i class="fffline"></i></a>
+						</li>
+						<li class="del-sc">
+							<a href="javascript:void(0)"><img src="../images/member.png"><em>艾云鹤</em><i class="fffline"></i></a>
+						</li>
+						<li class="del-add">
+							<a href="javascript:void(0)"><img src="../images/add-member.png"><em>添加</em></a>
+							<div class="adddiv1">
+								<!--<div class="position-relative searchBox-1 fr">
+									<input type="text" placeholder="查找员工" />
+									<a class="search-icon"></a>
+								</div>-->
+								<ul class="staff-ul">
+									<li>
+										<a href="javascript:;" class="current"><img src="../images/all.png">所有员工<i class="right-icon"></i></a>
+									</li>
+									<li>
+										<a href="javascript:;"><img src="../images/photo.png">有员工<i class="right-icon"></i></a>
+									</li>
+									<li>
+										<a href="javascript:;"><img src="../images/photo.png">有员工<i class="right-icon"></i></a>
+									</li>
+								</ul>
+								<!--<div class="employ_btn">
+									<input type="button" class="btn" value="提交" />
+								</div>-->
+							</div>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+			<div class="checkli yunPin">
+				<div class="tbmember addpor">
+					<div class="input-name">选择云电销</div>
+					<ul class="choose-add clearfix">
+						<li class="del-sc">
+							<a href="javascript:void(0)"><img src="../images/member.png"><em>艾云鹤</em><i class="fffline"></i></a>
+						</li>
+						<li class="del-sc">
+							<a href="javascript:void(0)"><img src="../images/member.png"><em>艾云鹤</em><i class="fffline"></i></a>
+						</li>
+						<li class="del-add">
+							<a href="javascript:void(0)"><img src="../images/add-member.png"><em>添加</em></a>
+							<div class="adddiv1">
+								<!--<div class="position-relative searchBox-1 fr">
+									<input type="text" placeholder="查找员工" />
+									<a class="search-icon"></a>
+								</div>-->
+								<ul class="staff-ul">
+									<li>
+										<a href="javascript:;" class="current"><img src="../images/all.png">所有员工<i class="right-icon"></i></a>
+									</li>
+									<li>
+										<a href="javascript:;"><img src="../images/photo.png">有员工<i class="right-icon"></i></a>
+									</li>
+									<li>
+										<a href="javascript:;"><img src="../images/photo.png">有员工<i class="right-icon"></i></a>
+									</li>
+								</ul>
+								<!--<div class="employ_btn">
+									<input type="button" class="btn" value="提交" />
+								</div>-->
+							</div>
+						</li>
+					</ul>
+
+				</div>
+				<div class="checkli-t">
+					<div class="input-name">分配数据</div>
+					<div class="row_tip_f">
+						<i class="row_tip"></i>
+						<div class="row_tip_con">
+							如选择分配数据的坐席，云电销拨打电话后标记为有意向的数据将分配给该坐席
+						</div>
+					</div>
+				</div>
+				<div class="tbmember addpor">
+					<div class="input-name">选择坐席</div>
+					<ul class="choose-add clearfix">
+						<li class="del-sc">
+							<a href="javascript:void(0)"><img src="../images/member.png"><em>艾云鹤</em><i class="fffline"></i></a>
+						</li>
+						<li class="del-sc">
+							<a href="javascript:void(0)"><img src="../images/member.png"><em>艾云鹤</em><i class="fffline"></i></a>
+						</li>
+						<li class="del-add">
+							<a href="javascript:void(0)"><img src="../images/add-member.png"><em>添加</em></a>
+							<div class="adddiv1">
+								<!--<div class="position-relative searchBox-1 fr">
+									<input type="text" placeholder="查找员工" />
+									<a class="search-icon"></a>
+								</div>-->
+								<ul class="staff-ul">
+									<li>
+										<a href="javascript:;" class="current"><img src="../images/all.png">所有员工<i class="right-icon"></i></a>
+									</li>
+									<li>
+										<a href="javascript:;"><img src="../images/photo.png">有员工<i class="right-icon"></i></a>
+									</li>
+									<li>
+										<a href="javascript:;"><img src="../images/photo.png">有员工<i class="right-icon"></i></a>
+									</li>
+								</ul>
+								<!--<div class="employ_btn">
+									<input type="button" class="btn" value="提交" />
+								</div>-->
+							</div>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+
+			<div class="tipmain">
+				已选择<label>50</label>条数据，本月还可使用<label>20</label>条数据
+			</div>
+			<input type="button" class="btn btn-cancel" value="提交" id="applyTaskBtn-1">
+		</div>
+		<!-- /新建任务 -->
+		<div class="applyBox message_new " id="applyBox-3">
+			<div class="tlt"><i></i>新建短信任务
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="add_message clearfix">
+				<div class="input_f">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入任务名称">
+				</div>
+				<div class="c-box select_row1">
+					<select class="select_message">
+						<option value="">请选择短信模板</option>
+					</select>
+				</div>
+				<div class="textarea_box message_text">
+					<textarea disabled="disabled"></textarea>
+				</div>
+
+				<div class="checkbox-f">
+					<label class="checkbox-name">绑定电话任务</label>
+					<input type="checkbox" class="checkinner" id="checked" />
+					<label for="checked">
+						<i></i>
+					</label>
+					<div class="checkbox-tip-f">
+						<i></i>
+						<div class="checkbox-tips">
+							短信发送完成后，状态为“打开链接”的线索直接新建电话任务平均分配给所选执行人员跟进
+						</div>
+					</div>
+				</div>
+				<div class="tbmember fl addpor addexecutives checkadd">
+					<div class="tbm-tlt">执行人员</div>
+					<ul class="choose-add clearfix">
+						<li class="del-sc">
+							<a href="javascript:void(0)"><img src="../images/member.png"><em>艾云鹤</em><i class="fffline"></i></a>
+						</li>
+						<li class="del-add">
+							<a href="javascript:void(0)"><img src="../images/all-members.png"><em>选择</em></a>
+							<div class="adddiv1">
+								<div class=" overy clearfix">
+									<div class="clear"></div>
+									<ul class="staff-ul bortop" style="height:253px">
+										<li>
+											<a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2016/06big/fe3e284cd8fb4c9c999bac0dd7fa1c76_myHeaderImage.png" memberid="2624A4F332F64B16A1469ED2D97DE406" realname="云客小助手"><img src="http://yunkecn.com/fileupload/fileupload/2016/06big/fe3e284cd8fb4c9c999bac0dd7fa1c76_myHeaderImage.png"><span>云客小助手</span><i class="right-icon"></i></a>
+										</li>
+										<li>
+											<a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2016/08big/4b3bfc243b5b4ed1bc2650b25e29fa76_head.jpg" memberid="C94DB37A3A7A463E8FCF6D58246136E4" realname="王佳印"><img src="http://yunkecn.com/fileupload/fileupload/2016/08big/4b3bfc243b5b4ed1bc2650b25e29fa76_head.jpg"><span>王佳印</span><i class="right-icon"></i></a>
+										</li>
+										<li>
+											<a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2015/09big/122437bc40b84e2eb10ac1756a3d6159_myHeaderImage.png" memberid="E30C6E5B007149BA9F86CA32131C9014" realname="刘小鱼"><img src="http://yunkecn.com/fileupload/fileupload/2015/09big/122437bc40b84e2eb10ac1756a3d6159_myHeaderImage.png"><span>刘小鱼</span><i class="right-icon"></i></a>
+										</li>
+										<li>
+											<a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2016/06big/59ecb3e0362a4f249d56b56fbac8ea38_iOS.png" memberid="F53C03BC582142808F809C5D32516E70" realname="田格非" class="current"><img src="http://yunkecn.com/fileupload/fileupload/2016/06big/59ecb3e0362a4f249d56b56fbac8ea38_iOS.png"><span>田格非</span><i class="right-icon"></i></a>
+										</li>
+									</ul>
+								</div>
+								<button class="addBut" type="button">确定</button>
+							</div>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+			<div class="dataly">
+				<p class="datap1">短信数量：</p>
+				<p class="datap2">1</p>
+			</div>
+			<div class="tip">
+				*最多发送5000条短信。短信费0.05元/条。
+			</div>
+			<input type="button" class="btn" value="提交" id="">
+		</div>
+
+		<!-- 新建短信任务 -->
+		<!-- 新建邮件任务 -->
+		<div class="applyBox message_new email_f" id="applyBox-4">
+			<div class="tlt"><i></i>新建邮件任务
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="add_message new-mailss">
+				<div class="input_f">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入任务名称" />
+				</div>
+				<div class="input_f">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入邮件标题" />
+				</div>
+				<div class="input_f">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入邮件标题" />
+				</div>
+				<div class="input_f file-f">
+					<div class="file-btn">
+						<input type="file" class="file" />
+						<a class="fileBtn">浏览</a>
+					</div>
+					<input type="text" class="inputBox-1 bg-gray" disabled="disabled" placeholder="请选择文件" />
+				</div>
+				<div class="row clearfix">
+					<div class="c-box select-harf select_row1">
+						<select class="select_message">
+							<option>请选择邮件模板</option>
+							<option>邮件模板1</option>
+							<option>邮件模板2</option>
+							<option>邮件模板3</option>
+						</select>
+					</div>
+					<div class="c-box select-harf select_row1">
+						<select class="select_message">
+							<option>请选择数据来源</option>
+							<option>数据来源1</option>
+							<option>数据来源2</option>
+							<option>数据来源3</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="textarea_box message_text">
+					<textarea class="editor_text" id="e2"></textarea>
+				</div>
+			</div>
+			<input type="button" class="btn" value="提交" id="">
+
+		</div>
+		
+		<div class="changer-box">
+			<div class="tlt"><i></i>新建分组
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="group-t">
+				建立线索分组
+			</div>
+			<form onsubmit="return false;">
+				<div class="group-input">
+					<div class="group-left">云客推荐&nbsp;&nbsp; - </div>
+					<div class="group-right">
+						<input type="text" class="group" placeholder="请输入分组名称" />
+					</div>
+				</div>
+				<label class="group-tip">*分组将同时保存为数据来源，该类型数据来源无法在客户页筛选</label>
+				<input type="submit" class="btn" value="提交" />
+			</form>
+		</div>
+		<script type="text/javascript">
+			function checkall() {
+				if($(".check-f").hasClass("checked")) {
+					$(".check-f").removeClass("checked");
+				} else {
+					$(".check-f").addClass("checked");
+				}
+			}
+			$(function() {
+				tableChange();
+				$(window).resize(function() {
+					tableChange();
+				});
+				$(".d-menu-box").height($(window).height() - $(".d-menu-box").offset().top - 22);
+				$(".d-menu-box").css({
+					"overflow": "auto"
+				});
+				$(".customer").height($(window).height() - $(".customer").offset().top - 80);
+				$(".customer").css({
+					"overflow": "auto"
+				});
+				$(".detail").click(function(event) {
+					if($(this).next().next().css("display") == "block") {
+						$(this).next().next().hide();
+					} else {
+						$(".ellipsis-all").hide();
+						$(this).next().next().css({
+							"top": "auto",
+							"right": "-400px"
+						}).show();
+						var chosen_top = 0;
+						var chosen_left = 0;
+						if($(this).next().next().offset().top + $(".customer").scroll()[0].scrollTop - $(".customer").offset().top - 40 + $(this).next().next().outerHeight() > ($(".customer table").height() > $(".customer").height() ? $(".customer table").height() : $(".customer").height())) {
+							chosen_top = -1 * $(this).next().next().outerHeight() + 20;
+						} else {
+							chosen_top = 0;
+
+						}
+						//						if($(this).next().next().offset().top - $(".recommendlist").offset().top - 40 + $(this).next().next().outerHeight() > ($(".recommendlist table").height() > $(".recommendlist").height() ? $(".recommendlist table").height() : $(".recommendlist").height())) {
+						//							chosen_top = -1 * $(this).next().next().outerHeight() + 20;
+						//						} else {
+						//							chosen_top = 0;
+						//
+						//						}
+						if($(this).next().next().offset().left + $(this).next().next().outerWidth() - $(window).width() * 0.01 >= $(".customer").width()) {
+							chosen_left = 80;
+						} else {
+							chosen_left = -1 * $(this).next().next().outerWidth();
+						}
+						$(this).next().next().css({
+							"top": chosen_top,
+							"right": chosen_left
+						}).show();
+					}
+					event.stopPropagation();
+				});
+				$(window).click(function() {
+					$(".ellipsis-all").hide();
+					$(".dropbox").removeClass("active");
+					$('#filterBox').hide();
+				});
+				$(".ellipsis-all").click(function(event) {
+					event.stopPropagation();
+				});
+				$(".dropbox").click(function(event) {
+					event.stopPropagation();
+				});
+				$("#filterBox").click(function(event) {
+					event.stopPropagation();
+				});
+
+				$(".fileBtn").click(function() {
+					$(this).prev().click();
+				});
+				$(".file").change(function() {
+					$(this).parent().next().val($(this).val());
+				});
+				
+				//显示下载线索
+				$("#downBtn").click(function() {
+					$(".layer").show();
+					$(".changer-box").show();
+				});
+				//关闭下载线索
+				$(".changer-box a.a-closed").click(function() {
+					$(".layer").hide();
+					$(".changer-box").hide();
+				})
+			});
+
+			function tableChange() {
+				$(".customer .ellipsis").width(($(".d-main").width() - 153) * 0.3 - 50);
+				$(".recommendlist").css({
+					"overflow-x": "hidden"
+				});
+
+				$(".d-menu-box").height($(window).height() - $(".d-menu-box").offset().top - 22);
+				$(".d-menu-box").css({
+					"overflow": "auto"
+				});
+			}
+
+			function addtask(event) {
+				$(".dropbox").toggleClass("active");
+				event.stopPropagation();
+			}
+			$('#filter1').click(function(event) {
+				if($('#filterBox').css("display") == "block") {
+					$('#filterBox').hide();
+					$("#_calendar").hide();
+				} else {
+					$('#filterBox').show();
+				}
+				event.stopPropagation();
+			});
+
+			function radioChang() {
+				$(".checkli").hide();
+				$("." + $("input[name='zhixing']:checked").val()).show();
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,1120 @@
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/reset.css">
+		<link rel="stylesheet" href="../css/exhibition.css">
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/city.js"></script>
+		<script type="text/javascript" src="../js/form.js"></script>
+		<script type="text/javascript" src="../js/tagsinput.js"></script>
+	</head>
+
+	<body>
+
+	<div class="warp">
+			<div class="main">
+				<div class="ex-t">
+				</div>
+				<form name="form" id="formid" onsubmit="return formData();">
+					<div class="ex-main" id="customerShow"> 
+							<div class="ex-left"> 
+									<div class="ex-li">
+										<div class="ex-name">
+											公司名称：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="company">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											姓名：
+										</div>
+										<div class="ex-info">  
+												<input class="ex-input" type="text" id="name" name="name">     
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											部门：
+										</div>
+										<div class="ex-info">  
+												<input class="ex-input" type="text" id="department" name="department">     
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											称谓：
+										</div>
+										<div class="ex-info">    
+											<div class="check-box">
+												<input type="radio" id="title0" name="title" value="先生">
+												<label for="title0">先生</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="title1" name="title" value="女士">
+												<label for="title1">女士</label> 
+											</div> 
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											职位：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="major">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											公司传真：
+										</div>
+										<div class="ex-info">  
+												<input class="ex-input" type="text" id="companyFax" name="companyFax">     
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											公司地址：
+										</div>
+										<div class="ex-info">  
+												<input class="ex-input" type="text" id="address" name="address">     
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											公司座机：
+										</div>
+										<div class="ex-info">  
+												<input class="ex-input" type="text" id="comLandline" name="comLandline">     
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											联系人座机1：
+										</div>
+										<div class="ex-info">  
+												<input class="ex-input" type="text" id="linkmanLandline" name="linkmanLandline">     
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											联系人座机2：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="linkmanLandline2">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											手机1：
+										</div>
+										<div class="ex-info">  
+												<input class="ex-input" type="text" id="phone1" name="phone1">     
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											手机2：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="phone2">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											联系人地址1：
+										</div>
+										<div class="ex-info">  
+												<input class="ex-input" type="text" id="linkmanAddress1" name="linkmanAddress1">     
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											联系人地址2：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="linkmanAddress2">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											邮箱1：
+										</div>
+										<div class="ex-info">  
+												<input class="ex-input" type="text" id="email1" name="email1">     
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											邮箱2：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="email2">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											省份：
+										</div>
+										<div class="ex-info">
+											<select class="ex-select" name="province" id="province" onchange="findCity()"><option value="北京市">北京市</option><option value="上海市">上海市</option><option value="天津市">天津市</option><option value="江苏省">江苏省</option><option value="浙江省">浙江省</option><option value="安徽省">安徽省</option><option value="河北省">河北省</option><option value="山西省">山西省</option><option value="内蒙古自治区">内蒙古自治区</option><option value="辽宁省">辽宁省</option><option value="吉林省">吉林省</option><option value="黑龙江省">黑龙江省</option><option value="福建省">福建省</option><option value="江西省">江西省</option><option value="山东省">山东省</option><option value="河南省">河南省</option><option value="湖北省">湖北省</option><option value="湖南省">湖南省</option><option value="广东省">广东省</option><option value="广西壮族自治区">广西壮族自治区</option><option value="海南省">海南省</option><option value="重庆市">重庆市</option><option value="四川省">四川省</option><option value="贵州省">贵州省</option><option value="云南省">云南省</option><option value="西藏自治区">西藏自治区</option><option value="陕西省">陕西省</option><option value="甘肃省">甘肃省</option><option value="青海省">青海省</option><option value="宁夏回族自治区">宁夏回族自治区</option><option value="新疆维吾尔自治区">新疆维吾尔自治区</option></select>   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											城市：
+										</div>
+										<div class="ex-info">
+											<select class="ex-select" name="city" id="city">
+												<option value="">请选择城市</option>
+											</select>   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											邮编：
+										</div>
+										<div class="ex-info">  
+												<input class="ex-input" type="text" id="postcode" name="postcode">     
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											微信：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="wx">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											传真1：
+										</div>
+										<div class="ex-info">  
+												<input class="ex-input" type="text" id="fax1" name="fax1">     
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											传真2：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="fax2">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											网址：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="webSite">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											完成情况（单选）：
+										</div>
+										<div class="ex-info">    
+											<div class="check-box">
+												<input type="radio" id="finish0" name="finish" value="已完成">
+												<label for="finish0">已完成</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="finish1" name="finish" value="公司转行">
+												<label for="finish1">公司转行</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="finish2" name="finish" value="接通未完成">
+												<label for="finish2">接通未完成</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="finish3" name="finish" value="未接通">
+												<label for="finish3">未接通</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="finish4" name="finish" value="重复">
+												<label for="finish4">重复</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="finish5" name="finish" value="直接跳过">
+												<label for="finish5">直接跳过</label> 
+											</div> 
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											未接通情况：
+										</div>
+										<div class="ex-info">    
+											<div class="check-box">
+												<input type="radio" id="nofinish0" name="nofinish" value="手机关机">
+												<label for="nofinish0">手机关机</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish1" name="nofinish" value="手机拒接">
+												<label for="nofinish1">手机拒接</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish2" name="nofinish" value="手机空号">
+												<label for="nofinish2">手机空号</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish3" name="nofinish" value="手机忙音">
+												<label for="nofinish3">手机忙音</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish4" name="nofinish" value="手机停机">
+												<label for="nofinish4">手机停机</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish5" name="nofinish" value="手机无法接通">
+												<label for="nofinish5">手机无法接通</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish6" name="nofinish" value="手机无人接">
+												<label for="nofinish6">手机无人接</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish7" name="nofinish" value="手机占线">
+												<label for="nofinish7">手机占线</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish8" name="nofinish" value="座机关机">
+												<label for="nofinish8">座机关机</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish9" name="nofinish" value="座机拒接">
+												<label for="nofinish9">座机拒接</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish10" name="nofinish" value="座机空号">
+												<label for="nofinish10">座机空号</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish11" name="nofinish" value="座机忙音">
+												<label for="nofinish11">座机忙音</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish12" name="nofinish" value="座机停机">
+												<label for="nofinish12">座机停机</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish13" name="nofinish" value="座机无法接通">
+												<label for="nofinish13">座机无法接通</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish14" name="nofinish" value="座机无人接">
+												<label for="nofinish14">座机无人接</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish15" name="nofinish" value="座机占线">
+												<label for="nofinish15">座机占线</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinish16" name="nofinish" value="座机为传真">
+												<label for="nofinish16">座机为传真</label> 
+											</div> 
+										</div>
+									</div>
+								</div>    
+								<div class="ex-right">
+									<div class="ex-li">
+										<div class="ex-name">
+											我展数据来源：
+										</div>
+										<div class="ex-info">    
+											<div class="check-box">
+												<input type="radio" id="exhibitionDataSource0" name="exhibitionDataSource" value="2017CTE预登记">
+												<label for="exhibitionDataSource0">2017CTE预登记</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="exhibitionDataSource1" name="exhibitionDataSource" value="2017CKE预登记">
+												<label for="exhibitionDataSource1">2017CKE预登记</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="exhibitionDataSource2" name="exhibitionDataSource" value="2017CLE预登记">
+												<label for="exhibitionDataSource2">2017CLE预登记</label> 
+											</div> 
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											企业性质：
+										</div>
+										<div class="ex-info">   
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature0" name="enterpriseNature" value="全国性代理经销商">
+												<label for="enterpriseNature0">全国性代理经销商</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature1" name="enterpriseNature" value="省级总代理">
+												<label for="enterpriseNature1">省级总代理</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature2" name="enterpriseNature" value="省级代理经销商">
+												<label for="enterpriseNature2">省级代理经销商</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature3" name="enterpriseNature" value="市级总代理">
+												<label for="enterpriseNature3">市级总代理</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature4" name="enterpriseNature" value="市级代理经销商">
+												<label for="enterpriseNature4">市级代理经销商</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature5" name="enterpriseNature" value="批发商">
+												<label for="enterpriseNature5">批发商</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature6" name="enterpriseNature" value="玩具连锁零售店">
+												<label for="enterpriseNature6">玩具连锁零售店</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature7" name="enterpriseNature" value="母婴连锁零售店">
+												<label for="enterpriseNature7">母婴连锁零售店</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature8" name="enterpriseNature" value="亲子中心/早教机构">
+												<label for="enterpriseNature8">亲子中心/早教机构</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature9" name="enterpriseNature" value="幼儿园">
+												<label for="enterpriseNature9">幼儿园</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature10" name="enterpriseNature" value="购物中心">
+												<label for="enterpriseNature10">购物中心</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature11" name="enterpriseNature" value="百货商场">
+												<label for="enterpriseNature11">百货商场</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature12" name="enterpriseNature" value="超市/大卖场">
+												<label for="enterpriseNature12">超市/大卖场</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature13" name="enterpriseNature" value="线上渠道">
+												<label for="enterpriseNature13">线上渠道</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature14" name="enterpriseNature" value="学校/教育机构">
+												<label for="enterpriseNature14">学校/教育机构</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature15" name="enterpriseNature" value="进出口商/采购办事处">
+												<label for="enterpriseNature15">进出口商/采购办事处</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature16" name="enterpriseNature" value="制造商/品牌商">
+												<label for="enterpriseNature16">制造商/品牌商</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature17" name="enterpriseNature" value="新闻媒体">
+												<label for="enterpriseNature17">新闻媒体</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNature18" name="enterpriseNature" value="图书/广告/咨询/法律等行业">
+												<label for="enterpriseNature18">图书/广告/咨询/法律等行业</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="enterpriseNatureother" data-other="true" name="enterpriseNature" value="其他">
+												<label for="enterpriseNatureother">其他</label> 
+												<input type="text" name="enterpriseNatureOther"> 
+											</div>  
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											二级企业性质：
+										</div>
+										<div class="ex-info">   
+											<div class="check-box">
+												<input type="checkbox" id="secondEnterpriseNature0" name="secondEnterpriseNature" value="天猫">
+												<label for="secondEnterpriseNature0">天猫</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondEnterpriseNature1" name="secondEnterpriseNature" value="淘宝">
+												<label for="secondEnterpriseNature1">淘宝</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondEnterpriseNature2" name="secondEnterpriseNature" value="京东">
+												<label for="secondEnterpriseNature2">京东</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondEnterpriseNature3" name="secondEnterpriseNature" value="当当">
+												<label for="secondEnterpriseNature3">当当</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondEnterpriseNature4" name="secondEnterpriseNature" value="卓越">
+												<label for="secondEnterpriseNature4">卓越</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondEnterpriseNature5" name="secondEnterpriseNature" value="一号店">
+												<label for="secondEnterpriseNature5">一号店</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondEnterpriseNature6" name="secondEnterpriseNature" value="阿里巴巴">
+												<label for="secondEnterpriseNature6">阿里巴巴</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondEnterpriseNature7" name="secondEnterpriseNature" value="苏宁">
+												<label for="secondEnterpriseNature7">苏宁</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondEnterpriseNature8" name="secondEnterpriseNature" value="唯品会">
+												<label for="secondEnterpriseNature8">唯品会</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondEnterpriseNature9" name="secondEnterpriseNature" value="聚美优品">
+												<label for="secondEnterpriseNature9">聚美优品</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondEnterpriseNature10" name="secondEnterpriseNature" value="国美">
+												<label for="secondEnterpriseNature10">国美</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondEnterpriseNature11" name="secondEnterpriseNature" value="自建平台">
+												<label for="secondEnterpriseNature11">自建平台</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondEnterpriseNatureother" data-other="true" name="secondEnterpriseNature" value="其他（输入）">
+												<label for="secondEnterpriseNatureother">其他（输入）</label> 
+												<input type="text" name="secondEnterpriseNatureOther"> 
+											</div>  
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											一级品类：
+										</div>
+										<div class="ex-info">   
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory0" name="firstCategory" value="填充类">
+												<label for="firstCategory0">填充类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory1" name="firstCategory" value="木竹类">
+												<label for="firstCategory1">木竹类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory2" name="firstCategory" value="纸类玩具">
+												<label for="firstCategory2">纸类玩具</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory3" name="firstCategory" value="婴幼儿玩具">
+												<label for="firstCategory3">婴幼儿玩具</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory4" name="firstCategory" value="塑胶电子玩具">
+												<label for="firstCategory4">塑胶电子玩具</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory5" name="firstCategory" value="塑胶非电子类">
+												<label for="firstCategory5">塑胶非电子类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory6" name="firstCategory" value="模型机械玩具">
+												<label for="firstCategory6">模型机械玩具</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory7" name="firstCategory" value="娃娃（公仔）类">
+												<label for="firstCategory7">娃娃（公仔）类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory8" name="firstCategory" value="儿童骑乘类">
+												<label for="firstCategory8">儿童骑乘类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory9" name="firstCategory" value="室内外游乐设施">
+												<label for="firstCategory9">室内外游乐设施</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory10" name="firstCategory" value="幼教用品与幼儿园设施">
+												<label for="firstCategory10">幼教用品与幼儿园设施</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory11" name="firstCategory" value="益智类">
+												<label for="firstCategory11">益智类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory12" name="firstCategory" value="充气类">
+												<label for="firstCategory12">充气类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory13" name="firstCategory" value="户外及运动用品">
+												<label for="firstCategory13">户外及运动用品</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory14" name="firstCategory" value="电子游戏类">
+												<label for="firstCategory14">电子游戏类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory15" name="firstCategory" value="节日派对用品">
+												<label for="firstCategory15">节日派对用品</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory16" name="firstCategory" value="礼品类">
+												<label for="firstCategory16">礼品类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory17" name="firstCategory" value="高科技玩具类">
+												<label for="firstCategory17">高科技玩具类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory18" name="firstCategory" value="被授权类">
+												<label for="firstCategory18">被授权类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory19" name="firstCategory" value="喂养类">
+												<label for="firstCategory19">喂养类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory20" name="firstCategory" value="婴儿车及配件">
+												<label for="firstCategory20">婴儿车及配件</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory21" name="firstCategory" value="汽车安全座椅及配件类">
+												<label for="firstCategory21">汽车安全座椅及配件类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory22" name="firstCategory" value="婴童家具及家居用品">
+												<label for="firstCategory22">婴童家具及家居用品</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory23" name="firstCategory" value="媒体/行业服务">
+												<label for="firstCategory23">媒体/行业服务</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory24" name="firstCategory" value="原材料及配件类">
+												<label for="firstCategory24">原材料及配件类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory25" name="firstCategory" value="其他玩具类">
+												<label for="firstCategory25">其他玩具类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory26" name="firstCategory" value="护理卫浴类">
+												<label for="firstCategory26">护理卫浴类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory27" name="firstCategory" value="食品类">
+												<label for="firstCategory27">食品类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory28" name="firstCategory" value="婴童服装服饰类">
+												<label for="firstCategory28">婴童服装服饰类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory29" name="firstCategory" value="孕妇装">
+												<label for="firstCategory29">孕妇装</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory30" name="firstCategory" value="婴童家用纺织品类">
+												<label for="firstCategory30">婴童家用纺织品类</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory31" name="firstCategory" value="携带婴儿用品及配件">
+												<label for="firstCategory31">携带婴儿用品及配件</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory32" name="firstCategory" value="安全用品">
+												<label for="firstCategory32">安全用品</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategory33" name="firstCategory" value="原材料及配件类 ">
+												<label for="firstCategory33">原材料及配件类 </label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="firstCategoryother" data-other="true" name="firstCategory" value="其他育婴童用品">
+												<label for="firstCategoryother">其他育婴童用品</label> 
+												<input type="text" name="firstCategoryOther"> 
+											</div>  
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											二级品类：
+										</div>
+										<div class="ex-info">   
+											<div class="check-box">
+												<input type="checkbox" id="secondCategory0" name="secondCategory" value="儿童自行车">
+												<label for="secondCategory0">儿童自行车</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondCategory1" name="secondCategory" value="三轮车">
+												<label for="secondCategory1">三轮车</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondCategory2" name="secondCategory" value="电瓶车">
+												<label for="secondCategory2">电瓶车</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondCategory3" name="secondCategory" value="滑板车">
+												<label for="secondCategory3">滑板车</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondCategory4" name="secondCategory" value="儿童溜冰鞋">
+												<label for="secondCategory4">儿童溜冰鞋</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondCategory5" name="secondCategory" value="读物教材">
+												<label for="secondCategory5">读物教材</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondCategory6" name="secondCategory" value="教具">
+												<label for="secondCategory6">教具</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondCategory7" name="secondCategory" value="教学设备">
+												<label for="secondCategory7">教学设备</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondCategory8" name="secondCategory" value="教育机构加盟">
+												<label for="secondCategory8">教育机构加盟</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondCategory9" name="secondCategory" value="滑板车">
+												<label for="secondCategory9">滑板车</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondCategory10" name="secondCategory" value="儿童溜冰鞋">
+												<label for="secondCategory10">儿童溜冰鞋</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="secondCategoryother" data-other="true" name="secondCategory" value="其他（请说明）">
+												<label for="secondCategoryother">其他（请说明）</label> 
+												<input type="text" name="secondCategoryOther"> 
+											</div>  
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											经营品牌-玩具：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="brandToy">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											经营品牌-安全座椅：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="brandSafetySeat">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											经营品牌-手推车：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="brandTrolley">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											经营品牌-奶瓶：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="brandFeeder">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											经营品牌-幼教：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="brandPreschoolEdu">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											经营品牌-其他品类：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="brandOther">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											经营品牌对应代理级别-玩具：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval=";" type="text" name="brandLevelToy">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											经营品牌对应代理级别-安全座椅：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval=";" type="text" name="brandLevelSafetySeat">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											经营品牌对应代理级别-手推车：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval=";" type="text" name="brandLevelTrolley">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											经营品牌对应代理级别-奶瓶：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval=";" type="text" name="brandLevelFeeder">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											经营品牌对应代理级别-幼教：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval=";" type="text" name="brandLevelPreschoolEdu">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											经营品牌对应代理级别-其他品类：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval=";" type="text" name="brandLevelOther">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											授权企业性质：
+										</div>
+										<div class="ex-info">   
+											<div class="check-box">
+												<input type="checkbox" id="authorizeEnterpriseNature0" name="authorizeEnterpriseNature" value="被授权商">
+												<label for="authorizeEnterpriseNature0">被授权商</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeEnterpriseNature1" name="authorizeEnterpriseNature" value="产品代理商/经销商/批发商">
+												<label for="authorizeEnterpriseNature1">产品代理商/经销商/批发商</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeEnterpriseNature2" name="authorizeEnterpriseNature" value="零售商/电商">
+												<label for="authorizeEnterpriseNature2">零售商/电商</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeEnterpriseNature3" name="authorizeEnterpriseNature" value="百货商场/超市/连锁店">
+												<label for="authorizeEnterpriseNature3">百货商场/超市/连锁店</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeEnterpriseNature4" name="authorizeEnterpriseNature" value="制造商/OEM">
+												<label for="authorizeEnterpriseNature4">制造商/OEM</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeEnterpriseNature5" name="authorizeEnterpriseNature" value="进出口商/贸易公司">
+												<label for="authorizeEnterpriseNature5">进出口商/贸易公司</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeEnterpriseNature6" name="authorizeEnterpriseNature" value="授权品牌商">
+												<label for="authorizeEnterpriseNature6">授权品牌商</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeEnterpriseNature7" name="authorizeEnterpriseNature" value="授权品牌代理商">
+												<label for="authorizeEnterpriseNature7">授权品牌代理商</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeEnterpriseNature8" name="authorizeEnterpriseNature" value="广告/咨询公司/法律机构">
+												<label for="authorizeEnterpriseNature8">广告/咨询公司/法律机构</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeEnterpriseNature9" name="authorizeEnterpriseNature" value="媒体/商协会/政府机构">
+												<label for="authorizeEnterpriseNature9">媒体/商协会/政府机构</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeEnterpriseNatureother" data-other="true" name="authorizeEnterpriseNature" value="其他">
+												<label for="authorizeEnterpriseNatureother">其他</label> 
+												<input type="text" name="authorizeEnterpriseNatureOther"> 
+											</div>  
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											授权企业所从事的行业：
+										</div>
+										<div class="ex-info">    
+											<div class="check-box">
+												<input type="radio" id="authorizeEnterpriseIndustry0" name="authorizeEnterpriseIndustry" value="卡通动漫">
+												<label for="authorizeEnterpriseIndustry0">卡通动漫</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="authorizeEnterpriseIndustry1" name="authorizeEnterpriseIndustry" value="流行/生活时尚">
+												<label for="authorizeEnterpriseIndustry1">流行/生活时尚</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="authorizeEnterpriseIndustry2" name="authorizeEnterpriseIndustry" value="影视娱乐">
+												<label for="authorizeEnterpriseIndustry2">影视娱乐</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="authorizeEnterpriseIndustry3" name="authorizeEnterpriseIndustry" value="运动休闲">
+												<label for="authorizeEnterpriseIndustry3">运动休闲</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="authorizeEnterpriseIndustry4" name="authorizeEnterpriseIndustry" value="名人品牌">
+												<label for="authorizeEnterpriseIndustry4">名人品牌</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="authorizeEnterpriseIndustry5" name="authorizeEnterpriseIndustry" value="网络游戏">
+												<label for="authorizeEnterpriseIndustry5">网络游戏</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="authorizeEnterpriseIndustry6" name="authorizeEnterpriseIndustry" value="文化艺术">
+												<label for="authorizeEnterpriseIndustry6">文化艺术</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="authorizeEnterpriseIndustry7" name="authorizeEnterpriseIndustry" value="企业/品牌/商标">
+												<label for="authorizeEnterpriseIndustry7">企业/品牌/商标</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="authorizeEnterpriseIndustry8" name="authorizeEnterpriseIndustry" value="知名学府">
+												<label for="authorizeEnterpriseIndustry8">知名学府</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="authorizeEnterpriseIndustryother" data-other="true" name="authorizeEnterpriseIndustry" value="其他">
+												<label for="authorizeEnterpriseIndustryother">其他</label> 
+												<input type="text" name="authorizeEnterpriseIndustryOther"> 
+											</div> 
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											授权合作品类：
+										</div>
+										<div class="ex-info">   
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory0" name="authorizeCoCategory" value="玩具/游艺">
+												<label for="authorizeCoCategory0">玩具/游艺</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory1" name="authorizeCoCategory" value="婴童用品">
+												<label for="authorizeCoCategory1">婴童用品</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory2" name="authorizeCoCategory" value="服装/鞋帽/配饰">
+												<label for="authorizeCoCategory2">服装/鞋帽/配饰</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory3" name="authorizeCoCategory" value="数码/电子/电器">
+												<label for="authorizeCoCategory3">数码/电子/电器</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory4" name="authorizeCoCategory" value="音乐/音像制品">
+												<label for="authorizeCoCategory4">音乐/音像制品</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory5" name="authorizeCoCategory" value="文化/文具/办公用品">
+												<label for="authorizeCoCategory5">文化/文具/办公用品</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory6" name="authorizeCoCategory" value="设计/广告/文化创意">
+												<label for="authorizeCoCategory6">设计/广告/文化创意</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory7" name="authorizeCoCategory" value="礼品/赠品/日常消费品">
+												<label for="authorizeCoCategory7">礼品/赠品/日常消费品</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory8" name="authorizeCoCategory" value="家居/家纺/家具/装饰材料">
+												<label for="authorizeCoCategory8">家居/家纺/家具/装饰材料</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory9" name="authorizeCoCategory" value="食品/饮料">
+												<label for="authorizeCoCategory9">食品/饮料</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory10" name="authorizeCoCategory" value="健康/美容/保养">
+												<label for="authorizeCoCategory10">健康/美容/保养</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory11" name="authorizeCoCategory" value="动漫/影视制作">
+												<label for="authorizeCoCategory11">动漫/影视制作</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory12" name="authorizeCoCategory" value="游戏/软件">
+												<label for="authorizeCoCategory12">游戏/软件</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory13" name="authorizeCoCategory" value="媒体渠道/互联网">
+												<label for="authorizeCoCategory13">媒体渠道/互联网</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory14" name="authorizeCoCategory" value="体育休闲用品">
+												<label for="authorizeCoCategory14">体育休闲用品</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory15" name="authorizeCoCategory" value="出版印刷">
+												<label for="authorizeCoCategory15">出版印刷</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory16" name="authorizeCoCategory" value="商业推广/商场美陈">
+												<label for="authorizeCoCategory16">商业推广/商场美陈</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategory17" name="authorizeCoCategory" value="金融投资">
+												<label for="authorizeCoCategory17">金融投资</label> 
+											</div>
+											<div class="check-box">
+												<input type="checkbox" id="authorizeCoCategoryother" data-other="true" name="authorizeCoCategory" value="其他">
+												<label for="authorizeCoCategoryother">其他</label> 
+												<input type="text" name="authorizeCoCategoryOther"> 
+											</div>  
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											已合作的授权品牌：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="coAuthorizeBrand">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											意向合作的授权品牌：
+										</div>
+										<div class="ex-info">   
+													<input class="ex-input tags" data-interval="、" type="text" name="dispositionalAuthorizeBrand">   
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											您是否意向参加授权行业培训？：
+										</div>
+										<div class="ex-info">    
+											<div class="check-box">
+												<input type="radio" id="intentionTakeTrain0" name="intentionTakeTrain" value="是">
+												<label for="intentionTakeTrain0">是</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="intentionTakeTrain1" name="intentionTakeTrain" value="否">
+												<label for="intentionTakeTrain1">否</label> 
+											</div> 
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											您是否意向参加授权匹配对接会？：
+										</div>
+										<div class="ex-info">    
+											<div class="check-box">
+												<input type="radio" id="intentionToAuthorizeMatch0" name="intentionToAuthorizeMatch" value="是">
+												<label for="intentionToAuthorizeMatch0">是</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="intentionToAuthorizeMatch1" name="intentionToAuthorizeMatch" value="否">
+												<label for="intentionToAuthorizeMatch1">否</label> 
+											</div> 
+										</div>
+									</div>    
+									<div class="ex-li">
+										<div class="ex-name">
+											接通未完成情况：
+										</div>
+										<div class="ex-info">    
+											<div class="check-box">
+												<input type="radio" id="nofinished0" name="nofinished" value="基本信息已核实">
+												<label for="nofinished0">基本信息已核实</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinished1" name="nofinished" value="差个别其他信息未核实">
+												<label for="nofinished1">差个别其他信息未核实</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinished2" name="nofinished" value="客户表示已核实过">
+												<label for="nofinished2">客户表示已核实过</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinished3" name="nofinished" value="客户暂不配合">
+												<label for="nofinished3">客户暂不配合</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinished4" name="nofinished" value="客户说打错了，直接挂机">
+												<label for="nofinished4">客户说打错了，直接挂机</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinished5" name="nofinished" value="手机错号-非页面人，是相关单位">
+												<label for="nofinished5">手机错号-非页面人，是相关单位</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinished6" name="nofinished" value="手机错号-非页面人，非相关单位，无座机联系方式">
+												<label for="nofinished6">手机错号-非页面人，非相关单位，无座机联系方式</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinished7" name="nofinished" value="是页面人，非相关单位">
+												<label for="nofinished7">是页面人，非相关单位</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinished8" name="nofinished" value="座机错号-非相关单位，无手机联系方式">
+												<label for="nofinished8">座机错号-非相关单位，无手机联系方式</label> 
+											</div>
+											<div class="check-box">
+												<input type="radio" id="nofinished9" name="nofinished" value="页面人离职，未找到其他负责人">
+												<label for="nofinished9">页面人离职，未找到其他负责人</label> 
+											</div> 
+										</div>
+									</div> 
+							</div> </div>
+					<div class="ex-btn-f">
+						<a class="ex-btn ex-cancle" href="javascript:custom_close()">关闭</a>
+						<input class="ex-btn ex-submit" type="submit" value="保存">
+					</div>
+				</form>
+			</div>
+		</div>
+	
+		<script type="text/javascript">
+			$(function() {
+				$("#province").empty();
+				for(var i = 0; i < prolist.ps.length; i++) {
+					$("#province").append("<option value='" + prolist.ps[i].pname + "'>" + prolist.ps[i].pname + "</option>");
+				}
+
+				$(".tags").each(function() {
+					var interval = $(this)[0].dataset.interval;
+					$(this).tagsInput({ width: '100%', height: 'auto', 'delimiter': interval });
+				})
+			});
+
+			function findCity() {
+				var pname = $("#province").val();
+				$("#city").empty(); //清空城市列表
+				for(var i = 0; i < prolist.ps.length; i++) {
+					if(prolist.ps[i].pname == pname) {
+						for(var j = 0; j < prolist.ps[i].citys.length; j++) {
+							$("#city").append("<option value='" + prolist.ps[i].citys[j].cname + "'>" + prolist.ps[i].citys[j].cname + "</option>");
+						}
+					}
+				}
+			}
+
+			function custom_close() {
+				if(confirm("您确定要关闭本页吗？")) {
+					window.opener = null;
+					window.open('', '_self');
+					window.close();
+				} else {}
+			}
+
+			function formData() {
+
+				console.log($("#formid").serializeJson());
+
+				return false;
+			}
+		</script>
+
+	</body>
+
+</html>

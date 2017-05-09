@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>团队客户</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/highcharts.js"></script>
+		<link href="../css/hDate.css" rel="stylesheet" />
+		<!--<script type="text/javascript" src="../js/hDate.js"></script>-->
+		<script type="text/javascript" src="../js/audio.js"></script>
+
+		<script type="text/javascript" src="../js/keywordsinput.js"></script>
+		<!--<script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+		<script type="text/javascript" src="../js/jedate/jedate.min.js"></script>-->
+		<!--<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js"></script>-->
+		<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<div class="layer-6"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav">
+				<li>
+					<a href="">首页</a>
+				</li>
+				<li>
+					<a href="">行动</a>
+				</li>
+				<li>
+					<a href="">客户</a>
+				</li>
+				<li>
+					<a href="" class="current">线索</a>
+				</li>
+				<li>
+					<a href="">任务</a>
+				</li>
+				<li>
+					<a href="">设置</a>
+				</li>
+			</ul>
+			<ul class="header-right fr">
+				<li>
+					<a href="javascript:;"><i class="add"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="update"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="message"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="user">刘</a>
+				</li>
+			</ul>
+		</div>
+		<div class="tipArea">
+			<div class="wrap">
+				<ul class="ul-2">
+					<li>
+						<a href="listSearch.html">搜索引擎</a>
+					</li>
+					<li>
+						<a href="recommendNew.html" class="current">推荐引擎</a>
+					</li>
+					<li>
+						<a href="download.html">已下载线索</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="contents">
+			<div class="tag-box">
+				<div class="tags-li ">
+					<a href="recommendNew.html">推荐列表</a>
+				</div>
+				<div class="tags-li active">
+					<a href="keywordsNew.html">关键词设置</a>
+				</div>
+				<div class="tags-li">
+					<a href="recommendImport.html">导入数据样本</a>
+				</div>
+				<div class="tags-li">
+					<a href="recommendImported.html">已导入样本</a>
+				</div>
+			</div>
+			<div class="title list-title">
+				<i></i><span>关键词设置</span><label>输入的关键词字数不得超过6个字</label>
+				<div class="right-box">
+					<div class="weight-mark">
+						权重等级：<label class="weight-4"><i></i>高权重</label><label class="weight-3"><i></i>中权重</label><label class="weight-2"><i></i>低权重</label><label class="weight-0"><i></i>负权重</label><label class="weight-1"><i></i>零权重</label>
+					</div>
+				</div>
+			</div>
+			<div class="keywords-f keywordNew">
+				<div class="keyword-t">
+					当前关键词
+				</div>
+				<dl class="weight-chosen weight-chosen1">
+					<dt>公司名称类</dt>
+					<dd>
+						<span class="weight-4" data-weight="4" data-id="1" data-type="1" onclick="weightChange(this);"></span>
+						<span class="weight-4" data-weight="4" data-id="2" data-type="1" onclick="weightChange(this);">广东</span>
+						<span class="weight-3" data-weight="3" data-id="3" data-type="1" onclick="weightChange(this);">深圳</span>
+						<span class="weight-2" data-weight="2" data-id="4" data-type="1" onclick="weightChange(this);">上海</span>
+						<span class="weight-2 weight-insert" data-id="add" data-type="1" onclick="add(this);">+</span>
+					</dd>
+				</dl>
+				<dl class="weight-chosen weight-chosen3">
+					<dt>主营产品类</dt>
+					<dd>
+						<span class="weight-4" data-weight="4" data-id="9" data-type="3" onclick="weightChange(this);">科技</span>
+						<span class="weight-3" data-weight="3" data-id="10" data-type="3" onclick="weightChange(this);">发展</span>
+						<span class="weight-3" data-weight="3" data-id="11" data-type="3" onclick="weightChange(this);">化工</span>
+						<span class="weight-2" data-weight="2" data-id="12" data-type="3" onclick="weightChange(this);">总经理</span>
+						<span class="weight-2" data-weight="2" data-id="25" data-type="3" onclick="weightChange(this);">总经理 总经理 总经理</span>
+						<span class="weight-2 weight-insert" data-id="add" data-type="3" onclick="add(this);">+</span>
+					</dd>
+				</dl>
+				<dl class="weight-chosen weight-chosen6">
+					<dt>负权重</dt>
+					<dd>
+						<span class="weight-0" data-weight="0" data-id="21" data-type="1" onclick="weightChange(this);">农林畜牧</span>
+						<span class="weight-0" data-weight="0" data-id="22" data-type="3" onclick="weightChange(this);">小学</span>
+						<span class="weight-0" data-weight="0" data-id="23" data-type="3" onclick="weightChange(this);">POS机</span>
+						<span class="weight-0" data-weight="0" data-id="24" data-type="1" onclick="weightChange(this);">代练</span>
+					</dd>
+				</dl>
+				<dl class="weight-chosen weight-chosen5">
+					<dt>零权重</dt>
+					<dd>
+						<span class="weight-1" data-weight="1" data-id="17" data-type="1" onclick="weightChange(this);">农林畜牧</span>
+						<span class="weight-1" data-weight="1" data-id="18" data-type="3" onclick="weightChange(this);">小学</span>
+						<span class="weight-1" data-weight="1" data-id="19" data-type="3" onclick="weightChange(this);">POS机</span>
+						<span class="weight-1" data-weight="1" data-id="20" data-type="1" onclick="weightChange(this);">代练</span>
+					</dd>
+				</dl>
+				<div class="keyword-t bor-t">
+					推荐关键词
+				</div>
+				<dl class="weight-chosen">
+					<dt>公司名称类</dt>
+					<dd>
+						<span class="weight-2" data-weight="2" data-id="27" data-type="1" onclick="moveWeight(this);">广东</span>
+						<span class="weight-2" data-weight="2" data-id="28" data-type="1" onclick="moveWeight(this);">深圳</span>
+						<span class="weight-2" data-weight="2" data-id="29" data-type="1" onclick="moveWeight(this);">上海</span>
+					</dd>
+				</dl>
+				<dl class="weight-chosen">
+					<dt>主营产品类</dt>
+					<dd>
+						<span class="weight-2" data-weight="2" data-id="30" data-type="3" onclick="moveWeight(this);">科技</span>
+						<span class="weight-2" data-weight="2" data-id="31" data-type="3" onclick="moveWeight(this);">发展</span>
+						<span class="weight-2" data-weight="2" data-id="32" data-type="3" onclick="moveWeight(this);">化工</span>
+					</dd>
+				</dl>
+				<div class="weight-btn-f">
+					<input type="button" value="保存" class="" />
+				</div>
+			</div>
+			<div class="weight-f" id="weight-f">
+				<div class="weight-t-f">
+					权重调整
+					<a class="close" href="javascript:;"></a>
+				</div>
+				<div class="weight-style">
+					<div class="weight-t">
+					</div>
+					<div class="weight-btn">
+						<div class="weight-change weight-add"></div>
+						<div class="weight-change weight-sub"></div>
+					</div>
+					<div class="btn-f">
+						<input type="button" class="btn" onclick="keywordMove();" value="提交" />
+					</div>
+				</div>
+			</div>
+			<div class="weight-f" id="weight-insert">
+				<div class="weight-t-f">
+					添加关键词
+					<a class="close" href="javascript:;"></a>
+				</div>
+				<div class="weight-style">
+					<div class="weight-t">
+					</div>
+					<form onsubmit="return keywordInsert();">
+						<div class="weight-input">
+							<input type="text" id="keyword" placeholder="请输入关键词" />
+						</div>
+						<div class="btn-f">
+							<input type="submit" class="btn" value="提交" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="loading">
+
+		</div>
+		<script type="text/javascript">
+			var oldWeight = -1;
+			var weight = -1;
+			var weightId = -1;
+			$(function() {
+				$(".loading").show();
+				setTimeout(function() {
+					$(".loading").hide();
+				}, 1000);
+
+				$("#weight-f a.close").click(function() {
+					$("#weight-f").hide();
+				});
+				$("#weight-insert a.close").click(function() {
+					$("#weight-insert").hide();
+				});
+				$("#weight-f .weight-add").click(function() {
+					if($(this).css("cursor") == "default") {
+						return false;
+					}
+					weight++;
+					$(this).parent().parent().attr("class", "weight-style weight-" + weight);
+//					weightId = $("#weight-f").attr("weight-id");
+
+				});
+				$("#weight-f .weight-sub").click(function() {
+					if($(this).css("cursor") == "default") {
+						return false;
+					}
+					weight--;
+					$(this).parent().parent().attr("class", "weight-style weight-" + weight);
+					
+				});
+				$(window).click(function() {
+					$("#weight-f").hide();
+					$("#weight-insert").hide();
+				});
+				$("#weight-f,#weight-insert").click(function(e) {
+					e.stopPropagation();
+				});
+			});
+
+			//浮动框的位置
+			function weightPosition(obj, box) {
+				var weightop = 0;
+				var weightleft = 0;
+				if($(obj).offset().top + $(box).height() > $(".contents").offset().top + $(".contents").outerHeight()) {
+					weightop = $(obj).offset().top - $(".contents").offset().top - $(box).height() + $(obj).outerHeight();
+				} else {
+					weightop = $(obj).offset().top - $(".contents").offset().top;
+				}
+				if($(obj).offset().left + $(box).width() + $(obj).outerWidth() > $(".contents").offset().left + $(".contents").outerWidth()) {
+					weightleft = $(obj).offset().left - $(box).width() - $(".contents").offset().left;
+				} else {
+					weightleft = $(obj).offset().left + $(obj).outerWidth();
+				}
+				$(box).css({
+					"top": weightop,
+					"left": weightleft
+				});
+				//				event.stopPropagation(); 
+				if(window.event) {
+					event.cancelBubble = true; // ie下阻止冒泡
+				} else {
+					event.stopPropagation(); // 其它浏览器下阻止冒泡
+				}
+			}
+
+			//新建关键词浮动框
+			function add(obj) {
+				$("#weight-insert").show();
+				$("#weight-insert").attr("data-type", $(obj).attr("data-type"));
+				weightPosition(obj, "#weight-insert");
+				$("#keyword").focus();
+			}
+
+			//修改关键词权重
+			function weightChange(obj) {
+				oldWeight = weight = $(obj).attr("data-weight");
+				var classname = $(obj).attr("class");
+				$("#weight-f").find(".weight-style").attr("class", "weight-style");
+				$("#weight-f").find(".weight-style").addClass(classname);
+				$("#weight-f").find(".weight-t").html($.trim($(obj).text()));
+				$("#weight-f").attr("weight-id", $(obj).attr("data-id"));
+				$("#weight-f").show();
+				weightId = $("#weight-f").attr("weight-id");
+				weightPosition(obj, "#weight-f");
+			}
+
+			//移动关键词
+			function keywordMove() {
+				$(".weight-chosen span[data-id=" + weightId + "]").attr("class", "weight-" + weight);
+				$(".weight-chosen span[data-id=" + weightId + "]").attr("data-weight", weight);
+
+				var weightSpan = $(".weight-chosen span[data-id=" + weightId + "]")[0];
+				if(weight == 1) {
+					if(!$(".weight-chosen span[data-id=" + weightId + "]").parent().parent().hasClass("weight-chosen5")) {
+						$(".weight-chosen span[data-id=" + weightId + "]").remove();
+						$(".weight-chosen5 dd").append(weightSpan);
+					}
+				} else if(weight == 0) {
+					if(!$(".weight-chosen span[data-id=" + weightId + "]").parent().parent().hasClass("weight-chosen6")) {
+						$(".weight-chosen span[data-id=" + weightId + "]").remove();
+						$(".weight-chosen6 dd").append(weightSpan);
+					}
+				} else if(weight >= 2) {
+					var dataType = $(".weight-chosen span[data-id=" + weightId + "]").attr("data-type");
+					if(oldWeight < 2) {
+						$(".weight-chosen span[data-id=" + weightId + "]").remove();
+						$(".weight-chosen" + dataType + " dd").append(weightSpan);
+					}
+					var $insert = $(".weight-chosen" + dataType + " dd").find(".weight-insert");
+					$insert.next().after($insert);
+				}
+				$(weightSpan).addClass("active");
+				setTimeout(function() {
+					$(weightSpan).removeClass("active");
+				}, 400);
+				console.log($(weightSpan));
+				$("#weight-f").hide();
+			}
+
+			//添加关键词
+			function keywordInsert() {
+				var keyword = $("#keyword").val();
+				if(keyword == "") {
+					alert("请输入关键词");
+					return false;
+				}
+				if(keyword.length > 6) {
+					alert("关键词不能超过6个字");
+					return false;
+				}
+				var dataType = $("#weight-insert").attr("data-type");
+				var dataId = $(".keywords-f").find("span").length;
+				var weightSpan = '<span class="weight-4"  data-weight="4" data-ie="' + dataId + '" onclick="weightChange(this);" data-type="' + dataType + '">' + keyword + '</span>';
+				$(".weight-chosen" + dataType + " dd").append(weightSpan);
+				var $insert = $(".weight-chosen" + dataType + " dd").find(".weight-insert");
+				$insert.next().after($insert);
+				$("#keyword").val("");
+				$("#weight-insert").hide();
+				return false;
+			}
+			//推荐关键词添加到当前关键词
+			function moveWeight(obj) {
+				var weightId = $(obj).attr("data-id");
+				var dataType = $(obj).attr("data-type");
+				var weightSpan = $(".weight-chosen span[data-id=" + weightId + "]")[0];
+				console.log(weightSpan);
+				$(".weight-chosen span[data-id=" + weightId + "]").remove();
+				$(".weight-chosen" + dataType + " dd").append(weightSpan);
+				$(weightSpan).attr("onclick","weightChange(this)");
+				var $insert = $(".weight-chosen" + dataType + " dd").find(".weight-insert");
+				$insert.next().after($insert);
+				$(weightSpan).addClass("active");
+				setTimeout(function() {
+					$(weightSpan).removeClass("active");
+				}, 400);
+			}
+		</script>
+	</body>
+
+</html>

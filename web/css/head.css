@@ -1,0 +1,41 @@
+/* 页面 头部样式 header */
+.header span{ display: inline; font-size: 14px; color: #fff; line-height: 65px;}
+.header span a{color: #50d2c2;}
+.header span em{ color: #fff; padding-right: 3px;}
+.header p.p-tel{ color: #fff; font-size: 14px; padding-right: 10px; }
+i.white-tel{ display: inline-block; float: left; margin: 23px 5px 0 0; width: 15px; height: 15px; background: url(../images/white-tel.png) no-repeat; }
+
+.nav{ width: 500px;  margin: 0 auto;text-align: center;}
+.nav li{ width: 70px; height: 60px;position:relative; font-size:18px; text-align: center; display: inline-block;}
+
+.header-right{position: absolute;top:0;right:0;}
+.header-right li{ width: 59px; height: 60px;position: relative; /*border-left: 1px solid #434343;*/ float: left;}
+.header-right li:last-child{margin-left: 20px;}
+.header-right li a.user,a.user-1{ display: block; width: 36px; height: 36px; border-radius: 20px; background: #fff; color: #3d3d3d; text-align: center; line-height: 36px; margin-top: 13px; }
+.header-right li a.user img{width:36px;height: 36px;border-radius: 50%;}
+a.user-1{ margin-right: 20px; }
+.header-right li a i{ display: block; width: 20px; height: 20px; margin: 21px auto;}
+i.add{ background: url(../images/add.png) no-repeat; }
+.header-right li a i.nav-tip{width:21px;height:21px; background: url(../images/nav-tip.png) no-repeat; }
+i.update{ background: url(../images/update.png) no-repeat; }
+i.message{ background: url(../images/message.png) no-repeat; }
+i.qq{ background: url(../images/QQ.png) no-repeat; }
+.header-right li a i.message-tip{width: 16px;height:16px; overflow: hidden;white-space: nowrap;text-overflow: ellipsis; line-height: 16px;background:#c00;font-size: 10px;font-family: "宋体"; position: absolute;top:11px;right:8px;margin:0;color: #fff;text-align: center;border-radius:100%;-webkit-border-radius:100%;-moz-border-radius:100%;display: none;}
+.header-right li.active a i.message-tip{display: block;}
+.header-right li:hover .service{display: block;}
+.header-right li:nth-child(3){display: none;}
+.personalBody .header-right li:nth-child(2){display: none;}
+.service{display: none; position: absolute;background: #fff;box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2);white-space: nowrap;padding: 0 20px;left: -20px;bottom: -45px;line-height: 50px;z-index: 99;}
+.service.active{display:block;}
+.header{ width: 100%; height:60px; background: #3d3d3d; line-height: 60px;position:relative;}
+.logo{ width: 117px; height: 22px; background: url(../images/logo.png) no-repeat; margin: 22px 0 0 19px;}
+.header span.mar{ margin: 0 17px;}
+.nav li a{ display: block; color: #fff;}
+.nav li a:hover,
+.nav li a.current{ height: 59px; background: #383838; border-bottom: 1px solid #50d2c2; color: #50d2c2;}
+
+/*--云招商--*/
+.yzs-f .logo{width:53px;height: 22px;background-image:url(../images/yzs-logo.png);}
+.yzs-f .nav{height: 0;text-align: center;}
+.yzs-f .nav li{float: none;display: inline-block;}
+

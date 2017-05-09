@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>账户-支付中心-充值</title>
+	<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+	<link href="../css/main.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="../css/head.css" />
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/highcharts.js"></script> 
+</head>
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<!-- 页面头部 header -->
+<div class="header">
+	<h1 class="logo fl"></h1>
+	<span class="marleft20 fl"><em>支付中心</em></span>
+	<a href="javascript:;" class="user-1 fr">刘</a>
+	<p class="fr p-tel"><i class="white-tel"></i>官方客服：010-56200279</p>	
+</div>
+<!-- 页面内容 contents-1 -->
+<div class="contents-1">
+	<!-- company -->
+	<div class="c-company-intro">
+		<img src="../images/company-photo-1.png" />
+		<p>北京联云天下科技有限公司</p>
+		<div class="choose_Recharge">
+			<ul>
+				<li>
+					<input type="radio" name="pay" id="Account_recharge" checked="checked" />
+					<label for="Account_recharge"><i></i>账户余额充值</label>
+				</li>
+				<li>
+					<input type="radio"  name="pay" id="Call_recharge" />
+					<label for="Call_recharge"><i></i>购买通话时间</label>
+				</li>
+				<li>
+					<input type="radio"  name="pay" id="Message_recharge" />
+					<label for="Message_recharge"><i></i>购买短信条数</label>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 充值 -->
+	<div class="c-pay-monery">
+		<div class="pay_reccharge Account_recharge">
+			<div class="tlt">账户余额充值</div>
+			<div class="pay_f clearfix">
+				<span>充值金额</span>
+				<div class="pay_input">
+					<input type="text" id="money" />
+					<label>元</label>
+				</div>
+			</div>
+		</div>
+		<div class="pay_reccharge Call_recharge clearfix">
+			<div class="tlt">购买通话时间</div>
+			<div class="buy-items-cur c-a" pay="160">
+				<p>2000分钟</p>
+				<span>160元 (0.08元/分钟)</span>
+				<i class="i"></i>
+			</div>
+			<div class="buy-items c-a" pay="280">
+				<p>4000分钟</p>
+				<span>280元 (0.07元/分钟)</span>
+				<i class="i"></i>
+			</div>
+			<div class="buy-items c-a" pay="360">
+				<p>6000分钟</p>
+				<span>360元 (0.06元/分钟)</span>
+				<i class="i"></i>
+			</div>
+			<div class="buy-items c-a" pay="400">
+				<p>8000分钟</p>
+				<span>400元 (0.05元/分钟)</span>
+				<i class="i"></i>
+			</div>
+		</div>
+		<div class="pay_reccharge Message_recharge clearfix">
+			<div class="tlt">购买短信条数</div>
+			<div class="buy-items-cur c-a" pay="160">
+				<p>2000条</p>
+				<span>160元 (0.08元/条)</span>
+				<i class="i"></i>
+			</div>
+			<div class="buy-items c-a" pay="280">
+				<p>4000条</p>
+				<span>280元 (0.07元/条)</span>
+				<i class="i"></i>
+			</div>
+			<div class="buy-items c-a" pay="360">
+				<p>6000条</p>
+				<span>360元 (0.06元/条)</span>
+				<i class="i"></i>
+			</div>
+			<div class="buy-items c-a" pay="400">
+				<p>8000条</p>
+				<span>400元 (0.05元/条)</span>
+				<i class="i"></i>
+			</div>
+		</div>
+	</div>
+	<!-- 发票 -->
+	<div class="c-pay-fapiao">
+		<div class="tlt">增值税普通发票</div>
+		<dl>
+			<dt>发票抬头</dt>
+			<dd><input type="text" placeholder="公司名称" /></dd>
+		</dl>
+		<dl>
+			<dt>联系人</dt>
+			<dd><input type="text" /></dd>
+		</dl>
+		<dl>
+			<dt>发票内容</dt>
+			<dd><select><option>软件服务费</option></select></dd>
+		</dl>
+		<dl>
+			<dt>联系电话</dt>
+			<dd><input type="text" /></dd>
+		</dl>
+		<dl>
+			<dt>邮寄地址</dt>
+			<dd><input type="text" placeholder="寄送发票的地址" /></dd>
+		</dl>
+	</div>
+	<input type="button" value="充值" class="btn" />
+	<span class="all-monery">实付款：<em class="c-blue fontSize30">￥<label id="all_money">0</label></em></span>
+</div>
+<script type="text/javascript">
+	$(function(){
+		
+		$("#money").bind("input propertychange",function(){
+			var money_person=parseInt($(this).val());
+			$(this).val(money_person);
+			if(money_person>=0){
+					$("#all_money").text(money_person);	
+			}else{
+				$(this).val(0);
+				$("#all_money").text(0);
+			}
+		});
+		
+		
+		$(".choose_Recharge li input").change(function(){
+			$(".pay_reccharge input").val("");
+			var index=$(".choose_Recharge li input:checked").parent().index("li");
+			$(".pay_reccharge").hide();
+			$(".pay_reccharge:eq("+index+")").show();
+			if(index>0){
+				$("#all_money").text($(".pay_reccharge:eq("+index+") .buy-items-cur").attr("pay"));
+			}
+			else{
+				$("#all_money").text(0);
+			}
+		});
+		
+		
+		$(".pay_reccharge:eq(1) .c-a").click(function(){
+			$('.pay_reccharge:eq(1) .c-a').removeClass('buy-items-cur').addClass('buy-items');
+			$(this).toggleClass('buy-items-cur');
+			$("#all_money").text($(this).attr("pay"));
+		});
+		$(".pay_reccharge:eq(2) .c-a").click(function(){
+			$('.pay_reccharge:eq(2) .c-a').removeClass('buy-items-cur').addClass('buy-items');
+			$(this).toggleClass('buy-items-cur');
+			$("#all_money").text($(this).attr("pay"));
+		});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>个人客户</title>
+
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/highcharts.js"></script>
+		<script type="text/javascript" src="../js/jedate/jedate.js"></script>
+
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<div class="layer-2"></div>
+		<!-- 页面头部 header -->
+		<div class="header person">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav" style="width:210px;">
+				<li><a href="">客户</a></li>
+				<li><a href="">任务</a></li>
+				<li><a href="" class="current">设置</a></li>
+			</ul>
+			<ul class="header-right fr">
+				<li><a href="javascript:;"><i class="add"></i></a></li>
+				<li><a href="javascript:;"><i class="update"></i></a>
+					<div class="tip_f">
+						<i class="tip_img"></i> 您可以在这里开启数据开启至企业版
+					</div>
+				</li>
+				<li><a href="javascript:;"><i class="message"></i></a></li>
+				<li><a href="javascript:;" class="user">刘</a></li>
+			</ul>
+		</div>
+		<div class="tipArea mail_set">
+			<div class="wrap">
+				<div class="count_f">
+					<span class="span-1" id="">邮箱账户设置</span>
+					<span class="span-1 current" id="">邮箱模板设置</span>
+				</div>
+			</div>
+		</div>
+		<!-- 内容部分 contents -->
+		<div class="contents">
+			<div class="table-tlt">
+				<i class="i"></i>邮箱模板设置
+				<div class="fr">
+					<span class="add_email" id="">新建邮件模板</span>
+				</div>
+
+			</div>
+			<div class="template customer">
+				<table class="table-list" id="table-list">
+					<thead>
+						<tr>
+							<th>模板名称</th>
+							<th>添加时间</th>
+							<th>邮件标题</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>致科技类公司</td>
+							<td>2016年3月9日</td>
+							<td>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</td>
+							<td>
+								<a href="mail_add.html">编辑</a>
+								<a class="delete">删除</a>
+							</td>
+						</tr>
+					</tbody>
+					</tabel>
+			</div>
+		</div>
+<script type="text/javascript">
+	$(function(){
+		$(".customer").height($(window).height()-$(".customer").offset().top-80);
+		
+		$(".add_email").click(function(){
+			window.location.href="mail_add.html";	
+		});
+	});
+</script>
+	</body>
+
+</html>

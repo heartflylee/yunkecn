@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>代办提醒</title>
+	<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+	<link href="../css/main.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="../css/head.css" />
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/highcharts.js"></script> 
+</head>
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<!-- 页面头部 header -->
+<div class="header">
+	<h1 class="logo fl"></h1>
+	<span class="mar fl">|</span>
+	<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+	<ul class="nav">
+		<li><a href="">首页</a></li>
+		<li><a href="">行动</a></li>
+		<li><a href="">客户</a></li>
+		<li><a href="">账户</a></li>
+		<li><a href="">任务</a></li>
+		<li><a href="" class="current">设置</a></li>
+	</ul>
+	<ul class="header-right fr">
+		<li><a href="javascript:;"><i class="add"></i></a></li>
+		<li><a href="javascript:;"><i class="update"></i></a></li>
+		<li><a href="javascript:;"><i class="message"></i></a></li>
+		<li><a href="javascript:;" class="user">刘</a></li>
+	</ul>
+</div>
+<!-- 汇总提示 tipArea -->
+<div class="tipArea">
+	<div class="wrap">
+		<ul class="ul-2">
+			<li><a href="settings-3.html" class="current">待办提醒</a></li>
+			<li><a href="settings-4.html">系统通知</a></li>
+			<li><a href="settings-5.html">公司公告</a></li>
+		</ul>	
+	</div>
+</div>
+<!-- 内容部分 contents -->
+<div class="contents">
+	<div class="table-tlt">
+		<i class="i"></i>待办提醒
+		<a href="" class="b2 fr">删除</a>
+	</div>
+	<!--  -->
+	<table class="table-list" id="table-list-3">
+		<thead>
+			<tr>
+				<th class="th1"><i></i></th>
+				<th>主题</th>
+				<th>时间</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><i></i></td>
+				<td><em class="fw">企业网站使用权即将到期</em> - 尊敬的用户，您的企业网站使用权还有14天就要到期，请转账付费</td>
+				<td>2016-03-11</td>
+			</tr>
+			<tr>
+				<td><i></i></td>
+				<td><em class="fw">企业网站使用权即将到期</em> - 尊敬的用户，您的企业网站使用权还有14天就要到期，请转账付费</td>
+				<td>2016-03-11</td>
+			</tr>
+			<tr>
+				<td><i></i></td>
+				<td>企业网站使用权即将到期 - 尊敬的用户，您的企业网站使用权还有14天就要到期，请转账付费</td>
+				<td>2016-03-11</td>
+			</tr>
+			<tr>
+				<td><i></i></td>
+				<td>企业网站使用权即将到期 - 尊敬的用户，您的企业网站使用权还有14天就要到期，请转账付费</td>
+				<td>2016-03-11</td>
+			</tr>
+			<tr>
+				<td><i></i></td>
+				<td>企业网站使用权即将到期 - 尊敬的用户，您的企业网站使用权还有14天就要到期，请转账付费</td>
+				<td>2016-03-11</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- 分页 -->
+				<p class="page-p">共20条</p>
+				<ul class="page-ul">
+					<li><</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>></li>
+				</ul>
+</div>
+<!-- 查看短信模版 -->
+<div class="changer-box" id="look-1" style=" height: 430px;">
+	<div class="tlt"><i></i>查看短信模版<a href="javascript:;" class="a-closed"></a></div>
+	<dl class="cb-dl">
+		<dt>模版标题</dt>
+		<dd><input type="text" value="致农林畜牧"></dd>
+	</dl>
+	<dl class="cb-dl">
+		<dt>模版内容</dt>
+		<dd><textarea>亲爱的客户您好，请问您养猪养的是否开心？</textarea></dd>
+	</dl>
+	<p class="cb-tip">审核通过后模板，不允许再次编辑，如需更新，<br/>
+请重新创建并删除此条</p>
+	<input type="button" class="btn" value="提交" id="changerBtn">
+</div>
+</body>
+</html>

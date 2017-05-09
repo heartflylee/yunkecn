@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>设置</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<!--<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>-->
+		<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+		<script src="../js/audio.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<!--<script type="text/javascript" src="../js/highcharts.js"></script>-->
+		<!--<link rel="stylesheet" href="../css/jquery.enjoyhint.css" />-->
+		<!--<script type="text/javascript" src="../js/enjoyhint.js"></script>-->
+		<!--<script type="text/javascript" src="../js/jquery.enjoyhint.js" ></script>-->
+
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav">
+				<li>
+					<a href="">首页</a>
+				</li>
+				<li>
+					<a href="">行动</a>
+				</li>
+				<li>
+					<a href="">客户</a>
+				</li>
+				<li>
+					<a href="">账户</a>
+				</li>
+				<li>
+					<a href="">任务</a>
+				</li>
+				<li>
+					<a href="" class="current">设置</a>
+				</li>
+			</ul>
+			<ul class="header-right fr">
+				<li>
+					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes"><i class="qq"></i>
+						<div class="service">在线客服</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="nav-tip"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="update"></i></a>
+				</li>
+				<li class="active">
+					<a href="news.html">
+						<i class="message"></i>
+						<i class="message-tip">29</i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="user">刘</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 汇总提示 tipArea -->
+		<div class="tipArea">
+			<div class="wrap">
+				<ul class="ul-2">
+					<li>
+						<a href="settings.html" class="current">团队设置</a>
+					</li>
+					<li>
+						<a href="settings-1.html">外呼标签设置</a>
+					</li>
+					<li>
+						<a href="settings-2.html">短信模板设置</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 内容部分 contents -->
+		<div class="contents">
+			<!-- 左侧 -->
+			<div class="leftPage fl">
+				<a href="javascript:;" id="edit-com" class="edit-com"></a>
+				<dl class="left-user">
+					<dt><img src="../images/left-photo.png"></dt>
+					<dd>
+						<p>北京联云天下科技有限公司</p>
+						<span>赵科虎，夏云柯</span>
+					</dd>
+				</dl>
+				<div class="leftbindcompay" id="leftbindcompay">
+					<div class="tlt">绑定企业</div>
+					<div class="line"></div>
+					<p class="p">企业串码</p>
+					<p class="p-1 c-blue">382087754</p>
+					<div class="line"></div>
+					<p class="p">邀请团队成员</p>
+					<input type="text" class="text" placeholder="请输入手机号" />
+					<input type="button" class="btn" value="发送邀请码" />
+				</div>
+				<div class="leftbindcompay left-join" id="">
+					<p class="p">邀请云客·云电销</p>
+					<input type="button" class="btn" value="立即邀请" />
+				</div>
+			</div>
+			<!-- 右侧 -->
+			<div class="rightPage setting">
+				<div class="tabBox">
+					<ul id="tabBox">
+						<li class="li1">
+							<a href="settings.html" >申请绑定</a>
+						</li>
+						<li class="li1" id="buttons">
+							<a href="settings-Unbundling.html">解除绑定</a>
+						</li>
+						<li class="li1">
+							<a href="settings-Unbundled.html" class="current">已解绑账号</a>
+						</li>
+					</ul>
+
+				</div>
+				<div class="contentsbox-1" style="display: block;">
+					<table class="table-list" id="table-list-1">
+
+						<thead>
+							<tr>
+								<th>用户名</th>
+								<th>手机号</th>
+								<th>申请时间</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>刘晓辉</td>
+							<td>13601129728</td>
+							<td>2016-03-09</td>
+							<td><a class="href" href="javascript:cancellation();">注销账号</a></td>
+						</tr>
+						<tr>
+							<td>刘宇</td>
+							<td>13611126225</td>
+							<td>2016-03-09</td>
+							<td>账号已注销</td>
+						</tr>
+						<tr>
+							<td>刘晓辉</td>
+							<td>13601129728</td>
+							<td>2016-03-09</td>
+							<td><a class="href" href="javascript:cancellation();">注销账号</a></td>
+						</tr>
+						<tr>
+							<td>刘宇</td>
+							<td>13611126225</td>
+							<td>2016-03-09</td>
+							<td>账号已注销</td>
+						</tr>
+						<tr>
+							<td>刘晓辉</td>
+							<td>13601129728</td>
+							<td>2016-03-09</td>
+							<td><a class="href" href="javascript:cancellation();">注销账号</a></td>
+						</tr>
+						<tr>
+							<td>刘宇</td>
+							<td>13611126225</td>
+							<td>2016-03-09</td>
+							<td>账号已注销</td>
+						</tr>
+						<tr>
+							<td>刘晓辉</td>
+							<td>13601129728</td>
+							<td>2016-03-09</td>
+							<td><a class="href" href="javascript:cancellation();">注销账号</a></td>
+						</tr>
+						<tr>
+							<td>刘宇</td>
+							<td>13611126225</td>
+							<td>2016-03-09</td>
+							<td>账号已注销</td>
+						</tr>
+							<tr>
+								<td>刘晓辉</td>
+								<td>13601129728</td>
+								<td>2016-03-09</td>
+								<td><a class="href" href="javascript:cancellation();">注销账号</a></td>
+							</tr>
+							<tr>
+								<td>刘宇</td>
+								<td>13611126225</td>
+								<td>2016-03-09</td>
+								<td>账号已注销</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- 分页 -->
+					<p class="page-p">共20条</p>
+					<ul class="page-ul">
+						<li>
+							<</li>
+								<li>1</li>
+								<li>2</li>
+								<li>3</li>
+								<li>></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 编辑公司 -->
+		<div class="edit-company" id="edit-company">
+			<a href="javascript:;" class="a-closed"></a>
+			<div class="company-photo-box">
+				<img src="../images/company-photo.png">
+				<a href="javascript:;" class="a-edit-photo"></a>
+			</div>
+			<p class="p1">北京联云天下科技有限公司</p>
+			<p class="p2">赵科虎，夏云柯</p>
+			<form class="companyForm">
+				<input type="text" class="text" name="" placeholder="请输入企业名称">
+				<input type="text" class="text" name="" placeholder="请输入企业简介">
+				<input type="text" class="text" name="" id="asselect" placeholder="请选择所属行业">
+				<i class="select-icon"></i>
+				<div class="selectBox">
+					<a href="javascript:;">行业1</a>
+					<a href="javascript:;">行业2</a>
+					<a href="javascript:;">行业4</a>
+					<a href="javascript:;">行业1</a>
+					<a href="javascript:;">行业1</a>
+				</div>
+				<input type="button" class="btn" value="保存" id="submitBtn">
+			</form>
+		</div>
+
+		<div class="applyBox " id="cancellation">
+			<div class="tlt"><i></i>注销账号
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="cancel-box ">
+				<div class="cancel-t">验证码已发送给该手机号码，请输入验证码后完成注销</div>
+				<div class="cancel-input">
+					<input type="text" class="input" placeholder="请输入验证码">
+					<button class="yzm-btn yzm-cancel" id="yzm-btn" onclick="yzmbtn(this);">60s后重新发送</button>
+				</div>
+			</div>
+			<div class="btn-f">
+				<input type="button" class="btn" value="提交">
+			</div>
+		</div>
+
+		</body>
+	<script type="text/javascript">
+		function cancellation(){
+			$("#cancellation").show();
+			$(".layer").show();
+			CountDown();
+		}
+		function CountDown(){
+		    var $yzm = $("#yzm-btn");
+		    var count = 60;
+            $yzm.addClass("yzm-cancel");
+            $yzm.text(count+"s 后重新发送");
+		    var time  = setInterval(function(){
+		        console.log(count);
+                $yzm.text((--count) +"s 后重新发送");
+		        if(count<=0){
+		            clearInterval(time);
+                    $yzm.removeClass("yzm-cancel");
+                    $yzm.text("重新发送验证码");
+				}
+			},1000);
+		}
+
+		function yzmbtn(obj){
+		    if($(obj).hasClass("yzm-cancel")){
+		        return false;
+			}else {
+                CountDown();
+			}
+		}
+
+
+	</script>
+
+</html>

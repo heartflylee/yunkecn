@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>团队客户</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/highcharts.js"></script>
+		<link href="../css/hDate.css" rel="stylesheet" />
+		<script type="text/javascript" src="../js/hDate.js"></script>
+		<script type="text/javascript" src="../js/audio.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+		<script type="text/javascript" src="../js/jedate/jedate.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.select.js" ></script>
+		<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<div class="layer-6"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav">
+				<li>
+					<a href="">首页</a>
+				</li>
+				<li>
+					<a href="">行动</a>
+				</li>
+				<li>
+					<a href="" class="current">客户</a>
+				</li>
+				<li>
+					<a href="">账户</a>
+				</li>
+				<li>
+					<a href="">任务</a>
+				</li>
+				<li>
+					<a href="">设置</a>
+				</li>
+			</ul>
+			<ul class="header-right fr">
+				<li>
+					<a href="javascript:;"><i class="add"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="update"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="message"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="user">刘</a>
+				</li>
+			</ul>
+		</div>
+		<div class="tipArea">
+			<div class="wrap">
+				<ul class="ul-2">
+					<li>
+						<a href="settings.html">团队设置</a>
+					</li>
+					<li>
+						<a href="settings-1.html">外呼标签设置</a>
+					</li>
+					<li>
+						<a href="settings-2.html">短信模板设置</a>
+					</li>
+					<li>
+						<a href="settings-email.html">邮件账户设置</a>
+					</li>
+					<li>
+						<a href="settings-email1.html">邮件模板设置</a>
+					</li>
+					<li>
+						<a href="settings-call.html">挂机时间设置</a>
+					</li>
+					<li>
+						<a href="settings-sea.html">企业公海设置</a>
+					</li>
+					<li>
+						<a href="Clockset.html" class="current">打卡设置</a>
+					</li>
+					<li>
+						<a href="Recommend.html">推荐系统设置</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="contents">
+			<div class="table-tlt">
+				<i class="i"></i>常规打卡设置
+			</div>
+			<div class="clockset-f">
+				<div class="clock-li clearfix">
+					<div class="clock-name">
+						打卡时间
+					</div>
+					<div class="clock-con" id="time">
+						<div class="clockadd">
+							<input type="button" class="btn clockbtn" id="addtime" value="添加" />
+						</div>
+						<div class="clock-set">
+							<label class="clockdate">
+									周一至周五
+								</label>
+							<label class="clocktime">
+									上班10：00-下班19：00
+								</label>
+							<label class="clock-btn">
+									<a href="javascript:;" onclick="modifytime();">编辑</a>|<a href="javascript:;" onclick="deletetime();">删除</a>
+								</label>
+						</div>
+					</div>
+				</div>
+				<div class="clock-li clearfix">
+					<div class="clock-name">
+						打卡提醒
+					</div>
+					<div class="clock-con">
+						上班
+						<select class="remind">
+							<option value="">提前10分钟</option>
+							<option value="">提前5分钟</option>
+						</select>
+						— 下班 准时
+					</div>
+				</div>
+				<div class="clock-li clearfix">
+					<div class="clock-name">
+						节假日
+					</div>
+					<div class="clock-con">
+						<input type="checkbox" class="clockcheck" id="Holiday" />
+						<label class="c-check" for="Holiday"><i></i>同步节假日</label>
+						<span class="clock-tip">节假日期间不打卡</span>
+					</div>
+				</div>
+				<div class="line"></div>
+				<div class="clock-li clearfix">
+					<div class="clock-name">
+						打卡地点
+					</div>
+					<div class="clock-con" id="address">
+						<div class="clockadd">
+							<input type="button" class="btn clockbtn" id="addaddress" value="添加" />
+							<label class="clock-tip">
+								制定地理位置300米以内打卡有效
+							</label>
+						</div>
+						<div class="clock-address">
+							
+						</div>
+					</div>
+				</div>
+				<div class="clock-save">
+					<input type="button" class="btn" value="保存" />
+					<label class="clock-tip">
+						修改将即刻生效
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="applyBox timeset" id="timeset">
+			<div class="tlt"><i></i>打卡时间设置
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="timemodify">
+				<div class="li clearfix">
+					<div class="li-name">
+						工作日:
+					</div>
+					<div class="li-con">
+						<div class="time-week">
+							<input type="checkbox" class="checkbox" name="check" value="1" id="week0" />
+							<label for="week0" class="checklabel">
+								<i></i>
+								周一
+							</label>
+						</div>
+						<div class="time-week">
+							<input type="checkbox" class="checkbox"  name="check" value="2"  id="week1" />
+							<label for="week1" class="checklabel">
+								<i></i>
+								周二
+							</label>
+						</div>
+						<div class="time-week">
+							<input type="checkbox" class="checkbox" name="check" value="3"  id="week2" />
+							<label for="week2" class="checklabel">
+								<i></i>
+								周三
+							</label>
+						</div>
+						<div class="time-week">
+							<input type="checkbox" class="checkbox" name="check" value="4"  id="week3" />
+							<label for="week3" class="checklabel">
+								<i></i>
+								周四
+							</label>
+						</div>
+						<div class="time-week">
+							<input type="checkbox" class="checkbox" name="check" value="5"  id="week4" />
+							<label for="week4" class="checklabel">
+								<i></i>
+								周五
+							</label>
+						</div>
+						<div class="time-week">
+							<input type="checkbox" class="checkbox" name="check" value="6"  id="week5" />
+							<label for="week5" class="checklabel">
+								<i></i>
+								周六
+							</label>
+						</div>
+						<div class="time-week">
+							<input type="checkbox" class="checkbox" name="check" value="7"  id="week6" />
+							<label for="week6" class="checklabel">
+								<i></i>
+								周日
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="li clearfix">
+					<div class="li-name">
+						打卡时间:
+					</div>
+					<div class="li-con">
+						上班
+						<div class="timeselect-f">
+							<select class="timeselect">
+								<option>0</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+								<option>13</option>
+								<option>14</option>
+								<option>15</option>
+								<option>16</option>
+								<option>17</option>
+								<option>18</option>
+								<option>19</option>
+								<option>20</option>
+								<option>21</option>
+								<option>22</option>
+								<option>23</option>
+							</select>
+							:
+							<select class="timeselect">
+								<option>0</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+								<option>13</option>
+								<option>14</option>
+								<option>15</option>
+								<option>16</option>
+								<option>17</option>
+								<option>18</option>
+								<option>19</option>
+								<option>20</option>
+								<option>21</option>
+								<option>22</option>
+								<option>23</option>
+								<option>24</option>
+								<option>25</option>
+								<option>26</option>
+								<option>27</option>
+								<option>28</option>
+								<option>29</option>
+								<option>30</option>
+							</select>
+						</div>
+						 — 下班
+						<div class="timeselect-f">
+							<select class="timeselect">
+								<option>0</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option selected="selected">10</option>
+								<option>11</option>
+								<option>12</option>
+								<option>13</option>
+								<option>14</option>
+								<option>15</option>
+								<option>16</option>
+								<option>17</option>
+								<option>18</option>
+								<option>19</option>
+								<option>20</option>
+								<option>21</option>
+								<option>22</option>
+								<option>23</option>
+							</select>
+							:
+							<select class="timeselect">
+								<option>0</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+								<option>13</option>
+								<option>14</option>
+								<option>15</option>
+								<option>16</option>
+								<option>17</option>
+								<option>18</option>
+								<option>19</option>
+								<option>20</option>
+								<option>21</option>
+								<option>22</option>
+								<option>23</option>
+								<option>24</option>
+								<option>25</option>
+								<option>26</option>
+								<option>27</option>
+								<option>28</option>
+								<option>29</option>
+								<option>30</option>
+							</select>
+						</div>
+					</div>
+					<div class="btn-f">
+						<input type="button" class="btn" value="保存" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="applyBox search-inner-f" id="search-inner-f">
+			<div class="tlt"><i></i>打卡地点设置
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="addressf">
+				<div class="address-inner clearfix">
+					<input type="button" class="btn" value="搜索" />
+					<div class="address">
+						<input type="text" placeholder="请输入详细地址" />
+					</div>
+					<div class="search-box">
+						<div class="search-t">
+							搜索结果
+						</div>
+						<div class="search-inner">
+							
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				$(".timeselect").select();
+				
+				//添加打卡时间
+				$("#addtime").click(function(){
+					$(".layer").show();
+					$("#timeset").show();
+				});
+				//关闭打卡时间设置
+				$("#timeset").find("a.a-closed").click(function(){
+					$("#timeset").hide();
+					$(".layer").hide();
+				});
+				//提交打卡时间设置
+				$("#timeset .btn").click(function(){
+					$("#timeset").hide();
+					$(".layer").hide();
+					$("#time .clockadd").hide();
+					$("#time .clock-set").show();
+					var timeset='<label class="clockdate">\
+									周一至周五\
+								</label>\
+							<label class="clocktime">\
+									上班10：00-下班19：00\
+								</label>\
+							<label class="clock-btn">\
+									<a href="javascript:;" onclick="modifytime();">编辑</a>|<a href="javascript:;" onclick="deletetime();">删除</a>\
+								</label>';
+					$("#time .clock-set").html(timeset);
+					console.log($("input[name='check']:checked"));
+					
+					
+				});
+				//添加打卡地点设置
+				$("#addaddress").click(function(){
+					$("#search-inner-f").show();
+					$(".layer").show();
+				});
+				//关闭打卡地点设置
+				$("#search-inner-f").find("a.a-closed").click(function(){
+					$("#search-inner-f").hide();
+					$(".layer").hide();
+				});
+				$("#search-inner-f .btn").click(function(){
+					var searchinner='<div class="search-li" onclick="searchsubmit(this);">\
+								<div class="search-address">\
+									建外SOHO(西区)\
+								</div>\
+								<div class="search-detail">\
+									北京市朝阳区东三环中路39号院\
+								</div>\
+							</div>\
+							<div class="search-li"  onclick="searchsubmit(this);">\
+								<div class="search-address">\
+									北京嘉里中心\
+								</div>\
+								<div class="search-detail">\
+									北京市朝阳区光华路1号\
+								</div>\
+							</div>\
+							<div class="search-li"  onclick="searchsubmit(this);">\
+								<div class="search-address">\
+									建外大街\
+								</div>\
+								<div class="search-detail">\
+									北京市朝阳区\
+								</div>\
+							</div>\
+							<div class="search-li"  onclick="searchsubmit(this);">\
+								<div class="search-address">\
+									建外SOHO(东区)\
+								</div>\
+								<div class="search-detail">\
+									北京市朝阳区东三环中路39号院\
+								</div>\
+							</div>';
+					$("#search-inner-f .search-box").show();
+					$("#search-inner-f .search-inner").html(searchinner);
+				});
+			});
+			//编辑打卡时间
+			function modifytime(){
+				$(".layer").show();
+				$("#timeset").show();
+			}
+			//删除打卡时间
+			function deletetime(){
+				$("#time .clockadd").show();
+				$("#time .clock-set").html("");
+				$("#time .clock-set").hide();
+			}
+			//点击搜索出来的结果
+			function searchsubmit(obj){
+				$("#address").find(".clockadd").hide();
+				$("#address .clock-address").show();
+				var address=$(obj).find(".search-address").text().trim();
+				var addressdetail=$(obj).find(".search-detail").text().trim();
+				var searchresult='<span class="address">\
+								'+address+'\
+							</span>\
+							<span class="addressdetail">'+addressdetail+'\
+							</span>\
+							<label class="clock-btn">\
+								<a href="javascript:;" onclick="modifyaddress();">编辑</a>|<a href="javascript:;" onclick="deleteaddress();">删除</a>\
+							</label>';
+				$("#address .clock-address").html(searchresult);
+				$("#search-inner-f").hide();
+				$(".layer").hide();
+			}
+			function modifyaddress(){
+				$("#search-inner-f").show();
+				$(".layer").show();
+			}
+			function deleteaddress(){
+				$("#address .clock-address").html("");
+				$("#address").find(".clockadd").show();
+				$("#address .clock-address").hide();
+			}
+		</script>
+	</body>
+
+</html>

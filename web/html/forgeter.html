@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="x-ua-compatible" content="ie=8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>团队首页</title>
+	<link rel="stylesheet" href="../css/slide-unlock.css" />
+	<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+	<link href="../css/login.css" rel="stylesheet" type="text/css" />	
+	<script type="text/javascript" src="../js/jquery-1.7.2.min.js" ></script>
+	<script type="text/javascript" src="../js/slideunlock.js" ></script>
+	<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="login-box reg_box_f">
+		<div class="reg_1">
+			<div class="regist_t">
+					忘记密码
+			</div>
+			<div class="reg_row">
+				<input type="text" class="reg_phone_input f_phone" placeholder="请输入手机号" />
+				<input type="button" class="reg_yzm_btn" value="获取验证码" />
+			</div>
+			<div class="reg_row slider-row">
+					<div id="slider">
+						<div id="slider_bg"></div>
+						<span id="label">>></span> <span id="labelTip">拖动滑块验证</span> </div>
+				</div>
+			<div class="reg_row">
+				<input type="text" class=" f_yzm" placeholder="请输入验证码" />
+			</div>
+			<input type="button" class="btn" value="提交" />
+			<div class="line"></div>
+			<a  class="a-2" id="regist" href="register1.html">还没有账号？免费注册</a>
+			<a href="login.html" class="a-1">立即登录</a>
+		</div>
+		<div class="reg_2">
+			<div class="regist_t">
+				请输入您的新密码
+			</div>
+			<div class="reg_row">
+				<input type="password" class="f_psw" placeholder="请输入新密码" />
+			</div>
+			<div class="reg_row">
+				<input type="password" class="f_psw1" placeholder="请确认新密码" />
+			</div>
+			<input type="button" class="btn" value="提交" />
+		</div>
+		<div class="reg_3">
+			<div class="reg_s"></div>
+			<div class="reg_like">
+				<span>重置密码成功</span>
+			</div>
+			<input type="button" class="btn to_login" value="返回登陆页" />
+		</div>
+		<div class="login-tap">
+			-- 找客户，下云客  --
+		</div>
+	</div>
+
+	<div class="loading"></div>
+	<script type="text/javascript">
+		$(function(){
+			var phone_reg=/^1\d{10}$/;
+			var setTime;
+			
+			
+			var slider = new SliderUnlock("#slider", {
+					successLabelTip: "验证成功"
+				}, function() {
+					console.log("验证成功");
+					//          	window.location.href="http://www.sucaijiayuan.com"
+					
+					if($(".reg_yzm_btn").hasClass("active")) {
+						return false;
+					} else {
+						var time = 60;
+						$(".reg_yzm_btn").addClass("active");
+						$(".reg_yzm_btn").val(time + "秒");
+						setTime = setInterval(function() {
+							time--;
+							$(".reg_yzm_btn").val(time + "秒");
+							if(time == 0) {
+								$(".reg_yzm_btn").val("获取验证码");
+								$(".reg_yzm_btn").removeClass("active");
+								clearInterval(setTime);
+							}
+						}, 1000);
+					}
+				});
+				slider.init();
+			
+			$(".reg_yzm_btn").click(function(){
+				
+				
+				$(".f_phone").removeClass("error");
+				if (!phone_reg.test($(".f_phone").val())) {
+					$(".f_phone").addClass("error");
+					return false;
+				}
+				$(".slider-row").show();
+				slider.reset();
+				slider.init();
+//				var $this=$(this);
+//				if($this.hasClass("active")){
+//					return false;
+//				}else{
+//					var time=60;
+//					$this.addClass("active");
+//					$this.val(time+"秒");
+//					setTime=setInterval(function(){
+//						time--;
+//						$this.val(time+"秒");
+//						if(time==0){
+//							$this.val("获取验证码");
+//							$this.removeClass("active");
+//							clearInterval(setTime);
+//						}
+//					},1000);
+//				}
+			});
+			
+			$(".reg_1 .btn").click(function(){
+				$(".reg_1 input").removeClass("error");
+				if (!phone_reg.test($(".f_phone").val())) {
+					$(".f_phone").addClass("error");
+					return false;
+				}
+				if($(".reg_1 .f_yzm").val()==""){
+					$(".f_yzm").addClass("error");
+					return false;
+				}
+				$(".reg_1").hide();
+				$(".reg_2").show();
+			});
+			$(".reg_2 .btn").click(function(){
+				$(".reg_2 input").removeClass("error");
+				if($(".reg_2 input").val()!=""&&$(".f_psw").val()==$(".f_psw1").val()){
+					$(".reg_2").hide();
+					$(".reg_3").show();
+				}else{
+					$(".reg_2 input").addClass("error");
+				}
+			});
+			$(".reg_3 .btn").click(function(){
+				window.location.href="login.html";
+			});
+			
+		});
+	</script>
+</body>
+</html>

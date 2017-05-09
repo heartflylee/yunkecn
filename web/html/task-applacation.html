@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>团队任务</title>
+	<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+	<link href="../css/main.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/highcharts.js"></script> 
+</head>
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<!-- 页面头部 header -->
+<div class="header">
+	<h1 class="logo fl"></h1>
+	<span class="mar fl">|</span>
+	<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+	<ul class="nav">
+		<li><a href="">首页</a></li>
+		<li><a href="">行动</a></li>
+		<li><a href="">客户</a></li>
+		<li><a href="">账户</a></li>
+		<li><a href="" class="current">任务</a></li>
+		<li><a href="">设置</a></li>
+	</ul>
+	<ul class="header-right fr">
+		<li><a href="javascript:;"><i class="add"></i></a></li>
+		<li><a href="javascript:;"><i class="update"></i></a></li>
+		<li><a href="javascript:;"><i class="message"></i></a></li>
+		<li><a href="javascript:;" class="user">刘</a></li>
+	</ul>
+</div>
+<!-- 汇总提示 tipArea -->
+<div class="tipArea">
+	<div class="wrap">
+		<span class="span-1 fr"><a href="task-applacation.html">员工任务申请</a><b class="b-news"></b></span>
+		<span class="fr">|</span>
+		<span class="span-1 fr" id="chooseStaff">选择员工<b class="b-icon"></b></span>
+		<span class="span-2 fl" id="add-tasks">新建任务</span>
+		<div class="choose-staff">
+			<div class="position-relative searchBox-1 fr">
+				<input type="text" placeholder="查找员工" />
+				<a class="search-icon"></a>
+			</div>
+			<ul class="staff-ul">
+				<li><a href="javascript:;" class="current"><img src="../images/all.png">所有员工<i class="right-icon"></i></a></li>
+				<li><a href="javascript:;"><img src="../images/photo.png">有员工<i class="right-icon"></i></a></li>
+				<li><a href="javascript:;"><img src="../images/photo.png">有员工<i class="right-icon"></i></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- 内容部分 contents -->
+<div class="contents">
+	<div class="table-tlt">
+		<a class="return-icon" href="task.html"></a>
+		<i class="i"></i>员工任务申请
+	</div>
+	<!--  -->
+	<div class="table-1" style="display:block">
+		<table class="table-list">
+			<thead>
+				<tr>
+					<th>申请人</th>
+					<th>申请时间</th>
+					<th>申请行业</th>
+					<th>申请电话数</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>客户姓名</td>
+					<td>111111111111</td>
+					<td>客户姓名</td>
+					<td>客户姓名</td>
+					<td><a class="blue agree" href="javascript:;">同意并添加任务</a><a class="red refuse" href="javascript:;">拒绝</a></td>
+				</tr>
+				<tr>
+					<td>客户姓名</td>
+					<td>111111111111</td>
+					<td>客户姓名</td>
+					<td>客户姓名</td>
+					<td><a class="blue agree" href="javascript:;">同意并添加任务</a><a class="red refuse" href="javascript:;">拒绝</a></td>
+				</tr>
+				<tr>
+					<td>客户姓名</td>
+					<td>111111111111</td>
+					<td>客户姓名</td>
+					<td>客户姓名</td>
+					<td><a class="blue agree" href="javascript:;">同意并添加任务</a><a class="red refuse" href="javascript:;">拒绝</a></td>
+				</tr>
+				<tr>
+					<td>客户姓名</td>
+					<td>111111111111</td>
+					<td>客户姓名</td>
+					<td>客户姓名</td>
+					<td><a class="blue agree" href="javascript:;">同意并添加任务</a><a class="red refuse" href="javascript:;">拒绝</a></td>
+				</tr>
+					
+			</tbody>
+		</table>
+		<!-- 分页 -->
+				<p class="page-p">共20条</p>
+				<ul class="page-ul">
+					<li><</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>></li>
+				</ul>
+	</div>
+	
+</div>
+<!-- 新建任务 -->
+<div class="applyBox" style=" height:510px; margin-top:-255px;" id="applyBox-1">
+	<div class="tlt"><i></i>新建任务<a href="javascript:;" class="a-closed"></a></div>
+	<input type="text" class="inputBox-1" placeholder="请输入任务名称" />
+	<div class="textbox fl">
+		<dl>
+			<dt>任务周期</dt>
+			<dd>某日</dd>
+		</dl>
+		<dl>
+			<dt>开始时间</dt>
+			<dd>某日</dd>
+		</dl>
+		<dl>
+			<dt>人均电话量</dt>
+			<dd>某日</dd>
+		</dl>
+		<dl class="none">
+			<dt>重复</dt>
+			<dd>某日</dd>
+		</dl>
+		<div class="tbmember fl">
+			<div class="tbm-tlt">执行人员</div>
+			<ul class="choose-members">
+				<li><a href=""><img src="../images/member.png" class="current"><em>艾云鹤</em></a></li>
+				<li><a href=""><img src="../images/member.png"><em>艾云鹤</em></a></li>
+				<li><a href=""><img src="../images/member.png"><em>艾云鹤</em></a></li>
+				<li><a href=""><img src="../images/all-members.png"><em>全部</em></a></li>
+			</ul>
+		</div>
+	</div>
+	<select class="selectBox-1"><option>企业导入-联云测试</option></select>
+
+	<input type="button" class="btn" value="提交" id="applyTaskBtn-1">
+</div>
+<!-- /新建任务 -->
+<!-- 拒绝理由 -->
+<div class="refuseBox" id="refuseBox">	
+	<div class="tlt">拒绝理由<a href="javascript:;" class="a-closed"></a></div>
+	<input type="text" class="inputBox-2" placeholder="请输入拒绝理由" />	
+	<input type="button" class="btn" value="提交" id="refuseBtn">
+</div>
+</body>
+</html>

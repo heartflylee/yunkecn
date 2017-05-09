@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>账户-支付中心-购买数据</title>
+	<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+	<link href="../css/main.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="../css/head.css" />
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/highcharts.js"></script> 
+</head>
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<!-- 页面头部 header -->
+<div class="header">
+	<h1 class="logo fl"></h1>
+	<span class="marleft20 fl"><em>支付中心</em></span>
+	<a href="javascript:;" class="user-1 fr">刘</a>
+	<p class="fr p-tel"><i class="white-tel"></i>官方客服：010-56200279</p>	
+</div>
+<!-- 页面内容 contents-1 -->
+<div class="contents-1">
+	<!-- company -->
+	<div class="c-company-intro">
+		<img src="../images/company-photo-1.png" />
+		<p>北京联云天下科技有限公司</p>
+		<span>购买坐席权限</span>
+		<div class="pay_tip">300元/人/月&nbsp;&nbsp;赠送企业版使用权限+2500分钟通话时长</div>
+	</div>
+	<!-- 充值 -->
+	<div class="c-pay-monery"  id="c-pay-1">
+		<div class="pay_f clearfix">
+			<span>开通人数</span>
+			<div class="pay_input">
+				<input type="text" id="number"  />
+				<label>人</label>
+			</div>
+		</div>
+		<div class="pay_f clearfix">
+			<span>开通时间</span>
+			<div class="pay_input">
+				<input type="text" id="month" />
+				<label>月</label>
+			</div>
+		</div>
+	</div>
+	<!-- 发票 -->
+	<div class="c-pay-fapiao">
+		<div class="tlt">增值税普通发票</div>
+		<dl>
+			<dt>发票抬头</dt>
+			<dd><input type="text" placeholder="公司名称" /></dd>
+		</dl>
+		<dl>
+			<dt>联系人</dt>
+			<dd><input type="text" /></dd>
+		</dl>
+		<dl>
+			<dt>发票内容</dt>
+			<dd><select><option>软件服务费</option></select></dd>
+		</dl>
+		<dl>
+			<dt>联系电话</dt>
+			<dd><input type="text" /></dd>
+		</dl>
+		<dl>
+			<dt>邮寄地址</dt>
+			<dd><input type="text" placeholder="寄送发票的地址" /></dd>
+		</dl>
+	</div>
+	<a href="paycenter-2.html"><input type="button" value="充值" class="btn" /></a>
+	<span class="all-monery">实付款：<em class="c-blue fontSize30">￥<label id="all_money">0</label></em></span>
+</div>
+<script type="text/javascript">
+	$(function(){
+		
+		$("#number").bind("input propertychange",function(){
+			var number_person=parseInt($(this).val());
+			console.log(number_person);
+			$(this).val(number_person);
+			var month_person=parseInt($("#month").val());
+			if(number_person>=0){
+				if(month_person>=0){
+					$("#all_money").text(number_person*month_person*300);	
+				}else{
+					$("#all_money").text(0);
+				}
+			}else{
+				$(this).val(0);
+				$("#all_money").text(0);
+			}
+		});
+		$("#month").bind("input propertychange",function(){
+			var number_person=parseInt($("#number").val());
+			var month_person=parseInt($(this).val());
+			$(this).val(month_person);			
+			if(month_person>=0){
+				if(number_person>=0){
+					$("#all_money").text(number_person*month_person*300);	
+				}else{
+					$("#all_money").text(0);
+				}
+			}else{
+				$(this).val(0);
+				$("#all_money").text(0);
+			}
+		});
+	});
+</script>
+</body>
+</html>

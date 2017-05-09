@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>团队客户</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<link rel="stylesheet" href="../css/select.css" />
+		<script type="text/javascript" src="../js/jquery.select.js" ></script>
+		<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="../css/table_move.css"/>
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<div class="layer-6"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav">
+				<li>
+					<a href="">首页</a>
+				</li>
+				<li>
+					<a href="">行动</a>
+				</li>
+				<li>
+					<a href="" class="current">客户</a>
+				</li>
+				<li>
+					<a href="">账户</a>
+				</li>
+				<li>
+					<a href="">任务</a>
+				</li>
+				<li>
+					<a href="">设置</a>
+				</li>
+			</ul>
+			<ul class="header-right fr">
+				<li>
+					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes"><i class="qq"></i>
+						<div class="service">在线客服</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:guide1Show();"><i class="nav-tip"></i>
+						<div class="service">继续引导</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="update"></i></a>
+				</li>
+				<li class="active">
+					<a href="news.html">
+						<i class="message"></i>
+						<i class="message-tip">29</i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="user">刘</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 汇总提示 tipArea -->
+		<div class="tipArea">
+			<div class="wrap">
+				<span class="span-1 current" id="filter">筛选<b class="b-icon"></b></span>
+				<span class="span-1" id="custom-header">自定义表头</span>
+				<span class="span-1" id="exporter">导入客户</span>
+				<span class="span-1"><a href="" target="_blank">企业公海池</a></span>
+				<div class="position-relative searchBox fr">
+					<input type="text" placeholder="请输入姓名、公司、手机号等相关信息" />
+					<a class="search-icon"></a>
+				</div>
+			</div>
+		</div>
+		<!-- 筛选 filterBox -->
+		<div class="filterBox" id="filterBox">
+			<div class="wrap">
+				<p>
+					<label>创建时间</label>
+					<span class="time"><input type="text" id="timetext" /></span>
+					<label>至</label>
+					<span class="time"><input type="text" id="timetext-2" /></span>
+					<label style="margin-left:40px;">联系时间</label>
+					<span class="time"><input type="text" id="timetext-1" /></span>
+					<label>至</label>
+					<span class="time"><input type="text" id="timetext-3" /></span>
+					<!-- <i class="time-icon" id="Text2"></i> -->
+				</p>
+				<script type="text/javascript">
+					var minday_1;
+					var maxday_1;
+					var minday_2;
+					var maxday_2;
+					$("#timetext").click(function(e) {
+						maxday_1 = $("#timetext-2").val();
+						if(maxday_1 == "") {
+							maxday_1 = (new Date()).toString("yyyy-MM-dd");
+						}
+						var ths = this;
+						calendar.show({
+							id: this,
+							maxDay: maxday_1.toString("yyyy-MM-dd")
+						});
+					});
+					$("#timetext-2").click(function(e) {
+						minday_1 = $("#timetext").val();
+						var ths = this;
+						calendar.show({
+							id: this,
+							maxDay: (new Date()).toString("yyyy-MM-dd"),
+							minDay: minday_1.toString("yyyy-MM-dd")
+						});
+					});
+					$("#timetext-1").click(function(e) {
+						maxday_2 = $("#timetext-3").val();
+						if(maxday_2 == "") {
+							maxday_2 = (new Date()).toString("yyyy-MM-dd");
+						}
+						var ths = this;
+						calendar.show({
+							id: this,
+							maxDay: maxday_2.toString("yyyy-MM-dd")
+						});
+					});
+					$("#timetext-3").click(function(e) {
+						minday_2 = $("#timetext-1").val();
+						var ths = this;
+						calendar.show({
+							id: this,
+							maxDay: (new Date()).toString("yyyy-MM-dd"),
+							minDay: minday_2.toString("yyyy-MM-dd")
+						});
+					});
+				</script>
+				<p>
+					<label>销售进度</label>
+					<select class="Jselect">
+						<option>请选择销售进度</option>
+						<option value="">未沟通</option>
+						<option value="">无需求</option>
+						<option value="">初步沟通</option>
+						<option value="">确认需求</option>
+						<option value="">报价</option>
+						<option value="">面谈</option>
+						<option value="">成交</option>
+						<option value="">输单</option>
+					</select>
+					<label>数据来源</label>
+					<select class="Jselect">
+						<option>请选择数据来源</option>
+					</select>
+					<label>跟进人</label>
+					<select class="Jselect">
+						<option>请选择跟进人</option>
+						<option value="">未分配</option>
+						<option value="">艾云鹤</option>
+						<option value="">刘晓辉</option>
+						<option value="">刘宇</option>
+					</select>
+				</p>
+				<p>
+					<label>短信状态</label>
+					<select class="Jselect">
+						<option>请选择短信状态</option>
+						<option>销售进度</option>
+						<option>销售进度</option>
+					</select>
+					<label>联系次数</label>
+					<select>
+						<option>请选择联系次数</option>
+						<option value="">1</option>
+						<option value="">2</option>
+						<option value="">6</option>
+						<option value="">9</option>
+					</select>
+					<label>电话结果</label>
+					<select>
+						<option>请选择电话结果</option>
+						<option value="">有意向</option>
+						<option value="">无意向</option>
+						<option value="">资料错误</option>
+						<option value="">二次外呼</option>
+					</select>
+					<label>有意向</label>
+					<select>
+						<option>请选择二级标签</option>
+					</select>
+				</p>
+				<input type="button" class="btn" value="保存" id="filterBtn">
+			</div>
+		</div>
+		<!-- 内容部分 contents -->
+		<div class="contents">
+			<div class="table-tlt">
+				<i class="i"></i>客户列表
+				<a class="a addtask_btn" style="float: right; cursor: pointer;">添加任务</a>
+				<div class="add_task">
+					<div class="task_li clearfix call_task">
+						<img src="../images/call_new.png" /> <span>新建电话任务</span>
+					</div>
+					<div class="task_li clearfix message_task">
+						<img src="../images/message_1.png" /> <span>新建短信任务</span>
+					</div>
+					<div class="task_li clearfix email_task">
+						<img src="../images/message_new.png" /> <span>新建邮件任务</span>
+					</div>
+				</div>
+				<!--<a class="a email_task"  style="float: right; cursor: pointer;">发邮件</a>
+				<a class="a message_task"  style="float: right; cursor: pointer;">发短信</a>-->
+				<div class="fr">
+					<span><b class="b1"></b>导出</span>
+					<span>|</span>
+					<span id="deleter"><b class="b2"></b>删除</span>
+					<span>|</span>
+					<span id="changer"><b class="b3"></b>变更跟进人</span>
+					<span>|</span>
+					<span id="add_customer"><b class="b4"></b>新建客户</span>
+				</div>
+			</div>
+			<div class="customer">
+				<div class="table-contain">
+					<div class="table-th-box">
+						<div class="table-th">th1</div>
+						<div class="table-th">th2</div>
+						<div class="table-th">th3</div>
+						<div class="table-th">th4</div>
+						<div class="table-th">th5</div>
+						<div class="table-th">th</div>
+						<div class="table-th">th7</div>
+						<div class="table-th">th8</div>
+						<div class="table-th">th9</div>
+						<div class="table-th">th10</div>
+					</div>
+					<div class="table-body">
+						<div class="table-td-box">
+							<div class="table-td">td1</div>
+							<div class="table-td">td2</div>
+							<div class="table-td">td3</div>
+							<div class="table-td">td4</div>
+							<div class="table-td">td5</div>
+							<div class="table-td">td6</div>
+							<div class="table-td">td7</div>
+							<div class="table-td">td8</div>
+							<div class="table-td">td9</div>
+							<div class="table-td">td10</div>
+						</div>
+						<div class="table-td-box">
+							<div class="table-td"></div>
+							<div class="table-td">111111111111111111111111111111111111111111111111111111111111111111</div>
+							<div class="table-td"></div>
+							<div class="table-td">44444444444444444444444444444444444444444444444444444444444444444444444444</div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td">999999999999999999999999999999999999999999999999</div>
+							<div class="table-td"></div>
+						</div>
+						<div class="table-td-box">
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+						</div>
+						<div class="table-td-box">
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+						</div>
+						<div class="table-td-box">
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+						</div>
+						<div class="table-td-box">
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+						</div>
+						<div class="table-td-box">
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+							<div class="table-td"></div>
+						</div>
+							
+					</div>
+				</div>
+				
+				
+				
+				
+				
+			</div>
+			<div class="checkall-view">
+				<div class="check-f" onclick="checkall();"><i class="checkall"></i>全选</div>
+				<label>已选择<span>0</span>条</label>
+			</div>
+			<!-- 分页 -->
+			<p class="page-p">共20条</p>
+			<ul class="page-ul">
+				<li>
+					<<</li>
+						<li>
+							< </li>
+								<li> 1 </li>
+								<li> 2 </li>
+								<li class="page-d">...</li>
+								<li> 3 </li>
+								<li> > </li>
+								<li>>></li>
+			</ul>
+
+		</div>
+		
+
+		<script type="text/javascript">
+			$(function() {
+
+				$(".customer").height($(window).height() - $(".customer").offset().top - 80);
+				$(".customer").css({
+					"overflow": "auto"
+				});
+				var options={id:"#table",
+					length:10,
+					tableTh:".table-th",
+					tableRow :".table-td-box",
+					tableTd:".table-td"};
+				new Jtable(options);
+			});
+			
+			
+				
+			function Jtable(options){
+				this.options={
+					id:"#table",
+					length:10,
+					tableTh:".table-th",
+					tableRow :".table-td-box",
+					tableTd:".table-td"
+				}
+				this.init();
+			}
+			Jtable.prototype={
+				$: function(o, p) {
+					return(p || document).querySelector(o);
+				},
+				init:function(){
+					
+					this._tableRow();
+					this._bindEvt();
+				},
+				_bindEvt:function(){
+					var self = this;
+					
+				},
+				_tableRow:function(){
+					var self = this;
+					var tableL=0;
+					for (var i =0; i<self.options.length;i++){
+						console.log(tableL);
+						$(self.options.tableTh+":eq("+i+")").css("left",tableL);
+						$(self.options.tableTd+":eq("+i+")").css("left",tableL);
+						tableL+=$(self.options.tableTh+":eq("+i+")").width();
+						
+					}
+					
+				}
+			}
+
+			
+
+		
+
+			function guideMove(options) {
+				this.options = {
+					fun: function() {
+						options.fun();
+					}
+				}
+				this.init();
+			};
+			guideMove.prototype = {
+				$: function(o, p) {
+					return(p || document).querySelector(o);
+				},
+				// 初始化导航
+				init: function() {
+					this._bindEvt();
+				},
+				_bindEvt: function() {
+					var self = this;
+//					$('#guide1').addClass("active");
+//					setTimeout(function() {
+//						$("#guideHide").show().addClass("active");
+//						setTimeout(function() {
+//							$("#guideHide").hide();
+//							$(".header-right").find("li:eq(1) .service").addClass("active");
+//							self.options.fun();
+//							setTimeout(function(){
+//								$(".header-right").find("li:eq(1) .service").removeClass("active");
+//							},2000);
+//						}, 300);
+//					}, 100);
+				}
+			}
+			$(".Jselect").select();
+		</script>
+	</body>
+
+</html>

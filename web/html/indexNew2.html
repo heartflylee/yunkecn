@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>团队首页</title>
+
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+		<link rel="stylesheet" href="../css/head.css" />
+		<link rel="stylesheet" href="../css/cropbox.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/audio.js"></script>
+		<!--<script type="text/javascript" src="../js/highcharts.js"></script>-->
+
+		<link href="../css/hDate.css" rel="stylesheet" />
+		<script type="text/javascript" src="../js/hDate.js"></script>
+		<script type="text/javascript" src="../js/cropbox.js"></script>
+		<script type="text/javascript" src="../js/index.js"></script>
+		<script type="text/javascript" src="../js/layer/layer.js"></script>
+
+		<script type="text/javascript" src="../js/echarts.js"></script>
+		<script type="text/javascript" src="../js/macarons.js"></script>
+		<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<!-- 页面头部 header -->
+		<div class="header">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav">
+				<li>
+					<a href="" class="current">首页</a>
+				</li>
+				<li>
+					<a href="">行动</a>
+				</li>
+				<li>
+					<a href="">客户</a>
+				</li>
+				<li>
+					<a href="">账户</a>
+				</li>
+				<li>
+					<a href="">任务</a>
+				</li>
+				<li>
+					<a href="" id="top-setting">设置</a>
+				</li>
+			</ul>
+			<ul class="header-right fr">
+				<li>
+					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes"><i class="qq"></i>
+						<div class="service">在线客服</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="add"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="update"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="message"></i></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="user"><img src="../images/a-1.png" /></a>
+					<div class="quit_down">
+						<div class="code">
+							<img src="../images/download.png" />
+							<span>扫一扫下载云客APP</span>
+						</div>
+						<div class="quit_li">
+							<a>下载软电话</a>
+						</div>
+						<div class="quit_li">
+							<a>退出登录</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- 汇总提示 tipArea -->
+		<div class="tipArea">
+			<div class="wrap">
+				<div class="count_f">
+					<span class="span-1 current" id="">数据统计</span>
+					<span class="span-1" id="">签到统计</span>
+				</div>
+				<!--<span class="span">完成行动：<em class="blue">95</em></span>
+				<span class="span">延迟行动：<em class="red">95</em></span>
+				<span class="span">未处理行动：<em class="orange">95</em></span>
+				<span class="span">注册时长：<em>95天</em></span>-->
+				<!--<a href="" class="ta fr">周报</a>-->
+			</div>
+		</div>
+		<!-- 内容部分 contents -->
+		<div class="contents">
+			<!-- 左侧 -->
+			<div class="leftPage fl">
+				<a href="javascript:;" id="edit-com" class="edit-com"></a>
+				<dl class="left-user">
+					<dt><img src="../images/left-photo.png"></dt>
+					<dd>
+						<p>北京联云天下科技有限公司</p>
+						<span>赵科虎，夏云柯</span>
+					</dd>
+				</dl>
+				<div class="leftContentBox">
+					<div class="tlt">选择组员</div>
+					<ul class="choose-members">
+						<li>
+							<a href="" class="current"><img src="../images/member.png"><em>艾云鹤</em>
+								<label></label>
+							</a>
+						</li>
+						<li>
+							<a href=""><img src="../images/member.png"><em>艾云鹤</em>
+								<label></label>
+							</a>
+						</li>
+						<li>
+							<a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
+						</li>
+						<li>
+							<a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
+						</li>
+						<li>
+							<a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
+						</li>
+						<li>
+							<a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
+						</li>
+						<li>
+							<a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
+						</li>
+
+						<li>
+							<a href=""><img src="../images/all-members.png"><em>全部</em></a>
+						</li>
+					</ul>
+				</div>
+				<div class="leftContentBox">
+					<div class="tlt"><b id="choose-1">有意向客户</b>
+						<a href="javascript:;" class="more" id="a-more"></a>
+					</div>
+					<!-- 筛选条件 -->
+					<div class="choose-term" id="choose-term">
+						<dl id="dl1">
+							<dt>项目</dt>
+							<dd>
+								<a href="javascript:;" class="current">有意向客户<i class="right-icon"></i></a>
+							</dd>
+							<dd>
+								<a href="javascript:;">电话量<i class="right-icon"></i></a>
+							</dd>
+							<dd>
+								<a href="javascript:;">成单量<i class="right-icon"></i></a>
+							</dd>
+						</dl>
+
+					</div>
+					<ul class="sellers" id="sellers">
+						<li class="cur"><span class="num">1</span>艾云鹤<i class="reward"></i><span class="orderForm">成单<em>14</em></span></li>
+						<li class="cur"><span class="num">2</span>艾云鹤<i class="reward"></i><span class="orderForm">成单<em>14</em></span></li>
+						<li class="cur"><span class="num">3</span>艾云鹤<i class="reward"></i><span class="orderForm">成单<em>14</em></span></li>
+						<li><span class="num">4</span>艾云鹤<span class="orderForm">成单<em>14</em></span></li>
+						<li><span class="num">5</span>艾云鹤<span class="orderForm">成单<em>14</em></span></li>
+						<li><span class="num">6</span>艾云鹤<span class="orderForm">成单<em>14</em></span></li>
+						<li><span class="num">7</span>艾云鹤<span class="orderForm">成单<em>14</em></span></li>
+					</ul>
+				</div>
+			</div>
+			<!-- 右侧 -->
+			<div class="rightPage">
+				<div class="tabBox">
+					<ul id="tabBox">
+						<li>
+							<a href="index.html" class="current">本周</a>
+						</li>
+						<li>
+							<a href="index-1.html">上周</a>
+						</li>
+						<li>
+							<a href="index-2.html">近两月</a>
+						</li>
+						<li>
+							<a href="index-3.html">本月</a>
+						</li>
+						<li>
+							<a href="index-4.html">上月</a>
+						</li>
+					</ul>
+					<div class="qujian">
+						<label>筛选区间：</label>
+						<span class="time"><input type="text" id="timetext" /></span>
+						<label>至</label>
+						<span class="time"><input type="text" id="timetext-1" /></span>
+						<script type="text/javascript">
+							var minday;
+							var maxday;
+							$("#timetext").click(function(e) {
+								maxday = $("#timetext-1").val();
+								if(maxday == "") {
+									maxday = (new Date()).toString("yyyy-MM-dd");
+								}
+								var ths = this;
+								calendar.show({
+									id: this,
+									maxDay: maxday.toString("yyyy-MM-dd")
+								});
+							});
+							$("#timetext-1").click(function(e) {
+								minday = $("#timetext").val();
+								var ths = this;
+								calendar.show({
+									id: this,
+									maxDay: (new Date()).toString("yyyy-MM-dd"),
+									minDay: minday
+								});
+							});
+						</script>
+					</div>
+					<a href="" class="ta fr week">周报</a>
+				</div>
+				<!-- 本周 -->
+				<div class="contentsbox" style="display:block">
+					<!--  -->
+					<div class="totalbox">
+						<div class="item-title-box">
+							<div class="item-title active">
+								客户增长量
+								<div class="item-num item1">
+									108<label>+15</label>
+								</div>
+							</div>
+							<div class="item-title">
+								任务增长量
+								<div class="item-num item2">
+									108<label>+15</label>
+								</div>
+							</div>
+							<div class="item-title">
+								任务完成增长量
+								<div class="item-num item3">
+									108<label>+15</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tlt"><i></i><label id="charts-title">客户增长量</label></div>
+					<div class="custmer-chart-box">
+						<div id="cur-chartsbox" class="chartsbox cur-chartsbox">
+							<script type="text/javascript">
+								var dataLine = [{
+										name: "客户增长量",
+										data: [{
+												name: "2016-12-16",
+												value: 47,
+												url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-17",
+												value: 28,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-18",
+												value: 40,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-19",
+												value: 15,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-20",
+												value: 32,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-21",
+												value: 28,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-22",
+												value: 40,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-23",
+												value: 15,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-24",
+												value: 32,url: 'http://www.yunkecn.com'
+											}
+										]
+									},
+									{
+										name: "任务增长量",
+										data: [{
+												name: "2016-12-16",
+												value: 47,
+												url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-17",
+												value: 100,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-18",
+												value: 120,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-19",
+												value: 82,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-20",
+												value: 71,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-21",
+												value: 80,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-22",
+												value: 20,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-23",
+												value: 70,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-24",
+												value: 32,url: 'http://www.yunkecn.com'
+											}
+										]
+									},
+									{
+										name: "任务完成增长量",
+										data: [{
+												name: "2016-12-16",
+												value: 47,
+												url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-17",
+												value: 60,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-18",
+												value: 70,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-19",
+												value: 132,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-20",
+												value: 81,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-21",
+												value: 50,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-22",
+												value: 20,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-23",
+												value: 80,url: 'http://www.yunkecn.com'
+											},
+											{
+												name: "2016-12-24",
+												value: 32,url: 'http://www.yunkecn.com'
+											}
+										]
+									}
+								];
+								var dataLineX = ['2016-12-16', '', '2016-12-18', '', '2016-12-20', '', '2015-12-22', '', '2016-12-24'];
+								var optionLine;
+								var chartsLine;
+								$(function() {
+									optionLine = {
+										tooltip: {
+											trigger: "item",
+											formatter: "{b} <br/>{a} : {c}"
+										},
+										xAxis: [{
+											type: "category",
+											 boundaryGap : false,
+											splitLine: {
+												show: true
+											},
+											data: []
+										}],
+										yAxis: [],
+										series: [{
+											name: "",
+											type: "line",
+											data: []
+										}]
+									};
+									chartsLine = echarts.init(document.getElementById("cur-chartsbox"));
+									chartsLine.setTheme(theme);
+									optionLine.xAxis[0].data = dataLineX;
+									optionLine.series[0].name = dataLine[0].name;
+									optionLine.series[0].data = dataLine[0].data;
+									chartsLine.setOption(optionLine);
+
+								});
+
+								$(function() {
+									chartsLine.on('click', function(params) {
+									window.location.href = params.data.url;
+							});
+
+									var chartTitle = ["客户增长量", "任务增长量", "任务完成增长量"];
+									$(".item-title").click(function() {
+										if($(this).hasClass("active")) {
+											return false;
+										}
+										$(".item-title").removeClass("active");
+										$(this).addClass("active");
+										var index = $(this).index(".item-title");
+										$("#charts-title").text(chartTitle[index]);
+										optionLine.color = [theme.color[index]];
+										optionLine.xAxis[0].data = dataLineX;
+										optionLine.series[0].name = dataLine[index].name;
+										optionLine.series[0].data = dataLine[index].data;
+										chartsLine.clear();
+										chartsLine.setOption(optionLine);
+									});
+								})
+                                $(function() {
+                                    window.onresize = function() {
+                                        chartsLine.resize();
+                                    }
+                                });
+							</script>
+						</div>
+					</div>
+					<!--  -->
+					<div class="tlt"><i></i>组员电话统计
+						<div class="tit-nav">
+							<div class="tit-nav-li active">电话量</div>
+							<div class="tit-nav-li">联系人数</div>
+							<div class="tit-nav-li">通话时长</div>
+						</div>
+					</div>
+					<div class="custmer-chart-box">
+						<div class="customer-chart-t" id="customer-num">总电话量：100</div>
+						<div class="chart-li">
+							<div class="pie-box" id="cur-chart1"></div>
+							<div class="pie-t" id="pie-t1"></div>
+						</div>
+						<div class="chart-li">
+							<div class="pie-box" id="cur-chart2"></div>
+							<div class="pie-t" id="pie-t2"></div>
+						</div>
+						<div class="chart-li">
+							<div class="pie-box" id="cur-chart3"></div>
+							<div class="pie-t" id="pie-t3"></div>
+						</div>
+						<script>
+							var countNum = [
+							    {
+							        name:"总电话量",
+									count:100
+								},{
+									name:"总联系人数",
+							    	count:100
+								}
+							    ,{
+							    	name:"总通话时长",
+							    	count:"11\' 22\""
+                                }
+                                ];
+							var curData =
+							    [
+							        {
+							    	curchart:[
+                                        {
+                                            name:"接通状态",
+                                            data:
+                                                [{
+                                                    value: 50,
+                                                    name: '已接通',
+                                                    url: ''
+                                                }, {
+                                                    value: 100,
+                                                    name: '未接通',
+                                                    url: ''
+                                                }]
+                                        },
+                                {
+                                    name:"所用设备",
+                                    data:
+                                        [{
+                                            value: 10,
+                                            name: 'PC端呼出',
+                                            url: ''
+                                        }, {
+                                            value: 20,
+                                            name: '手机端呼出',
+                                            url: ''
+                                        }, {
+                                            value: 50,
+                                            name: '手机端呼入',
+                                            url: ''
+                                        }, {
+                                            value: 50,
+                                            name: '电话盒子呼出',
+                                            url: ''
+                                        }
+                                        ]
+                                },
+                                {
+                                    name:"联系人种类",
+                                    data:
+                                        [{
+                                            value: 10,
+                                            name: '联系新客户电话量',
+                                            url: ''
+                                        }, {
+                                            value: 10,
+                                            name: '联系老客户电话量',
+                                            url: ''
+                                        }, {
+                                            value: 20,
+                                            name: '联系他人客户电话量',
+                                            url: ''
+                                        }, {
+                                            value: 50,
+                                            name: '联系公海客户电话量',
+                                            url: ''
+                                        }, {
+                                            value: 50,
+                                            name: '联系陌生号码电话量',
+                                            url: ''
+                                        }
+                                        ]
+                                }
+                                ]
+							},{
+    						curchart:[
+                                {
+                                    name:"联系人种类",
+                                    data:
+                                        [{
+                                            value: 10,
+                                            name: '联系新客户数量',
+                                            url: ''
+                                        }, {
+                                            value: 10,
+                                            name: '联系老客户数量',
+                                            url: ''
+                                        }, {
+                                            value: 20,
+                                            name: '联系他人客户数量',
+                                            url: ''
+                                        }, {
+                                            value: 50,
+                                            name: '联系公海客户数量',
+                                            url: ''
+                                        }, {
+                                            value: 50,
+                                            name: '联系陌生号码数量',
+                                            url: ''
+                                        }
+                                        ]
+                                }]
+							},{
+							curchart:[
+                                {
+                                    name:"所用设备",
+                                    data:
+                                        [{
+                                            value: 10,
+                                            name: 'PC端呼出',
+                                            url: ''
+                                        }, {
+                                            value: 10,
+                                            name: '手机端呼出',
+                                            url: ''
+                                        }, {
+                                            value: 20,
+                                            name: '手机端呼入',
+                                            url: ''
+                                        }, {
+                                            value: 50,
+                                            name: '电话盒子呼出',
+                                            url: ''
+                                        }
+                                        ]
+                                },
+                                {
+                                    name:"联系人种类",
+                                    data:
+                                        [{
+                                            value: 10,
+                                            name: '联系新客户',
+                                            url: ''
+                                        }, {
+                                            value: 10,
+                                            name: '联系老客户',
+                                            url: ''
+                                        }, {
+                                            value: 20,
+                                            name: '联系他人客户',
+                                            url: ''
+                                        }, {
+                                            value: 50,
+                                            name: '联系陌生号码',
+                                            url: ''
+                                        }
+                                        ]
+                                }
+                                ]
+}
+];
+
+                            var curoption = [];
+                            options = {
+                                tooltip: {
+                                    trigger: 'axis',
+                                    position: function(pt) {
+                                        return [pt[0], '10%'];
+                                    }
+                                },
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                                },
+                                series: [{
+                                    type: 'pie',
+                                    radius: '55%',
+                                    center: ['50%', '60%'],
+                                    label: {
+                                        normal: {
+                                            formatter: "{b} ({d}%)",
+                                            textStyle: {
+                                                color: '#000'
+                                            }
+                                        }
+                                    }
+                                }]
+                            };
+							var curchart = [];
+							var pieT = [];
+                            for(var i = 0;i<3; i++){
+                                curchart[i]=echarts.init(document.getElementById('cur-chart'+(i+1)));
+                                pieT[i]=$("#pie-t"+(i+1));
+                                curchart[i].setTheme(theme);
+                                curoption.push(options);
+                                curoption[i].series[0].name = curData[0].curchart[i].name;
+                                curoption[i].series[0].data = curData[0].curchart[i].data;
+                                pieT[i].text(curData[0].curchart[i].name);
+                                curchart[i].setOption(curoption[i]);
+                                $("#customer-num").text(countNum[0].name+"："+countNum[0].count);
+							}
+
+                            $(".tit-nav-li").click(function() {
+                                if($(this).hasClass("active")) {
+                                    return false;
+                                }
+                                var index = $(this).index();
+                                chartData = curData[index];
+                                $("#customer-num").text(countNum[index].name+"："+countNum[index].count);
+                                var j;
+								for(j =0;j<chartData.curchart.length;j++) {
+									curoption[j].series[0].name = chartData.curchart[j].name;
+									curoption[j].series[0].data = chartData.curchart[j].data;
+                                    pieT[j].text(chartData.curchart[j].name);
+									curchart[j].clear();
+									curchart[j].setOption(curoption[j]);
+                                    $(".chart-li:eq("+j+")").show();
+								}
+								for(var i = j;i<3;i++){
+									curchart[i].clear();
+                                    pieT[i].text("");
+                                    $(".chart-li:eq("+i+")").hide();
+								}
+                                $(".tit-nav-li").removeClass("active");
+                                $(this).addClass("active");
+                            })
+							</script>
+						</div>
+					<div class="tlt"><i></i>接通意向率</div>
+					<div id="chartsbox-1" class="chartsbox-1">
+						<script type="text/javascript">
+							$(function() {
+								var myChart7 = echarts.init(document.getElementById('chartsbox-1'));
+								option7 = {
+									tooltip: {
+										trigger: 'axis',
+										position: function(pt) {
+											return [pt[0], '10%'];
+										}
+									},
+									tooltip: {
+										trigger: 'item',
+										formatter: "{a} <br/>{b} : {c} ({d}%)"
+									},
+									//									color: ['#50d2c2', '#ffb358', '#fd9c35', '#dd4444', '#bd3b47', '#dd4d79', '#5793f3', '#5578c2'],
+									series: [{
+										name: '接通意向率',
+										type: 'pie',
+										radius: '55%',
+										center: ['50%', '60%'],
+										label: {
+											normal: {
+												formatter: "{b} ({d}%)",
+												textStyle: {
+													color: '#000'
+												}
+											}
+										},
+										data: [{
+											value: 335,
+											name: '有意向',
+											url: 'http://www.yunkecn.com'
+										}, {
+											value: 600,
+											name: '无意向',
+											url: 'http://www.yunkecn.com'
+										}],
+									}]
+								};
+								myChart7.setTheme(theme);
+								myChart7.setOption(option7);
+								myChart7.on('click', function(params) {
+									window.location.href = params.data.url;
+								});
+							});
+						</script>
+					</div>
+					<!--  -->
+
+					<div class="tlt"><i></i>电话沟通结果标签统计
+						<span class="f_screen" id="tel-choose">筛选<b class="b-icon"></b></span><span style="cursor: pointer;">重置</span>
+					</div>
+					<div id="chartsbox-3" class="chartsbox-1">
+						<script type="text/javascript">
+							$(function() {
+								var myChart9 = echarts.init(document.getElementById('chartsbox-3'));
+								option9 = {
+									tooltip: {
+										trigger: 'item',
+										formatter: "{a} <br/>{b}: {c} ({d}%)"
+									},
+
+									series: [{
+										name: '电话沟通结果标签统计',
+										type: 'pie',
+										selectedMode: 'single',
+										radius: [0, '45%'],
+
+										label: {
+											normal: {
+												position: 'inner'
+											}
+										},
+										labelLine: {
+											normal: {
+												show: false
+											}
+										},
+										data: [{
+											value: 300,
+											name: '有意向',
+											itemStyle: {
+												normal: {
+													//													color: 'rgb(80,210,194)'
+												}
+											}
+										}, {
+											value: 500,
+											name: '无意向',
+											itemStyle: {
+												normal: {
+													//													color: 'rgb(255,179,88)'
+												}
+											}
+										}, {
+											value: 400,
+											name: '二次外呼',
+											itemStyle: {
+												normal: {
+													//													color: '#61a0a8'
+												}
+											}
+										}, {
+											value: 450,
+											name: '资料错误',
+											itemStyle: {
+												normal: {
+													//													color: '#d48265'
+												}
+											}
+										}]
+									}, {
+										name: '电话沟通结果标签统计',
+										type: 'pie',
+										radius: ['55%', '70%'],
+
+										data: [{
+												value: 100,
+												name: '有意向1',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(80,210,194,1)'
+													}
+												}
+											}, {
+												value: 120,
+												name: '有意向2',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(80,210,194,0.9)'
+													}
+												}
+											}, {
+												value: 40,
+												name: '有意向3',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(80,210,194,0.8)'
+													}
+												}
+											}, {
+												value: 30,
+												name: '有意向4',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(80,210,194,0.7)'
+													}
+												}
+											}, {
+												value: 10,
+												name: '有意向5',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(80,210,194,0.6)'
+													}
+												}
+											}, {
+												value: 150,
+												name: '无意向1',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(255,179,88,1)'
+													}
+												}
+											}, {
+												value: 200,
+												name: '无意向2',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(255,179,88,0.9)'
+													}
+												}
+											}, {
+												value: 100,
+												name: '无意向3',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(255,179,88,0.8)'
+													}
+												}
+											}, {
+												value: 50,
+												name: '无意向4',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(255,179,88,0.7)'
+													}
+												}
+											}, {
+												value: 50,
+												name: '二次外呼1',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(97,160,168,1)'
+													}
+												}
+											}, {
+												value: 80,
+												name: '二次外呼2',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(97,160,168,0.9)'
+													}
+												}
+											}, {
+												value: 70,
+												name: '二次外呼3',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(97,160,168,0.8)'
+													}
+												}
+											}, {
+												value: 150,
+												name: '二次外呼4',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(97,160,168,0.7)'
+													}
+												}
+											}, {
+												value: 50,
+												name: '二次外呼5',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(97,160,168,0.6)'
+													}
+												}
+											}, {
+												value: 130,
+												name: '资料错误1',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(212,130,101,1)'
+													}
+												}
+											}, {
+												value: 180,
+												name: '资料错误2',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(212,130,101,0.9)'
+													}
+												}
+											}, {
+												value: 140,
+												name: '资料错误3',
+												itemStyle: {
+													normal: {
+														//														color: 'rgba(212,130,101,0.8)'
+													}
+												}
+											}
+
+										]
+									}]
+								};
+								//								option9 = {
+								//									tooltip: {
+								//										trigger: 'axis',
+								//										position: function(pt) {
+								//											return [pt[0], '10%'];
+								//										}
+								//									},
+								//									tooltip: {
+								//										trigger: 'item',
+								//										formatter: "{a} <br/>{b} : {c} ({d}%)"
+								//									},
+								//									color: ['#50d2c2', '#ffb358', '#fd9c35', '#dd4444', '#bd3b47', '#dd4d79', '#5793f3', '#5578c2'],
+								//									series: [{
+								//										name: '电话沟通结果标签统计',
+								//										type: 'pie',
+								//										radius: '55%',
+								//										center: ['50%', '60%'],
+								//										label: {
+								//											normal: {
+								//												formatter: "{b} ({d}%)",
+								//												textStyle: {
+								//													color: '#000'
+								//												}
+								//											}
+								//										},
+								//										data: [{
+								//											value: 335,
+								//											name: '有意向'
+								//										}, {
+								//											value: 200,
+								//											name: '无意向'
+								//										}, {
+								//											value: 180,
+								//											name: '资料错误'
+								//										}, {
+								//											value: 160,
+								//											name: '二次外呼'
+								//										}],
+								//									}]
+								//								};
+								myChart9.setTheme(theme);
+								myChart9.setOption(option9);
+								myChart9.on('click', function(params) {
+									window.location.href = params.data.url;
+								});
+							});
+						</script>
+					</div>
+					<div class="tlt"><i></i>销售状态标签统计</div>
+					<div id="chartsbox-2" class="chartsbox-1">
+						<script type="text/javascript">
+							$(function() {
+
+								var myChart8 = echarts.init(document.getElementById('chartsbox-2'));
+								option8 = {
+									tooltip: {
+										trigger: 'axis',
+										position: function(pt) {
+											return [pt[0], '10%'];
+										}
+									},
+									tooltip: {
+										trigger: 'item',
+										formatter: "{a} <br/>{b} : {c} ({d}%)"
+									},
+									//									color: ['#50d2c2', '#ffb358', '#fd9c35', '#dd4444', '#bd3b47', '#dd4d79', '#5793f3', '#5578c2'],
+									series: [{
+										name: '销售状态标签统计',
+										type: 'pie',
+										radius: '55%',
+										center: ['50%', '60%'],
+										label: {
+											normal: {
+												formatter: "{b} ({d}%)",
+												textStyle: {
+													color: '#000'
+												}
+											}
+										},
+										data: [{
+											value: 335,
+											name: '未沟通',
+											url: 'http://www.yunkecn.com'
+										}, {
+											value: 200,
+											name: '拟定合同',
+											url: 'http://www.yunkecn.com'
+										}, {
+											value: 180,
+											name: '确认需求',
+											url: 'http://www.yunkecn.com'
+										}, {
+											value: 160,
+											name: '确认报价',
+											url: 'http://www.yunkecn.com'
+										}, {
+											value: 150,
+											name: '初步接洽',
+											url: 'http://www.yunkecn.com'
+										}, {
+											value: 100,
+											name: '已成单',
+											url: 'http://www.yunkecn.com'
+										}],
+									}]
+								};
+								myChart8.setTheme(theme);
+								myChart8.setOption(option8);
+								myChart8.on('click', function(params) {
+									window.location.href = params.data.url;
+								});
+							});
+						</script>
+					</div>
+					<!--  -->
+				</div>
+				<!-- /本周 -->
+
+			</div>
+		</div>
+		<!-- 页面弹层 -->
+		<!-- 编辑公司 -->
+		<div class="edit-company" id="edit-company">
+			<a href="javascript:;" class="a-closed"></a>
+			<div class="company-photo-box">
+				<img src="../images/company-photo.png">
+				<a href="javascript:;" class="a-edit-photo"></a>
+			</div>
+			<p class="p1">北京联云天下科技有限公司</p>
+			<p class="p2">赵科虎，夏云柯</p>
+			<form class="companyForm">
+				<input type="text" class="text" name="" placeholder="请输入企业名称">
+				<input type="text" class="text" name="" placeholder="请输入企业简介">
+				<input type="text" class="text" name="" id="asselect" placeholder="请选择所属行业">
+				<i class="select-icon"></i>
+				<div class="selectBox">
+					<a href="javascript:;">行业1</a>
+					<a href="javascript:;">行业2</a>
+					<a href="javascript:;">行业4</a>
+					<a href="javascript:;">行业1</a>
+					<a href="javascript:;">行业1</a>
+				</div>
+				<input type="button" class="btn" value="保存" id="submitBtn">
+			</form>
+		</div>
+		<!-- 电话量筛选 -->
+		<div class="telphone-choose-box" id="telphone-choose-box">
+			<div class="tlt">
+				<i></i> 筛选
+				<span>最多选择8个筛选项</span>
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="tlt-1">有意向</div>
+			<div class="select-box">
+				<span><i class="choose-right"></i><b>销售人员</b></span>
+				<span><i class="choose-null"></i><b>管理人员</b></span>
+				<span><i class="choose-null"></i><b>企业老板</b></span>
+			</div>
+			<div class="tlt-1">无意向</div>
+			<div class="select-box">
+				<span><i class="choose-right"></i><b>销售人员</b></span>
+				<span><i class="choose-null"></i><b>管理人员</b></span>
+				<span><i class="choose-null"></i><b>企业老板</b></span>
+				<span><i class="choose-right"></i><b>销售人员</b></span>
+				<span><i class="choose-null"></i><b>管理人员</b></span>
+				<span><i class="choose-null"></i><b>企业老板</b></span>
+			</div>
+			<div class="tlt-1">资料错误</div>
+			<div class="select-box">
+				<span><i class="choose-right"></i><b>销售人员</b></span>
+				<span><i class="choose-null"></i><b>管理人员</b></span>
+				<span><i class="choose-null"></i><b>企业老板</b></span>
+				<span><i class="choose-right"></i><b>销售人员</b></span>
+				<span><i class="choose-null"></i><b>管理人员</b></span>
+			</div>
+			<div class="tlt-1">二次呼叫</div>
+			<div class="select-box">
+				<span><i class="choose-right"></i><b>销售人员</b></span>
+				<span><i class="choose-null"></i><b>管理人员</b></span>
+				<span><i class="choose-null"></i><b>企业老板</b></span>
+			</div>
+			<div class="screen_btn">
+				<input type="button" class="btn" value="保存" id="chooseBtn-1" />
+				<input type="button" class="btn1" value="重置" />
+			</div>
+		</div>
+		<div class="applyBox edit_photo">
+			<div class="tlt"><i></i>编辑头像
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="container">
+				<div class="imageBox">
+					<div class="thumbBox"></div>
+					<div class="spinner" style="display: none">Loading...</div>
+				</div>
+				<div class="action">
+					<div class="new-contentarea tc">
+						<a href="javascript:void(0)" class="upload-img">
+							<label for="upload-file">上传图片</label>
+						</a>
+						<input type="file" class="" name="upload-file" id="upload-file" />
+					</div>
+					<input type="button" id="btnCrop" class="Btnsty_peyton" value="裁切">
+					<input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+">
+					<input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-">
+				</div>
+				<div class="cropped">
+					<div class="photo_top">
+						图片预览
+					</div>
+					<div class="photo">
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="photo_size">
+					<p>最佳尺寸100×100，可以上传高质量图片进行裁剪</p>
+					<div class="photo_btn">
+						<input type="button" class="cancle" value="取消" />
+						<input type="button" value="保存" />
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="applyBox powers_over" id="powers_over1">
+			<div class="tlt"><i></i>企业版使用权限已到期
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="custom_f">
+				<div class="email_info">
+					您的企业版使用权限已到期，在此期间暂时无法跟踪该坐席的行为，为保证您正常使用，请
+					<a>联系客服</a>续费
+				</div>
+			</div>
+		</div>
+		<div class="applyBox powers_over" id="powers_over2">
+			<div class="tlt"><i></i>企业版使用权限已到期
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="custom_f">
+				<div class="email_info">
+					您的企业版使用权限已到期，在此期间暂时无法跟踪该坐席的行为，为保证您正常使用，请尽快
+					<a href="paycenter-1.html">续费</a>
+				</div>
+			</div>
+		</div>
+		<!--联系客服-->
+		<div class="applyBox contact" id="contact">
+			<div class="tlt"><i></i>联系客服
+				<a href="javascript:;" class="a-closed"></a>
+			</div>
+			<div class="custom_f contact_info">
+				您可以拨打客服电话：<label>010-5620 0279</label>或 联系
+				<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">在线客服</a>
+			</div>
+		</div>
+
+		<!--<div class="tips-main setting-tip" id="setting-tip">
+			<div class="tip-box">
+			</div>
+			<div class="tips-show">
+				<div class="tips-line">
+				</div>
+				<div class="tips-box">
+					<div class="tips-t">
+						欢迎使用云客企业版
+					</div>
+					<div class="tips-c">
+						身为一个团队管理者，首先需要添加几名员工，来“设置”里邀请员工吧
+					</div>
+					<div class="tips-btn">
+						<input type="button" value="关闭" class="btn" />
+					</div>
+				</div>
+			</div>
+		</div>-->
+		<script type="text/javascript">
+			$(function() {
+				//			$(".layer").show();
+				//			$("#powers_over1").show();
+
+				$("#powers_over1 .email_info a").click(function() {
+					$("#contact").show();
+				});
+				$(".powers_over a.a-closed").click(function() {
+					$(".powers_over").hide();
+					$(".layer").hide();
+				});
+				$("#contact a.a-closed").click(function() {
+					$(".powers_over").hide();
+					$(".layer").hide();
+					$("#contact").hide();
+				});
+
+				$("#setting-tip").show().addClass("animate");
+				$("#setting-tip").css("left", $("#top-setting").offset().left);
+				$("#setting-tip .btn").click(function() {
+					$("#setting-tip").hide();
+				});
+				$("#setting-tip").click(function() {
+					event.stopPropagation();
+				});
+				$(window).click(function() {
+					$("#setting-tip").hide();
+				});
+
+			});
+		</script>
+
+	</body>
+
+</html>

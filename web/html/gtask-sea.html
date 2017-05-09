@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>个人客户</title>
+		
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/head.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/highcharts.js"></script>
+		<script type="text/javascript" src="../js/jedate/jedate.js"></script>
+		 <link rel="stylesheet" type="text/css" href="../js/kindeditor/themes/default/default.css" />
+    <link rel="stylesheet" href="../js/kindeditor/plugins/code/prettify.css" />
+    <script charset="utf-8" src="../js/kindeditor/kindeditor-all.js"></script>
+    <script charset="utf-8" src="../js/kindeditor/lang/zh-CN.js"></script>
+    <script charset="utf-8" src="../js/kindeditor/plugins/code/prettify.js"></script>
+    <script>
+    var editor1;
+        KindEditor.ready(function (K) {
+            editor1 = K.create('#e4', {
+                cssPath: '../js/kindeditor/plugins/code/prettify.css',
+                allowFileManager: true,
+                filterMode: false,
+                height:"150px",
+                width:"100%",
+                resizeMode:0
+            });
+            prettyPrint();
+        });
+        </script>
+<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+	</head>
+
+	<body>
+		<!-- 页面遮罩层 layer -->
+		<div class="layer"></div>
+		<div class="layer-1"></div>
+		<div class="layer-2"></div>
+		<div class="layer-3"></div>
+		<div class="layer-4"></div>
+		<div class="layer-6"></div>
+		<!-- 页面头部 header -->
+		<div class="header person">
+			<h1 class="logo fl"></h1>
+			<span class="mar fl">|</span>
+			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+			<ul class="nav" style="width:140px;">
+				<li><a href="">客户</a></li>
+				<li><a href="" class="current">任务</a></li>
+			</ul>
+			<ul class="header-right fr">
+				<li><a href="javascript:;"><i class="add"></i></a></li>
+				<li><a href="javascript:;"><i class="update"></i></a>
+					<div class="tip_f">
+						<i class="tip_img"></i>
+						您可以在这里开启数据开启至企业版
+					</div>
+				</li>
+				<li><a href="javascript:;"><i class="message"></i></a></li>
+				<li><a href="javascript:;" class="user">刘</a></li>
+			</ul>
+		</div>
+		<div class="tipArea">
+	<div class="wrap">
+		<ul class="ul-2">
+			<li><a href="" class="current">企业分配</a></li>
+			<li><a href="">企业公海池</a></li>
+			<li><a href="">我的客户</a></li>
+			<li><a href="">云客推荐</a></li>
+		</ul>	
+	</div>
+</div>
+		<!-- 内容部分 contents -->
+		<div class="contents">
+			<div class="table-tlt">
+				<a class="return-icon" href=""></a>
+				<i class="i"></i>本周销售任务<label class="table-t-count">(任务进度0/50)</label>
+				<div class="fr">
+					<a class="a fr" id="">签入</a>
+					<ul class="gtabBox" id="gtabBox" style="margin-top:-6px;">
+						<li><a href="javascript:;" class="current">已完成</a></li>
+						<li><a href="javascript:;">预约<b class="b-news"></b></a></li>
+						<li><a href="javascript:;">二次呼叫</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="table-1" style="display:block">
+				<div class="customer">
+				<table class="table-list ">
+					<thead>
+						<tr>
+							<th>客户姓名</th>
+							<th>公司名称</th>
+							<th>职位</th>
+							<th>所属行业</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+				<!-- 分页 -->
+				<p class="page-p">共20条</p>
+				<ul class="page-ul">
+					<li>
+						<</li>
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>></li>
+				</ul>
+				<!-- 申请任务 去掉hiden -->
+				<div class="noTaskBox hiden">
+					<p class="p1">目前没有进行中的任务</p>
+					<p class="p2">您可以向企业<a href="javascript:;" id="applyMore">申请更多</a>电话任务</p>
+				</div>
+			</div>
+			
+			<div class="table-1">
+				<div class="customer">
+				<table class="table-list ">
+					<thead>
+						<tr>
+							<th>客户姓名</th>
+							<th>公司名称</th>
+							<th>职位</th>
+							<th>所属行业</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+				<!-- 分页 -->
+				<p class="page-p">共20条</p>
+				<ul class="page-ul">
+					<li>
+						<</li>
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>></li>
+				</ul>
+			</div>
+			<div class="table-1">
+				<div class="customer">
+				<table class="table-list ">
+					<thead>
+						<tr>
+							<th>客户姓名</th>
+							<th>公司名称</th>
+							<th>职位</th>
+							<th>所属行业</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+						<tr>
+							<td>客户姓名</td>
+							<td>北京联云天下科技有限公司</td>
+							<td>法人负责人</td>
+							<td>IT/互联网</td>
+							<td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+				<!-- 分页 -->
+				<p class="page-p">共20条</p>
+				<ul class="page-ul">
+					<li>
+						<</li>
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>></li>
+				</ul>
+			</div>
+		</div>
+
+<div class="telLayerBox">
+			<div class="tel-tlt">
+				<i class="i"></i> 拨打电话
+				<div class="fr">
+					<a class="edit-1" id="saveBtn_call">保存</a>
+					<a href="javascript:;" class="edit-1" id="tel-edit"><i class="i-1"></i>编辑</a>
+					<!--<a href="javascript:;" class="add-1" id="tel-add"><i class="i-2"></i>补充资料</a>-->
+					<a href="javascript:;" class="add-1" id="add_customer"><i class="i-3"></i>新建客户</a>
+				</div>
+			</div>
+			<div class="contextBox">
+				<dl class="item-1">
+					<dt>客户姓名：</dt>
+					<dd><input type="text"  id="e_customerName" value="客户姓名" readonly="readonly" />
+						<input type="hidden" value="" id="hidcustId" readonly="readonly" />
+					</dd>
+				</dl>
+				<dl class="item-1">
+					<dt>手机号：</dt>
+					<dd><input type="text"  id="e_phone" value="13111111111" readonly="readonly" /></dd>
+				</dl>
+			</div>
+			<div class="contextBox">
+				<dl class="item-2">
+					<dt>公司名称：</dt>
+					<dd><input type="text"  id="e_comName" value="北京联云天下科技有限公司" readonly="readonly" />
+					<div class="call-com-f">
+						<div class="com_info">北京联云天下科技有限公司</div>
+						<div class="com_info">北京联云天下科技有限公司</div>
+						<div class="com_info">北京联云天下科技有限公司</div>
+					</div>
+					</dd>
+				</dl>
+			</div>
+			<div class="contextBox">
+				<dl class="item-1">
+					<dt>客户姓名：</dt>
+					<dd><input type="text" value="客户姓名" readonly="readonly" /></dd>
+				</dl>
+				<dl class="item-1">
+					<dt>职　　位：</dt>
+					<dd><input type="text" value="客户姓名" readonly="readonly" /></dd>
+				</dl>
+			</div>
+			<div class="contextBox">
+				<dl class="item-1">
+					<dt>销售地址：</dt>
+					<dd><input type="text" class="address_input" value="请选择销售地址5" readonly="readonly" />
+						<select class="address_sel">
+							<option>请选择销售地址</option>
+							<option>请选择销售地址1</option>
+							<option>请选择销售地址2</option>
+							<option>请选择销售地址3</option>
+							<option>请选择销售地址4</option>
+						</select>
+					</dd>
+				</dl>
+				<!--<script>
+					$(function(){
+						$(".address_sel option").removeAttr("selected");
+						$(".address_sel option").each(function(){
+							if($(this).text()==$(".address_input").val()){
+								$(this).attr("selected","selected");
+							}
+						})
+					})
+				</script>-->
+				<dl class="item-1">
+					<dt>微　　信：</dt>
+					<dd><input type="text" value="客户姓名" readonly="readonly" /></dd>
+				</dl>
+			</div>
+			<div class="contextBox">
+				<dl class="item-2">
+					<dt>经营范围：</dt>
+					<dd><textarea readonly="readonly">谷朊粉、小麦面筋粉、面粉、发达面粉、北郎中面粉、仁和久盛、古船面粉、五得利、面粉、1Kg7+1营养粉、5kg饺子、5kg雪花、10kg面粉</textarea></dd>
+				</dl>
+			</div>
+			<div class="contextBox">
+				<dl class="item-2">
+					<dt>备　　注：</dt>
+					<dd><textarea readonly="readonly">谷朊粉、小麦面筋粉、面粉、发达面粉、北郎中面粉、仁和久盛、古船面粉、五得利、面粉、1Kg7+1营养粉、5kg饺子、5kg雪花、10kg面粉</textarea></dd>
+				</dl>
+			</div>
+			<div class="custome_show">
+				<div class="contextBox">
+					<dl class="item-1">
+						<dt>手机号码2：</dt>
+						<dd><input type="text" value="" id="e_phone2" readonly="readonly" /></dd>
+					</dl>
+					<dl class="item-1">
+						<dt>座机号码：</dt>
+						<dd><input type="text" value="" id="e_telephone" readonly="readonly" /></dd>
+					</dl>
+				</div>
+				<div class="contextBox">
+					<dl class="item-1">
+						<dt>QQ号码：</dt>
+						<dd><input type="text" value="" id="e_QQ" readonly="readonly" /></dd>
+					</dl>
+					<dl class="item-1">
+						<dt>生日：</dt>
+						<dd><input type="text" value="" id="e_birthday" readonly="readonly" /></dd>
+					</dl>
+				</div>
+				<div class="contextBox">
+					<dl class="item-1">
+						<dt>前台电话：</dt>
+						<dd><input type="text" value="" id="e_qiantai" readonly="readonly" /></dd>
+					</dl>
+					<dl class="item-1">
+						<dt>传真号码：</dt>
+						<dd><input type="text" value="" id="e_chuanzhen" readonly="readonly" /></dd>
+					</dl>
+				</div>	
+				<div class="contextBox">
+					<dl class="item-2">
+						<dt>备用1：</dt>
+						<dd><input type="text" value="" id="e_spare1" readonly="readonly" /></dd>
+					</dl>
+				</div>	
+				<div class="contextBox">
+					<dl class="item-2">
+						<dt>备用2：</dt>
+						<dd><input type="text" value="" id="e_spare2" readonly="readonly" /></dd>
+					</dl>
+				</div>	
+				<div class="contextBox">
+					<dl class="item-2">
+						<dt>备用3：</dt>
+						<dd><input type="text" value="" id="e_spare3" readonly="readonly" /></dd>
+					</dl>
+				</div>
+				<div class="contextBox">
+					<dl class="item-2">
+						<dt>备用4：</dt>
+						<dd><input type="text" value="" id="e_spare4" readonly="readonly" /></dd>
+					</dl>
+				</div>
+				<div class="contextBox">
+					<dl class="item-2">
+						<dt>备用5：</dt>
+						<dd><input type="text" value="" id="e_spare5" readonly="readonly" /></dd>
+					</dl>
+				</div>
+				<!--<div class="contextBox not_editor first">
+					<dl class="item-2">
+						<dt>销售进度：</dt>
+						<dd>初步沟通</dd>
+					</dl>
+				</div>-->
+				<div class="contextBox not_editor first">
+					<dl class="item-2">
+						<dt>创建时间：</dt>
+						<dd>2016-05-19</dd>
+					</dl>
+				</div>
+					<div class="contextBox not_editor">
+					<dl class="item-2">
+						<dt>上次联系时间：</dt>
+						<dd>2016-05-19</dd>
+					</dl>
+				</div>
+					<div class="contextBox not_editor">
+					<dl class="item-2">
+						<dt>上次电话结果：</dt>
+						<dd>继续跟进</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="fold">
+				<i></i>
+			</div>
+			
+			<p class="p-time" id="p-time">通话时长：0’15”</p>
+			<input type="button" class="btn-none" value="10秒后可挂断">
+			<input type="button" class="btn-red" value="挂断电话" id="hangupBtn">
+			<!--<input type="button" class="btn" value="保存" id="saveBtn_call">-->
+
+		</div>
+		<!-- 沟通结果 -->
+		<div class="telLayerBox-1">
+			<div class="tel-tlt">
+				<i class="i"></i> 销售进度
+			</div>
+			<dl class="dl-1 sales-progress">
+				<dd>
+					<span class="sales-span">初步沟通</span>
+					<span class="sales-span">确认需求</span>
+					<span class="sales-span">确认报价</span>
+					<span class="sales-span">拟定合同</span>
+					<span class="sales-span">成单</span>
+				</dd>
+			</dl>
+			<div class="line"></div>
+			<div class="tel-tlt">
+				<i class="i"></i> 沟通意向
+			</div>
+			<dl class="dl-1">
+				<dt>无意向</dt>
+				<dd>
+					<span class="span">销售人员</span>
+					<span class="span">销售人员</span>
+					<span class="span">销售人员</span>
+				</dd>
+			</dl>
+			<dl class="dl-1">
+				<dt>预约时间</dt>
+				<dd>
+					<span class="time appointment">
+				<input type="text" id="time" />
+			</span>
+
+					<!--<a href="javascript:;" class="choose-time"><label id="time" style="display: inline-block;width:150px;height: 20px;"></label></a>-->
+				</dd>
+				<script type="text/javascript">
+					jeDate({
+						dateCell: "#time",
+						isinitVal: true,
+						format: "YYYY-MM-DD hh:mm:ss",
+						isTime: true, //isClear:false,
+						minDate: "2014-09-19 00:00:00"
+					})
+				</script>
+			</dl>
+			<div class="line"></div>
+			<dl class="dl-1">
+				<dt>无意向</dt>
+				<dd>
+					<span class="span">销售人员</span>
+					<span class="span">销售人员</span>
+					<span class="span">销售人员</span>
+					<span class="span">销售人员</span>
+					<span class="span">销售人员</span>
+					<span class="span">销售人员</span>
+				</dd>
+			</dl>
+			<div class="line"></div>
+			<dl class="dl-1">
+				<dt>资料错误</dt>
+				<dd>
+					<span class="span">销售人员</span>
+					<span class="span">销售人员</span>
+					<span class="span">销售人员</span>
+				</dd>
+			</dl>
+			<div class="line"></div>
+			<dl class="dl-1">
+				<dt>二次呼叫</dt>
+				<dd>
+					<span class="span">销售人员</span>
+					<span class="span">销售人员</span>
+					<span class="span">销售人员</span>
+				</dd>
+			</dl>
+			<div class="line"></div>
+			<dl class="dl-1">
+				<dt>添加备注</dt>
+				<dd>
+					<input type="text" placeholder="请输入备注" />
+					<a href="" class="a-btn">取消</a>
+					<a href="" class="a-btn a-btn-submit">提交</a>
+				</dd>
+			</dl>
+			<div class="center">
+				<div class="line"></div>
+				<input type="button" class="btn btnSend" value="发送短信" id="send" /><input type="button" class="btn btnSend" value="发送邮件" id="send_email" />
+				<div class="line"></div>
+				<input type="button" class="btn" value="提交" id="tjyxBtn" />
+		</div>
+		</div>
+
+		<!--发送短信-->
+		<div class="telLayerBox-2" id="send_message">
+			<div class="message_f">
+				<div class="tel-tlt">
+					<i class="i"></i> 发短信
+					<a href="javascript:void(0)" class="a-closed"></a>
+				</div>
+				<div class="box_f">
+					<div class="c-box" id="c-box">
+						<select class="select_message">
+							<option>请选择短信模板</option>
+							<option>短信模板1</option>
+							<option>短信模板2</option>
+							<option>短信模板3</option>
+						</select>
+					</div>
+					<div class="textarea_box">
+						<textarea disabled="disabled"></textarea>
+					</div>
+					<div class="message_cost">
+						*短信费0.08元/条
+					</div>
+					<div class="send_btn">
+						<input type="button" class="btn" value="发送" />
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="telLayerBox-2 send_tip" id="send_email1">
+			<div class="message_f">
+				<div class="tel-tlt">
+					<i class="i"></i> 发邮件
+					<a href="javascript:void(0)" class="a-closed"></a>
+				</div>
+				<div class="box_f send">
+					<div class="mail_tip">
+						邮件无法发送，请先设置邮箱。						
+					</div>
+					<div class="send_btn">
+						<button class="btn set_email_btn">设置邮箱</button>
+						<button class="btn">暂不设置</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--发送邮件-->
+		<div class="telLayerBox-2" id="send_email2">
+			<div class="message_f">
+				<div class="tel-tlt">
+					<i class="i"></i> 发邮件
+					<a href="javascript:void(0)" class="a-closed"></a>
+				</div>
+				<div class="box_f send">
+					<div class="c-box" id="c-box">
+						<select class="select_message" id="editor">
+							<option>请选择邮件模板</option>
+							<option>邮件模板1</option>
+							<option>邮件模板2</option>
+							<option>邮件模板3</option>
+						</select>
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入邮件标题" />
+					</div>
+					<div class="textarea_box">
+						<textarea class="editor" id="e4"></textarea>
+					</div>
+					
+					
+					<div class="send_btn">
+						<input type="button" class="btn" value="发送" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="applyBox custom_new" id="applyBox-customer">
+			<div class="tlt"><i></i>新建客户
+				<a href="javascript:void(0)" class="a-closed"></a>
+			</div>
+			<div class="customer_f">
+				<div class="input_f not_none">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入客户姓名" />
+				</div>
+				<div class="input_f not_none">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入公司名称" />
+				</div>
+				<div class="select_city">
+					<select>
+					<option>请选择省市</option>
+					<option>请选择省市</option>
+					<option>请选择省市</option>
+					<option>请选择省市</option>
+					<option>请选择省市</option>
+				</select>
+					<select>
+					<option>请选择城市</option>
+					<option>请选择城市</option>
+					<option>请选择城市</option>
+					<option>请选择城市</option>
+					<option>请选择城市</option>
+				</select>
+					<select>
+					<option>请选择地区</option>
+					<option>请选择地区</option>
+					<option>请选择地区</option>
+					<option>请选择地区</option>
+					<option>请选择地区</option>
+				</select>
+				</div>
+				<div class="input_f">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入详细地址" />
+				</div>
+				<div class="input_f not_none telephone existing">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入手机号码" />
+				</div>
+				<div class="input_f">
+					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入职位" />
+				</div>
+				<div class="add_more">
+					<a>输入更多信息>></a>
+				</div>
+				<div class="custom_more">
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入手机号码2" />
+					</div>
+					<div class="input_f">
+						<select class="select_row">
+						<option>请选择企业资质</option>
+						<option>请选择企业资质</option>
+						<option>请选择企业资质</option>
+						<option>请选择企业资质</option>
+					</select>
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入经营范围" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入座机号码" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入邮箱地址" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入QQ号码" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入微信号码" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入生日" />
+					</div>
+					<div class="input_f">
+						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入前台电话号码" />
+					</div>
+					<div class="input_f">
+						<textarea class="textarear_customer" placeholder="请输入备注"></textarea>
+					</div>
+				</div>
+			</div>
+			<input type="button" class="btn" value="提交" id="">
+		</div>
+		<script type="text/javascript">
+		$(function(){
+			$(".customer").height($(window).height()-$(".customer").offset().top-80);
+			$(".customer").css({"overflow":"auto"});
+			
+			var time=10;
+			var call_time=setInterval(function(){
+				time--;
+				if(time==0){
+					$(".btn-none").hide();
+					$(".btn-red").css("display","inherit");
+					clearInterval(call_time);
+				}else{
+				$(".btn-none").val(time+"秒后可挂断");	
+				}
+				
+			},1000);
+			
+			$("#editor").change(function(){
+				console.log("sdfs");
+				editor1.html("<img src='' />3434324243242<p style='font-size:36px;'>werwerwr</p>");
+			})
+			
+			$('.fold').click(function(){
+				$(this).toggleClass("active");
+				if($(this).hasClass("active")){
+					$(".custome_show").show();
+				}else{
+					$(".custome_show").hide();
+				}
+			});
+			
+			//发送邮件按钮
+			$("#send_email").click(function(){
+//				$("#send_email1").show();
+				$("#send_email2").show();
+				$(".layer-2").show();
+				
+			});
+			$(".set_email_btn").click(function(){
+				$(this).text("邮箱已设置");
+				window.open("mail_set.html");
+			});
+			
+				$("#add_customer").click(function() {
+					$(".layer-6").show();
+					$("#applyBox-customer").show();
+				});
+				$(".add_more a").click(function() {
+					$(".custom_more").show();
+					$(".add_more").hide();
+				});		
+				$("#applyBox-customer a.a-closed").click(function(){
+					$(".layer-6").hide();
+					$("#applyBox-customer").hide();
+				});
+				
+				
+				$(".sales-span").click(function(){
+					$(".sales-span").removeClass("cur");
+					$(this).addClass("cur");
+				})
+				
+				$(".span").click(function(){
+				if( $("#f_calltime").text() ==  "0' 0\"" && $(this).attr("type") == 1){
+					alert("此线索电话未接通，不可选择有意向标签");
+					return;
+				}
+				
+				
+				tipType=$(this).attr("type");
+				tipName=$(this).text();
+				
+				$(".span").removeClass("cur");
+				$(this).addClass("cur");
+				if($(this).attr("type") == 1){
+					$(".yytime").show();
+				}else{
+					$(".yytime").hide();
+				}
+
+				
+			});
+			
+			
+			
+				$("#e_comName").bind("input propertychange",function(){
+					if($(this).val().length>0){
+						$(".call-com-f").show();
+					}else{
+						$(".call-com-f").hide();
+					}
+				});
+				$(window).click(function(){
+					$(".call-com-f").hide();
+				});
+				$(".call-com-f,#e_comName").click(function(){
+					event.stopPropagation();
+				});
+				//选择公司
+				$(".call-com-f .com_info").click(function(){
+					$("#e_comName").val($(this).text().trim());
+					$(".call-com-f").hide();
+				});
+				
+		});
+		</script>
+	</body>
+</html>

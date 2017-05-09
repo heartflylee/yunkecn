@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>设置</title>
+	<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+	<link href="../css/main.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="../css/head.css" />
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/highcharts.js"></script> 
+</head>
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<!-- 页面头部 header -->
+<div class="header">
+	<h1 class="logo fl"></h1>
+	<span class="mar fl">|</span>
+	<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+	<ul class="nav">
+		<li><a href="">首页</a></li>
+		<li><a href="">行动</a></li>
+		<li><a href="">客户</a></li>
+		<li><a href="">账户</a></li>
+		<li><a href="">任务</a></li>
+		<li><a href="" class="current">设置</a></li>
+	</ul>
+	<ul class="header-right fr">
+		<li><a href="javascript:;"><i class="add"></i></a></li>
+		<li><a href="javascript:;"><i class="update"></i></a></li>
+		<li><a href="javascript:;"><i class="message"></i></a></li>
+		<li><a href="javascript:;" class="user">刘</a></li>
+	</ul>
+</div>
+<!-- 汇总提示 tipArea -->
+<div class="tipArea">
+	<div class="wrap">
+		<ul class="ul-2">
+			<li><a href="settings.html">团队设置</a></li>
+			<li><a href="settings-1.html" class="current">外呼标签设置</a></li>
+			<li><a href="settings-2.html">短信模板设置</a></li>
+		</ul>	
+	</div>
+</div>
+<!-- 内容部分 contents -->
+<div class="contents" style="background: #fff; padding-bottom: 50px; width: 99%;">
+	<div class="table-tlt">
+		<i class="i"></i>外呼标签设置
+	</div>
+	<!--  -->
+	<dl class="dl-chosen">
+		<dt>有意向</dt>
+		<dd>
+			<span class="span">销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span class="add">+</span>
+		</dd>
+	</dl>
+	<div class="line"></div>
+	<!--  -->
+	<dl class="dl-chosen">
+		<dt>无意向</dt>
+		<dd>
+			<span class="span">销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span class="add">+</span>
+		</dd>
+	</dl>
+	<div class="line"></div>
+	<!--  -->
+	<dl class="dl-chosen">
+		<dt>资料错误</dt>
+		<dd>
+			<span class="span">销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+		</dd>
+	</dl>
+	<div class="line"></div>
+	<!--  -->
+	<dl class="dl-chosen">
+		<dt>二次呼叫</dt>
+		<dd>
+			<span class="span">销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+			<span>销售人员<i class="edit-small"></i><i class="delete-small"></i></span>
+		</dd>
+	</dl>
+</div>
+<!-- 编辑标签 -->
+<div class="taglayer" id="updatetip">
+	<div class="tlt">编辑标签<a href="javascript:;" class="a-closed"></a></div>
+	<p class="p-3">有意向</p>
+	<input type="text" class="text-l" placeholder="请输入标签内容" />
+	<input type="button" class="btn" value="保存">
+</div>
+<!-- 删除标签 -->
+<div class="taglayer" id="deletetip" style="display: block; height: 135px;">
+	<div class="tlt">编辑标签<a href="javascript:;" class="a-closed"></a></div>
+	<p class="p-3">确认删除标签？</p>
+	<input type="button" class="btn" style="background: #c1272d;" value="保存">
+</div>
+<!-- 添加标签 -->
+<div class="taglayer" id="addtip">
+	<div class="tlt">添加标签<a href="javascript:;" class="a-closed"></a></div>
+	<p class="p-3">有意向</p>
+	<input type="text" class="text-l" placeholder="请输入标签内容" />
+	<input type="button" class="btn" value="保存">
+</div>
+</body>
+</html>
