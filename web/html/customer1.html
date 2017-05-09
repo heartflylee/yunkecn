@@ -2442,14 +2442,18 @@
 					$("#com-con").show();
 				});
 
-				$(".com-tip.default .tip-dian").click(function() {
+				$(".com-tip.all .tip-dian").click(function() {
 					$(".layer-6").show();
 					$("#com-tips").show();
 				});
 
-				$(".com-tip.all .tip-dian").click(function() {
-					$(".layer-6").show();
-					$("#com-completion").show();
+				$(".com-tip.default .tip-dian").click(function() {
+				    //时间轴
+$(".introLayerBox").show();
+$(".layer").show();
+
+//					$(".layer-6").show();
+//					$("#com-completion").show();
 				});
 
 				$(".layer-6,.com-completion a.a-closed,.com-completion .btn.cancle").click(function() {

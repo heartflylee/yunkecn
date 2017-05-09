@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="yunkecn" persistUploadOnCheckin="false">
+  <component name="PublishConfigData" serverName="yunkecn" uploadOnCheckin="bbca862c-26f1-4e90-ae74-41159d4ab801">
     <serverData>
       <paths name="yunkecn">
         <serverdata>
@@ -10,5 +10,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="yunkecn" />
   </component>
 </project>

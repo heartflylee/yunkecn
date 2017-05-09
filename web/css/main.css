@@ -5537,8 +5537,8 @@ a.save_ct {
   position: absolute;
   top: -40px;
   left: 5px;
-  -webkit-transform: translate3d(-50%, 0, 0);
-          transform: translate3d(-50%, 0, 0);
+  -webkit-transform: translate3d(-46%, 0, 0);
+          transform: translate3d(-46%, 0, 0);
   padding: 0 10px;
   color: #fff;
   line-height: 30px;
@@ -5551,7 +5551,7 @@ a.save_ct {
 .com-tip .tip-con b {
   position: absolute;
   bottom: -5px;
-  left: 50%;
+  left: 46%;
   margin-left: -3px;
   border-top: 5px solid #000;
   border-left: 5px solid transparent;
@@ -5593,7 +5593,7 @@ a.save_ct {
   width: 14px;
   height: 14px;
   cursor: pointer;
-  background: url("../images/com_notall.png");
+  background: url("../images/com_all.png");
   background-size: 100% 100%; }
 
 .com-dian.all span {
