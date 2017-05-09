@@ -8936,7 +8936,7 @@ input.btn.btn-cancel {
 }
 @for $i from 1 to 4{
     .callstatus#{$i}{
-        background-image: url(../images/callStatus#{$i}.png);
+        background-image: url("../images/callStatus#{$i}.png");
     }
 }
 .change-before,.change-after{
@@ -9100,5 +9100,24 @@ white-space: nowrap;
     border-top:1px solid #d4d4d4;
     &:first-child{
         border-top:none;
+    }
+}
+.checked-show {
+    font-size: 14px;
+    .level1 {
+        font-weight: bold;
+
+    }
+    .level2 {
+        font-weight: normal;
+        &:after {
+            content: "、";
+        }
+        &:last-child:after {
+            content: "；";
+        }
+        &:first-child:before {
+            content: " - ";
+        }
     }
 }

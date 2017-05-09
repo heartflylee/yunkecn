@@ -8685,13 +8685,13 @@ input.btn.btn-cancel {
   background-repeat: no-repeat; }
 
 .callstatus1 {
-  background-image: url(../images/callStatus1.png); }
+  background-image: url("../images/callStatus1.png"); }
 
 .callstatus2 {
-  background-image: url(../images/callStatus2.png); }
+  background-image: url("../images/callStatus2.png"); }
 
 .callstatus3 {
-  background-image: url(../images/callStatus3.png); }
+  background-image: url("../images/callStatus3.png"); }
 
 .change-before, .change-after {
   white-space: nowrap; }
@@ -8839,5 +8839,18 @@ input.btn.btn-cancel {
   border-top: 1px solid #d4d4d4; }
   .change-li:first-child {
     border-top: none; }
+
+.checked-show {
+  font-size: 14px; }
+  .checked-show .level1 {
+    font-weight: bold; }
+  .checked-show .level2 {
+    font-weight: normal; }
+    .checked-show .level2:after {
+      content: "、"; }
+    .checked-show .level2:last-child:after {
+      content: "；"; }
+    .checked-show .level2:first-child:before {
+      content: " - "; }
 
 /*# sourceMappingURL=main.css.map */
