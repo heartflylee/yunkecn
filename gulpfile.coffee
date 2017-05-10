@@ -13,7 +13,7 @@ plumber = require('gulp-plumber')
 csso = require('gulp-csso')
 babel = require('gulp-babel')
 sourcemaps = require("gulp-sourcemaps")
-
+replace = require("gulp-replace")
 
 # 构建任务部分
 gulp.task('default', (callback) ->
@@ -40,6 +40,7 @@ gulp.task('sassCss', ->
   }))
 #    .pipe(csso())
     .pipe(minify())
+    .pipe(replace('}','}\n'))
     .pipe(sourcemaps.write("."))
     .pipe(plumber.stop())
     .pipe(gulp.dest('./web/css'))
