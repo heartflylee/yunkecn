@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "departmentName": "默认",
+      "departmentId": "default"
+    },
+    {
+      "departmentName": "销售部",
+      "departmentId": "1001"
+    },
+    {
+      "departmentName": "市场部",
+      "departmentId": "1002"
+    }
+  ],
+  "message": "查询成功",
+  "success": true
+}

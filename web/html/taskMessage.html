@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>团队任务-销售任务</title>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../css/head.css"/>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <!--<script type="text/javascript" src="../js/audio1.min.js"></script>-->
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/highcharts.js"></script>
+    <!--<link href="../css/hDate.css" rel="stylesheet"/>-->
+
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+
+    <!--<script type="text/javascript" src="../js/hDate.js"></script>-->
+</head>
+
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<div class="layer-5"></div>
+<div class="layer-6"></div>
+<!-- 页面头部 header -->
+<div class="header">
+    <h1 class="logo fl"></h1>
+    <ul class="nav">
+        <li>
+            <a href="indexnew2.html">首页</a>
+        </li>
+        <!--<li>-->
+        <!--<a href="">行动</a>-->
+        <!--</li>-->
+        <li>
+            <a href="customer1.html">客户</a>
+        </li>
+        <li>
+            <a href="download.html">线索</a>
+        </li>
+        <li>
+            <a href="task.html" class="current">任务</a>
+        </li>
+        <li>
+            <a href="settings.html" id="top-setting">设置</a>
+        </li>
+    </ul>
+    <ul class="header-right fr">
+        <li>
+            <a href="javascript:void(0)"><i class="add"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"><i class="update"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"><i class="message"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" class="user">刘</a>
+        </li>
+    </ul>
+</div>
+<!-- 汇总提示 tipArea -->
+<div class="tipArea">
+    <div class="wrap">
+        <!--<span class="span-1 fr"><a href="task-applacation.html">员工任务申请</a><b class="b-news"></b></span>-->
+        <!--<span class="fr">|</span>-->
+        <ul class="ul-2">
+            <li>
+                <a href="taskNew.html">电话任务</a>
+            </li>
+            <li>
+                <a href="taskMessage.html" class="current">短信任务</a>
+            </li>
+            <li>
+                <a href="task-3.html">邮件任务</a>
+            </li>
+            <li>
+                <a href="task-1.html">委派云客</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="contents">
+    <div class="table-tlt">
+        <i class="i"></i>短信任务列表
+        <div class="title-innerBox">
+            <span class="span-1" onclick="filterShow();">筛选<b class="b-icon"></b></span>
+            <div class="position-relative searchBox">
+                <input type="text" placeholder="按任务名称搜索"/>
+                <a class="search-icon"></a>
+            </div>
+        </div>
+        <a class="a" id="add-tasks" style="float: right; cursor: pointer;">新建短信任务</a>
+    </div>
+    <div class="customer">
+        <table class="table-list" id="table-list">
+            <thead>
+            <tr>
+                <th>任务名称</th>
+                <th>任务状态</th>
+                <th>创建时间</th>
+                <th>绑定电话任务</th>
+                <th>发送模板</th>
+                <th>数据来源</th>
+                <th>发送条数/成功条数</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="--">--</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="刘晓辉、刘宇、艾云鹤">刘晓辉、刘宇、艾云鹤</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>新客户拜访</td>
+                <td>5000/4000</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="--">--</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="刘晓辉、刘宇、艾云鹤">刘晓辉、刘宇、艾云鹤</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>新客户拜访</td>
+                <td>5000/4000</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="--">--</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="刘晓辉、刘宇、艾云鹤">刘晓辉、刘宇、艾云鹤</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>新客户拜访</td>
+                <td>5000/4000</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="--">--</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="刘晓辉、刘宇、艾云鹤">刘晓辉、刘宇、艾云鹤</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>新客户拜访</td>
+                <td>5000/4000</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr><tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="--">--</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="刘晓辉、刘宇、艾云鹤">刘晓辉、刘宇、艾云鹤</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>新客户拜访</td>
+                <td>5000/4000</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr><tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="--">--</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="刘晓辉、刘宇、艾云鹤">刘晓辉、刘宇、艾云鹤</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>新客户拜访</td>
+                <td>5000/4000</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr><tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="--">--</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="刘晓辉、刘宇、艾云鹤">刘晓辉、刘宇、艾云鹤</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>新客户拜访</td>
+                <td>5000/4000</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr><tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="--">--</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="刘晓辉、刘宇、艾云鹤">刘晓辉、刘宇、艾云鹤</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>新客户拜访</td>
+                <td>5000/4000</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="--">--</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="刘晓辉、刘宇、艾云鹤">刘晓辉、刘宇、艾云鹤</span></td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>【产品资料】我司公司详情请见：www.baidu.com,退订回T。</div>">产品资料</span></td>
+                <td>新客户拜访</td>
+                <td>5000/4000</td>
+                <td><a href="javascript:void(0);" class="link">查看详情</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="hover-wrap">
+
+        </div>
+    </div>
+    <!-- 分页 -->
+    <p class="page-p">共20条</p>
+    <ul class="page-ul">
+        <li>
+            <
+        </li>
+        <li> 1</li>
+        <li> 2</li>
+        <li> 3</li>
+        <li> ></li>
+    </ul>
+
+</div>
+
+<div class="filter-wrap changer-box" id="filterShow">
+    <div class="tlt"><i></i>筛选
+        <a href="javascript:layerClose('#filterShow')" class="a-closed"></a>
+    </div>
+    <div class="function-content">
+        <div class="filter-row">
+            <div class="filter-li time-box">
+                <label>创建时间</label>
+                <span class="time"><input type="text" id="timetext" readonly="readonly"></span>
+            </div>
+            <div class="filter-li time-box">
+                <label>至</label>
+                <span class="time"><input type="text" id="timetext-2" readonly="readonly"></span>
+            </div>
+        </div>
+        <script type="text/javascript">
+					var start = {
+						format: 'YYYY-MM-DD hh:mm:ss',
+						maxDate: $.nowDate(0), //设定最小日期为当前日期
+						minDate: '1900-01-01 00:00:00', //最大日期
+						choosefun: function (elem, datas) {
+							end.minDate = datas; //开始日选好后，重置结束日的最小日期
+						}
+					};
+					var end = {
+						format: 'YYYY-MM-DD hh:mm:ss',
+						maxDate: $.nowDate(0), //设定最小日期为当前日期
+						//  festival:true,
+						minDate: '1900-01-01 00:00:00', //最大日期
+						choosefun: function (elem, datas) {
+							start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+						}
+					};
+					$('#timetext').jeDate(start);
+					$('#timetext-2').jeDate(end);
+        </script>
+        <div class="filter-row">
+            <div class="filter-li">
+                <label>绑定电话任务</label>
+                <select class="Jselect">
+                    <option>请选择电话任务</option>
+                    <option value="">无</option>
+                    <option value="">刘晓辉</option>
+                    <option value="">刘宇</option>
+                </select>
+            </div>
+            <div class="filter-li">
+                <label>短信模板</label>
+                <select class="Jselect">
+                    <option>请选择短信模板</option>
+                </select>
+            </div>
+            <div class="filter-li">
+                <label>数据来源</label>
+                <select class="Jselect">
+                    <option>请选择数据来源</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                </select>
+            </div>
+        </div>
+        <div class="filter-row">
+            <div class="filter-li">
+                <label>发送条数</label>
+                <span class="time"><input type="text"></span>
+            </div>
+            <div class="filter-li">
+                <label>发送成功条数</label>
+                <span class="time"><input type="text"></span>
+            </div>
+        </div>
+
+        <div class="manage-btn-wrap">
+            <input type="button" class="manage-btn" value="提交">
+        </div>
+    </div>
+</div>
+
+<div class="applyBox message_new message_new1" id="applyBox-1">
+    <div class="tlt"><i></i>新建短信任务
+        <a href="javascript:void(0)" class="a-closed"></a>
+    </div>
+    <div class="add_message message-task">
+        <div class="input_f">
+            <input type="text" class="inputBox-1 bg-gray" placeholder="请输入任务名称">
+        </div>
+        <div class="c-box select_row1">
+            <select class="select_message">
+                <option>请选择短信模板</option>
+                <option>短信模板1</option>
+                <option>短信模板2</option>
+                <option>短信模板3</option>
+            </select>
+        </div>
+        <div class="textarea_box message_text">
+            <textarea disabled="disabled"></textarea>
+        </div>
+        <!--<div class="input_f">
+            <input type="text" class="inputBox-1 bg-gray" id="time" placeholder="请选择开始时间" />
+        </div>
+        <script type="text/javascript">
+            jeDate({
+                dateCell:"#time",
+                format:"YYYY-MM-DD hh:mm:ss",
+                isinitVal:true,
+                isTime:true,
+            });
+        </script>-->
+        <div class="c-box select_row1">
+            <select class="select_message">
+                <option>请选择数据来源</option>
+                <option>数据来源1</option>
+                <option>数据来源2</option>
+                <option>数据来源3</option>
+            </select>
+        </div>
+        <div class="checkbox-f">
+            <label class="checkbox-name">绑定电话任务</label>
+            <!--<input type="checkbox" class="mycheckboxes" checked="checked" />-->
+            <input type="checkbox" class="checkinner" id="checked">
+            <label for="checked">
+                <i></i>
+            </label>
+            <div class="checkbox-tip-f">
+                <i></i>
+                <div class="checkbox-tips">
+                    短信发送完成后，状态为“打开链接”的线索直接新建电话任务平均分配给所选执行人员跟进
+                </div>
+            </div>
+        </div>
+        <div class="tbmember fl addpor addexecutives checkadd">
+            <div class="tbm-tlt">执行人员</div>
+            <ul class="choose-add clearfix">
+                <li class="del-sc">
+                    <a href="javascript:void(0)"><img src="../images/member.png"><em>艾云鹤</em><i class="fffline"></i></a>
+                </li>
+                <li class="del-add">
+                    <a href="javascript:void(0)"><img src="../images/all-members.png"><em>选择</em></a>
+                    <div class="adddiv1">
+                        <div class=" overy clearfix">
+                            <div class="clear"></div>
+                            <ul class="staff-ul bortop" style="height:253px">
+                                <li>
+                                    <a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2016/06big/fe3e284cd8fb4c9c999bac0dd7fa1c76_myHeaderImage.png" memberid="2624A4F332F64B16A1469ED2D97DE406" realname="云客小助手"><img src="http://yunkecn.com/fileupload/fileupload/2016/06big/fe3e284cd8fb4c9c999bac0dd7fa1c76_myHeaderImage.png"><span>云客小助手</span><i class="right-icon"></i></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2016/08big/4b3bfc243b5b4ed1bc2650b25e29fa76_head.jpg" memberid="C94DB37A3A7A463E8FCF6D58246136E4" realname="王佳印"><img src="http://yunkecn.com/fileupload/fileupload/2016/08big/4b3bfc243b5b4ed1bc2650b25e29fa76_head.jpg"><span>王佳印</span><i class="right-icon"></i></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2015/09big/122437bc40b84e2eb10ac1756a3d6159_myHeaderImage.png" memberid="E30C6E5B007149BA9F86CA32131C9014" realname="刘小鱼"><img src="http://yunkecn.com/fileupload/fileupload/2015/09big/122437bc40b84e2eb10ac1756a3d6159_myHeaderImage.png"><span>刘小鱼</span><i class="right-icon"></i></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2016/06big/59ecb3e0362a4f249d56b56fbac8ea38_iOS.png" memberid="F53C03BC582142808F809C5D32516E70" realname="田格非" class="current"><img src="http://yunkecn.com/fileupload/fileupload/2016/06big/59ecb3e0362a4f249d56b56fbac8ea38_iOS.png"><span>田格非</span><i class="right-icon"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="addBut" type="button">确定</button>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="tip">
+        *您已选择1000条线索。短信费0.08元/条，共计80元
+    </div>
+    <input type="button" class="btn" value="提交" id="">
+</div>
+
+<script>
+
+	//关闭弹框
+	function layerClose (obj) {
+		$(obj).hide();
+		$(".layer").hide();
+	}
+
+	function filterShow () {
+		$("#filterShow").show();
+		$(".layer").show();
+	}
+
+	$(function () {
+		$(".customer").height($(window).height() - $(".customer").offset().top - 80);
+		$(".customer").css({
+			"overflow": "auto"
+		});
+		$(".hover-text").hover(function () {
+			$(".hover-wrap").html($(this).data().html);
+			$(".hover-wrap").show();
+			var top = $(this).offset().top - $(".contents").offset().top;
+			if (top + $(".hover-wrap").outerHeight() > $(".contents").offset().top + $(".contents").height()) {
+				top = top - $(".hover-wrap").outerHeight() + $(this).outerHeight();
+			}
+			var left = $(this).offset().left - $(".contents").offset().left + $(this).outerWidth();
+			if (left + $(".hover-wrap").outerWidth() > $(".contents").offset().left + $(".contents").width()) {
+				left = left - $(".hover-wrap").outerWidth() - $(this).outerWidth();
+			}
+			$(".hover-wrap").css({top: top, left: left});
+		}, function () {
+			$(".hover-wrap").hide();
+		})
+	});
+</script>
+</body>
+
+</html>

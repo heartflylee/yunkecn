@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>团队首页</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="../css/head.css" />
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <link href="../css/hDate.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/hDate.js"></script>
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+
+    <script src="../js/swiper.js"></script>
+    <link rel="stylesheet" href="../css/swiper.css">
+
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/audio.js"></script>
+
+    <script type="text/javascript" src="../js/echarts1.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../css/zTreeStyle.css">
+    <script src="../js/jquery.ztree.core.js"></script>
+    <!--<script src="../js/jquery.ztree.excheck.js"></script>-->
+    <script src="../js/jquery.ztree.exedit.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=YxrpSNq6119f9xGsRh4Q5f0a5qgy3k00"></script>
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/lodash.min.js"></script>
+
+    <link rel="stylesheet" href="../css/range.css" />
+    <link rel="stylesheet" href="../css/appstatistics.css">
+
+    <script src="../js/range.js"></script>
+    <script src="../js/phoneStatistics.js"></script>
+</head>
+
+<body>
+    <!--  -->
+    <div class="fixed-right">
+        <ul class="fixed-list">
+            <li class="fixed-li">
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes" title="客服">
+                    <i class="fixed-icon icon-service"></i>
+                </a>
+            </li>
+            <li class="fixed-li">
+                <i class="fixed-icon icon-code"></i>
+                <div class="fixed-box">
+                    <div class="code"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 页面遮罩层 layer -->
+    <div class="layer"></div>
+    <!-- 页面头部 header -->
+    <div class="header">
+        <h1 class="logo fl"></h1>
+        <span class="mar fl">|</span>
+        <span class="fl">
+            <em>团队版</em>[
+            <a href="">点击切换</a>]</span>
+        <ul class="nav">
+            <li>
+                <a href="indexnew2.html" class="current">首页</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="">行动</a>-->
+            <!--</li>-->
+            <li>
+                <a href="customer1.html">客户</a>
+            </li>
+            <li>
+                <a href="download.html">线索</a>
+            </li>
+            <li>
+                <a href="task.html">任务</a>
+            </li>
+            <li>
+                <a href="settings.html" id="top-setting">设置</a>
+            </li>
+        </ul>
+        <ul class="header-right fr">
+            <!-- <li>
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">
+                    <i class="qq"></i>
+                    <div class="service">在线客服</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="add"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="update"></i>
+                </a>
+            </li> -->
+            <li>
+                <a href="javascript:;">
+                    <i class="message"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="user">
+                    <img src="../images/a-1.png" />
+                    <div class="arrow"></div>
+                </a>
+                <div class="quit_down">
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-customer"></div>
+                            客户
+                        </a>
+                    </div>
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-help"></div>
+                            使用说明
+                        </a>
+                    </div>
+
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-exit"></div>
+                            </i>
+                            退出登录
+                        </a>
+                    </div>
+            </li>
+        </ul>
+        </div>
+        <!-- 汇总提示 tipArea -->
+        <div class="tipArea">
+            <div class="wrap">
+                <div class="count_f">
+                    <span class="span-1">数据统计</span>
+                    <span class="span-1 current">手机统计</span>
+                    <span class="span-1">签到统计</span>
+                </div>
+            </div>
+        </div>
+        <!-- 内容部分 contents -->
+        <div class="contents phone-statistics" id="main" v-cloak>
+            <!-- 左侧 -->
+            <div class="leftPage fl">
+                <div class="leftContentBox">
+                    <div class="tlt">选择组员</div>
+                    <div class="indexTree">
+                        <ul id="tree" class="ztree department-tree"></ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧 -->
+            <div class="rightPage">
+                <!-- 本周 -->
+                <div class="contentsbox" style="display:block">
+                    <div class="tag-box">
+                        <div class="tags-li active">
+                            <a href="phoneStatistics.html">销售地图</a>
+                        </div>
+                        <div class="tags-li">
+                            <a href="salesDetail.html">设备统计</a>
+                        </div>
+                    </div>
+                    <div class="phone-Bmap">
+                        <div class="map-search">
+                            <div class="search-input">
+                                <!-- <div class="time-search">
+                                    <label class="time-search-name">
+                                        日期选择：
+                                    </label>
+                                    <div class="input-time">
+                                        <input type="text" class="input" id="timetext" v-model="date" />
+                                        <i class="icon-time"></i>
+                                    </div>
+                                </div> -->
+                                <div class="time-search">
+                                    <label class="time-search-name">时间选择：</label>
+                                    <div class="range" id="range-box">
+                                        <input type="hidden" id="range">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Bmap-box">
+                            <div class="map" id="map">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /本周 -->
+            </div>
+        </div>
+
+        <script>
+
+            // var ip = 'http://123.57.222.150:8083/com.yunke_pc.v2/';
+            var ip = '/proxy/com.yunke_pc.v2/';
+
+            //自定义覆盖点
+            function mapSetOverlay(id, point, num, name, nerworkState, mileage, duration, address, wechatNo) {
+                this._wechatNo = wechatNo;
+                this._id = id;
+                this._point = point;
+                this._num = num;
+                this._name = name;
+                this._networkState = nerworkState;
+                this._mileage = mileage;
+                this._duration = duration;
+                this._address = address;
+            }
+            mapSetOverlay.prototype = new BMap.Overlay();
+            mapSetOverlay.prototype.initialize = function (map) {
+                var _self = this;
+                _self._map = map;
+                var div = _self._div = document.createElement('div');
+                div.className = 'Bmap-point';
+                div.id = 'Bmap-point-' + _self._id;
+                div.setAttribute('data-id', _self._id);
+                div.setAttribute('data-wechatNo', _self._wechatNo);
+                var span = document.createElement('span');
+
+                if (_self._name.length > 0) {
+                    if ((/[a-zA-Z]/).test(_self._name[0])) {
+                        span.innerHTML = _self._name.substr(0, 3);
+                    } else {
+                        span.innerHTML = _self._name.substr(0, 1);
+                    }
+                }
+                span.className = 'Bmap-point-num';
+                div.appendChild(span);
+                var label = document.createElement('div');
+                label.className = 'Bmap-point-box';
+                var hour = parseInt(this._duration / 60) > 0 ? parseInt(this._duration / 60) + "小时" : '';
+                var minute = parseInt(this._duration % 60) > 0 ? parseInt(this._duration % 60) + "分" : '';
+                if (_self._address == undefined) {
+                    var geoc = new BMap.Geocoder();
+                    geoc.getLocation(_self._point, function (rs) {
+                        label.innerHTML = '<div class="Bmap-point-name">' + _self._name + '</div>' +
+                            '<div>网络状态：' + (_self._networkState == 1 ? '在线' : '离线') + '</div>' +
+                            '<div>地址：' + rs.address + '</div>' +
+                            '<div>停留时间：' + hour + minute + '</div>' +
+                            '<div>总里程：' + _self._mileage + '米</div>';
+                    });
+                } else {
+                    label.innerHTML = '<div class="Bmap-point-name">' + _self._name + '</div>' +
+                        // '<div>网络状态：' + _self._networkState + '</div>' +
+                        '<div>网络状态：' + (_self._networkState == 1 ? '在线' : '离线') + '</div>' +
+                        '<div>地址：' + _self._address + '</div>' +
+                        '<div>停留时间：' + hour + minute + '</div>' +
+                        '<div>总里程：' + _self._mileage + '米</div>';
+                }
+                div.appendChild(label);
+                map.getPanes().labelPane.appendChild(div);
+                return div;
+            }
+            mapSetOverlay.prototype.draw = function () {
+                var map1 = this._map;
+                var pixel = map1.pointToOverlayPixel(this._point);
+                this._div.style.left = pixel.x - 15 + "px";
+                this._div.style.top = pixel.y - 15 + "px";
+            }
+
+
+
+            var map, pointArr
+                // ,pointArray
+                ;
+            var vm = new Vue({
+                el: "#main",
+                data: {
+                    points: [],
+                    data: [],
+                    date: (new Date()).Format('yyyy-MM-dd'),
+                    departId: '',
+                    mileage: [],
+                    range: ''
+                },
+                methods: {
+                    getPoints: function (time) {
+                        var _self = this;
+                        _self.$data.points = [];
+                        var points = _self.$data.mileage;
+                        for (var i = 0; i < points.length; i++) {
+                            if (points[i].point.length > 0) {
+                                console.log(points[i]);
+                                console.log(_self.$data.date + ' ' + time);
+                                var index = _.findLastIndex(points[i].point, function (o) { return (new Date(o.end) <= new Date(_self.$data.date + ' ' + time)) });
+                                console.log(index);
+                                if (index >= 0) {
+                                    var point = points[i].point[index];
+                                    point['name'] = points[i].name;
+                                    _self.$data.points.push(point);
+                                }
+                            }
+                        }
+                        _self.createPoints();
+                    },
+                    getData: function (departId) {
+                        var _self = this;
+                        if (departId != undefined) {
+                            _self.$data.departId = departId;
+                        }
+
+                        _self.$data.mileage = [];
+                        _self.$data.points = [];
+                        $.post(ip + "appstatistics/newmap", {
+                            departmentId: _self.$data.departId,
+                            time: _self.$data.date
+                            // time: '2018-06-20'
+                        }, function (data) {
+                            console.log(data);
+                            if (data) {
+                                _self.$data.data = data;
+
+                                for (person in data) {
+                                    setPoints(_self, data[person], person);
+                                }
+                                _self.getPoints(_self.$data.range);
+                            }
+                        });
+                    },
+                    createPoints: function () {
+                        map.clearOverlays();//清空地图上标注点
+                        var _self = this;
+                        pointArr = [];
+                        for (var index = 0; index < _self.$data.points.length; index++) {
+                            var point = new BMap.Point(_self.$data.points[index].lng, _self.$data.points[index].lat);
+                            pointArr.push(point);
+                            var div = new mapSetOverlay(_self.$data.points[index].userId, point, (index + 1), _self.$data.points[index].name, _self.$data.points[index].useState, _self.$data.points[index].mileage, _self.$data.points[index].duration, _self.$data.points[index].address, _self.$data.points[index].wechatNo);
+                            map.addOverlay(div);
+                        }
+                        mapCenter();
+                    }
+                },
+                mounted: function () {
+                    var _self = this;
+                    $.post(ip + "/home/postlogin", {
+                        uid: '13611126225',
+                        pwd: 'qqqqqq'
+                    }, function (data) {
+                    });
+                    creatMap();
+                    _self.getData();
+                },
+                watch: {
+                    date: function (val) {
+                        this.getData();
+                    },
+                    range: function (val) {
+                        var _self = this;
+                        _self.$data.mileage = [];
+                        _self.$data.points = [];
+                        for (person in _self.$data.data) {
+                            setPoints(_self, _self.$data.data[person], person, val);
+                        }
+                        this.getPoints(val);
+                    }
+                }
+
+            });
+
+
+            //初始化地图
+            function creatMap() {
+                map = new BMap.Map("map", { enableMapClick: false }); //初始化地图
+                map.centerAndZoom(new BMap.Point(116.404, 39.915), 15); //地图显示位置
+                map.enableDragging();  //拖拽
+                map.enableScrollWheelZoom();//滚轮改变大小
+                var navigationControl = new BMap.NavigationControl();
+                map.addControl(navigationControl);
+            }
+
+            // //地图居中
+            function mapCenter() {
+                setTimeout(function () {
+                    map.setViewport(pointArr, { margins: [140, 80, 20, 80] });
+                }, 50);
+            }
+
+            $(function () {
+
+                $("body").on('click', '.Bmap-point', function () {
+                    window.location.href = "phoneStatisticsLine.html?id=" + $(this).data().id + "&&date=" + vm.$data.date + "&&wechatId=" + $(this).data().wechatno;
+                });
+
+                $("#timetext").click(function (e) {
+                    var maxday_1 = (new Date()).toString("yyyy-MM-dd");
+                    var ths = this;
+                    calendar.show({
+                        id: this,
+                        maxDay: maxday_1.toString("yyyy-MM-dd"),
+                        ok: function () {
+                            var date = $("#timetext").val();
+                            $("#timetext")[0].dispatchEvent(new Event('input'));
+                            var now = new Date();
+                            if (date == now.format('yyyy-MM-dd')) {
+                                var length = parseInt(now.getHours()) * 2;
+                                if (parseInt(now.getMinutes()) >= 30) {
+                                    length += 1;
+                                }
+                                range(length);
+                            } else {
+                                range();
+                            }
+                        }
+                    });
+                });
+                $("#timetext + .icon-time").click(function (e) {
+                    e.stopPropagation();
+                    var maxday_1 = (new Date()).toString("yyyy-MM-dd");
+                    calendar.show({
+                        id: $(this).prev()[0],
+                        maxDay: maxday_1.toString("yyyy-MM-dd"),
+                        ok: function () {
+                            var date = $("#timetext").val();
+                            $("#timetext")[0].dispatchEvent(new Event('input'));
+                            var now = new Date();
+                            if (date == now.format('yyyy-MM-dd')) {
+                                var length = parseInt(now.getHours()) * 2;
+                                if (parseInt(now.getMinutes()) >= 30) {
+                                    length += 1;
+                                }
+                                range(length);
+                            } else {
+                                range();
+                            }
+                        }
+                    });
+                });
+
+                var date = new Date();
+                var length = parseInt(date.getHours()) * 2;
+                if (parseInt(date.getMinutes()) >= 30) {
+                    length += 1;
+                }
+                $("#timetext").val((new Date()).format('yyyy-MM-dd'));
+                range(length);
+            });
+
+            function range(time) {
+                if (!time) {
+                    time = 48;
+                }
+
+                var dayArr = [];
+                dayArr.push('00:00');
+
+                if (time % 2 == 0) {
+                    dayArr.push(parseInt(time / 2) + ':00');
+                } else {
+                    dayArr.push(parseInt(time / 2) + ':30');
+                }
+
+                $('#range-box').children().remove();
+                var div = '<input type="hidden" class="single-slider none" id="range">';
+                $('#range-box').html(div)
+                $('#range').val(time);
+                $('#range').jRange({
+                    from: 0,
+                    to: time,
+                    isRange: false,
+                    step: 1,
+                    scale: dayArr,
+                    format: function (value) {
+                        if (value % 2 == 0) {
+                            vm.$data.range = parseInt(value / 2) + ':00';
+                            return (parseInt(value / 2) + ':00');
+                        } else {
+                            vm.$data.range = parseInt(value / 2) + ':30';
+                            return (parseInt(value / 2) + ':30');
+                        }
+                    },
+                    width: '100%',
+                    showLabels: true,
+                    showScale: true,
+                    snap: false
+                });
+            }
+
+        </script>
+
+        <script>
+            var setting = {
+                view: {
+                    addDiyDom: addDiyDom,
+                    selectedMulti: false,
+                    showIcon: false,
+                    fontCss: { 'font-weight': 'bold' }
+                },
+                check: {
+                    enable: false
+                },
+                data: {
+                    simpleData: {
+                        enable: true
+                    }
+                },
+                callback: {
+                    onMouseDown: onMouseDown
+                }
+            }
+
+            function addDiyDom(event, treeNode) {
+                if (treeNode.flag != undefined && treeNode.flag == 'user') {
+                    var aObj = $("#" + treeNode.tId + "_a");
+                    aObj.addClass('staff__user');
+                }
+            }
+
+            //选择部门
+            function onMouseDown(event, treeId, treeNode) {
+                //选中部门
+                console.log(treeNode);
+                if (treeNode != null && treeNode != undefined && treeNode.flag == 'department') {
+                    vm.getData(treeNode.id);
+                }
+                if (treeNode != null && treeNode != undefined && treeNode.flag == 'user') {
+                    window.location.href = "phoneStatisticsLine.html?id=" + treeNode.id + "&&date=" + vm.$data.date + "&&wechatId=" + treeNode.wechatNo;
+                }
+            }
+            //默认设置树形结构
+            $(function () {
+                // $("#ztree")
+                $("#tree").css({ "max-height": $(window).height() - $("#tree").offset().top - 32, "overflow": "auto" });
+
+                $.post(ip + 'appstatistics/getDepartmentTreeNodeWithoutIcon', function (data) {
+                    console.log(data);
+                    $.fn.zTree.init($("#tree"), setting, data);
+                });
+            });
+
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>意向池</title>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../css/head.css"/>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+
+    <!--<script type="text/javascript" src="../js/audio.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.audio5js.js"></script>-->
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <script type="text/javascript" src="../js/highcharts.js"></script>
+    <!--<link rel="stylesheet" href="../css/jedate.css" />-->
+    <!--<link href="../css/hDate.css" rel="stylesheet" />-->
+    <!--<script type="text/javascript" src="../js/hDate.js"></script>-->
+    <script type="text/javascript" src="../js/jedate1/jedate.js"></script>
+    <!--<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js"></script>-->
+    <link rel="stylesheet" href="../css/ios6switch.css"/>
+    <script type="text/javascript" src="../js/ios6switch.min.js"></script>
+    <link rel="stylesheet" href="../css/select.css"/>
+    <script type="text/javascript" src="../js/jquery.select.js"></script>
+    <link rel="stylesheet" type="text/css" href="../js/kindeditor/themes/default/default.css"/>
+    <link rel="stylesheet" href="../js/kindeditor/plugins/code/prettify.css"/>
+    <script charset="utf-8" src="../js/kindeditor/kindeditor-all.js"></script>
+    <script charset="utf-8" src="../js/kindeditor/lang/zh-CN.js"></script>
+    <script charset="utf-8" src="../js/kindeditor/plugins/code/prettify.js"></script>
+
+    <script>
+        var editor1;
+        KindEditor.ready(function (K) {
+            editor1 = K.create('#e4', {
+                cssPath: '../js/kindeditor/plugins/code/prettify.css',
+                allowFileManager: true,
+                filterMode: false,
+                height: "150px",
+                width: "100%",
+                resizeMode: 0
+            });
+            prettyPrint();
+        });
+    </script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<div class="layer-6"></div>
+<div class="layer-3"></div>
+<!-- 页面头部 header -->
+<div class="header">
+    <h1 class="logo fl"></h1>
+    <span class="mar fl">|</span>
+    <span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+    <ul class="nav">
+        <li>
+            <a href="indexnew2.html">首页</a>
+        </li>
+        <!--<li>-->
+        <!--<a href="">行动</a>-->
+        <!--</li>-->
+        <li>
+            <a href="customer1.html" class="current">客户</a>
+        </li>
+        <li>
+            <a href="download.html">线索</a>
+        </li>
+        <li>
+            <a href="task.html">任务</a>
+        </li>
+        <li>
+            <a href="settings.html" id="top-setting">设置</a>
+        </li>
+    </ul>
+    <ul class="header-right fr">
+        <li>
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes"><i class="qq"></i>
+                <div class="service">在线客服</div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:guide1Show();"><i class="nav-tip"></i>
+                <div class="service">继续引导</div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;"><i class="update"></i></a>
+        </li>
+        <li class="active">
+            <a href="news.html">
+                <i class="message"></i>
+                <i class="message-tip">29</i>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" class="user">刘</a>
+        </li>
+    </ul>
+</div>
+<!-- 内容部分 contents -->
+<div class="contents">
+    <div class="table-tlt">
+        <a class="return-icon" href="customer1.html"></a>
+        <i class="i"></i>意向池 <a class="a addtask_btn" id="custom-header">自定义表头</a>
+        <div class="fr">
+            <span id=" "><b class="b5"></b>抢单历史</span>
+        </div>
+    </div>
+    <div class="customer">
+        <table class="table-list" id="table-list">
+            <thead>
+            <tr>
+                <th>客户姓名</th>
+                <th>手机号码</th>
+                <th>公司名称</th>
+                <th>职位</th>
+                <th>云电销通话时间</th>
+                <th>执行云电销</th>
+                <th>云电销沟通标签</th>
+                <th>通话录音</th>
+                <th>客户备注</th>
+                <th>客户状态</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #c1272d;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                    <a class="blue" href="javascript:telResult();"><i class="edit-call-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行,还可以</td>
+                <td>管理者指定</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行</td>
+                <td>待跟进</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行,还可以</td>
+                <td>管理者指定</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行</td>
+                <td>待跟进</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行,还可以</td>
+                <td>管理者指定</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行</td>
+                <td>待跟进</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行,还可以</td>
+                <td>管理者指定</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行</td>
+                <td>待跟进</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行,还可以</td>
+                <td>管理者指定</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行</td>
+                <td>待跟进</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行,还可以</td>
+                <td>管理者指定</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行</td>
+                <td>待跟进</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行,还可以</td>
+                <td>管理者指定</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行</td>
+                <td>待跟进</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行,还可以</td>
+                <td>管理者指定</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行</td>
+                <td>待跟进</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行,还可以</td>
+                <td>管理者指定</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行</td>
+                <td>待跟进</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行,还可以</td>
+                <td>管理者指定</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行</td>
+                <td>待跟进</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行,还可以</td>
+                <td>管理者指定</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行</td>
+                <td>待跟进</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行,还可以</td>
+                <td>管理者指定</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行</td>
+                <td>待跟进</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行,还可以</td>
+                <td>管理者指定</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行</td>
+                <td>待跟进</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行,还可以</td>
+                <td>管理者指定</td>
+            </tr>
+            <tr>
+                <td><span class="name" onclick="javascript:showdetail();"
+                          style="cursor: pointer;color: #4bc8b9;">刘宇</span></td>
+                <td>13300000000 &nbsp;&nbsp; <a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i></a>
+                </td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+                <td>还行</td>
+                <td>待跟进</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- 分页 -->
+    <p class="page-p">共20条</p>
+    <ul class="page-ul">
+        <li>
+            <<
+        </li>
+        <li>
+            <
+        </li>
+        <li> 1</li>
+        <li> 2</li>
+        <li class="page-d">...</li>
+        <li> 3</li>
+        <li> ></li>
+        <li>>></li>
+    </ul>
+</div>
+
+<!-- 客户详情 -->
+<div class="introLayerBox" id="introLayerBox">
+    <div class="tel-tlt">
+        <i class="i"></i> 客户详情
+        <div class="time_btn">
+            <label class="time_modify"><i></i>编辑</label>
+            <label class="time_save">保存</label>
+        </div>
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <p class="p-infro"><i class="i-user"></i><em>王佳印</em><span class="time_name">姓名：<input type="text"
+                                                                                           class="time_name_input"
+                                                                                           value="王佳印"/></span><b>总经理</b><span
+            class="time_marjor">职位：<b></b><input type="text" class="time_marjor_input" value="总经理"/></span>
+        <span class="infro-tab infro-tab4">二次外呼</span>
+    </p>
+    <p class="p-infro"><i class="i-telphone"></i>手机号码：<b><input type="text" class="modify_input" readonly="readonly"
+                                                                value="13601129728"/></b></p>
+    <p class="p-infro"><i class="i-company"></i>公司名称：<b><label class="com-dian"><span class=""></span></label><input
+            type="text" class="modify_input modify-com" readonly="readonly" value="北京联云天下科技有限公司"/></b></p>
+    <div class="time-com-f">
+        <div class="com_info">北京联云天下科技有限公司</div>
+        <div class="com_info">北京联云天下科技有限公司</div>
+        <div class="com_info">北京联云天下科技有限公司</div>
+    </div>
+    <ul class="introTab fl" id="introTab">
+        <li>
+            <a href="javascript:;" class="current">时间轴</a>
+        </li>
+        <li>
+            <a href="javascript:;">详细信息</a>
+        </li>
+    </ul>
+    <div class="clear"></div>
+    <div id="timelinediv" class="introContent" style="display: block">
+        <div class='tlt-time'>02-06 星期一</div>
+        <dl class='timeBase-dl'>
+            <dt>
+                11:32
+                <span>上午</span>
+                <i class='i-t-out'></i>
+            </dt>
+            <dd>
+                <div class='span-2'>
+							<span class="enter">
+								136011129728
+							</span>
+                    进行电话沟通
+                </div>
+                <span class='span-3'>
+							<em>通话录音：</em>
+							<span class='audio_f'>
+								<label cusname='' cuscompany=''
+                                       url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                       class='play mgr5 audio' title='点击播放'></label>
+								0' 15"
+							</span>
+						</span>
+                <span class='span-3'>
+							<em>电话备注： </em>
+							<span>
+									张总你好张总你好张总你好张总你好张总你好张总你好
+							</span>
+						</span>
+            </dd>
+        </dl>
+        <dl class='timeBase-dl'>
+            <dt>
+                11:32
+                <span>上午</span>
+                <i class='i-t-in'></i>
+            </dt>
+            <dd>
+                <div class='span-2'>呼入电话</div>
+                <span class='span-3'>
+							<em>接听人： </em>
+							<span class='mg125'>刘宇</span>
+						</span>
+                <span class='span-3'><em>通话录音 ：  </em>
+							<span class='audio_f'><label cusname='' cuscompany=''
+                                                         url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                         class='play mgr5 audio' title='点击播放'></label>0' 15"</span>
+						</span>
+                <span class='span-3'>
+							<em>电话备注： </em>
+							<span>公交卡</span>
+						</span>
+            </dd>
+        </dl>
+        <div class="tlt-time">05-06 Fri</div>
+        <dl class="timeBase-dl">
+            <dt>
+                15:46
+                <span>PM</span>
+                <i class="i-b"></i>
+            </dt>
+            <dd>
+                <div class="span-2">
+                    <span>刘宇</span>
+                    添加客户备注
+                </div>
+                <span class="span-3">
+							<em>备注：</em>
+							<span>
+								备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注
+							</span>
+						</span>
+            </dd>
+        </dl>
+        <dl class="timeBase-dl">
+            <dt>
+                15:46
+                <span>PM</span>
+                <i class="i-b"></i>
+            </dt>
+            <dd>
+                <div class="span-2">
+                    <span>刘宇</span>
+                    修改了客户信息
+                </div>
+                <span class="span-3">
+							<span class="change-before">"销售进度：初步沟通"</span>
+							修改为
+							<span class="change-after">"销售进度：确认报价"</span>
+						</span>
+            </dd>
+        </dl>
+        <dl class="timeBase-dl">
+            <dt>
+                15:46
+                <span>PM</span>
+                <i class="i-m"></i>
+            </dt>
+            <dd>
+                <div class="span-2">
+                    <span class="enter">刘晓辉</span>
+                    发送挂机短信
+                </div>
+                <span class="span-3">
+							<em>发送状态：</em>
+							<span class="line-status">发送成功</span>
+						</span>
+                <span class="span-3">
+							<em>短信标题：</em>
+							<span>拉新短信0502</span>
+						</span>
+                <span class="span-3">
+							<em>短信内容：</em>
+							<span>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</span>
+						</span>
+            </dd>
+        </dl>
+        <dl class="timeBase-dl">
+            <dt>
+                15:46
+                <span>PM</span>
+                <i class="i-m"></i>
+            </dt>
+            <dd>
+                <div class="span-2">
+                    <span>刘晓辉</span>
+                    发送短信
+                </div>
+                <span class="span-3">
+							<em>发送状态：</em>
+							<span class="line-status">发送成功</span>
+						</span>
+                <span class="span-3">
+							<em>发送内容：</em>
+							<span>内容内容内容内容内容内容内容内容内容内容内容内容</span>
+						</span>
+            </dd>
+        </dl>
+
+        <dl class="timeBase-dl">
+            <dt>
+                15:46
+                <span>PM</span>
+                <i class="i-b"></i>
+            </dt>
+            <dd>
+                <div class="span-2">
+                    <span>刘宇</span>
+                    添加客户
+                </div>
+            </dd>
+        </dl>
+        <dl class="timeBase-dl">
+            <dt>
+                15:46
+                <span>PM</span>
+                <i class="i-b"></i>
+            </dt>
+            <dd>
+                <div class="span-2">
+                    <span>刘宇</span>
+                    修改了客户信息
+                </div>
+                <span class="span-3">
+							<span class="change-before">"公司名称：北京联云"</span>
+							修改为
+							<span class="change-after">"公司名称：北京联云天下科技有限公司"</span>
+						</span>
+                <span class="span-3">
+							<span class="change-before">"职位：销售"</span>
+							修改为
+							<span class="change-after">"职位：切图师傅"</span>
+						</span>
+            </dd>
+        </dl>
+        <dl class="timeBase-dl">
+            <dt>
+                15:46
+                <span>PM</span>
+                <i class="i-m"></i>
+            </dt>
+            <dd>
+                <div class="span-2">
+                    <span class="enter">刘晓辉</span>
+                    收到一条短信
+                </div>
+                <span class="span-3">
+							<em>短信内容：</em>
+							<span>内容内容内容内容内容内容内容内容</span>
+						</span>
+            </dd>
+        </dl>
+        <dl class="timeBase-dl">
+            <dt>
+                15:46
+                <span>PM</span>
+                <i class="i-t"></i>
+            </dt>
+            <dd>
+                <div class="span-2">
+                    <span class="enter">刘晓辉</span>
+                    未接来电
+                </div>
+            </dd>
+        </dl>
+        <dl class="timeBase-dl">
+            <dt>
+                15:43
+                <span>PM</span>
+                <i class="i-c"></i>
+            </dt>
+            <dd>
+                <div class="span-2">变更跟进人</div>
+                <span class="span-3">
+							<div>变更前</div>
+							<em>跟进人：</em>
+							<span>刘晓辉</span>
+						</span>
+                <span class="span-3">
+							<div>变更后</div>
+							<em>跟进人：</em>
+							<span>刘宇</span>
+						</span>
+            </dd>
+        </dl>
+        <dl class="timeBase-dl">
+            <dt>
+                15:43
+                <span>PM</span>
+                <i class="i-m"></i>
+            </dt>
+            <dd>
+                <div class="span-2">
+                    群发邮件
+                </div>
+                <span class="span-3">
+							<em>邮件标题：</em>
+							<span>拉新邮件0502</span>
+						</span>
+            </dd>
+        </dl>
+        <dl class="timeBase-dl">
+            <dt>
+                15:43
+                <span>PM</span>
+                <i class="i-m"></i>
+            </dt>
+            <dd>
+                <div class="span-2">
+                    <span class="enter">刘晓辉</span>
+                    发送邮件
+                </div>
+                <span class="span-3">
+							<em>邮件标题：</em>
+							<span>拉新邮件0502</span>
+						</span>
+            </dd>
+        </dl>
+        <dl class="timeBase-dl">
+            <dt>
+                15:43
+                <span>PM</span>
+                <i class="i-t"></i>
+            </dt>
+            <dd>
+                <div class="span-2">
+                    <span>刘宇</span>
+                    未接来电
+                </div>
+            </dd>
+        </dl>
+        <dl class="timeBase-dl">
+            <dt>
+                15:43
+                <span>PM</span>
+                <i class="i-d"></i>
+            </dt>
+            <dd>
+                <div class="span-2">
+                    <span>刘宇</span>
+                    删除此客户
+                </div>
+            </dd>
+        </dl>
+        <dl class="timeBase-dl">
+            <dt>
+                15:43
+                <span>PM</span>
+                <i class="i-m"></i>
+            </dt>
+            <dd>
+                <div class="span-2">
+                    群发短信
+                </div>
+                <span class="span-3">
+							<em>发送状态：</em>
+							<span class="line-status">发送成功</span>
+						</span>
+                <span class="span-3">
+							<em>短信标题：</em>
+							<span>拉新短信0502</span>
+						</span>
+                <span class="span-3">
+							<em>短信内容：</em>
+							<span>内容内容内容内容内容内容内容内容</span>
+						</span>
+            </dd>
+        </dl>
+    </div>
+    <div class="introContent">
+
+        <div class="message-list">
+            <div class="message-title">
+                跟进信息
+            </div>
+
+            <dl class="time_li clearfix">
+                <dt>客户备注：</dt>
+                <dd><textarea readonly="readonly">收集了企业端客户的基本使用资料</textarea></dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>跟进人:</dt>
+                <dd>刘宇</dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>创建时间:</dt>
+                <dd>2017-02-27</dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>销售进度:</dt>
+                <dd>
+                    <input type="text" value="初步沟通" class="select_t" readonly="readonly"/>
+                    <select class="select_c">
+                        <option>请选择销售进度</option>
+                        <option>初步沟通</option>
+                        <option>确认需求</option>
+                        <option>确认报价</option>
+                        <option>拟定合同</option>
+                        <option>成单</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>电话标签:</dt>
+                <dd>
+                    <input type="text" value="有意向-加微信" class="select_t" readonly="readonly"/>
+                    <select class="select_c">
+                        <option>请选择电话标签</option>
+                        <option>有意向-发短信</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>录入人2:</dt>
+                <dd><input type="text" value="刘晓辉" readonly="readonly"/></dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>录入人3:</dt>
+                <dd><input type="text" value="陈博" readonly="readonly"/></dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>录入人4:</dt>
+                <dd><input type="text" value="王克杰" readonly="readonly"/></dd>
+            </dl>
+        </div>
+
+        <div class="message-list">
+            <div class="message-title">
+                个人信息
+            </div>
+
+            <dl class="time_li clearfix">
+                <dt>邮箱地址:</dt>
+                <dd><input type="text" value="382087754@qq.com" readonly="readonly"/></dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>QQ:</dt>
+                <dd><input type="text" value="382087754" readonly="readonly"/></dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>微信:</dt>
+                <dd><input type="text" readonly="readonly" value="13601129728"/></dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>手机号码2：</dt>
+                <dd><input type="text" value="13601129728" readonly="readonly"/></dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>性别：</dt>
+                <dd>
+                    <select class="select_c">
+                        <option value="">请选择性别</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>生日:</dt>
+                <dd><input type="text" readonly="readonly" value="1984年12月13日"/></dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>座机号码:</dt>
+                <dd><input type="text" readonly="readonly" value="010-55555555"/></dd>
+            </dl>
+
+            <dl class="time_li clearfix">
+                <dt>传真号码:</dt>
+                <dd><input type="text" readonly="readonly" value="010-55555555"/></dd>
+            </dl>
+        </div>
+
+        <div class="message-list">
+            <div class="message-title">
+                公司信息
+            </div>
+            <dl class="time_li clearfix">
+                <dt>公司地址:</dt>
+                <dd><textarea readonly="readonly">北京市朝阳区建外soho西区12号楼2704</textarea></dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>公司类型:</dt>
+                <dd>
+                    <input type="text" value="私营企业" class="select_t" readonly="readonly"/>
+                    <select class="select_c">
+                        <option>请选择公司类型</option>
+                        <option>私营企业</option>
+                        <option>国有企业</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>经营范围:</dt>
+                <dd><textarea readonly="readonly">爬行垫；安全座椅；画板；</textarea></dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>企业法人:</dt>
+                <dd><input type="text" readonly="readonly" value="刘晓红"/></dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>注册资本:</dt>
+                <dd><input type="text" readonly="readonly" value="100万人民币"/></dd>
+            </dl>
+            <dl class="time_li clearfix">
+                <dt>前台号码:</dt>
+                <dd><input type="text" readonly="readonly" value="010-55555555"/></dd>
+            </dl>
+
+        </div>
+
+
+    </div>
+</div>
+<!-- 自定义表头 customHeader -->
+<div class="customHeaderBox" id="customHeaderBox">
+    <div class="tlt"><i></i>自定义表头
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <div class="ctdivbox marleft20 fl">
+        <em>隐藏字段</em>
+        <div class="ctchooseBox" id="hiddenField">
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+    <i class="remove-icon" id="removeBtn"></i>
+    <i class="add-icon" id="addBtn"></i>
+    <div class="ctdivbox marright40 fr">
+        <em>显示字段</em>
+        <div class="ctchooseBox" id="showField">
+            <ul>
+                <li>客户姓名</li>
+                <li>手机号码</li>
+                <li>公司名称</li>
+                <li>职位</li>
+                <li>云电销通话时间</li>
+                <li>执行云电销</li>
+                <li>云电销沟通标签</li>
+                <li>通话录音</li>
+                <li>指定销售</li>
+                <li>未跟进时间</li>
+                <li>客户备注</li>
+            </ul>
+        </div>
+    </div>
+    <!--<i class="up-icon" id="upBtn"></i>-->
+    <!--<i class="down-icon" id="downBtn"></i>-->
+    <input type="button" class="btn" value="提交" id="customBtn">
+</div>
+<!--该客户已被跟进-->
+
+<div class="changer-box" id="follow">
+    <div class="tlt"><i></i>抢单失败
+        <a href="javascript:closeFollow();" class="a-closed"></a>
+    </div>
+    <div class="group-t">
+        该客户已被跟进
+    </div>
+    <input type="submit" class="btn" onclick ="closeFollow()" value="确定">
+</div>
+
+<!--已沟通未标记-->
+<div class="changer-box" id="distribution">
+    <div class="tlt"><i></i>抢单失败
+        <a href="javascript:closedistribution();" class="a-closed"></a>
+    </div>
+    <div class="group-t">
+        您有已沟通未标记的数据，请点击<i class="edit-call"></i>进行标记
+    </div>
+    <input type="submit" class="btn" onclick ="closedistribution()" value="确定">
+</div>
+<!-- 拨打电话弹层 -->
+<div class="telLayerBox">
+    <div class="tel-tlt">
+        <i class="i"></i> 拨打电话
+        <div class="fr">
+            <a class="edit-1" id="saveBtn_call">保存</a>
+            <a href="javascript:;" class="edit-1" id="tel-edit"><i class="i-1"></i>编辑</a>
+            <!--<a href="javascript:;" class="add-1" id="tel-add"><i class="i-2"></i>补充资料</a>-->
+            <a href="javascript:;" class="add-1" id="add_customer"><i class="i-3"></i>新建客户</a>
+        </div>
+    </div>
+    <div class="contextBox">
+        <dl class="item-1">
+            <dt>客户姓名：</dt>
+            <dd><input type="text" id="e_customerName" value="客户姓名" readonly="readonly"/>
+                <input type="hidden" value="" id="hidcustId" readonly="readonly"/>
+            </dd>
+        </dl>
+        <dl class="item-1">
+            <dt>手机号：</dt>
+            <dd><input type="text" id="e_phone" value="13111111111" readonly="readonly"/></dd>
+        </dl>
+    </div>
+    <div class="contextBox">
+        <dl class="item-2">
+            <dt>公司名称：</dt>
+            <dd><input type="text" id="e_comName" value="北京联云天下科技有限公司" readonly="readonly"/>
+                <div class="call-com-f">
+                    <div class="com_info">北京联云天下科技有限公司</div>
+                    <div class="com_info">北京联云天下科技有限公司</div>
+                    <div class="com_info">北京联云天下科技有限公司</div>
+                </div>
+            </dd>
+        </dl>
+    </div>
+    <div class="contextBox">
+        <dl class="item-1">
+            <dt>客户姓名：</dt>
+            <dd><input type="text" value="客户姓名" readonly="readonly"/></dd>
+        </dl>
+        <dl class="item-1">
+            <dt>职　　位：</dt>
+            <dd><input type="text" value="客户姓名" readonly="readonly"/></dd>
+        </dl>
+    </div>
+    <div class="contextBox">
+        <dl class="item-1">
+            <dt>销售地址：</dt>
+            <dd><input type="text" class="address_input" value="请选择销售地址5" readonly="readonly"/>
+                <select class="address_sel">
+                    <option>请选择销售地址</option>
+                    <option>请选择销售地址1</option>
+                    <option>请选择销售地址2</option>
+                    <option>请选择销售地址3</option>
+                    <option>请选择销售地址4</option>
+                </select>
+            </dd>
+        </dl>
+        <!--<script>
+            $(function(){
+                $(".address_sel option").removeAttr("selected");
+                $(".address_sel option").each(function(){
+                    if($(this).text()==$(".address_input").val()){
+                        $(this).attr("selected","selected");
+                    }
+                })
+            })
+        </script>-->
+        <dl class="item-1">
+            <dt>微　　信：</dt>
+            <dd><input type="text" value="客户姓名" readonly="readonly"/></dd>
+        </dl>
+    </div>
+    <div class="contextBox">
+        <dl class="item-2">
+            <dt>经营范围：</dt>
+            <dd><textarea
+                    readonly="readonly">谷朊粉、小麦面筋粉、面粉、发达面粉、北郎中面粉、仁和久盛、古船面粉、五得利、面粉、1Kg7+1营养粉、5kg饺子、5kg雪花、10kg面粉</textarea>
+            </dd>
+        </dl>
+    </div>
+    <div class="contextBox">
+        <dl class="item-2">
+            <dt>备　　注：</dt>
+            <dd><textarea
+                    readonly="readonly">谷朊粉、小麦面筋粉、面粉、发达面粉、北郎中面粉、仁和久盛、古船面粉、五得利、面粉、1Kg7+1营养粉、5kg饺子、5kg雪花、10kg面粉</textarea>
+            </dd>
+        </dl>
+    </div>
+    <div class="custome_show">
+        <div class="contextBox">
+            <dl class="item-1">
+                <dt>手机号码2：</dt>
+                <dd><input type="text" value="" id="e_phone2" readonly="readonly"/></dd>
+            </dl>
+            <dl class="item-1">
+                <dt>座机号码：</dt>
+                <dd><input type="text" value="" id="e_telephone" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <div class="contextBox">
+            <dl class="item-1">
+                <dt>QQ号码：</dt>
+                <dd><input type="text" value="" id="e_QQ" readonly="readonly"/></dd>
+            </dl>
+            <dl class="item-1">
+                <dt>生日：</dt>
+                <dd><input type="text" value="" id="e_birthday" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <div class="contextBox">
+            <dl class="item-1">
+                <dt>前台电话：</dt>
+                <dd><input type="text" value="" id="e_qiantai" readonly="readonly"/></dd>
+            </dl>
+            <dl class="item-1">
+                <dt>传真号码：</dt>
+                <dd><input type="text" value="" id="e_chuanzhen" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <div class="contextBox">
+            <dl class="item-2">
+                <dt>备用1：</dt>
+                <dd><input type="text" value="" id="e_spare1" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <div class="contextBox">
+            <dl class="item-2">
+                <dt>备用2：</dt>
+                <dd><input type="text" value="" id="e_spare2" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <div class="contextBox">
+            <dl class="item-2">
+                <dt>备用3：</dt>
+                <dd><input type="text" value="" id="e_spare3" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <div class="contextBox">
+            <dl class="item-2">
+                <dt>备用4：</dt>
+                <dd><input type="text" value="" id="e_spare4" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <div class="contextBox">
+            <dl class="item-2">
+                <dt>备用5：</dt>
+                <dd><input type="text" value="" id="e_spare5" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <!--<div class="contextBox not_editor first">
+            <dl class="item-2">
+                <dt>销售进度：</dt>
+                <dd>初步沟通</dd>
+            </dl>
+        </div>-->
+        <div class="contextBox not_editor first">
+            <dl class="item-2">
+                <dt>创建时间：</dt>
+                <dd>2016-05-19</dd>
+            </dl>
+        </div>
+        <div class="contextBox not_editor">
+            <dl class="item-2">
+                <dt>上次联系时间：</dt>
+                <dd>2016-05-19</dd>
+            </dl>
+        </div>
+        <div class="contextBox not_editor">
+            <dl class="item-2">
+                <dt>上次电话结果：</dt>
+                <dd>继续跟进</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="fold">
+        <i></i>
+    </div>
+
+    <p class="p-time" id="p-time">通话时长：0’15”</p>
+    <input type="button" class="btn-none" value="10秒后可挂断">
+    <input type="button" class="btn-red" value="挂断电话" id="hangupBtn">
+    <!--<input type="button" class="btn" value="保存" id="saveBtn_call">-->
+
+
+    <!--<div class="checkbox-box">-->
+    <!--<label>-->
+    <!--<input type="checkbox" checked="checked">-->
+    <!--<i></i>-->
+    <!--本次呼叫结束后终止连续外呼-->
+    <!--</label>-->
+    <!--</div>-->
+</div>
+<!-- 沟通结果 -->
+<div class="telLayerBox-1" id="telResultDiv2">
+    <div class="tel-tlt">
+        <i class="i"></i> 销售进度
+    </div>
+    <dl class="dl-1 sales-progress">
+        <dd>
+            <span class="sales-span">初步沟通</span>
+            <span class="sales-span">确认需求</span>
+            <span class="sales-span">确认报价</span>
+            <span class="sales-span">拟定合同</span>
+            <span class="sales-span">成单</span>
+        </dd>
+    </dl>
+    <div class="line"></div>
+    <div class="tel-tlt">
+        <i class="i"></i> 沟通意向
+    </div>
+    <dl class="dl-1">
+        <dt>无意向</dt>
+        <dd>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+        </dd>
+    </dl>
+    <dl class="dl-1">
+        <dt>预约时间</dt>
+        <dd>
+					<span class="time appointment">
+				<input type="text" id="time"/>
+			</span>
+
+            <!--<a href="javascript:;" class="choose-time"><label id="time" style="display: inline-block;width:150px;height: 20px;"></label></a>-->
+        </dd>
+        <script type="text/javascript">
+            jeDate({
+                dateCell: "#time",
+                isinitVal: true,
+                format: "YYYY-MM-DD hh:mm:ss",
+                isTime: true, //isClear:false,
+                minDate: "2014-09-19 00:00:00"
+            })
+        </script>
+    </dl>
+    <div class="line"></div>
+    <dl class="dl-1">
+        <dt>无意向</dt>
+        <dd>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+        </dd>
+    </dl>
+    <div class="line"></div>
+    <dl class="dl-1">
+        <dt>资料错误</dt>
+        <dd>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+        </dd>
+    </dl>
+    <div class="line"></div>
+    <dl class="dl-1">
+        <dt>二次呼叫</dt>
+        <dd>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+        </dd>
+    </dl>
+    <div class="line"></div>
+    <dl class="dl-1">
+        <dt>添加备注</dt>
+        <dd>
+            <textarea placeholder="请输入备注"></textarea>
+        </dd>
+    </dl>
+    <div class="center">
+        <div class="line"></div>
+        <input type="button" class="btn btnSend" value="发送短信" id="send"/><input type="button" class="btn btnSend"
+                                                                                value="发送邮件" id="send_email"/>
+        <div class="line"></div>
+        <input type="button" class="btn" value="提交" id="tjyxBtn" on onclick="callSubmit();"/>
+    </div>
+</div>
+
+<!--发送短信-->
+<div class="telLayerBox-2" id="send_message">
+    <div class="message_f">
+        <div class="tel-tlt">
+            <i class="i"></i> 发短信
+            <a href="javascript:void(0)" class="a-closed"></a>
+        </div>
+        <div class="box_f">
+            <div class="c-box" id="c-box">
+                <select class="select_message">
+                    <option>请选择短信模板</option>
+                    <option>短信模板1</option>
+                    <option>短信模板2</option>
+                    <option>短信模板3</option>
+                </select>
+            </div>
+            <div class="textarea_box">
+                <textarea disabled="disabled"></textarea>
+            </div>
+            <div class="message_cost">
+                *短信费0.08元/条
+            </div>
+            <div class="send_btn">
+                <input type="button" class="btn" value="发送"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--发送邮件设置-->
+<div class="telLayerBox-2 send_tip" id="send_email1">
+    <div class="message_f">
+        <div class="tel-tlt">
+            <i class="i"></i> 发邮件
+            <a href="javascript:void(0)" class="a-closed"></a>
+        </div>
+        <div class="box_f send">
+            <div class="mail_tip">
+                邮件无法发送，请先设置邮箱。
+            </div>
+            <div class="send_btn">
+                <button class="btn set_email_btn">设置邮箱</button>
+                <button class="btn">暂不设置</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--发送邮件-->
+<div class="telLayerBox-2" id="send_email2">
+    <div class="message_f">
+        <div class="tel-tlt">
+            <i class="i"></i> 发邮件
+            <a href="javascript:void(0)" class="a-closed"></a>
+        </div>
+        <div class="box_f send">
+            <div class="c-box" id="c-box">
+                <select class="select_message" id="editor">
+                    <option>请选择邮件模板</option>
+                    <option>邮件模板1</option>
+                    <option>邮件模板2</option>
+                    <option>邮件模板3</option>
+                </select>
+            </div>
+            <div class="input_f">
+                <input type="text" class="inputBox-1 bg-gray" placeholder="请输入邮件标题"/>
+            </div>
+            <div class="textarea_box">
+                <textarea class="editor" id="e4"></textarea>
+            </div>
+
+
+            <div class="send_btn">
+                <input type="button" class="btn" value="发送"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="applyBox audio-box">
+    <div class="tlt"><i></i>通话录音
+        <a href="javascript:closeAudio();" class="audio-closed"></a>
+    </div>
+    <div class="audio-text-warp">
+        <div class="audio-name">
+            刘晓红
+        </div>
+        <div class="audio-text">
+            北京联云天下科技有限公司
+        </div>
+        <div class="audio-text">
+            电话结果：<label>有意向</label>
+        </div>
+        <div class="audio-text">
+            电话标签：<label>加微信</label>
+        </div>
+        <div class="audio-warp">
+            <audio preload="none"></audio>
+        </div>
+        <div class="audio-text">
+            <a class="download" href="http://www.baidu.com">下载录音</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="applyBox telLayerBox-1" id="telResult">
+    <div class="tlt"><i></i>提交通话结果
+        <a href="javascript:closeResult();" class="audio-closed"></a>
+    </div>
+    <div class="tel-tlt">
+        销售进度
+    </div>
+    <dl class="dl-1 sales-progress">
+        <dd>
+            <span class="sales-span">初步沟通</span>
+            <span class="sales-span">确认需求</span>
+            <span class="sales-span">确认报价</span>
+            <span class="sales-span">拟定合同</span>
+            <span class="sales-span">成单</span>
+        </dd>
+    </dl>
+    <div class="line"></div>
+    <div class="tel-tlt">
+         沟通意向
+    </div>
+    <dl class="dl-1">
+        <dt>无意向</dt>
+        <dd>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+        </dd>
+    </dl>
+    <dl class="dl-1">
+        <dt>预约时间</dt>
+        <dd>
+					<span class="time appointment">
+				<input type="text" id="time1"/>
+			</span>
+
+            <!--<a href="javascript:;" class="choose-time"><label id="time" style="display: inline-block;width:150px;height: 20px;"></label></a>-->
+        </dd>
+        <script type="text/javascript">
+            jeDate({
+                dateCell: "#time1",
+                isinitVal: true,
+                format: "YYYY-MM-DD hh:mm:ss",
+                isTime: true, //isClear:false,
+                minDate: "2014-09-19 00:00:00"
+            })
+        </script>
+    </dl>
+    <div class="line"></div>
+    <dl class="dl-1">
+        <dt>无意向</dt>
+        <dd>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+        </dd>
+    </dl>
+    <div class="line"></div>
+    <dl class="dl-1">
+        <dt>资料错误</dt>
+        <dd>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+        </dd>
+    </dl>
+    <div class="line"></div>
+    <dl class="dl-1">
+        <dt>二次呼叫</dt>
+        <dd>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+        </dd>
+    </dl>
+    <div class="line"></div>
+    <dl class="dl-1">
+        <dt>添加备注</dt>
+        <dd>
+            <textarea placeholder="请输入备注"></textarea>
+        </dd>
+    </dl>
+    <div class="center">
+        <div class="line"></div>
+        <input type="button" class="btn btnSend" value="发送短信" id="send"/><input type="button" class="btn btnSend"
+                                                                                value="发送邮件" id="send_email"/>
+        <div class="line"></div>
+        <input type="button" class="btn" value="提交" id="tjyxBtn" on onclick="callSubmit();"/>
+    </div>
+</div>
+
+
+<script>
+    //关闭录音弹框
+    function closeAudio() {
+        $(".layer-3").hide();
+        $(".audio-box").hide();
+        audio1.pause();
+    }
+    //关闭
+    function closeFollow(){
+        $(".layer").hide();
+        $("#follow").hide();
+
+    }
+    //关闭分配弹框
+    function closedistribution(){
+        $(".layer").hide();
+        $("#distribution").hide();
+    }
+
+    //提交通话结果
+    function telResult() {
+        $("#telResult").show();
+        $(".layer").show();
+    }
+    //关闭提交通话结果
+function closeResult(){
+    $("#telResult").hide();
+    $(".layer").hide();
+}
+    $(function () {
+        $(".customer").height($(window).height() - $(".customer").offset().top - 80);
+        $(".customer").css({
+            "overflow": "auto"
+        });
+
+//        var follow = true;
+        //打电话按钮（已被跟进或者拨出电话）
+        $(".call-tel").click(function () {
+            var follow = parseInt(Math.random()*3);
+            $(".layer").show();
+            if (follow == 0) {
+                $("#follow").show();
+            } else if(follow == 1) {
+                $(".telLayerBox").show();
+            }else {
+                $("#distribution").show();
+            }
+        })
+
+
+
+        var time = 10;
+        var call_time = setInterval(function () {
+            time--;
+            if (time == 0) {
+                $(".btn-none").hide();
+                $(".btn-red").css("display", "inherit");
+                clearInterval(call_time);
+            } else {
+                $(".btn-none").val(time + "秒后可挂断");
+            }
+
+        }, 1000);
+
+
+        $("#editor").change(function () {
+            console.log("sdfs");
+            editor1.html("<img src='' />3434324243242<p style='font-size:36px;'>werwerwr</p>");
+        })
+
+        $('.fold').click(function () {
+            $(this).toggleClass("active");
+            if ($(this).hasClass("active")) {
+                $(".custome_show").show();
+            } else {
+                $(".custome_show").hide();
+            }
+        });
+
+
+        //发送邮件按钮
+        $("#send_email").click(function () {
+//				$("#send_email1").show();
+            $("#send_email2").show();
+            $(".layer-2").show();
+
+        });
+
+
+//发送成功
+//			$("#send_email").addClass("disabled").off().val("邮件已发送，60秒后可再次发送");
+//				var time = 60;
+//				var send_time = setInterval(function() {
+//					$("#send_email").val("邮件已发送，" + time + "秒后可再次发送");
+//					time--;
+//					if (time == 0) {
+//						$("#send_email").removeClass("disabled").val("发送邮件").on("click", function() {
+//							$("#send_email1").show();
+//							$(".layer-2").show();
+//						});
+//						clearInterval(send_time);
+//					}
+//				}, 1000);
+
+        //设置邮箱
+        $(".set_email_btn").click(function () {
+            $(this).text("邮箱已设置");
+            window.open("mail_set.html");
+        });
+
+        $("#add_customer").click(function () {
+            $(".layer-6").show();
+            $("#applyBox-customer").show();
+        });
+        $(".add_more a").click(function () {
+            $(".custom_more").show();
+            $(".add_more").hide();
+        });
+        $("#applyBox-customer a.a-closed").click(function () {
+            $(".layer-6").hide();
+            $("#applyBox-customer").hide();
+        });
+
+
+        $(".sales-span").click(function () {
+            $(".sales-span").removeClass("cur");
+            $(this).addClass("cur");
+        })
+
+        $(".span").click(function () {
+            if ($("#f_calltime").text() == "0' 0\"" && $(this).attr("type") == 1) {
+                alert("此线索电话未接通，不可选择有意向标签");
+                return;
+            }
+
+
+            tipType = $(this).attr("type");
+            tipName = $(this).text();
+
+            $(".span").removeClass("cur");
+            $(this).addClass("cur");
+            if ($(this).attr("type") == 1) {
+                $(".yytime").show();
+            } else {
+                $(".yytime").hide();
+            }
+
+
+        });
+
+
+        $("#e_comName").bind("input propertychange", function () {
+            if ($(this).val().length > 0) {
+                $(".call-com-f").show();
+            } else {
+                $(".call-com-f").hide();
+            }
+        });
+        $(window).click(function () {
+            $(".call-com-f").hide();
+        });
+        $(".call-com-f,#e_comName").click(function () {
+            event.stopPropagation();
+        });
+        //选择公司
+        $(".call-com-f .com_info").click(function () {
+            $("#e_comName").val($(this).text().trim());
+            $(".call-com-f").hide();
+        });
+    });
+
+
+    function showdetail() {
+        $("#introLayerBox").show();
+        $('.layer').show();
+    }
+</script>
+</body>
+
+</html>

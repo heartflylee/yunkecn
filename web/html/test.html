@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.8.0.min.js"></script>
+    <script src="../js/validator.js"></script>
+</head>
+
+<body>
+    <input type="text" class="validator" id="text" id="repsw" onblur="check()" data-error="两次密码不一致">
+    <button id="speak">speak</button>
+    <video style="width: 500px;height: 500px;" controls>
+        <source src="../yunkeAIVideo540.mp4" type="video/mp4"></source>
+    </video>
+    <script>
+        $(function () {
+            $("#speak").click(function () {
+                var text = $("#text").val();
+                speak(text);
+            })
+        })
+
+
+        function check() {
+            var obj = $('#repsw');
+            console.log(obj);
+
+            var validator = new Validator(obj, Validator.DEFAULTS);
+
+            validator.showErrors();
+        }
+
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                var sentence = new SpeechSynthesisUtterance();
+                var voices = window.speechSynthesis.getVoices();
+                console.log(voices);
+                for (var i = 0; i < voices.length; i++) {
+                    console.log(voices[i]);
+                    if (voices[i]['name'] == "Alex") {
+                        sentence.voice = voices[i];
+                    }
+                }
+                sentence.volume = 1;   //0-1
+                sentence.pitch = 0.5;  //0-2
+                sentence.rate = 1;     //0.1-10
+                sentence.text = text;
+                window.speechSynthesis.speak(sentence);
+            } else {
+                console.log("Oops! Your browser does not support HTML SpeechSynthesis.")
+            }
+        }
+        //设置时间
+        Date.prototype.setStr = function (date, str) {
+            var all = date.split(/[-: ]/);
+            var newDate = new Date();
+            var str1 = str.split(/[-: ]/);
+            var o = {
+                "yyyy": function (y) {
+                    newDate.setFullYear(y);
+                },
+                "MM": function (M) {
+                    newDate.setMonth(M - 1);
+                },                 //月份
+                "dd": function (d) {
+                    newDate.setDate(d);
+                },                    //日
+                "hh": function (h) {
+                    newDate.setHours(h);
+                },                   //小时
+                "mm": function (m) {
+                    newDate.setMinutes(m);
+                },                 //分
+                "ss": function (s) {
+                    newDate.setSeconds(s);
+                }                 //秒
+            };
+
+            for (var a in o) {
+                if (new RegExp("(" + a + ")").test(str)) {
+                    var index = str1.indexOf(a);
+                    o[a](all[index]);
+                }
+            }
+            return newDate;
+        }
+
+        console.log(new Date().setStr("11:11:11", 'hh:mm:ss'));
+
+
+
+    </script>
+</body>
+
+</html>

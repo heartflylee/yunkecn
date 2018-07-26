@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>新建机器人任务</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="../css/head.css" />
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <link href="../css/hDate.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/hDate.js"></script>
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+    <!-- <script type="text/javascript" src="../js/jedate-6.5.0/dist/jedate.min.js"></script> -->
+
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <link rel="stylesheet" href="../css/robot.css" />
+    <link rel="stylesheet" href="../css/switch.css">
+    <link rel="stylesheet" href="../css/appstatistics.css">
+
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+
+    <!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=YxrpSNq6119f9xGsRh4Q5f0a5qgy3k00"></script> -->
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/lodash.min.js"></script>
+</head>
+
+<body>
+    <!--  -->
+    <div class="fixed-right">
+        <ul class="fixed-list">
+            <li class="fixed-li">
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes" title="客服">
+                    <i class="fixed-icon icon-service"></i>
+                </a>
+            </li>
+            <li class="fixed-li">
+                <i class="fixed-icon icon-code"></i>
+                <div class="fixed-box">
+                    <div class="code"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 页面遮罩层 layer -->
+    <div class="layer"></div>
+    <!-- 页面头部 header -->
+    <div class="header">
+        <h1 class="logo fl"></h1>
+        <ul class="nav">
+            <li>
+                <a href="indexnew2.html">首页</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="">行动</a>-->
+            <!--</li>-->
+            <li>
+                <a href="customer1.html">客户</a>
+            </li>
+            <li>
+                <a href="download.html">线索</a>
+            </li>
+            <li>
+                <a href="task.html">任务</a>
+            </li>
+            <li>
+                <a href="robotTask.html" class="current">电话机器人</a>
+            </li>
+            <li>
+                <a href="settings.html" id="top-setting">设置</a>
+            </li>
+        </ul>
+        <ul class="header-right fr">
+            <!-- <li>
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">
+                    <i class="qq"></i>
+                    <div class="service">在线客服</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="add"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="update"></i>
+                </a>
+            </li> -->
+            <li>
+                <a href="javascript:;">
+                    <i class="message"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="user">
+                    <img src="../images/a-1.png" />
+                    <div class="arrow"></div>
+                </a>
+                <div class="quit_down">
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-customer"></div>
+                            客户
+                        </a>
+                    </div>
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-help"></div>
+                            使用说明
+                        </a>
+                    </div>
+
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-exit"></div>
+                            </i>
+                            退出登录
+                        </a>
+                    </div>
+            </li>
+        </ul>
+        </div>
+        <!-- 内容部分 contents -->
+        <div class="contents robot-wrap" id="main" v-cloak>
+            <div class="table-tlt">
+                <i class="i"></i>{{planId!=''?'编辑任务':'新建任务'}}
+                <div class="fr robot-modify-right" v-if="planId!=''">
+                    <!-- <a href="javascript:void(0);" class="link">删除</a> -->
+                    <my-switch size="max" :value="toggle" color="green" @input="toggleChange" ref="switch"></my-switch>
+                </div>
+            </div>
+            <div class="robot-form">
+                <div class="form-row">
+                    <div class="form-name required">
+                        任务名称
+                    </div>
+                    <div class="form-info">
+                        <input type="text" placeholder="任务名称不能空" v-model="planName" :disabled='disabled'>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-name required">
+                        机器人选择
+                    </div>
+                    <!-- <div class="form-info" :class="(!disabled&& (!/^\+?[1-9][0-9]*$/.test(quantity.toString().trim())|| parseInt(quantity)>quantityMax))?'error':''"> -->
+                    <div class="form-info">
+                        <div class="sources-text" :disabled="disabled" @click="robotsShow">
+                            {{robotsName==''?'请选择机器人为您服务':robotsName }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-name">
+                        使用日期
+                    </div>
+                    <div class="form-info">
+                        <div class="input-time">
+                            <input type="text" class="input" id="timetext" v-model="startTime" :disabled='disabled' readonly />
+                            <i class="icon-time"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-name required">
+                        机器人工作时间段
+                    </div>
+                    <div class="form-info">
+                        <div class="time-select-box" v-for="item,$index in time">
+                            <div class="input-select">
+                                <select v-model="item.start" :disabled='disabled'>
+                                    <option v-for="start in timeList[$index].startList" :value="start">{{start>=10?start:'0'+start}}:00</option>
+                                </select>
+                            </div>
+                            <span class="interval"> — </span>
+                            <div class="input-select">
+                                <select v-model="item.end" :disabled='disabled'>
+                                    <option v-for="end in timeList[$index].endList" :value="end">{{end>=10?end:'0'+end}}:00</option>
+                                </select>
+                            </div>
+                            <a href="javascript:void(0);" class="close" v-if="time.length>1&&!disabled" @click="removeTime($index)">&times;</a>
+                        </div>
+                        <!-- <div class="time-select-box">
+                            <a href="javascript:void(0);" class="robot-add-time" @click="addTime">
+                                <span>+</span>增加时间段
+                            </a>
+                            <label class="tip">
+                                机器人工作的时间设定，可以设置多个时间段
+                            </label>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-name required">
+                        任务数据文件
+                    </div>
+                    <div class="form-info">
+                        <div class="sources-text" :disabled="disabled" @click="sourcesShow">
+                            {{clueGroupNames}}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-name required">
+                        机器人话术模板
+                    </div>
+                    <div class="form-info">
+                        <select v-model="speechcraftId" :disabled='disabled'>
+                            <option value="">选择您需要的话术模板</option>
+                            <option v-for="item,$index in speechcraftList" :value="item.id">{{item.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-name">
+                        分配销售
+                    </div>
+                    <div class="form-info">
+                        <ul class="choose-add clearfix" id="selectedmember1">
+                            <li v-for="item in bindSalerList" :memberid="item.id" :membername="item.name" class="del-sc">
+                                <a href="javascript:void(0)">
+                                    <img :src="item.img">
+                                    <em>{{item.name}}</em>
+                                    <i class="fffline"></i>
+                                </a>
+                            </li>
+
+                            <!--
+                            <li class="del-sc"><a href="javascript:void(0)"><img src="../images/member.png"><em>艾云鹤</em><i class="fffline"></i></a></li> -->
+                            <li class="del-add" id="selectedmemberflag1">
+                                <!-- <a href="javascript:void(0)" v-if="bindSalerList.length >= 1" :class="disabled?'disabled':''">
+                                    <img :src="bindSalerList[0].headImg">
+                                    <em>{{bindSalerList[0].realName}}</em>
+                                    <i class="fffline"></i>
+                                </a> -->
+                                <a href="javascript:void(0)" :class="disabled?'disabled':''">
+                                    <img src="../images/add-member.png">
+                                    <em>选择销售</em>
+                                </a>
+                                <div class="adddiv1" id="allmembers1">
+                                    <div class=" overy clearfix">
+                                        <div class="clear"></div>
+                                        <ul class="staff-ul bortop" style="height:253px">
+                                            <li v-for="item in staff">
+                                                <a href="javascript:void(0)" :imgurl="item.headImg" :memberid="item.id" :realname="item.realName">
+                                                    <img :src="item.headImg">
+                                                    <span>{{item.realName}}</span>
+                                                    <i class="right-icon"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <button class="addBut" type="button" onclick="javascript:selectmember1()">确定</button>
+                                    <button class="addBut checkBtn" type="button" onclick="javascript:selectAll(this)">全选</button>
+                                    <button class="addBut checkBtn" type="button" onclick="javascript:cancleSelectAll(this)" style="display: none;">取消全选</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-name">
+                        挂机发送
+                    </div>
+                    <div class="form-info">
+                        <div class="form-box">
+                            <label class="checkbox-label">
+                                <input type="checkbox" v-model="hangUpMessage" />
+                                <i></i>
+                                挂机短信发送
+                            </label>
+                        </div>
+                        <select v-model="speechcraftId" :disabled='!hangUpMessage||disabled'>
+                            <option value="">请选择短信模板</option>
+                        </select>
+                        <div class="form-box">
+                            <label class="checkbox-label">
+                                <input type="checkbox" v-model="hangUpEmail" />
+                                <i></i>
+                                挂机邮件发送
+                            </label>
+                        </div>
+                        <select v-model="speechcraftId" :disabled='!hangUpEmail||disabled'>
+                            <option value="">请选择邮件模板</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-info">
+                        <input type="button" class="btn" value="保存" @click="submit" />
+                        <input type="button" class="btn btn-cancel" value="取消" @click="cancle" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="applyBox robotSoucesWrap" id="taskSouces" :style="show == true?'display:block;':'display:none;'">
+            <div class="tlt robot-tag-title">
+                <div class="tag-box-bg">
+                    <div class="tag-list" :class="state==0?'active':''" @click="changeState(0)">
+                        线索来源
+                    </div>
+                    <div class="tag-list" :class="state == 1?'active':''" @click="changeState(1)">
+                        导入来源
+                    </div>
+                    <div class="tag-list" :class="state == 2?'active':''" @click="changeState(2)">
+                        已完成来源
+                    </div>
+                </div>
+                <a href="javascript:void(0)" class="a-closed" @click="cancle"></a>
+            </div>
+            <div class="taskSouces-box">
+                <div class="taskSouces" v-if="state==0">
+                    <label class="checkbox-label" v-for="item,$index in recommendList" v-if="item.count>0">
+                        <input type="checkbox" name="recommendCheck" v-model="checkList" :value="item.groupId" />
+                        <i></i>
+                        <div class="radio-info">
+                            {{item.groupName + '（'+item.count+'条）'}}
+                        </div>
+                    </label>
+                </div>
+                <div class="taskSouces" v-if="state==1">
+                    <label class="checkbox-label" v-for="item,$index in importList" v-if="item.count>0">
+                        <input type="checkbox" name="importCheck" v-model="checkList" :value="item.groupId" />
+                        <i></i>
+                        <div class="radio-info import-state">
+                            {{item.groupName + '（'+item.count+'条）'}}
+                        </div>
+                    </label>
+                </div>
+                <div class="taskSouces" v-if="state==2">
+                    <div class="taskSouces-type">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="type" value="1" v-model="type" checked>
+                            <i></i>
+                            号码错误
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="type" value="2" v-model="type">
+                            <i></i>
+                            无人接听
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="type" value="3" v-model="type">
+                            <i></i>
+                            无意向
+                        </label>
+                    </div>
+                    <label class="checkbox-label" v-for="item,$index in completedShowList" v-if="item.count>0">
+                        <input type="checkbox" name="completedList" v-model="checkList" :value="item.groupId" />
+                        <i></i>
+                        <div class="radio-info import-state">
+                            {{item.groupName + '（'+item.count+'条）'}}
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="taskSouces-Statistics">
+                <label class="checkbox-label">
+                    <input type="checkbox" v-model="checkAll" />
+                    <i></i>
+                    全选
+                </label>
+                已选
+                <span class="gray">{{countAll}}</span>条
+                <a href="javascript:void(0)" class="link fr" v-if="state==1" @click="importSources">导入数据</a>
+            </div>
+            <div class="btn-center-block">
+                <div class="btn-wrap">
+                    <input type="button" class="btn" value="确定" @click="sourceSubmit" />
+                    <input type="button" class="btn btn-cancel" value="取消" @click="cancle" />
+                </div>
+            </div>
+        </div>
+
+        <!-- 导入数据样本 changer-box -->
+        <div class="changer-box" id="changer-box-2" style="height: 485px; margin-top: -243px;">
+            <div class="tlt">
+                <i></i>导入数据样本
+                <a href="javascript:void(0);" class="a-closed"></a>
+            </div>
+            <input id="fileName" type="text" class="inputBox-1 bg-gray fl" style="height:28px; width:450px;" readonly="readonly" />
+            <div class="resetbox">
+                <form action="/pc/clue/importBearCustomer" method="post" enctype="multipart/form-data" id="myform">
+                    <input type="file" class="filereset" name="file" id="excelFile" />
+                    <a href="javascript:openfile();" class="a-resetfile">浏览</a>
+                </form>
+            </div>
+            <div style="clear: both;"></div>
+            <dl class="tip">
+                <dt>使用说明</dt>
+                <dd>1.请上传后缀名为xls的文件；</dd>
+                <dd>2.数据请勿放在合并的单元格中，且导入文件小于2MB；</dd>
+                <dd>3.为保证您导入的客户数据有效，请下载
+                    <a href="/pc/clue/downTemplate" class="a-c-gray">数据样本导入模板</a>，编辑后上传。
+                </dd>
+            </dl>
+            <div class="line" style="margin-top:20px;"></div>
+            <div class="group-t">
+                建立线索分组
+            </div>
+            <div class="group-input">
+                <div class="group-left">企业导入&nbsp;&nbsp; -</div>
+                <div class="group-right">
+                    <input type="text" class="group" placeholder="请输入分组名称" id="div-group">
+                </div>
+            </div>
+            <label class="group-tip">*分组将同时保存为数据来源</label>
+            <input type="button" class="btn" value="提交" onclick="uploade();" />
+        </div>
+
+        <!--机器人选择-->
+        <div class="modal " id="robotSelect">
+            <div class="modal-top">
+                <i></i>机器人选择
+                <a href="javascript:layerClose('#robotSelect');" class="closed"></a>
+            </div>
+            <form class="function-content" @submit.prevent="robotSubmit">
+                <div class="robot-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>机器人名称</th>
+                                <th>开通时间</th>
+                                <th>到期时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in list">
+                                <td>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" v-model="checkList" :value="item.id">
+                                        <i></i>
+                                    </label>
+                                </td>
+                                <td>{{item.name}}</td>
+                                <td>2018-07-19 14:04</td>
+                                <td>2018-07-30 14:04</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-bottom">
+                    <input type="submit" class="btn" value="保存" />
+                    <input type="button" class="btn btn-cancel" onclick="layerClose('#robotSelect')" value="取消" />
+                </div>
+            </form>
+        </div>
+        <!--机器人选择-->
+
+        <template id="mySwitch">
+            <div :class="className" @click="onClick">
+                <span class="open">{{ openName }}</span>
+                <span class="close">{{ closeName }}</span>
+            </div>
+        </template>
+
+        <script>
+            var mySwitch = Vue.extend({
+                template: '#mySwitch',
+                props: {
+                    value: {
+                        default: true
+                    },
+                    // sm小 md中 lg大
+                    size: {
+                        type: String,
+                        default: 'md中'
+                    },
+                    // blue red green orange
+                    color: {
+                        type: String,
+                        default: 'green'
+                    },
+                    openName: {
+                        type: String,
+                        default: '开启'
+                    },
+                    closeName: {
+                        type: String,
+                        default: '暂停'
+                    },
+                    disabled: {
+                        type: Boolean,
+                        default: false
+                    },
+                    index: {
+                        type: Number,
+                        default: -1
+                    },
+                },
+                data: function () {
+                    return {
+                        openValue: true,
+                        closeValue: false,
+                        className: {
+                            'vue-switch': true,
+                            'z-on': this.$props.value == true,
+                            'z-disabled': this.$props.disabled == true,
+                            ['s-' + this.$props.size]: true,
+                            ['c-' + this.$props.color]: true
+                        }
+                    }
+                },
+                watch: {
+                    value: function (value) {
+                        this.$data.className['z-on'] = value;
+                    },
+                    disabled: function (val) {
+                        this.$data.className['z-disabled'] = val == true;
+                    }
+                },
+                methods: {
+                    onClick: function () {
+                        if (!this.$props.disabled) {
+                            if (this.$data.openValue == this.$props.value) {
+                                this.$emit('input', { value: this.$data.closeValue, index: this.$props.index });
+                            } else {
+                                this.$emit('input', { value: this.$data.openValue, index: this.$props.index });
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+        <script>
+
+            //时间格式化
+            Date.prototype.Format = function (fmt) { //author: meizz
+                var o = {
+                    "M+": this.getMonth() + 1,                 //月份
+                    "d+": this.getDate(),                    //日
+                    "h+": this.getHours(),                   //小时
+                    "m+": this.getMinutes(),                 //分
+                    "s+": this.getSeconds(),                 //秒
+                    "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                    "S": this.getMilliseconds()             //毫秒
+                };
+                if (/(y+)/.test(fmt))
+                    fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+                for (var k in o)
+                    if (new RegExp("(" + k + ")").test(fmt))
+                        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+                return fmt;
+            }
+
+            //求自然月日期
+            function getMonthBeforeFormatAndDay(num, format, day, dateString) {
+                var date;
+                if (dateString == undefined || dateString == null) {
+                    date = new Date();
+                } else {
+                    date = new Date(dateString);
+                }
+                date.setMonth(date.getMonth() + (num * 1), 1);
+                //读取日期自动会减一，所以要加一
+                var mo = date.getMonth() + 1;
+                //小月
+                if (mo == 4 || mo == 6 || mo == 9 || mo == 11) {
+                    if (day > 30) {
+                        day = 30
+                    }
+                }
+                //2月
+                else if (mo == 2) {
+                    if (isLeapYear(date.getFullYear())) {
+                        if (day > 29) {
+                            day = 29
+                        } else {
+                            day = 28
+                        }
+                    }
+                    if (day > 28) {
+                        day = 28
+                    }
+                }
+                //大月
+                else {
+                    if (day > 31) {
+                        day = 31
+                    }
+                }
+                if (day < 10) {
+                    day = '0' + day;
+                }
+                return date.Format('yyyy' + format + 'MM' + format + day);
+            }
+
+            //JS判断闰年代码
+            function isLeapYear(Year) {
+                if (((Year % 4) == 0) && ((Year % 100) != 0) || ((Year % 400) == 0)) {
+                    return (true);
+                } else { return (false); }
+            }
+
+            //获取地址栏参数
+            function getQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return "";
+            }
+            var timeStartList = [];
+            var timeEndList = [];
+            // var startTime = 0;
+            // var endTime = 24;
+            var startTime = 8;
+            var endTime = 20;
+            var ip = '/proxy/testRobot/';
+            // var ip = 'http://123.57.222.150/testRobot/';
+            var vm = new Vue({
+                el: "#main",
+                data: function () {
+                    return {
+                        planName: '',
+                        quantity: '1',
+                        robotsName: '',
+                        robotsId: '',
+                        quantityMax: 1,
+                        startTime: (new Date()).Format('yyyy-MM-dd'),
+                        endTime: getMonthBeforeFormatAndDay(1, '-', new Date().getDate()),
+                        clueGroupIds: '',
+                        clueGroupNames: '',
+                        speechcraftId: '',
+                        speechcraftName: '',
+                        speechcraftList: [],
+                        time: [
+                            { start: 8, end: 20, }
+                        ],
+                        timeList: [
+                            { startList: [], endList: [] }
+                        ],
+                        worktime: '',
+                        staff: [],
+                        bindSalerList: [],
+                        bindSalerKey: '',
+                        bindSalerName: '',
+                        planId: '',
+                        disabled: false,
+                        toggle: false,
+                        imgHead: '',
+                        hangUpMessage: false,
+                        hangUpEmail: false
+                    }
+                },
+                methods: {
+                    sourcesShow: function () {
+                        if (this.$data.disabled) {
+                            return;
+                        }
+                        taskSouces.sourceState();
+                    },
+                    addTime: function () {
+                        this.$data.time.push({ start: '', end: '' });
+                        this.$data.timeList.push({ startList: [], endList: [] });
+                    },
+                    removeTime: function (index) {
+                        this.$data.time.splice(index, 1);
+                        this.$data.timeList.splice(index, 1);
+                    },
+                    toggleChange: function (data) {
+                        this.$data.toggle = data.value;
+                        var _self = this;
+                        $.ajax({
+                            type: 'post',
+                            url: ip + "robotPlan/changeRobotPlanState",
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "robotPlanIds": [_self.$data.planId],
+                                "runState": _self.$data.toggle ? 1 : 0
+                            }),
+                            success: function (data) {
+                                alert(data.message);
+                                if (data.success != true) {
+                                    _self.$data.toggle = !_self.$data.toggle;
+                                }
+                            }
+                        });
+                    },
+                    setWorkTime: function () {
+                        var worktime = '';
+                        var _self = this;
+                        var time = _self.$data.time;
+                        for (var i = 0; i < time.length; i++) {
+                            if (time[i].start == '' || time[i].end == '') {
+                                alert('请选择工作时间段');
+                                return false;
+                                break;
+                            }
+                            if (worktime != '') {
+                                worktime += ',';
+                            }
+                            worktime += (time[i].start >= 10 ? time[i].start : '0' + time[i].start) + ':00-' + (time[i].end >= 10 ? time[i].end : '0' + time[i].end) + ':00';
+                        }
+                        return worktime;
+                    },
+                    setTime: function () {
+                        var _self = this;
+                        var times = _self.$data.worktime.split(',');
+
+                        _self.$data.time = [];
+                        _self.$data.timeList = [];
+                        for (var i = 0; i < times.length; i++) {
+                            _self.$data.timeList.push({
+                                startList: [],
+                                endList: []
+                            });
+
+
+                            _self.$data.time.push({
+                                start: parseInt(times[i].split('-')[0]),
+                                end: parseInt(times[i].split('-')[1])
+                            });
+                        }
+
+                        // time: [
+                        //     { start: 10, end: 18, }
+                        // ],
+                        // timeList: [
+                        //     { startList: [], endList: [] }
+                        // ],
+                    },
+                    selectSaler: function (saler) {
+                        var _self = this;
+                        _self.$data.bindSalerList = [];
+                        _self.$data.bindSalerKey = '';
+                        // _self.$data.bindSalerList.push(saler);
+                        // _self.$data.bindSalerKey = saler.id;
+                        // _self.$data.bindSalerName = saler.realName;
+                        $("#allmembers1 a").removeClass('current');
+                        $("#selectedmember1 .del-sc").remove();
+                        $("#allmembers1 a").each(function () {
+                            if ($(this).attr("class") == "current") {
+                                vm.$data.bindSalerList.push({
+                                    id: $(this).attr("memberid"),
+                                    name: $(this).attr("realname"),
+                                    img: $(this).attr("imgurl")
+                                });
+                                if (vm.$data.bindSalerKey != '') {
+                                    vm.$data.bindSalerKey += ',';
+                                }
+                                vm.$data.bindSalerKey += $(this).attr("memberid");
+                                $("#selectedmemberflag1").before('<li memberid="' + $(this).attr("memberid") + '" membername="' + $(this).attr("realname") + '" class="del-sc"><a href="javascript:void(0)"><img  src="' + $(this).attr("imgurl") + '"><em>' + $(this).attr("realname") + '</em><i class="fffline"></i></a></li>');
+                            };
+                        })
+                        $("#allmembers1").hide();
+                    },
+                    submit: function () {
+
+                        var _self = this;
+                        if (_self.$data.planName.trim() == '') {
+                            alert("任务名称不能为空");
+                            return;
+                        }
+
+                        if (_self.$data.planId == '' && _self.notRepead() == false) {
+                            // alert("该任务名称已存在，请重新输入");
+                            return;
+                        }
+
+                        if (!/^\+?[1-9][0-9]*$/.test(_self.quantity.trim())) {
+                            alert('请输入机器人坐席数量');
+                            return;
+                        }
+                        if (_self.$data.quantity.trim() > _self.$data.quantityMax) {
+                            alert('您没有多余的机器人，请重新输入');
+                            return;
+                        }
+                        console.log(new Date(_self.$data.startTime));
+                        console.log(new Date(_self.$data.endTime));
+                        if (new Date(_self.$data.startTime) >= new Date(_self.$data.endTime)) {
+                            alert("使用时间的结束时间必须大于开始时间");
+                            return;
+                        }
+                        if (_self.$data.clueGroupIds == '') {
+                            alert('请选择任务数据文件');
+                            return;
+                        }
+                        if (_self.$data.speechcraftId == '') {
+                            alert('请选择机器人话术模板');
+                            return;
+                        }
+
+                        //
+                        _self.$data.worktime = _self.setWorkTime();
+
+                        if (_self.$data.planId == '' && _self.$data.quantity > _self.$data.quantityMax) {
+                            alert("您没有多余的机器人了");
+                            return;
+                        }
+                        if (_self.$data.worktime != false) {
+                            $.ajax({
+                                type: 'post',
+                                url: ip + "robotPlan/addRobotPlan",
+                                contentType: 'application/json',
+                                data: JSON.stringify({
+                                    // $.post("http://123.57.222.150/testRobot/robotPlan/addRobotPlan", {
+                                    planName: _self.$data.planName,
+                                    quantity: _self.$data.quantity.trim(),
+                                    startTime: _self.$data.startTime + " 00:00:00",
+                                    endTime: _self.$data.endTime + " 00:00:00",
+                                    workTime: _self.$data.worktime,
+                                    clueGroupIds: _self.$data.clueGroupIds,
+                                    clueGroupNames: _self.$data.clueGroupNames,
+                                    speechcraftId: _self.$data.speechcraftId,
+                                    speechcraftName: _self.$data.speechcraftName,
+                                    bindSalerKey: _self.$data.bindSalerKey,
+                                    bindSalerName: _self.$data.bindSalerName
+                                }),
+                                success: function (data) {
+                                    if (data.success == true) {
+                                        alert("添加成功");
+                                        window.location.href = 'robotTask.html';
+                                    } else {
+                                        alert("添加失败");
+                                    }
+                                }
+                            });
+                        }
+                    },
+                    cancle: function () {
+
+                        window.history.go(-1);
+                    },
+                    setSaler: function () {
+                        var _self = this;
+                        if (_self.$data.bindSalerKey != undefined && _self.$data.bindSalerKey != '') {
+                            var bindSaler = _.find(_self.$data.staff, function (o) {
+                                return o.id == _self.$data.bindSalerKey;
+                            });
+                            if (bindSaler != undefined) {
+                                this.$data.bindSalerList.push({
+                                    id: bindSaler.id,
+                                    realName: bindSaler.realName,
+                                    headImg: bindSaler.headImg
+                                });
+                            }
+                        }
+                    },
+                    getSaler: function () {
+                        // clue/getCloudSalesAndSales
+                        var _self = this;
+                        $.ajax({
+                            url: ip + 'clue/getCloudSalesAndSales',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                flag: 0,
+                                includeDepartmentAdmin: 1
+                            }),
+                            success: function (data) {
+                                _self.$data.staff = data.sales;
+                            }
+                        })
+                    },
+                    getDetail: function () {
+                        var _self = this;
+                        $.ajax({
+                            type: 'post',
+                            url: ip + "robotPlan/queryRobotPlanById",
+                            contentType: 'application/json',
+                            // async: false,
+                            data: JSON.stringify({
+                                robotPlanId: _self.$data.planId,
+                            }),
+                            success: function (data) {
+
+                                if (data.success == true) {
+                                    _self.$data.disabled = true;
+                                    _self.$data.planName = data.data.planName;
+                                    _self.$data.quantity = data.data.quantity;
+                                    _self.$data.startTime = data.data.startTime.split(' ')[0];
+                                    _self.$data.endTime = data.data.endTime.split(' ')[0];
+                                    _self.$data.clueGroupIds = data.data.clueGroupIds;
+                                    _self.$data.clueGroupNames = data.data.clueGroupNames;
+                                    _self.$data.speechcraftId = data.data.speechcraftId;
+                                    _self.$data.worktime = data.data.workTime;
+                                    _self.$data.toggle = data.data.runState == 1;
+                                    _self.$data.bindSalerKey = data.data.bindSalerKey;
+                                    _self.$data.bindSalerName = data.data.bindSalerName;
+                                    _self.setTime();
+                                    var times = setInterval(function () {
+                                        if (_self.$data.staff.length > 0) {
+                                            _self.setSaler();
+                                            clearInterval(times);
+                                        }
+                                    }, 100);
+                                } else {
+                                    alert("查询失败");
+                                }
+                            }
+                        });
+                    },
+                    getInterlocutions: function () {
+                        var _self = this;
+                        $.ajax({
+                            type: 'post',
+                            url: ip + "robotPlan/queryInterlocutions",
+                            contentType: 'application/json',
+                            success: function (data) {
+
+                                if (data.success == true) {
+                                    _self.$data.speechcraftList = data.data;
+                                } else {
+                                    alert("查询失败");
+                                }
+                            }
+                        });
+                    },
+                    notRepead: function () {
+                        var _self = this;
+                        if (_self.$data.planName != '') {
+                            $.ajax({
+                                type: 'post',
+                                url: ip + "robotPlan/isNotRepeadOfName",
+                                contentType: 'application/json',
+                                data: JSON.stringify({
+                                    "planName": _self.$data.planName
+                                }),
+                                success: function (data) {
+
+                                    if (data == false) {
+                                        alert("该任务名称已存在，请重新输入");
+                                        _self.$data.planName = '';
+                                        return false;
+                                    } else {
+                                        return true;
+                                    }
+                                }
+                            });
+                        }
+                    },
+                    robotsShow: function () {
+                        if (this.$data.disabled) {
+                            return;
+                        }
+                        layerShow("#robotSelect");
+                        // $(".layer").show();
+                        // $("#robotSelect").show();
+                    }
+                },
+                watch: {
+                    time: {
+                        handler: function (val) {
+                            setTimeList(val);
+                        },
+                        deep: true
+                    },
+                    planName: function (val) {
+                        if (val.length > 20) {
+                            this.$data.planName = val.substr(0, 20);
+                        }
+                    },
+                    speechcraftId: function (val) {
+                        var item = _.find(this.$data.speechcraftList, function (o) {
+                            return o.id == val;
+                        });
+                        if (item != undefined) {
+                            this.$data.speechcraftName = item.name;
+                        }
+                    },
+                    getRemainRobot: function () {
+                        var _self = this;
+                        $.ajax({
+                            type: 'post',
+                            url: ip + "robotPlan/getRemainRobot",
+                            contentType: 'application/json',
+                            success: function (data) {
+
+                                if (data.success == true) {
+                                    _self.$data.quantityMax = data.data;
+                                } else {
+                                    alert("查询失败");
+                                }
+                            }
+                        });
+                    }
+                },
+                mounted: function () {
+                    var _self = this;
+                    $.post(ip + "home/postlogin", {
+                        uid: '13611126225',
+                        pwd: '111111'
+                    }, function (data) {
+                        console.log(data);
+                    });
+
+                    _self.getSaler();
+                    _self.getInterlocutions();
+                    _self.$data.planId = getQueryString('id');
+                    if (_self.$data.planId != '') {
+                        _self.getDetail();
+                    }
+
+                },
+                components: {
+                    'mySwitch': mySwitch
+                }
+            });
+
+            function setTimeDisabled(type, start, end) {
+                if (start == undefined || start == '') {
+                    start = startTime;
+                }
+                if (end == undefined || end == '') {
+                    end = endTime;
+                }
+                var list = [];
+                for (var i = startTime; i <= endTime; i++) {
+                    // if (type == 'start' && i == endTime) {
+                    //     return;
+                    // }
+                    if (i >= start && i <= end) {
+                        // list.push(disabledList[i]);
+                        list.push(i);
+                    }
+                }
+                return list;
+            }
+
+            function setTimeList(time) {
+                var start = startTime, end = endTime;
+                for (var i = 0; i < time.length; i++) {
+                    if (time[i].end != 0) {
+                        vm.$data.timeList[i].startList = setTimeDisabled('start', start, time[i].end - 1);
+                    } else {
+                        vm.$data.timeList[i].startList = setTimeDisabled('start', start, endTime - 1);
+                    }
+                    start = time[i].end;
+                    if (time[i].start != 0) {
+                        if (i < time.length - 1) {
+                            end = time[i + 1].start;
+                        } else {
+                            end = endTime;
+                        }
+                        vm.$data.timeList[i].endList = setTimeDisabled('end', time[i].start + 1, end);
+                    } else {
+                        vm.$data.timeList[i].endList = setTimeDisabled('end', end + 1, endTime);
+                    }
+                }
+            }
+            $(function () {
+                setTimeList(vm.$data.time);
+            });
+            var taskSouces = new Vue({
+                el: '#taskSouces',
+                data: function () {
+                    return {
+                        show: false,
+                        showState: false,
+                        state: 0,
+                        checkList: [],
+                        // importCheck: [],
+                        // recommendCheck: [],
+                        importList: [],
+                        recommendList: [],
+                        checkAll: false,
+                        completedList: [],
+                        completedShowList: [],
+                        //  {
+                        //     error: [],
+                        //     noAnswer: [],
+                        //     noIntention: [],
+                        //     showList: []
+                        // },
+                        type: [],
+                        countAll: 0
+                    }
+                },
+                methods: {
+                    sourceState: function () {
+                        this.$data.show = !this.$data.show;
+                        this.$data.showState = false;
+                        $(".layer").show();
+                    },
+                    sourceSubmit: function () {
+                        this.getSources();
+                        this.$data.show = false;
+                        $(".layer").hide();
+                    },
+                    cancle: function () {
+                        this.$data.show = false;
+                        $(".layer").hide();
+                    },
+                    changeState: function (index) {
+                        this.$data.state = index;
+                        this.$data.checkList = [];
+                        this.$data.checkAll = false;
+                        // if (index == 1) {
+                        //     this.$data.recommendCheck = [];
+                        // } else if (index == 0) {
+                        //     this.$data.importCheck = [];
+                        // }
+                    },
+                    getSources: function () {
+                        var _self = this;
+
+                        var check = this.getCheckbox();
+                        vm.$data.clueGroupNames = check.checkNames;
+                        vm.$data.clueGroupIds = check.checkIds;
+                    },
+
+                    importSources: function () {
+                        this.$data.show = false;
+                        this.$data.showState = true;
+                        //弹窗展示
+                        $('#changer-box-2').show();
+                        $('.layer').show();
+                    },
+                    getClueGroup: function () {
+                        var _self = this;
+                        $.ajax({
+                            type: 'post',
+                            url: ip + "/clue/getClueGroup",
+                            contentType: 'application/json',
+                            success: function (data) {
+                                if (data.success == true) {
+                                    for (var i = 0; i < data.data.length; i++) {
+                                        if (data.data[i].groupType == 2) {
+                                            _self.$data.recommendList.push(data.data[i]);
+                                        }
+                                        if (data.data[i].groupType == 3) {
+                                            _self.$data.importList.push(data.data[i]);
+                                        }
+                                    }
+                                    var data1 = [
+                                        { "groupId": "E9E475FEA5B7475191859ABB5B66A8BC", "groupName": "云客推荐-下载测试22", "companyCode": "yunkecn", "groupSort": 2, "groupType": 2, "count": 29, "type": "1" }
+                                        , { "groupId": "098165F5342845448C9146DEFF73CC48", "groupName": "云客推荐-测试33", "companyCode": "yunkecn", "groupSort": 2, "groupType": 2, "count": 41, "type": "2" }
+                                        , { "groupId": "684146986534409E86CD00FDB11C3617", "groupName": "云客推荐-设备", "companyCode": "yunkecn", "groupSort": 2, "groupType": 2, "count": 216, "type": "3" }
+                                        , { "groupId": "5FA5C55C64A34CC297196695A2E2B528", "groupName": "云客推荐-测试222", "companyCode": "yunkecn", "groupSort": 2, "groupType": 2, "count": 10, "type": "1" }
+                                        , { "groupId": "6CC5A55471994121812894E9B6B00C9B", "groupName": "企业导入-融和上海", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 20, "type": "2" }
+                                        , { "groupId": "A54C9C61D2B74281A10C8C908C61868E", "groupName": "企业导入-简道云0811", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 40, "type": "3" }
+                                        , { "groupId": "0620EB5EAA454F9086FF17DAA3B0B050", "groupName": "企业导入-临时导出后删除0817", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 60, "type": "1" }
+                                        , { "groupId": "34B5823490564A47946D5AE6952B808D", "groupName": "企业导入-123456", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 30, "type": "2" }
+                                        , { "groupId": "9103692C60A14698B94BBDF50D097C6A", "groupName": "企业导入-测试自己", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 50, "type": "3" }
+                                        , { "groupId": "07F15757F44E4EBFA1691D2CBF436E50", "groupName": "企业导入-机器人任务100", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 40, "type": "1" }
+                                        , { "groupId": "798AD5618F2B47E68E15C3E00F746D27", "groupName": "企业导入-机器人2任务100", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 86, "type": "2" }
+                                        , { "groupId": "A3BE46FF7C164FE78373E810144382F7", "groupName": "企业导入-北京线索300-3机器人", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 282, "type": "3" }
+                                        , { "groupId": "5A3D70620B2A4E08A5F7B9D6CF81805C", "groupName": "企业导入-robot外呼测试", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 283, "type": "1" }
+                                        , { "groupId": "89FD1FB44F9941689E40CF907034F030", "groupName": "企业导入-企业导入-测试自己 ", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 60, "type": "2" }
+                                        , { "groupId": "B5A39A9D7C6C4E359CEC718E87C41FD9", "groupName": "企业导入-测试", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 2, "type": "3" }
+                                        , { "groupId": "4A544C88C6AC4DE09390DBA410997358", "groupName": "企业导入-123123123123", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 40, "type": "1" }
+                                        , { "groupId": "897832B23DBD4329BDDF5212D0CEC2E0", "groupName": "企业导入-123123123123123123123123123", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 80, "type": "2" }
+                                        , { "groupId": "BC9E14D5BBD842BFAE1CB1D9367A86E3", "groupName": "企业导入-test111111", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 70, "type": "3" }
+                                        , { "groupId": "5CF9375E82AB4F009D5099B8B994D279", "groupName": "企业导入-test1111111111", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 20, "type": "1" }
+                                        , { "groupId": "B8DF7E13BD494338AD319D04F0206707", "groupName": "企业导入-导入1", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 10, "type": "3" }
+                                        , { "groupId": "A684DA7EA1E54C58A1245AA71B5A9409", "groupName": "企业导入-重复导入", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 30, "type": "2" }
+                                        , { "groupId": "40C978D8BB8F4FAA9CDC90BD45909A75", "groupName": "企业导入-地", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 1, "type": "1" }
+                                        , { "groupId": "5F982E5368B64F349259831008349165", "groupName": "企业导入-测试无意向", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 4, "type": "2" }
+                                        , { "groupId": "B3AA9041D5404ED1B25508088BC2163E", "groupName": "企业导入-机器人测试", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 40, "type": "3" }
+                                        , { "groupId": "B439B655A51341D08B904196DA95CC8F", "groupName": "企业导入-机器人", "companyCode": "yunkecn", "groupSort": 3, "groupType": 3, "count": 1, "type": "1" }
+                                    ];
+                                    _self.$data.completedList = data1;
+                                    // for (var i = 1; i < data1.length; i++) {
+                                    //     switch (data1[i].type) {
+                                    //         case 1:
+                                    //             _self.$data.completedList.error.push(data1[i]);
+                                    //             break;
+                                    //         case 2:
+                                    //             _self.$data.completedList.noAnswer.push(data1[i]);
+                                    //             break;
+                                    //         case 3:
+                                    //             _self.$data.completedList.noIntention.push(data1[i]);
+                                    //             break;
+                                    //         default: break;
+                                    //     }
+                                    // }
+                                    // _self.$data.completedList.showList = _self.$data.completedList.error;
+                                }
+                            }
+                        });
+                    },
+                    getCheckbox: function () {
+                        var _self = this;
+                        var check = {
+                            count: 0,
+                            checkIds: '',
+                            checkNames: ''
+                        };
+                        var sourcesList;
+                        switch (_self.$data.state) {
+                            case 0:
+                                sourcesList = _self.$data.recommendList;
+                                break;
+                            case 1:
+                                sourcesList = _self.$data.importList;
+                                break;
+                            case 2:
+                                sourcesList = _self.$data.completedShowList;
+                                break;
+                        }
+                        var checkList = _self.$data.checkList;
+                        for (var i = 0; i < checkList.length; i++) {
+                            if (check.checkIds != '') {
+                                check.checkIds += ',';
+                            }
+                            if (check.checkNames != '') {
+                                check.checkNames += ',';
+                            }
+                            check.count += _.find(sourcesList, function (o) { return o.groupId == checkList[i] }).count;
+                            check.checkNames += _.find(sourcesList, function (o) { return o.groupId == checkList[i] }).groupName;
+                            check.checkIds += _.find(sourcesList, function (o) { return o.groupId == checkList[i] }).groupId;
+                        }
+                        return check;
+                    },
+                    getCheckboxAll: function () {
+                        var _self = this;
+                        switch (_self.$data.state) {
+                            case 0:
+                                sourcesList = _self.$data.recommendList;
+                                break;
+                            case 1:
+                                sourcesList = _self.$data.importList;
+                                break;
+                            case 2:
+                                sourcesList = _self.$data.completedShowList;
+                                break;
+                        }
+                        var checkList = [];
+                        for (var i = 0; i < sourcesList.length; i++) {
+                            checkList.push(sourcesList[i].groupId);
+                        }
+                        _self.$data.checkList = checkList;
+                    }
+                },
+                watch: {
+                    checkList: function (data) {
+                        var _self = this;
+                        var check = _self.getCheckbox();
+                        _self.$data.countAll = check.count;
+                    },
+                    type: function (data) {
+                        var _self = this;
+                        _self.$data.completedShowList = [];
+                        for (var i = 1; i < _self.$data.completedList.length; i++) {
+                            if (data.indexOf(_self.$data.completedList[i].type) >= 0) {
+                                _self.$data.completedShowList.push(_self.$data.completedList[i]);
+                            }
+                        }
+
+                        for (var j = _self.$data.checkList.length - 1; j >= 0; j--) {
+                            var index = _.findIndex(_self.$data.completedShowList, function (o) {
+                                return o.groupId == _self.$data.checkList[j];
+                            });
+                            if (index < 0) {
+                                _self.$data.checkList.splice(j, 1);
+                            }
+                        }
+
+                        if (_self.$data.checkAll == true) {
+                            _self.getCheckboxAll();
+                        }
+
+                    },
+                    checkAll: function (data) {
+                        var _self = this;
+                        if (data == false) {
+                            _self.$data.checkList = [];
+                        } else {
+                            _self.getCheckboxAll();
+                        }
+                    }
+                },
+                mounted: function () {
+                    this.getClueGroup();
+
+                }
+            });
+            function selectmember1() {
+                vm.$data.bindSalerList = [];
+                vm.$data.bindSalerKey = '';
+                // $("#selectedmember1 .del-sc").remove();
+                $("#allmembers1 a").each(function () {
+                    if ($(this).attr("class") == "current") {
+                        vm.$data.bindSalerList.push({
+                            id: $(this).attr("memberid"),
+                            name: $(this).attr("realname"),
+                            img: $(this).attr("imgurl")
+                        });
+                        if (vm.$data.bindSalerKey != '') {
+                            vm.$data.bindSalerKey += ',';
+                        }
+                        vm.$data.bindSalerKey += $(this).attr("memberid");
+                        // $("#selectedmemberflag1").before('<li memberid="' + $(this).attr("memberid") + '" membername="' + $(this).attr("realname") + '" class="del-sc"><a href="javascript:void(0)"><img  src="' + $(this).attr("imgurl") + '"><em>' + $(this).attr("realname") + '</em><i class="fffline"></i></a></li>');
+                    };
+                })
+                $("#allmembers1").hide();
+            }
+
+            function selectAll(obj) {
+                $(obj).hide();
+                $(obj).next().show();
+                $("#allmembers1 a").addClass("current");
+            }
+            function cancleSelectAll(obj) {
+                $(obj).hide();
+                $(obj).prev().show();
+                $("#allmembers1 a").removeClass("current");
+            }
+            function clearTime() {
+                $("#timetext1").val("");
+                $('#timetext1')[0].dispatchEvent(new Event('input'));
+            }
+            $(function () {
+                $("#timetext").click(function (e) {
+                    if (vm.$data.disabled) {
+                        return;
+                    }
+                    var minday = new Date().Format("yyyy-MM-dd");
+                    // var maxDate = new Date($("#timetext1").val().trim()).setDate(new Date($("#timetext1").val().trim()).getDate() - 1);
+                    // var maxday = new Date(maxDate).Format('yyyy-MM-dd');
+                    calendar.show({
+                        id: this,
+                        minDay: minday,
+                        // maxDay: maxday,
+                        ok: function () {
+                            $('#timetext')[0].dispatchEvent(new Event('input'));
+                            if (new Date($('#timetext').val()) > new Date($("#timetext1").val())) {
+                                $('#timetext1').val(getMonthBeforeFormatAndDay(1, '-', new Date($('#timetext').val()).getDate(), $("#timetext").val()));
+                                $('#timetext1').attr('date', getMonthBeforeFormatAndDay(1, '-', new Date($('#timetext').val()).getDate(), $("#timetext").val()));
+                                $('#timetext1')[0].dispatchEvent(new Event('input'));
+                            }
+                        }
+                    });
+                });
+                $("#timetext + .icon-time").click(function (e) {
+                    e.stopPropagation();
+                    if (vm.$data.disabled) {
+                        return;
+                    }
+                    var minday = new Date().Format("yyyy-MM-dd");
+                    // var maxDate = new Date($("#timetext1").val().trim()).setDate(new Date($("#timetext1").val().trim()).getDate() - 1);
+                    // var maxday = new Date(maxDate).Format('yyyy-MM-dd');
+                    calendar.show({
+                        id: $(this).prev()[0],
+                        minDay: minday,
+                        // maxDay: maxday,
+                        ok: function () {
+                            $('#timetext')[0].dispatchEvent(new Event('input'));
+                            if (new Date($('#timetext').val()) > new Date($("#timetext1").val())) {
+                                $('#timetext1').val(getMonthBeforeFormatAndDay(1, '-', new Date($('#timetext').val()).getDate(), $("#timetext").val()));
+                                $('#timetext1').attr('date', getMonthBeforeFormatAndDay(1, '-', new Date($('#timetext').val()).getDate(), $("#timetext").val()));
+                                $('#timetext1')[0].dispatchEvent(new Event('input'));
+                            }
+                        }
+                    });
+                });
+                $("#timetext1").click(function (e) {
+                    var minDate = new Date($("#timetext").val().trim()).setDate(new Date($("#timetext").val().trim()).getDate());
+                    var minDay = new Date(minDate).Format('yyyy-MM-dd');
+                    if (vm.$data.disabled) {
+                        minDate = new Date().setDate(new Date().getDate());
+                        if (new Date($('#timetext').val()) > new Date()) {
+                            minDate = new Date($('#timetext').val()).setDate(new Date($('#timetext').val()).getDate());
+                        }
+                        minDay = new Date(minDate).Format('yyyy-MM-dd');
+                        console.log(minDay);
+                    }
+                    calendar.show({
+                        id: this,
+                        minDay: minDay,
+                        ok: function () {
+                            $('#timetext1')[0].dispatchEvent(new Event('input'));
+                        }
+                    });
+                });
+                $("#timetext1 + .icon-time").click(function (e) {
+                    e.stopPropagation();
+                    var minDate = new Date($("#timetext").val().trim()).setDate(new Date($("#timetext").val().trim()).getDate());
+                    var minDay = new Date(minDate).Format('yyyy-MM-dd');
+                    if (vm.$data.disabled) {
+                        minDate = new Date().setDate(new Date().getDate());
+                        if (new Date($('#timetext').val()) > new Date()) {
+                            minDate = new Date($('#timetext').val()).setDate(new Date($('#timetext').val()).getDate());
+                        }
+                        minDay = new Date(minDate).Format('yyyy-MM-dd');
+                    }
+                    calendar.show({
+                        id: $(this).prev()[0],
+                        minDay: minDay,
+                        ok: function () {
+                            $('#timetext1')[0].dispatchEvent(new Event('input'));
+                        }
+                    });
+                });
+                $("#excelFile").change(function () {
+                    var fileName = $("#excelFile").val();
+                    $("#fileName").val(fileName);
+                });
+
+                $(".layer,#changer-box-2 .a-closed").click(function () {
+                    if (taskSouces.$data.showState == true) {
+                        taskSouces.sourceState();
+                    }
+                    layerClose("#robotSelect");
+                });
+                $(".del-add a").on('click', function (event) {
+                    if ($(this).hasClass('disabled')) {
+                        event.stopPropagation();
+                        $("#allmembers1").hide();
+                        return false;
+                    }
+                });
+                // var start = {
+                //     format: 'hh:mm',
+                //     skinCell: 'jedatetime jedateblue',
+                //     choosefun: function (elem, datas) {
+                //
+                //
+                //     }
+                // };
+                // var end = {
+                //     format: 'hh:mm',
+                //     skinCell: 'jedatetime jedateblue',
+                //     choosefun: function (elem, datas) {
+                //     }
+                // };
+                // $('#start').jeDate(start);
+                // $('#end').jeDate(end);
+
+            });
+            //关闭弹框
+            function layerClose(obj) {
+                $(obj).hide();
+                $(".layer").hide();
+            }
+            function layerShow(obj) {
+                $(obj).show();
+                $(".layer").show();
+            }
+
+            var robotSelect = new Vue({
+                el: "#robotSelect",
+                data: function () {
+                    return {
+                        list: [],
+                        checkList: []
+                    }
+                },
+                mounted: function () {
+
+                    var _self = this;
+                    var length = parseInt(Math.random() * 40);
+                    for (var i = 0; i < length; i++) {
+                        _self.$data.list.push({
+                            id: i,
+                            name: "AI-" + i,
+
+                        });
+                    }
+                },
+                methods: {
+                    robotSubmit: function () {
+                        var _self = this;
+                        var robotsList = _self.$data.list;
+                        var checkList = _self.$data.checkList;
+                        var robots = "", robotsId = "";
+                        for (var i = 0; i < checkList.length; i++) {
+                            if (robots != '') {
+                                robots += ',';
+                            }
+                            if (robotsId != '') {
+                                robotsId += ',';
+                            }
+                            robots += _.find(robotsList, function (o) { return o.id == checkList[i] }).name;
+                            robotsId += _.find(robotsList, function (o) { return o.id == checkList[i] }).id;
+                        }
+
+                        vm.$data.robotsName = robots;
+                        vm.$data.robotsId = robotsId;
+                        layerClose("#robotSelect");
+
+                    }
+                }
+            })
+        </script>
+</body>
+
+</html>

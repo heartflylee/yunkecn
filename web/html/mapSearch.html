@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>团队客户</title>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css">
+    <link href="../css/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/head.css">
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/highcharts.js"></script>
+    <link href="../css/hDate.css" rel="stylesheet">
+    <!--<script type="text/javascript" src="../js/hDate.js"></script>-->
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <!--<script src="../js/autocomplete.min.js"></script>-->
+    <script type="text/javascript" src="../js/keywordsinput.js"></script>
+    <script type="text/javascript" src="../js/template.js"></script>
+    <!--<script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+		<script type="text/javascript" src="../js/jedate/jedate.min.js"></script>-->
+    <!--<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js"></script>-->
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+    <script src="../js/resize.js"></script>
+    <script src="../js/jquery.autocomplete.js"></script>
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=YxrpSNq6119f9xGsRh4Q5f0a5qgy3k00"></script>
+
+    <script type="text/javascript" src="../js/echarts1.js"></script>
+    <script src="../js/vue.min.js"></script>
+
+</head>
+
+<body>
+    <!-- 页面遮罩层 layer -->
+    <div class="layer"></div>
+    <div class="layer-1"></div>
+    <div class="layer-6"></div>
+    <!-- 页面头部 header -->
+    <div class="header">
+        <h1 class="logo fl"></h1>
+        <span class="mar fl">|</span>
+        <span class="fl">
+            <em>团队版</em>[
+            <a href="">点击切换</a>]</span>
+        <ul class="nav">
+            <li>
+                <a href="indexnew2.html">首页</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="">行动</a>-->
+            <!--</li>-->
+            <li>
+                <a href="customer1.html">客户</a>
+            </li>
+            <li>
+                <a href="download.html" class="current">线索</a>
+            </li>
+            <li>
+                <a href="task.html">任务</a>
+            </li>
+            <li>
+                <a href="settings.html" id="top-setting">设置</a>
+            </li>
+        </ul>
+        <ul class="header-right fr">
+            <li>
+                <a href="javascript:;">
+                    <i class="add"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="update"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="message"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="user">刘</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tipArea">
+        <div class="wrap">
+            <ul class="ul-2">
+                <li>
+                    <a href="listSearch.html" class="current">搜索引擎</a>
+                </li>
+                <li>
+                    <a href="recommendNew.html">推荐引擎</a>
+                </li>
+                <li>
+                    <a href="download.html">已下载线索</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="contents">
+        <div class="tag-box">
+            <div class="tags-li active">
+                <a href="mapSearch.html">地图搜索</a>
+            </div>
+            <div class="tags-li">
+                <a href="listSearch.html">搜索选项</a>
+            </div>
+            <div class="tags-li">
+                <a href="import.html">导入数据样本</a>
+            </div>
+            <div class="tags-li">
+                <a href="imported.html">已导入样本</a>
+            </div>
+        </div>
+    </div>
+    <div class="map-wrap" id="main" :class="mainShow==true?'active':''">
+        <div class="map" id="BMap"></div>
+        <div class="load map-load" v-if="mapLoad"></div>
+        <div class="add-build-box" onclick="addBuildWrap()">
+            <i class="icon position-icon"></i>
+            添加
+            <br>楼宇
+        </div>
+        <div class="mapCompany">
+            <div class="mapSearch-box">
+                <form @submit.prevent="search" autocomplete="off">
+                    <input type="text" class="input" placeholder="输入楼宇/园区名称" id="searchInput" />
+                    <i class="icon search" @click="search"></i>
+                    <div class="mapSearch-list">
+                        <a href="javascript:void(0)" class="mapSearch-li">建外SOHO</a>
+                        <a href="javascript:void(0)" class="mapSearch-li">建外SOHO1号楼</a>
+                        <a href="javascript:void(0)" class="mapSearch-li">建外SOHO2号楼</a>
+                        <a href="javascript:void(0)" class="mapSearch-li">建外SOHO3号楼</a>
+                        <a href="javascript:void(0)" class="mapSearch-li">建外SOHO4号楼</a>
+                    </div>
+                </form>
+            </div>
+            <i class="icon icon-open" @click="mapCompany(0)"></i>
+            <div class="mapCompany-main" id="mapCompany-main">
+                <div class="tab-wrap">
+                    <div class="tab" :class="tabShow==0?'active':''">
+                        <a href="javascript:void(0);" @click="tabCheck(0)">楼宇简介</a>
+                    </div>
+                    <div class="tab" :class="tabShow==1?'active':''">
+                        <a href="javascript:void(0)" @click="tabCheck(1)">企业列表</a>
+                    </div>
+                    <!-- <a href="javascript:void(0)" class="link" @click="buildEdit=!buildEdit" v-text="buildEdit?'保存':'编辑'">编辑</a>
+                    <a href="javascript:void(0)" class="link">删除</a> -->
+                </div>
+                <div class="tab-main">
+                    <div class="tabs-li" :class="tabShow==0?'active':''">
+                        <div class="tabs-list">
+                            <div class="component-box">
+                                <build-basic title="当前楼宇" type="text" :edit="buildEdit" value="建外SOHO西区12号楼"></build-basic>
+                                <build-basic title="地址" type="text" :edit="buildEdit" value="北京市朝阳区建国门外大街39号院"></build-basic>
+                                <build-basic title="物业电话" type="text" :edit="buildEdit" value=" 010-68920552"></build-basic>
+                                <build-basic title="楼宇介绍" type="textarea" :edit="buildEdit" value="紫金数码南临知春路，北临北四环路，西临清华南路，东临大运村。东有城铁13号线近在咫尺，南临建设中的地铁10号线，多条公交线路可达，构成立体化交通路网，连通中关村、亚运村、金融街、上地等区域，出行十分便捷。"></build-basic>
+                                <build-basic title="价格范围" type="text" :edit="buildEdit" value="40000-60000/月"></build-basic>
+                                <build-basic title="物业公司" type="text" :edit="buildEdit" value="北京希尔物业管理有限公司"></build-basic>
+                                <build-basic title="建筑面积" type="text" :edit="buildEdit" value="60000"></build-basic>
+
+                                <!--<div class="tab-item">-->
+                                <!--<div class="tab-label">-->
+                                <!--建筑面积-->
+                                <!--</div>-->
+                                <!--<div class="tab-info">-->
+                                <!--60000 m<sup>2</sup>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <div class="tab-more-item" v-show="tabMoreShow">
+                                    <build-basic title="开发商" type="text" :edit="buildEdit" value="开发商"></build-basic>
+                                    <build-basic title="楼层高" type="text" :edit="buildEdit" value="33层"></build-basic>
+                                    <build-basic title="电梯数量" type="text" :edit="buildEdit" value="6"></build-basic>
+                                    <build-basic title="楼层高度" type="text" :edit="buildEdit" value="3米"></build-basic>
+                                    <build-basic title="已入住企业" type="text" :edit="buildEdit" value="50"></build-basic>
+                                    <build-basic title="行情" type="text" :edit="buildEdit" value="行情详情"></build-basic>
+                                </div>
+                                <div class="tab-more">
+                                    <a href="javascript:void(0);" @click="tabMoreShow = !tabMoreShow" v-text="tabMoreShow==true?'收起':'查看更多'" class="href"></a>
+                                </div>
+                            </div>
+                            <div class="company-count">
+                                <div class="com-count">
+                                    <div class="com-count-box">企业总数</div>
+                                    <div class="com-count-box bolder">123</div>
+                                </div>
+                                <div class="com-count">
+                                    <div class="com-count-box">商标信息</div>
+                                    <div class="com-count-box bolder">2020</div>
+                                </div>
+                                <div class="com-count">
+                                    <div class="com-count-box">专利</div>
+                                    <div class="com-count-box bolder">1200</div>
+                                </div>
+                                <div class="com-count">
+                                    <div class="com-count-box">著作权</div>
+                                    <div class="com-count-box bolder">800</div>
+                                </div>
+                                <div class="com-count">
+                                    <div class="com-count-box">招聘信息</div>
+                                    <div class="com-count-box bolder">3240</div>
+                                </div>
+                            </div>
+                            <div class="distribution-box com-charts">
+                                <div class="distribute">
+                                    <div class="distribute-title">
+                                        企业行业分布
+                                    </div>
+                                    <div class="distribute-chart" id="enterprise-chart">
+                                    </div>
+                                </div>
+                                <div class="distribute">
+                                    <div class="distribute-title">
+                                        注册时间分布
+                                    </div>
+                                    <div class="distribute-chart" id="registTime-chart">
+                                    </div>
+                                </div>
+                                <div class="distribute">
+                                    <div class="distribute-title">
+                                        注册资本分布
+                                    </div>
+                                    <div class="distribute-chart" id="regist-chart">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="distribution-box">
+                                <div class="distribute">
+                                    <div class="distribute-title">
+                                        著作权
+                                    </div>
+                                    <div class="work-list">
+                                        <div class="work-li">
+                                            <div class="work-text">
+                                                办理总数
+                                            </div>
+                                            <div class="work-text bolder">
+                                                3240
+                                            </div>
+                                        </div>
+                                        <div class="work-li">
+                                            <div class="work-text">
+                                                办理企业
+                                            </div>
+                                            <div class="work-text bolder">
+                                                1239
+                                            </div>
+                                        </div>
+                                        <div class="work-li">
+                                            <div class="work-text">
+                                                未办理企业
+                                            </div>
+                                            <div class="work-text bolder">
+                                                2020
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="distribute">
+                                    <div class="distribute-title">
+                                        著作权
+                                    </div>
+                                    <div class="work-list">
+                                        <div class="work-li">
+                                            <div class="work-text">
+                                                办理总数
+                                            </div>
+                                            <div class="work-text bolder">
+                                                3240
+                                            </div>
+                                        </div>
+                                        <div class="work-li">
+                                            <div class="work-text">
+                                                办理企业
+                                            </div>
+                                            <div class="work-text bolder">
+                                                1239
+                                            </div>
+                                        </div>
+                                        <div class="work-li">
+                                            <div class="work-text">
+                                                未办理企业
+                                            </div>
+                                            <div class="work-text bolder">
+                                                2020
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="distribute">
+                                    <div class="distribute-title">
+                                        著作权
+                                    </div>
+                                    <div class="work-list">
+                                        <div class="work-li">
+                                            <div class="work-text">
+                                                办理总数
+                                            </div>
+                                            <div class="work-text bolder">
+                                                3240
+                                            </div>
+                                        </div>
+                                        <div class="work-li">
+                                            <div class="work-text">
+                                                办理企业
+                                            </div>
+                                            <div class="work-text bolder">
+                                                1239
+                                            </div>
+                                        </div>
+                                        <div class="work-li">
+                                            <div class="work-text">
+                                                未办理企业
+                                            </div>
+                                            <div class="work-text bolder">
+                                                2020
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <ul class="com-title-box">
+                                    <li class="reCom-li com-li1">公司</li>
+                                    <li class="reCom-li com-li2">注册资本</li>
+                                    <li class="reCom-li com-li3">注册时间</li>
+                                    <li class="reCom-li com-li4">状态</li>
+                                    <li class="reCom-li com-li5">综合评分</li>
+                                </ul>
+                                <div class="com-wrap reCompany" v-for="item in ['','','']">
+                                    <div class="reCom-box" @click="detailDefault">
+                                        <div class="reCom-download"></div>
+                                        <ul class="reCom-con">
+                                            <li class="reCom-li com-li1">
+                                                <div class="com-name">
+                                                    <span>北京百度网讯科技有限公司</span>
+                                                    <a href="javascript:void(0);" class="label-btn" @click="openHref($event,'www.yunkecn.com')">企业报告</a>
+                                                </div>
+                                                <div class="">企业法人：刘晓辉</div>
+                                                <div class="reCom-address">地址：北京市朝阳区建国门外大街39号建外soho西区12号楼</div>
+                                            </li>
+                                            <li class="reCom-li com-li2">
+                                                77000万人民币
+                                            </li>
+                                            <li class="reCom-li com-li3">
+                                                2001-09-08
+                                            </li>
+                                            <li class="reCom-li com-li4">
+                                                <span>开业</span>
+                                            </li>
+                                            <li class="reCom-li com-li5">
+                                                <div class="star">
+                                                    <div class="star-progress" style="width: 80%"></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="recom-right"></div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive-more">
+                                    <a href="javascript:void(0)" class="link" @click="tabCheck(1)">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabs-li" :class="tabShow==1?'active':''">
+                        <div class="tabs-list com-list" id="enter-list" v-show="!companyAdd">
+                            <div class="position-tab">
+                                <i></i>
+                                <span>当前楼宇：国贸大厦三期</span>
+                            </div>
+                            <div class="tit-blue">
+                                企业列表
+                                <a href="javascript:void(0);" id="downBtn">下载</a>
+                                <!-- <a href="javascript:void(0);" @click="download=!download" v-text="download?'取消下载':'下载'">下载</a>
+                                <a href="javascript:void(0);" @click="companyAdd=!companyAdd">添加企业</a> -->
+                            </div>
+                            <div class="totle-tt">
+                                <label v-if="screen!=''">{{screen}}</label>共
+                                <span>1000</span> 家企业数据
+                                <a href="javascript:void(0)" class="link" style="margin-left: 15px;" v-if="allShow" @click="showAll">查看该楼宇全部企业</a>
+                            </div>
+                            <div class="reCom-list-wrap">
+                                <div class="table-responsive reCom-table" v-if="!comDetail">
+                                    <div class="load" v-if="comLoad"></div>
+                                    <ul class="com-title-box">
+                                        <!-- <li class="reCom-li com-disabled">不感兴趣</li> -->
+                                        <li class="reCom-li com-li1">公司</li>
+                                        <li class="reCom-li com-li2">注册资本</li>
+                                        <li class="reCom-li com-li3">注册时间</li>
+                                        <li class="reCom-li com-li4">状态</li>
+                                        <li class="reCom-li com-li5">综合评分</li>
+                                    </ul>
+                                    <div class="com-wrap reCompany" v-for="item in ['','','','','']">
+                                        <div class="reCom-box" @click="detailBtn">
+                                            <div class="reCom-dislike" @click="dislikeBtn(event)"></div>
+                                            <ul class="reCom-con">
+                                                <li class="reCom-li com-li1">
+                                                    <div class="com-name">
+                                                        <span>北京百度网讯科技有限公司</span>
+                                                        <a href="javascript:void(0);" class="label-btn" @click="openHref($event,'www.yunkecn.com')">企业报告</a>
+                                                    </div>
+                                                    <div class="">企业法人：刘晓辉</div>
+                                                    <div class="reCom-address">地址：北京市朝阳区建国门外大街39号建外soho西区12号楼</div>
+                                                </li>
+                                                <li class="reCom-li com-li2">
+                                                    77000万人民币
+                                                </li>
+                                                <li class="reCom-li com-li3">
+                                                    2001-09-08
+                                                </li>
+                                                <li class="reCom-li com-li4">
+                                                    <span>开业</span>
+                                                </li>
+                                                <li class="reCom-li com-li5">
+                                                    <div class="star">
+                                                        <div class="star-progress" style="width: 80%"></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="recom-right"></div>
+                                        </div>
+                                    </div>
+                                    <div class="com-wrap reCompany">
+                                        <div class="reCom-box" @click="detailBtn">
+                                            <div class="reCom-dislike disabled" @click="dislikeBtn(event)"></div>
+                                            <ul class="reCom-con">
+                                                <li class="reCom-li com-li1">
+                                                    <div class="com-name">
+                                                        <span>北京百度网讯科技有限公司北京百度网讯科技有限公司</span>
+                                                        <a href="javascript:void(0);" class="label-btn" @click="openHref($event,'www.yunkecn.com')">企业报告</a>
+                                                    </div>
+                                                    <div class="">企业法人：刘晓辉</div>
+                                                    <div class="reCom-address">地址：北京市朝阳区建国门外大街39号建外soho西区12号楼</div>
+                                                </li>
+                                                <li class="reCom-li com-li2">
+                                                    77000万人民币
+                                                </li>
+                                                <li class="reCom-li com-li3">
+                                                    2001-09-08
+                                                </li>
+                                                <li class="reCom-li com-li4">
+                                                    <!--开业-->
+                                                    <span>存续（在营、开业、在册）</span>
+                                                </li>
+                                                <li class="reCom-li com-li5">
+                                                    <div class="star">
+                                                        <div class="star-progress" style="width: 80%"></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="recom-right"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="reCom-page">
+                                        <a href="javascript:void(0);" class="rePage-li">&lt;</a>
+                                        <a href="javascript:void(0);" class="rePage-li rePage-num" v-for="item in ['','','','','','','']">1</a>
+                                        <a href="javascript:void(0);" class="rePage-li">&gt;</a>
+                                        <span>共50页，跳转到</span>
+                                        <input type="text" class="page-input">
+                                        <span>页</span>
+                                        <a href="javascript:void(0)" class="btn">跳转</a>
+                                    </div>
+                                </div>
+                                <div class="reCom-Detail" v-else="comDetail">
+                                    <div class="reDetail-title">
+                                        <a href="javascript:void(0)" @click="comBack">&lt;</a>返回企业列表
+                                        <a href="javascript:void(0)" class="link right-link" @click="comEdit=!comEdit" v-text="comEdit?'保存':'编辑'">编辑</a>
+                                        <a href="javascript:void(0)" class="link right-link">删除</a>
+                                        <!--<a href="javascript:void(0)" class="link right-link">下载</a>-->
+                                    </div>
+                                    <div class="reCom-detail-main">
+                                        <div class="border">北京联云天下科技有限公司
+                                            <a href="javascript:void(0);" target="_blank" class="label-btn">企业报告</a>
+                                        </div>
+                                        <cell-basic title="地址" :edit="comEdit" type="text" value="北京市朝阳区建国门外大街39号院建外SOHO西区12号楼"></cell-basic>
+                                        <div class="cell-row cell-row3">
+                                            <cell-basic title="联系人" :edit="comEdit" type="text" value="刘晓辉"></cell-basic>
+                                            <cell-basic title="职位" :edit="comEdit" type="text" value="总监"></cell-basic>
+                                            <cell-basic title="手机" :edit="comEdit" type="text" value="130****9696"></cell-basic>
+                                            <cell-basic title="创建时间" :edit="comEdit" type="text" value="2011-09-09"></cell-basic>
+                                            <cell-basic title="最近联系时间" :edit="comEdit" type="text" value="2011-09-09"></cell-basic>
+                                            <cell-basic title="跟进人" :edit="comEdit" type="text" value="刘晓辉"></cell-basic>
+                                            <cell-basic title="电话" :edit="comEdit" type="text" value="010-59928888"></cell-basic>
+                                            <cell-basic title="邮箱" :edit="comEdit" type="text" value="doh_asddoh_asddoh_asddoh_asddoh_asddoh_asddoh_asddoh_asddoh_asddoh_asddoh_asd@sina.com"></cell-basic>
+                                            <cell-basic title="网址" :edit="comEdit" type="link" value="www.baidu.com"></cell-basic>
+                                            <cell-basic title="法人" :edit="comEdit" type="text" value="刘晓辉"></cell-basic>
+                                            <cell-basic title="注册资本" :edit="comEdit" type="text" value="8900万"></cell-basic>
+                                            <cell-basic title="注册时间" :edit="comEdit" type="text" value="2011-01-01"></cell-basic>
+                                            <cell-basic title="企业状态" :edit="comEdit" type="text" value="开业"></cell-basic>
+                                            <cell-basic title="工商注册号" :edit="comEdit" type="text" value="110108002734659"></cell-basic>
+                                            <cell-basic title="组织机构代码" :edit="comEdit" type="text" value="802100433"></cell-basic>
+                                        </div>
+                                        <div class="cell-row cell-row2">
+                                            <cell-basic title="统一信用代码" :edit="comEdit" type="text" value="911100008021004338"></cell-basic>
+                                            <cell-basic title="企业类型" :edit="comEdit" type="text" value="有限责任公司（自然人投资或控股）"></cell-basic>
+                                            <cell-basic title="纳税人识别号" :edit="comEdit" type="text" value="110000802100433"></cell-basic>
+                                            <cell-basic title="行业" :edit="comEdit" type="text" value="科技推广和应用服务业"></cell-basic>
+                                            <cell-basic title="营业期限" :edit="comEdit" type="text" value="2001-06-05至2001-06-04"></cell-basic>
+                                            <cell-basic title="核准日期" :edit="comEdit" type="text" value="2017-07-04"></cell-basic>
+                                            <cell-basic title="登记机关" :edit="comEdit" type="text" value="海淀分局"></cell-basic>
+                                            <cell-basic title="注册地址" :edit="comEdit" type="text" value="北京市朝阳区建国门外大街建外SOHO"></cell-basic>
+                                        </div>
+                                        <cell-basic title="经营范围" :edit="comEdit" type="textarea" value="北京市朝阳区建国门外大街建外SOHO"></cell-basic>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-form" id="formBox" v-show="companyAdd">
+                            <a href="javascript:void(0);" @click="companyAdd=false" class="close"></a>
+                            <div class="tab-title">添加企业</div>
+                            <div class="function-row">
+                                <div class="function-name">
+                                    企业名称
+                                </div>
+                                <div class="function-info">
+                                    <input type="text" class="input">
+                                </div>
+                            </div>
+                            <div class="function-row">
+                                <div class="function-name">
+                                    地址
+                                </div>
+                                <div class="function-info">
+                                    <input type="text" class="input">
+                                </div>
+                            </div>
+                            <div class="manage-btn-wrap">
+                                <input type="button" class="manage-btn" value="确定" />
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="applyBox  build-wrap" id="buildAddWrap">
+        <div class="tlt">
+            <i></i>添加楼宇
+            <a href="javascript:void(0)" class="a-closed" onclick="closeBuildWrap();"></a>
+        </div>
+        <div class="tab-form">
+            <div class="function-row">
+                <div class="function-name">
+                    楼宇名称
+                </div>
+                <div class="function-info">
+                    <input type="text" class="input">
+                </div>
+            </div>
+            <div class="function-row">
+                <div class="function-name">
+                    地址
+                </div>
+                <div class="function-info">
+                    <input type="text" class="input" id="buildAdress">
+                    <input type="hidden" id="buildPosition">
+                </div>
+            </div>
+            <div class="function-row">
+                <div class="function-name">
+                    楼宇简介
+                </div>
+                <div class="function-info">
+                    <textarea class="textarea"></textarea>
+                    <!--<input type="text" class="input">-->
+                </div>
+            </div>
+            <div class="manage-btn-wrap">
+                <input type="button" class="manage-btn" value="提交" />
+            </div>
+        </div>
+    </div>
+
+    <div class="applyBox  com-completion" id="buildAdd">
+        <div class="tlt">
+            <i></i>未搜索出楼宇信息
+            <a href="javascript:void(0)" class="a-closed" onclick="closeBuild()"></a>
+        </div>
+        <div class="layer_tip com_tip">
+            未搜索出楼宇信息，是否新建楼宇
+        </div>
+        <div class="btn-f">
+            <input type="button" class="btn" value="新建" onclick="addBuild()">
+            <input type="button" class="btn cancle" value="取消" onclick="closeBuild()">
+        </div>
+    </div>
+
+
+
+
+
+    <div class="changer-box">
+        <div class="tlt">
+            <i></i>下载线索
+            <a href="javascript:;" class="a-closed"></a>
+        </div>
+        <div class="group-t">
+            建立线索分组
+        </div>
+        <form onsubmit="return false;">
+            <div class="group-input">
+                <div class="group-left">云客推荐&nbsp;&nbsp; -</div>
+                <div class="group-right">
+                    <input type="text" class="group" placeholder="请输入分组名称" id="inputGroupName">
+                    <i class="icon icon-arrow"></i>
+                </div>
+            </div>
+            <label class="group-tip">*分组将同时保存为数据来源，该类型数据来源无法在客户页筛选</label>
+            <input type="submit" class="btn" value="提交">
+        </form>
+    </div>
+
+    <div class="autocomplete-wrap" id="autocomplete">
+
+    </div>
+    <script type="text/javascript">
+
+        $(function () {
+            $("body").on('click', '.group-input .icon-arrow', function (event) {
+                event.stopPropagation();
+                if ($(this).hasClass("active")) {
+                    $(this).removeClass('active');
+                    $("#autocomplete").hide();
+                } else {
+                    $(this).addClass('active');
+                    var offset = $(this).prev().offset();
+                    var scrollTop = $('body').scrollTop();
+                    var width = $(this).prev().outerWidth();
+                    var autocomplete = $("#autocomplete");
+                    autocomplete.attr("data-id", $(this).prev().attr("id"));
+                    autocomplete.html("");
+
+                    //添加数据
+                    var length = parseInt(Math.random() * 100);
+                    for (var i = 0; i < length; i++) {
+                        autocomplete.append("<div class='autocomplete-text'>" + "text" + i + "</div>");
+                    }
+
+                    var top = 0;
+                    if ((autocomplete.outerHeight() + offset.top - scrollTop + $(this).outerHeight()) > $(window).height()) {
+                        top = offset.top - scrollTop - autocomplete.outerHeight();
+                    } else {
+                        top = offset.top - scrollTop + $(this).prev().outerHeight();
+                    }
+                    autocomplete.css({
+                        width: width, left: offset.left, top: top
+                    }).show();
+                }
+            });
+
+            $("body").on('click', function (event) {
+                $("#autocomplete").hide();
+                $(".group-right .icon-arrow").removeClass('active');
+            });
+            $("body").on('click', '.autocomplete-wrap', function (event) {
+                event.stopPropagation();
+            });
+            $("body").on('click', '.autocomplete-text', function () {
+                $("#" + $(this).parent().data().id).val($(this).text());
+                $("#autocomplete").hide();
+                $(".group-right .icon-arrow").removeClass('active');
+            });
+
+            //显示下载线索
+            $("#downBtn").click(function () {
+                $(".layer").show();
+                $(".changer-box").show();
+            });
+            //关闭下载线索
+            $(".changer-box a.a-closed").click(function () {
+                $(".layer").hide();
+                $(".changer-box").hide();
+            });
+        });
+    </script>
+
+
+
+
+
+    <template id="textMore">
+        <span class="con-text">
+            <span v-show="!show" v-html="text"></span>
+            <span v-if="!defaultShow" v-show="show" v-html="value"></span>
+            <a v-if="!defaultShow" href="javascript:void(0)" class="href" @click="moreBtn" v-text="show == true ? more : hide"></a>
+        </span>
+    </template>
+    <script>
+        var textMore = Vue.extend({
+            template: "#textMore",
+            props: ["text", 'more', 'length'],
+            data: function () {
+                return {
+                    value: '',
+                    hide: '收起',
+                    show: false,
+                    defaultShow: false
+                }
+            },
+            methods: {
+                moreBtn: function () {
+                    this.$data.show = !this.$data.show;
+                }
+            },
+            mounted: function () {
+                console.log(this.$props.text);
+                console.log(this.$props.text.length);
+                console.log(this.$props.length);
+                if (this.$props.text.length > this.$props.length) {
+                    this.$data.value = this.$props.text.substr(0, this.$props.length) + "...";
+                    this.$data.defaultShow = false;
+                    this.$data.show = true;
+                }
+                else {
+                    this.$data.defaultShow = true;
+                }
+            },
+            watch: {
+                text: function () {
+                    console.log(this.$props.text);
+                    console.log(this.$props.text.length);
+                    console.log(this.$props.length);
+                    if (this.$props.text.length > this.$props.length) {
+                        this.$data.value = this.$props.text.substr(0, this.$props.length) + "...";
+                        this.$data.defaultShow = false;
+                        this.$data.show = true;
+                    }
+                    else {
+                        this.$data.defaultShow = true;
+                    }
+                }
+            }
+        });
+    </script>
+
+    <template id="buildBasic">
+        <div class="tab-item">
+            <div class="tab-label">
+                {{title}}
+            </div>
+            <div class="tab-info" :class="edit?'edit':''">
+                <span v-if="!edit&&type=='text'">{{value}}</span>
+                <input type="text" class="input" :value="value" v-if="edit&&type=='text'" />
+                <text-more v-if="!edit&&type=='textarea'" more="详情" length="80" :text="value"></text-more>
+                <textarea class="textarea" v-if="edit&&type=='textarea'" v-text="value"></textarea>
+            </div>
+        </div>
+    </template>
+    <script>
+        var buildBasic = Vue.extend({
+            template: "#buildBasic",
+            props: ['value', 'title', 'type', 'edit'],
+            components: {
+                "textMore": textMore
+            }
+        });
+    </script>
+
+    <template id="cellBasic">
+        <div class="cell" v-if="value !=null && value!=undefined && value!=''">
+            <span class="cell-name">
+                {{title}}：
+            </span>
+            <span class="cell-info" v-if="!edit&&type=='text'">
+                {{value}}
+            </span>
+            <a class="link cell-info" v-if="!edit&&type=='link'" target="_blank" :href="(value.indexOf('http://')>0||value.indexOf('https://')>0)?value:'http://'+value">
+                {{value}}
+            </a>
+            <input type="text" class="input" :value="value" v-if="edit&&(type=='text'||type=='link')" />
+            <text-more v-if="!edit&&type=='textarea'" more="详情" length="60" :text="value"></text-more>
+            <textarea class="textarea cell-info" v-if="edit&&type=='textarea'" v-text="value"></textarea>
+        </div>
+    </template>
+    <script>
+        var cellBasic = Vue.extend({
+            template: '#cellBasic',
+            props: ['title', 'value', 'type', 'edit'],
+            components: {
+                "textMore": textMore
+            }
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        //Vue.prototype.buildEdit = false;
+        var vm = new Vue({
+            el: '#main',
+            data: function () {
+                return {
+                    mainShow: false,
+                    tabShow: 0,
+                    tabMoreShow: false,
+                    buildAdd: false,
+                    companyAdd: false,
+                    comDetail: false,
+                    default: false,
+                    scroll: 0,
+                    comEdit: false,
+                    buildEdit: false,
+                    download: false,
+                    allShow: false,
+                    comLoad: false,
+                    screen: '',
+                    mapLoad: false
+                }
+            },
+            methods: {
+                //tab点击切换
+                tabCheck: function (index) {
+                    this.$data.tabShow = index;
+                    this.$data.comDetail = false;
+                    this.$data.comEdit = false;
+                    this.$data.buildEdit = false;
+                    $("#mapCompany-main").stop().animate({
+                        scrollTop: 0
+                    }, 1);
+                },
+                //楼宇详情弹框显示与隐藏
+                mapCompany: function (bool) {
+                    if (bool == 0) {
+
+                        //判断楼宇详情为空时，return false;可使楼宇详情不显示
+                        //                    return false;
+                        this.$data.mainShow = !this.$data.mainShow;
+                    } else {
+                        this.$data.mainShow = bool;
+                    }
+                    mapCenter();
+                },
+                search: function () {
+                    console.log("搜索楼宇");
+                    search();
+                    return false;
+                },
+                //公司详情
+                detailBtn: function () {
+                    console.log("查看详情");
+                    this.$data.comDetail = true;
+                    this.$data.default = false;
+                    this.$data.scroll = $("#mapCompany-main")[0].scrollTop;
+
+                },
+                dislikeBtn: function (event) {
+                    console.log("下载");
+                    event.stopPropagation();
+                    console.log(event);
+                    if ($(event.target).hasClass("disabled")) {
+                        $(event.target).removeClass("disabled");
+                    } else {
+                        $(event.target).addClass('disabled');
+                    }
+                },
+                //返回企业列表
+                comBack: function () {
+                    console.log("返回企业列表");
+                    this.$data.comDetail = false;
+                    if (this.$data.default == true) {
+                        //                    this.tabCheck(0);
+                        this.$data.tabShow = 0;
+                        this.$data.default == false;
+                    }
+                    $("#mapCompany-main").stop().animate({
+                        scrollTop: this.$data.scroll
+                    }, 1);
+                },
+                openHref: function (event, href) {
+                    event.stopPropagation();
+                    window.open(href);
+                },
+                detailDefault: function () {
+                    this.$data.comDetail = true;
+                    this.$data.scroll = $("#mapCompany-main")[0].scrollTop;
+                    this.$data.default = true;
+                    this.$data.tabShow = 1;
+                    //                this.tabCheck(1);
+                },
+                //显示全部列表
+                showAll: function () {
+                    this.$data.allShow = false;
+                    this.$data.screen = "";
+
+                }
+            },
+            components: {
+                "textMore": textMore,
+                "cellBasic": cellBasic,
+                "buildBasic": buildBasic
+            }
+        });
+
+        //未搜索到楼宇，提交
+        function addBuild() {
+            $("#buildAdd").hide();
+            $(".layer").hide();
+            addBuildWrap();
+            //        vm.$data.mainShow = true;
+            //        vm.$data.buildAdd = true;
+        }
+
+        //未搜索到楼宇，取消关闭
+        function closeBuild() {
+            $("#buildAdd").hide();
+            $(".layer").hide();
+        }
+
+        //新建楼宇
+        function addBuildWrap() {
+            $("#buildAddWrap").show();
+            $(".layer").show();
+        }
+
+        //关闭楼宇
+        function closeBuildWrap() {
+            $("#buildAddWrap").hide();
+            $(".layer").hide();
+        }
+
+
+        $(function () {
+            //详情中的饼图
+            var pieOption = {
+                title: {
+                    text: ''
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    itemWidth: 15,
+                    itemHeight: 12,
+                    orient: 'vertical',
+                    left: 15,
+                    top: 10,
+                    bottom: 10,
+                    formatter: function (name) {
+                        return echarts.format.truncateText(name, 130, '12px Microsoft Yahei', '…');
+                    },
+                    tooltip: {
+                        show: true
+                    }
+                },
+                color: ['#50d2c2', '#ffb358', '#fd9c35', '#dd4444', '#bd3b47', '#dd4d79', '#5793f3', '#5578c2', '#c24e35', '#864a64', '#627057', '#d59190', '#e590cd', '#7e3448', '#343240', '#f7e5fe', '#c97e60', '#707864', '#b85663', '#8f9ac8', '#789660'
+                ],
+                series: [
+                    {
+                        type: 'pie',
+                        radius: '50%',
+                        center: ['70%', '50%'],
+                        selectedMode: false,
+                        label: {
+                            normal: {
+                                fontSize: 9,
+                                formatter: "{d}%",
+                                //                            show:false
+                            }
+                        }
+                    }
+                ]
+            };
+
+            var chartsPie1 = echarts.init(document.getElementById("enterprise-chart"));
+            var pieOptions1 = pieOption;
+            pieOptions1.legend.data = ['金融业', '教育业教育业教育业教育业教育业教育业教育业', '制造业', '房地产业', '建筑业', '制造业1', '房地产业1', '建筑业1', '制造业2', '房地产业2', '建筑业2', '制造业3', '房地产业3', '建筑业建筑业建筑业建筑业建筑业建筑业3'];
+            pieOptions1.series[0].name = "企业行业分布";
+            pieOptions1.series[0].data = [
+                { value: 335, name: '金融业' },
+                { value: 310, name: '教育业教育业教育业教育业教育业教育业教育业' },
+                { value: 234, name: '制造业' },
+                { value: 135, name: '房地产业' },
+                { value: 1548, name: '建筑业' },
+                { value: 234, name: '制造业1' },
+                { value: 135, name: '房地产业1' },
+                { value: 1548, name: '建筑业1' },
+                { value: 234, name: '制造业2' },
+                { value: 135, name: '房地产业2' },
+                { value: 1548, name: '建筑业2' },
+                { value: 234, name: '制造业3' },
+                { value: 135, name: '房地产业3' },
+                { value: 1548, name: '建筑业建筑业建筑业建筑业建筑业建筑业3' }
+            ];
+            chartsPie1.setOption(pieOptions1);
+            chartsPie1.on('click', function (params) {
+                vm.$data.tabShow = 1;
+                vm.$data.allShow = true;
+                vm.$data.comLoad = true;
+                vm.$data.screen = params.name;
+                setTimeout(function () {
+                    vm.$data.comLoad = false;
+                }, 2000);
+            });
+
+            var chartsPie2 = echarts.init(document.getElementById("registTime-chart"));
+            var pieOptions2 = pieOption;
+            pieOptions2.series[0].name = "注册时间分布";
+            pieOptions2.legend.data = ['2015-2017', '2010-2014', '2005-2009', '2000-2004', '1989-1999'];
+            pieOptions2.series[0].data = [
+                { value: 335, name: '2015-2017' },
+                { value: 310, name: '2010-2014' },
+                { value: 234, name: '2005-2009' },
+                { value: 135, name: '2000-2004' },
+                { value: 1548, name: '1989-1999' }
+            ];
+            chartsPie2.setOption(pieOptions2);
+            chartsPie2.on('click', function (params) {
+                vm.$data.tabShow = 1;
+                vm.$data.allShow = true;
+                vm.$data.comLoad = true;
+                vm.$data.screen = params.name;
+                setTimeout(function () {
+                    vm.$data.comLoad = false;
+                }, 2000);
+            });
+
+            var chartsPie3 = echarts.init(document.getElementById("regist-chart"));
+            var pieOptions3 = pieOption;
+            pieOptions3.legend.data = ['金融业', '教育业', '制造业', '房地产业', '建筑业'];
+            pieOptions3.series[0].name = "注册资本分布";
+            pieOptions3.series[0].data = [
+                { value: 335, name: '金融业' },
+                { value: 310, name: '教育业' },
+                { value: 234, name: '制造业' },
+                { value: 135, name: '房地产业' },
+                { value: 1548, name: '建筑业' }
+            ];
+            chartsPie3.setOption(pieOptions3);
+            chartsPie3.on('click', function (params) {
+                vm.$data.tabShow = 1;
+                vm.$data.allShow = true;
+                vm.$data.comLoad = true;
+                vm.$data.screen = params.name;
+                setTimeout(function () {
+                    vm.$data.comLoad = false;
+                }, 2000);
+            });
+        });
+
+        var map, markers, southWest, northEast, zoom, point;
+        markers = new Array();
+        var position = [
+            {
+                lat: 39.9116969605,
+                lng: 116.4618600761,
+                main: {
+                    content: "北京市朝阳区建国门外大街39号院 <br/> 物业电话：010-68920552",
+                    title: "建外SOHO西区12号楼",
+                    href: "www.yunkecn.com",
+                    count: 15
+                }
+            },
+            {
+                lat: 39.925823,
+                lng: 116.461282,
+                main: {
+                    content: "北京市朝阳区朝阳门外 <br/> 物业电话：010-68920552",
+                    title: "朝外SOHO",
+                    href: "www.yunkecn.com",
+                    count: 12
+                }
+            },
+            {
+                lat: 39.904977,
+                lng: 116.404142,
+                main: {
+                    content: "北京市东城区 <br/> 物业电话：010-68920552",
+                    title: "前门",
+                    href: "www.yunkecn.com",
+                    count: 11
+                }
+            },
+            {
+                lat: 39.908479,
+                lng: 116.426105,
+                main: {
+                    content: "北京市朝阳区朝阳门外 <br/> 物业电话：010-68920552",
+                    title: "北京站",
+                    href: "www.yunkecn.com",
+                    count: 10
+                }
+            },
+        ];
+
+
+        function search() {
+            //无数据
+            $(".mapSearch-list").hide();
+            zoom = 17;
+            map.removeEventListener("zoomend", zoomChange);
+            map.removeEventListener("moveend", moveChange);
+            //搜索多条数据
+            mapFresh1();
+
+            map.addEventListener('zoomend', zoomChange);
+            map.addEventListener('moveend', moveChange);
+        }
+
+        function getdata() {
+            for (var i = 0; i < 1; i++) {
+                markers.push({
+                    main: position[i].main,
+                    position: {
+                        lat: position[i].lat,
+                        lng: position[i].lng,
+                    }
+                });
+            }
+            if (markers.length == 0) {
+                $("#buildAdd").show();
+                $(".layer").show();
+            }
+        }
+
+        function getdata1() {
+            var length = parseInt(Math.random() * 4 + 1);
+            console.log(length);
+            setTimeout(function () {
+
+                for (var i = 0; i < length; i++) {
+                    markers.push({
+                        main: position[i].main,
+                        position: {
+                            lat: position[i].lat,
+                            lng: position[i].lng,
+                        }
+                    });
+                }
+                if (markers.length == 0) {
+                    $("#buildAdd").show();
+                    $(".layer").show();
+                }
+            }, 2000);
+
+        }
+
+
+        // 复杂的自定义覆盖物
+        function ComplexCustomOverlay(point, main, zoom) {
+            this._point = point;
+            this._main = main;
+            this._zoom = zoom;
+        }
+
+        ComplexCustomOverlay.prototype = new BMap.Overlay();
+        ComplexCustomOverlay.prototype.initialize = function (map) {
+            this._map = map;
+            var div = this._div = document.createElement("div");
+            console.log(div);
+            console.log(this._point.lat);
+
+            div.style.zIndex = 999;// BMap.Overlay.getZIndex(999);
+
+            div.setAttribute('lng', this._point.lng);
+            div.setAttribute('lat', this._point.lat);
+
+            if (this._zoom <= 10) {
+                div.className = "map_city";
+                var span = this._span = document.createElement("span");
+                div.appendChild(span);
+                span.appendChild(document.createTextNode(this._main.title));
+
+                var label = this._span = document.createElement("label");
+                div.appendChild(label);
+                label.appendChild(document.createTextNode(this._main.count));
+
+            } else if (this._zoom <= 13) {
+                div.className = "map_proper";
+                var span = this._span = document.createElement("span");
+                div.appendChild(span);
+                span.appendChild(document.createTextNode(this._main.title));
+
+                var label = this._span = document.createElement("label");
+                div.appendChild(label);
+                label.appendChild(document.createTextNode(this._main.count));
+
+            }
+            else if (this._zoom <= 15) {
+                div.className = "map_street";
+                var span = this._span = document.createElement("span");
+                div.appendChild(span);
+                span.appendChild(document.createTextNode(this._main.title));
+                var label = this._span = document.createElement("label");
+                div.appendChild(label);
+                label.appendChild(document.createTextNode(this._main.count));
+            }
+            else {
+                div.className = "map_point";
+                div.setAttribute('p_title', this._main.title);
+                div.setAttribute('p_content', this._main.content);
+                var span = this._span = document.createElement("span");
+                div.appendChild(span);
+                span.appendChild(document.createTextNode(this._main.title + "(" + this._main.count + ")家公司"));
+            }
+
+            map.getPanes().labelPane.appendChild(div);
+            return div;
+        }
+        ComplexCustomOverlay.prototype.draw = function () {
+            var map1 = this._map;
+            var pixel = map1.pointToOverlayPixel(this._point);
+            this._div.style.left = pixel.x - 15 + "px";
+            this._div.style.top = pixel.y - 15 + "px";
+        }
+
+
+        //初始化地图
+        function creatMap() {
+            map = new BMap.Map("BMap", { enableMapClick: false, minZoom: 6 }); //初始化地图
+            map.centerAndZoom(new BMap.Point(116.404, 39.915), 5); //地图显示位置
+            map.enableScrollWheelZoom();
+
+            map.addControl(new BMap.NavigationControl({ offset: { width: 15, height: 80 } }));  //显示放大缩小图标
+            map.enableScrollWheelZoom(true);  //滚轮放大缩小
+            map.enableDragging();  //拖拽
+
+            map.addEventListener('zoomend', zoomChange);
+            map.addEventListener('moveend', moveChange);
+
+            getBounds();
+
+            getdata1(); //获得marker点的数组
+            addMapOverlay(); //将marker点的信息显示在地图上
+            markers.splice(0, markers.length);//清空数组
+        }
+
+        //获取可视区域
+        function getBounds() {
+            var bs = map.getBounds();   //获取可视区域
+            southWest = bs.getSouthWest();   //可视区域左下角
+            northEast = bs.getNorthEast();   //可视区域右上角
+            zoom = map.getZoom(); //当前地图级别
+            console.log("当前地图可视范围是：" + southWest.lng + "," + southWest.lat + "到" + northEast.lng + "," + northEast.lat + "\n级别：" + map.getZoom());
+        }
+
+        //改变地图级别
+        function zoomChange() {
+            console.log("zoomChange");
+            getBounds();
+            vm.$data.mapLoad = true;
+
+            getdata1(); //获得marker点的数组
+            map.clearOverlays();//清空地图上标注点
+            addMapOverlay(); //将marker点的信息显示在地图上
+            markers.splice(0, markers.length);//清空数组
+        }
+
+        //拖拽地图完成
+        function moveChange() {
+            console.log("moveChange");
+            vm.$data.mapLoad = true;
+
+            getBounds();
+            getdata1(); //获得marker点的数组
+            map.clearOverlays();//清空地图上标注点
+            addMapOverlay(); //将marker点的信息显示在地图上
+            markers.splice(0, markers.length);//清空数组
+        }
+
+
+        $(function () {
+
+            $(document).on('click', '.map_proper', function () {
+                zoom += 2;
+                map.centerAndZoom(new BMap.Point($(this).attr("lng"), $(this).attr("lat")), zoom); //地图显示位置
+            });
+            $(document).on('click', '.map_street', function () {
+                zoom += 2;
+                map.centerAndZoom(new BMap.Point($(this).attr("lng"), $(this).attr("lat")), zoom); //地图显示位置
+            });
+
+            $(document).on('click', '.map_point', function () {
+                // var content = "<div class='mapMark-box'><h4 class='map-title'>" + $(this).attr("p_title") + "</h4><p class='map-content'>" + $(this).attr("p_content") + "</p></div>";
+                // var infoWindow = new BMap.InfoWindow(content, { offset: { width: -5, height: -20 } }); //a
+                // map.openInfoWindow(infoWindow, new BMap.Point($(this).attr("lng"), $(this).attr("lat")));
+                vm.$data.mainShow = true;
+            });
+        })
+
+
+        var pointArray;
+
+        //改变地图大小
+        function mapFresh1() {
+            vm.$data.mapLoad = true;
+
+            getdata1(); //获得marker点的数组
+            map.clearOverlays();//清空地图上标注点
+            addMapOverlay(); //将marker点的信息显示在地图上
+            mapCenter();
+            markers.splice(0, markers.length);//清空数组
+        }
+
+        //改变地图大小
+        function mapFresh() {
+            vm.$data.mapLoad = true;
+
+            getdata(); //获得marker点的数组
+            map.clearOverlays();//清空地图上标注点
+            addMapOverlay(); //将marker点的信息显示在地图上
+            mapCenter();
+            markers.splice(0, markers.length);//清空数组
+        }
+
+        //设置点Icon
+        function addMapOverlay() {
+            //把marker点的信息显示在地图上
+            pointArray = new Array();
+            for (var index = 0; index < markers.length; index++) {
+                var point = new BMap.Point(markers[index].position.lng, markers[index].position.lat);
+                var div = new ComplexCustomOverlay(point, markers[index].main, zoom);
+                map.addOverlay(div);
+                pointArray[index] = point;
+            }
+            vm.$data.mapLoad = false;
+
+        }
+
+        creatMap();
+
+        $(function () {
+            $("#searchInput").bind("input propertychange", function () {
+                $(".mapSearch-list").show();
+            });
+            $("body").on("click", ".mapSearch-li", function () {
+                vm.mapCompany(true);
+                zoom = 17;
+                map.removeEventListener("zoomend", zoomChange);
+                map.removeEventListener("moveend", moveChange);
+                mapFresh();
+
+                $(".mapSearch-list").hide();
+
+                map.addEventListener("zoomend", zoomChange);
+                map.addEventListener("moveend", moveChange);
+            });
+        });
+
+
+        //    // 百度地图API功能
+        //    var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+        //        {
+        //            "input": "buildAdress", "location": map
+        //        });
+        //    var myValue;
+        //    ac.addEventListener("onconfirm", function (e) {    //鼠标点击下拉列表后的事件
+        //        console.log(e);
+        //        var _value = e.item.value;
+        //        myValue = _value.province + _value.city + _value.district + _value.street + _value.business;
+        //        setPlace();
+        //    });
+
+
+        //    function setPlace() {
+        //        map.clearOverlays();    //清除地图上所有覆盖物
+        //        function myFun() {
+        //            var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+        ////            map.centerAndZoom(pp, 18);
+        ////            map.addOverlay(new BMap.Marker(pp));    //添加标注
+        //            $("#buildPosition").val(pp.lng + "," + pp.lat);
+        //        }
+        //
+        //        var local = new BMap.LocalSearch(map, { //智能搜索
+        //            onSearchComplete: myFun
+        //        });
+        //        local.search(myValue);
+        //    }
+
+        //地图居中
+        function mapCenter() {
+            console.log(pointArray);
+            setTimeout(function () {
+                map.setViewport(pointArray, { margins: [20, 20, 20, 20] });
+            }, 50);
+        }
+
+
+    </script>
+</body>
+
+</html>

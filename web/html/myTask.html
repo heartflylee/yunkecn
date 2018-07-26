@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>个人客户</title>
+
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../css/head.css"/>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+    <script type="text/javascript" src="../js/highcharts.js"></script>
+    <!--<script type="text/javascript" src="../js/jedate/jedate.js"></script>-->
+    <script type="text/javascript" src="../js/jedate2/jedate.js"></script>
+    <!--<link href="../js/jedate2/skin/jedate.css"/>-->
+    <link rel="stylesheet" href="../js/jedate2/skin/jedate.css">
+    <!--<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js" ></script>-->
+
+    <link rel="stylesheet" type="text/css" href="../js/kindeditor/themes/default/default.css"/>
+    <link rel="stylesheet" href="../js/kindeditor/plugins/code/prettify.css"/>
+    <script charset="utf-8" src="../js/kindeditor/kindeditor-all.js"></script>
+    <script charset="utf-8" src="../js/kindeditor/lang/zh-CN.js"></script>
+    <script charset="utf-8" src="../js/kindeditor/plugins/code/prettify.js"></script>
+
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<div class="layer-2"></div>
+<div class="layer-3"></div>
+<div class="layer-4"></div>
+<div class="layer-6"></div>
+<!-- 页面头部 header -->
+<div class="header person">
+    <h1 class="logo fl"></h1>
+    <span class="mar fl">|</span>
+    <span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+    <ul class="nav">
+        <li>
+            <a href="indexnew2.html" >首页</a>
+        </li>
+        <!--<li>-->
+        <!--<a href="">行动</a>-->
+        <!--</li>-->
+        <li>
+            <a href="customer1.html" >客户</a>
+        </li>
+        <li>
+            <a href="download.html">线索</a>
+        </li>
+        <li>
+            <a href="task.html" class="current">任务</a>
+        </li>
+        <li>
+            <a href="settings.html" id="top-setting">设置</a>
+        </li>
+    </ul>
+    <ul class="header-right fr">
+        <li>
+            <a href="javascript:void(0)"><i class="add"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"><i class="update"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"><i class="message"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" class="user">刘</a>
+        </li>
+    </ul>
+</div>
+<div class="tipArea">
+    <div class="wrap">
+        <span class="span-1 fr" id="chooseStaff">选择员工<b class="b-icon"></b></span>
+        <span class="span-2 fl" id="add-tasks">新建任务</span>
+        <ul class="ul-1 taskul">
+            <li>
+                <a href="task.html">电话任务</a>
+            </li>
+            <li>
+                <a href="task-2.html">短信任务</a>
+            </li>
+            <li>
+                <a href="task-3.html">邮件任务</a>
+            </li>
+            <li>
+                <a href="task-1.html">委派云电销</a>
+            </li>
+            <li>
+                <a href="myTask.html" class="current">我的任务<b class="b-news"></b></a>
+            </li>
+        </ul>
+        <div class="choose-staff">
+            <div class="position-relative searchBox-1 fr">
+                <input type="text" placeholder="查找员工" />
+                <a class="search-icon"></a>
+            </div>
+            <ul class="staff-ul">
+                <li>
+                    <a href="javascript:void(0)" class="current"><img src="../images/all.png">所有员工<i class="right-icon"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><img src="../images/photo.png">有员工<i class="right-icon"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><img src="../images/photo.png">有员工<i class="right-icon"></i></a>
+                </li>
+            </ul>
+            <div class="employ_btn">
+                <input type="button" class="btn" value="提交" />
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 内容部分 contents -->
+<div class="contents">
+    <div class="table-tlt">
+        <i class="i"></i>客户列表
+        <ul class="gtabBox" id="gtabBox" style="margin-top:-6px;">
+            <li><a href="javascript:;" class="current">进行中</a></li>
+            <li><a href="javascript:;">预约<b class="b-news"></b></a></li>
+            <li><a href="javascript:;">二次呼叫</a></li>
+            <li><a href="javascript:;">已完成</a></li>
+        </ul>
+    </div>
+    <!--  -->
+    <div class="table-1" style="display:block">
+        <table class="table-list ">
+            <thead>
+            <tr>
+                <th>创建时间</th>
+                <th>任务名称</th>
+                <th>人均电话量</th>
+                <th>任务周期</th>
+                <th>所属行业</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>--</td>
+                <td><label class="top">置顶</label><a href="">短信绑定电话任务（0）</a>
+                    <div class="table-tip"><b></b>
+                        <div class="table-tips">企业群发短信，状态为“打开链接”的数据将出现在这里，需电话跟进</div>
+                    </div>
+                </td>
+                <td>客户姓名</td>
+                <td></td>
+                <td>短信群发-打开链接</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td><label class="top">置顶</label><a href="">云电销绑定电话任务（0）</a>
+                    <div class="table-tip"><b></b>
+                        <div class="table-tips">委派云电销任务，标记为“有意向”的数据将出现在这里，需电话跟进</div>
+                    </div>
+                </td>
+                <td>--</td>
+                <td>--</td>
+                <td>委派云电销-有意向客户</td>
+            </tr>
+            <tr>
+                <td>客户姓名</td>
+                <td><a href="gtask-unfinished.html" class="red">本周销售任务（过期未完成）</a></td>
+                <td>客户姓名</td>
+                <td>客户姓名</td>
+                <td>不提供线索</td>
+            </tr>
+            <tr>
+                <td>客户姓名</td>
+                <td>客户姓名</td>
+                <td>客户姓名</td>
+                <td>客户姓名</td>
+                <td>企业导入-客户回访</td>
+            </tr>
+            <tr>
+                <td>客户姓名</td>
+                <td>客户姓名</td>
+                <td>客户姓名</td>
+                <td>客户姓名</td>
+                <td>企业导入-客户回访</td>
+            </tr>
+            </tbody>
+        </table>
+        <!-- 分页 -->
+        <p class="page-p">共20条</p>
+        <ul class="page-ul">
+            <li>
+                <
+            </li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>></li>
+        </ul>
+
+    </div>
+    <!--  -->
+    <div class="table-1">
+        <table class="table-list">
+            <thead>
+            <tr>
+                <th>客户名称</th>
+                <th>公司名称</th>
+                <th>沟通结果</th>
+                <th>预约时间</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>客户姓名</td>
+                <td>本周销售任务（过期未完成）</td>
+                <td>客户姓名</td>
+                <td>预约时间</td>
+                <td>客户姓名</td>
+                <td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+            </tr>
+            <tr>
+                <td>客户姓名</td>
+                <td>本周销售任务（过期未完成）</td>
+                <td>客户姓名</td>
+                <td>预约时间</td>
+                <td>客户姓名</td>
+                <td><a class="blue call-tel" href="javascript:;"><i class="tel-icon"></i>拨打电话</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <!-- 分页 -->
+        <p class="page-p">共20条</p>
+        <ul class="page-ul">
+            <li>
+                <
+            </li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>></li>
+        </ul>
+    </div>
+    <!--  -->
+    <div class="table-1">
+        <table class="table-list">
+            <thead>
+            <tr>
+                <th>客户名称</th>
+                <th>公司名称</th>
+                <th>沟通结果</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>客户姓名</td>
+                <td>本周销售任务（过期未完成）</td>
+                <td>客户姓名</td>
+                <td>客户姓名</td>
+                <td></td>
+            </tr>
+
+            </tbody>
+        </table>
+        <!-- 分页 -->
+        <p class="page-p">共20条</p>
+        <ul class="page-ul">
+            <li>
+                <
+            </li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>></li>
+        </ul>
+    </div>
+    <!--  -->
+    <div class="table-1">
+        <table class="table-list">
+            <thead>
+            <tr>
+                <th>创建时间</th>
+                <th>任务名称</th>
+                <th>人均电话量</th>
+                <th>任务周期</th>
+                <th>所属行业</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>客户姓名</td>
+                <td><a href="###" class="red">本周销售任务（过期未完成）</a></td>
+                <td>客户姓名</td>
+                <td>客户姓名</td>
+                <td>北京联云天下科技有限公司</td>
+            </tr>
+            <tr>
+                <td>客户姓名</td>
+                <td>客户姓名</td>
+                <td>客户姓名</td>
+                <td>客户姓名</td>
+                <td>北京联云天下科技有限公司</td>
+            </tr>
+            <tr>
+                <td>客户姓名</td>
+                <td>客户姓名</td>
+                <td>客户姓名</td>
+                <td>客户姓名</td>
+                <td>北京联云天下科技有限公司</td>
+            </tr>
+            </tbody>
+        </table>
+        <!-- 分页 -->
+        <p class="page-p">共20条</p>
+        <ul class="page-ul">
+            <li>
+                <
+            </li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>></li>
+        </ul>
+    </div>
+</div>
+<!-- 拨打电话弹层 -->
+<div class="telLayerBox">
+    <div class="tel-tlt">
+        <i class="i"></i> 拨打电话
+        <div class="fr">
+            <a class="edit-1" id="saveBtn_call">保存</a>
+            <a href="javascript:;" class="edit-1" id="tel-edit"><i class="i-1"></i>编辑</a>
+            <!--<a href="javascript:;" class="add-1" id="tel-add"><i class="i-2"></i>补充资料</a>-->
+            <a href="javascript:;" class="add-1" id="add_customer"><i class="i-3"></i>新建客户</a>
+        </div>
+    </div>
+    <div class="contextBox">
+        <dl class="item-1">
+            <dt>客户姓名：</dt>
+            <dd><input type="text" id="e_customerName" value="客户姓名" readonly="readonly"/>
+                <input type="hidden" value="" id="hidcustId" readonly="readonly"/>
+            </dd>
+        </dl>
+        <dl class="item-1">
+            <dt>手机号：</dt>
+            <dd><input type="text" id="e_phone" value="13111111111" readonly="readonly"/></dd>
+        </dl>
+    </div>
+    <div class="contextBox">
+        <dl class="item-2">
+            <dt>公司名称：</dt>
+            <dd><input type="text" id="e_comName" value="北京联云天下科技有限公司" readonly="readonly"/>
+                <div class="call-com-f">
+                    <div class="com_info">北京联云天下科技有限公司</div>
+                    <div class="com_info">北京联云天下科技有限公司</div>
+                    <div class="com_info">北京联云天下科技有限公司</div>
+                </div>
+            </dd>
+        </dl>
+    </div>
+    <div class="contextBox">
+        <dl class="item-1">
+            <dt>客户姓名：</dt>
+            <dd><input type="text" value="客户姓名" readonly="readonly"/></dd>
+        </dl>
+        <dl class="item-1">
+            <dt>职　　位：</dt>
+            <dd><input type="text" value="客户姓名" readonly="readonly"/></dd>
+        </dl>
+    </div>
+    <div class="contextBox">
+        <dl class="item-1">
+            <dt>销售地址：</dt>
+            <dd><input type="text" class="address_input" value="请选择销售地址5" readonly="readonly"/>
+                <select class="address_sel">
+                    <option>请选择销售地址</option>
+                    <option>请选择销售地址1</option>
+                    <option>请选择销售地址2</option>
+                    <option>请选择销售地址3</option>
+                    <option>请选择销售地址4</option>
+                </select>
+            </dd>
+        </dl>
+        <!--<script>
+            $(function(){
+                $(".address_sel option").removeAttr("selected");
+                $(".address_sel option").each(function(){
+                    if($(this).text()==$(".address_input").val()){
+                        $(this).attr("selected","selected");
+                    }
+                })
+            })
+        </script>-->
+        <dl class="item-1">
+            <dt>微　　信：</dt>
+            <dd><input type="text" value="客户姓名" readonly="readonly"/></dd>
+        </dl>
+    </div>
+    <div class="contextBox">
+        <dl class="item-2">
+            <dt>经营范围：</dt>
+            <dd><textarea
+                    readonly="readonly">谷朊粉、小麦面筋粉、面粉、发达面粉、北郎中面粉、仁和久盛、古船面粉、五得利、面粉、1Kg7+1营养粉、5kg饺子、5kg雪花、10kg面粉</textarea>
+            </dd>
+        </dl>
+    </div>
+    <div class="contextBox">
+        <dl class="item-2">
+            <dt>备　　注：</dt>
+            <dd><textarea
+                    readonly="readonly">谷朊粉、小麦面筋粉、面粉、发达面粉、北郎中面粉、仁和久盛、古船面粉、五得利、面粉、1Kg7+1营养粉、5kg饺子、5kg雪花、10kg面粉</textarea>
+            </dd>
+        </dl>
+    </div>
+    <div class="custome_show">
+        <div class="contextBox">
+            <dl class="item-1">
+                <dt>手机号码2：</dt>
+                <dd><input type="text" value="" id="e_phone2" readonly="readonly"/></dd>
+            </dl>
+            <dl class="item-1">
+                <dt>座机号码：</dt>
+                <dd><input type="text" value="" id="e_telephone" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <div class="contextBox">
+            <dl class="item-1">
+                <dt>QQ号码：</dt>
+                <dd><input type="text" value="" id="e_QQ" readonly="readonly"/></dd>
+            </dl>
+            <dl class="item-1">
+                <dt>生日：</dt>
+                <dd><input type="text" value="" id="e_birthday" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <div class="contextBox">
+            <dl class="item-1">
+                <dt>前台电话：</dt>
+                <dd><input type="text" value="" id="e_qiantai" readonly="readonly"/></dd>
+            </dl>
+            <dl class="item-1">
+                <dt>传真号码：</dt>
+                <dd><input type="text" value="" id="e_chuanzhen" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <div class="contextBox">
+            <dl class="item-2">
+                <dt>备用1：</dt>
+                <dd><input type="text" value="" id="e_spare1" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <div class="contextBox">
+            <dl class="item-2">
+                <dt>备用2：</dt>
+                <dd><input type="text" value="" id="e_spare2" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <div class="contextBox">
+            <dl class="item-2">
+                <dt>备用3：</dt>
+                <dd><input type="text" value="" id="e_spare3" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <div class="contextBox">
+            <dl class="item-2">
+                <dt>备用4：</dt>
+                <dd><input type="text" value="" id="e_spare4" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <div class="contextBox">
+            <dl class="item-2">
+                <dt>备用5：</dt>
+                <dd><input type="text" value="" id="e_spare5" readonly="readonly"/></dd>
+            </dl>
+        </div>
+        <!--<div class="contextBox not_editor first">
+            <dl class="item-2">
+                <dt>销售进度：</dt>
+                <dd>初步沟通</dd>
+            </dl>
+        </div>-->
+        <div class="contextBox not_editor first">
+            <dl class="item-2">
+                <dt>创建时间：</dt>
+                <dd>2016-05-19</dd>
+            </dl>
+        </div>
+        <div class="contextBox not_editor">
+            <dl class="item-2">
+                <dt>上次联系时间：</dt>
+                <dd>2016-05-19</dd>
+            </dl>
+        </div>
+        <div class="contextBox not_editor">
+            <dl class="item-2">
+                <dt>上次电话结果：</dt>
+                <dd>继续跟进</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="fold">
+        <i></i>
+    </div>
+
+    <p class="p-time" id="p-time">通话时长：0’15”</p>
+    <input type="button" class="btn-none" value="10秒后可挂断">
+    <input type="button" class="btn-red" value="挂断电话" id="hangupBtn">
+    <!--<input type="button" class="btn" value="保存" id="saveBtn_call">-->
+
+
+    <div class="checkbox-box">
+        <label>
+            <input type="checkbox" checked="checked">
+            <i></i>
+            本次呼叫结束后终止连续外呼
+        </label>
+    </div>
+</div>
+<!-- 沟通结果 -->
+<div class="telLayerBox-1">
+    <div class="tel-tlt">
+        <i class="i"></i> 销售进度
+    </div>
+    <dl class="dl-1 sales-progress">
+        <dd>
+            <span class="sales-span">初步沟通</span>
+            <span class="sales-span">确认需求</span>
+            <span class="sales-span">确认报价</span>
+            <span class="sales-span">拟定合同</span>
+            <span class="sales-span">成单</span>
+        </dd>
+    </dl>
+    <div class="line"></div>
+    <div class="tel-tlt">
+        <i class="i"></i> 沟通意向
+    </div>
+    <dl class="dl-1">
+        <dt>无意向</dt>
+        <dd>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+        </dd>
+    </dl>
+    <dl class="dl-1">
+        <dt>预约时间</dt>
+        <dd>
+					<span class="time appointment">
+				<input type="text" id="time"/>
+			</span>
+
+            <!--<a href="javascript:;" class="choose-time"><label id="time" style="display: inline-block;width:150px;height: 20px;"></label></a>-->
+        </dd>
+        <script type="text/javascript">
+//            jeDate({
+//                dateCell: "#time",
+//                isinitVal: true,
+//                format: "YYYY-MM-DD hh:mm:ss",
+//                isTime: true, //isClear:false,
+//                minDate: "2014-09-19 00:00:00"
+//            })
+
+            $("#time").jeDate({
+                isinitVal: true,
+                format: "YYYY-MM-DD hh:mm:ss",
+                isTime: true, //isClear:false,
+                minDate: "2014-09-19 00:00:00"
+            });
+        </script>
+    </dl>
+    <div class="line"></div>
+    <dl class="dl-1">
+        <dt>无意向</dt>
+        <dd>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+        </dd>
+    </dl>
+    <div class="line"></div>
+    <dl class="dl-1">
+        <dt>资料错误</dt>
+        <dd>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+        </dd>
+    </dl>
+    <div class="line"></div>
+    <dl class="dl-1">
+        <dt>二次呼叫</dt>
+        <dd>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+            <span class="span">销售人员</span>
+        </dd>
+    </dl>
+    <div class="line"></div>
+    <dl class="dl-1">
+        <dt>添加备注</dt>
+        <dd>
+            <textarea placeholder="请输入备注"></textarea>
+        </dd>
+    </dl>
+    <div class="center">
+        <div class="line"></div>
+        <input type="button" class="btn btnSend" value="发送短信" id="send"/><input type="button" class="btn btnSend"
+                                                                                value="发送邮件" id="send_email"/>
+        <div class="line"></div>
+        <input type="button" class="btn" value="提交" id="tjyxBtn" on onclick="callSubmit();"/>
+    </div>
+</div>
+
+<!--发送短信-->
+<div class="telLayerBox-2" id="send_message">
+    <div class="message_f">
+        <div class="tel-tlt">
+            <i class="i"></i> 发短信
+            <a href="javascript:void(0)" class="a-closed"></a>
+        </div>
+        <div class="box_f">
+            <div class="c-box" id="c-box">
+                <select class="select_message">
+                    <option>请选择短信模板</option>
+                    <option>短信模板1</option>
+                    <option>短信模板2</option>
+                    <option>短信模板3</option>
+                </select>
+            </div>
+            <div class="textarea_box">
+                <textarea disabled="disabled"></textarea>
+            </div>
+            <div class="message_cost">
+                *短信费0.08元/条
+            </div>
+            <div class="send_btn">
+                <input type="button" class="btn" value="发送"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 申请更多任务 -->
+<div class="applyBox" id="applyBox">
+    <div class="tlt"><i></i>申请电话任务
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <div class="textbox fl">
+        <dl>
+            <dt>任务周期</dt>
+            <dd>某日</dd>
+        </dl>
+        <dl>
+            <dt>开始时间</dt>
+            <dd>某日</dd>
+        </dl>
+        <dl>
+            <dt>人均电话量</dt>
+            <dd>某日</dd>
+        </dl>
+        <dl class="none">
+            <dt>重复</dt>
+            <dd>某日</dd>
+        </dl>
+    </div>
+    <select class="selectBox-1">
+        <option>企业导入-联云测试</option>
+    </select>
+
+    <input type="button" class="btn" value="保存" id="applyTaskBtn">
+</div>
+<!--<script type="text/javascript">
+    $(function(){
+        $(".select_message").change(function(){
+            alert($(".select_message option:selected").attr(""));
+        })
+    })
+</script>-->
+
+
+<!-- 绑定企业成功 -->
+<div class="applyBox binding" id="binding">
+    <div class="tlt"><i></i>绑定企业成功
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <div class="binging_con">
+        <p>恭喜您成功绑定企业，现在可以开始协同办公了。</p>
+        <p>同时您的客户将被上传到企业数据库。</p>
+        <p>是否现在上传？</p>
+        <div class="binding_btn">
+            <button>现在上传</button>
+            <button>稍后再说</button>
+        </div>
+    </div>
+</div>
+
+<!-- 上传数据 -->
+<div class="applyBox binding upload_bind" id="upload_bind">
+    <div class="tlt"><i></i>上传数据
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <div class="binging_con">
+        <p>是否要将您的数据上传至企业数据库？</p>
+        <div class="binding_btn">
+            <button>现在上传</button>
+            <button>稍后再说</button>
+        </div>
+    </div>
+</div>
+
+<!-- 上传数据 -->
+<div class="applyBox upload" id="upload">
+    <div class="tlt"><i></i>上传数据
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <div class="binging_con">
+        <p>数据上传</p>
+        <p>共上传1000条数据，成功800条，失败200条。<a class="result">查看原因</a></p>
+        <div class="binding_btn">
+            <button>确定</button>
+        </div>
+    </div>
+</div>
+
+<!-- 上传失败数据列表 -->
+<div class="applyBox error_list" id="error_list">
+    <div class="tlt"><i></i>上传失败数据列表 <span class="export"><b></b> 导出</span>
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <div class="table-2">
+        <table class="table-list">
+            <thead>
+            <tr class="tabletle">
+                <th>客户姓名</th>
+                <th>手机号码</th>
+                <th>公司名称</th>
+                <th>失败原因</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="table-listodd">
+                <td>刘晓辉</td>
+                <td>13601129728</td>
+                <td>北京联云天下科技有限公司</td>
+                <td>数据已存在</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>数据不完善</td>
+                <td>数据不完善</td>
+                <td>数据不完善</td>
+            </tr>
+            <tr class="table-listodd">
+                <td>刘晓辉</td>
+                <td>13601129728</td>
+                <td>北京联云天下科技有限公司</td>
+                <td>数据已存在</td>
+            </tr>
+            <tr>
+                <td>刘晓辉</td>
+                <td>13601129728</td>
+                <td>北京联云天下科技有限公司</td>
+                <td>数据已存在</td>
+            </tr>
+            </tr>
+            <tr class="table-listodd">
+                <td>刘晓辉</td>
+                <td>13601129728</td>
+                <td>北京联云天下科技有限公司</td>
+                <td>数据已存在</td>
+            </tr>
+            <tr>
+                <td>刘晓辉</td>
+                <td>13601129728</td>
+                <td>北京联云天下科技有限公司</td>
+                <td>数据已存在</td>
+            </tr>
+            </tr>
+            <tr class="table-listodd">
+                <td>刘晓辉</td>
+                <td>13601129728</td>
+                <td>北京联云天下科技有限公司</td>
+                <td>数据已存在</td>
+            </tr>
+            <tr>
+                <td>刘晓辉</td>
+                <td>13601129728</td>
+                <td>北京联云天下科技有限公司</td>
+                <td>数据已存在</td>
+            </tr>
+            </tr>
+            <tr class="table-listodd">
+                <td>刘晓辉</td>
+                <td>13601129728</td>
+                <td>北京联云天下科技有限公司</td>
+                <td>数据已存在</td>
+            </tr>
+            <tr>
+                <td>刘晓辉</td>
+                <td>13601129728</td>
+                <td>北京联云天下科技有限公司</td>
+                <td>数据已存在</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <!-- 分页 -->
+    <p class="page-more">点击加载更多</p>
+</div>
+
+
+<!--发送邮件设置-->
+<div class="telLayerBox-2 send_tip" id="send_email1">
+    <div class="message_f">
+        <div class="tel-tlt">
+            <i class="i"></i> 发邮件
+            <a href="javascript:void(0)" class="a-closed"></a>
+        </div>
+        <div class="box_f send">
+            <div class="mail_tip">
+                邮件无法发送，请先设置邮箱。
+            </div>
+            <div class="send_btn">
+                <button class="btn set_email_btn">设置邮箱</button>
+                <button class="btn">暂不设置</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--发送邮件-->
+<div class="telLayerBox-2" id="send_email2">
+    <div class="message_f">
+        <div class="tel-tlt">
+            <i class="i"></i> 发邮件
+            <a href="javascript:void(0)" class="a-closed"></a>
+        </div>
+        <div class="box_f send">
+            <div class="c-box" id="c-box">
+                <select class="select_message" id="editor">
+                    <option>请选择邮件模板</option>
+                    <option>邮件模板1</option>
+                    <option>邮件模板2</option>
+                    <option>邮件模板3</option>
+                </select>
+            </div>
+            <div class="input_f">
+                <input type="text" class="inputBox-1 bg-gray" placeholder="请输入邮件标题"/>
+            </div>
+            <div class="textarea_box">
+                <textarea class="editor" id="e4"></textarea>
+            </div>
+
+
+            <div class="send_btn">
+                <input type="button" class="btn" value="发送"/>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="applyBox custom_new" id="applyBox-customer">
+    <div class="tlt"><i></i>新建客户
+        <a href="javascript:void(0)" class="a-closed"></a>
+    </div>
+    <div class="customer_f">
+        <div class="input_f not_none">
+            <input type="text" class="inputBox-1 bg-gray" placeholder="请输入客户姓名"/>
+        </div>
+        <div class="input_f not_none">
+            <input type="text" class="inputBox-1 bg-gray" placeholder="请输入公司名称"/>
+        </div>
+        <div class="select_city">
+            <select>
+                <option>请选择省市</option>
+                <option>请选择省市</option>
+                <option>请选择省市</option>
+                <option>请选择省市</option>
+                <option>请选择省市</option>
+            </select>
+            <select>
+                <option>请选择城市</option>
+                <option>请选择城市</option>
+                <option>请选择城市</option>
+                <option>请选择城市</option>
+                <option>请选择城市</option>
+            </select>
+            <select>
+                <option>请选择地区</option>
+                <option>请选择地区</option>
+                <option>请选择地区</option>
+                <option>请选择地区</option>
+                <option>请选择地区</option>
+            </select>
+        </div>
+        <div class="input_f">
+            <input type="text" class="inputBox-1 bg-gray" placeholder="请输入详细地址"/>
+        </div>
+        <div class="input_f not_none telephone existing">
+            <input type="text" class="inputBox-1 bg-gray" placeholder="请输入手机号码"/>
+        </div>
+        <div class="input_f">
+            <input type="text" class="inputBox-1 bg-gray" placeholder="请输入职位"/>
+        </div>
+        <div class="add_more">
+            <a>输入更多信息>></a>
+        </div>
+        <div class="custom_more">
+            <div class="input_f">
+                <input type="text" class="inputBox-1 bg-gray" placeholder="请输入手机号码2"/>
+            </div>
+            <div class="input_f">
+                <select class="select_row">
+                    <option>请选择企业资质</option>
+                    <option>请选择企业资质</option>
+                    <option>请选择企业资质</option>
+                    <option>请选择企业资质</option>
+                </select>
+            </div>
+            <div class="input_f">
+                <input type="text" class="inputBox-1 bg-gray" placeholder="请输入经营范围"/>
+            </div>
+            <div class="input_f">
+                <input type="text" class="inputBox-1 bg-gray" placeholder="请输入座机号码"/>
+            </div>
+            <div class="input_f">
+                <input type="text" class="inputBox-1 bg-gray" placeholder="请输入邮箱地址"/>
+            </div>
+            <div class="input_f">
+                <input type="text" class="inputBox-1 bg-gray" placeholder="请输入QQ号码"/>
+            </div>
+            <div class="input_f">
+                <input type="text" class="inputBox-1 bg-gray" placeholder="请输入微信号码"/>
+            </div>
+            <div class="input_f">
+                <input type="text" class="inputBox-1 bg-gray" placeholder="请输入生日"/>
+            </div>
+            <div class="input_f">
+                <input type="text" class="inputBox-1 bg-gray" placeholder="请输入前台电话号码"/>
+            </div>
+            <div class="input_f">
+                <textarea class="textarear_customer" placeholder="请输入备注"></textarea>
+            </div>
+        </div>
+    </div>
+    <input type="button" class="btn" value="提交" id="">
+</div>
+
+
+<div class="applyBox call-tip-warp" id="call-submit">
+    <div class="tlt"><i></i>连续外呼
+    </div>
+    <div class="call-tip call-next">
+        <span class="call-close">识别号码为 <label class="red">关机</label></span>
+        <span class="call-success">提交成功</span>
+        ，<label class="green" id="second">3</label>秒后将呼叫下一个号码
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var call = "123";
+    function callSubmit() {
+        var $callBox = $("#call-submit");
+        $callBox.show();
+        $(".layer-6").show();
+        var second = 3;
+        $("#second").text(second);
+        var next = setInterval(function () {
+            second--;
+            if (second == 0) {
+                clearInterval(next);
+                $callBox.hide();
+                $(".layer-6").hide();
+            }
+            $("#second").text(second);
+
+        }, 1000);
+
+        if (call == "success") {
+            $callBox.find(".call-close").hide();
+            $callBox.find(".call-success").show();
+        }
+        else {
+            $callBox.find(".call-close").show();
+            $callBox.find(".call-success").hide();
+        }
+
+    }
+
+
+    $(function () {
+
+        var time = 10;
+        var call_time = setInterval(function () {
+            time--;
+            if (time == 0) {
+                $(".btn-none").hide();
+                $(".btn-red").css("display", "inherit");
+                clearInterval(call_time);
+            } else {
+                $(".btn-none").val(time + "秒后可挂断");
+            }
+
+        }, 1000);
+
+
+        $("#editor").change(function () {
+            console.log("sdfs");
+            editor1.html("<img src='' />3434324243242<p style='font-size:36px;'>werwerwr</p>");
+        })
+
+        $('.fold').click(function () {
+            $(this).toggleClass("active");
+            if ($(this).hasClass("active")) {
+                $(".custome_show").show();
+            } else {
+                $(".custome_show").hide();
+            }
+        });
+
+        //隐藏顶部提示
+        $(document).click(function () {
+            $(".tip_f").hide();
+        });
+        //查看原因
+        $(".result").click(function () {
+            $("#error_list").show();
+            $(".layer-4").show();
+        });
+//			$(".layer-3").show();
+//			$("#binding").show();
+
+        $(".layer-3,#binding .a-closed").click(function (event) {
+            $("#binding").hide();
+            $(".layer-3").hide();
+            $(".tip_f").show();
+            event.stopPropagation();
+        });
+
+        $(".update").click(function () {
+            $("#upload_bind").show();
+            $(".layer").show();
+        });
+
+
+        $(".binding_btn button:first-child").click(function () {
+            $("#binding,#upload_bind").hide();
+            $(".layer-3").hide();
+            $(".layer").show();
+            $("#upload").show();
+        });
+
+        $("#error_list .a-closed,.layer-4").click(function () {
+            $(".layer-4").hide();
+            $("#error_list").hide();
+        });
+
+
+        //发送邮件按钮
+        $("#send_email").click(function () {
+//				$("#send_email1").show();
+            $("#send_email2").show();
+            $(".layer-2").show();
+
+        });
+
+
+//发送成功
+//			$("#send_email").addClass("disabled").off().val("邮件已发送，60秒后可再次发送");
+//				var time = 60;
+//				var send_time = setInterval(function() {
+//					$("#send_email").val("邮件已发送，" + time + "秒后可再次发送");
+//					time--;
+//					if (time == 0) {
+//						$("#send_email").removeClass("disabled").val("发送邮件").on("click", function() {
+//							$("#send_email1").show();
+//							$(".layer-2").show();
+//						});
+//						clearInterval(send_time);
+//					}
+//				}, 1000);
+
+        //设置邮箱
+        $(".set_email_btn").click(function () {
+            $(this).text("邮箱已设置");
+            window.open("mail_set.html");
+        });
+
+        $("#add_customer").click(function () {
+            $(".layer-6").show();
+            $("#applyBox-customer").show();
+        });
+        $(".add_more a").click(function () {
+            $(".custom_more").show();
+            $(".add_more").hide();
+        });
+        $("#applyBox-customer a.a-closed").click(function () {
+            $(".layer-6").hide();
+            $("#applyBox-customer").hide();
+        });
+
+
+        $(".sales-span").click(function () {
+            $(".sales-span").removeClass("cur");
+            $(this).addClass("cur");
+        })
+
+        $(".span").click(function () {
+            if ($("#f_calltime").text() == "0' 0\"" && $(this).attr("type") == 1) {
+                alert("此线索电话未接通，不可选择有意向标签");
+                return;
+            }
+
+
+            tipType = $(this).attr("type");
+            tipName = $(this).text();
+
+            $(".span").removeClass("cur");
+            $(this).addClass("cur");
+            if ($(this).attr("type") == 1) {
+                $(".yytime").show();
+            } else {
+                $(".yytime").hide();
+            }
+
+
+        });
+
+
+        $("#e_comName").bind("input propertychange", function () {
+            if ($(this).val().length > 0) {
+                $(".call-com-f").show();
+            } else {
+                $(".call-com-f").hide();
+            }
+        });
+        $(window).click(function () {
+            $(".call-com-f").hide();
+        });
+        $(".call-com-f,#e_comName").click(function () {
+            event.stopPropagation();
+        });
+        //选择公司
+        $(".call-com-f .com_info").click(function () {
+            $("#e_comName").val($(this).text().trim());
+            $(".call-com-f").hide();
+        });
+    });
+    $(function () {
+        $(".tip-clue").show();
+        $(".tip-clue").click(function (e) {
+            if (window.event) {
+                event.cancelBubble = true; // ie下阻止冒泡
+            } else {
+                event.stopPropagation(); // 其它浏览器下阻止冒泡
+            }
+        });
+        $(document).click(function () {
+            $(".tip-clue").hide();
+        });
+        $("#tip-cancle").click(function () {
+            $(".tip-clue").hide();
+        });
+        $("#tip-submit").click(function () {
+            $(".tip-clue").hide();
+//				location.href="cule.html";
+        })
+    });
+
+
+</script>
+</body>
+</html>

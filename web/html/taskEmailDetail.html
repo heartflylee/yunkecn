@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>团队任务-销售任务</title>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../css/head.css"/>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <!--<script type="text/javascript" src="../js/audio1.min.js"></script>-->
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/highcharts.js"></script>
+    <!--<link href="../css/hDate.css" rel="stylesheet"/>-->
+
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+
+    <!--<script type="text/javascript" src="../js/hDate.js"></script>-->
+</head>
+
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<div class="layer-5"></div>
+<div class="layer-6"></div>
+<!-- 页面头部 header -->
+<div class="header">
+    <h1 class="logo fl"></h1>
+    <ul class="nav">
+        <li>
+            <a href="indexnew2.html">首页</a>
+        </li>
+        <!--<li>-->
+        <!--<a href="">行动</a>-->
+        <!--</li>-->
+        <li>
+            <a href="customer1.html">客户</a>
+        </li>
+        <li>
+            <a href="download.html">线索</a>
+        </li>
+        <li>
+            <a href="task.html" class="current">任务</a>
+        </li>
+        <li>
+            <a href="settings.html" id="top-setting">设置</a>
+        </li>
+    </ul>
+    <ul class="header-right fr">
+        <li>
+            <a href="javascript:void(0)"><i class="add"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"><i class="update"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"><i class="message"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" class="user">刘</a>
+        </li>
+    </ul>
+</div>
+<div class="contents">
+    <div class="table-tlt">
+        <a class="return-icon" href="taskNew.html"></a>
+        <i class="i"></i>客户回访
+
+    </div>
+    <div class="customer">
+        <table class="table-list" id="table-list">
+            <thead>
+            <tr>
+                <th>客戶姓名</th>
+                <th>手机号码</th>
+                <th>座机</th>
+                <th>渠道来源</th>
+                <th>发送状态</th>
+                <th>数据来源</th>
+                <th>公司地址</th>
+            </tr>
+            </thead>
+           <tbody>
+           <tr>
+               <td><span class="name" style="cursor: pointer;color: #50d2c2;">孙红雷</span></td>
+               <td>13611126225</td>
+               <td>010-88883333</td>
+               <td>活动</td>
+               <td>发送成功</td>
+               <td>超管导表A</td>
+               <td><span class="hover-text" data-html="北京市">北京市</span></td>
+           </tr>
+           <tr>
+               <td><span class="name" style="cursor: pointer;color: #50d2c2;">孙红雷</span></td>
+               <td>13611126225</td>
+               <td>010-88883333</td>
+               <td>活动</td>
+               <td>发送成功</td>
+               <td>超管导表A</td>
+               <td><span class="hover-text" data-html="北京市朝阳区百子湾路29号爱工厂文化产业园">北京市朝阳区百子湾路29号爱工厂文化产业园</span></td>
+           </tr>
+           <tr>
+               <td><span class="name" style="cursor: pointer;color: #50d2c2;">孙红雷</span></td>
+               <td>13611126225</td>
+               <td>010-88883333</td>
+               <td>活动</td>
+               <td>发送成功</td>
+               <td>超管导表A</td>
+               <td><span class="hover-text" data-html="北京市">北京市</span></td>
+           </tr>
+           <tr>
+               <td><span class="name" style="cursor: pointer;color: #50d2c2;">孙红雷</span></td>
+               <td>13611126225</td>
+               <td>010-88883333</td>
+               <td>活动</td>
+               <td>发送成功</td>
+               <td>超管导表A</td>
+               <td><span class="hover-text" data-html="北京市朝阳区百子湾路29号爱工厂文化产业园">北京市朝阳区百子湾路29号爱工厂文化产业园</span></td>
+           </tr><tr>
+               <td><span class="name" style="cursor: pointer;color: #50d2c2;">孙红雷</span></td>
+               <td>13611126225</td>
+               <td>010-88883333</td>
+               <td>活动</td>
+               <td>发送成功</td>
+               <td>超管导表A</td>
+               <td><span class="hover-text" data-html="北京市">北京市</span></td>
+           </tr>
+           <tr>
+               <td><span class="name" style="cursor: pointer;color: #50d2c2;">孙红雷</span></td>
+               <td>13611126225</td>
+               <td>010-88883333</td>
+               <td>活动</td>
+               <td>发送成功</td>
+               <td>超管导表A</td>
+               <td><span class="hover-text" data-html="北京市朝阳区百子湾路29号爱工厂文化产业园">北京市朝阳区百子湾路29号爱工厂文化产业园</span></td>
+           </tr><tr>
+               <td><span class="name" style="cursor: pointer;color: #50d2c2;">孙红雷</span></td>
+               <td>13611126225</td>
+               <td>010-88883333</td>
+               <td>活动</td>
+               <td>发送成功</td>
+               <td>超管导表A</td>
+               <td><span class="hover-text" data-html="北京市">北京市</span></td>
+           </tr>
+           <tr>
+               <td><span class="name" style="cursor: pointer;color: #50d2c2;">孙红雷</span></td>
+               <td>13611126225</td>
+               <td>010-88883333</td>
+               <td>活动</td>
+               <td>发送成功</td>
+               <td>超管导表A</td>
+               <td><span class="hover-text" data-html="北京市朝阳区百子湾路29号爱工厂文化产业园">北京市朝阳区百子湾路29号爱工厂文化产业园</span></td>
+           </tr>
+           <tr>
+               <td><span class="name" style="cursor: pointer;color: #50d2c2;">孙红雷</span></td>
+               <td>13611126225</td>
+               <td>010-88883333</td>
+               <td>活动</td>
+               <td>发送成功</td>
+               <td>超管导表A</td>
+               <td><span class="hover-text" data-html="北京市">北京市</span></td>
+           </tr>
+           <tr>
+               <td><span class="name" style="cursor: pointer;color: #50d2c2;">孙红雷</span></td>
+               <td>13611126225</td>
+               <td>010-88883333</td>
+               <td>活动</td>
+               <td>发送成功</td>
+               <td>超管导表A</td>
+               <td><span class="hover-text" data-html="北京市朝阳区百子湾路29号爱工厂文化产业园">北京市朝阳区百子湾路29号爱工厂文化产业园</span></td>
+           </tr>
+           <tr>
+               <td><span class="name" style="cursor: pointer;color: #50d2c2;">孙红雷</span></td>
+               <td>13611126225</td>
+               <td>010-88883333</td>
+               <td>活动</td>
+               <td>发送成功</td>
+               <td>超管导表A</td>
+               <td><span class="hover-text" data-html="北京市">北京市</span></td>
+           </tr>
+           <tr>
+               <td><span class="name" style="cursor: pointer;color: #50d2c2;">孙红雷</span></td>
+               <td>13611126225</td>
+               <td>010-88883333</td>
+               <td>活动</td>
+               <td>发送成功</td>
+               <td>超管导表A</td>
+               <td><span class="hover-text" data-html="北京市朝阳区百子湾路29号爱工厂文化产业园">北京市朝阳区百子湾路29号爱工厂文化产业园</span></td>
+           </tr>
+           <tr>
+               <td><span class="name" style="cursor: pointer;color: #50d2c2;">孙红雷</span></td>
+               <td>13611126225</td>
+               <td>010-88883333</td>
+               <td>活动</td>
+               <td>发送成功</td>
+               <td>超管导表A</td>
+               <td><span class="hover-text" data-html="北京市">北京市</span></td>
+           </tr>
+           <tr>
+               <td><span class="name" style="cursor: pointer;color: #50d2c2;">孙红雷</span></td>
+               <td>13611126225</td>
+               <td>010-88883333</td>
+               <td>活动</td>
+               <td>发送成功</td>
+               <td>超管导表A</td>
+               <td><span class="hover-text" data-html="北京市朝阳区百子湾路29号爱工厂文化产业园">北京市朝阳区百子湾路29号爱工厂文化产业园</span></td>
+           </tr>
+
+
+           </tbody>
+        </table>
+        <div class="hover-wrap">
+
+        </div>
+    </div>
+    <!-- 分页 -->
+    <p class="page-p">共20条</p>
+    <ul class="page-ul">
+        <li>
+            <
+        </li>
+        <li> 1</li>
+        <li> 2</li>
+        <li> 3</li>
+        <li> ></li>
+    </ul>
+
+</div>
+
+<div class="filter-wrap changer-box" id="filterShow">
+    <div class="tlt"><i></i>筛选
+        <a href="javascript:layerClose('#filterShow')" class="a-closed"></a>
+    </div>
+    <div class="function-content">
+        <div class="filter-row">
+            <div class="filter-li time-box">
+                <label>创建时间</label>
+                <span class="time"><input type="text" id="timetext" readonly="readonly"></span>
+            </div>
+            <div class="filter-li time-box">
+                <label>至</label>
+                <span class="time"><input type="text" id="timetext-2" readonly="readonly"></span>
+            </div>
+            <div class="filter-li time-box">
+                <label style="margin-left:10px;">开始时间</label>
+                <span class="time"><input type="text" id="timetext-1" readonly="readonly"></span>
+            </div>
+            <div class="filter-li time-box">
+                <label>至</label>
+                <span class="time"><input type="text" id="timetext-3" readonly="readonly"></span>
+            </div>
+        </div>
+        <script type="text/javascript">
+					var start = {
+						format: 'YYYY-MM-DD hh:mm:ss',
+						maxDate: $.nowDate(0), //设定最小日期为当前日期
+						minDate: '1900-01-01 00:00:00', //最大日期
+						choosefun: function (elem, datas) {
+							end.minDate = datas; //开始日选好后，重置结束日的最小日期
+						}
+					};
+					var end = {
+						format: 'YYYY-MM-DD hh:mm:ss',
+						maxDate: $.nowDate(0), //设定最小日期为当前日期
+						//  festival:true,
+						minDate: '1900-01-01 00:00:00', //最大日期
+						choosefun: function (elem, datas) {
+							start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+						}
+					};
+					$('#timetext').jeDate(start);
+					$('#timetext-2').jeDate(end);
+
+					var start1 = {
+						format: 'YYYY-MM-DD hh:mm:ss',
+						maxDate: $.nowDate(0), //设定最小日期为当前日期
+						minDate: '1900-01-01 00:00:00', //最大日期
+						choosefun: function (elem, datas) {
+							end1.minDate = datas; //开始日选好后，重置结束日的最小日期
+						}
+					};
+					var end1 = {
+						format: 'YYYY-MM-DD hh:mm:ss',
+						maxDate: $.nowDate(0), //设定最小日期为当前日期
+						//  festival:true,
+						minDate: '1900-01-01 00:00:00', //最大日期
+						choosefun: function (elem, datas) {
+							start1.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+						}
+					};
+					$('#timetext-1').jeDate(start1);
+					$('#timetext-3').jeDate(end1);
+        </script>
+        <div class="filter-row">
+            <div class="filter-li">
+                <label>执行人员</label>
+                <select class="Jselect">
+                    <option>请选择执行人员</option>
+                    <option value="">无</option>
+                    <option value="">刘晓辉</option>
+                    <option value="">刘宇</option>
+                </select>
+            </div>
+            <div class="filter-li">
+                <label>任务状态</label>
+                <select class="Jselect">
+                    <option>请选择任务状态</option>
+                </select>
+            </div>
+            <div class="filter-li">
+                <label>任务周期</label>
+                <select class="Jselect">
+                    <option>请选择任务周期</option>
+                    <option value="">日</option>
+                    <option value="">周</option>
+                    <option value="">月</option>
+                </select>
+            </div>
+        </div>
+        <div class="filter-row">
+            <div class="filter-li">
+                <label>重复次数</label>
+                <select class="Jselect">
+                    <option>请选择重复次数</option>
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+            </div>
+            <div class="filter-li">
+                <label>数据来源</label>
+                <select>
+                    <option>请选择数据来源</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">6</option>
+                    <option value="">9</option>
+                </select>
+            </div>
+        </div>
+        <div class="filter-row">
+            <div class="filter-li">
+                <label>人均电话量</label>
+                <span class="time"><input type="text"></span>
+            </div>
+        </div>
+
+        <div class="manage-btn-wrap">
+            <input type="button" class="manage-btn" value="提交">
+        </div>
+    </div>
+</div>
+
+<script>
+
+	//关闭弹框
+	function layerClose (obj) {
+		$(obj).hide();
+		$(".layer").hide();
+	}
+
+	function filterShow () {
+		$("#filterShow").show();
+		$(".layer").show();
+	}
+
+	$(function () {
+		$(".customer").height($(window).height() - $(".customer").offset().top - 80);
+		$(".customer").css({
+			"overflow": "auto"
+		});
+		$(".hover-text").hover(function () {
+			$(".hover-wrap").html($(this).data().html);
+			$(".hover-wrap").show();
+			var top = $(this).offset().top - $(".contents").offset().top;
+			if (top + $(".hover-wrap").outerHeight() > $(".contents").offset().top + $(".contents").height()) {
+				top = top - $(".hover-wrap").outerHeight() + $(this).outerHeight();
+			}
+			var left = $(this).offset().left - $(".contents").offset().left + $(this).outerWidth();
+			if (left + $(".hover-wrap").outerWidth() > $(".contents").offset().left + $(".contents").width()) {
+				left = left - $(".hover-wrap").outerWidth() - $(this).outerWidth();
+			}
+			$(".hover-wrap").css({top: top, left: left});
+		}, function () {
+			$(".hover-wrap").hide();
+		})
+	});
+</script>
+</body>
+
+</html>

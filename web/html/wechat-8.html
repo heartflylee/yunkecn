@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>团队首页</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../css/appstatistics.css" rel="stylesheet" type="text/css" />
+    <!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="../css/head.css" />
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <!-- <link type="text/css" rel="stylesheet" href="../js/jedate-6.5.0/test/jeDate-test.css"> -->
+    <link type="text/css" rel="stylesheet" href="../js/jedate-6.5.0/skin/jedate.css">
+    <script src="../js/jedate-6.5.0/src/jedate.js"></script>
+
+    <script src="../js/swiper.js"></script>
+    <link rel="stylesheet" href="../css/swiper.css">
+
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../css/zTreeStyle.css">
+    <script src="../js/jquery.ztree.core.js"></script>
+    <!--<script src="../js/jquery.ztree.excheck.js"></script>-->
+    <script src="../js/jquery.ztree.exedit.js"></script>
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/echarts.js"></script>
+    <link rel="stylesheet" href="../css/customReport.css">
+    <link rel="stylesheet" href="../css/wxStyle.css">
+    <link rel="stylesheet" href="../css/viewer.css">
+    <!-- <script src="../js/viewer.min.js"></script> -->
+    <script src="../js/v-viewer.js"></script>
+</head>
+
+<body>
+    <div class="wxmain" id="main">
+        <div class="wxleft-wrap">
+            <div class="wxleft-head" style="background-image: url(../images/wxHead.png)"></div>
+            <div class="wxleft-name">
+                张三
+            </div>
+            <div class="wxleft-ul">
+                <a href="wechat-7.html" class="wxleft-href ">
+                    <i class="icon icon-wxmessage"></i>
+                </a>
+                <a href="wechat-8.html" class="wxleft-href active">
+                    <i class="icon icon-wxfriend"></i>
+                </a>
+            </div>
+        </div>
+        <div class="wxright-wrap">
+            <div class="wxright-title">
+                我的朋友圈
+            </div>
+            <div class="wxright-friends">
+                <div class="friends-li">
+                    <div class="friends-time">
+                        21
+                        <span>6月</span>
+                    </div>
+                    <div class="friends-main">
+                        <div class="friend-text">
+                            那销售应该怎么解决这个问题呢？销售培训公司RAIN Group的总裁John Doerr认为，销售应该主动聆听，主动聆听可以更 好的发现买家需求，与客户建立融洽的关系，并让客户知道你了解他们。我们之前在《分析了2W+销售电话，我们发现好的 销售电话是这样的》文章中，也提到过倾听比说话更重要
+                        </div>
+                    </div>
+                </div>
+                <div class="friends-li">
+                    <div class="friends-time">
+                        21
+                        <span>6月</span>
+                    </div>
+                    <div class="friends-main">
+                        <div class="friend-href">
+                            <div class="friend-img">
+                                <img src="../images/yzs-head.jpg" alt="">
+                            </div>
+                            <div class="friend-href-main">
+                                <div class="friend-href-title">
+                                    为什么你没成为月入10万的金牌销售，可能只是你说太多！
+                                </div>
+                                <div class="friend-href-text">
+                                    销售在与客户沟通中的主动性正在丧失。潜在客户只要通过简单的网络搜索...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="friends-li">
+                    <div class="friends-time">
+                        21
+                        <span>6月</span>
+                    </div>
+                    <div class="friends-main">
+                        <div class="friend-imgs-text">
+                            销售为什么总是说的太多？
+                        </div>
+                        <div v-viewer="options" class="friend-imgs">
+                            <template v-for="item in imgs">
+                                <!-- <li class="friend-img"> -->
+                                <img src="../images/yzs-head.jpg" data-source="../images/yzs-head.jpg">
+                                <!-- </li> -->
+                            </template>
+                        </div>
+                        <!-- <ul class="friend-imgs" v-imgview>
+                            <li class="friend-img" v-for="item in imgs">
+                                <img src="../images/yzs-head.jpg" alt="">
+                            </li>
+                        </ul> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+
+        var setTime;
+        // Vue.use(VueViewer, {
+        //     defaultOptions: {
+        //         zIndex: 9999
+        //     }
+        // })
+        Vue.use(VueViewer, {
+            defaultOptions: {
+                zIndex: 9999
+            }
+        })
+        console.log(Vue);
+        var vm = new Vue({
+            el: '#main',
+            data: function () {
+                return {
+                    imgs: [],
+                    viewerId: '',
+                    options: {
+                        url: 'data-source'
+                    },
+                }
+            },
+            methods: {
+            },
+            watch: {
+
+            },
+            mounted: function () {
+                this.$data.imgs = ['', '', '', ''];
+            },
+            // directives: {
+            //     imgview: function (el) {
+
+            //         vm.$data.viewerId && vm.$data.viewerId.destroy()
+            //         // 假设你的图片列表的id是images
+            //         vm.$data.viewerId = new viewer(el);
+            //         // new Viewer(el, {
+            //         //     hidden: function (el) {
+            //         //         console.log(this);
+            //         //         console.log(el);
+            //         //     }
+            //         // });
+            //     },
+
+            // }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>设置</title>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/head.css" />
+    <!--<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>-->
+    <script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+    <script src="../js/audio.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <!--<script type="text/javascript" src="../js/highcharts.js"></script>-->
+    <!--<link rel="stylesheet" href="../css/jquery.enjoyhint.css" />-->
+    <!--<script type="text/javascript" src="../js/enjoyhint.js"></script>-->
+    <!--<script type="text/javascript" src="../js/jquery.enjoyhint.js" ></script>-->
+
+    <link rel="stylesheet" href="../css/zTreeStyle.css">
+    <script src="../js/jquery.ztree.core.js"></script>
+    <!--<script src="../js/jquery.ztree.excheck.js"></script>-->
+    <script src="../js/jquery.ztree.exedit.js"></script>
+</head>
+
+<body>
+    <!-- 页面遮罩层 layer -->
+    <div class="layer"></div>
+    <div class="layer-1"></div>
+    <!-- 页面头部 header -->
+    <div class="header">
+        <h1 class="logo fl"></h1>
+        <span class="mar fl">|</span>
+        <span class="fl">
+            <em>团队版</em>[
+            <a href="">点击切换</a>]</span>
+        <ul class="nav">
+            <li>
+                <a href="indexnew2.html">首页</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="">行动</a>-->
+            <!--</li>-->
+            <li>
+                <a href="customer1.html">客户</a>
+            </li>
+            <li>
+                <a href="download.html">线索</a>
+            </li>
+            <li>
+                <a href="task.html">任务</a>
+            </li>
+            <li>
+                <a href="settings.html" id="top-setting" class="current">设置</a>
+            </li>
+        </ul>
+        <ul class="header-right fr">
+            <li>
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">
+                    <i class="qq"></i>
+                    <div class="service">在线客服</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="nav-tip"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="update"></i>
+                </a>
+            </li>
+            <li class="active">
+                <a href="news.html">
+                    <i class="message"></i>
+                    <i class="message-tip">29</i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="user">刘</a>
+            </li>
+        </ul>
+    </div>
+    <!-- 汇总提示 tipArea -->
+    <div class="tipArea">
+        <div class="wrap">
+            <ul class="ul-2">
+                <li>
+                    <a href="settings.html" class="current">部门管理</a>
+                </li>
+                <li>
+                    <a href="settings-1.html">外呼标签设置</a>
+                </li>
+                <li>
+                    <a href="settings-2.html">短信模板设置</a>
+                </li>
+                <li>
+                    <a href="settings-email.html">邮件账户设置</a>
+                </li>
+                <li>
+                    <a href="settings-email1.html">邮件模板设置</a>
+                </li>
+                <li>
+                    <a href="settings-call.html">挂机时间设置</a>
+                </li>
+                <li>
+                    <a href="settings-sea.html">企业公海设置</a>
+                </li>
+                <li>
+                    <a href="settings-task.html">云电销设置</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <!-- 内容部分 contents -->
+    <div class="contents contents-wrap">
+        <div class="manage-main">
+            <div class="title d-title">
+                <i></i>
+                部门管理
+                <div class="companyCode">
+                    企业串码
+                    <label>abc123</label>
+                </div>
+            </div>
+            <div class="manage-block">
+                <div class="manage-left">
+                    <div class="department-search">
+                    </div>
+                    <div class="tree-wrap">
+                        <ul id="tree" class="ztree department-tree"></ul>
+                    </div>
+                    <div class="leftbindcompay leftbindcompayNew">
+                        <p class="p">邀请团队成员</p>
+                        <input type="text" class="text left-phone" placeholder="请输入手机号" />
+                        <input type="button" class="btn left-btn" value="发送邀请码" />
+                        <div class="left-join">
+                            <div class="line"></div>
+                            <p class="p">邀请云客·云电销</p>
+                            <input type="button" class="btn" value="立即邀请" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="manage-content">
+                    <div class="manage-con-top">
+                        <input type="text" class="staff-search" placeholder="搜索员工">
+                        <input type="button" class="staff-btn" value="搜索">
+                        <div class="" style="display: inline-block;">
+                            <label class="depart-checkNum">
+                                已选中
+                                <span>3</span>人
+                            </label>
+                            <a class="depart-href" href="javascript:void(0)" onclick="departManage();">设置为管理员</a>
+                            <span class="depart-line">|</span>
+                            <a class="depart-href" href="javascript:void(0)" onclick="departChange();">变更部门</a>
+                        </div>
+                        <div class="right-box">
+                            <a href="unbindled.html" class="btn">已解绑员工</a>
+                            <a href="javascript:void(0)" class="btn">重置全部员工密码</a>
+                            <a class="btn" href="applyList.html">申请列表</a>
+                        </div>
+                    </div>
+                    <div class="manage-con-title">
+                        <i></i>
+                        <label>员工列表</label>
+                    </div>
+                    <div class="manage-info">
+                        <div class="depart-table">
+                            <table class="table-list" id="table-list">
+                                <colgroup>
+                                    <col style="width:30px;">
+                                    <col style="width:20%">
+                                    <col style="width:70px">
+                                    <col style="width:10%">
+                                    <col style="width:10%">
+                                    <col style="width:10%">
+                                    <col style="width:30%">
+                                    <col style="width:0">
+                                </colgroup>
+                                <tr>
+                                    <th class="th1">
+                                        <i></i>
+                                    </th>
+                                    <th>姓名</th>
+                                    <th>性别</th>
+                                    <th>手机号</th>
+                                    <th>职位</th>
+                                    <th>所属部门</th>
+                                    <th>操作</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i></i>
+                                    </td>
+                                    <td>18210014571
+                                        <span class="positon">管理员</span>
+                                    </td>
+                                    <td>男</td>
+                                    <td>13600000000</td>
+                                    <td>销售经理</td>
+                                    <td>市场1组</td>
+                                    <td>
+                                        <a class="link" href="javascript:editorStaff()">编辑</a>
+                                        <a class="link" href="javascript:unbundling(0);">解除绑定</a>
+                                        <a class="link" href="javascript:void(0)">重置密码</a>
+                                        <a class="link" href="javascript:void(0)">取消管理员身份</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i></i>
+                                    </td>
+                                    <td>徐东成
+                                        <span class="phone-mark1"></span>
+                                    </td>
+                                    <td>男</td>
+                                    <td>13600000000</td>
+                                    <td>销售</td>
+                                    <td>市场1组</td>
+                                    <td>
+                                        <a class="link" href="javascript:editorStaff()">编辑</a>
+                                        <a class="link" href="javascript:unbundling(1);">解除绑定</a>
+                                        <a class="link" href="javascript:void(0)">重置密码</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i></i>
+                                    </td>
+                                    <td>徐东成</td>
+                                    <td>男</td>
+                                    <td>13600000000</td>
+                                    <td>销售</td>
+                                    <td>市场1组</td>
+                                    <td>
+                                        <a class="link" href="javascript:editorStaff()">编辑</a>
+                                        <a class="link" href="javascript:unbundling(0);">解除绑定</a>
+                                        <a class="link" href="javascript:void(0)">重置密码</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i></i>
+                                    </td>
+                                    <td>徐东成</td>
+                                    <td>男</td>
+                                    <td>13600000000</td>
+                                    <td>销售</td>
+                                    <td>市场1组</td>
+                                    <td>
+                                        <a class="link" href="javascript:editorStaff()">编辑</a>
+                                        <a class="link" href="javascript:unbundling(0);">解除绑定</a>
+                                        <a class="link" href="javascript:void(0)">重置密码</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i></i>
+                                    </td>
+                                    <td>徐东成</td>
+                                    <td>男</td>
+                                    <td>13600000000</td>
+                                    <td>销售</td>
+                                    <td>市场1组</td>
+                                    <td>
+                                        <a class="link" href="javascript:editorStaff()">编辑</a>
+                                        <a class="link" href="javascript:unbundling(0);">解除绑定</a>
+                                        <a class="link" href="javascript:void(0)">重置密码</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i></i>
+                                    </td>
+                                    <td>徐东成</td>
+                                    <td>男</td>
+                                    <td>13600000000</td>
+                                    <td>销售</td>
+                                    <td>市场1组</td>
+                                    <td>
+                                        <a class="link" href="javascript:editorStaff()">编辑</a>
+                                        <a class="link" href="javascript:unbundling(0);">解除绑定</a>
+                                        <a class="link" href="javascript:void(0)">重置密码</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <div class="page-wrap">
+                            <p class="page-p">共20条</p>
+                            <ul class="page-ul">
+                                <li>
+                                    << </li>
+                                        <li>
+                                            < </li>
+                                                <li> 1</li>
+                                                <li> 2</li>
+                                                <li class="page-d">...</li>
+                                                <li> 3</li>
+                                                <li> ></li>
+                                                <li>>></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--新建部门-->
+    <div class="changer-box departNew-wrap" id="depart-new">
+        <div class="tlt">
+            <i></i>新建部门
+            <a href="javascript:layerClose('#depart-new');" class="a-closed"></a>
+        </div>
+        <div class="function-content">
+            <div class="function-row ">
+                <input type="text" class="input input-row" placeholder="请输入部门名称" />
+                <span class="text-red">部门名称已存在</span>
+            </div>
+            <div class="btn-wrap">
+                <input type="button" class="manage-btn" value="提交" />
+            </div>
+        </div>
+    </div>
+    <!--新建部门-->
+
+    <!--编辑部门-->
+    <div class="changer-box departNew-wrap" id="depart-editor">
+        <div class="tlt">
+            <i></i>编辑部门
+            <a href="javascript:layerClose('#depart-editor');" class="a-closed"></a>
+        </div>
+        <div class="function-content">
+            <div class="function-row ">
+                <input type="text" class="input input-row" placeholder="请输入部门名称" value="市场部" />
+                <span class="text-red">部门名称已存在</span>
+            </div>
+            <div class="manage-btn-wrap">
+                <input type="button" class="manage-btn" value="确定" />
+            </div>
+        </div>
+    </div>
+    <!--编辑部门-->
+
+
+    <!--删除部门-->
+    <div class="changer-box setManage" id="deleteDepart">
+        <div class="tlt">
+            <i></i>删除部门
+            <a href="javascript:layerClose('#deleteDepart');" class="a-closed"></a>
+        </div>
+        <div class="function-content">
+            <div class="bolder">
+                如删除部门，该部门员工将回到最上级部门，是否继续
+            </div>
+            <div class="manage-btn-wrap">
+                <input type="hidden" id="treeId" />
+                <input type="button" class="manage-btn btn-cancel" onclick="layerClose('#deleteDepart')" value="取消" />
+                <input type="button" class="manage-btn" onclick="removeDepart()" value="确定" />
+            </div>
+        </div>
+    </div>
+    <!--删除部门-->
+
+
+    <!--编辑员工-->
+    <div class="changer-box staff-editor" id="staff-editor">
+        <div class="tlt">
+            <i></i>编辑员工
+            <a href="javascript:layerClose('#staff-editor');" class="a-closed"></a>
+        </div>
+        <div class="function-content">
+            <div class="function-row">
+                <div class="function-name">
+                    云客账号
+                </div>
+                <div class="function-info">
+                    13601129728
+                </div>
+            </div>
+            <div class="function-row">
+                <div class="function-name">
+                    员工姓名
+                </div>
+                <div class="function-info">
+                    <input type="text" class="input" placeholder="请输入员工姓名" value="王秀莲" />
+                </div>
+            </div>
+            <div class="function-row">
+                <div class="function-name">
+                    性别
+                </div>
+                <div class="function-info">
+                    <label class="radio-label">
+                        <input type="radio" name="gender">
+                        <i class="radio-icon"></i>男</label>
+                    <label class="radio-label">
+                        <input type="radio" name="gender">
+                        <i class="radio-icon"></i>女</label>
+                </div>
+            </div>
+            <div class="function-row">
+                <div class="function-name">
+                    手机号码
+                </div>
+                <div class="function-info">
+                    <input type="text" class="input" placeholder="请输入手机号码" value="13601129728" />
+                </div>
+            </div>
+            <div class="function-row">
+                <div class="function-name">
+                    职位
+                </div>
+                <div class="function-info">
+                    <input type="text" class="input" placeholder="请输入职位" value="销售经理" />
+                </div>
+            </div>
+            <div class="function-row">
+                <div class="function-name">
+                    职能
+                </div>
+                <div class="function-info">
+                    <select>
+                        <option value="">请选择职能</option>
+                        <option value="">默认管理员</option>
+                        <option value="">管理员</option>
+                        <option value="">员工</option>
+                    </select>
+                </div>
+            </div>
+            <div class="manage-btn-wrap">
+                <input type="button" class="manage-btn" value="确定" />
+            </div>
+        </div>
+    </div>
+    <!--编辑员工-->
+
+
+    <!--设为部门管理员-->
+    <div class="changer-box setManage" id="depart-manage">
+        <div class="tlt">
+            <i></i>设置为管理员
+            <a href="javascript:layerClose('#depart-manage');" class="a-closed"></a>
+        </div>
+        <div class="function-content">
+            <div class="bolder">
+                设置为管理员后该员工可看到本部门及下属部门的数据，是否继续
+            </div>
+            <div class="manage-btn-wrap">
+                <input type="button" class="manage-btn btn-cancel" onclick="layerClose('#depart-manage')" value="取消" />
+                <input type="button" class="manage-btn" value="确定" />
+            </div>
+        </div>
+    </div>
+    <!--设为部门管理员-->
+
+    <!--变更部门-->
+    <div class="changer-box depart-new" id="depart-change">
+        <div class="tlt">
+            <i></i>变更部门
+            <a href="javascript:layerClose('#depart-change');" class="a-closed"></a>
+        </div>
+        <div class="function-content">
+            <div class="function-row">
+                <div class="function-name">
+                    选择部门
+                </div>
+                <div class="function-info">
+                    <input type="text" class="input" id="department" readonly="readonly" value="市场部" />
+                    <i class="depart-add" onclick="departChose(event)"></i>
+                    <div class="depart-tree" id="departTree-wrap">
+                        <ul id="depart-tree" class="ztree department-tree"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="manage-btn-wrap">
+                <input type="button" class="manage-btn" value="确定" onclick="departSubmit()" />
+            </div>
+        </div>
+    </div>
+    <!--变更部门-->
+
+
+    <!--变更部门-->
+    <div class="changer-box setManage" id="manageDefault">
+        <div class="tlt">
+            <i></i>变更部门
+            <a href="javascript:layerClose('#manageDefault');" class="a-closed"></a>
+        </div>
+        <div class="function-content">
+            <div class="bolder">
+                移动后员工将不再是管理员，是否继续
+            </div>
+            <div class="manage-btn-wrap">
+                <input type="button" class="manage-btn btn-cancel" onclick="layerClose('#manageDefault')" value="取消" />
+                <input type="button" class="manage-btn" value="确定" />
+            </div>
+        </div>
+    </div>
+    <!--变更部门-->
+
+
+    <div class="applyBox contact" id="unbundling">
+        <div class="tlt">
+            <i></i>解绑员工
+            <a href="javascript:;" class="a-closed"></a>
+        </div>
+        <div class="custom_f contact_info">
+            该员工已绑定手机，请先将员工与手机
+            <label>
+                <a href="">解除绑定</a>
+            </label>
+        </div>
+        <div class="btn-f">
+            <input type="button" class="btn btn-cancel" value="取消">
+        </div>
+    </div>
+
+    <div class="applyBox unbundling-warp" id="data-unbundling">
+        <div class="tlt">
+            <i></i>绑定员工
+            <a href="javascript:void(0)" class="a-closed"></a>
+        </div>
+        <div class="unbundling-box">
+            <div class="bundling-t">
+                请选择该员工所拥有数据去向
+            </div>
+            <div class="bundling-li">
+                <div class="radio-li">
+                    <input type="radio" name="data-way" id="data-way1" />
+                    <label class="radio-show" for="data-way1">
+                        <i class="radio"></i>
+                        数据进入公海（无跟进人）
+                    </label>
+                </div>
+            </div>
+            <div class="bundling-li">
+                <div class="radio-li">
+                    <input type="radio" name="data-way" id="data-way2" />
+                    <label class="radio-show" for="data-way2">
+                        <i class="radio"></i>
+                        数据交接给其他员工（全部变更跟进人）
+                    </label>
+                </div>
+                <div class="customer-choose">
+                    <div class="choose-t">选择员工</div>
+                    <ul class="choose-add clearfix">
+                        <li class="del-sc">
+                            <a href="javascript:void(0)">
+                                <img src="../images/member.png">
+                                <em>艾云鹤</em>
+                                <i class="fffline"></i>
+                            </a>
+                        </li>
+                        <li class="del-add">
+                            <a href="javascript:void(0)">
+                                <img src="../images/add-member.png">
+                                <em>添加员工</em>
+                            </a>
+                            <div class="adddiv1" id="allmembers1">
+                                <div class=" overy clearfix">
+                                    <div class="clear"></div>
+                                    <ul class="staff-ul bortop" style="height:253px">
+                                        <li>
+                                            <a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2016/06big/fe3e284cd8fb4c9c999bac0dd7fa1c76_myHeaderImage.png"
+                                                memberid="2624A4F332F64B16A1469ED2D97DE406" realname="云客小助手">
+                                                <img src="http://yunkecn.com/fileupload/fileupload/2016/06big/fe3e284cd8fb4c9c999bac0dd7fa1c76_myHeaderImage.png">
+                                                <span>云客小助手</span>
+                                                <i class="right-icon"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2016/08big/4b3bfc243b5b4ed1bc2650b25e29fa76_head.jpg"
+                                                memberid="C94DB37A3A7A463E8FCF6D58246136E4" realname="王佳印">
+                                                <img src="http://yunkecn.com/fileupload/fileupload/2016/08big/4b3bfc243b5b4ed1bc2650b25e29fa76_head.jpg">
+                                                <span>王佳印</span>
+                                                <i class="right-icon"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2015/09big/122437bc40b84e2eb10ac1756a3d6159_myHeaderImage.png"
+                                                memberid="E30C6E5B007149BA9F86CA32131C9014" realname="刘小鱼">
+                                                <img src="http://yunkecn.com/fileupload/fileupload/2015/09big/122437bc40b84e2eb10ac1756a3d6159_myHeaderImage.png">
+                                                <span>刘小鱼</span>
+                                                <i class="right-icon"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" imgurl="http://yunkecn.com/fileupload/fileupload/2016/06big/59ecb3e0362a4f249d56b56fbac8ea38_iOS.png"
+                                                memberid="F53C03BC582142808F809C5D32516E70" realname="田格非">
+                                                <img src="http://yunkecn.com/fileupload/fileupload/2016/06big/59ecb3e0362a4f249d56b56fbac8ea38_iOS.png">
+                                                <span>田格非</span>
+                                                <i class="right-icon"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button class="addBut" type="button" onclick="javascript:selectmember1()">确定</button>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="bundling-li">
+                <div class="radio-li">
+                    <input type="radio" name="data-way" id="data-way3" />
+                    <label class="radio-show" for="data-way3">
+                        <i class="radio"></i>
+                        不进行数据转移（跟进人为原员工）
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="btn-f">
+            <input type="button" class="btn btn-cancel" value="取消">
+            <input type="button" class="btn" value="继续">
+        </div>
+    </div>
+
+    <script>
+        var setting = {
+            view: {
+                addHoverDom: addHoverDom,
+                removeHoverDom: removeHoverDom,
+                selectedMulti: false,
+                showIcon: false,
+                fontCss: { 'font-weight': 'bold' }
+            },
+            check: {
+                enable: false
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            edit: {
+                enable: true,
+                showRemoveBtn: showRemoveBtn,
+                removeTitle: "删除",
+                renameTitle: "编辑",
+                drag: {
+                    isCopy: false,
+                    isMove: false
+                }
+            },
+            callback: {
+                beforeEditName: beforeEditName,
+                beforeRemove: beforeRemove,
+                onMouseDown: onMouseDown
+            },
+            async: {
+                enable: true
+            }
+
+        }
+        var departSetting = {
+            view: {
+                selectedMulti: false,
+                showIcon: false,
+                fontCss: { 'font-weight': 'bold' }
+            },
+            check: {
+                enable: false
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            edit: {
+                enable: false
+            },
+            callback: {
+                onMouseDown: departSelect
+            },
+            async: {
+                enable: true
+            }
+
+        }
+
+        //显示添加节点
+        function addHoverDom(treeId, treeNode) {
+            var sObj = $("#" + treeNode.tId + "_span");
+            if (treeNode.level >= 4) return;
+            if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
+            var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+                + "' title='添加' onfocus='this.blur();'></span>";
+            sObj.after(addStr);
+            var btn = $("#addBtn_" + treeNode.tId);
+            if (btn) btn.bind("click", function () {
+                newDepart();
+                return false;
+            });
+        };
+
+        //去除添加节点
+        function removeHoverDom(treeId, treeNode) {
+            $("#addBtn_" + treeNode.tId).unbind().remove();
+        }
+
+        //删除节点（根节点不显示删除）
+        function showRemoveBtn(treeId, treeNode) {
+            return !(treeNode.parentTId == null);
+        }
+
+        function removeDepart() {
+            var zTree = $.fn.zTree.getZTreeObj("tree");
+            var node = zTree.getNodeByParam('name', $("#treeId").val());
+            zTree.removeNode(node);
+            $("#treeId").val('');
+            $("#deleteDepart").hide();
+            $(".layer").hide();
+        }
+
+        //编辑前设置
+        function beforeEditName(treeId, treeNode) {
+            var zTree = $.fn.zTree.getZTreeObj("tree");
+            zTree.selectNode(treeNode);
+            editorDepart();
+            return false;
+        }
+
+        //删除
+        function beforeRemove(treeId, treeNode) {
+            console.log(treeNode);
+            $("#treeId").val(treeNode.name);
+            console.log($("#treeId").val());
+            $("#deleteDepart").show();
+            $(".layer").show();
+            return false;
+            //        return confirm("确认删除  " + treeNode.name + " 吗？");
+        }
+
+        //选择部门
+        function onMouseDown(event, treeId, treeNode) {
+            //选中部门
+        }
+
+        //变更中选择部门
+        function departSelect(event, treeId, treeNode) {
+            if (treeNode != null) {
+                $("#department").val(treeNode.name);
+                var zTree = $.fn.zTree.getZTreeObj("depart-tree");
+                zTree.selectNode(treeNode);
+                $("#departTree-wrap").hide();
+            }
+        }
+
+        // var zNodes = [{
+        //     name: "全公司", open: true,iconSkin:'bold',
+        //     children: [
+        //         {
+        //             name: "销售部",iconSkin:'bold',
+        //             children: [
+        //                 {name: "销售部1",iconSkin:'bold'},
+        //                 {name: "销售部2",iconSkin:'bold'},
+        //                 {name: "销售部3",iconSkin:'bold'},
+        //                 {name: "销售部4",iconSkin:'bold'}
+        //             ]
+        //         },
+        //         {
+        //             name: "市场部",iconSkin:'bold',
+        //             children: [
+        //                 {name: "市场部1",icon:'../images/member.png',phone:0},
+        //                 {name: "市场部2",icon:'../images/member.png',phone:1},
+        //                 {name: "市场部3",icon:'../images/member.png'},
+        //                 {name: "市场部4市场部4市场部4市场部4市场部4",icon:'../images/member.png'}
+        //             ]
+        //         }
+        //     ]
+        // }];
+
+        var zNodes = [
+            { "id": "0FCEF72742CC4AA6ADF6F0238D65A38B", "pId": "", "route": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "北京联云天下科技", "version": "2018-01-06 18:30:37", "companyCode": "yunkecn", "isdelete": 1, "createTime": "2018-01-06 18:30:37", "rank": 1 },
+            { "id": "D793BAFF725D4DC086BFF5D3175D17AF", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "route": "0FCEF72742CC4AA6ADF6F0238D65A38B,D793BAFF725D4DC086BFF5D3175D17AF", "name": "北京", "version": "2018-01-08 10:54:03", "companyCode": "yunkecn", "isdelete": 1, "createTime": "2018-01-08 10:54:03", "rank": 2 },
+            { "id": "A0F66F9EC47549A5906546479D19ABBE", "pId": "D793BAFF725D4DC086BFF5D3175D17AF", "route": "0FCEF72742CC4AA6ADF6F0238D65A38B,D793BAFF725D4DC086BFF5D3175D17AF,A0F66F9EC47549A5906546479D19ABBE", "name": "昌平校区", "version": "2018-06-04 17:11:27", "companyCode": "yunkecn", "isdelete": 1, "createTime": "2018-06-04 17:11:27", "rank": 3 },
+            { "id": "D6CD5AA6F4B645639C5AE7890A174F61", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "route": "0FCEF72742CC4AA6ADF6F0238D65A38B,D6CD5AA6F4B645639C5AE7890A174F61", "name": "上海", "version": "2018-07-03 11:11:43", "companyCode": "yunkecn", "isdelete": 1, "createTime": "2018-07-03 11:11:43", "rank": 2 },
+            { "id": "E079512AE6CC4C44ABC867069AE3DC0F", "pId": "D793BAFF725D4DC086BFF5D3175D17AF", "route": "0FCEF72742CC4AA6ADF6F0238D65A38B,D793BAFF725D4DC086BFF5D3175D17AF,E079512AE6CC4C44ABC867069AE3DC0F", "name": "测试", "version": "2018-07-10 14:16:59", "companyCode": "yunkecn", "isdelete": 1, "createTime": "2018-07-10 14:16:59", "rank": 3 },
+            { "id": "163337A9C0334932A7B4A83165A952E5", "pId": "E440F9110ADC4AF890F26853143CE00A", "route": "0FCEF72742CC4AA6ADF6F0238D65A38B,D793BAFF725D4DC086BFF5D3175D17AF,E440F9110ADC4AF890F26853143CE00A,163337A9C0334932A7B4A83165A952E5", "name": "测试1", "version": "2018-07-10 14:17:11", "companyCode": "yunkecn", "isdelete": 1, "createTime": "2018-07-10 14:17:11", "rank": 4 },
+            { "id": "4250C82157DB4A7BA8E74AA7169DCBE1", "pId": "163337A9C0334932A7B4A83165A952E5", "route": "0FCEF72742CC4AA6ADF6F0238D65A38B,D793BAFF725D4DC086BFF5D3175D17AF,E440F9110ADC4AF890F26853143CE00A,163337A9C0334932A7B4A83165A952E5,4250C82157DB4A7BA8E74AA7169DCBE1", "name": "测试2", "version": "2018-07-10 14:18:18", "companyCode": "yunkecn", "isdelete": 1, "createTime": "2018-07-10 14:18:18", "rank": 5 },
+            { "id": "F1A89CF452D44F1993A8131EA25AF8CB", "pId": "163337A9C0334932A7B4A83165A952E5", "route": "0FCEF72742CC4AA6ADF6F0238D65A38B,D793BAFF725D4DC086BFF5D3175D17AF,E440F9110ADC4AF890F26853143CE00A,163337A9C0334932A7B4A83165A952E5,F1A89CF452D44F1993A8131EA25AF8CB", "name": "部门测试", "version": "2018-07-10 15:03:09", "companyCode": "yunkecn", "isdelete": 1, "createTime": "2018-07-10 15:03:09", "rank": 5 },
+            { "id": "157995F98DA74ABF9FFC35A1E532F649", "pId": "E079512AE6CC4C44ABC867069AE3DC0F", "route": "0FCEF72742CC4AA6ADF6F0238D65A38B,D793BAFF725D4DC086BFF5D3175D17AF,E079512AE6CC4C44ABC867069AE3DC0F,157995F98DA74ABF9FFC35A1E532F649", "name": "111", "version": "2018-07-12 17:39:20", "companyCode": "yunkecn", "isdelete": 1, "createTime": "2018-07-12 17:39:20", "rank": 4 },
+            { "id": "07E51ADD1DEA4FC382359BEECB920F7C", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "route": "0FCEF72742CC4AA6ADF6F0238D65A38B,07E51ADD1DEA4FC382359BEECB920F7C", "name": "123", "version": "2018-07-12 17:39:43", "companyCode": "yunkecn", "isdelete": 1, "createTime": "2018-07-12 17:39:43", "rank": 2 }];
+
+        //默认设置树形结构
+        $(document).ready(function () {
+            $.fn.zTree.init($("#tree"), setting, zNodes);
+            $.fn.zTree.init($("#depart-tree"), departSetting, zNodes);
+        });
+
+
+        //关闭弹框
+        function layerClose(obj) {
+            $(obj).hide();
+            $(".layer").hide();
+        }
+
+        //新建职能弹框
+        function newDepart() {
+            $(".layer").show();
+            $("#depart-new").show();
+        }
+
+        //编辑职能弹框
+        function editorDepart() {
+            $(".layer").show();
+            $("#depart-editor").show();
+        }
+
+        //设为管理员
+        function departManage() {
+            $(".layer").show();
+            $("#depart-manage").show();
+        }
+
+        //设为管理员
+        function departChange() {
+            $(".layer").show();
+            $("#depart-change").show();
+        }
+
+
+        //编辑员工
+        function editorStaff() {
+            $(".layer").show();
+            $("#staff-editor").show();
+        }
+
+        //选择部门
+        function departChose(event) {
+            $("#departTree-wrap").show();
+            var department = $("#department").val().trim();
+            if (department != '') {
+                var zTree = $.fn.zTree.getZTreeObj("depart-tree");
+                var Param = zTree.getNodesByParamFuzzy("name", $("#department").val().trim());
+                zTree.selectNode(Param[0]);
+            }
+            event.stopPropagation();
+        }
+
+        //变更部门，点击弹框空白处隐藏选择部门下拉
+        $(function () {
+            $("#depart-change").click(function () {
+                $("#departTree-wrap").hide();
+            });
+            $("#departTree-wrap").click(function (event) {
+                event.stopPropagation();
+            });
+        });
+
+        //变更部门将不再是管理员
+        function departSubmit() {
+
+            $("#depart-change").hide();
+            $("#manageDefault").show();
+        }
+
+        $(function () {
+            $('#table-list td i,th i').on('click', function () {
+                if ($("#table-list td i.choose-right").length > 0) {
+                    $(".depart-top").addClass("active");
+                } else {
+                    $(".depart-top").removeClass("active");
+                }
+                $(".depart-checkNum span").text($("#table-list td i.choose-right").length);
+
+            });
+        });
+
+        function unbundling(index) {
+            if (index == 0) {
+                $("#data-unbundling").show();
+            } else {
+                $("#unbundling").show();
+            }
+            $(".layer").show();
+        }
+
+    </script>
+</body>
+
+</html>

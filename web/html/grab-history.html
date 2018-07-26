@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>抢单历史</title>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../css/head.css"/>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+
+    <!--<script type="text/javascript" src="../js/audio.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.audio5js.js"></script>-->
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <script type="text/javascript" src="../js/highcharts.js"></script>
+    <!--<link rel="stylesheet" href="../css/jedate.css" />-->
+    <!--<link href="../css/hDate.css" rel="stylesheet" />-->
+    <!--<script type="text/javascript" src="../js/hDate.js"></script>-->
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+    <script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js"></script>
+    <link rel="stylesheet" href="../css/ios6switch.css"/>
+    <script type="text/javascript" src="../js/ios6switch.min.js"></script>
+    <link rel="stylesheet" href="../css/select.css"/>
+    <script type="text/javascript" src="../js/jquery.select.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<div class="layer-6"></div>
+<div class="layer-3"></div>
+<!-- 页面头部 header -->
+<div class="header">
+    <h1 class="logo fl"></h1>
+    <span class="mar fl">|</span>
+    <span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+    <ul class="nav">
+        <li>
+            <a href="indexnew2.html">首页</a>
+        </li>
+        <!--<li>-->
+        <!--<a href="">行动</a>-->
+        <!--</li>-->
+        <li>
+            <a href="customer1.html" class="current">客户</a>
+        </li>
+        <li>
+            <a href="download.html">线索</a>
+        </li>
+        <li>
+            <a href="task.html">任务</a>
+        </li>
+        <li>
+            <a href="settings.html" id="top-setting">设置</a>
+        </li>
+    </ul>
+    <ul class="header-right fr">
+        <li>
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes"><i class="qq"></i>
+                <div class="service">在线客服</div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:guide1Show();"><i class="nav-tip"></i>
+                <div class="service">继续引导</div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;"><i class="update"></i></a>
+        </li>
+        <li class="active">
+            <a href="news.html">
+                <i class="message"></i>
+                <i class="message-tip">29</i>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" class="user">刘</a>
+        </li>
+    </ul>
+</div>
+<!-- 内容部分 contents -->
+<div class="contents">
+    <div class="table-tlt">
+        <i class="i"></i>抢单历史
+        <div class="right-btn">
+            <a class="screen" id="custom-header" href="javascript:void(0);">自定义表头</a>
+            <a class="screen" id="clean" href="javascript:void(0);">清除历史</a>
+        </div>
+    </div>
+    <div class="customer">
+        <table class="table-list" id="table-list">
+            <thead>
+            <tr>
+                <th>客户姓名</th>
+                <th>手机号码</th>
+                <th>公司名称</th>
+                <th>职位</th>
+                <th>云电销通话时间</th>
+                <th>执行云电销</th>
+                <th>云电销沟通标签</th>
+                <th>客户备注</th>
+                <th>跟进人</th>
+                <th>跟进时间</th>
+                <th>电话结果</th>
+                <th>电话标签</th>
+                <th>最后一次通话录音</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>刘宇</td>
+                <td>13300000000</td>
+                <td>
+                    北京联云天下科技有限公司
+                </td>
+                <td>经理</td>
+                <td>2017-04-25 17:11:22</td>
+                <td>刘晓辉</td>
+                <td>
+                    加微信
+                </td>
+                <td>还行,还可以</td>
+                <td>刘晓辉</td>
+                <td>2017-04-25 17:11:12</td>
+                <td>有意向</td>
+                <td>加微信</td>
+                <td>5' 20" <span class='audio_f'><label cusname='' cuscompany=''
+                                                        url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3'
+                                                        class='play mgr5 audio' title='点击播放'></label></span>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- 分页 -->
+    <p class="page-p">共20条</p>
+    <ul class="page-ul">
+        <li>
+            <<
+        </li>
+        <li>
+            <
+        </li>
+        <li> 1</li>
+        <li> 2</li>
+        <li class="page-d">...</li>
+        <li> 3</li>
+        <li> ></li>
+        <li>>></li>
+    </ul>
+</div>
+<!-- 自定义表头 customHeader -->
+<div class="customHeaderBox" id="customHeaderBox">
+    <div class="tlt"><i></i>自定义表头
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <div class="ctdivbox marleft20 fl">
+        <em>隐藏字段</em>
+        <div class="ctchooseBox" id="hiddenField">
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+    <i class="remove-icon" id="removeBtn"></i>
+    <i class="add-icon" id="addBtn"></i>
+    <div class="ctdivbox marright40 fr">
+        <em>显示字段</em>
+        <div class="ctchooseBox" id="showField">
+            <ul>
+                <li>客户姓名</li>
+                <li>手机号码</li>
+                <li>公司名称</li>
+                <li>职位</li>
+                <li>云电销通话时间</li>
+                <li>执行云电销</li>
+                <li>云电销沟通标签</li>
+                <li>客户备注</li>
+                <li>跟进人</li>
+                <li>跟进时间</li>
+                <li>电话结果</li>
+                <li>电话标签</li>
+                <li>最后一次通话录音</li>
+            </ul>
+        </div>
+    </div>
+    <!--<i class="up-icon" id="upBtn"></i>-->
+    <!--<i class="down-icon" id="downBtn"></i>-->
+    <input type="button" class="btn" value="提交" id="customBtn">
+</div>
+<!--清空历史-->
+<div class="changer-box" id="clean-history">
+    <div class="tlt"><i></i>清空历史
+        <a href="javascript:cleanCancle();" class="a-closed"></a>
+    </div>
+    <div class="group-t">
+        清空后将无法恢复,是否清空
+    </div>
+    <div class="btn-f">
+        <a href="javascript:;" class="btn">确定</a>
+        <a href="javascript:cleanCancle();" class="btn btn-cancel">取消</a>
+
+    </div>
+</div>
+<!--通话录音-->
+<div class="applyBox audio-box">
+    <div class="tlt"><i></i>通话录音
+        <a href="javascript:closeAudio();" class="audio-closed"></a>
+    </div>
+    <div class="audio-text-warp">
+        <div class="audio-name">
+            刘晓红
+        </div>
+        <div class="audio-text">
+            北京联云天下科技有限公司
+        </div>
+        <div class="audio-text">
+            电话结果：<label>有意向</label>
+        </div>
+        <div class="audio-text">
+            电话标签：<label>加微信</label>
+        </div>
+        <div class="audio-warp">
+            <audio preload="none"></audio>
+        </div>
+        <div class="audio-text">
+            <a class="download" href="http://www.baidu.com">下载录音</a>
+        </div>
+    </div>
+</div>
+<script>
+    //关闭录音弹框
+    function closeAudio() {
+        $(".layer-3").hide();
+        $(".audio-box").hide();
+        audio1.pause();
+    }
+$(function () {
+    $(".customer").height($(window).height() - $(".customer").offset().top - 80);
+    $(".customer").css({
+        "overflow": "auto"
+    });
+
+    $("#clean").click(function(){
+        $(".layer").show();
+        $("#clean-history").show();
+    });
+
+});
+    function cleanCancle(){
+        $(".layer").hide();
+        $("#clean-history").hide();
+
+    }
+
+
+</script>
+</body>
+
+</html>

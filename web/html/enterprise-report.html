@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>团队客户</title>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../css/head.css"/>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/vue-resource@1.3.4.js"></script>
+</head>
+
+<body>
+<div id="main">
+    <!-- 页面头部 header -->
+    <div class="header">
+        <h1 class="logo fl"></h1>
+        <span class="mar fl">|</span>
+        <span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+        <ul class="nav">
+            <li>
+                <a href="indexnew2.html">首页</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="">行动</a>-->
+            <!--</li>-->
+            <li>
+                <a href="customer1.html" class="current">客户</a>
+            </li>
+            <li>
+                <a href="download.html">线索</a>
+            </li>
+            <li>
+                <a href="task.html">任务</a>
+            </li>
+            <li>
+                <a href="settings.html" id="top-setting">设置</a>
+            </li>
+        </ul>
+        <ul class="header-right fr">
+            <li>
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes"><i class="qq"></i>
+                    <div class="service">在线客服</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:guide1Show();"><i class="nav-tip"></i>
+                    <div class="service">继续引导</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;"><i class="update"></i></a>
+            </li>
+            <li class="active">
+                <a href="news.html">
+                    <i class="message"></i>
+                    <i class="message-tip">29</i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="user">刘</a>
+            </li>
+        </ul>
+    </div>
+    <!-- 汇总提示 tipArea -->
+    <div class="tipArea">
+        企业报告 &gt; 北京百度网讯科技有限公司
+    </div>
+    <!-- 内容部分 contents -->
+    <div class="contents enterprise">
+
+        <div class="enterprise-left" id="menuList">
+            <a class="enterprise-li" href="#enterList1">
+                <i class="enterprise-icon enterprise-icon1"></i>
+                基本信息
+            </a>
+            <a class="enterprise-li" href="#enterList2">
+                <i class="enterprise-icon enterprise-icon2"></i>
+                主要人员
+            </a>
+            <a class="enterprise-li" href="#enterList3">
+                <i class="enterprise-icon enterprise-icon3"></i>
+                股东信息
+            </a>
+            <a class="enterprise-li" href="#enterList4">
+                <i class="enterprise-icon enterprise-icon4"></i>
+                对外投资
+            </a>
+            <a class="enterprise-li" href="#enterList5">
+                <i class="enterprise-icon enterprise-icon5"></i>
+                变更记录
+            </a>
+            <a class="enterprise-li" href="#enterList6">
+                <i class="enterprise-icon enterprise-icon6"></i>
+                经营异常
+            </a>
+            <a class="enterprise-li" href="#enterList7">
+                <i class="enterprise-icon enterprise-icon7"></i>
+                企业年报
+            </a>
+            <a class="enterprise-li" href="#enterList8">
+                <i class="enterprise-icon enterprise-icon8"></i>
+                融资历史
+            </a>
+            <a class="enterprise-li" href="#enterList9">
+                <i class="enterprise-icon enterprise-icon9"></i>
+                核心团队
+            </a>
+            <a class="enterprise-li" href="#enterList10">
+                <i class="enterprise-icon enterprise-icon10"></i>
+                企业业务
+            </a>
+            <a class="enterprise-li" href="#enterList11">
+                <i class="enterprise-icon enterprise-icon11"></i>
+                投资事业
+            </a>
+            <a class="enterprise-li" href="#enterList12">
+                <i class="enterprise-icon enterprise-icon12"></i>
+                竞品信息
+            </a>
+            <a class="enterprise-li" href="#enterList13">
+                <i class="enterprise-icon enterprise-icon13"></i>
+                法律诉讼
+            </a>
+            <a class="enterprise-li" href="#enterList14">
+                <i class="enterprise-icon enterprise-icon14"></i>
+                法院公告
+            </a>
+            <a class="enterprise-li" href="#enterList15">
+                <i class="enterprise-icon enterprise-icon15"></i>
+                被执行人
+            </a>
+            <a class="enterprise-li" href="#enterList16">
+                <i class="enterprise-icon enterprise-icon16"></i>
+                开庭公告
+            </a>
+            <a class="enterprise-li" href="#enterList17">
+                <i class="enterprise-icon enterprise-icon17"></i>
+                行政处罚
+            </a>
+            <a class="enterprise-li" href="#enterList18">
+                <i class="enterprise-icon enterprise-icon18"></i>
+                股权出质
+            </a>
+            <a class="enterprise-li" href="#enterList19">
+                <i class="enterprise-icon enterprise-icon19"></i>
+                商标信息
+            </a>
+        </div>
+        <div class="enterprise-main">
+            <div class="enterprise-top">
+            <span class="enter-bolder">
+                北京百度网讯科技有限公司
+            </span>
+                <label class="label-btn label-blue">高新企业</label>
+                <div class="enter-text">
+                    地址：北京市海淀区上地十街10号百度大厦2层
+                </div>
+            </div>
+            <div id="enterMain">
+                <div class="enter-list" id="enterList1">
+                    <div class="enter-title">
+                        基本信息
+                    </div>
+                    <div class="enter-main">
+                        <div class="cell-row cell-row3">
+                            <div class="cell">
+                                电话：
+                                <span>010-59928888</span>
+                            </div>
+                            <div class="cell">
+                                邮箱：
+                                <span>doh_asd@sina.com</span>
+                            </div>
+                            <div class="cell">
+                                网址：
+                                <a class="href" href="javascript:void(0)">www.baidu.com</a>
+                            </div>
+                        </div>
+                        <div class="cell-row">
+                            <div class="cell">
+                                企业简介：
+                                <text-more more="更多" length="120"
+                                           text="百度，全球最大的中文搜索引擎、最大的中文网站。2000年1月创立于北京中关村。1999年底，身在美国硅谷的李彦宏看到了中国互联网及中文搜索引擎服务的巨大发展潜力，抱着技术改变世界的梦想，他毅然辞掉硅谷的高薪工作，携搜索引擎专利技术，于2000年1月1日在中关村创建了百度公司。从最初的不足10人发展至"></text-more>
+                            </div>
+                        </div>
+                        <div class="cell-row cell-row3">
+                            <div class="cell">
+                                法人：
+                                <span>刘晓辉</span>
+                            </div>
+                            <div class="cell">
+                                注册资本：
+                                <span>8900万</span>
+                            </div>
+                            <div class="cell">
+                                注册时间：
+                                <span>2011年1月1日</span>
+                            </div>
+                            <div class="cell">
+                                企业状态：
+                                <span>开业</span>
+                            </div>
+                            <div class="cell">
+                                工商注册号：
+                                <span>110108002734659</span>
+                            </div>
+                            <div class="cell">
+                                组织机构代码：
+                                <span>802100433</span>
+                            </div>
+                        </div>
+                        <div class="cell-row cell-row2">
+                            <div class="cell">
+                                统一信用代码：
+                                <span>91110000802100433B</span>
+                            </div>
+                            <div class="cell">
+                                企业类型：
+                                <span>有限责任公司（自然人投资或控股）</span>
+                            </div>
+                            <div class="cell">
+                                纳税人识别号：
+                                <span>1100000903200433</span>
+                            </div>
+                            <div class="cell">
+                                行业：
+                                <span>科技推广和应用服务业</span>
+                            </div>
+                            <div class="cell">
+                                营业期限：
+                                <span>2001-06-05至2021-06-04</span>
+                            </div>
+                            <div class="cell">
+                                核准日期：
+                                <span>2017-07-04</span>
+                            </div>
+                            <div class="cell">
+                                登记机关：
+                                <span>海淀分局</span>
+                            </div>
+                            <div class="cell">
+                                注册地址：
+                                <span>北京市海淀区上地十街10号百度大厦2层</span>
+                            </div>
+                        </div>
+                        <div class="cell-row">
+                            <div class="cell">
+                                英文名称：
+                                <span>Beijing Baidu Netcom Science and Technoligy Co.,Ltd.</span>
+                            </div>
+                        </div>
+                        <div class="cell-row">
+                            <div class="cell">
+                                经营范围：
+                                <text-more more="详情" length="120"
+                                           text="技术服务、技术培训、技术推广；设计、开发、销售计算机软件；经济信息咨询；利用www.baidu.com、www.hao123.com(www.hao222.net、www.hao222.com)、网站发布广告；设计、制作、代理、发布广告；货物进出口、技术进出口、代理进出口；医疗软件技术开发；委托生产电子产品、玩具、照相器材；销售家用电器、"></text-more>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList2">
+                    <div class="enter-title">
+                        主要人员
+                    </div>
+                    <div class="enter-main">
+                        <div class="cell-row cell-row3">
+                            <div class="cell">
+                                总经理：
+                                <span>刘晓辉</span>
+                            </div>
+                            <div class="cell">
+                                总经理：
+                                <span>刘晓辉</span>
+                            </div>
+                            <div class="cell">
+                                总经理：
+                                <span>刘晓辉</span>
+                            </div>
+                            <div class="cell">
+                                总经理：
+                                <span>刘晓辉</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList3">
+                    <div class="enter-title">
+                        股东信息
+                    </div>
+                    <div class="enter-main">
+                        <div class="cell-row cell-row3">
+                            <div class="cell">
+                                刘晓辉 <label class="label-btn label-blue">大股东</label>
+                            </div>
+                            <div class="cell">
+                                出资比例：
+                                <span>99.50%</span>
+                            </div>
+                            <div class="cell">
+                                认缴出资：
+                                <span>88555.0万元</span>
+                            </div>
+                        </div>
+                        <div class="cell-row cell-row3">
+                            <div class="cell">
+                                刘晓辉
+                            </div>
+                            <div class="cell">
+                                出资比例：
+                                <span>未公开</span>
+                            </div>
+                            <div class="cell">
+                                认缴出资：
+                                <span>未公开</span>
+                            </div>
+                        </div>
+                        <div class="cell-row cell-row3">
+                            <div class="cell">
+                                刘晓辉
+                            </div>
+                            <div class="cell">
+                                出资比例：
+                                <span>99.50%</span>
+                            </div>
+                            <div class="cell">
+                                认缴出资：
+                                <span>88555.0万元</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList4">
+                    <div class="enter-title">
+                        对外投资
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>被投资企业名称</th>
+                                <th>被投资法人</th>
+                                <th>注册资本</th>
+                                <th>投资数额</th>
+                                <th>投资占比</th>
+                                <th>注册时间</th>
+                                <th>状态</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>上海百度人才咨询有限公司</td>
+                                <td>王亮非</td>
+                                <td>5102.0408万人民币</td>
+                                <td>5102.0408万人民币</td>
+                                <td>100%</td>
+                                <td>2010-12-28</td>
+                                <td>存续（在营、开业、在册）</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList5">
+                    <div class="enter-title">
+                        变更记录
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell4">
+                            <thead>
+                            <tr>
+                                <th>变更时间</th>
+                                <th>变更项目</th>
+                                <th>变更前</th>
+                                <th>变更后</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="table-middle">2017-07-04</td>
+                                <td class="table-middle">经营范围</td>
+                                <td>
+                                    因特信息服务业务（除出版、教育、医疗保健以外的内容）；第一类增值电信业务中的在线数据处理与交易处理业务、国内因特网虚拟专用网业务、因特网数据中心业务；第二类增值电信业务中的因特网接入服务业务、呼叫中心业务、信息服务业务（不含固定网电话信息服务和互联网信息服务）；利用互联网经营音乐娱乐产品，游戏产品运营，网络游戏虚拟货币发行，美术品，演出剧（节）目，动漫（画）产品，从事互联网文化产品展览、比赛活动（网络文化经营许可证有效期至2016年11月21日）；图书、电子出版物、音像制品批发、零售、网上销售；设计、开发、销售计算机软件；技术服务、技术培训、技术推广；经济信息咨询；利用www.baidu.com、www.hao123.com(www.hao222.net、www.hao222.com)、网站发布广告；设计、制作、代理、发布广告；货物进出口、技术进出口、代理进出口；医疗软件技术开发；委托生产电子产品、玩具、照相器材；销售家用电器、机械设备、五金交电、电子产品、文化用品、照相器材、计算机、软件及辅助设备、化妆品、卫生用品、体育用品、纺织品、服装、鞋帽、日用品、家具、首饰、避孕器具、工艺品、钟表、眼镜、玩具、汽车及摩托车配件、仪器仪表、塑料制品、花、草及观赏植物、建筑材料、通讯设备；预防保健咨询；公园门票、文艺演出、体育赛事、展览会票务代理。企业依法自主选择经营项目，开展经营活动；增值电信业务以及依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。
+                                </td>
+                                <td>
+                                    因特信息服务业务（除出版、教育、医疗保健以外的内容）；第一类增值电信业务中的在线数据处理与交易处理业务、国内因特网虚拟专用网业务、因特网数据中心业务；第二类增值电信业务中的因特网接入服务业务、呼叫中心业务、信息服务业务（不含固定网电话信息服务和互联网信息服务）；利用互联网经营音乐娱乐产品，游戏产品运营，网络游戏虚拟货币发行，美术品，演出剧（节）目，动漫（画）产品，从事互联网文化产品展览、比赛活动（网络文化经营许可证有效期至2016年11月21日）；图书、电子出版物、音像制品批发、零售、网上销售；设计、开发、销售计算机软件；技术服务、技术培训、技术推广；经济信息咨询；利用www.baidu.com、www.hao123.com(www.hao222.net、www.hao222.com)、网站发布广告；设计、制作、代理、发布广告；货物进出口、技术进出口、代理进出口；医疗软件技术开发；委托生产电子产品、玩具、照相器材；销售家用电器、机械设备、五金交电、电子产品、文化用品、照相器材、计算机、软件及辅助设备、化妆品、卫生用品、体育用品、纺织品、服装、鞋帽、日用品、家具、首饰、避孕器具、工艺品、钟表、眼镜、玩具、汽车及摩托车配件、仪器仪表、塑料制品、花、草及观赏植物、建筑材料、通讯设备；预防保健咨询；公园门票、文艺演出、体育赛事、展览会票务代理。企业依法自主选择经营项目，开展经营活动；增值电信业务以及依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-middle">2017-07-04</td>
+                                <td class="table-middle">投资人</td>
+                                <td>1 李彦宏 自然人股东 <br> 2 王湛 自然人股东</td>
+                                <td>1 李彦宏 自然人股东 <br> 2 向海龙 自然人股东</td>
+                            </tr>
+                            <tr>
+                                <td class="table-middle">2017-07-04</td>
+                                <td class="table-middle">董事（理事）、经理、监事</td>
+                                <td>（注：标有*标志的为法定代表人）<br>1 李彦宏 执行董事 <br> 2 梁志祥* 总经理 <br>3 王湛 监事</td>
+                                <td>（注：标有*标志的为法定代表人）<br>1 李彦宏 执行董事 <br> 2 梁志祥* 总经理 <br>3 王湛 监事</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList6">
+                    <div class="enter-title">
+                        经营异常
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell3">
+                            <thead>
+                            <tr>
+                                <th>列入时间</th>
+                                <th>列入原因</th>
+                                <th>决定机关</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2017-07-04</td>
+                                <td>未按规定期限公示年度报告</td>
+                                <td>北京市工商行政管理局丰台分局</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList7">
+                    <div class="enter-title">
+                        企业年报
+                    </div>
+                    <div class="enter-main">
+                        <div class="cell-row cell-row3">
+                            <div class="cell">
+                                2016 <i class="report-icon"></i>
+                            </div>
+                            <div class="cell">
+                                2015 <i class="report-icon"></i>
+                            </div>
+                            <div class="cell">
+                                2014 <i class="report-icon"></i>
+                            </div>
+                            <div class="cell">
+                                2013 <i class="report-icon"></i>
+                            </div>
+                            <div class="cell">
+                                2012 <i class="report-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList8">
+                    <div class="enter-title">
+                        融资历史
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>时间</th>
+                                <th>轮次</th>
+                                <th>估值</th>
+                                <th>金额</th>
+                                <th>比例</th>
+                                <th>投资方</th>
+                                <th>新闻来源</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2010-01-01</td>
+                                <td>待披露</td>
+                                <td>5102.0408万人民币</td>
+                                <td>5102.0408万人民币</td>
+                                <td>100%</td>
+                                <td>KPCB凯鹏华盈中国</td>
+                                <td>存续（在营、开业、在册）</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList9">
+                    <div class="enter-title">
+                        核心团队
+                    </div>
+                    <div class="enter-main">
+                        <div class="core-row">
+                            <div class="core-name">
+                                李彦宏
+                            </div>
+                            <div class="core-main">
+                                <div class="core-position">
+                                    创始人&董事长&首席执行官
+                                </div>
+                                <ul class="core-list">
+                                    <li>李彦宏，百度公司创始人、董事长兼首席执行官，全面负责百度公司的战略规划和运营管理。</li>
+                                    <li>
+                                        1991年，李彦宏毕业于北京大学信息管理专业，随后前往美国布法罗纽约州立大学完成计算机科学硕士学位，先后担任道·琼斯公司高级顾问、《华尔街日报》网络版实时金融信息系统设计者，以及国际知名互联网企业——Infoseek公司资深工程师。李彦宏所持有的“超链分析”技术专利，是奠定整个现代搜索引擎发展趋势和方向的基础发明之一。
+                                    </li>
+                                    <li>
+                                        2000年1月，李彦宏创建了百度。经过十多年的发展，百度已经发展成为全球第二大独立搜索引擎和最大的中文搜索引擎。百度的成功，也使中国成为美国、俄罗斯和韩国之外，全球仅有的4个拥有搜索引擎核心技术的国家之一。
+                                    </li>
+                                    <li>2005年，百度在美国纳斯达克成功上市，并成为首家进入纳斯达克成分股的中国公司。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList10">
+                    <div class="enter-title">
+                        企业业务
+                    </div>
+                    <div class="enter-main">
+                        <div class="enter-business">
+                            <div class="enter-BImg" style="background-image: url('../images/businessImg.png');"></div>
+                            <div class="enter-BName">百度有钱</div>
+                            <div class="enter-BIndustry">金融</div>
+                            <div class="enter-BService">个人消费金融服务平台</div>
+                        </div>
+                        <div class="enter-business">
+                            <div class="enter-BImg" style="background-image: url('../images/businessImg.png');"></div>
+                            <div class="enter-BName">百度有钱</div>
+                            <div class="enter-BIndustry">金融</div>
+                            <div class="enter-BService">个人消费金融服务平台</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList11">
+                    <div class="enter-title">
+                        投资事件
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>时间</th>
+                                <th>轮次</th>
+                                <th>金额</th>
+                                <th>投资方</th>
+                                <th>产品</th>
+                                <th>地区</th>
+                                <th>行业</th>
+                                <th>业务</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2010-01-01</td>
+                                <td>战略融资</td>
+                                <td>10亿美金</td>
+                                <td>腾讯产业共赢基金 <br>百度投资部 <br>京东金融</td>
+                                <td>xPerception</td>
+                                <td>西雅图/美国</td>
+                                <td>人工智能</td>
+                                <td>智能手机应用虚拟化平台构建与研发</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList12">
+                    <div class="enter-title">
+                        竞品信息
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>产品</th>
+                                <th>地区</th>
+                                <th>当前轮次</th>
+                                <th>行业</th>
+                                <th>业务</th>
+                                <th>成立时间</th>
+                                <th>估值</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>人人都是产品经理</td>
+                                <td>帕洛阿尔托/美国</td>
+                                <td>战略融资</td>
+                                <td>人工智能</td>
+                                <td>语音大数据分析平台</td>
+                                <td>2014-01-13</td>
+                                <td>8.00亿人民币</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList13">
+                    <div class="enter-title">
+                        法律诉讼
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>裁判文书</th>
+                                <th>案例类型</th>
+                                <th>案例号</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2017-06-14</td>
+                                <td>壹缘通股份有限公司、壹缘通股份有限公司沈阳分公司与北京百度网讯科技有限公司、湖北亿名阳汇商贸有限公司侵害企业名称权纠纷、擅自使用他人企业名称纠纷一审民事裁定书</td>
+                                <td>民事案件</td>
+                                <td>（2016）晋0106民初1174号</td>
+                            </tr>
+                            <tr>
+                                <td>2017-06-14</td>
+                                <td>壹缘通股份有限公司、壹缘通股份有限公司沈阳分公司与北京百度网讯科技有限公司、湖北亿名阳汇商贸有限公司侵害企业名称权纠纷、擅自使用他人企业名称纠纷一审民事裁定书</td>
+                                <td>民事案件</td>
+                                <td>（2016）晋0106民初1174号</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList14">
+                    <div class="enter-title">
+                        法院公告
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>公告时间</th>
+                                <th>上诉方</th>
+                                <th>被诉方</th>
+                                <th>公告类型</th>
+                                <th>法院</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2017-06-14</td>
+                                <td>广州市大众搬屋运输有限公司</td>
+                                <td>广州市大众搬屋运输有限公司</td>
+                                <td>起诉状副本及开庭传票</td>
+                                <td>广州市南沙区人民法院</td>
+                            </tr>
+                            <tr>
+                                <td>2017-06-14</td>
+                                <td>广州市大众搬屋运输有限公司</td>
+                                <td>广州市大众搬屋运输有限公司</td>
+                                <td>起诉状副本及开庭传票</td>
+                                <td>广州市南沙区人民法院</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList15">
+                    <div class="enter-title">
+                        被执行人
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>立案日期</th>
+                                <th>执行标的</th>
+                                <th>案号</th>
+                                <th>执行法院</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2017-06-14</td>
+                                <td>10000</td>
+                                <td>（2017）京0108执5992号</td>
+                                <td>广州市南沙区人民法院</td>
+                            </tr>
+                            <tr>
+                                <td>2017-06-14</td>
+                                <td>10000</td>
+                                <td>（2017）京0108执5992号</td>
+                                <td>广州市南沙区人民法院</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList16">
+                    <div class="enter-title">
+                        开庭公告
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>开庭日期</th>
+                                <th>案由</th>
+                                <th>原告/上诉人</th>
+                                <th>被告/被上诉人</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2017-06-14</td>
+                                <td>侵害作品信息网络传播权纠纷</td>
+                                <td>杭州快版科技有限公司上城分公司</td>
+                                <td>
+                                    成都美盟信息科技有限公司 <br>
+                                    深圳市腾讯计算机系统有限公司<br>
+                                    广州网易计算机系统有限公司<br>
+                                    北京新浪互联信息服务有限公司<br>
+                                    北京搜狐互联网信息服务有限公司<br>
+                                    北京百度网讯科技有限公司<br>
+                                    北京天盈九州网络技术有限公司<br>
+                                    人民网股份有限公司<br>
+                                    共青团中...
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList17">
+                    <div class="enter-title">
+                        行政处罚
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>决定日期</th>
+                                <th>决定文书号</th>
+                                <th>类型</th>
+                                <th>决定机关</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2017-06-14</td>
+                                <td>京工商海处字（2017）第320号</td>
+                                <td>抽奖式的有奖销售，最高奖的金额超过五千元</td>
+                                <td>北京市工商行政管理局海淀分局</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList18">
+                    <div class="enter-title">
+                        股权出质
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>公告时间</th>
+                                <th>登记编号</th>
+                                <th>出质人</th>
+                                <th>质权人</th>
+                                <th>状态</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2017-06-14</td>
+                                <td>110108002734659_0003</td>
+                                <td>沈皓瑜</td>
+                                <td>百度在线网络技术（北京）有限公司</td>
+                                <td>注销</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list">
+                    <div class="enter-title">
+                        招投标
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>发布时间</th>
+                                <th>标题</th>
+                                <th>采购人</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2017-06-14</td>
+                                <td>中国科学技术协会科学技术普及部中国科学技术协会科普信息化建设工程搭建网络科普互动空间采购项目（第4包：科学大观园）中标公告</td>
+                                <td>中国科学技术协会科学技术普及部</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list">
+                    <div class="enter-title">
+                        招聘
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>发布时间</th>
+                                <th>招聘职位</th>
+                                <th>薪资</th>
+                                <th>工作经验</th>
+                                <th>招聘人数</th>
+                                <th>所在城市</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2017-06-14</td>
+                                <td>点点客诚聘销售顾问/商务代表/电话销售(北京百度网讯科技有限公司)</td>
+                                <td>25000-50000</td>
+                                <td>3-5年</td>
+                                <td>若干</td>
+                                <td>北京</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list">
+                    <div class="enter-title">
+                        税务评级
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>年份</th>
+                                <th>纳税评级</th>
+                                <th>类型</th>
+                                <th>纳税人识别号</th>
+                                <th>评价单位</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2016</td>
+                                <td>A</td>
+                                <td>国税</td>
+                                <td>110108802100433</td>
+                                <td>国家税务总局</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list">
+                    <div class="enter-title">
+                        抽查检查
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>类型</th>
+                                <th>结果</th>
+                                <th>检查实施机关</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2017-06-14</td>
+                                <td></td>
+                                <td>正常</td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list">
+                    <div class="enter-title">
+                        产品信息
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>图标</th>
+                                <th>产品名称</th>
+                                <th>产品简称</th>
+                                <th>产品分类</th>
+                                <th>领域</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <div class="product-icon"
+                                         style="background-image: url(../images/productImg.png)"></div>
+                                    <!--<img class="product-icon" src="../images/productImg.png" />-->
+                                </td>
+                                <td>百度视频-高清电视剧、电影在线观看神器</td>
+                                <td>百度视频</td>
+                                <td>应用</td>
+                                <td>购物</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list">
+                    <div class="enter-title">
+                        资质证书
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>证书类型</th>
+                                <th>证书编号</th>
+                                <th>发证日期</th>
+                                <th>截至日期</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>电信网码号资源试用和调整审批</td>
+                                <td>GF201311000208</td>
+                                <td>2017-06-14</td>
+                                <td>2017-06-14</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list" id="enterList19">
+                    <div class="enter-title">
+                        商标信息
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>申请日期</th>
+                                <th>商标</th>
+                                <th>商标名称</th>
+                                <th>注册号</th>
+                                <th>类别</th>
+                                <th>状态</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2017-07-04</td>
+                                <td>
+                                    <div class="mark-icon"
+                                         style="background-image: url(../images/productImg1.png)"></div>
+                                </td>
+                                <td>百度AI解决方案</td>
+                                <td>24821594</td>
+                                <td>38-电讯、通信服务</td>
+                                <td>商标注册申请受理通知书发文</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list">
+                    <div class="enter-title">
+                        专利信息
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>申请公布日</th>
+                                <th>专利名称</th>
+                                <th>申请号</th>
+                                <th>申请公布号</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2017-07-04</td>
+                                <td>用于管理元信息的方法和装置</td>
+                                <td>CN201710005568.6</td>
+                                <td>CN201710005568.6</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list">
+                    <div class="enter-title">
+                        软件著作权
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>批准日期</th>
+                                <th>软件全称</th>
+                                <th>软件简称</th>
+                                <th>登记号</th>
+                                <th>分类号</th>
+                                <th>版本号</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2017-07-04</td>
+                                <td>百度糯米IOS终端软件</td>
+                                <td>百度糯米</td>
+                                <td>2017SR185245</td>
+                                <td>30000-0000</td>
+                                <td>V7.1.0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list">
+                    <div class="enter-title">
+                        作品著作权
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>作品名称</th>
+                                <th>登记号</th>
+                                <th>类别</th>
+                                <th>创作完成日期</th>
+                                <th>登记日期</th>
+                                <th>首次发布日期</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>百度音乐我的音乐界面样式</td>
+                                <td>国坐整字-2013-L-00104512</td>
+                                <td>其他</td>
+                                <td>2013-07-01</td>
+                                <td>2013-09-02</td>
+                                <td>2013-07-30</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="enter-list">
+                    <div class="enter-title">
+                        网站备案
+                    </div>
+                    <div class="enter-main">
+                        <table class="enterTable-cell7">
+                            <thead>
+                            <tr>
+                                <th>审核时间</th>
+                                <th>网站名称</th>
+                                <th>网站首页</th>
+                                <th>域名</th>
+                                <th>备案号</th>
+                                <th>状态</th>
+                                <th>单位性质</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2017-03-07</td>
+                                <td>百度泛用客户体验</td>
+                                <td>www.baiduux.com</td>
+                                <td>baiduux.com</td>
+                                <td>京ICP证030173号</td>
+                                <td>正常</td>
+                                <td>企业</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<template id="textMore">
+     <span class="con-text">
+        <span v-show="!show" v-html="text"></span>
+        <span v-if="!defaultShow" v-show="show" v-html="value"></span>
+        <a v-if="!defaultShow" href="javascript:void(0)" class="href" @click="moreBtn"
+           v-text="show == true ? more : hide"></a>
+    </span>
+</template>
+<script>
+    var textMore = Vue.extend({
+        template: "#textMore",
+        props: ["text", 'more', 'length'],
+        data: function () {
+            return {
+                value: '',
+                hide: '收起',
+                show: false,
+                defaultShow: false
+            }
+        },
+        methods: {
+            moreBtn: function () {
+                this.$data.show = !this.$data.show;
+            }
+        },
+        mounted: function () {
+            if (this.$props.text.length > this.$props.length) {
+                this.$data.value = this.$props.text.substr(0, this.$props.length) + "...";
+                this.$data.defaultShow = false;
+                this.$data.show = true;
+            }
+            else {
+                this.$data.defaultShow = true;
+            }
+        }
+    });
+</script>
+
+<script type="text/javascript">
+
+    $(function () {
+        $(window).scroll(function () {
+            var top = $(document).scrollTop(); //定义变量，获取滚动条的高度
+            var menu = $("#menuList"); //定义变量，抓取#menu
+            var items = $(".enter-list"); //定义变量，查找.slider
+
+            var curId = ""; //定义变量，当前所在的楼层slider #id
+            items.each(function () {
+                var m = $(this); //定义变量，获取当前类
+                var itemsTop = m.offset().top; //定义变量，获取当前类的top偏移量
+                if (top > itemsTop - 5) {
+                    curId = "#" + m.attr("id");
+                } else {
+                    return false;
+                }
+            });
+
+            //给相应的楼层设置cur,取消其他楼层的cur
+            var curLink = menu.find(".active");
+            if (curId && curLink.attr("href") != curId) {
+                curLink.removeClass("active");
+                menu.find("[href=" + curId + "]").addClass("active");
+            }
+        });
+    });
+
+    var vm = new Vue({
+        el:'#main',
+        components:{
+            "textMore":textMore
+        }
+    });
+
+</script>
+</body>
+
+</html>

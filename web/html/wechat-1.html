@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>团队首页</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../css/appstatistics.css" rel="stylesheet" type="text/css" />
+    <!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="../css/head.css" />
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <!-- <link type="text/css" rel="stylesheet" href="../js/jedate-6.5.0/test/jeDate-test.css"> -->
+    <!-- <link type="text/css" rel="stylesheet" href="../js/jedate-6.5.0/skin/jedate.css">
+    <script src="../js/jedate-6.5.0/src/jedate.js"></script> -->
+    <link rel="stylesheet" href="../css/hDate.css">
+    <script src="../js/hDate.js"></script>
+
+    <script src="../js/swiper.js"></script>
+    <link rel="stylesheet" href="../css/swiper.css">
+
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../css/zTreeStyle.css">
+    <script src="../js/jquery.ztree.core.js"></script>
+    <!--<script src="../js/jquery.ztree.excheck.js"></script>-->
+    <script src="../js/jquery.ztree.exedit.js"></script>
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/echarts1.js"></script>
+    <link rel="stylesheet" href="../css/customReport.css">
+    <link rel="stylesheet" href="../css/wxStyle.css">
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=YxrpSNq6119f9xGsRh4Q5f0a5qgy3k00"></script>
+</head>
+
+<body>
+    <!--  -->
+    <div class="fixed-right">
+        <ul class="fixed-list">
+            <li class="fixed-li">
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes" title="客服">
+                    <i class="fixed-icon icon-service"></i>
+                </a>
+            </li>
+            <li class="fixed-li">
+                <i class="fixed-icon icon-code"></i>
+                <div class="fixed-box">
+                    <div class="code"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 页面遮罩层 layer -->
+    <div class="layer"></div>
+    <!-- 页面头部 header -->
+    <div class="header">
+        <h1 class="logo fl"></h1>
+        <span class="mar fl">|</span>
+        <span class="fl">
+            <em>团队版</em>[
+            <a href="">点击切换</a>]</span>
+        <ul class="nav">
+            <li>
+                <a href="indexnew2.html" class="current">首页</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="">行动</a>-->
+            <!--</li>-->
+            <li>
+                <a href="customer1.html">客户</a>
+            </li>
+            <li>
+                <a href="download.html">线索</a>
+            </li>
+            <li>
+                <a href="task.html">任务</a>
+            </li>
+            <li>
+                <a href="settings.html" id="top-setting">设置</a>
+            </li>
+        </ul>
+        <ul class="header-right fr">
+            <!-- <li>
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">
+                    <i class="qq"></i>
+                    <div class="service">在线客服</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="add"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="update"></i>
+                </a>
+            </li> -->
+            <li>
+                <a href="javascript:;">
+                    <i class="message"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="user">
+                    <img src="../images/a-1.png" />
+                    <div class="arrow"></div>
+                </a>
+                <div class="quit_down">
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-customer"></div>
+                            客户
+                        </a>
+                    </div>
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-help"></div>
+                            使用说明
+                        </a>
+                    </div>
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-exit"></div>
+                            </i>
+                            退出登录
+                        </a>
+                    </div>
+            </li>
+        </ul>
+        </div>
+        <!-- 汇总提示 tipArea -->
+        <div class="tipArea">
+            <div class="wrap">
+                <div class="count_f">
+                    <span class="span-1">数据统计</span>
+                    <span class="span-1">手机统计</span>
+                    <span class="span-1 current">微信统计</span>
+                    <span class="span-1">签到统计</span>
+                </div>
+            </div>
+        </div>
+        <!-- 内容部分 contents -->
+        <div class="contents content-fixed" id="main" v-cloak>
+            <!-- 左侧 -->
+            <div class="leftPage fl">
+                <div class="leftContentBox">
+                    <div class="tlt">选择组员</div>
+                    <div class="indexTree">
+                        <ul id="tree" class="ztree department-tree"></ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧 -->
+            <div class="rightPage tagTop">
+                <!-- 本周 -->
+                <div class="contentsbox wechatWrap" style="display:block">
+                    <div class="tag-box">
+                        <div class="tags-li active">
+                            <a href="wechat-1.html">微信看板</a>
+                        </div>
+                        <div class="tags-li">
+                            <a href="wechat-2.html">微信列表</a>
+                        </div>
+                        <div class="tags-li">
+                            <a href="wechat-4.html">敏感操作</a>
+                        </div>
+                        <div class="tags-li">
+                            <a href="wechat-6.html">红包转账统计</a>
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <div class="tabBox">
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0);" :class="range==0?'current':''" @click="changeRange(0)">今日</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" :class="range==1?'current':''" @click="changeRange(1)">昨日</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" :class="range==7?'current':''" @click="changeRange(7)">最近7天</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" :class="range==30?'current':''" @click="changeRange(30)">最近30天</a>
+                                </li>
+                            </ul>
+                            <div class="time-range-box">
+                                <div class="input-time">
+                                    <input type="text" id="timeStart" placeholder="yyyy-MM-dd" readonly="readonly" class="input">
+                                    <i class="icon icon-time"></i>
+                                    <i class="icon-times">&times;</i>
+                                </div>
+                                <span>至</span>
+                                <div class="input-time">
+                                    <input type="text" id="timeEnd" placeholder="yyyy-MM-dd" readonly="readonly" class="input">
+                                    <i class="icon icon-time"></i>
+                                    <i class="icon-times">&times;</i>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                $(function () {
+                                    var minday_1;
+                                    var maxday_1;
+                                    var minday_2;
+                                    var maxday_2;
+                                    $("body").on('click', '#timeStart, #timeStart+.icon-time', function (e) {
+                                        maxday_1 = $("#timeEnd").val();
+                                        if (maxday_1 == "") {
+                                            maxday_1 = (new Date()).toString("yyyy-MM-dd");
+                                        }
+                                        var ths = this;
+                                        if ($(this)[0].tagName.toLocaleLowerCase() != 'input') {
+                                            ths = $(this)[0].previousElementSibling;
+                                        }
+                                        calendar.show({
+                                            id: ths,
+                                            maxDay: maxday_1.toString("yyyy-MM-dd"),
+                                            ok: function () {
+                                                $(".tabBox a").removeClass('current');
+                                            }
+                                        });
+                                        return false;
+                                    });
+                                    $("body").on('click', '#timeEnd, #timeEnd+.icon-time', function (e) {
+                                        minday_1 = $("#timeStart").val();
+                                        var ths = this;
+                                        if ($(this)[0].tagName.toLocaleLowerCase() != 'input') {
+                                            ths = $(this)[0].previousElementSibling;
+                                        }
+                                        calendar.show({
+                                            id: ths,
+                                            maxDay: (new Date()).toString("yyyy-MM-dd"),
+                                            minDay: minday_1.toString("yyyy-MM-dd"),
+                                            ok: function () {
+                                                $(".tabBox a").removeClass('current');
+                                            }
+                                        });
+                                        return false;
+                                    });
+                                    $("body").on('click', '.input-time .icon-times', function () {
+                                        $(this).parent().find('input').val("");
+                                    });
+                                });
+                            </script>
+                        </div>
+                        <div class="cell-wrap">
+                            <div class="cell-box">
+                                <div class="cell-content">
+                                    <div class="cell-title">
+                                        <i class="icon icon-cell1"></i>
+                                        总览
+                                    </div>
+                                    <div class="cell-main">
+                                        <p>设备数：50台</p>
+                                        <p>微信：37个</p>
+                                        <p>发送条数：12345578条</p>
+                                        <p>接收条数：12345578条</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell-box">
+                                <div class="cell-content">
+                                    <div class="cell-title">
+                                        <i class="icon icon-cell2"></i>
+                                        转账
+                                    </div>
+                                    <div class="cell-main">
+                                        <p>发送次数：345次</p>
+                                        <p>接收次数：37次</p>
+                                        <p>发送金额：12345777元</p>
+                                        <p>接收金额：12345578元</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell-box">
+                                <div class="cell-content">
+                                    <div class="cell-title">
+                                        <i class="icon icon-cell3"></i>
+                                        红包
+                                    </div>
+                                    <div class="cell-main">
+                                        <p>收红包数：6个</p>
+                                        <p>发红包数：37个</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell-box">
+                                <div class="cell-content">
+                                    <div class="cell-title">
+                                        <i class="icon icon-cell4"></i>
+                                        敏感操作
+                                    </div>
+                                    <div class="cell-main">
+                                        <p>敏感操作：10个</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell-box">
+                                <div class="cell-content">
+                                    <div class="cell-title">
+                                        <i class="icon icon-cell5"></i>
+                                        用户增长
+                                    </div>
+                                    <div class="cell-main">
+                                        <p>总数：37898个</p>
+                                        <p>新增群：1234个</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="tag-bot">
+                            <li class="tag-bot-li" :class="tag==0?'active':''" @click="changeTag(0)">
+                                会话统计
+                            </li>
+                            <li class="tag-bot-li" :class="tag==1?'active':''" @click="changeTag(1)">
+                                好友统计
+                            </li>
+                            <li class="tag-bot-li" :class="tag==2?'active':''" @click="changeTag(2)">
+                                敏感词统计
+                            </li>
+                            <li class="tag-bot-li" :class="tag==3?'active':''" @click="changeTag(3)">
+                                好友增长统计
+                            </li>
+                            <li class="tag-bot-li" :class="tag==4?'active':''" @click="changeTag(4)">
+                                好友增长排行榜
+                            </li>
+                        </ul>
+                        <div class="wxCount-tag-main">
+                            <div class="chart-box border-wrap" v-if="tag==0">
+                                <!-- 1、折线与柱状图混合；（总沟通人数折线，主动消息、被动消息柱状图）
+                                    2、性别统计文字，来源统计饼图，地区统计百度地图
+                                3、敏感词横向条形图（数据较多增大div高度）
+                            4、好友增长 （折线图，只显示总数，根据时间）
+                        5、好友增长排行榜（条形图，只统计总数，根据时间）
+                     -->
+                                <talking-chart ref="talkingchart" :value="talkingValue" dataid="talkingchart"></talking-chart>
+                            </div>
+                            <div class="friend-count" v-show="tag==1">
+                                <div class="friend-top">
+                                    <div class="friend-left-count">
+                                        <div class="friend-count-title">
+                                            性别统计
+                                        </div>
+                                        <div class="wxlegend">
+                                            <label>
+                                                <i class="icon icon-famale"></i>女性</label>
+                                            <label>
+                                                <i class="icon icon-male"></i>男性</label>
+                                            <label>
+                                                <i class="icon icon-gender"></i>未知</label>
+                                        </div>
+                                        <ul class="progress">
+                                            <li data-name="女性" :data-percent="friendCount.gender.famale*100+'%'">
+                                                <svg viewBox="-10 -10 220 220">
+                                                    <g fill="none" stroke-width="2" transform="translate(100,100)">
+                                                        <path d="M 0,-100 A 100,100 0 0,1 86.6,-50 A 100,100 0 0,1 86.6,50 A 100,100 0 0,1 0,100 A 100,100 0 0,1 -86.6,50 A 100,100 0 0,1 -86.6,-50 A 100,100 0 0,1 0,-100"
+                                                            stroke="url(#cl1)"></path>
+                                                    </g>
+                                                </svg>
+                                                <svg viewBox="-10 -10 220 220">
+                                                    <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z"
+                                                        :stroke-dashoffset="314*2*friendCount.gender.famale"></path>
+                                                </svg>
+                                            </li>
+                                            <!--  Item  -->
+                                            <li data-name="男性" :data-percent="friendCount.gender.male*100+'%'">
+                                                <svg viewBox="-10 -10 220 220">
+                                                    <g fill="none" stroke-width="2" transform="translate(100,100)">
+                                                        <path d="M 0,-100 A 100,100 0 0,1 86.6,-50 A 100,100 0 0,1 86.6,50 A 100,100 0 0,1 0,100 A 100,100 0 0,1 -86.6,50 A 100,100 0 0,1 -86.6,-50 A 100,100 0 0,1 0,-100"
+                                                            stroke="url(#cl2)"></path>
+                                                    </g>
+                                                </svg>
+                                                <svg viewBox="-10 -10 220 220">
+                                                    <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z"
+                                                        :stroke-dashoffset="314*2*friendCount.gender.male"></path>
+                                                </svg>
+                                            </li>
+                                            <li data-name="未知" :data-percent="friendCount.gender.unknown*100+'%'">
+                                                <svg viewBox="-10 -10 220 220">
+                                                    <g fill="none" stroke-width="2" transform="translate(100,100)">
+                                                        <path d="M 0,-100 A 100,100 0 0,1 86.6,-50 A 100,100 0 0,1 86.6,50 A 100,100 0 0,1 0,100 A 100,100 0 0,1 -86.6,50 A 100,100 0 0,1 -86.6,-50 A 100,100 0 0,1 0,-100"
+                                                            stroke="url(#cl3)"></path>
+                                                    </g>
+                                                </svg>
+                                                <svg viewBox="-10 -10 220 220">
+                                                    <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z"
+                                                        :stroke-dashoffset="314*2*friendCount.gender.unknown"></path>
+                                                </svg>
+                                            </li>
+                                        </ul>
+                                        <svg width="0" height="0">
+                                            <defs>
+                                                <lineargradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+                                                    <stop stop-color="#ff9f7e"></stop>
+                                                    <stop offset="100%" stop-color="#ff9f7e"></stop>
+                                                </lineargradient>
+                                                <lineargradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+                                                    <stop stop-color="#32abff"></stop>
+                                                    <stop offset="100%" stop-color="#32abff"></stop>
+                                                </lineargradient>
+                                                <lineargradient id="cl3" radientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+                                                    <stop stop-color="#909090"></stop>
+                                                    <stop offset="100%" stop-color="#909090"></stop>
+                                                </lineargradient>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                    <div class="friend-left-count" v-if="tag==1">
+                                        <div class="friend-count-title">
+                                            来源统计
+                                        </div>
+                                        <div class="chart">
+                                            <pie-chart ref="piechart" :pievalue="friendCount.pieSourceValue" dataid="piechart"></pie-chart>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="friend-map">
+                                    <div class="friend-count-title">
+                                        地区统计
+                                    </div>
+                                    <div class="charts" ref="allmap" id="allmap">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wxchart-count" v-if="tag==2">
+                                <div class="chart">
+                                    <bar-graph ref="bargraph" :value="sensitive" dataid="sensitive" name="敏感词"></bar-graph>
+                                </div>
+                            </div>
+                            <div class="wxchart-count" v-if="tag==3">
+                                <div class="chart">
+                                    <line-chart ref="linechart" :value="growth" dataid="growth" name="增长量"></line-chart>
+                                </div>
+                            </div>
+                            <div class="wxchart-count" v-if="tag==4">
+                                <div class="chart">
+                                    <bar-graph ref="bargraph" :value="rank" dataid="rank" name="排行榜"></bar-graph>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /本周 -->
+        </div>
+    </div>
+    <!-- 折线图 -->
+    <template id="lineChart">
+        <div class="charts" :id="dataid"></div>
+    </template>
+    <script>
+        var colors = ['#56d1c2', '#ffb158', '#ff9f7e', '#31abfe', '#f67a66', '#6280d3', '#ff944c', '#71c0fa', '#ffcb78', '#5ce9a7'];
+        var lineChart = Vue.extend({
+            template: '#lineChart',
+            props: ['value', 'dataid', 'name'],
+            data: function () {
+                return {
+                    option: {
+                        tooltip: {
+                            trigger: 'axis',
+                        },
+                        color: colors,
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            top: '3%',
+                            containLabel: true
+                        },
+                        xAxis: {
+                            type: 'category',
+                            data: []
+                        },
+                        yAxis: {
+                            type: 'value',
+                        },
+                        series: [
+                            {
+                                name: this.$props.name,
+                                type: 'line',
+                                data: []
+                            }
+                        ],
+                    }
+                }
+            },
+            watch: {
+                option: {
+                    handler(newVal, oldVal) {
+                        if (this.$data.chart) {
+                            if (newVal) {
+                                this.$data.chart.setOption(newVal);
+                            } else {
+                                this.$data.chart.setOption(oldVal);
+                            }
+                        } else {
+                            this.init();
+                        }
+                    },
+                    deep: true //对象内部属性的监听，关键。
+                },
+                value: {
+                    handler(newVal, oldVal) {
+                        this.$data.chart.hideLoading();
+                        this.setOption();
+                    },
+                    deep: true //对象内部属性的监听，关键。
+                },
+            },
+            methods: {
+                setOption: function () {
+                    this.$data.option.xAxis.data = this.$props.value.xAxis;
+                    this.$data.option.series[0].data = this.$props.value.data;
+                },
+                init: function () {
+                    this.$data.chart = echarts.init(document.getElementById(this.$props.dataid));
+                    this.$data.chart.setOption(this.$data.option);
+                }
+            },
+            mounted: function () {
+                this.setOption();
+                this.init();
+            },
+        });
+    </script>
+    <!-- 条形图 -->
+    <template id="barGraph">
+        <div class="charts" :id="dataid"></div>
+    </template>
+    <script>
+        var barGraph = Vue.extend({
+            template: '#barGraph',
+            props: ['value', 'dataid', 'name'],
+            data: function () {
+                return {
+                    option: {
+                        tooltip: {
+                            trigger: 'axis',
+                        },
+                        color: colors,
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            top: '3%',
+                            containLabel: true
+                        },
+                        xAxis: {
+                            type: 'value',
+                            position: 'top',
+                        },
+                        yAxis: {
+                            type: 'category',
+                            data: []
+                        },
+                        series: [
+                            {
+                                name: this.$props.name,
+                                type: 'bar',
+                                barMaxWidth: 25,
+                                data: []
+                            }
+                        ],
+                    }
+                }
+            },
+            watch: {
+                option: {
+                    handler(newVal, oldVal) {
+                        console.log(newVal);
+                        console.log(oldVal);
+                        console.log(this);
+                        if (this.$props.value.data.length > 10) {
+                            var height = 400 + (this.$props.value.data.length - 10) * 30;
+                            $(this.$el).height(height);
+                        } else {
+                            $(this.$el).height(400);
+                        }
+                        if (this.$data.chart) {
+                            if (newVal) {
+                                this.$data.chart.setOption(newVal);
+                            } else {
+                                this.$data.chart.setOption(oldVal);
+                            }
+                            this.$data.chart.resize();
+                        } else {
+                            this.init();
+                        }
+                    },
+                    deep: true //对象内部属性的监听，关键。
+                },
+                value: {
+                    handler(newVal, oldVal) {
+                        this.$data.chart.hideLoading();
+                        console.log(this);
+
+                        this.setOption();
+                    },
+                    deep: true //对象内部属性的监听，关键。
+                },
+            },
+            methods: {
+                setOption: function () {
+                    this.$data.option.yAxis.data = this.$props.value.xAxis;
+                    this.$data.option.series[0].data = this.$props.value.data;
+                    // this.$data.chart.hideLoading();
+                    // this.$data.chart.setOption(this.$data.option);
+                },
+                init: function () {
+                    this.$data.chart = echarts.init(document.getElementById(this.$props.dataid));
+                    this.$data.chart.setOption(this.$data.option);
+                }
+            },
+            mounted: function () {
+                this.setOption();
+                this.init();
+            },
+        });
+    </script>
+    <!-- 折线图和柱状图混合 -->
+    <template id="talkingChart">
+        <div class="charts" :id="dataid"></div>
+    </template>
+    <script>
+        var talkingChart = Vue.extend({
+            template: '#talkingChart',
+            props: ['value', 'dataid'],
+            data: function () {
+                return {
+                    option: {
+                        tooltip: {
+                            trigger: 'axis',
+                        },
+                        color: colors,
+                        grid: {
+                            top: '50px',
+                            bottom: '35px',
+                            left: '50px', right: '50px'
+                        },
+                        legend: {
+                            data: ['发送条数', '接收条数', '沟通人数']
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: [],
+                            }
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value',
+                                name: '消息条数(条)',
+                                min: 0,
+                                axisLabel: {
+                                    formatter: '{value}'
+                                }
+                            },
+                            {
+                                type: 'value',
+                                name: '人数（个）',
+                                min: 0,
+                                axisLabel: {
+                                    formatter: '{value}'
+                                }
+                            }
+                        ],
+                        series: [
+                            {
+                                name: '发送条数',
+                                type: 'bar',
+                                barMaxWidth: 25,
+                                data: []
+                            },
+                            {
+                                name: '接收条数',
+                                type: 'bar',
+                                barMaxWidth: 25,
+                                data: []
+                            },
+                            {
+                                name: '沟通人数',
+                                type: 'line',
+                                yAxisIndex: 1,
+                                data: []
+                            }
+                        ]
+                    }
+                }
+            },
+            watch: {
+                option: {
+                    handler(newVal, oldVal) {
+                        console.log(newVal);
+                        console.log(oldVal);
+                        if (this.$data.chart) {
+                            if (newVal) {
+                                this.$data.chart.setOption(newVal);
+                            } else {
+                                this.$data.chart.setOption(oldVal);
+                            }
+                        } else {
+                            this.init();
+                        }
+                    },
+                    deep: true //对象内部属性的监听，关键。
+                },
+                value: {
+                    handler(newVal, oldVal) {
+                        this.$data.chart.hideLoading();
+                        this.setOption();
+                    },
+                    deep: true //对象内部属性的监听，关键。
+                },
+            },
+            methods: {
+                setOption: function () {
+                    this.$data.option.xAxis[0].data = this.$props.value.xAxis;
+                    this.$data.option.series[0].data = this.$props.value.send;
+                    this.$data.option.series[1].data = this.$props.value.receive;
+                    this.$data.option.series[2].data = this.$props.value.count;
+                    // this.$data.chart.hideLoading();
+                    // this.$data.chart.setOption(this.$data.option);
+                },
+                init: function () {
+                    this.$data.chart = echarts.init(document.getElementById(this.$props.dataid));
+                    this.$data.chart.setOption(this.$data.option);
+                }
+            },
+            mounted: function () {
+                this.setOption();
+                this.init();
+            },
+        });
+    </script>
+
+    <!-- 饼图 -->
+    <template id="pieCharts">
+        <div class="charts" :id="dataid"></div>
+    </template>
+    <script>
+        var piechart = Vue.extend({
+            template: '#pieCharts',
+            props: ['pievalue', 'dataid'],
+            data: function () {
+                return {
+                    option: {
+                        color: colors,
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br />{b} : {c} ({d}%)"
+                        },
+                        legend: {
+                            data: []
+                        },
+                        series: [
+                            {
+                                type: 'pie',
+                                radius: '55%',
+                                center: ['50%', '70%'],
+                                data: [],
+                                itemStyle: {
+                                    emphasis: {
+                                        shadowBlur: 10,
+                                        shadowOffsetX: 0,
+                                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            watch: {
+                option: {
+                    handler(newVal, oldVal) {
+                        console.log(newVal);
+                        console.log(oldVal);
+                        if (this.$data.chart) {
+                            if (newVal) {
+                                this.$data.chart.setOption(newVal);
+                            } else {
+                                this.$data.chart.setOption(oldVal);
+                            }
+                        } else {
+                            this.init();
+                        }
+                    },
+                    deep: true //对象内部属性的监听，关键。
+                },
+                pievalue: {
+                    handler(newVal, oldVal) {
+                        console.log(newVal);
+                        this.setOption();
+                    },
+                    deep: true //对象内部属性的监听，关键。
+                },
+            },
+            methods: {
+                setOption: function () {
+                    console.log(this.$data.option.legend.data);
+                    console.log(this.$props.pievalue);
+                    // if (this.$props.pievalue != undefined) {
+                    this.$data.option.legend.data = this.$props.pievalue.legend;
+                    this.$data.option.series[0].name = this.$props.pievalue.name;
+                    this.$data.option.series[0].data = this.$props.pievalue.data;
+                    // }
+                },
+                init: function () {
+                    this.$data.chart = echarts.init(document.getElementById(this.$props.dataid));
+                    this.$data.chart.setOption(this.$data.option);
+                }
+            },
+            mounted: function () {
+                this.setOption();
+                this.init();
+            },
+        });
+
+
+        //自定义覆盖点
+        function mapSetOverlay(point, num, name) {
+            this._point = point;
+            this._num = num;
+            this._name = name;
+        }
+        mapSetOverlay.prototype = new BMap.Overlay();
+        mapSetOverlay.prototype.initialize = function (map) {
+            var _self = this;
+            _self._map = map;
+            var div = _self._div = document.createElement('div');
+            div.className = "wxmap-city";
+            var span = this._span = document.createElement("span");
+            div.appendChild(span);
+            span.appendChild(document.createTextNode(this._name));
+            var label = this._span = document.createElement("label");
+            div.appendChild(label);
+            label.appendChild(document.createTextNode(this._num));
+            map.getPanes().labelPane.appendChild(div);
+            return div;
+        }
+        mapSetOverlay.prototype.draw = function () {
+            var map1 = this._map;
+            var pixel = map1.pointToOverlayPixel(this._point);
+            this._div.style.left = pixel.x - 15 + "px";
+            this._div.style.top = pixel.y - 15 + "px";
+        }
+
+
+
+        var map, pointArr
+            // ,pointArray
+            ;
+        var vm = new Vue({
+            el: '#main',
+            data: function () {
+                return {
+                    range: 0,
+                    time: '',
+                    tag: 0,
+                    friendCount: {
+                        pieSourceValue: {
+                            name: '来源统计',
+                            data: [],
+                            legend: []
+                        },
+                        gender: {
+                            male: "",
+                            famale: "",
+                            unknown: ''
+                        },
+                        map: [],
+                        provincePoints: [],
+                        citysPoints: []
+
+                    },
+                    talkingValue: {
+                        send: [],
+                        receive: [],
+                        count: [],
+                        xAxis: []
+                    },
+                    sensitive: {
+                        xAxis: [],
+                        data: []
+                    },
+                    rank: {
+                        xAxis: [],
+                        data: []
+                    },
+                    growth: {
+                        xAxis: [],
+                        data: []
+                    }
+                }
+            },
+            methods: {
+                changeRange: function (val) {
+                    this.$data.range = val;
+                    this.$data.time = '';
+                },
+                changeTag: function (val) {
+                    var _self = this;
+                    if (val == _self.$data.tag) {
+                        return;
+                    }
+                    _self.$data.tag = val;
+                },
+                //获取会话统计
+                getTalking: function () {
+                    var _self = this;
+                    _self.$data.talkingValue = {
+                        send: [3, 5, 6, 3, 5, 2, 6],
+                        receive: [6, 7, 5, 7, 4, 8, 6],
+                        count: [2, 1, 3, 3, 2, 3, 2],
+                        xAxis: ['2018-07-05', '2018-07-05', '2018-07-06', '2018-07-07', '2018-07-08', '2018-07-09', '2018-07-10']
+                    }
+                },
+
+                //获取来源统计
+                getSource: function () {
+                    var _self = this;
+                    _self.$data.friendCount.pieSourceValue.data = [];
+                    _self.$data.friendCount.pieSourceValue.legend = [];
+                    var length = parseInt(Math.random() * 10 + 3);
+                    for (var i = 1; i < length; i++) {
+                        _self.$data.friendCount.pieSourceValue.legend.push('数据来源' + i);
+                        _self.$data.friendCount.pieSourceValue.data.push({
+                            name: '数据来源' + i,
+                            value: i
+                        });
+                    }
+                },
+                //获取性别比例
+                getGender: function () {
+                    var _self = this;
+                    _self.$data.friendCount.gender.famale = 0.5;
+                    _self.$data.friendCount.gender.male = 0.4;
+                    _self.$data.friendCount.gender.unknown = 0.1;
+                },
+                //获取地区信息
+                getMapResult: function () {
+                    var _self = this;
+                    // _self.$data.friendCount.map = [
+                    //     { name: '北京', num: 20 },
+                    //     { name: '北京 朝阳', num: 10 },
+                    //     { name: '上海', num: 10 },
+                    //     { name: '广州', num: 5 },
+                    //     { name: '广东 深圳', num: 10 },
+                    //     { name: '美国', num: 2 },
+                    //     { name: '英国', num: 20 },
+                    //     { name: '巴哈马', num: 20 },
+                    //     { name: '河北', num: 20 },
+                    //     { name: '河北 石家庄', num: 20 },
+                    //     { name: '广西', num: 20 },
+                    // ];
+
+                    var data = [
+                        {
+                            "pro": "山东",
+                            "lng": 116.307852,
+                            "lat": 40.057031,
+                            "num": 20,
+                            "citys": [
+                                {
+                                    "pro": "济南",
+                                    "lng": 116.313082,
+                                    "lat": 40.047674,
+                                    "num": 20
+                                },
+                                {
+                                    "pro": "济南",
+                                    "lng": 116.328749,
+                                    "lat": 40.026922,
+                                    "num": 20
+                                },
+                                {
+                                    "pro": "济南",
+                                    "lng": 116.316163,
+                                    "lat": 39.997753,
+                                    "num": 20
+                                },
+                                {
+                                    "pro": "济南",
+                                    "lng": 116.403472,
+                                    "lat": 39.999411,
+                                    "num": 20
+                                }
+                            ]
+                        }
+                    ];
+
+                    _self.$data.friendCount.map = data;
+                    _self.$data.friendCount.provincePoints = [];
+                    _self.$data.friendCount.citysPoints = [];
+                    for (var i = 0; i < data.length; i++) {
+                        _self.$data.friendCount.provincePoints.push(data[i]);
+                        var citys = data[i].citys;
+                        for (var j = 0; j < citys.length; j++) {
+                            _self.$data.friendCount.citysPoints.push(citys[j]);
+                        }
+                    }
+
+                    setTimeout(function () {
+                        _self.setMap();
+                        _self.setPoints();
+                    });
+                },
+                setPoints: function (zoom) {
+                    var _self = this;
+                    var points;
+
+                    if (zoom == undefined) {
+                        zoom = 8;
+                    }
+
+                    if (zoom <= 8) {
+                        points = _self.$data.friendCount.provincePoints;
+                    } else {
+                        points = _self.$data.friendCount.citysPoints;
+                    }
+                    console.log(points);
+
+                    map.clearOverlays();
+                    for (var i = 0; i < points.length; i++) {
+                        var div = new mapSetOverlay(new BMap.Point(points[i].lng, points[i].lat), points[i].num, points[i].pro);
+                        map.addOverlay(div);
+                    }
+                    // map.setZoom(zoom);
+                },
+                setMap: function () {
+                    var _self = this;
+                    console.log(this.$refs.allmap);
+                    map = new BMap.Map(this.$refs.allmap, { minZoom: 5 }); //初始化地图
+                    map.centerAndZoom(new BMap.Point(105.292033, 35.231914), 5); //地图显示位置
+                    map.enableDragging();  //拖拽
+                    map.enableScrollWheelZoom();//滚轮改变大小
+
+                    var navigationControl = new BMap.NavigationControl();
+                    map.addControl(navigationControl);
+                    map.addEventListener("zoomend", setPoints);
+                },
+                //获取敏感词统计
+                getSensitive: function () {
+                    var _self = this;
+                    var sensitive = ['收到转账', '收到红包', '发起转账', '发起红包', '发起建群', '删除联系人', '删除聊天记录', '打开摄像头', '打开扫一扫'];
+                    var length = parseInt(Math.random() * 6 + 2);
+                    _self.$data.sensitive.data = [];
+                    _self.$data.sensitive.xAxis = [];
+                    for (var i = 0; i < length; i++) {
+                        _self.$data.sensitive.data.push(i + 2);
+                        _self.$data.sensitive.xAxis.push(sensitive[i]);
+                    }
+                },
+                //获取好友排行榜
+                getRank: function () {
+                    var _self = this;
+                    var rank = ['张三', '李四', '王五', '赵六', '123', '345', '67868', '678', '345'];
+                    var length = parseInt(Math.random() * 6 + 2);
+                    _self.$data.rank.data = [];
+                    _self.$data.rank.xAxis = [];
+                    for (var i = 0; i < length; i++) {
+                        _self.$data.rank.data.push(i + 2);
+                        _self.$data.rank.xAxis.push(rank[i]);
+                    }
+                },
+                getGrowth: function () {
+                    var _self = this;
+                    var growth = ['2018-07-03', '2018-07-04', '2018-07-05', '2018-07-06', '20178-07-07', '2018-07-08', '2018-07-09', '2018-07-10', '2018-07-11'];
+                    _self.$data.growth.data = [];
+                    _self.$data.growth.xAxis = growth;
+                    for (var i = 0; i < growth.length; i++) {
+                        _self.$data.growth.data.push(parseInt(Math.random() * 30 + 2));
+                    }
+                },
+                getResult: function (tag) {
+                    var _self = this;
+                    switch (tag) {
+                        case 0:
+                            _self.getTalking();
+                            break;
+                        case 1:
+                            _self.getSource();
+                            _self.getGender();
+                            _self.getMapResult();
+                            break;
+                        case 2:
+                            _self.getSensitive();
+                            break;
+                        case 3:
+                            _self.getGrowth();
+                            break;
+                        case 4:
+                            _self.getRank();
+                            break;
+                    }
+                }
+            },
+            mounted: function () {
+                this.getResult(0);
+            },
+            watch: {
+                time: function (val) {
+                    if (val != '') {
+                        this.$data.range = -1;
+                    }
+                },
+                tag: function (val) {
+                    this.getResult(val);
+                }
+            },
+            components: {
+                'pieChart': piechart,
+                'talkingChart': talkingChart,
+                'barGraph': barGraph,
+                'lineChart': lineChart
+            },
+            // directives: {
+            //     map: function () {
+            //         map = new BMap.Map("map", { enableMapClick: false }); //初始化地图
+            //         map.centerAndZoom(new BMap.Point(116.404, 39.915), 5); //地图显示位置
+            //         map.enableDragging();  //拖拽
+            //         map.enableScrollWheelZoom();//滚轮改变大小
+            //         var navigationControl = new BMap.NavigationControl();
+            //         map.addControl(navigationControl);
+            //     }
+            // }
+        });
+        //获取可视区域
+        function getBounds() {
+            var bs = map.getBounds();   //获取可视区域
+            southWest = bs.getSouthWest();   //可视区域左下角
+            northEast = bs.getNorthEast();   //可视区域右上角
+            zoom = map.getZoom(); //当前地图级别
+            //console.log("当前地图可视范围是：" + southWest.lng + "," + southWest.lat + "到" + northEast.lng + "," + northEast.lat + "\n级别：" + map.getZoom());
+            var bounds = {};
+            bounds.southWestLng = southWest.lng;
+            bounds.southWestLat = southWest.lat;
+            bounds.northEastLng = northEast.lng;
+            bounds.northEastLat = northEast.lat;
+            bounds.zoom = map.getZoom();
+            return bounds;
+        }
+
+        function setPoints() {
+            var bound = getBounds();
+            vm.setPoints(bound.zoom);
+        }
+        // $(function () {
+        //     jeDate("#timeRange", {
+        //         theme: { bgcolor: "#50d2c2", color: "#ffffff", pnColor: "#50d2c2" },
+        //         format: "YYYY-MM-DD",
+        //         multiPane: false,
+        //         isClear: false,
+        //         range: " ~ ",
+        //         donefun: function (val) {
+        //             console.log(val);
+        //             $("#timeRange")[0].dispatchEvent(new Event('input'));
+        //         }
+        //     });
+        // })
+    </script>
+    <script>
+        var setting = {
+            view: {
+                addDiyDom: addDiyDom,
+                selectedMulti: false,
+                showIcon: false,
+                fontCss: { 'font-weight': 'bold' }
+            },
+            check: {
+                enable: false
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            callback: {
+                onMouseDown: onMouseDown
+            }
+        }
+
+        function addDiyDom(event, treeNode) {
+            if (treeNode.flag != undefined && treeNode.flag == 'user') {
+                var aObj = $("#" + treeNode.tId + "_a");
+                aObj.addClass('staff__user');
+            }
+        }
+
+        //选择部门
+        function onMouseDown(event, treeId, treeNode) {
+            //选中部门
+
+            if (treeNode != null && treeNode != undefined && treeNode.flag == 'department') {
+                vm.getData(treeNode.id);
+            }
+            if (treeNode != null && treeNode != undefined && treeNode.flag == 'user') {
+                window.location.href = "phoneStatisticsLine.html?id=" + treeNode.id + "&&date=" + vm.$data.date + "&&wechatId=" + treeNode.wechatNo;
+            }
+        }
+        //默认设置树形结构
+        $(function () {
+            // $("#ztree")
+            $("#tree").css({ "max-height": $(window).height() - $("#tree").offset().top - 32, "overflow": "auto" });
+
+
+            var data = [{ "id": "AEBDBABAC02D4755A37EB2631345B6E4", "pId": "5A15ED6E169C486DB2739D5D1962E320", "name": "红米", "flag": "user", "cellphone": "13436457169", "phone": 1, "imei": "867397033384928", "wechatNo": "LiKaiBanBu" }, { "id": "188F26F953B5411BAD01E2350A886C96", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "陈博", "flag": "user", "cellphone": "15601313049", "phone": 1, "imei": "111", "wechatNo": "wxid_9u51i27dr2z322" }, { "id": "DB904379778D4948A770E5D01E1951D5", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "刘", "flag": "user", "cellphone": "17712345678", "phone": 1, "imei": "351641091428611", "wechatNo": "" }, { "id": "FBEDC571AF55426B9EAFE1E98E8ECD48", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "张洁", "flag": "user", "cellphone": "13426091878", "phone": 1, "imei": "867397036869826", "headImg": "/2018/02big/A59DF23D209B4C68A5F04F4C88979E6BiOS_0.jpg", "wechatNo": "wxid_67f53x60kl4x22" }, { "id": "BD5A1AE8B5E6407B80CF2662BA60D7DA", "pId": "6B9E9BF70BBE4CD1BA613CFB80772F82", "name": "15577746741", "flag": "user", "cellphone": "15577746741", "phone": 1, "imei": "358914060044997", "wechatNo": "" }, { "id": "03E652EEBE3B4D4E8D416F3E1C6DB6F8", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "丽丽", "flag": "user", "cellphone": "15703412808", "phone": 1, "imei": "867397032271464", "headImg": "/2018/06big/26CE47D5C036420BA13B508A0C0ADF81list.png", "wechatNo": "wxid_0v5ij2tqa2lp22" }, { "id": "00D250B670B24F91A6F5BF271B922262", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "牟美娜", "flag": "user", "cellphone": "18410340049", "phone": 1, "imei": "351641091428835", "wechatNo": "wxid_9u51i27dr2z322" }, { "id": "C27D64A49FB64307A19AB77D2152B8B1", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "贾鹏丽", "flag": "user", "cellphone": "15330273073", "phone": 1, "imei": "351641091432274", "headImg": "/2018/06big/7DFB93D9E70144DCB2F4035339540CABPhotoeb962fd8-ce29-4b16-bfe1-24a2fc92d383.jpg", "wechatNo": "wxid_age6g7evptdb22" }, { "id": "1449D46A22454E9793F7D1F405DB753A", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "张伯阳", "flag": "user", "cellphone": "17612256497", "phone": 1, "imei": "358914060044948", "headImg": "/2018/06big/E772780684724B9F80FEC3E9046C0030Photo2bd84db9-2600-4f16-8c37-0683fcce2392.jpg", "wechatNo": "wxid_ets8v4dshgzj22" }, { "id": "E53756C02755413C970150AB0EE6720D", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "18012256575", "flag": "user", "cellphone": "18012256575", "phone": 1, "imei": "866764031311016", "wechatNo": "wxid_w2xsmzv4ezeg22" }, { "id": "9C67E767094742DFBD342C9E2072AED5", "pId": "5A15ED6E169C486DB2739D5D1962E320", "name": "艾云鹤", "flag": "user", "cellphone": "13699273847", "phone": 1, "imei": "351641091428538", "headImg": "/2017/10big/ab87919630a949eca2f0284c884766e0_head.jpg", "wechatNo": "" }, { "id": "21C805EDEE4844E39434BF49239898DF", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "13439660347", "flag": "user", "cellphone": "13439660347", "phone": 1, "imei": "867400020316622", "wechatNo": "" }, { "id": "44D4227BE98E449CA1ADA3E3BA7D5AC4", "pId": "5A15ED6E169C486DB2739D5D1962E320", "name": "HK0", "flag": "user", "cellphone": "18703422761", "phone": 1, "imei": "358914060044799", "headImg": "/2018/06big/E285F205BE9F4419A8B0AAECF7F97911Photo33d6edf2-4b79-4950-aa54-9485b248ff3b.jpg", "wechatNo": "" }, { "id": "E8B63FF5BB1840EABB9BEB2F9DCCA731", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "王克杰", "flag": "user", "cellphone": "18588883666", "phone": 1, "imei": "11111", "headImg": "/2018/06big/4F4BB4F18BC64CC7826F2E1C000BEF0DiOS_0.jpg", "wechatNo": "" }, { "id": "57D2EA489E244FD39975C881A5C72880", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "贾琢", "flag": "user", "cellphone": "13439069006", "phone": 1, "imei": "351641091428512", "wechatNo": "" }, { "id": "7123C141DFAE445281781B97AC76CD5X", "pId": "0D9F395280E44700BAB3D8A3E80AC0DE", "name": "乔", "flag": "user", "cellphone": "13910803474", "phone": 1, "imei": "358914060044963", "headImg": "", "wechatNo": "" }, { "id": "0FCEF72742CC4AA6ADF6F0238D65A38B", "pId": "", "name": "北京联云天下科技", "flag": "department" }, { "id": "D793BAFF725D4DC086BFF5D3175D17AF", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "北京", "flag": "department" }, { "id": "5A15ED6E169C486DB2739D5D1962E320", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "天津", "flag": "department" }, { "id": "0D9F395280E44700BAB3D8A3E80AC0DE", "pId": "D793BAFF725D4DC086BFF5D3175D17AF", "name": "海淀校区", "flag": "department" }, { "id": "E440F9110ADC4AF890F26853143CE00A", "pId": "D793BAFF725D4DC086BFF5D3175D17AF", "name": "朝阳校区", "flag": "department" }, { "id": "6B9E9BF70BBE4CD1BA613CFB80772F82", "pId": "0D9F395280E44700BAB3D8A3E80AC0DE", "name": "五道口校区", "flag": "department" }, { "id": "E450BAACDFAB44CCB17E8D02F03B8E67", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "上海", "flag": "department" }, { "id": "A0F66F9EC47549A5906546479D19ABBE", "pId": "D793BAFF725D4DC086BFF5D3175D17AF", "name": "昌平校区", "flag": "department" }, { "id": "910A97D873264641B000A787BF20FCFD", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "测试1", "flag": "department" }];
+            $.fn.zTree.init($("#tree"), setting, data);
+
+            // $.post(ip + 'appstatistics/getDepartmentTreeNodeWithoutIcon', function (data) {
+            //
+            //     $.fn.zTree.init($("#tree"), setting, data);
+            // });
+        });
+
+    </script>
+</body>
+
+</html>

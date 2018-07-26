@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>团队首页</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="../css/head.css" />
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <link href="../css/hDate.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/hDate.js"></script>
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+
+    <script src="../js/swiper.js"></script>
+    <link rel="stylesheet" href="../css/swiper.css">
+
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/audio.js"></script>
+
+    <script type="text/javascript" src="../js/echarts1.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../css/appstatistics.css">
+
+    <link rel="stylesheet" href="../css/zTreeStyle.css">
+    <script src="../js/jquery.ztree.core.js"></script>
+    <!--<script src="../js/jquery.ztree.excheck.js"></script>-->
+    <script src="../js/jquery.ztree.exedit.js"></script>
+    <!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=YxrpSNq6119f9xGsRh4Q5f0a5qgy3k00"></script> -->
+    <script src="../js/vue.min.js"></script>
+    <link rel="stylesheet" href="../css/prologue.css">
+</head>
+
+<body>
+    <!--  -->
+    <div class="fixed-right">
+        <ul class="fixed-list">
+            <li class="fixed-li">
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes" title="客服">
+                    <i class="fixed-icon icon-service"></i>
+                </a>
+            </li>
+            <li class="fixed-li">
+                <i class="fixed-icon icon-code"></i>
+                <div class="fixed-box">
+                    <div class="code"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="applyBox prologue-Box" id="prologue" style="display: block;">
+        <div class="tlt">
+            <i></i>开场白
+            <a href="javascript:;" class="a-closed"></a>
+        </div>
+        <form class="prologue" onsubmit="return false;" id="prologueForm">
+            <div class="prologue-file-input">
+                <div class="prologue-text" id="prologuefilename">开场白</div>
+                <div class="resetbox">
+                    <input type="file" class="filereset" id="prologuefile">
+                    <a class="a-resetfile" href="javascript:openPrologueFile();">浏览</a>
+                </div>
+            </div>
+            <div class="prologue-btnWrap">
+                <input type="submit" value="保存" class="btn" />
+                <input type="button" value="取消" class="btn btn-cancel" onclick="prologueCancel();" />
+            </div>
+        </form>
+        <div class="prologue-paly" id="prologuePlay">
+            <div class="prologue-audioName">
+                <span>0127DBC3E46245BD929AF4C241E44A3F.mp3</span>
+                <a href="https://yunke-pcfile.oss-cn-beijing.aliyuncs.com/0127DBC3E46245BD929AF4C241E44A3F.mp3" target="_blank" class="prologue-playing"
+                    id="prologueVoice"></a>
+            </div>
+            <div class="prologue-btnWrap">
+                <input type="button" value="停用" class="btn" />
+                <input type="button" value="更新" class="btn" onclick="prologueUpdate();" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            var prologue = false;
+            if (prologue) {
+                prologueFormShow();
+            } else {
+                prologuePlayShow();
+            }
+
+            $("#prologuefile").change(function () {
+                $("#prologuefilename").text(getFileName($("#prologuefile").val()));
+            });
+        });
+
+        function getFileName(o) {
+            var pos = o.lastIndexOf("\\");
+            return o.substring(pos + 1);
+        }
+
+        function openPrologueFile() {
+            $("#prologuefile").click();
+        }
+
+        var prologueDefault = false;
+        function prologueUpdate() {
+            prologueDefault = true;
+            prologueFormShow();
+        }
+        function prologueFormShow() {
+            $("#prologueForm").show();
+            $("#prologuePlay").hide();
+        }
+        function prologuePlayShow() {
+            $("#prologueForm").hide();
+            $("#prologuePlay").show();
+        }
+
+        function prologueCancel() {
+            if (prologueDefault) {
+                prologuePlayShow();
+            } else {
+                $(".layer").hide();
+                $("#prologue").hide();
+            }
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 页面遮罩层 layer -->
+    <div class="layer" style="display: block;"></div>
+    <!-- 页面头部 header -->
+    <div class="header">
+        <h1 class="logo fl"></h1>
+        <span class="mar fl">|</span>
+        <span class="fl">
+            <em>团队版</em>[
+            <a href="">点击切换</a>]</span>
+        <ul class="nav">
+            <li>
+                <a href="indexnew2.html" class="current">首页</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="">行动</a>-->
+            <!--</li>-->
+            <li>
+                <a href="customer1.html">客户</a>
+            </li>
+            <li>
+                <a href="download.html">线索</a>
+            </li>
+            <li>
+                <a href="task.html">任务</a>
+            </li>
+            <li>
+                <a href="settings.html" id="top-setting">设置</a>
+            </li>
+        </ul>
+        <ul class="header-right fr">
+            <!-- <li>
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">
+                    <i class="qq"></i>
+                    <div class="service">在线客服</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="add"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="update"></i>
+                </a>
+            </li> -->
+            <li>
+                <a href="javascript:;">
+                    <i class="message"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="user">
+                    <img src="../images/a-1.png" />
+                    <div class="arrow"></div>
+                </a>
+                <div class="quit_down">
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-customer"></div>
+                            客户
+                        </a>
+                    </div>
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-help"></div>
+                            使用说明
+                        </a>
+                    </div>
+
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-exit"></div>
+                            </i>
+                            退出登录
+                        </a>
+                    </div>
+            </li>
+        </ul>
+        </div>
+        <!-- 汇总提示 tipArea -->
+        <div class="tipArea">
+            <div class="wrap">
+                <div class="count_f">
+                    <span class="span-1">数据统计</span>
+                    <span class="span-1 current">手机统计</span>
+                    <span class="span-1">签到统计</span>
+                </div>
+            </div>
+        </div>
+        <!-- 内容部分 contents -->
+        <div class="contents phone-statistics" id="main" v-cloak>
+            <!-- 左侧 -->
+            <!-- <div class="leftPage fl">
+                <div class="leftContentBox">
+                    <div class="tlt">选择组员</div>
+                    <div class="indexTree">
+                        <ul id="tree" class="ztree department-tree"></ul>
+                    </div>
+                </div>
+            </div> -->
+            <!-- 右侧 -->
+            <div class="rightPage">
+                <!-- 本周 -->
+                <div class="contentsbox" style="display:block">
+                    <div class="tag-box">
+                        <div class="tags-li ">
+                            <a href="phoneStatistics.html">销售地图</a>
+                        </div>
+                        <div class="tags-li active">
+                            <a href="salesDetail.html">设备统计</a>
+                        </div>
+                    </div>
+
+                    <div class="table-tlt">
+                        <i class="i"></i>应用统计
+                        <a class="list-return" href="salesDetail.html">
+                            <i></i>返回上级</a>
+                    </div>
+                    <div class="echarts-wrap">
+                        <div class="nav-wrap">
+                            <span class="nav-btn" @click="changeNav(0)" :class="nav == 0?'active':''">应用时长统计</span>
+                            <span class="nav-btn" @click="changeNav(1)" :class="nav == 1?'active':''">应用数量统计</span>
+                        </div>
+                        <div class="charts" id="charts"></div>
+                    </div>
+                </div>
+                <!-- /本周 -->
+            </div>
+        </div>
+
+        <script>
+            var myChart, option;
+            var vm = new Vue({
+                el: "#main",
+                data: function () {
+                    return {
+                        nav: -1,
+                        depart: '',
+                        chartsTime: {
+                            tooltip: {
+                                formatter: '{a}<br/>{b}:{c}分钟'
+                            },
+                            xAxis: [],
+                            yAxis: {
+                                name: '单位：分钟'
+                            },
+                            series: {
+                                name: '应用时长',
+                                data: []
+                            }
+                        },
+                        chartsCount: {
+                            tooltip: {
+                                formatter: '{a}<br/>{b}:{c}个'
+                            },
+                            xAxis: [],
+                            yAxis: {
+                                name: '单位：个'
+                            },
+                            series: {
+                                name: '应用数量',
+                                data: []
+                            }
+                        }
+                    }
+                },
+                methods: {
+                    changeNav: function (index) {
+                        this.$data.nav = index;
+                    }
+                },
+                watch: {
+                    nav: function (index) {
+                        if (index == 0) {
+                            changeChart('chartsTime');
+                        } else {
+                            changeChart('chartsCount');
+                        }
+                    }
+                },
+                mounted: function () {
+                    var _self = this;
+                    var chartsTime = _self.$data.chartsTime;
+                    var chartsCount = _self.$data.chartsCount;
+                    chartsTime.xAxis = ['微信Time', '直播Time', 'QQTime', '音乐Time', '视频Time'];
+                    chartsCount.xAxis = ['微信Count', '直播Count', 'QQCount', '音乐Count', '视频Count'];
+                    chartsTime.series.data = [50, 40, 30, 20, 10];
+                    chartsCount.series.data = [55, 45, 35, 25, 15];
+                    _self.$data.depart = '销售一部';
+                    _self.$data.nav = 0;
+                }
+            });
+            $("#charts").height($(window).height() - $("#charts").offset().top - 30);
+
+            myChart = echarts.init(document.getElementById('charts'));
+            option = {
+                tooltip: {
+                    trigger: 'axis',
+                    position: function (pt) {
+                        return [pt[0], '10%'];
+                    },
+                },
+                title: {
+                    text: '',
+                    left: 'center',
+                    textStyle: {
+                        fontSize: '16',
+                        fontWeight: 'normal'
+                    }
+                },
+                xAxis: {
+                },
+                yAxis: {
+                    axisLabel: {
+                        formatter: '{value}'
+                    }
+                },
+                color: ['#4ed2c1'],
+                series: [{
+                    type: 'bar',
+                    barMaxWidth: 50,
+                }],
+                dataZoom: [
+                    {
+                        type: 'inside',
+                        show: false,
+                        zoomLock: true,
+                        startValue: 0,
+                        endValue: 9,
+                        orient: "horizontal",
+                        preventDefaultMouseMove: false
+                    }
+                ],
+            };
+            function changeChart(chartsType) {
+                var charts = vm.$data[chartsType];
+                option.title.text = vm.$data.depart;
+                option.tooltip.formatter = charts.tooltip.formatter;
+                option.yAxis.name = charts.yAxis.name;
+                option.xAxis.data = charts.xAxis;
+                option.series[0].name = charts.series.name;
+                option.series[0].data = charts.series.data;
+                myChart.setOption(option);
+            }
+            $(function () {
+                $(window).resize(function () {
+                    $("#charts").height($(window).height() - $("#charts").offset().top - 30);
+                    myChart.resize();
+                });
+            });
+        </script>
+</body>
+
+</html>

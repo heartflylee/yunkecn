@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>团队任务-销售任务</title>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../css/head.css"/>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <!--<script type="text/javascript" src="../js/audio1.min.js"></script>-->
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/highcharts.js"></script>
+    <!--<link href="../css/hDate.css" rel="stylesheet"/>-->
+
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+
+    <!--<script type="text/javascript" src="../js/hDate.js"></script>-->
+</head>
+
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<div class="layer-5"></div>
+<div class="layer-6"></div>
+<!-- 页面头部 header -->
+<div class="header">
+    <h1 class="logo fl"></h1>
+    <ul class="nav">
+        <li>
+            <a href="indexnew2.html">首页</a>
+        </li>
+        <!--<li>-->
+        <!--<a href="">行动</a>-->
+        <!--</li>-->
+        <li>
+            <a href="customer1.html">客户</a>
+        </li>
+        <li>
+            <a href="download.html">线索</a>
+        </li>
+        <li>
+            <a href="task.html" class="current">任务</a>
+        </li>
+        <li>
+            <a href="settings.html" id="top-setting">设置</a>
+        </li>
+    </ul>
+    <ul class="header-right fr">
+        <li>
+            <a href="javascript:void(0)"><i class="add"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"><i class="update"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"><i class="message"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" class="user">刘</a>
+        </li>
+    </ul>
+</div>
+<!-- 汇总提示 tipArea -->
+<div class="tipArea">
+    <div class="wrap">
+        <!--<span class="span-1 fr"><a href="task-applacation.html">员工任务申请</a><b class="b-news"></b></span>-->
+        <!--<span class="fr">|</span>-->
+        <ul class="ul-2">
+            <li>
+                <a href="task.html" >电话任务</a>
+            </li>
+            <li>
+                <a href="task-2.html">短信任务</a>
+            </li>
+            <li>
+                <a href="task-3.html"class="current">邮件任务</a>
+            </li>
+            <li>
+                <a href="task-1.html">委派云客</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="contents">
+    <div class="table-tlt">
+        <i class="i"></i>邮件任务列表
+        <div class="title-innerBox">
+            <span class="span-1" onclick="filterShow();">筛选<b class="b-icon"></b></span>
+            <div class="position-relative searchBox">
+                <input type="text" placeholder="按任务名称搜索"/>
+                <a class="search-icon"></a>
+            </div>
+        </div>
+        <a class="a" id="add-tasks" style="float: right; cursor: pointer;">新建邮件任务</a>
+    </div>
+    <div class="customer">
+        <table class="table-list" id="table-list">
+            <thead>
+            <tr>
+                <th>任务名称</th>
+                <th>任务状态</th>
+                <th>创建时间</th>
+                <th>邮件模板</th>
+                <th>数据来源</th>
+                <th>发送条数/成功条数</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>哟见正文<br/>尊敬的客户：附件为我司的资料与合同模板，烦请查收；以上，祝您工作愉快</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>哟见正文<br/>尊敬的客户：附件为我司的资料与合同模板，烦请查收；以上，祝您工作愉快</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>哟见正文<br/>尊敬的客户：附件为我司的资料与合同模板，烦请查收；以上，祝您工作愉快</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>哟见正文<br/>尊敬的客户：附件为我司的资料与合同模板，烦请查收；以上，祝您工作愉快</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>哟见正文<br/>尊敬的客户：附件为我司的资料与合同模板，烦请查收；以上，祝您工作愉快</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>哟见正文<br/>尊敬的客户：附件为我司的资料与合同模板，烦请查收；以上，祝您工作愉快</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>哟见正文<br/>尊敬的客户：附件为我司的资料与合同模板，烦请查收；以上，祝您工作愉快</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>哟见正文<br/>尊敬的客户：附件为我司的资料与合同模板，烦请查收；以上，祝您工作愉快</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>哟见正文<br/>尊敬的客户：附件为我司的资料与合同模板，烦请查收；以上，祝您工作愉快</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="" class="link">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td>2017-12-19</td>
+                <td><span class="hover-text" data-html="<div class='hover-title'>模板标题：产品资料</div><div class='hover-content'>哟见正文<br/>尊敬的客户：附件为我司的资料与合同模板，烦请查收；以上，祝您工作愉快</div>">产品资料</span></td>
+                <td>12月回访客户</td>
+                <td>100/98</td>
+                <td><a href="" class="link">查看详情</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="hover-wrap">
+
+        </div>
+    </div>
+    <!-- 分页 -->
+    <p class="page-p">共20条</p>
+    <ul class="page-ul">
+        <li>
+            <
+        </li>
+        <li> 1</li>
+        <li> 2</li>
+        <li> 3</li>
+        <li> ></li>
+    </ul>
+
+</div>
+
+<div class="filter-wrap changer-box" id="filterShow">
+    <div class="tlt"><i></i>筛选
+        <a href="javascript:layerClose('#filterShow')" class="a-closed"></a>
+    </div>
+    <div class="function-content">
+        <div class="filter-row">
+            <div class="filter-li time-box">
+                <label>创建时间</label>
+                <span class="time"><input type="text" id="timetext" readonly="readonly"></span>
+            </div>
+            <div class="filter-li time-box">
+                <label>至</label>
+                <span class="time"><input type="text" id="timetext-2" readonly="readonly"></span>
+            </div>
+        </div>
+        <script type="text/javascript">
+					var start = {
+						format: 'YYYY-MM-DD hh:mm:ss',
+						maxDate: $.nowDate(0), //设定最小日期为当前日期
+						minDate: '1900-01-01 00:00:00', //最大日期
+						choosefun: function (elem, datas) {
+							end.minDate = datas; //开始日选好后，重置结束日的最小日期
+						}
+					};
+					var end = {
+						format: 'YYYY-MM-DD hh:mm:ss',
+						maxDate: $.nowDate(0), //设定最小日期为当前日期
+						//  festival:true,
+						minDate: '1900-01-01 00:00:00', //最大日期
+						choosefun: function (elem, datas) {
+							start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+						}
+					};
+					$('#timetext').jeDate(start);
+					$('#timetext-2').jeDate(end);
+
+        </script>
+        <div class="filter-row">
+            <div class="filter-li">
+                <label>邮件模板</label>
+                <select class="Jselect">
+                    <option>请选择邮件模板</option>
+                    <option value="">无</option>
+                    <option value="">刘晓辉</option>
+                    <option value="">刘宇</option>
+                </select>
+            </div>
+            <div class="filter-li">
+                <label>数据来源</label>
+                <select class="Jselect">
+                    <option>请选择数据来源</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">6</option>
+                    <option value="">9</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="filter-row">
+            <div class="filter-li">
+                <label>发送条数</label>
+                <span class="time"><input type="text"></span>
+            </div>
+            <div class="filter-li">
+                <label>发送成功条数</label>
+                <span class="time"><input type="text"></span>
+            </div>
+        </div>
+
+        <div class="manage-btn-wrap">
+            <input type="button" class="manage-btn" value="提交">
+        </div>
+    </div>
+</div>
+<div class="applyBox message_new message_new1 email_f email_new" id="applyBox-1">
+    <div class="tlt"><i></i>新建邮件任务
+        <a href="javascript:void(0)" class="a-closed"></a>
+    </div>
+    <div class="add_message">
+        <div class="input_f">
+            <input type="text" class="inputBox-1 bg-gray" placeholder="请输入任务名称">
+        </div>
+        <div class="c-box select_row1">
+            <select class="select_message">
+                <option>请选择邮件模板</option>
+                <option>邮件模板1</option>
+                <option>邮件模板2</option>
+                <option>邮件模板3</option>
+            </select>
+        </div>
+        <div class="input_f">
+            <input type="text" class="inputBox-1 bg-gray" placeholder="请输入邮件标题">
+        </div>
+        <div class="textarea_box message_text">
+            <textarea id="e3"></textarea>
+        </div>
+        <div class="c-box select_row1">
+            <select class="select_message">
+                <option>请选择数据来源</option>
+                <option>数据来源1</option>
+                <option>数据来源2</option>
+                <option>数据来源3</option>
+            </select>
+        </div>
+    </div>
+    <input type="button" class="btn" value="提交" id="">
+</div>
+<script>
+
+	//关闭弹框
+	function layerClose (obj) {
+		$(obj).hide();
+		$(".layer").hide();
+	}
+
+	function filterShow () {
+		$("#filterShow").show();
+		$(".layer").show();
+	}
+
+	$(function () {
+		$(".customer").height($(window).height() - $(".customer").offset().top - 80);
+		$(".customer").css({
+			"overflow": "auto"
+		});
+		$(".hover-text").hover(function () {
+			$(".hover-wrap").html($(this).data().html);
+			$(".hover-wrap").show();
+			var top = $(this).offset().top - $(".contents").offset().top;
+			if (top + $(".hover-wrap").outerHeight() > $(".contents").offset().top + $(".contents").height()) {
+				top = top - $(".hover-wrap").outerHeight() + $(this).outerHeight();
+			}
+			var left = $(this).offset().left - $(".contents").offset().left + $(this).outerWidth();
+			if (left + $(".hover-wrap").outerWidth() > $(".contents").offset().left + $(".contents").width()) {
+				left = left - $(".hover-wrap").outerWidth() - $(this).outerWidth();
+			}
+			$(".hover-wrap").css({top: top, left: left});
+		}, function () {
+			$(".hover-wrap").hide();
+		})
+	});
+</script>
+</body>
+
+</html>

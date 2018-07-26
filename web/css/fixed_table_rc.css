@@ -1,0 +1,19 @@
+.ft_container tbody tr.ui-widget-content,.ft_r,.ft_rc,thead.ui-widget-header{background-image:none}
+.ft_container table{border-width:0;border-collapse:collapse;margin:0;outline-style:none;font-size:.9em;background-color:#fff}
+.ft_container table tr th{font-weight:700}
+.ft_container table thead{-moz-user-select:none;-webkit-user-select:none}
+.ft_container table tr td,.ft_container table tr th{border-collapse:collapse;padding:2px 4px;border:1px solid #CCC;overflow:hidden;word-wrap:break-word;border-width:0 1px 1px 0}
+.ft_container table tr:first-child td,.ft_container table tr:first-child th{border-top-width:1px;border-color:#CCC}
+.ft_container table tr td:first-child,.ft_container table tr th:first-child{border-left-width:1px;border-color:#CCC}
+.ft_container{overflow:hidden;padding:0}
+.ft_rel_container{position:relative;overflow:hidden;border-width:0;width:100%;height:100%}
+.ft_rc{position:absolute;z-index:1005}
+.ft_c,.ft_r{position:relative}
+.ft_cwrapper,.ft_rwrapper{overflow:hidden;position:absolute;z-index:1001;border-width:0;padding:0;margin:0}
+.ft_scroller{overflow:auto;height:100%;padding:0;margin:0}
+.ft_container table.sorttable thead tr th{cursor:pointer}
+.ft_container table thead tr th.fx_sort_bg{background-image:url(images/bg.gif);background-position:right center;background-repeat:no-repeat}
+.ft_container table thead tr th.fx_sort_asc{background-image:url(images/asc.gif)}
+.ft_container table thead tr th.fx_sort_desc{background-image:url(images/desc.gif)}
+
+/*# sourceMappingURL=fixed_table_rc.css.map */

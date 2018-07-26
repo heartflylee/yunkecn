@@ -1,0 +1,48 @@
+[
+  {
+    "name": "朝代图标",
+    "data": [
+      {
+        "count": 1,
+        "field_value": "唐朝"
+      },
+      {
+        "count": 1,
+        "field_value": "清朝"
+      },
+      {
+        "count": 1,
+        "field_value": "清朝A"
+      }
+    ]
+  },
+  {
+    "name": "朝代图标1",
+    "data": [
+      {
+        "count": 11,
+        "field_value": "唐朝123"
+      },
+      {
+        "count": 12,
+        "field_value": "清朝123"
+      },
+      {
+        "count": 13,
+        "field_value": "清朝A123"
+      }
+    ]
+  },{
+  "name": "朝代图标1",
+  "data": [
+    {
+      "count": 11,
+      "field_value": "唐朝123"
+    },
+    {
+      "count": 13,
+      "field_value": "清朝A123"
+    }
+  ]
+}
+]

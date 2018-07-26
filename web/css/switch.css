@@ -1,0 +1,48 @@
+.vue-switch{position:relative;display:inline-block;width:48px;height:20px;vertical-align:middle;line-height:20px;border-radius:20px;border:1px solid #b6b6b6;background-color:#fff;cursor:pointer;-webkit-transition:all .21s ease;transition:all .21s ease;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;overflow:hidden;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}
+.vue-switch span{position:absolute;font-size:12px;left:25px;color:#999}
+.vue-switch span.open{display:none}
+.vue-switch span.close,.vue-switch.z-on span.open{display:inline}
+.vue-switch::after{position:absolute;content:'';width:18px;height:18px;border-radius:18px;background-color:#b6b6b6;left:1px;top:1px;cursor:pointer;-webkit-transition:left .23s ease,width .23s ease,background-color .23s ease;transition:left .23s ease,width .23s ease,background-color .23s ease}
+.vue-switch:active::after{width:22px}
+.vue-switch.z-on{background-color:#d33;border-color:#d33}
+.vue-switch.z-on.c-blue{background-color:#3091f2;border-color:#3091f2}
+.vue-switch.z-on.c-orange{background-color:#f60;border-color:#f60}
+.vue-switch.z-on.c-green{background-color:#50d2c2;border-color:#50d2c2}
+.vue-switch.z-on:after{background:#fff}
+.vue-switch.z-on span{color:#fff;left:10px}
+.vue-switch.s-sm span,.vue-switch.s-sm.z-on span,.vue-switch.z-on span.close{display:none}
+.vue-switch.z-on:active::after{left:25px}
+.vue-switch.z-on::after{left:29px}
+.vue-switch.s-lg{width:60px}
+.vue-switch.s-lg.z-on:active::after{left:37px}
+.vue-switch.s-lg.z-on::after{left:41px}
+.vue-switch.s-max{width:75px;height:34px;line-height:34px;vertical-align:middle}
+.vue-switch.s-max:after{width:28px;height:28px;top:3px;left:3px}
+.vue-switch.s-max:active::after{width:35px}
+.vue-switch.s-max span{left:30px;right:8px;padding:0;text-align:center}
+.vue-switch.s-max.z-disabled{background-color:#fff;border-color:#ddd;cursor:not-allowed}
+.vue-switch.s-max.z-disabled span{color:#bbb}
+.vue-switch.s-max.z-disabled::after{background-color:#ddd;box-shadow:none;cursor:not-allowed}
+.vue-switch.s-max.z-on.z-disabled{background-color:#ddd}
+.vue-switch.s-max.z-on.z-disabled span{color:#fff}
+.vue-switch.s-max.z-on.z-disabled::after{background-color:#fff}
+.vue-switch.s-max.z-on:active::after{left:37px}
+.vue-switch.s-max.z-on::after{left:44px}
+.vue-switch.s-max.z-on span{right:30px;left:8px}
+.vue-switch.s-sm{width:36px;height:10px;overflow:visible}
+.vue-switch.s-sm::after{width:18px;height:18px;top:-4px;left:-1px;box-shadow:0 1px 3px 0 rgba(0,0,0,.17)}
+.vue-switch.s-sm:active::after{width:21px}
+.vue-switch.s-sm.z-disabled{background-color:#e5e5e5;border-color:#e5e5e5;cursor:not-allowed}
+.vue-switch.s-sm.z-disabled::after{background-color:#d5d5d5;box-shadow:none;cursor:not-allowed}
+.vue-switch.s-sm.z-on{background-color:#fae2e2;border-color:#fae2e2}
+.vue-switch.s-sm.z-on.c-blue{background-color:#cae3fc;border-color:#cae3fc}
+.vue-switch.s-sm.z-on.c-blue::after{background-color:#3091f2}
+.vue-switch.s-sm.z-on.c-orange{background-color:#ffc299;border-color:#ffc299}
+.vue-switch.s-sm.z-on.c-orange::after{background-color:#f60}
+.vue-switch.s-sm.z-on.c-green{background-color:#fff;border-color:#fff}
+.vue-switch.s-sm.z-on.c-green::after{background-color:#50d2c2}
+.vue-switch.s-sm.z-on:active::after{left:15px}
+.vue-switch.s-sm.z-on::after{left:19px;background-color:#d33}
+.vue-switch.s-sm.z-on.z-disabled::after{box-shadow:none}
+
+/*# sourceMappingURL=switch.css.map */

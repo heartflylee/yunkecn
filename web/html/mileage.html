@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>团队首页</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="../css/head.css"/>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <link href="../css/hDate.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../js/hDate.js"></script>
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+
+    <script src="../js/swiper.js"></script>
+    <link rel="stylesheet" href="../css/swiper.css">
+
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/audio.js"></script>
+
+    <script type="text/javascript" src="../js/echarts1.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=YxrpSNq6119f9xGsRh4Q5f0a5qgy3k00"></script>
+    <script src="../js/vue.min.js"></script>
+</head>
+
+<body>
+<!-- 内容部分 contents -->
+<div class="contents" id="main">
+    <div class="table-tlt">
+        <i class="i"></i>里程分析 <label class="lt-text">({{userName}} {{date}})</label>
+    </div>
+    <div class="customer">
+        <table class="table-list" id="table-list">
+            <thead>
+            <tr>
+                <th class="m-th1">定位时间</th>
+                <th class="m-th2">定位地点</th>
+                <th class="m-th3">停留时间</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="item in list">
+                <td class="m-th1">{{item.date}}</td>
+                <td class="m-th2">{{item.address}}</td>
+                <td class="m-th3">{{item.duration}}</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    //    var mileage = JSON.parse(unescape(window.location.hash).substr(1));
+    //    //console.log(JSON.parse(hash.substr(1)))
+    //    console.log(mileage);
+
+    var mileage;
+    var geoc = new BMap.Geocoder();
+
+    var vm = new Vue({
+        el: "#main",
+        data: {
+            userName: "",
+            date: "",
+            list: [],
+            points: []
+        },
+        methods: {
+            showLocation:function () {
+                var _self = this;
+                //根据经纬度获取位置
+
+                $.get("../mileage.json", function (data) {
+                    mileage = data;
+
+                    _self.$data.userName = mileage.userName;
+                    _self.$data.date = mileage.date;
+                    var items = mileage.data;
+
+                    for (var i = 0; i < items.length; i++) {
+                        var dayPoints = items[i].points;
+                        for (var j = 0; j < dayPoints.length; j++) {
+                            _self.$data.points.push(new BMap.Point(dayPoints[j].lng, dayPoints[j].lat));
+                            _self.$data.list.push({
+                                date: items[i].day + " " + dayPoints[j].time,
+                                duration: dayPoints[j].duration,
+                                address: ""
+                            });
+                        }
+                    }
+
+                    console.log(_self.$data.points);
+                    bdGEO(0);
+                    console.log(_self.$data.list);
+                })
+            }
+        },
+        mounted: function () {
+
+
+        }
+    });
+
+    var index = 0;
+
+    function bdGEO() {
+        var pt = vm.$data.points[index];
+        geocodeSearch(pt);
+    }
+
+    function geocodeSearch(pt) {
+        if (index < vm.$data.points.length) {
+            geoc.getLocation(pt, function (rs) {
+                vm.$data.list[index]['address'] = rs.address;
+//                vm.$data.list[index].address = rs.address;
+                index++;
+                setTimeout(window.bdGEO, 2);
+            });
+        }
+    }
+
+</script>
+</body>
+
+</html>

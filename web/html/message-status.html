@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>团队首页</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="../css/head.css"/>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <link href="../css/hDate.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../js/hDate.js"></script>
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+
+    <script src="../js/swiper.js"></script>
+    <link rel="stylesheet" href="../css/swiper.css">
+
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/audio.js"></script>
+
+    <script type="text/javascript" src="../js/echarts1.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=YxrpSNq6119f9xGsRh4Q5f0a5qgy3k00"></script>
+    <script src="../js/vue.min.js"></script>
+</head>
+
+<body>
+<!-- 内容部分 contents -->
+<div class="contents" id="main">
+    <div class="table-tlt">
+        <i class="i"></i>挂机短信发送详情
+    </div>
+    <div class="customer message-status" style="min-height: 400px">
+        <table class="table-list" id="table-list">
+            <thead>
+            <tr>
+                <th class="m-th1">客户姓名</th>
+                <th class="m-th2">发送时间</th>
+                <th class="m-th3">模板名称</th>
+                <th class="m-th4">短信内容</th>
+                <th class="m-th5">发送状态</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="item in ['']">
+                <td class="m-th1">刘宇</td>
+                <td class="m-th2">2017-10-19 18:53:22</td>
+                <td class="m-th3">10月新客户短信发送模板</td>
+                <td class="m-th4 ellipsis-box">
+                    <a class="detail">详细</a>
+                    <div class="ellipsis">
+                        【云客天下】吃了吗吃了吗吃了吗吃了吗
+                    </div>
+                    <div class="ellipsis-all" style="display: none;">
+                        【云客天下】吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗吃了吗
+                    </div>
+                </td>
+                <td class="m-th5">打开链接</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- 分页 -->
+    <p class="page-p">共20条</p>
+    <ul class="page-ul">
+        <li> &lt;</li>
+        <li> 1</li>
+        <li> 2</li>
+        <li> 3</li>
+        <li> &gt;</li>
+    </ul>
+
+</div>
+
+<script>
+    var vm = new Vue({
+        el: "#main",
+
+    });
+    $(function () {
+
+        $(document).find(".detail").click(function (event) {
+            if ($(this).next().next().css("display") == "block") {
+                $(this).next().next().hide();
+            } else {
+                $(".ellipsis-all").hide();
+                $(this).next().next().css({
+                    "top": "auto",
+                    "right": "-400px"
+                }).show();
+                var chosen_top = 0;
+                var chosen_left = 0;
+                if ($(this).next().next().offset().top - $(".customer").offset().top - 40 + $(this).next().next().outerHeight() > ($(".customer table").height() > $(".customer").height() ? $(".customer table").height() : $(".customer").height())) {
+                    chosen_top = -1 * $(this).next().next().outerHeight() + 20;
+                } else {
+                    chosen_top = 0;
+
+                }
+                if ($(this).next().next().offset().left + $(this).next().next().outerWidth() - $(window).width() * 0.01 >= $(".customer").width()) {
+                    chosen_left = 80;
+                } else {
+                    chosen_left = -1 * $(this).next().next().outerWidth();
+                }
+                $(this).next().next().css({
+                    "top": chosen_top,
+                    "right": chosen_left
+                }).show();
+            }
+            event.stopPropagation();
+        });
+        $(window).click(function () {
+            $(".ellipsis-all").hide();
+        });
+        $(".ellipsis-all").click(function (event) {
+            event.stopPropagation();
+        });
+    })
+
+</script>
+</body>
+
+</html>

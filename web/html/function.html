@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>设置</title>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../css/head.css"/>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+    <script src="../js/audio.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <link rel="stylesheet" href="../css/zTreeStyle.css">
+    <script src="../js/jquery.ztree.core.js"></script>
+    <script src="../js/jquery.ztree.excheck.js"></script>
+
+</head>
+
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<!-- 页面头部 header -->
+<div class="header">
+    <h1 class="logo fl"></h1>
+    <span class="mar fl">|</span>
+    <span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+    <ul class="nav">
+        <li>
+            <a href="indexnew2.html">首页</a>
+        </li>
+        <li>
+            <a href="customer1.html">客户</a>
+        </li>
+        <li>
+            <a href="download.html">线索</a>
+        </li>
+        <li>
+            <a href="task.html">任务</a>
+        </li>
+        <li>
+            <a href="settings.html" id="top-setting" class="current">设置</a>
+        </li>
+    </ul>
+    <ul class="header-right fr">
+        <li>
+            <a href="javascript:;"><i class="add"></i></a>
+        </li>
+        <li>
+            <a href="javascript:;"><i class="update"></i></a>
+        </li>
+        <li>
+            <a href="javascript:;"><i class="message"></i></a>
+        </li>
+        <li>
+            <a href="javascript:;" class="user">刘</a>
+        </li>
+    </ul>
+</div>
+<!-- 汇总提示 tipArea -->
+<div class="tipArea">
+    <div class="wrap">
+        <ul class="ul-2">
+            <li>
+                <a href="settings.html">团队设置</a>
+            </li>
+            <li>
+                <a href="settings-1.html">外呼标签设置</a>
+            </li>
+            <li>
+                <a href="settings-2.html">短信模板设置</a>
+            </li>
+            <li>
+                <a href="settings-email.html">邮件账户设置</a>
+            </li>
+            <li>
+                <a href="settings-email1.html">邮件模板设置</a>
+            </li>
+            <li>
+                <a href="settings-call.html">挂机时间设置</a>
+            </li>
+            <li>
+                <a href="settings-sea.html">企业公海设置</a>
+            </li>
+            <li>
+                <a href="settings-task.html">云电销设置</a>
+            </li>
+            <li>
+                <a href="function.html" class="current">用户和权限</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- 内容部分 contents -->
+<div class="contents manage-wrap">
+    <div class="manage-menu">
+        <a class="manage-li active" href="function.html">
+            <i class="icon function-icon"></i>
+            职能管理
+        </a>
+        <a class="manage-li" href="department.html">
+            <i class="icon department-icon"></i>
+            部门管理
+        </a>
+    </div>
+    <div class="manage-main">
+        <div class="manage-title">
+            职能管理
+        </div>
+        <div class="manage-block">
+            <div class="manage-left">
+                <a class="btn-block" href="javascript:void(0);" onclick="newFunction()">新建职能</a>
+                <div class="function-li active">
+                    <div class="right">
+                        <i class="icon editor-icon" onclick="editorFunction()"></i>
+                        <!--<i class="icon close-icon"></i>-->
+                    </div>
+                    <div class="function-text"  onclick="functionText(this,event)">
+                        默认超级管理员
+                    </div>
+                </div>
+                <div class="function-li">
+                    <div class="right">
+                        <i class="icon editor-icon" onclick="editorFunction()"></i>
+                        <i class="icon close-icon"></i>
+                    </div>
+                    <div class="function-text" onclick="functionText(this,event)">
+                        团队管理员
+                    </div>
+                </div>
+                <div class="function-li">
+                    <div class="right">
+                        <i class="icon editor-icon" onclick="editorFunction()"></i>
+                        <i class="icon close-icon"></i>
+                    </div>
+                    <div class="function-text"  onclick="functionText(this,event)">
+                        销售组长
+                    </div>
+                </div>
+            </div>
+            <div class="manage-content">
+                <div class="manage-con-top">
+                    <label class="manage-top-title">默认超级管理员</label>
+                    <a class="btn-right" href="javascript:void(0);" onclick="functionCopy()">复制权限并新建职能</a>
+                </div>
+                <div class="manage-con-title">
+                    <i></i>
+                    <label>功能列表</label>
+                </div>
+                <div class="manage-info">
+                    <ul id="tree" class="ztree"></ul>
+                    <div class="btn-row">
+                        <input type="button" class="btn" value="保存" onclick="submit()"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--新建职能-->
+<div class="changer-box function-new" id="function-new">
+    <div class="tlt"><i></i>新建职能
+        <a href="javascript:layerClose('#function-new');" class="a-closed"></a>
+    </div>
+    <div class="function-content">
+        <div class="function-row">
+            <div class="function-name">
+                职能名称
+            </div>
+            <div class="function-info">
+                <input type="text" class="input" placeholder="请输入职能名称">
+            </div>
+        </div>
+        <div class="function-row">
+            <div class="function-name">
+                职能描述
+            </div>
+            <div class="function-info">
+                <textarea class="textarea" placeholder="请输入职能描述"></textarea>
+            </div>
+        </div>
+        <div class="manage-btn-wrap">
+            <input type="button" class="manage-btn" value="确定"/>
+        </div>
+    </div>
+</div>
+<!--新建职能-->
+
+<!--编辑职能-->
+<div class="changer-box function-new" id="function-editor">
+    <div class="tlt"><i></i>编辑职能
+        <a href="javascript:layerClose('#function-editor');" class="a-closed"></a>
+    </div>
+    <div class="function-content">
+        <div class="function-row">
+            <div class="function-name">
+                职能名称
+            </div>
+            <div class="function-info">
+                <input type="text" class="input" placeholder="请输入职能名称" value="经理">
+            </div>
+        </div>
+        <div class="function-row">
+            <div class="function-name">
+                职能描述
+            </div>
+            <div class="function-info">
+                <textarea class="textarea" placeholder="请输入职能描述">管理10人以下团队</textarea>
+            </div>
+        </div>
+        <div class="manage-btn-wrap">
+            <input type="button" class="manage-btn" value="确定"/>
+        </div>
+    </div>
+</div>
+<!--编辑职能-->
+
+
+<!--复制职能-->
+<div class="changer-box function-copy" id="function-copy">
+    <div class="tlt"><i></i>复制职能
+        <a href="javascript:layerClose('#function-copy');" class="a-closed"></a>
+    </div>
+    <div class="function-content">
+        <div class="function-row copy-name">
+            复制【<label>销售组长</label>】的权限创建新职能
+        </div>
+        <div class="function-row">
+            <div class="function-name">
+                职能名称
+            </div>
+            <div class="function-info">
+                <input type="text" class="input" placeholder="请输入职能名称" value="经理">
+            </div>
+        </div>
+        <div class="function-row">
+            <div class="function-name">
+                职能描述
+            </div>
+            <div class="function-info">
+                <textarea class="textarea" placeholder="请输入职能描述">管理10人以下团队</textarea>
+            </div>
+        </div>
+        <div class="manage-btn-wrap">
+            <input type="button" class="manage-btn" value="确定"/>
+        </div>
+    </div>
+</div>
+<!--复制职能-->
+
+<script>
+    var setting = {
+        check: {
+            enable: true
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        }
+    };
+
+
+    var zNodes = [{
+        name: "前台功能", open: true, checked: true,
+        children: [
+            {name: "统计图表", checked: true},
+            {name: "客户管理", checked: true},
+            {name: "线索管理", checked: true},
+            {name: "任务管理", checked: true},
+            {name: "任务执行", checked: true},
+            {name: "拨打电话", checked: true}
+        ]
+    },
+        {
+            name: "后台功能", open: true, checked: true,
+            children: [
+                {name: "团队设置", checked: true},
+                {name: "外呼标签设置", checked: true},
+                {name: "短信模板设置", checked: true},
+                {name: "邮件设置", checked: true},
+                {name: "挂机时间设置", checked: true},
+                {name: "企业公海设置", checked: true}
+            ]
+        }];
+
+
+    //默认设置树形结构
+    $(document).ready(function () {
+        $.fn.zTree.init($("#tree"), setting, zNodes);
+    });
+
+    //保存
+    function submit() {
+        var zTree = $.fn.zTree.getZTreeObj("tree");
+        console.log(zTree.getCheckedNodes(true));
+    }
+
+    //关闭弹框
+    function layerClose(obj) {
+        $(obj).hide();
+        $(".layer").hide();
+    }
+
+    //新建职能弹框
+    function newFunction() {
+        $(".layer").show();
+        $("#function-new").show();
+    }
+
+    //编辑职能
+    function editorFunction() {
+        $(".layer").show();
+        $("#function-editor").show();
+    }
+
+    //复制职能
+    function functionCopy() {
+        $(".layer").show();
+        $("#function-copy").show();
+    }
+
+        function functionText(obj,event){
+        console.log($(obj).parent(".function-li"));
+            if($(obj).parent(".function-li").hasClass("active")){
+                event.stopPropagation();
+                return false;
+            }
+            $(".function-li").removeClass("active");
+            $(obj).parent(".function-li").addClass("active");
+        }
+
+</script>
+</body>
+</html>

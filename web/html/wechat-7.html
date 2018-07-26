@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>团队首页</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../css/appstatistics.css" rel="stylesheet" type="text/css" />
+    <!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="../css/head.css" />
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <!-- <link type="text/css" rel="stylesheet" href="../js/jedate-6.5.0/test/jeDate-test.css"> -->
+    <!-- <link type="text/css" rel="stylesheet" href="../js/jedate-6.5.0/skin/jedate.css">
+    <script src="../js/jedate-6.5.0/src/jedate.js"></script> -->
+
+    <link rel="stylesheet" href="../css/hDate.css">
+    <script src="../js/hDate.js"></script>
+
+    <script src="../js/swiper.js"></script>
+    <link rel="stylesheet" href="../css/swiper.css">
+
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../css/zTreeStyle.css">
+    <script src="../js/jquery.ztree.core.js"></script>
+    <!--<script src="../js/jquery.ztree.excheck.js"></script>-->
+    <script src="../js/jquery.ztree.exedit.js"></script>
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/echarts.js"></script>
+    <link rel="stylesheet" href="../css/customReport.css">
+    <link rel="stylesheet" href="../css/wxStyle.css">
+
+</head>
+
+<body>
+    <div class="wxmain" id="main">
+        <div class="wxleft-wrap">
+            <div class="wxleft-head" style="background-image: url(../images/wxHead.png)"></div>
+            <div class="wxleft-name">
+                张三
+            </div>
+            <div class="wxleft-ul">
+                <a href="wechat-7.html" class="wxleft-href active">
+                    <i class="icon icon-wxmessage"></i>
+                </a>
+                <!-- <a href="wechat-8.html" class="wxleft-href">
+                    <i class="icon icon-wxfriend"></i>
+                </a> -->
+            </div>
+            <a href="javascript:;" class="wxLoad" id="wxRefresh" onclick="refresh()"></a>
+        </div>
+        <div class="wxright-wrap">
+            <div class="wxModal__left">
+                <form class="wxSearch " @submit.prevent="return false;">
+                    <div class="form-control">
+                        <div class="form-info">
+                            <input type="text" class="input" placeholder="请搜索微信昵称">
+                            <i class="icon icon-search"></i>
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <input type="submit" value="查询" class="btn">
+                    </div>
+                    <!-- <input type="text" placeholder="请搜索微信昵称" />
+                    <a class="search-icon" type="submit"></a> -->
+                    <!-- <div class="wxSearch-box talkerSearchList ">
+                        <div class="user" v-for="item in ['','','']">
+                            <img src="../images/member.png" class="wxHead" alt="">
+                            <div class="user__content">
+                                <div class="user__name">123</div>
+                            </div>
+                        </div>
+                    </div> -->
+                </form>
+                <ul class="tag-bot">
+                    <li class="tag-bot-li" :class="wxtag==0?'active':''" @click="changeWxtag(0)">
+                        联系人
+                    </li>
+                    <li class="tag-bot-li" :class="wxtag==1?'active':''" @click="changeWxtag(1)">
+                        微信群
+                    </li>
+                </ul>
+                <div class="wxUserList" v-if="wxtag==0">
+                    <div class="user" v-for="user,$index in ['','','','','','','','','','','','','','','','','','','','','']" @click="getUserMessage(true)">
+                        <img src="../images/member.png" class="wxHead" alt="">
+                        <div class="user__content">
+                            <div class="user__name">联系人{{$index+1}}</div>
+                            <div class="user__message">
+                                本日消息
+                                <span>1111</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wxUserList" v-if="wxtag==1">
+                    <div class="user" v-for="user,$index in ['','','','','','','','','','','','','']" @click="getUserMessage(false)">
+                        <img src="../images/member.png" class="wxHead" alt="">
+                        <div class="user__content">
+                            <div class="user__name">微信群{{$index+1}}</div>
+                            <div class="user__message">
+                                本日消息
+                                <span>1111</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wxModal__right">
+                <div class="wxTitle">
+                    客户反馈群
+                </div>
+                <div class="wxModal__search">
+                    时间：
+                    <!-- <div class="input-time">
+                        <input type="text" class="input" id="timeRange" v-model="time" readonly>
+                        <i class="icon icon-time"></i>
+                    </div> -->
+
+                    <div class="time-range-box">
+                        <div class="input-time">
+                            <input type="text" id="timeRange" placeholder="yyyy-MM-dd" v-model="time" readonly="readonly" class="input">
+                            <i class="icon icon-time"></i>
+                            <i class="icon-times">&times;</i>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(function () {
+                            var minday_1;
+                            var maxday_1;
+                            var minday_2;
+                            var maxday_2;
+                            $("body").on('click', '#timeRange, #timeRange+.icon-time', function (e) {
+
+                                var ths = this;
+                                if ($(this)[0].tagName.toLocaleLowerCase() != 'input') {
+                                    ths = $(this)[0].previousElementSibling;
+                                }
+                                calendar.show({
+                                    id: ths,
+                                });
+                                return false;
+                            });
+                            $("body").on('click', '.input-time .icon-times', function () {
+                                $(this).parent().find('input').val("");
+                            });
+                        });
+                    </script>
+
+                    <form class="wxSearch " @submit.prevent="return false;">
+                        <div class="form-control">
+                            <div class="form-info">
+                                <input type="text" class="input" placeholder="请搜索文字内容">
+                                <i class="icon icon-search"></i>
+                                <ul class="wxSearch-box" style="display: none;">
+                                    <li class="wxSearch-li" v-for="item in ['','','']">
+                                        <div class="wxSearch-time">
+                                            王克杰
+                                            <label>2018-04-10 11:12:12</label>
+                                        </div>
+                                        <div class="wxSearch-text">
+                                            1111111 1111111111111 111111111 1111111111 111
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <input type="submit" value="查询" class="btn">
+                        </div>
+                    </form>
+                </div>
+                <div class="wxContent-wrap" :class="messageShow?'wxcontentLeft':''">
+                    <div class="wxContent__main">
+                        <div class="wxTalk wxTalk__left">
+                            <img src="../images/member.png" class="talkUserHead" alt="">
+                            <div class="wxTalk__content">
+                                <div class="message">
+                                    121231
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wxTalk wxTalk__left">
+                            <img src="../images/member.png" class="talkUserHead" alt="">
+                            <div class="wxTalk__content">
+                                <div class="message">
+                                    121231
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wxTalk wxTalk__left">
+                            <img src="../images/member.png" class="talkUserHead" alt="">
+                            <div class="wxTalk__content">
+                                <div class="message">
+                                    121231
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wxTalk wxTalk__right">
+                            <img src="../images/member.png" class="talkUserHead" alt="">
+                            <div class="wxTalk__content">
+                                <div class="message">
+                                    121231
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wxTalk wxTalk__left">
+                            <img src="../images/member.png" class="talkUserHead" alt="">
+                            <div class="wxTalk__content">
+                                <div class="message voice">
+                                    <i class="voice__icon"></i>
+                                    <span class="voice__time">5"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wxTalk wxTalk__right">
+                            <img src="../images/member.png" class="talkUserHead" alt="">
+                            <div class="wxTalk__content">
+                                <div class="message voice">
+                                    <i class="voice__icon"></i>
+                                    <span class="voice__time">5"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wxTalk__line">
+                            2018-03-26
+                        </div>
+                        <div class="wxTalk wxTalk__right">
+                            <img src="../images/member.png" class="talkUserHead" alt="">
+                            <div class="wxTalk__content">
+                                <div class="message">
+                                    121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wxTalk wxTalk__left">
+                            <img src="../images/member.png" class="talkUserHead" alt="">
+                            <div class="wxTalk__content">
+                                <div class="message voice" @click="audioPlay('http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3','2',20)">
+                                    <i class="voice__icon" :class="audioPlayingId == 2?'play':''"></i>
+                                    <span class="voice__time" v-on:click.stop="stopClick">5"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wxTalk wxTalk__right">
+                            <img src="../images/member.png" class="talkUserHead" alt="">
+                            <div class="wxTalk__content">
+                                <div class="message voice" @click="audioPlay('http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3','1',10)">
+                                    <i class="voice__icon" :class="audioPlayingId == 1?'play':''"></i>
+                                    <span class="voice__time" v-on:click.stop="stopClick">5"</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page clearfix">
+                        <!--<p class="page-p">共0条</p>-->
+                        <ul class="page-ul">
+                            <li class="disabled">
+                                < </li>
+                                    <li> ></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="wxDetail" v-if="messageShow">
+                    <form class="wxDetail-message" @submit.prevent="editorState = !editorState; return false;">
+                        <div class="title">
+                            <i></i>
+                            信息
+                            <div class="time_btn" v-show="!editorState">
+                                <label class="time_modify" style="display: inline;" @click="changeEditor">
+                                    <i></i>编辑</label>
+                            </div>
+                        </div>
+                        <div class="wxDetail-row wxText-show">
+                            <span class="wxDetail-text">
+                                张三
+                            </span>
+                            <span>北京 昌平</span>
+                            <label class="progress-state">初步沟通</label>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                客户名称：
+                            </div>
+                            <div class="wxDetail-info">
+                                <span v-if="!editorState">李四</span>
+                                <input type="text" class="input" v-if="editorState">
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                手机号码：
+                            </div>
+                            <div class="wxDetail-info">
+                                <span v-if="!editorState">15012345678</span>
+                                <input type="text" class="input" v-if="editorState">
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                微信号：
+                            </div>
+                            <div class="wxDetail-info">
+                                fakelove
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                微信名：
+                            </div>
+                            <div class="wxDetail-info">
+                                yunke
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                备注：
+                            </div>
+                            <div class="wxDetail-info">
+                                李四
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                性别：
+                            </div>
+                            <div class="wxDetail-info">
+                                男
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                个性签名：
+                            </div>
+                            <div class="wxDetail-info">
+                                销售在与客户沟通中的主动性正在丧失。潜在客户只要通过简单的网络搜索，就可以收集到和销售提供给自己一样多
+                            </div>
+                        </div>
+                        <div class="wxDetail-row" v-show="editorState">
+                            <div class="wxDetail-info">
+                                <input type="submit" class="btn" value="保存">
+                            </div>
+                        </div>
+                    </form>
+                    <ul class="tag-bot">
+                        <li class="tag-bot-li" :class="lineTag==0?'active':''" @click="changeLinetag(0)">
+                            时间轴
+                        </li>
+                        <li class="tag-bot-li" :class="lineTag==1?'active':''" @click="changeLinetag(1)">
+                            详细信息
+                        </li>
+                    </ul>
+                    <div class="wxLine" v-if="lineTag==0">
+                        <div class="wxLine-li">
+                            <div class="wxLine-time">06-26</div>
+                            <i class="icon icon-point"></i>
+                        </div>
+                        <div class="wxLine-li">
+                            <div class="wxLine-main">
+                                <div class="wxLine-title">
+                                    <span class="wxLine-follow">张三</span>
+                                    删除此客户
+                                </div>
+                                <div class="wxLine-text">
+                                    时间：15:42
+                                </div>
+                            </div>
+                            <i class="icon icon-wxLine1"></i>
+                        </div>
+                        <div class="wxLine-li">
+                            <div class="wxLine-main">
+                                <div class="wxLine-title">
+                                    <span class="wxLine-follow">张三</span>
+                                    修改客户
+                                </div>
+                                <div class="wxLine-text">
+                                    姓名：李四改为王五
+                                </div>
+                                <div class="wxLine-text">
+                                    时间：15:42
+                                </div>
+                            </div>
+                            <i class="icon icon-wxLine7"></i>
+                        </div>
+                        <div class="wxLine-li">
+                            <div class="wxLine-main">
+                                <div class="wxLine-title">
+                                    <span class="wxLine-follow">张三</span>
+                                    进行电话沟通
+                                </div>
+                                <div class="wxLine-text">
+                                    通话记录：1'20"
+                                    <label cusname="" cuscompany="" url="null" class="play mgr5 audio" title="点击播放"></label>
+                                </div>
+                                <div class="wxLine-text">
+                                    电话备注：备注
+                                </div>
+                                <div class="wxLine-text">
+                                    时间：15:42
+                                </div>
+                            </div>
+                            <i class="icon icon-wxLine4"></i>
+                        </div>
+                        <div class="wxLine-li">
+                            <div class="wxLine-main">
+                                <div class="wxLine-title">
+                                    呼入电话
+                                </div>
+                                <div class="wxLine-text">
+                                    通话记录：1'20"
+                                    <label cusname="" cuscompany="" url="null" class="play mgr5 audio" title="点击播放"></label>
+                                </div>
+                                <div class="wxLine-text">
+                                    电话备注：备注
+                                </div>
+                                <div class="wxLine-text">
+                                    时间：15:42
+                                </div>
+                            </div>
+                            <i class="icon icon-wxLine5"></i>
+                        </div>
+                        <div class="wxLine-li">
+                            <div class="wxLine-main">
+                                <div class="wxLine-title">
+                                    <span class="wxLine-follow">张三</span>
+                                    修改客户
+                                </div>
+                                <div class="wxLine-text">
+                                    销售进度：无需求--->初步沟通
+                                </div>
+                                <div class="wxLine-text">
+                                    时间：15:42
+                                </div>
+                            </div>
+                            <i class="icon icon-wxLine7"></i>
+                        </div>
+                        <div class="wxLine-li">
+                            <div class="wxLine-main">
+                                <div class="wxLine-title">
+                                    <span class="wxLine-follow">张三</span>
+                                    发送挂机短信
+                                </div>
+                                <div class="wxLine-text">
+                                    发送状态：
+                                    <span class="wxLine-state wxLine-state-active">发送成功</span>
+                                </div>
+                                <div class="wxLine-text">
+                                    短信标题：短信1
+                                </div>
+                                <div class="wxLine-text">
+                                    时间：15:42
+                                </div>
+                            </div>
+                            <i class="icon icon-wxLine2"></i>
+                        </div>
+                        <div class="wxLine-li">
+                            <div class="wxLine-main">
+                                <div class="wxLine-title">
+                                    <span class="wxLine-follow">张三</span>
+                                    发送邮件
+                                </div>
+                                <div class="wxLine-text">
+                                    邮件标题：邮件1
+                                </div>
+                                <div class="wxLine-text">
+                                    时间：15:42
+                                </div>
+                            </div>
+                            <i class="icon icon-wxLine3"></i>
+                        </div>
+                        <div class="wxLine-li">
+                            <div class="wxLine-main">
+                                <div class="wxLine-title">
+                                    <span class="wxLine-follow">张三</span>
+                                    未接来电
+                                </div>
+                                <div class="wxLine-text">
+                                    时间：15:42
+                                </div>
+                            </div>
+                            <i class="icon icon-wxLine6"></i>
+                        </div>
+                        <div class="wxLine-li">
+                            <div class="wxLine-main">
+                                <div class="wxLine-title">
+                                    <!-- <span class="wxLine-follow">张三</span> -->
+                                    变更跟进人
+                                </div>
+                                <div class="wxLine-text">
+                                    变更跟进人:张三 ---> 李四
+                                </div>
+                                <div class="wxLine-text">
+                                    时间：15:42
+                                </div>
+                            </div>
+                            <i class="icon icon-wxLine9"></i>
+                        </div>
+                    </div>
+                    <div class="wxLine-message" v-if="lineTag==1">
+                        <div class="wxDetail-title">
+                            跟进信息
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                客户备注：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                跟进人：
+                            </div>
+                            <div class="wxDetail-info">
+                                跟进人1
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                创建时间：
+                            </div>
+                            <div class="wxDetail-info">
+                                2018-07-09 13:58:14
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                销售进度：
+                            </div>
+                            <div class="wxDetail-info">
+                                未标记
+                            </div>
+                        </div>
+                        <div class="wxDetail-title">
+                            个人信息
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                邮箱地址：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                QQ：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                微信：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                手机号码2：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                性别：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                生日：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                座机号码：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                传真号码：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-title">
+                            公司信息
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                公司地址：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                公司类型：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                经营范围：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                企业法人：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                注册资本：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                前台号码：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                数据来源：
+                            </div>
+                            <div class="wxDetail-info">
+                                个人导入-手动录入
+                            </div>
+                        </div>
+                        <div class="wxDetail-title">
+                            自定义字段
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                证件类型：
+                            </div>
+                            <div class="wxDetail-info">
+                                <label class="radio-label">
+                                    <input type="radio" disabled />
+                                    <i class="radio-icon"></i>
+                                    无
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" disabled checked />
+                                    <i class="radio-icon"></i>
+                                    身份证
+                                </label>
+                            </div>
+                            <div class="wxDetail-info">
+                                123123123123
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                兴趣爱好：
+                            </div>
+                            <div class="wxDetail-info">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" disabled />
+                                    <i class="checkbox-icon"></i>
+                                    无
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" disabled checked />
+                                    <i class="checkbox-icon"></i>
+                                    无
+                                </label>
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                货币：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                123：
+                            </div>
+                            <div class="wxDetail-info">
+                                --
+                            </div>
+                        </div>
+                        <div class="wxDetail-title">
+                            备用
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                备用1：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                备用1：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                备用2：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                备用3：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                备用4：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                        <div class="wxDetail-row">
+                            <div class="wxDetail-name">
+                                备用5：
+                            </div>
+                            <div class="wxDetail-info">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="wxAudioWrap">
+        <audio></audio>
+    </div>
+    <script>
+
+
+        var setTime;
+        var vm = new Vue({
+            el: '#main',
+            data: function () {
+                return {
+                    audioPlayingId: '',
+                    wxtag: 0,
+                    time: '',
+                    editorState: false,
+                    lineTag: 0,
+                    messageShow: false
+                }
+            },
+            methods: {
+                stopClick: function () {
+                    return false;
+                },
+                audioPlay: function (url, id, time) {
+                    console.log(url);
+                    var _self = this;
+                    if (audio1.playing == true && _self.$data.audioPlayingId == id) {
+                        _self.$data.audioPlayingId = '';
+                        audio1.pause();
+                        return false;
+                    } else {
+                        clearTimeout(setTime);
+                        _self.$data.audioPlayingId = id;
+                        audio1.load(url);
+                        audio1.play();
+                        setTime = setTimeout(function () {
+                            _self.$data.audioPlayingId = '';
+                            audio1.pause();
+                        }, time * 1000);
+                    }
+                },
+                changeWxtag: function (index) {
+                    if (index == this.$data.wxtag) {
+                        return;
+                    }
+                    this.$data.wxtag = index;
+                },
+                changeEditor: function () {
+                    this.$data.editorState = true;
+                },
+                changeLinetag: function (index) {
+                    if (index == this.$data.lineTag) {
+                        return;
+                    }
+                    this.$data.lineTag = index;
+                },
+                getUserMessage: function (bool) {
+                    this.$data.messageShow = bool;
+                }
+            },
+            watch: {
+
+            },
+        });
+
+        var timer;
+        var counter = 0;
+        var lastupdate;
+        var refreshing = 0;
+        function stopTimer() {
+            clearInterval(timer);
+            $("#wxRefresh").removeClass("refreshLoad");
+        }
+        function refresh() {
+            if (refreshing == 1) {
+                return;
+            }
+            refreshing = 1;
+            if ($("#wxRefresh").hasClass("refreshLoad")) {
+                return;
+            }
+            // $.post("/pc/wechat/refresh", {
+            //     wechatId: vm.$data.wechatId
+            // }, function (result) {
+            refreshing = 0;
+            // if (result.success == true) {
+            $("#wxRefresh").addClass("refreshLoad");
+            // lastupdate = result.data;
+            counter = 0;
+            timer = setInterval(function () {
+                counter++;
+                if (counter > 12) {
+                    stopTimer();
+                }
+                // 请求接口
+                isUpdate();
+            }, 5000);
+            // } else {
+            // alert(result.message);
+            // }
+            // });
+        }
+
+        function isUpdate() {
+            // $.get("/pc/wechat/isUpdate", {
+            //     wechatId:vm.$data.wechatId,
+            //     updateTime:lastupdate
+            // }, function (result) {
+            //     if (result.success == true) {
+            //         if (result.data == true) {
+            // vm.getMessageList();
+            stopTimer();
+            //         }
+            //     }
+            // })
+        }
+
+
+        // $(function () {
+        //     jeDate("#timeRange", {
+        //         theme: { bgcolor: "#50d2c2", color: "#ffffff", pnColor: "#50d2c2" },
+        //         format: "YYYY-MM-DD",
+        //         isClear: false,
+        //         donefun: function (val) {
+        //             console.log(val);
+        //             $("#timeRange")[0].dispatchEvent(new Event('input'));
+        //         }
+        //     });
+        // })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>机器人任务详情</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="../css/head.css" />
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <link href="../css/hDate.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/hDate.js"></script>
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+
+
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <link rel="stylesheet" href="../css/robot.css" />
+    <link rel="stylesheet" href="../css/switch.css">
+    <link rel="stylesheet" href="../css/appstatistics.css">
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+
+    <!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=YxrpSNq6119f9xGsRh4Q5f0a5qgy3k00"></script> -->
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/countTo.js"></script>
+</head>
+
+<body>
+    <!--  -->
+    <div class="fixed-right">
+        <ul class="fixed-list">
+            <li class="fixed-li">
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes" title="客服">
+                    <i class="fixed-icon icon-service"></i>
+                </a>
+            </li>
+            <li class="fixed-li">
+                <i class="fixed-icon icon-code"></i>
+                <div class="fixed-box">
+                    <div class="code"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 页面遮罩层 layer -->
+    <div class="layer"></div>
+    <div class="layer-3"></div>
+    <!-- 页面头部 header -->
+    <div class="header">
+        <h1 class="logo fl"></h1>
+        <ul class="nav">
+            <li>
+                <a href="indexnew2.html">首页</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="">行动</a>-->
+            <!--</li>-->
+            <li>
+                <a href="customer1.html">客户</a>
+            </li>
+            <li>
+                <a href="download.html">线索</a>
+            </li>
+            <li>
+                <a href="task.html">任务</a>
+            </li>
+            <li>
+                <a href="robotTask.html" class="current">电话机器人</a>
+            </li>
+            <li>
+                <a href="settings.html" id="top-setting">设置</a>
+            </li>
+        </ul>
+        <ul class="header-right fr">
+            <!-- <li>
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">
+                    <i class="qq"></i>
+                    <div class="service">在线客服</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="add"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="update"></i>
+                </a>
+            </li> -->
+            <li>
+                <a href="javascript:;">
+                    <i class="message"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="user">
+                    <img src="../images/a-1.png" />
+                    <div class="arrow"></div>
+                </a>
+                <div class="quit_down">
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-customer"></div>
+                            客户
+                        </a>
+                    </div>
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-help"></div>
+                            使用说明
+                        </a>
+                    </div>
+
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-exit"></div>
+                            </i>
+                            退出登录
+                        </a>
+                    </div>
+            </li>
+        </ul>
+        </div>
+        <!-- 内容部分 contents -->
+        <div class="contents robot-wrap" id="main" v-cloak>
+            <div class="table-tlt">
+                <i class="i"></i>机器人任务详情
+                <a class="list-return" href="robotTask.html">
+                    <i></i>返回上级</a>
+                <div class="fr robot-detail-right">
+                    <div class="rate-box">
+                        <i class="icon-rate connectionRate"></i>
+                        接通率:
+                        <label>{{(purposeNum + notPurposeNum + notConnect == 0)?'0%': ((purposeNum+notPurposeNum)/(purposeNum +
+                            notPurposeNum + notConnect)).toFixed(2)*100 +'%'}}</label>
+                    </div>
+                    <div class="rate-box">
+                        <i class="icon-rate intentionRate"></i>
+                        意向率:
+                        <label>{{(purposeNum + notPurposeNum == 0)?'0%':(purposeNum/(purposeNum + notPurposeNum)).toFixed(2)*100+'%'
+                            }}
+                        </label>
+                    </div>
+                    <div class="rate-box">
+                        <i class="icon-rate finishedRate"></i>
+                        任务完成率:
+                        <label>{{(purposeNum + notPurposeNum + notConnect + notCall == 0)?'0%': ((purposeNum+notPurposeNum + notConnect)/(purposeNum
+                            + notPurposeNum + notConnect + notCall)).toFixed(2)*100 +'%'}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="robot-top-box">
+                <div class="robot-search">
+                    <!-- <div class="search-name">
+                        手机号码
+                    </div>
+                    <div class="robot-search-box">
+                        <input type="text" placeholder="请输入手机号码" v-model="phone">
+                        <a href="javascript:void(0);" @click="search">查询</a>
+                    </div> -->
+                    <a href="javascript:void(0);" class="filter-btn-gray" @click="filterBtn">
+                        <i class="icon filterGray-icon"></i>筛选</a>
+                    <!-- <div class="redistribute" :class="count>0?'active':''" v-if="state == 3||state == 4" @click.stop="redistribute">
+                        <i class="icon-redistribute"></i>
+                        分配任务
+                        <div class="redistribute-wrap" v-show="redistributeState">
+                            <div class="redistribute-li">
+                                分配给机器人
+                            </div>
+                            <div class="redistribute-li">
+                                分配给销售
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="robot-btn">
+                        <i class="icon icon-export"></i>
+                        导出
+                    </div>
+                </div>
+                <div class="fr robot-tag-box">
+                    <!-- <a href="javascript:void(0);" class="robot-tag" :class="state == 0?'robot-tag-active':''" @click="changeState(0)">全部(45)</a> -->
+                    <a href="javascript:void(0);" class="robot-tag" :class="state == 1?'robot-tag-active':''" @click="changeState(1)">有意向
+                        <count-to v-show="pageCount[0]>=0" ref="pageCount0" start-val='0' :end-val='pageCount[0]' decimal='0' prefix='(' suffix=')'
+                            :duration="pageCount[0]<100?'1000':'3000'"></count-to>
+                    </a>
+                    <a href="javascript:void(0);" class="robot-tag" :class="state == 2?'robot-tag-active':''" @click="changeState(2)">无意向
+                        <count-to v-show="pageCount[1]>=0" ref="pageCount1" start-val='0' :end-val='pageCount[1]' decimal='0' prefix='(' suffix=')'
+                            :duration="pageCount[1]<100?'1000':'3000'"></count-to>
+                    </a>
+                    <a href="javascript:void(0);" class="robot-tag" :class="state == 3?'robot-tag-active':''" @click="changeState(3)">未接通
+                        <count-to v-show="pageCount[2]>=0" ref="pageCount2" start-val='0' :end-val='pageCount[2]' decimal='0' prefix='(' suffix=')'
+                            :duration="pageCount[2]<100?'1000':'3000'"></count-to>
+                    </a>
+                    <a href="javascript:void(0);" class="robot-tag" :class="state == 4?'robot-tag-active':''" @click="changeState(4)">未拨打
+                        <count-to v-show="pageCount[3]>=0" ref="pageCount3" start-val='0' :end-val='pageCount[3]' decimal='0' prefix='(' suffix=')'
+                            :duration="pageCount[3]<100?'1000':'3000'"></count-to>
+                    </a>
+                </div>
+            </div>
+            <div class="robot-table">
+                <table class="table-list" id="table-list">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>数据来源</th>
+                            <th>客户姓名</th>
+                            <th>手机号码</th>
+                            <th>拨打情况</th>
+                            <th>拨打时间
+                                <span class="sort" onclick="sortSearchBy(this)">
+                                    <b></b>
+                                </span>
+                            </th>
+                            <th>客户意向指数
+                                <!-- <div class="th-tip">
+                                    <b class="icon-tip"></b>
+                                    <span class="th-tip-box">
+                                        <p class="tip-title">意向指数解释</p>
+                                        <p>
+                                            五星——非常有意向
+                                            <br> 四星——有意向
+                                            <br> 三星——有待考虑
+                                            <br> 二星——
+                                            <br> 一星——直接拒绝
+                                        </p>
+                                    </span>
+                                </div> -->
+                            </th>
+                            <th>跟进人</th>
+                            <th>短信发送情况</th>
+                            <th>邮件发送情况</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item,$index in list">
+                            <td>
+                                {{$index+1}}
+                            </td>
+                            <td>数据源</td>
+                            <td>{{state==1?item.customerName:item.clueEntryName}}</td>
+                            <td>
+                                {{state==1?item.cellPhone:item.clueEntryCellphone}}
+                            </td>
+                            <td>
+                                <span v-if="parseInt(Math.random()*2) == 0">{{['未拨打','用户拒接','未接听挂断','空号','停机','暂停服务','关机','呼叫转移','呼入限制','欠费','网络忙','无法接通','无人接听','用户正忙','正在通话中'][parseInt(Math.random()*15)]}}</span>
+                                <span v-else>
+                                    {{parseInt(item.callDuration)>60 ? (parseInt(parseInt(item.callDuration)/60)+'\''+ parseInt(item.callDuration)%60+'\"'):
+                                    (parseInt(item.callDuration%60)+'\"') }}
+                                    <!-- <span class="audio_f mgl25"><label class="audio play mgr5" planCustomerId="A0CE27A132AD4C9E960F4508A8C2644F"
+                                            cusname="于二平" cuscompany="北京京广盛源投资咨询中心"
+                                            url="http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/cellPhone-record-18601323361-voicecall-20180613101119.mp3"></label></span> -->
+
+                                    <span class="audio_f mgl25">
+                                        <label class="audio play mgr5" :plancustomerid="item.id" :cusname="item.customerName" :callactionid="item.calledId" :cuscompany="item.company"
+                                            :url="item.url"></label>
+                                    </span>
+                                </span>
+                                <!-- {{state !=4?'是':'否'}} -->
+                            </td>
+                            <td>
+                                {{state == 1?item.followTime:item.lastActionTime}}
+                            </td>
+                            <td>
+                                <div class="star" v-if="state != 3">
+                                    <div class="star-progress" :style="'width:'+((item.purpose +1)*20)+'%;'"></div>
+                                </div>
+                            </td>
+                            <td>
+                                跟进人
+                            </td>
+                            <td>
+                                {{['未发送','发送成功','打开链接','发送失败'][parseInt(Math.random()*4)]}}
+                            </td>
+                            <td>
+                                {{['未发送','发送成功','发送失败','无邮箱号'][parseInt(Math.random()*4)]}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="loading-wrap" v-show="loading">
+                    <div class="table-loading">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="table-none" v-if="list.length == 0 && !loading">
+                    <div class="table-none-box">
+                        <div class="table-none-icon"></div>
+                        <span>没有相关数据</span>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="checkall-view" v-if="state == 3||state==4">
+                <div class="check-f" onclick="checkall()">
+                    <i class="checkall"></i>全选</div>
+                <label>已选择
+                    <span class="countRed">{{count}}</span>条</label>
+            </div> -->
+            <!-- 分页 -->
+            <p class="page-p">共{{totalCount}}条</p>
+            <ul class="page-ul">
+                <li @click="setPage(1)">
+                    < </li>
+                        <li v-for="p in pages" v-if="(p>= pageIndex-2 && p<= pageIndex +2) || (pages<=5) ||(pageIndex<3&&p<=5) || (pageIndex > pages-2 && p> pages -5) "
+                            :class="{current:p == pageIndex}" @click="setPage(p)">{{p}}</li>
+
+                        <li @click="setPage(pages)"> ></li>
+            </ul>
+        </div>
+        <div class="applyBox audio-box">
+            <input type="hidden" id="audio-box-plancusId" value="" />
+            <input type="hidden" id="audio-box-url" value="" />
+            <input type="hidden" id="call_action_id" value="" />
+            <div class="tlt">
+                <i></i>通话录音
+                <a href="javascript:closeAudio();" class="audio-closed"></a>
+            </div>
+            <div class="audio-text-warp">
+                <div class="audio-name" id="audioname">
+                </div>
+                <div class="audio-text" id="audiocompany">
+                </div>
+                <div class="audio-warp">
+                    <audio preload="none"></audio>
+                </div>
+            </div>
+            <div class="audio-text" id="downloadMp3Btn">
+                <a class="download" href="javascript:void(0);" onclick="javascript:downloadMp3()">下载录音</a>
+                <a class="download" href="javascript:void(0);" onclick="javascript:getTranscriptionsText();">转成文字</a>
+            </div>
+            <div class="audio-info" id="transcriptions_text">
+
+            </div>
+            <div id="transcriptions_info" style="text-align: center">
+                转化时间可能过长，请您耐心等待...
+            </div>
+
+        </div>
+        <div class="applyBox filter-box robot-filter-box" id="filter" :style="show == true?'display:block;':'display:none;'">
+            <div class="tlt">
+                <i></i>筛选
+                <a href="javascript:void(0)" class="a-closed" @click="cancle"></a>
+            </div>
+            <div class="filter-content">
+                <div class="filter-list">
+                    <label>拨打时间</label>
+                    <div class="input-time">
+                        <input type="text" id="timeStart" placeholder="yyyy-MM-dd" readonly="readonly" class="input" v-model="filter.StartTime">
+                        <i class="icon icon-time"></i>
+                        <i class="icon-times">×</i>
+                    </div>
+                    <span>至</span>
+                    <div class="input-time">
+                        <input type="text" id="timeEnd" placeholder="yyyy-MM-dd" readonly="readonly" class="input" v-model="filter.endTime">
+                        <i class="icon icon-time"></i>
+                        <i class="icon-times">×</i>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        var minday_1;
+                        var maxday_1;
+                        var minday_2;
+                        var maxday_2;
+                        $("body").on('click', '#timeStart, #timeStart+.icon-time', function (e) {
+                            maxday_1 = $("#timeEnd").val();
+                            if (maxday_1 == "") {
+                                maxday_1 = (new Date()).toString("yyyy-MM-dd");
+                            }
+                            var ths = this;
+                            if ($(this)[0].tagName.toLocaleLowerCase() != 'input') {
+                                ths = $(this)[0].previousElementSibling;
+                            }
+                            calendar.show({
+                                id: ths,
+                                maxDay: maxday_1.toString("yyyy-MM-dd"),
+                                ok: function () {
+                                    $("#timeStart")[0].dispatchEvent(new Event('input'));
+                                }
+                            });
+                            return false;
+                        });
+                        $("body").on('click', '#timeEnd, #timeEnd+.icon-time', function (e) {
+                            minday_1 = $("#timeStart").val();
+                            var ths = this;
+                            if ($(this)[0].tagName.toLocaleLowerCase() != 'input') {
+                                ths = $(this)[0].previousElementSibling;
+                            }
+                            calendar.show({
+                                id: ths,
+                                maxDay: (new Date()).toString("yyyy-MM-dd"),
+                                minDay: minday_1.toString("yyyy-MM-dd"),
+                                ok: function () {
+                                    $("#timeEnd")[0].dispatchEvent(new Event('input'));
+                                }
+                            });
+                            return false;
+                        });
+                        $("body").on('click', '.input-time .icon-times', function () {
+                            $(this).parent().find('input').val("");
+                            $(this).parent().find('input')[0].dispatchEvent(new Event('input'));
+                        });
+                    });
+                </script>
+                <div class="filter-list">
+                    <label>数据来源</label>
+                    <select v-model="filter.clueGroupIds">
+                        <option value="">请选择数据来源</option>
+                        <option v-for="item in clueGroupList" :value="item.groupId">{{item.groupName}}</option>
+                    </select>
+                </div>
+                <div class="filter-list">
+                    <label>手机号</label>
+                    <input type="text" placeholder="请输入手机号" v-model="filter.phone">
+                </div>
+                <div class="filter-list">
+                    <label>未接通原因</label>
+                    <select v-model="filter.noAnswer">
+                        <option :disabled="noAnswerDisabled" value="">请选择未接通原因</option>
+                        <!-- <option v-for="item in speechcraftList" :value="item.id">{{item.name}}</option> -->
+                        <option :disabled="noAnswerDisabled" value="用户拒接">用户拒接</option>
+                        <option :disabled="noAnswerDisabled" value="未接听挂断">未接听挂断</option>
+                        <option :disabled="noAnswerDisabled" value="空号">空号</option>
+                        <option :disabled="noAnswerDisabled" value="停机">停机</option>
+                        <option :disabled="noAnswerDisabled" value="暂停服务">暂停服务</option>
+                        <option :disabled="noAnswerDisabled" value="关机">关机</option>
+                        <option :disabled="noAnswerDisabled" value="呼叫转移">呼叫转移</option>
+                        <option :disabled="noAnswerDisabled" value="呼入限制">呼入限制</option>
+                        <option :disabled="noAnswerDisabled" value="欠费">欠费</option>
+                        <option :disabled="noAnswerDisabled" value="网络忙">网络忙</option>
+                        <option :disabled="noAnswerDisabled" value="无法接通">无法接通</option>
+                        <option :disabled="noAnswerDisabled" value="无人接听">无人接听</option>
+                        <option :disabled="noAnswerDisabled" value="用户正忙">用户正忙</option>
+                        <option :disabled="noAnswerDisabled" value="正在通话中">正在通话中</option>
+                    </select>
+                </div>
+                <div class="filter-list">
+                    <label>短信发送状态</label>
+                    <select v-model="filter.messageState">
+                        <option :disabled="messageDisabled" value="">请选择短信发送状态</option>
+                        <option :disabled="messageDisabled">未发送</option>
+                        <option :disabled="messageDisabled">发送成功</option>
+                        <option :disabled="messageDisabled">打开链接</option>
+                        <option :disabled="messageDisabled">发送失败</option>
+                    </select>
+                </div>
+                <div class="filter-list">
+                    <label>邮件发送状态</label>
+                    <select v-model="filter.emailState">
+                        <option :disabled="emailDisabled" value="">请选择邮件发送状态</option>
+                        <option :disabled="emailDisabled">未发送</option>
+                        <option :disabled="emailDisabled">发送成功</option>
+                        <option :disabled="emailDisabled">发送失败</option>
+                        <option :disabled="emailDisabled">无邮箱号</option>
+                    </select>
+                </div>
+                <div class="filter-center">
+                    <input type="button" class="btn" value="筛选" @click="filterSubmit" />
+                    <input type="button" class="btn btn-cancel" value="取消" @click="cancle" />
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            var ip = '/proxy/testRobot/';
+            // var ip = 'http://123.57.222.150/testRobot/';
+
+            //获取地址栏参数
+            function getQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return "";
+            }
+            function getTranscriptionsText() {
+                $("#transcriptions_text").addClass("audioLoading");
+                $("#transcriptions_info").show();
+                $.post(ip + "/callLog/getTranscriptionsText",
+                    { "callActionId": $("#call_action_id").val() },
+                    function (data) {
+                        if (data.data.callActionId == $("#call_action_id").val()) {
+                            $("#transcriptions_text").removeClass("audioLoading");
+                            $("#transcriptions_info").hide();
+                            $("#transcriptions_text").html(data.data.text);
+                        }
+
+                    }
+                );
+            }
+            function downloadMp3() {
+                var planCustomerId = $("#audio-box-plancusId").val();
+                var url = $("#audio-box-url").val();
+                console.log(planCustomerId);
+                console.log(url);
+                if (url == null || url == "") {
+                    alert("无可下载文件！");
+                    //                    return;
+                }
+                var openurl = ip + "/customer/downloadMp3?planCustomerId=" + planCustomerId + "&url=" + url;
+                window.open(openurl);
+            }
+
+
+
+            var pendingRequests = {};
+            jQuery.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+                var key = options.url;
+                console.log(key);
+                if (!pendingRequests[key]) {
+                    pendingRequests[key] = jqXHR;
+                } else {
+                    //jqXHR.abort(); //放弃后触发的提交
+                    pendingRequests[key].abort(); // 放弃先触发的提交
+                }
+                var complete = options.complete;
+                options.complete = function (jqXHR, textStatus) {
+                    pendingRequests[key] = null;
+                    if (jQuery.isFunction(complete)) {
+                        complete.apply(this, arguments);
+                    }
+                };
+            });
+
+            var vm = new Vue({
+                el: "#main",
+                data: function () {
+                    return {
+                        planId: '',
+                        count: 0,
+                        totalCount: 0,
+                        pages: 1,
+                        pageIndex: 1,
+                        state: 1,//0 全部  1 有意向  2 无意向  3 未接通  4 未拨打
+                        phone: '',
+                        cellphone: '',
+                        redistributeState: false,
+                        list: [],
+                        loading: false,
+                        purposeNum: 0,
+                        notPurposeNum: 0,
+                        notConnect: 0,
+                        notCall: 0,
+                        pageCount: [-1, -1, -1, -1],
+                        filter: {
+                            clueGroupIds: '',
+                            phone: '',
+                            StartTime: '',
+                            endTime: '',
+                            noAnswer: '',
+                            messageState: '',
+                            emailState: '',
+                        },
+
+                    }
+                },
+                methods: {
+                    search: function () {
+                        console.log(this.$data.phone);
+                        this.$data.cellphone = this.$data.phone;
+                        this.$data.pageIndex = 1;
+                        this.getList();
+                    },
+                    redistribute: function () {
+                        if (this.$data.count <= 0) {
+                            return;
+                        }
+                        this.$data.redistributeState = true;
+                        // console.log('再分配');
+                    },
+                    changeState: function (val) {
+                        if (this.$data.state == val) {
+                            return;
+                        }
+                        this.$data.cellphone = '';
+                        this.$data.phone = '';
+                        this.$data.state = val;
+                        this.$data.pageIndex = 1;
+                        this.getList();
+                        this.$data.count = 0;
+                        this.$data.selectedkeys = '';
+                        $("#table-list th i").removeClass('choose-all');
+                        switch (val) {
+                            case 1:
+                            case 2:
+                                filterBox.$data.messageDisabled = false;
+                                filterBox.$data.emailDisabled = false;
+                                filterBox.$data.noAnswerDisabled = true;
+                                break;
+                            case 3:
+                                filterBox.$data.messageDisabled = true;
+                                filterBox.$data.emailDisabled = true;
+                                filterBox.$data.noAnswerDisabled = false;
+                                break;
+                            case 4: filterBox.$data.messageDisabled = true;
+                                filterBox.$data.emailDisabled = true;
+                                filterBox.$data.noAnswerDisabled = true;
+                                break;
+                            default: break;
+                        }
+                    },
+                    getList: function () {
+                        var _self = this;
+                        _self.$data.loading = true;
+                        _self.$data.list = [];
+                        $.ajax({
+                            type: 'post',
+                            url: ip + "robotPlan/queryRobotPlanCustomersBypage",
+                            contentType: 'application/json',
+                            // async: false,
+                            data: JSON.stringify({
+                                robotPlanId: _self.$data.planId,
+                                pages: _self.$data.pageIndex,
+                                pageSize: 20,
+                                state: _self.$data.state.toString(),
+                                clueEntryCellphone: _self.$data.cellphone,
+                            }),
+                            success: function (data) {
+                                console.log(data);
+                                console.log(_self.$data.state.toString());
+                                if (data.success == true) {
+                                    _self.$data.pages = data.data.pages;
+                                    _self.$data.pageIndex = data.data.pageNum;
+
+                                    _self.$data.totalCount = data.data.total;
+                                    _self.$data.list = data.data.data;
+
+                                    _self.$data.pageCount[_self.$data.state - 1] = data.data.total;
+                                } else {
+                                    alert("查询失败");
+                                }
+                                _self.$data.loading = false;
+                            }
+                        });
+                    },
+                    setPage: function (page) {
+                        if (page == undefined || page == '') {
+                            page = 1;
+                        }
+                        if (page == this.$data.pageIndex) {
+                            return;
+                        }
+                        this.$data.pageIndex = page;
+                        this.getList();
+                    },
+                    getCount: function () {
+                        var _self = this;
+                        $.ajax({
+                            type: 'post',
+                            url: ip + "robotPlan/queryRobotPlanById",
+                            contentType: 'application/json',
+                            // async: false,
+                            data: JSON.stringify({
+                                robotPlanId: _self.$data.planId,
+                            }),
+                            success: function (data) {
+                                console.log(data);
+                                if (data.success == true) {
+                                    _self.$data.purposeNum = data.data.purposeNum;
+                                    _self.$data.notPurposeNum = data.data.notPurposeNum;
+                                    _self.$data.notConnect = data.data.notConnect;
+                                    _self.$data.notCall = data.data.notCall;
+
+                                } else {
+                                    alert("查询失败");
+                                }
+                            }
+                        });
+                    },
+                    filterBtn: function () {
+                        filterBox.filterState();
+                    },
+                },
+                watch: {
+
+                },
+                mounted: function () {
+                    var _self = this;
+                    var id = getQueryString('id');
+                    _self.$data.planId = id;
+                    _self.getList();
+                    _self.getCount();
+                },
+                directives: {
+                }
+            });
+            var selectedkeys = '';
+            $(function () {
+                $(".robot-table").height($(window).height() - $(".robot-table").offset().top - 82);
+                $('#table-list').on('click', 'td i:not(.tel-icon),th i', function () {
+                    console.log($(this));
+                    selectedkeys = '';
+                    if ($(".check-f").hasClass("checked")) {
+                        $(".check-f").removeClass("checked");
+                    }
+                    $('#table-list td i.choose-right').each(function () {
+                        if (selectedkeys.indexOf($(this).attr("cusid")) == -1) {
+                            selectedkeys += $(this).attr("cusid") + ",";
+                        }
+                    })
+                    $('#table-list td i:not(.tel-icon)').each(function () {
+                        if ($(this).attr("class") == undefined || $(this).attr("class") == "") {
+                            selectedkeys = selectedkeys.replace($(this).attr("cusid") + ",", "");
+                        }
+                    });
+                    if (selectedkeys != "") {
+                        vm.$data.count = selectedkeys.substring(0, selectedkeys.length - 1).split(",").length;
+                    } else {
+                        vm.$data.count = 0;
+                        // $(".checkall-view span").text(0);
+                    }
+                });
+                $(window).click(function () {
+                    vm.$data.redistributeState = false;
+                })
+            });
+            function closeAudio() {
+                $('.layer-3').hide();
+                $('.audio-box').hide();
+                audio1.pause();
+            }
+
+
+            var filterBox = new Vue({
+                el: '#filter',
+                data: function () {
+                    return {
+                        show: false,
+                        filter: {
+                            clueGroupIds: '',
+                            phone: '',
+                            StartTime: '',
+                            endTime: '',
+                            noAnswer: '',
+                            messageState: '',
+                            emailState: ''
+                        },
+                        clueGroupList: [],
+                        noAnswerDisabled: true,
+                        messageDisabled: false,
+                        emailDisabled: false
+                    }
+                },
+                methods: {
+                    filterState: function () {
+                        this.$data.show = true;
+                        $("#filter").show();
+                        $(".layer").show();
+                    },
+                    filterSubmit: function () {
+                        this.$data.show = false;
+                        $(".layer").hide();
+                        // vm.$data.filter.name = this.$data.filter.name;
+                        // vm.$data.filter.speechcraftId = this.$data.filter.speechcraftId;
+
+                        this.$data.filter.clueGroupIds = this.$data.filter.clueGroupIds;
+                        this.$data.filter.phone = this.$data.filter.phone;
+                        this.$data.filter.StartTime = this.$data.filter.StartTime;
+                        this.$data.filter.endTime = this.$data.filter.endTime;
+                        this.$data.filter.noAnswer = this.$data.filter.noAnswer;
+                        this.$data.filter.messageState = this.$data.filter.messageState;
+                        this.$data.filter.emailState = this.$data.filter.emailState;
+
+                        vm.$data.pageIndex = 1;
+                        // vm.getData();
+                    },
+                    cancle: function () {
+                        this.$data.show = false;
+                        $(".layer").hide();
+                    },
+                    getClue: function () {
+                        var _self = this;
+                        $.ajax({
+                            type: 'post',
+                            url: ip + "/clue/getClueGroup",
+                            contentType: 'application/json',
+                            success: function (data) {
+                                if (data.success == true) {
+                                    _self.$data.clueGroupList = data.data;
+
+                                }
+                            }
+                        });
+                    },
+                },
+                mounted: function () {
+                    this.getClue();
+                }
+            });
+
+            function checkall() {
+                $('#table-list td i.choose-right').each(function () {
+                    $(this).removeClass("choose-right");
+                })
+                $('#table-list th i').removeClass("choosen");
+                $('#table-list th i').removeClass('choose-all');
+
+                if ($(".check-f").hasClass("checked")) {
+                    $(".check-f").removeClass("checked");
+                    vm.$data.count = 0;
+                } else {
+                    $(".check-f").addClass("checked");
+                    vm.$data.count = vm.$data.totalCount;
+                }
+            }
+            function sortSearchBy(obj) {
+                if ($(obj).hasClass("sort-up")) {
+                    $(obj).removeClass("sort-up");
+                    $(obj).addClass("sort-down");
+
+                } else if ($(obj).hasClass("sort-down")) {
+                    $(obj).removeClass("sort-down");
+                } else {
+                    $(obj).addClass("sort-up");
+                }
+            }
+
+        </script>
+</body>
+
+</html>

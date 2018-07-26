@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>微信统计</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=9" />
+	<link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+	<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+
+	<link href="../css/main.css" rel="stylesheet" type="text/css" />
+	<link href="../css/wxStyle.css" rel="stylesheet" type="text/css" />
+	<!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+	<link rel="stylesheet" href="../css/head.css" />
+	<link rel="stylesheet" href="../css/cropbox.css" />
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/audio.js"></script>
+	<!--<script type="text/javascript" src="../js/highcharts.js"></script>-->
+
+	<link href="../css/hDate.css" rel="stylesheet" />
+	<script type="text/javascript" src="../js/hDate.js"></script>
+	<script type="text/javascript" src="../js/cropbox.js"></script>
+	<script type="text/javascript" src="../js/index.js"></script>
+	<script type="text/javascript" src="../js/layer/layer.js"></script>
+
+	<script type="text/javascript" src="../js/echarts.js"></script>
+	<script type="text/javascript" src="../js/macarons.js"></script>
+
+	<link rel="stylesheet" href="../css/zTreeStyle.css">
+	<script src="../js/jquery.ztree.core.js"></script>
+	<!--<script src="../js/jquery.ztree.excheck.js"></script>-->
+	<script src="../js/jquery.ztree.exedit.js"></script>
+	<script src="../js/vue.min.js"></script>
+	<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<!-- 页面遮罩层 layer -->
+	<div class="layer"></div>
+	<!-- 页面头部 header -->
+	<div class="header">
+		<h1 class="logo fl"></h1>
+		<span class="mar fl">|</span>
+		<span class="fl">
+			<em>团队版</em>[
+			<a href="">点击切换</a>]</span>
+		<ul class="nav">
+			<li>
+				<a href="indexnew2.html" class="current">首页</a>
+			</li>
+			<!--<li>-->
+			<!--<a href="">行动</a>-->
+			<!--</li>-->
+			<li>
+				<a href="customer1.html">客户</a>
+			</li>
+			<li>
+				<a href="download.html">线索</a>
+			</li>
+			<li>
+				<a href="task.html">任务</a>
+			</li>
+			<li>
+				<a href="settings.html" id="top-setting">设置</a>
+			</li>
+		</ul>
+		<ul class="header-right fr">
+			<li>
+				<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">
+					<i class="qq"></i>
+					<div class="service">在线客服</div>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<i class="add"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<i class="update"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<i class="message"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="user">
+					<img src="../images/a-1.png" />
+				</a>
+				<div class="quit_down">
+					<div class="code">
+						<img src="../images/download.png" />
+						<span>扫一扫下载云客APP</span>
+					</div>
+					<div class="quit_li">
+						<a>下载软电话</a>
+					</div>
+					<div class="quit_li">
+						<a>退出登录</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<!-- 汇总提示 tipArea -->
+	<div class="tipArea">
+		<div class="wrap">
+			<div class="count_f">
+				<span class="span-1" id=" ">数据统计</span>
+				<span class="span-1 current" id="  ">微信统计</span>
+				<span class="span-1" id="">签到统计</span>
+			</div>
+			<!--<span class="span">完成行动：<em class="blue">95</em></span>
+				<span class="span">延迟行动：<em class="red">95</em></span>
+				<span class="span">未处理行动：<em class="orange">95</em></span>
+				<span class="span">注册时长：<em>95天</em></span>-->
+			<!--<a href="" class="ta fr">周报</a>-->
+		</div>
+	</div>
+	<!-- 内容部分 contents -->
+	<div class="contents" id="main" v-cloak>
+		<!-- 右侧 -->
+		<div class="rightPage">
+			<div class="tabBox wxCount__tabBox">
+				<div class="crumbs">
+					<span>首页 > </span>
+					<span>{{company}}</span>
+					<!--<a href="indexAll.html">首页</a> > <a>{{company}}</a>-->
+				</div>
+				<ul id="tabBox">
+					<li>
+						<a href="javascript:void(0);" @click="setRange(0)" :class="range==0?'current':''">今日</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" @click="setRange(-1)" :class="range==-1?'current':''">昨日</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" @click="setRange(-8)" :class="range==-8?'current':''">最近7天</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" @click="setRange(-31)" :class="range==-31?'current':''">最近30天</a>
+					</li>
+				</ul>
+
+			</div>
+			<!-- 本周 -->
+			<div class="contentsbox" style="display:block">
+				<!--  -->
+				<div class="tlt">
+					<i></i>
+					<label>数据总览</label>
+				</div>
+				<div class="totalbox wxCount__itemTitle">
+					<div class="item-title-box">
+						<div class="item-title">
+							<i class="wxIcon icon_user"></i>
+							<label class="item-name">联系人数</label>
+							<div class="item-num">
+								<strong>{{overView.friendCount}}</strong>人
+							</div>
+						</div>
+						<div class="item-title">
+							<i class="wxIcon icon_call"></i>
+							<label class="item-name">沟通人数</label>
+							<div class="item-num">
+								<strong>{{overView.talkerCount}}</strong>人
+							</div>
+						</div>
+						<div class="item-title">
+							<i class="wxIcon icon_message"></i>
+							<label class="item-name">消息数量</label>
+							<div class="item-num">
+								<strong>{{overView.messageCount}}</strong>人
+							</div>
+						</div>
+						<div class="item-title">
+							<i class="wxIcon icon_money"></i>
+							<label class="item-name">红包数量</label>
+							<div class="item-num">
+								<strong>{{overView.redPacketCount}}</strong>人
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tlt">
+					<i></i>
+					<label id="charts-title">人员汇总</label>
+					<div class="dropdowns dropdowns--right" :class="dropdownsState==true?'dropdowns--active':''">
+						<a class="dropdowns__btn" href="javascript:void(0)" @click="dropdowns">{{sortView[sort ==''?'default':sort]}}
+							<span></span>
+						</a>
+						<ul class="dropdowns__menu">
+							<li @click="setSort('')">
+								排序
+							</li>
+							<li @click="setSort('friends')">
+								联系人数
+							</li>
+							<li @click="setSort('talker')">
+								沟通人数
+							</li>
+							<li @click="setSort('message')">
+								消息数量
+							</li>
+							<li @click="setSort('redPacket')">
+								红包数量
+							</li>
+						</ul>
+					</div>
+
+				</div>
+				<div class="custmer-chart-box">
+					<div class="table">
+						<table class="table-list">
+							<thead>
+								<tr>
+									<th>销售员</th>
+									<th>联系人数量</th>
+									<th>沟通人数</th>
+									<th>信息数量</th>
+									<th>红包数量</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="item in salesView">
+									<td>{{item.userName}}</td>
+									<td>{{item.friendCount}}</td>
+									<td>{{item.talkerCount}}</td>
+									<td>{{item.messageCount}}</td>
+									<td>{{item.redPacketCount}}</td>
+									<td>
+										<a class="href" :data-userid="item.userId" :data-wechatid="item.wechatId" :href="'wxCustomer.html?userid='+escape(item.userId)+'&&wechatId='+escape(item.wechatId)">查看</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+					<div class="page clearfix">
+						<!--<p class="page-p">共1条</p>-->
+						<ul class="page-ul">
+							<li @click="setPage(1)">
+								< </li>
+									<li v-for="p in pageCount" v-if="(p>= page-2 && p<= page +2) || (pageCount<=5) ||(page<3&&p<=5) || (page > pageCount-2 && p> pageCount -5) "
+									 :class="{current:p == page}" @click="setPage(p)">{{p}}</li>
+
+									<li @click="setPage(pageCount)"> ></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- /本周 -->
+		</div>
+	</div>
+
+	<!--联系客服-->
+	<div class="applyBox contact" id="contact">
+		<div class="tlt">
+			<i></i>联系客服
+			<a href="javascript:;" class="a-closed"></a>
+		</div>
+		<div class="custom_f contact_info">
+			您可以拨打客服电话：
+			<label>010-5620 0279</label>或 联系
+			<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">在线客服</a>
+		</div>
+	</div>
+	<script>
+		var vm;
+		$(function () {
+			vm = new Vue({
+				el: '#main',
+				data: function () {
+					return {
+						dropdownsState: false,
+						company: '',
+						range: -1,
+						overView: {
+							friendCount: 0,
+							talkerCount: 0,
+							messageCount: 0,
+							redPacketCount: 0,
+						},
+						sortView: { 'default': '排序', 'friends': '联系人数', 'talker': '沟通人数', 'message': '消息数量', 'redPacket': '红包数量' },
+						pageCount: 1,
+						page: 1,
+						sort: '',
+						salesView: []
+					}
+				},
+				methods: {
+					dropdowns: function () {
+						this.$data.dropdownsState = !this.$data.dropdownsState;
+					},
+					setRange: function (range) {
+						this.$data.range = range;
+						this.getOverView(range);
+						this.getSalesView(range, this.$data.sort, 1);
+					},
+					setPage: function (page) {
+						this.getSalesView(this.$data.range, this.$data.sort, page);
+					},
+					setSort: function (sort) {
+						this.dropdowns();
+						this.$data.sort = sort;
+						this.getSalesView(this.$data.range, sort, 1);
+					},
+					getOverView: function (range) {
+						var _self = this;
+						if (range == null || range == undefined || range == '') {
+							range = -1;
+						}
+						// $.post(ip+"wechat/overview", {
+						$.get("../json/overview.json", {
+							range: range,
+						}, function (data) {
+							if (data.success == true) {
+								var overview = data.data.overview;
+								_self.$data.company = data.data.company;
+								_self.$data.overView.friendCount = overview.friendCount;
+								_self.$data.overView.talkerCount = overview.talkerCount;
+								_self.$data.overView.messageCount = overview.messageCount;
+								_self.$data.overView.redPacketCount = overview.redPacketCount;
+							}
+						});
+					},
+					getSalesView: function (range, sort, page) {
+						var _self = this;
+						if (range == null || range == undefined || range == '') {
+							range = -1;
+						}
+						if (sort == null || sort == undefined || sort == '') {
+							sort = '';
+						}
+						if (page == null || page == undefined || page == '') {
+							page = 1;
+						}
+
+						// $.post(ip+"wechat/salesOverview", {
+						$.get("../json/salesOverview.json", {
+							range: range,
+							sort: sort,
+							page: page
+						}, function (result) {
+							if (result.success == true) {
+								_self.$data.pageCount = result.data.pageCount;
+								// _self.$data.page = result.data.page;
+								_self.$data.salesView = result.data.overviews;
+							}
+						});
+					}
+				},
+				created: function () {
+					var _self = this;
+					// $.post(ip+"home/postlogin", {
+					//   uid : '13611126225',
+					//   pwd : '111111'
+					// }, function(data) {
+					//   console.log(data);
+					// });
+
+					_self.getOverView();
+					_self.getSalesView();
+				}
+			});
+		})
+	</script>
+</body>
+
+</html>

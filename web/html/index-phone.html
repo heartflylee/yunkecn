@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>团队首页</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="../css/head.css" />
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <link href="../css/hDate.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/hDate.js"></script>
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+
+    <script src="../js/swiper.js"></script>
+    <link rel="stylesheet" href="../css/swiper.css">
+
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/audio.js"></script>
+
+    <script type="text/javascript" src="../js/echarts1.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=YxrpSNq6119f9xGsRh4Q5f0a5qgy3k00"></script>
+    <script src="../js/vue.min.js"></script>
+</head>
+
+<body>
+    <!-- 页面遮罩层 layer -->
+    <div class="layer"></div>
+    <!-- 页面头部 header -->
+    <div class="header">
+        <h1 class="logo fl"></h1>
+        <span class="mar fl">|</span>
+        <span class="fl">
+            <em>团队版</em>[
+            <a href="">点击切换</a>]</span>
+        <ul class="nav">
+            <li>
+                <a href="indexnew2.html" class="current">首页</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="">行动</a>-->
+            <!--</li>-->
+            <li>
+                <a href="customer1.html">客户</a>
+            </li>
+            <li>
+                <a href="download.html">线索</a>
+            </li>
+            <li>
+                <a href="task.html">任务</a>
+            </li>
+            <li>
+                <a href="settings.html" id="top-setting">设置</a>
+            </li>
+        </ul>
+        <ul class="header-right fr">
+            <li>
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">
+                    <i class="qq"></i>
+                    <div class="service">在线客服</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="add"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="update"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="message"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="user">
+                    <img src="../images/a-1.png" />
+                </a>
+                <div class="quit_down">
+                    <div class="code">
+                        <img src="../images/download.png" />
+                        <span>扫一扫下载云客APP</span>
+                    </div>
+                    <div class="quit_li">
+                        <a>下载软电话</a>
+                    </div>
+                    <div class="quit_li">
+                        <a>退出登录</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 汇总提示 tipArea -->
+    <div class="tipArea">
+        <div class="wrap">
+            <div class="count_f">
+                <span class="span-1">数据统计</span>
+                <span class="span-1 current">手机统计</span>
+                <span class="span-1">签到统计</span>
+            </div>
+        </div>
+    </div>
+    <!-- 内容部分 contents -->
+    <div class="contents" id="main" v-cloak>
+        <!-- 左侧 -->
+        <div class="leftPage fl">
+            <div class="leftContentBox">
+                <div class="tlt">选择组员</div>
+                <ul class="choose-members">
+                    <li>
+                        <a href="" class="current">
+                            <img src="../images/member.png">
+                            <em>艾云鹤</em>
+                            <label></label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="../images/member.png">
+                            <em>艾云鹤</em>
+                            <label></label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="../images/member.png">
+                            <em>艾云鹤</em>
+                            <label></label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="../images/member.png">
+                            <em>艾云鹤</em>
+                            <label></label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="../images/member.png">
+                            <em>艾云鹤</em>
+                            <label></label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="../images/member.png">
+                            <em>艾云鹤</em>
+                            <label></label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="../images/member.png">
+                            <em>艾云鹤</em>
+                            <label></label>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <img src="../images/all-members.png">
+                            <em>全部</em>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 右侧 -->
+        <div class="rightPage">
+            <!-- 本周 -->
+            <div class="contentsbox" style="display:block">
+                <!--  -->
+                <div class="tlt">
+                    <i></i>
+                    <label id="charts-title">使用状态分析</label>
+                    <span class="f_screen">{{screenUsed}}
+                        <b class="b-icon"></b>
+                        <div class="index_pop">
+                            <div class="pop_li" @click="usedChange(0,$event)">今日</div>
+                            <div class="pop_li" @click="usedChange(-1,$event)">昨日</div>
+                            <div class="pop_li">
+                                <input type="text" id="timetext" placeholder="请选择日期" readonly="readonly">
+                            </div>
+                            <script>
+                                $(function () {
+                                    $("#timetext").jeDate({
+                                        format: "YYYY-MM-DD",
+                                        maxDate: $.nowDate(0),
+                                        isTime: false,
+                                        isClear: false,                               //是否显示清空
+                                        isToday: false,                               //是否显示今天或本月
+                                        choosefun: function (val) {
+                                            vm.usedChange(val[0].value);
+                                        },
+                                        okfun: function (el, val) {
+                                            vm.usedChange(val);
+                                        }
+                                    })
+                                });
+                            </script>
+                        </div>
+                    </span>
+                </div>
+                <div class="custmer-table">
+                    <table class="table-list index-table">
+                        <thead>
+                            <tr>
+                                <th>员工姓名</th>
+                                <th>开机时长</th>
+                                <th>总呼出电话量/时长</th>
+                                <th>总呼入电话量/时长</th>
+                                <th>未接来电/已回电</th>
+                                <th>挂机短信/打开链接</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody">
+                            <tr v-for="item in used">
+                                <td>
+                                    <span style="cursor: pointer;color: #4bc8b9;">徐东成</span>
+                                </td>
+                                <td>3时20分55秒</td>
+                                <td>250个/1h 55' 32"</td>
+                                <td>250个/1h 55' 32"</td>
+                                <td>50个/10个</td>
+                                <td>
+                                    <span style="cursor: pointer;color: #4bc8b9;">100条/20条</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--  -->
+                <div class="tlt">
+                    <i></i>里程分析
+                    <span class="f_screen">{{screenMileage}}
+                        <b class="b-icon"></b>
+                        <div class="index_pop">
+                            <div class="pop_li" @click="mapChange(0,$event)">今日</div>
+                            <div class="pop_li" @click="mapChange(-1,$event)">昨日</div>
+                        </div>
+                    </span>
+                </div>
+                <div class="map-legend">
+                    <div class="swiper-container">
+                        <ul class="swiper-wrapper">
+                        </ul>
+                    </div>
+                    <div class="swiper-btn swiper-next" :class="swiperNext==true?'disabled':''" @click="swiperNextBtn">&gt;
+                    </div>
+                    <div class="swiper-btn swiper-prev" :class="swiperPrev==true?'disabled':''" @click="swiperPrevBtn">&lt;
+                    </div>
+                </div>
+                <div class="index-map" id="index-map"></div>
+                <div class="tlt">
+                    <i></i>挂机短信发送状态
+                    <span class="f_screen">{{screenMessage}}
+                        <b class="b-icon"></b>
+                        <div class="index_pop">
+                            <div class="pop_li" @click="chartChange(0,$event)">今日</div>
+                            <div class="pop_li" @click="chartChange(-1,$event)">昨日</div>
+                            <div class="pop_li" @click="chartChange(-6,$event)">最近7日</div>
+                            <div class="pop_li" @click="chartChange(-29,$event)">最近30日</div>
+                        </div>
+                    </span>
+                </div>
+                <div class="chartsbox-1" v-charts></div>
+            </div>
+            <!-- /本周 -->
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var nameAll = ["艾云鹤", "刘宇", "王克杰", "罗一山", "李玉", "刘晓辉", "李剑", "182111111111"];
+
+        var xAxis = ["艾云鹤", "刘宇", "刘晓辉", "王克杰", "罗一山", "李剑", "陈博", "乔宇青", "王顺奇", "李万峰", "李星", "辛忠", "王亚多"];
+        //    var dataBar = [40, 35, 20, 15, 45, 12, 35, 45, 16, 35, 45, 15, 35];
+        var dataBar = [
+            {
+                value: 40,
+                id: "123123"
+            },
+            {
+                value: 40,
+                id: "123123"
+            },
+            {
+                value: 40,
+                id: "123123"
+            }, {
+                value: 40,
+                id: "123123"
+            }, {
+                value: 40,
+                id: "123123"
+            },
+            {
+                value: 40,
+                id: "123123"
+            },
+            {
+                value: 40,
+                id: "123123"
+            },
+            {
+                value: 40,
+                id: "123123"
+            },
+            {
+                value: 40,
+                id: "123123"
+            }, {
+                value: 40,
+                id: "123123"
+            },
+            {
+                value: 40,
+                id: "123123"
+            }];
+
+
+        //            name:""
+
+
+        //            35, 20, 15, 45, 12, 35, 45, 16, 35, 45, 15, 35];
+
+
+        var mileageAll = {
+            "2017-10-31": [
+                { lat: 39.905354, lng: 116.457853, time: "2017-11-01 08:10:00" },
+                { lat: 39.905353, lng: 116.457850, time: "2017-11-01 08:20:00" },
+                { lat: 39.905352, lng: 116.457850, time: "2017-11-01 08:30:00" },
+                { lat: 39.905353, lng: 116.457852, time: "2017-11-01 08:40:00" },
+                { lat: 39.908479, lng: 116.426105, time: "2017-11-01 09:50:00" },
+                { lat: 39.908479, lng: 116.426115, time: "2017-11-01 10:50:00" },
+                { lat: 39.908478, lng: 116.426115, time: "2017-11-01 10:55:00" },
+            ],
+            "2017-11-01": [
+                { lat: 39.905354, lng: 116.457854, time: "2017-11-01 08:10:00" },
+                { lat: 39.911696, lng: 116.461860, time: "2017-11-01 08:20:00" },
+                { lat: 39.925823, lng: 116.461282, time: "2017-11-01 08:30:00" },
+                { lat: 39.904977, lng: 116.404142, time: "2017-11-01 08:40:00" },
+                { lat: 39.908479, lng: 116.426105, time: "2017-11-01 08:50:00" },
+            ]
+        };
+
+    </script>
+
+    <script>
+        //短信发送状态
+        var optionBar = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            grid: {
+                left: 30,
+                top: 55,
+                right: 20,
+                bottom: 30
+            },
+            legend: {
+                show: false,
+                data: []
+            },
+            xAxis: [{
+                type: 'category',
+            }],
+            yAxis: [{
+                type: 'value',
+                name: "单位：条",
+                splitArea: {
+                    show: true,
+                    areaStyle: {
+                        color: [
+                            'rgba(250,250,250,0.3)',
+                            'rgba(200,200,200,0.3)'
+                        ]
+                    }
+                },
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            }],
+            series: [{
+                type: "bar",
+                name: "发送挂机短信数量",
+                barMaxWidth: 50,
+                color: ["#50d2c2"],
+                data: []
+            }]
+        };
+
+    </script>
+
+    <script>
+
+        //设置时间
+        Date.prototype.setStr = function (date, str) {
+            var all = date.split(/[-: ]/);
+            var newDate = new Date();
+            var str1 = str.split(/[-: ]/);
+            var o = {
+                "yyyy": function (y) {
+                    newDate.setFullYear(y);
+                },
+                "MM": function (M) {
+                    newDate.setMonth(M);
+                },                 //月份
+                "dd": function (d) {
+                    newDate.setDate(d);
+                },                    //日
+                "hh": function (h) {
+                    newDate.setHours(h);
+                },                   //小时
+                "mm": function (m) {
+                    newDate.setMinutes(m);
+                },                 //分
+                "ss": function (s) {
+                    newDate.setSeconds(s);
+                }                 //秒
+            };
+
+            for (var a in o) {
+                if (new RegExp("(" + a + ")").test(str)) {
+                    var index = str1.indexOf(a);
+                    o[a](all[index]);
+                }
+            }
+            return newDate;
+        }
+
+
+        var map, swiper, pointArray, chartsBar;
+
+        // 复杂的自定义覆盖物
+        function ComplexCustomOverlay(point, name, long, duration) {
+            this._point = point;
+            this._long = long;
+            this._name = name;
+            this._duration = duration;
+        }
+
+        ComplexCustomOverlay.prototype = new BMap.Overlay();
+        ComplexCustomOverlay.prototype.initialize = function (map) {
+            this._map = map;
+            var div = this._div = document.createElement("div");
+            div.className = "index_point";
+            var hour = parseInt(this._duration / 60);
+            var op = (hour >= 3 ? 4 : hour + 1) * 0.2;
+            //        var op = (parseInt(this._duration - 10) / 10 >= 4 ? 4 : parseInt(this._long - 10) / 10) * 0.2;
+
+            //        var op = 0.2;
+            div.style.background = "rgba(0,133,196," + op + ")";
+            div.style.border = "2px solid #0085c4";
+
+            div.setAttribute("name", this._name);
+
+            //根据经纬度获取位置
+            var geoc = new BMap.Geocoder();
+            geoc.getLocation(this._point, function (rs) {
+                div.setAttribute("address", rs.address);
+            });
+
+            var divHover = document.createElement("div");
+            divHover.className = "index_point_hover";
+
+            var span = document.createElement("span");
+            divHover.appendChild(span);
+            span.appendChild(document.createTextNode(this._name));
+            var label = document.createElement("div");
+            divHover.appendChild(label);
+
+            var hour = parseInt(this._duration / 60) > 0 ? parseInt(this._duration / 60) + "小时" : '';
+            var minute = parseInt(this._duration % 60) > 0 ? parseInt(this._duration % 60) + "分" : '';
+            label.appendChild(document.createTextNode("停留时间：" + hour + minute));
+
+            div.appendChild(divHover);
+            map.getPanes().labelPane.appendChild(div);
+            return div;
+        }
+        ComplexCustomOverlay.prototype.draw = function () {
+            var map1 = this._map;
+            var pixel = map1.pointToOverlayPixel(this._point);
+            this._div.style.left = pixel.x - 15 + "px";
+            this._div.style.top = pixel.y - 15 + "px";
+        }
+
+
+        function screenShow(count, event) {
+            var str = "";
+            switch (count) {
+                case 0:
+                    str = "今日";
+                    break;
+                case -1:
+                    str = "昨日";
+                    break;
+                case -6:
+                    str = "最近7日";
+                    break;
+                case -29:
+                    str = "最近30日";
+                    break;
+                default:
+                    str = count;
+                    break;
+            }
+            if (event) {
+                event.stopPropagation();
+            }
+            $(".index_pop").hide();
+            return str;
+        }
+
+        var vm = new Vue({
+            el: "#main",
+            data: {
+                //使用状态
+                used: [],
+                //里程分析
+                mileage: [],
+                //挂机短信
+                chartBar: {
+                    barData: [],
+                    barAxis: []
+                },
+                swiperNext: false,
+                swiperPrev: true,
+                screenUsed: "今日",
+                screenMileage: "今日",
+                screenMessage: "今日",
+                messageNum: 0
+            },
+            methods: {
+                //地图根据经纬度加点
+                creatOverlay: function (data) {
+                    map.clearOverlays();//清空地图上标注点
+                    pointArray = new Array();
+                    for (var index = 0; index < data.point.length; index++) {
+                        var point = new BMap.Point(data.point[index].lng, data.point[index].lat);
+                        pointArray.push(point);
+                        var start = new Date().setStr(data.point[index].time, 'yyyy-MM-dd hh:mm:ss').valueOf();
+                        var end = new Date().setStr(data.point[index].end, 'yyyy-MM-dd hh:mm:ss').valueOf();
+                        var duration = (end - start) / 1000 / 60;
+                        var div = new ComplexCustomOverlay(point, data.name, data.point[index].long, duration);
+                        map.addOverlay(div);
+                    }
+                    mapCenter();
+
+                },
+                //下一页，地图图例（销售）
+                swiperNextBtn: function () {
+                    swiper.slideNext();
+                },
+                //上一页，地图图例（销售）
+                swiperPrevBtn: function () {
+                    swiper.slidePrev();
+                },
+                //地图选择销售
+                mileageSelect: function (index) {
+                    this.creatOverlay(this.$data.mileage[index]);
+                },
+
+                //修改使用状态数据
+                usedChange: function (num, event) {
+
+                    this.$data.screenUsed = screenShow(num, event);
+
+                    this.$data.used = [];
+                    for (var i = 0; i < parseInt(Math.random() * 15 + 10); i++) {
+                        this.$data.used.push('');
+                    }
+                },
+                //修改柱状图的数据
+                chartChange: function (num, event) {
+                    this.$data.screenMessage = screenShow(num, event);
+                    this.$data.messageNum = num;
+                    this.$data.chartBar.barData = [];
+                    this.$data.chartBar.barAxis = [];
+                    for (var i = 0; i < 10; i++) {
+                        this.$data.chartBar.barData.push(dataBar[parseInt(Math.random() * 13)]);
+                        this.$data.chartBar.barAxis.push(xAxis[parseInt(Math.random() * 13)]);
+                    }
+                },
+                //修改地图数据
+                mapChange: function (num, event) {
+                    this.$data.screenMileage = screenShow(num, event);
+                    this.$data.mileage = [];
+                    for (var i = 0; i < parseInt(Math.random() * 30 + 5); i++) {
+                        var point = [];
+                        for (var key in mileageAll) {
+                            var item = mileageAll[key];
+                            var datum = {};
+                            var long;
+                            for (var j = 1; j < item.length; j++) {
+                                if (JSON.stringify(datum) == '{}') {
+                                    datum = item[0];
+                                    long = 0;
+                                    datum.duration = item[0].hms;
+                                }
+                                if ((map.getDistance(new BMap.Point(datum.lng, datum.lat), new BMap.Point(item[j].lng, item[j].lat))).toFixed(2) < 150) {
+                                    long++;
+                                    if (j == item.length - 1) {
+                                        datum.date = key;
+                                        datum.long = long;
+                                        datum.duration += "-" + item[j].hms;
+                                        datum.end = item[j].time;
+                                        point.push(datum);
+                                    }
+                                } else {
+                                    if (long > 0) {
+                                        datum.date = key;
+                                        datum.long = long;
+                                        datum.duration += "-" + item[j - 1].hms;
+                                        datum.end = item[j - 1].time;
+                                        point.push(datum);
+                                    }
+                                    datum = item[j];
+                                    datum.duration = item[j].time;
+
+                                    long = 0;
+                                }
+                            }
+                        }
+                        this.$data.mileage.push({
+                            name: nameAll[parseInt(Math.random() * 8)],
+                            point: point
+                        });
+                    }
+
+                    this.$data.swiperPrev = true;
+                    this.$data.swiperNext = this.$data.mileage.length <= 8 ? true : false;
+
+                    swiper.removeAllSlides();
+                    for (var i = 0; i < this.$data.mileage.length; i++) {
+                        swiper.appendSlide('<li class = "swiper-slide">' + this.$data.mileage[i].name + '</li>');
+                    }
+                    if (this.$data.mileage.length > 0) {
+                        $(".swiper-slide:eq(0)").addClass("active");
+                        this.mileageSelect(0);
+                    }
+                }
+            },
+            directives: {
+                charts: {
+                    inserted: function (el) {
+                        chartsBar = echarts.init(el);
+                    }
+                },
+            },
+            watch: {
+                chartBar: {
+                    handler: function (val) {
+                        optionBar.xAxis[0].data = val.barAxis;
+                        optionBar.series[0].data = val.barData;
+                        chartsBar.setOption(optionBar);
+                    },
+                    deep: true
+                }
+            },
+            mounted: function () {
+                var _self = this;
+                creatMap();
+
+                swiper = new Swiper(".swiper-container", {
+                    slidesPerView: 8,
+                    spaceBetween: 0,
+                    onSlideChangeEnd: function (opt) {
+                        _self.$data.swiperPrev = opt.isBeginning;
+                        _self.$data.swiperNext = opt.isEnd;
+                    }
+                });
+
+
+                //初始化数据
+                this.chartChange(0);
+                this.mapChange(0);
+                this.usedChange(0);
+            }
+
+        });
+
+        $(function () {
+            //里程分析中选择销售
+            $(document).on("click", ".swiper-slide", function () {
+                var index = $(this).index();
+                if (!$(".swiper-slide:eq(" + index + ")").hasClass("active")) {
+                    $(".swiper-slide").removeClass("active");
+                    $(".swiper-slide:eq(" + index + ")").addClass("active");
+                    vm.mileageSelect(index);
+                }
+            });
+
+            //地图中圆点的点击事件
+            $(document).on("click", ".index_point", function () {
+                console.log($(this).attr("name"));
+                window.open("mileage.html");
+            });
+
+            //挂机短信图表点击事件
+            chartsBar.on('click', function (params) {
+                console.log(params);
+                console.log(vm.$data.messageNum);
+            });
+
+            $(document).on("click", ".f_screen", function (e) {
+                e.stopPropagation();
+                $(this).find(".index_pop").show();
+            });
+            $(document).click(function () {
+                $(".index_pop").hide();
+            });
+
+
+        });
+
+        //初始化地图
+        function creatMap() {
+            map = new BMap.Map("index-map", { enableMapClick: false }); //初始化地图
+            map.centerAndZoom(new BMap.Point(116.404, 39.915), 15); //地图显示位置
+            map.enableDragging();  //拖拽
+            //        map.enableScrollWheelZoom();//滚轮改变大小
+            var navigationControl = new BMap.NavigationControl();
+            map.addControl(navigationControl);
+        }
+
+        //地图居中
+        function mapCenter() {
+            setTimeout(function () {
+                map.setViewport(pointArray, { margins: [20, 20, 20, 20] });
+            }, 50);
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

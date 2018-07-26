@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>编辑机器人任务</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="../css/head.css" />
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <link href="../css/hDate.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/hDate.js"></script>
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <link rel="stylesheet" href="../css/robot.css" />
+    <link rel="stylesheet" href="../css/switch.css">
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+
+    <!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=YxrpSNq6119f9xGsRh4Q5f0a5qgy3k00"></script> -->
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/lodash.min.js"></script>
+</head>
+
+<body>
+    <!--  -->
+    <div class="fixed-right">
+        <ul class="fixed-list">
+            <li class="fixed-li">
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes" title="客服">
+                    <i class="fixed-icon icon-service"></i>
+                </a>
+            </li>
+            <li class="fixed-li">
+                <i class="fixed-icon icon-code"></i>
+                <div class="fixed-box">
+                    <div class="code"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 页面遮罩层 layer -->
+    <div class="layer"></div>
+    <!-- 页面头部 header -->
+    <div class="header">
+        <h1 class="logo fl"></h1>
+        <ul class="nav">
+            <li>
+                <a href="indexnew2.html">首页</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="">行动</a>-->
+            <!--</li>-->
+            <li>
+                <a href="customer1.html">客户</a>
+            </li>
+            <li>
+                <a href="download.html">线索</a>
+            </li>
+            <li>
+                <a href="task.html">任务</a>
+            </li>
+            <li>
+                <a href="robotTask.html" class="current">电话机器人</a>
+            </li>
+            <li>
+                <a href="settings.html" id="top-setting">设置</a>
+            </li>
+        </ul>
+        <ul class="header-right fr">
+            <!-- <li>
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">
+                    <i class="qq"></i>
+                    <div class="service">在线客服</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="add"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="update"></i>
+                </a>
+            </li> -->
+            <li>
+                <a href="javascript:;">
+                    <i class="message"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="user">
+                    <img src="../images/a-1.png" />
+                    <div class="arrow"></div>
+                </a>
+                <div class="quit_down">
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-customer"></div>
+                            客户
+                        </a>
+                    </div>
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-help"></div>
+                            使用说明
+                        </a>
+                    </div>
+
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-exit"></div>
+                            </i>
+                            退出登录
+                        </a>
+                    </div>
+            </li>
+        </ul>
+        </div>
+        <!-- 内容部分 contents -->
+        <div class="contents robot-wrap" id="main" v-cloak>
+            <div class="table-tlt">
+                <i class="i"></i>编辑任务
+                <div class="fr robot-modify-right">
+                    <!-- <a href="javascript:void(0);" class="link">删除</a> -->
+                    <my-switch size="max" :value="toggle" color="green" @input="toggleChange" ref="switch"></my-switch>
+                </div>
+            </div>
+            <div class="robot-form">
+                <div class="form-row">
+                    <div class="form-name required">
+                        任务名称
+                    </div>
+                    <div class="form-info">
+                        <input type="text" placeholder="任务名称不能空" v-model="name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-name required">
+                        机器人数量
+                    </div>
+                    <div class="form-info" :class="robotNum>5?'error':''">
+                        <select v-model="robotNum">
+                            <option value="">请选择您需要几台机器人坐席为您服务</option>
+                            <option v-for="item,$index in ['','','','','','','','','','',]" :value="$index+1">{{$index+1}}</option>
+                        </select>
+                        <label class="error-text">您没有多余的机器人了</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-name">
+                        使用日期
+                    </div>
+                    <div class="form-info">
+                        <div class="input-time">
+                            <input type="text" class="input" id="timetext" v-model="startDate" :value="startDate" />
+                            <i class="icon-time"></i>
+                        </div>
+                        <span class="interval"> — </span>
+                        <div class="input-time">
+                            <input type="text" class="input" id="timetext1" v-model="endDate" :value="endDate" />
+                            <i class="icon-time"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-name required">
+                        机器人工作时间段
+                    </div>
+                    <div class="form-info">
+                        <div class="time-select-box" v-for="item,$index in time">
+                            <div class="input-select">
+                                <select v-model="item.start">
+                                    <option v-for="start in timeList[$index].startList" :value="start">{{start>=10?start:'0'+start}}:00</option>
+                                </select>
+                            </div>
+                            <span class="interval"> — </span>
+                            <div class="input-select">
+                                <select v-model="item.end">
+                                    <option v-for="end in timeList[$index].endList" :value="end">{{end>=10?end:'0'+end}}:00</option>
+                                </select>
+                            </div>
+                            <a href="javascript:void(0);" class="close" v-if="time.length>1" @click="removeTime($index)">&times;</a>
+                        </div>
+                        <!-- <div class="time-select-box">
+                            <a href="javascript:void(0);" class="robot-add-time" @click="addTime">
+                                <span>+</span>增加时间段
+                            </a>
+                            <label class="tip">
+                                机器人工作的时间设定，可以设置多个时间段
+                            </label>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-name required">
+                        任务数据文件
+                    </div>
+                    <div class="form-info">
+                        <div class="sources-text" @click="sourcesShow">
+                            {{sources}}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-name required">
+                        机器人话术模板
+                    </div>
+                    <div class="form-info">
+                        <select v-model="robotModal">
+                            <option value="">选择您需要的话术模板</option>
+                            <option v-for="item,$index in ['','','','','']" :value="$index+1">机器人话术{{$index+1}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-name">
+                        分配销售
+                    </div>
+                    <div class="form-info">
+                        <ul class="choose-add clearfix" id="selectedmember1">
+                            <!--
+                            <li class="del-sc"><a href="javascript:void(0)"><img src="../images/member.png"><em>艾云鹤</em><i class="fffline"></i></a></li> -->
+                            <li class="del-add" id="selectedmemberflag1">
+                                <a href="javascript:void(0)">
+                                    <img src="../images/all-members.png">
+                                    <em>选择销售</em>
+                                </a>
+                                <div class="adddiv1" id="allmembers1">
+                                    <div class=" overy clearfix">
+                                        <div class="clear"></div>
+                                        <ul class="staff-ul bortop" style="height:253px">
+                                            <li v-for="item in staff">
+                                                <a href="javascript:void(0)" :imgurl="item.img" :memberid="item.id" :realname="item.name">
+                                                    <img :src="item.img">
+                                                    <span>{{item.name}}</span>
+                                                    <i class="right-icon"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <button class="addBut" type="button" onclick="javascript:selectmember1()">确定</button>
+                                    <button class="addBut checkBtn" type="button" onclick="javascript:selectAll(this)">全选</button>
+                                    <button class="addBut checkBtn" type="button" onclick="javascript:cancleSelectAll(this)" style="display: none;">取消全选</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-info">
+                        <input type="button" class="btn" value="保存" />
+                        <input type="button" class="btn btn-cancel" value="取消" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="applyBox robotSoucesWrap" id="taskSouces" :style="show == true?'display:block;':'display:none;'">
+            <div class="tlt robot-tag-title">
+                <div class="tag-box-bg">
+                    <div class="tag-list" :class="state==0?'active':''" @click="changeState(0)">
+                        线索来源
+                    </div>
+                    <div class="tag-list" :class="state == 1?'active':''" @click="changeState(1)">
+                        导入来源
+                    </div>
+                </div>
+                <a href="javascript:void(0)" class="a-closed" @click="cancle"></a>
+            </div>
+            <div class="taskSouces-box">
+                <div class="taskSouces" v-if="state==0">
+                    <label class="radio-wrap" v-for="item,$index in recommendList">
+                        <input type="radio" name="recommendCheck" v-model="recommendCheck" :value="item.id" />
+                        <i class="radio-icon"></i>
+                        <div class="radio-info">
+                            <i class="icon"></i>
+                            {{item.text}}
+                        </div>
+                    </label>
+                </div>
+                <div class="taskSouces" v-if="state==1">
+                    <label class="radio-wrap" v-for="item,$index in importList">
+                        <input type="radio" name="importCheck" v-model="importCheck" :value="item.id" />
+                        <i class="radio-icon"></i>
+                        <div class="radio-info import-state">
+                            <i class="icon"></i>
+                            {{item.text}}
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="btn-center-block">
+                <a href="javascript:void(0)" class="link fr" v-if="state==1" @click="importSources">导入数据</a>
+                <div class="btn-wrap">
+                    <input type="button" class="btn" value="确定" @click="sourceSubmit" />
+                    <input type="button" class="btn btn-cancel" value="取消" @click="cancle" />
+                </div>
+            </div>
+        </div>
+        <!-- 导入数据样本 changer-box -->
+        <div class="changer-box" id="changer-box-2" style="height:330px;">
+            <div class="tlt">
+                <i></i>导入数据样本
+                <a href="javascript:void(0);" class="a-closed"></a>
+            </div>
+            <input id="fileName" type="text" class="inputBox-1 bg-gray fl" style="height:28px; width:450px;" readonly="readonly" />
+            <div class="resetbox">
+                <form action="/pc/clue/importBearCustomer" method="post" enctype="multipart/form-data" id="myform">
+                    <input type="file" class="filereset" name="file" id="excelFile" />
+                    <a href="javascript:openfile();" class="a-resetfile">浏览</a>
+                </form>
+            </div>
+            <div style="clear: both;"></div>
+            <dl class="tip">
+                <dt>使用说明</dt>
+                <dd>1.请上传后缀名为xls的文件；</dd>
+                <dd>2.数据请勿放在合并的单元格中，且导入文件小于2MB；</dd>
+                <dd>3.为保证您导入的客户数据有效，请下载
+                    <a href="/pc/clue/downTemplate" class="a-c-gray">数据样本导入模板</a>，编辑后上传。
+                </dd>
+            </dl>
+            <input type="button" class="btn" value="提交" onclick="uploade();" />
+        </div>
+        <template id="mySwitch">
+            <div :class="className" @click="onClick">
+                <span class="open">{{ openName }}</span>
+                <span class="close">{{ closeName }}</span>
+            </div>
+        </template>
+
+        <script>
+            var mySwitch = Vue.extend({
+                template: '#mySwitch',
+                props: {
+                    value: {
+                        default: true
+                    },
+                    // sm小 md中 lg大
+                    size: {
+                        type: String,
+                        default: 'md中'
+                    },
+                    // blue red green orange
+                    color: {
+                        type: String,
+                        default: 'green'
+                    },
+                    openName: {
+                        type: String,
+                        default: '开启'
+                    },
+                    closeName: {
+                        type: String,
+                        default: '暂停'
+                    },
+                    disabled: {
+                        type: Boolean,
+                        default: false
+                    },
+                    index: {
+                        type: Number,
+                        default: -1
+                    },
+                },
+                data: function () {
+                    return {
+                        openValue: true,
+                        closeValue: false,
+                        className: {
+                            'vue-switch': true,
+                            'z-on': this.$props.value == true,
+                            'z-disabled': this.$props.disabled == true,
+                            ['s-' + this.$props.size]: true,
+                            ['c-' + this.$props.color]: true
+                        }
+                    }
+                },
+                watch: {
+                    value: function (value) {
+                        this.$data.className['z-on'] = value;
+                    },
+                    disabled: function (val) {
+                        this.$data.className['z-disabled'] = val == true;
+                    }
+                },
+                methods: {
+                    onClick: function () {
+                        if (!this.$props.disabled) {
+                            if (this.$data.openValue == this.$props.value) {
+                                this.$emit('input', { value: this.$data.closeValue, index: this.$props.index });
+                            } else {
+                                this.$emit('input', { value: this.$data.openValue, index: this.$props.index });
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+        <script>
+
+            //时间格式化
+            Date.prototype.Format = function (fmt) { //author: meizz
+                var o = {
+                    "M+": this.getMonth() + 1,                 //月份
+                    "d+": this.getDate(),                    //日
+                    "h+": this.getHours(),                   //小时
+                    "m+": this.getMinutes(),                 //分
+                    "s+": this.getSeconds(),                 //秒
+                    "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                    "S": this.getMilliseconds()             //毫秒
+                };
+                if (/(y+)/.test(fmt))
+                    fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+                for (var k in o)
+                    if (new RegExp("(" + k + ")").test(fmt))
+                        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+                return fmt;
+            }
+
+            //求自然月日期
+            function getMonthBeforeFormatAndDay(num, format, day) {
+                var date = new Date();
+                date.setMonth(date.getMonth() + (num * 1), 1);
+                //读取日期自动会减一，所以要加一
+                var mo = date.getMonth() + 1;
+                //小月
+                if (mo == 4 || mo == 6 || mo == 9 || mo == 11) {
+                    if (day > 30) {
+                        day = 30
+                    }
+                }
+                //2月
+                else if (mo == 2) {
+                    if (isLeapYear(date.getFullYear())) {
+                        if (day > 29) {
+                            day = 29
+                        } else {
+                            day = 28
+                        }
+                    }
+                    if (day > 28) {
+                        day = 28
+                    }
+                }
+                //大月
+                else {
+                    if (day > 31) {
+                        day = 31
+                    }
+                }
+                return date.Format('yyyy' + format + 'MM' + format + day);
+            }
+
+            //JS判断闰年代码
+            function isLeapYear(Year) {
+                if (((Year % 4) == 0) && ((Year % 100) != 0) || ((Year % 400) == 0)) {
+                    return (true);
+                } else { return (false); }
+            }
+
+
+            // var startTime = 0;
+            // var endTime = 24;
+            var startTime = 10;
+            var endTime = 20;
+
+            var vm = new Vue({
+                el: "#main",
+                data: function () {
+                    return {
+                        toggle: true,
+                        name: '',
+                        robotNum: '',
+                        startDate: (new Date()).Format('yyyy-MM-dd'),
+                        endDate: getMonthBeforeFormatAndDay(1, '-', new Date().getDate()),
+                        sources: '',
+                        robotModal: '',
+                        time: [
+                            { start: '', end: '' }
+                        ],
+                        timeList: [
+                            { startList: [], endList: [] }
+                        ],
+                        staff: []
+                    }
+                },
+                methods: {
+                    sourcesShow: function () {
+                        taskSouces.sourceState();
+                    },
+                    addTime: function () {
+                        this.$data.time.push({ start: '', end: '' });
+                        this.$data.timeList.push({ startList: [], endList: [] });
+                    },
+                    removeTime: function (index) {
+                        this.$data.time.splice(index, 1);
+                        this.$data.timeList.splice(index, 1);
+                    },
+                    toggleChange: function (data) {
+                        this.$data.toggle = data.value;
+                    }
+                },
+                watch: {
+                    time: {
+                        handler: function (val) {
+                            setTimeList(val);
+                        },
+                        deep: true
+                    }
+                },
+                mounted: function () {
+                    var _self = this;
+                    _self.$data.staff = [
+                        {
+                            img: 'http://yunkecn.com/fileupload/fileupload/2016/11big/58be86e6b7734f1094f6c14b041dc4b0_head.jpg',
+                            id: '294B30BE68C24BC18D148F312440A394',
+                            name: '名字'
+                        },
+                        {
+                            img: 'http://yunkecn.com/fileupload/fileupload/2018/02big/A59DF23D209B4C68A5F04F4C88979E6BiOS_0.jpg',
+                            id: 'FBEDC571AF55426B9EAFE1E98E8ECD48',
+                            name: '张洁'
+                        },
+                        {
+                            img: 'http://yunkecn.com/fileupload/fileupload/2017/01big/b3ad146cddb1420f82b43a1b07e5c3bf_iOS.png',
+                            id: 'E8B63FF5BB1840EABB9BEB2F9DCCA731',
+                            name: '王克杰'
+                        },
+                        {
+                            img: '../images/member.png',
+                            id: '21C805EDEE4844E39434BF49239898DF',
+                            name: '13439660347'
+                        },
+                        {
+                            img: 'http://yunkecn.com/fileupload/fileupload/2017/07big/F6716CE091BB4741BA7369DD69B5C4EFiOS_0.jpg',
+                            id: '4EF9ED691E7B4B45A7E214372539E2A2',
+                            name: '演示账号1'
+                        },
+                    ];
+                },
+                components: {
+                    'mySwitch': mySwitch
+                }
+            });
+            function setTimeDisabled(type, start, end) {
+                if (start == undefined || start == '') {
+                    start = startTime;
+                }
+                if (end == undefined || end == '') {
+                    end = endTime;
+                }
+                var list = [];
+                for (var i = startTime; i <= endTime; i++) {
+                    // if (type == 'start' && i == endTime) {
+                    //     return;
+                    // }
+                    if (i >= start && i <= end) {
+                        // list.push(disabledList[i]);
+                        list.push(i);
+                    }
+                }
+                return list;
+            }
+
+
+            function setTimeList(time) {
+                var start = startTime, end = endTime;
+                for (var i = 0; i < time.length; i++) {
+                    if (time[i].end != 0) {
+                        vm.$data.timeList[i].startList = setTimeDisabled('start', start, time[i].end);
+                    } else {
+                        vm.$data.timeList[i].startList = setTimeDisabled('start', start, endTime);
+                    }
+                    start = time[i].end;
+                    if (time[i].start != 0) {
+                        if (i < time.length - 1) {
+                            end = time[i + 1].start;
+                        } else {
+                            end = endTime;
+                        }
+                        vm.$data.timeList[i].endList = setTimeDisabled('end', time[i].start, end);
+                    } else {
+                        vm.$data.timeList[i].endList = setTimeDisabled('end', end, endTime);
+                    }
+                }
+            }
+            $(function () {
+                setTimeList(vm.$data.time);
+            });
+            var taskSouces = new Vue({
+                el: '#taskSouces',
+                data: function () {
+                    return {
+                        show: false,
+                        state: 0,
+                        showState: false,
+                        importCheck: [],
+                        recommendCheck: [],
+                        importList: [
+                            { id: '1', text: '企业导入-测试1' },
+                            { id: '2', text: '企业导入-测试2' },
+                            { id: '3', text: '企业导入-测试3' },
+                            { id: '4', text: '企业导入-测试4' },
+                            { id: '5', text: '企业导入-测试5' },
+                            { id: '6', text: '企业导入-测试6' },
+                            { id: '7', text: '企业导入-测试7' },
+                            { id: '8', text: '企业导入-测试8' },
+                        ],
+                        recommendList: [
+                            { id: '1', text: '云客推荐-测试1' },
+                            { id: '2', text: '云客推荐-测试2' },
+                            { id: '3', text: '云客推荐-测试3' },
+                            { id: '4', text: '云客推荐-测试4' },
+                            { id: '5', text: '云客推荐-测试5' },
+                            { id: '6', text: '云客推荐-测试6' },
+                            { id: '7', text: '云客推荐-测试7' },
+                            { id: '8', text: '云客推荐-测试8' },
+                        ]
+                    }
+                },
+                methods: {
+                    sourceState: function () {
+                        this.$data.show = !this.$data.show;
+                        this.$data.showState = false;
+                        $(".layer").show();
+                    },
+                    sourceSubmit: function () {
+                        this.getSources();
+                        this.$data.show = false;
+                        $(".layer").hide();
+                    },
+                    cancle: function () {
+                        this.$data.show = false;
+                        $(".layer").hide();
+                    },
+                    changeState: function (index) {
+                        this.$data.state = index;
+                        if (index == 1) {
+                            this.$data.recommendCheck = [];
+                        } else {
+                            this.$data.importCheck = [];
+                        }
+                    },
+                    getSources: function () {
+                        var sources = '';
+                        var _self = this;
+                        var sourcesList = _self.$data.state == 1 ? _self.$data.importList : _self.$data.recommendList;
+                        var checkList = _self.$data.state == 1 ? _self.$data.importCheck : _self.$data.recommendCheck;
+                        for (var i = 0; i < checkList.length; i++) {
+                            if (sources != '') {
+                                sources += ',';
+                            }
+                            sources += _.find(sourcesList, function (o) { return o.id == checkList[i] }).text;
+                        }
+                        vm.$data.sources = sources;
+                    },
+                    importSources: function () {
+                        this.$data.show = false;
+                        this.$data.showState = true;
+                        //弹窗展示
+                        $('#changer-box-2').show();
+                        $('.layer').show();
+                    }
+                },
+                watch: {
+                },
+                mounted: function () {
+                }
+            });
+            function selectmember1() {
+                $("#selectedmember1 .del-sc").remove();
+                $("#allmembers1 a").each(function () {
+                    if ($(this).attr("class") == "current") {
+                        $("#selectedmemberflag1").before('<li memberid="' + $(this).attr("memberid") + '" membername="' + $(this).attr("realname") + '" class="del-sc"><a href="javascript:void(0)"><img  src="' + $(this).attr("imgurl") + '"><em>' + $(this).attr("realname") + '</em><i class="fffline"></i></a></li>');
+                    };
+                })
+                $("#allmembers1").hide();
+            }
+
+            function selectAll(obj) {
+                $(obj).hide();
+                $(obj).next().show();
+                $("#allmembers1 a").addClass("current");
+            }
+            function cancleSelectAll(obj) {
+                $(obj).hide();
+                $(obj).prev().show();
+                $("#allmembers1 a").removeClass("current");
+            }
+            $(function () {
+                $("#timetext").click(function (e) {
+                    var minday = (new Date()).toString("yyyy-MM-dd");
+                    calendar.show({
+                        id: this,
+                        minDay: minday,
+                        ok: function () {
+                            $('#timetext')[0].dispatchEvent(new Event('input'));
+                        }
+                    });
+                });
+                $("#timetext + .icon-time").click(function (e) {
+                    e.stopPropagation();
+                    var minday = (new Date()).toString("yyyy-MM-dd");
+                    calendar.show({
+                        id: $(this).prev()[0],
+                        minDay: minday,
+                        ok: function () {
+                            $('#timetext')[0].dispatchEvent(new Event('input'));
+
+                        }
+                    });
+                });
+                $("#timetext1").click(function (e) {
+                    var minDay = $("#timetext").val().trim();
+                    calendar.show({
+                        id: this,
+                        minDay: minDay,
+                        ok: function () {
+                            $('#timetext1')[0].dispatchEvent(new Event('input'));
+
+                        }
+                    });
+                });
+                $("#timetext1 + .icon-time").click(function (e) {
+                    e.stopPropagation();
+                    var minDay = $("#timetext").val().trim();
+                    calendar.show({
+                        id: $(this).prev()[0],
+                        minDay: minDay,
+                        ok: function () {
+                            $('#timetext1')[0].dispatchEvent(new Event('input'));
+
+                        }
+                    });
+                });
+                $("#excelFile").change(function () {
+                    var fileName = $("#excelFile").val();
+                    $("#fileName").val(fileName);
+                });
+
+                $(".layer,#changer-box-2 .a-closed").click(function () {
+                    if (taskSouces.$data.showState == true) {
+                        taskSouces.sourceState();
+                    }
+                });
+            });
+        </script>
+</body>
+
+</html>

@@ -28,6 +28,7 @@
     "gulp-sourcemaps": "^2.6.0",
     "gulp-uglify": "^2.1.2",
     "gulp-util": "^3.0.8",
+    "http-proxy-middleware": "^0.17.4",
     "run-sequence": "^1.2.2",
     "through2": "^2.0.3"
   }

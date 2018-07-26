@@ -1,0 +1,56 @@
+.report-wrap{padding:20px;border-bottom:1px solid #d4d4d4;font-size:14px}
+.report-left{margin-right:100px}
+.report-right{float:right}
+.report-li,.report-tips{display:inline-block;margin-right:15px}
+.report-tips{color:#999;font-size:12px}
+.select-block{display:inline-block;position:relative}
+.select-block span{display:block;position:relative;padding:5px 30px 5px 10px;min-width:70px;border:1px solid #ddd;border-radius:4px;line-height:20px;color:#999}
+.field-wrap,.select-wrap{z-index:9;border-radius:4px;box-shadow:0 0 5px rgba(0,0,0,.3);left:0}
+.select-block span .arrow{position:absolute;top:10px;right:10px}
+.select-block span .arrow:after,.select-block span .arrow:before{position:absolute;content:'';right:0;border-width:8px 8px 0;border-style:solid}
+.select-block span .arrow:before{top:1px;border-color:#ddd transparent transparent}
+.select-block span .arrow:after{top:0;border-color:#fff transparent transparent}
+.select-block.active span .arrow:before{top:0;border-width:0 8px 8px;border-color:transparent transparent #ddd}
+.select-block.active span .arrow:after{top:1px;border-width:0 8px 8px;border-color:transparent transparent #fff}
+.select-wrap{position:absolute;top:35px;min-width:269px;background:#fff}
+.select-li{padding:10px;line-height:20px}
+.select-li.select-time,.select-li:hover{background:#f7f7f7}
+.select-btn-box{padding:10px;text-align:right}
+.report-li{position:relative}
+.report-li .btn.custom-btn{position:relative;padding-right:30px}
+.report-li .btn.custom-btn i.arrow{position:absolute;top:12px;right:18px}
+.report-li .btn.custom-btn i.arrow:after,.report-li .btn.custom-btn i.arrow:before{content:'';position:absolute;border-width:6px 6px 0;border-style:solid}
+.report-li .btn.custom-btn i.arrow:before{top:1px;border-color:#fff transparent transparent}
+.report-li .btn.custom-btn i.arrow:after{top:0;border-color:#50d2c2 transparent transparent}
+.report-li .btn.custom-btn.active i.arrow:after,.report-li .btn.custom-btn.active i.arrow:before{border-width:0 6px 6px}
+.report-li .btn.custom-btn.active i.arrow:before{top:0;border-color:transparent transparent #fff}
+.report-li .btn.custom-btn.active i.arrow:after{top:1px;border-color:transparent transparent #50d2c2}
+.field-wrap{position:absolute;top:35px;width:485px;background:#fff}
+.field-select-wrap{margin:10px;overflow:hidden}
+.report-content,.report-content .table-wrap{overflow-y:auto;width:100%;position:absolute}
+.field-middle{float:left;width:25px;margin:0 20px;height:378px;position:relative}
+.field-middle .field-move-box{position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+.field-middle .move{display:inline-block;width:22px;height:22px;position:relative;margin:10px 0;border:1px solid #ddd;border-radius:4px}
+.field-middle .move:after,.field-middle .move:before{content:'';position:absolute;top:5px;border-style:solid}
+.field-middle .move.move-right:after,.field-middle .move.move-right:before{border-width:6px 0 6px 6px}
+.field-middle .move.move-right:before{left:9px;border-color:transparent transparent transparent #333}
+.field-middle .move.move-right:after{left:8px;border-color:transparent transparent transparent #fff}
+.field-middle .move.move-left:after,.field-middle .move.move-left:before{border-width:6px 6px 6px 0}
+.field-middle .move.move-left:before{left:8px;border-color:transparent #333 transparent transparent}
+.field-middle .move.move-left:after{left:9px;border-color:transparent #fff transparent transparent}
+.field-select-box{float:left;width:200px;line-height:28px}
+.field-select-box .checkbox-box{display:block;position:relative;margin:0;padding-left:25px;height:28px;color:#333;text-align:left}
+.field-select-box .checkbox-box input[type=checkbox]+i{top:6px}
+.field-select-box .checkbox-box.disabled,.field-title{color:#999}
+.field-title .checkbox-box{float:right}
+.field-select{height:320px;padding:10px 0;margin:10px 0;overflow-y:auto;background:#f7f7f7}
+.field-li{padding:0 15px}
+.field-btn-box{padding:15px 0;background:#f7f7f7;border-top:1px solid #ddd;text-align:center}
+.field-btn-box .btn{margin:0 10px}
+.field-btn-box input.btn.btn-cancel{background:#fff;color:#999}
+.report-content{top:76px;bottom:0}
+.report-content .charts,.report-content .report-charts{height:100%}
+.report-content .table-wrap{top:0;bottom:58px;border-bottom:1px solid #d4d4d4;white-space:nowrap}
+.report-content .report-bottom{position:absolute;bottom:0;left:20px;right:20px}
+
+/*# sourceMappingURL=customReport.css.map */

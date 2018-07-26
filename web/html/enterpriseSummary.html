@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>企业汇总</title>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../css/head.css"/>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+
+    <!--<script type="text/javascript" src="../js/audio.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.audio5js.js"></script>-->
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <script type="text/javascript" src="../js/highcharts.js"></script>
+    <!--<link rel="stylesheet" href="../css/jedate.css" />-->
+    <!--<link href="../css/hDate.css" rel="stylesheet" />-->
+    <!--<script type="text/javascript" src="../js/hDate.js"></script>-->
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+    <script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js"></script>
+    <link rel="stylesheet" href="../css/ios6switch.css"/>
+    <script type="text/javascript" src="../js/ios6switch.min.js"></script>
+    <link rel="stylesheet" href="../css/select.css"/>
+    <script type="text/javascript" src="../js/jquery.select.js"></script>
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/fixed_table_rx.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<div class="layer-6"></div>
+<div class="layer-3"></div>
+<!-- 页面头部 header -->
+<div class="header">
+    <h1 class="logo fl"></h1>
+    <span class="mar fl">|</span>
+    <span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+    <ul class="nav">
+        <li>
+            <a href="indexnew2.html">首页</a>
+        </li>
+        <!--<li>-->
+        <!--<a href="">行动</a>-->
+        <!--</li>-->
+        <li>
+            <a href="customer1.html" class="current">客户</a>
+        </li>
+        <li>
+            <a href="download.html">线索</a>
+        </li>
+        <li>
+            <a href="task.html">任务</a>
+        </li>
+        <li>
+            <a href="settings.html" id="top-setting">设置</a>
+        </li>
+    </ul>
+    <ul class="header-right fr">
+        <li>
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes"><i class="qq"></i>
+                <div class="service">在线客服</div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:guide1Show();"><i class="nav-tip"></i>
+                <div class="service">继续引导</div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;"><i class="update"></i></a>
+        </li>
+        <li class="active">
+            <a href="news.html">
+                <i class="message"></i>
+                <i class="message-tip">29</i>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" class="user">刘</a>
+        </li>
+    </ul>
+</div>
+<!-- 内容部分 contents -->
+<div class="contents" id="main" v-cloak>
+    <div class="table-tlt">
+        <a class="return-icon" href="customer1.html"></a>
+        <i class="i"></i>企业汇总
+    </div>
+    <div class="summary clearfix">
+    <div class="summary__left">
+        <div class="summary__table">
+        <table class="table-list">
+            <thead>
+            <tr>
+                <th>客户姓名</th>
+                <th>联系人数量</th>
+                <th>跟进人数量</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="item in companyList.planCustomers" :data-id="item.id" @click="getPlanCustomerDetail(item.company)">
+                <td>{{item.company}}</td>
+                <td>{{item.contactCount}}</td>
+                <td>{{item.followCount}}</td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="page clearfix">
+            <p class="page-p">共{{companyList.total}}条</p>
+            <ul class="page-ul">
+                <li @click="getPlanCustomers(1)">
+                    <
+                </li>
+                <li v-for="p in companyList.pages"  v-if="(p>= companyPage-2 && p<= companyPage +2) || (companyList.pages<=5) ||(companyPage<3&&p<=5) || (companyPage > companyList.pages-2 && p> companyList.pages -5) " :class="{current:p == companyPage}" @click="getPlanCustomers(p)">{{p}}</li>
+                <li @click="getPlanCustomers(companyList.pages)"> ></li>
+            </ul>
+        </div>
+    </div>
+    <div class="summary__right">
+        <div class="summary__table">
+        <table class="table-list">
+            <thead>
+            <tr>
+                <th>联系人</th>
+                <th>联系方式</th>
+                <th>跟进人</th>
+                <th>沟通状态</th>
+                <th>最后跟进时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="item in customerList.planCustomers">
+                <td>{{item.customerName}}</td>
+                <td>{{item.cellPhone}}</td>
+                <td>{{item.userName}}</td>
+                <td>{{actState[item.actState]}}</td>
+                <td>{{item.lastActionTimeStr}}</td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="page clearfix">
+            <p class="page-p">共{{customerList.total}}条</p>
+            <ul class="page-ul">
+                <li @click="getPlanCustomerDetail(selectCompany,1)">
+                    <
+                </li>
+                <li v-for="p in customerList.pages"  v-if="(p>= customerPage-2 && p<= customerPage +2) || (customerList.pages<=5) ||(customerPage<3&&p<=5) || (customerPage > customerList.pages-2 && p> customerList.pages -5) " :class="{current:p == customerPage}" @click="getPlanCustomerDetail(selectCompany,p)">{{p}}</li>
+                <li @click="getPlanCustomerDetail(selectCompany, customerList.pages)"> ></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script>
+    var vm;
+    // var ip= 'http://123.57.222.150/test/';
+    // var ip= '/proxy/test/';
+$(function () {
+  $('.summary__table').height($(window).height() - 205);
+  vm = new Vue({
+    el:'#main',
+    data:function () {
+      return{
+        selectCompany:'',
+        actState:['未沟通','已沟通'],
+        companyPage:1,
+        customerPage:1,
+        pageSize:20,
+        companyList:{
+            planCustomers:[],
+            page:1,
+            pages:1,
+            total:1
+        },
+        customerList:{
+          page:1,
+          pages:1,
+          total:1,
+          planCustomers:[]
+        }
+      }
+    },
+    methods:{
+      getPlanCustomerDetail:function (name,page) {
+        if(name == null ||name == ''){
+          return false;
+        }
+         page = page == null ? 1 : page;
+         var _self = this;
+         _self.$data.selectCompany = name;
+        $.ajax({
+          type:'POST',
+          url:ip + "customer/getPlanCustomerDetail",
+          contentType: 'application/json;charset=UTF-8',
+          data: JSON.stringify({pageSize: _self.$data.pageSize, page: page,company:name}),
+          async:false,
+          success: function(result) {
+            _self.$data.customerList = result.data;
+            _self.$data.customerPage = page;
+          }
+        });
+      },
+      getPlanCustomers:function (page) {
+        page = page == null ? 1 : page;
+        var _self = this;
+        $.ajax({
+          type:'POST',
+          url:ip + "customer/getPlanCustomers",
+          contentType: 'application/json;charset=UTF-8',
+          data: JSON.stringify({pageSize: _self.$data.pageSize, page: page}),
+          async:false,
+          success: function(result) {
+            _self.$data.companyPage = page;
+            _self.$data.companyList = result.data;
+          }
+        });
+      }
+    },
+    created:function () {
+      var _self = this;
+      // $.post(ip+"home/postlogin", {
+      //   uid : '13611126225',
+      //   pwd : '111111'
+      // }, function(data) {
+      //   console.log(data);
+      // });
+
+// setTimeout(function () {
+  _self.getPlanCustomers();
+
+// },2000);
+
+      }
+  })
+});
+
+</script>
+</body>
+
+</html>

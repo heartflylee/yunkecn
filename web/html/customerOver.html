@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>团队客户</title>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../css/head.css"/>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+
+    <!--<script type="text/javascript" src="../js/audio.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.audio5js.js"></script>-->
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <script type="text/javascript" src="../js/highcharts.js"></script>
+    <!--<link rel="stylesheet" href="../css/jedate.css" />-->
+    <link href="../css/hDate.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/hDate.js"></script>
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+    <script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js"></script>
+    <link rel="stylesheet" href="../css/ios6switch.css"/>
+    <script type="text/javascript" src="../js/ios6switch.min.js"></script>
+    <link rel="stylesheet" href="../css/select.css"/>
+    <script type="text/javascript" src="../js/jquery.select.js"></script>
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/fixed_table_rx.js"></script>
+    <link rel="stylesheet" href="../css/fixed_table_rc.css">
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<div class="layer-6"></div>
+<div class="layer-3"></div>
+<!-- 页面头部 header -->
+<div class="header">
+    <h1 class="logo fl"></h1>
+    <span class="mar fl">|</span>
+    <span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+    <ul class="nav">
+        <li>
+            <a href="indexnew2.html">首页</a>
+        </li>
+        <!--<li>-->
+        <!--<a href="">行动</a>-->
+        <!--</li>-->
+        <li>
+            <a href="customer1.html" class="current">客户</a>
+        </li>
+        <li>
+            <a href="download.html">线索</a>
+        </li>
+        <li>
+            <a href="task.html">任务</a>
+        </li>
+        <li>
+            <a href="settings.html" id="top-setting">设置</a>
+        </li>
+    </ul>
+    <ul class="header-right fr">
+        <li>
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes"><i class="qq"></i>
+                <div class="service">在线客服</div>
+            </a>
+        </li>
+        <!--<li>-->
+        <!--<a href="javascript:guide1Show();"><i class="nav-tip"></i>-->
+        <!--<div class="service">继续引导</div>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a href="javascript:;"><i class="update"></i></a>-->
+        <!--</li>-->
+        <li class="active">
+            <a href="news.html">
+                <i class="message"></i>
+                <i class="message-tip">29</i>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" class="user">刘</a>
+        </li>
+    </ul>
+</div>
+<!-- 汇总提示 tipArea -->
+<!--<div class="tipArea">-->
+    <!--<div class="wrap">-->
+        <!--<span class="span-1 current" id="filter">筛选<b class="b-icon"></b></span>-->
+        <!--<span class="span-1 current" id="filterFiled">自定义字段筛选<b class="b-icon"></b></span>-->
+        <!--<span class="span-1" id="custom-header">自定义表头</span>-->
+        <!--<span class="span-1 active"><a target="_blank" href="Intention-pool.html">意向池<i></i></a></span>-->
+        <!--<span class="span-1"><a href="opensea.html" target="_blank">企业公海</a> <div class="row_tip_f tip-index">-->
+                <!--<b class="row_tip"></b>-->
+                <!--<div class="row_tip_con">-->
+                    <!--企业公海为客户列表中没有跟进人的数据-->
+                <!--</div>-->
+            <!--</div></span>-->
+        <!--<span class="span-1"><a href="customerOver.html" target="_blank">超期客户</a></span>-->
+        <!--<form class="position-relative searchBox fr" onsubmit="console.log('1231213');return false;">-->
+            <!--<input type="text" placeholder="请输入姓名、公司、手机号等相关信息"/>-->
+            <!--<a class="search-icon" type="submit"></a>-->
+        <!--</form>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!-- 内容部分 contents -->
+<div class="contents" id="main">
+    <div class="table-tlt">
+        <i class="i"></i>超期客户
+        <div class="fr">
+            <span id="deleter" @click="deleteCustomer"><b class="b2"></b>删除</span>
+            <span>|</span>
+            <span id="changer" @click="changeUser"><b class="b3"></b>变更跟进人</span>
+        </div>
+    </div>
+    <div class="customer">
+        <table class="table-list" id="table-list">
+            <thead>
+            <tr>
+                <th class="th1"><i></i></th>
+                <th>姓名</th>
+                <th>联系方式</th>
+                <th>公司名称</th>
+                <th>跟进人</th>
+                <th>销售进度</th>
+                <th>最后跟进时间</th>
+                <th>最后通话时间</th>
+                <th>创建时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="item in list">
+                <td><i :data-id="item.id"></i></td>
+                <td>
+                    <span class="name">{{item.name}}</span>
+                </td>
+                <td>{{item.cellPhone}}</td>
+                <td>
+                    <span class="table-company" :title="item.company">{{item.company}}</span>
+                </td>
+                <td>{{item.followName}}</td>
+                <td>{{item.progress}}</td>
+                <td>{{item.lastFollowTime}}</td>
+                <td>{{item.lastActionTime}}</td>
+                <td>{{item.createTime}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--<div class="checkall-view">-->
+        <!--<div class="check-f" onclick="checkall();"><i class="checkall"></i>全选</div>-->
+        <!--<label>已选择<span style="font-weight:bold;color:red;padding:0 5px 0 5px;">0</span>条</label>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; 分页 &ndash;&gt;-->
+    <!--<p class="page-p">共20条</p>-->
+    <!--<ul class="page-ul">-->
+        <!--<li>-->
+            <!--<<-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<-->
+        <!--</li>-->
+        <!--<li> 1</li>-->
+        <!--<li> 2</li>-->
+        <!--<li class="page-d">...</li>-->
+        <!--<li> 3</li>-->
+        <!--<li> ></li>-->
+        <!--<li>>></li>-->
+    <!--</ul>-->
+
+</div>
+</div>
+<!-- 导入客户 changer-box -->
+
+<!-- 删除客户 提示 至少选择一项 changer-box -->
+<div class="changer-box" id="changer-box-3" style=" height: 250px;">
+    <div class="tlt"><i></i>删除客户
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <p class="tip-1">请您至少选择一条数据</p>
+    <input type="button" class="btn" value="确定" id="changerBtn-3">
+</div>
+<!-- 删除客户 changer-box -->
+<div class="changer-box" id="changer-box-1" style=" height: 250px;">
+    <div class="tlt"><i></i>删除客户
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <p class="tip-1">确认要删除所选数据吗？</p>
+    <input type="button" class="btn" value="确定" id="changerBtn-1" style="margin-left: 160px;">
+    <input type="button" class="btn-1" value="取消" id="changerBtn-1-1">
+</div>
+<!-- 变更跟进人 changer-box -->
+<div class="changer-box" id="changer-box">
+    <div class="tlt"><i></i>变更跟进人
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <p class="tips">是否将选中的1个客户转移给其他负责人？转移成功之后，该操作将无法恢复。</p>
+    <div class="c-box" id="c-box">
+        <input type="text" class="text" name="" id="asselect-1" placeholder="请选择新跟进人">
+        <i class="select-icon"></i>
+        <div class="selectBox" style="display: block;">
+            <a href="javascript:;"><img src="../images/code.jpg"/>行业1</a>
+            <a href="javascript:;"><img src="../images/a-1.png"/>行业2</a>
+            <a href="javascript:;"><img src="../images/a-1.png"/>行业4</a>
+            <a href="javascript:;"><img src="../images/a-1.png"/>行业1</a>
+            <a href="javascript:;"><img src="../images/a-1.png"/>行业1</a>
+        </div>
+    </div>
+    <input type="button" class="btn" value="提交" id="changerBtn">
+</div>
+
+<script type="text/javascript">
+	$(function () {
+		$('.customer').height($(window).height() - $('.customer').offset().top - 30);
+		$('.customer').css({
+			'overflow': 'auto'
+		});
+
+
+		/*更进人变更成功*/
+		$('#changerBtn').click(function () {
+			$('.layer-6').show();
+			$('#change-tips').show();
+		});
+	});
+
+	function checkall () {
+		if ($('.check-f').hasClass('checked')) {
+			$('.check-f').removeClass('checked');
+		} else {
+			$('.check-f').addClass('checked');
+		}
+	}
+
+var vm;
+	$(function () {
+      vm = new Vue({
+        el:'#main',
+        data:function () {
+          return{
+            list:[],
+            select:[]
+          }
+        },
+        methods:{
+          deleteCustomer:function () {
+            var _self = this;
+            console.log($('#table-list td i.choose-right').length)
+            if($('#table-list td i.choose-right').length <= 0){
+              alert("请选择要删除的数据");
+              return false;
+            }
+            _self.$data.select = [];
+            $('#table-list td i.choose-right').each(function (value,item) {
+               _self.$data.select.push($(item).data().id);
+            });
+
+
+            console.log('delete');
+          },
+          changeUser:function () {
+            console.log($('#table-list td i.choose-right').length);
+            console.log('change');
+          },
+          getOverDueCustomer:function () {
+            var _self = this;
+            $.ajax({
+              type:'POST',
+              url:ip + "overdue/getOverDueCustomer",
+              contentType: 'application/json;charset=UTF-8',
+              data: JSON.stringify({}),
+              async:false,
+              success: function(result) {
+                console.log(result);
+                _self.$data.list = result.data;
+              }
+            });
+          }
+        },
+        created:function () {
+          var _self = this;
+          $.post(ip+"home/postlogin", {
+            uid : '13611126225',
+            pwd : '111111'
+          }, function(data) {
+            console.log(data);
+          });
+
+          setTimeout(function () {
+            _self.getOverDueCustomer();
+
+          },2000);
+        }
+      });
+
+      $("body").on('click','th i', function () {
+        $(this).toggleClass('choose-all');
+        if ($(this).hasClass("choosen")) {
+          $('#table-list th i').addClass('choose-all').removeClass('choosen');
+          $('#table-list td i').addClass('choose-right');
+        } else if ($(this).hasClass("choose-all")) {
+          $('#table-list td i').addClass('choose-right');
+        } else {
+          $('#table-list td i').removeClass('choose-right');
+        }
+      });
+      $("body").on('click','td i',function () {
+        $(this).toggleClass('choose-right');
+        var len = $('#table-list td i').length;
+        var lenCur = $('#table-list td i.choose-right').length;
+
+        if (lenCur > 0) {
+          $('#table-list th i').addClass('choosen');
+        }
+        if (lenCur == 0) {
+          $('#table-list th i').removeClass("choosen");
+        }
+        if (len == lenCur) {
+          $('#table-list th i').addClass('choose-all').removeClass('choosen');
+        } else {
+          $('#table-list th i').removeClass('choose-all');
+        }
+        if (len > lenCur && lenCur != 0) {
+          $('#table-list th i').removeClass('choose-all').addClass('choosen');
+        }
+      });
+
+      // $('#table-list').fxdHdrCol({
+      //   fixedCols: 2,
+      //   width: "100%",
+      //   height: 400,
+      //   colModal: [
+          // { width: 50, align: 'center' },
+          // { width: 110, align: 'center' },
+          // { width: 170, align: 'left' },
+          // { width: 250, align: 'left' },
+          // { width: 100, align: 'left' },
+          // { width: 70, align: 'left' },
+          // { width: 100, align: 'left' },
+          // { width: 100, align: 'center' },
+          // { width: 90, align: 'left' },
+          // { width: 400, align: 'left' }
+        // ]
+      // });
+
+    });
+
+
+</script>
+
+</body>
+
+</html>

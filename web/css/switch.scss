@@ -1,0 +1,275 @@
+// 颜色
+$c1: #d33;
+$c2: #3091f2;
+$c3: #f60;
+$c4: #50d2c2;
+
+// 尺寸
+$md: 48px;
+$lg: 60px;
+$max: 75px;
+$maxH: 34px;
+
+.vue-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 20px;
+  vertical-align: middle;
+  line-height: 20px;
+  border-radius: 20px;
+  border: 1px solid #b6b6b6;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.21s ease;
+  user-select: none;
+  overflow: hidden;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  transform: rotate(0deg);
+  span {
+    position: absolute;
+    font-size: 12px;
+    left: 25px;
+    color: #999;
+    &.open {
+      display: none;
+    }
+
+    &.close {
+      display: inline;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    background-color: #b6b6b6;
+    left: 1px;
+    top: 1px;
+    cursor: pointer;
+    transition: left 0.23s ease, width 0.23s ease, background-color 0.23s ease;
+  }
+
+  &:active {
+    &::after {
+      width: 22px;
+    }
+  }
+
+  &.z-on {
+    background-color: $c1;
+    border-color: $c1;
+
+    &.c-blue {
+      background-color: $c2;
+      border-color: $c2;
+    }
+
+    &.c-orange {
+      background-color: $c3;
+      border-color: $c3;
+    }
+
+    &.c-green {
+      background-color: $c4;
+      border-color: $c4;
+    }
+    &:after {
+      background: #fff;
+    }
+
+    span {
+      color: #fff;
+      left: 10px;
+
+      &.open {
+        display: inline;
+      }
+
+      &.close {
+        display: none;
+      }
+    }
+
+    &:active {
+      &::after {
+        left: 25px;
+      }
+    }
+
+    &::after {
+      left: 29px;
+    }
+  }
+
+  &.s-lg {
+    width: 60px;
+
+    &.z-on {
+      &:active {
+        &::after {
+          left: 37px;
+        }
+      }
+
+      &::after {
+        left: 41px;
+      }
+    }
+  }
+
+  &.s-max {
+    width: $max;
+    height: $maxH;
+    line-height: $maxH;
+  vertical-align:middle;    
+    &:after {
+      width: 28px;
+      height: 28px;
+      top: 3px;
+      left: 3px;
+    }
+    &:active {
+      &::after {
+        width: 35px;
+      }
+    }
+    span {
+      left: 30px;
+      right: 8px;
+      padding: 0;
+      text-align: center;
+    }
+    &.z-disabled {
+      background-color: #fff;
+      border-color: #ddd;
+      span {
+        color: #bbb;
+      }
+      cursor: not-allowed;
+
+      &::after {
+        background-color: #ddd;
+        box-shadow: none;
+        cursor: not-allowed;
+      }
+    }
+    &.z-on {
+      &.z-disabled {
+        background-color: #ddd;
+        // border-color: #ddd;
+        span {
+          color: #fff;
+        }
+        &::after {
+          background-color: #fff;
+        }
+      }
+      &:active {
+        &::after {
+          left: 37px;
+        }
+      }
+      &::after {
+        left: 44px;
+      }
+      span {
+        right: 30px;
+        left: 8px;
+      }
+    }
+  }
+
+  &.s-sm {
+    width: 36px;
+    height: 10px;
+    overflow: visible;
+
+    span {
+      display: none;
+    }
+
+    &::after {
+      width: 18px;
+      height: 18px;
+      top: -4px;
+      left: -1px;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.17);
+    }
+
+    &:active {
+      &::after {
+        width: 21px;
+      }
+    }
+
+    &.z-disabled {
+      background-color: #e5e5e5;
+      border-color: #e5e5e5;
+      cursor: not-allowed;
+
+      &::after {
+        background-color: #d5d5d5;
+        box-shadow: none;
+        cursor: not-allowed;
+      }
+    }
+
+    &.z-on {
+      background-color: lighten($c1, 40);
+      border-color: lighten($c1, 40);
+
+      &.c-blue {
+        background-color: lighten($c2, 32);
+        border-color: lighten($c2, 32);
+
+        &::after {
+          background-color: $c2;
+        }
+      }
+
+      &.c-orange {
+        background-color: lighten($c3, 30);
+        border-color: lighten($c3, 30);
+
+        &::after {
+          background-color: $c3;
+        }
+      }
+
+      &.c-green {
+        background-color: lighten($c4, 45);
+        border-color: lighten($c4, 45);
+
+        &::after {
+          background-color: $c4;
+        }
+      }
+
+      span {
+        display: none;
+      }
+
+      &:active {
+        &::after {
+          left: 15px;
+        }
+      }
+
+      &::after {
+        left: 19px;
+        background-color: $c1;
+      }
+
+      &.z-disabled {
+        &::after {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}

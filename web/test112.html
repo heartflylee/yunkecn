@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+    <div class="" style="padding: 80px 20px;">
+        <iframe name="frame" src="https://www.dianping.com/shop/507576" frameborder="0" width="100%" height="900px"></iframe>
+    </div>
+    <script>
+        $(function () {
+            setTimeout(function () {
+                console.log($("iframe"));
+                // console.log(window.frames["frame"].document);
+                console.log($("iframe").contents().find("body").html());
+            }, 5000);
+            // console.log($("iframe")[0].find("#basic-info"));
+        });
+    </script>
+</body>
+
+</html>

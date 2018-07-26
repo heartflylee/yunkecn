@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>微信统计</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=9" />
+	<link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+	<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+
+	<link href="../css/main.css" rel="stylesheet" type="text/css" />
+	<link href="../css/wxStyle.css" rel="stylesheet" type="text/css" />
+	<!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+	<link rel="stylesheet" href="../css/head.css" />
+	<link rel="stylesheet" href="../css/cropbox.css" />
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/audio.js"></script>
+	<!--<script type="text/javascript" src="../js/highcharts.js"></script>-->
+
+	<link href="../css/hDate.css" rel="stylesheet" />
+	<script type="text/javascript" src="../js/hDate.js"></script>
+	<script type="text/javascript" src="../js/cropbox.js"></script>
+	<script type="text/javascript" src="../js/index.js"></script>
+	<script type="text/javascript" src="../js/layer/layer.js"></script>
+
+	<script type="text/javascript" src="../js/echarts.js"></script>
+	<script type="text/javascript" src="../js/macarons.js"></script>
+
+	<link rel="stylesheet" href="../css/zTreeStyle.css">
+	<script src="../js/jquery.ztree.core.js"></script>
+	<!--<script src="../js/jquery.ztree.excheck.js"></script>-->
+	<script src="../js/jquery.ztree.exedit.js"></script>
+	<script src="../js/vue.min.js"></script>
+	<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<!-- 页面遮罩层 layer -->
+	<div class="layer"></div>
+	<!-- 页面头部 header -->
+	<div class="header">
+		<h1 class="logo fl"></h1>
+		<span class="mar fl">|</span>
+		<span class="fl">
+			<em>团队版</em>[
+			<a href="">点击切换</a>]</span>
+		<ul class="nav">
+			<li>
+				<a href="indexnew2.html" class="current">首页</a>
+			</li>
+			<!--<li>-->
+			<!--<a href="">行动</a>-->
+			<!--</li>-->
+			<li>
+				<a href="customer1.html">客户</a>
+			</li>
+			<li>
+				<a href="download.html">线索</a>
+			</li>
+			<li>
+				<a href="task.html">任务</a>
+			</li>
+			<li>
+				<a href="settings.html" id="top-setting">设置</a>
+			</li>
+		</ul>
+		<ul class="header-right fr">
+			<li>
+				<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">
+					<i class="qq"></i>
+					<div class="service">在线客服</div>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<i class="add"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<i class="update"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<i class="message"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="user">
+					<img src="../images/a-1.png" />
+				</a>
+				<div class="quit_down">
+					<div class="code">
+						<img src="../images/download.png" />
+						<span>扫一扫下载云客APP</span>
+					</div>
+					<div class="quit_li">
+						<a>下载软电话</a>
+					</div>
+					<div class="quit_li">
+						<a>退出登录</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<!-- 汇总提示 tipArea -->
+	<div class="tipArea">
+		<div class="wrap">
+			<div class="count_f">
+				<span class="span-1" id=" ">数据统计</span>
+				<span class="span-1 current" id="  ">微信统计</span>
+				<span class="span-1" id="">签到统计</span>
+			</div>
+			<!--<span class="span">完成行动：<em class="blue">95</em></span>
+				<span class="span">延迟行动：<em class="red">95</em></span>
+				<span class="span">未处理行动：<em class="orange">95</em></span>
+				<span class="span">注册时长：<em>95天</em></span>-->
+			<!--<a href="" class="ta fr">周报</a>-->
+		</div>
+	</div>
+	<!-- 内容部分 contents -->
+	<div class="contents" id="main" v-cloak>
+		<!-- 右侧 -->
+		<div class="rightPage">
+			<div class="tabBox wxCount__tabBox">
+				<div class="crumbs">
+					<span>首页 > </span>
+					<span v-for="c,index in crumbs">{{c}}{{index
+						< crumbs.length-1? ' > ': ' '}}</span>
+							<!--<a href="indexAll.html">首页</a> > <a>北京联云天下科技有限公司</a> > 销售部 > 王珂-->
+				</div>
+				<form class="searchBox " onsubmit="console.log('1231213');return false;">
+					<input type="text" placeholder="请搜索" />
+					<a class="search-icon" type="submit"></a>
+				</form>
+				<ul id="tabBox">
+					<li>
+						<a href="javascript:void(0);" @click="setRange(-1)" :class="range==-1?'current':''">昨日</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" @click="setRange(-8)" :class="range==-8?'current':''">最近7天</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" @click="setRange(-31)" :class="range==-31?'current':''">最近30天</a>
+					</li>
+				</ul>
+
+			</div>
+			<!-- 本周 -->
+			<div class="contentsbox" style="display:block">
+				<div class="contentSelect">
+					<label>消息：</label>
+					<div class="dropList" :class="dropdownsState == true?'dropList--active':''">
+						<a class="dropList__btn" href="javascript:void(0)" @click="dropdowns">{{listShow == 0?'个人消息':'群组消息'}}
+							<label></label>
+						</a>
+						<ul class="dropList__menu">
+							<li @click="listShow = 0;dropdownsState = false;">
+								个人消息
+							</li>
+							<li @click="listShow = 1;dropdownsState = false;">
+								群组消息
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="tab_content" v-show="listShow == 0">
+					<div class="table">
+						<table class="table-list">
+							<thead>
+								<tr>
+									<th>头像</th>
+									<th>微信昵称</th>
+									<th>微信号</th>
+									<th>备注</th>
+									<th>电话号码</th>
+									<th>信息条数</th>
+									<th>红包数量</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="item in friendsView.overviews">
+									<td>
+										<img class="listHead" src="../images/member.png" alt="">
+									</td>
+									<td>{{item.friendName}}</td>
+									<td>{{item.friendAlias}}</td>
+									<td>{{item.friendRemark}}</td>
+									<td>{{item.phone}}</td>
+									<td>{{item.messageCount}}</td>
+									<td>{{item.redPacketCount}}</td>
+									<td>
+										<a href="javascript:void(0);" @click="showTalkDetail(item.friendId)" class="href">查看聊天记录</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="page clearfix">
+							<!--<p class="page-p">共1条</p>-->
+							<ul class="page-ul">
+								<ul class="page-ul">
+									<li @click="setFriendsPage(1)">
+										< </li>
+											<li v-for="p in friendsView.pageCount" v-if="(p>= friendsView.page-2 && p<= friendsView.page +2) || (friendsView.pageCount<=5) ||(friendsView.page<3&&p<=5) || (friendsView.page > friendsView.pageCount-2 && p> friendsView.pageCount -5) "
+											 :class="{current:p == friendsView.page}" @click="setFriendsPage(p)">{{p}}</li>
+											<li @click="setFriendsPage(friendsView.pageCount)"> ></li>
+								</ul>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="tab_content" v-show="listShow == 1">
+					<div class="table">
+						<div class="table">
+							<table class="table-list">
+								<thead>
+									<tr>
+										<th>群头像</th>
+										<th>群名称</th>
+										<th>群成员数量</th>
+										<th>群主昵称</th>
+										<th>消息数量</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr v-for="item in chatRoomsView.overviews">
+										<td>
+											<img class="listHead" src="../images/member.png" alt="">
+										</td>
+										<td>{{item.chatRoomName}}</td>
+										<td>{{item.memberCount}}</td>
+										<td>{{item.ownerNickName}}</td>
+										<td>{{item.messageCount}}</td>
+										<td>
+											<a href="javascript:void(0);" @click="showTalkDetail" class="href">查看聊天记录</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="page clearfix">
+								<!--<p class="page-p">共1条</p>-->
+								<ul class="page-ul">
+									<li @click="setChatRoomsPage(1)">
+										< </li>
+											<li v-for="p in chatRoomsView.pageCount" v-if="(p>= chatRoomsView.page-2 && p<= chatRoomsView.page +2) || (chatRoomsView.pageCount<=5) ||(chatRoomsView.page<3&&p<=5) || (chatRoomsView.page > chatRoomsView.pageCount-2 && p> chatRoomsView.pageCount -5) "
+											 :class="{current:p == chatRoomsView.page}" @click="setChatRoomsPage(p)">{{p}}</li>
+											<li @click="setChatRoomsPage(chatRoomsView.pageCount)"> ></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /本周 -->
+		</div>
+		<div class="wxModal" v-show="talkShow">
+			<a href="javascript:void(0)" class="wxModal__close" @click="closeTalkDetail">&times;</a>
+			<div class="wxModal__left">
+				<div class="wxModal__user">
+					<img src="../images/member.png" class="wxHead" alt="">
+					<span>苏不羁</span>
+				</div>
+				<form class="wxSearch " @submit.prevent="talkerSubmit">
+					<input type="text" placeholder="请搜索" v-model="talkerSearch" />
+					<a class="search-icon" type="submit" @click.stop="talkerSubmit"></a>
+					<div class="wxSearch-box talkerSearchList " v-show="talkerShow">
+						<div class="user" v-for="item in ['','','']" @click="getUserRecord('wxid_txztfijdtenr22')">
+							<img src="../images/member.png" class="wxHead" alt="">
+							<div class="user__content">
+								<div class="user__name">123</div>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class="wxUserList" v-show="!talkerShow">
+					<div class="user" v-for="user in talkerList" :class="user.friendWechatId == friendId?'active':''" v-talkerscroll="{friendId: user.friendWechatId}">
+						<img src="../images/member.png" class="wxHead" alt="">
+						<div class="user__content">
+							<div class="user__name">{{user.displayName}}</div>
+							<div class="user__message">
+								本日消息
+								<span>{{user.messageCount}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="wxModal__right">
+				<div class="wxTitle">
+					客户反馈群
+				</div>
+				<div class="wxModal__search">
+					<div class="time__wrap">
+						时间查询：
+						<input type="text" id="startTime">
+						<i class="time-icon"></i>
+					</div>
+					<div class="time__wrap">
+						至
+						<input type="text" id="endTime">
+						<i class="time-icon"></i>
+					</div>
+					<input type="button" value="查询" class="btn">
+					<form class="wxSearch " @submit.prevent="recordSubmit">
+						<input type="text" placeholder="请搜索" v-model="recordSearch" />
+						<a class="search-icon" type="submit" @click.stop="recordSubmit"></a>
+						<ul class="wxSearch-box" v-show="recordShow">
+							<li class="wxSearch-li" v-for="item in ['','','']" @click="getTalkList">
+								<div class="wxSearch-time">
+									王克杰
+									<label>2018-04-10 11:12:12</label>
+								</div>
+								<div class="wxSearch-text">
+									1111111 1111111111111 111111111 1111111111 111
+								</div>
+							</li>
+						</ul>
+					</form>
+				</div>
+				<div class="wxContent__main">
+					<div class="wxTalk wxTalk__left">
+						<img src="../images/member.png" class="talkUserHead" alt="">
+						<div class="wxTalk__content">
+							<div class="message">
+								121231
+							</div>
+						</div>
+					</div>
+					<div class="wxTalk wxTalk__left">
+						<img src="../images/member.png" class="talkUserHead" alt="">
+						<div class="wxTalk__content">
+							<div class="message">
+								121231
+							</div>
+						</div>
+					</div>
+					<div class="wxTalk wxTalk__left">
+						<img src="../images/member.png" class="talkUserHead" alt="">
+						<div class="wxTalk__content">
+							<div class="message">
+								121231
+							</div>
+						</div>
+					</div>
+					<div class="wxTalk wxTalk__right">
+						<img src="../images/member.png" class="talkUserHead" alt="">
+						<div class="wxTalk__content">
+							<div class="message">
+								121231
+							</div>
+						</div>
+					</div>
+					<div class="wxTalk wxTalk__left">
+						<img src="../images/member.png" class="talkUserHead" alt="">
+						<div class="wxTalk__content">
+							<div class="message voice">
+								<i class="voice__icon"></i>
+								<span class="voice__time">5"</span>
+							</div>
+						</div>
+					</div>
+					<div class="wxTalk wxTalk__right">
+						<img src="../images/member.png" class="talkUserHead" alt="">
+						<div class="wxTalk__content">
+							<div class="message voice">
+								<i class="voice__icon"></i>
+								<span class="voice__time">5"</span>
+							</div>
+						</div>
+					</div>
+					<div class="wxTalk__line">
+						2018-03-26
+					</div>
+					<div class="wxTalk wxTalk__right">
+						<img src="../images/member.png" class="talkUserHead" alt="">
+						<div class="wxTalk__content">
+							<div class="message">
+								121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231121231
+							</div>
+						</div>
+					</div>
+					<div class="wxTalk wxTalk__left">
+						<img src="../images/member.png" class="talkUserHead" alt="">
+						<div class="wxTalk__content">
+							<div class="message voice" @click="audioPlay('http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3','2',20)">
+								<i class="voice__icon" :class="audioPlayingId == 2?'play':''"></i>
+								<span class="voice__time" v-on:click.stop="stopClick">5"</span>
+							</div>
+						</div>
+					</div>
+					<div class="wxTalk wxTalk__right">
+						<img src="../images/member.png" class="talkUserHead" alt="">
+						<div class="wxTalk__content">
+							<div class="message voice" @click="audioPlay('http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3','1',10)">
+								<i class="voice__icon" :class="audioPlayingId == 1?'play':''"></i>
+								<span class="voice__time" v-on:click.stop="stopClick">5"</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="page clearfix">
+					<!--<p class="page-p">共0条</p>-->
+					<ul class="page-ul">
+						<li class="disabled">
+							< </li>
+								<li>1</li>
+								<li> ></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wxAudioWrap">
+		<audio></audio>
+	</div>
+	<!--联系客服-->
+	<div class="applyBox contact" id="contact">
+		<div class="tlt">
+			<i></i>联系客服
+			<a href="javascript:;" class="a-closed"></a>
+		</div>
+		<div class="custom_f contact_info">
+			您可以拨打客服电话：
+			<label>010-5620 0279</label>或 联系
+			<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">在线客服</a>
+		</div>
+	</div>
+
+
+	<script>
+		var vm;
+		var setTime;
+
+		//获取地址栏参数
+		function getQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) return unescape(r[2]);
+			return "";
+		}
+
+		function timeFiled(objStart, objEnd) {
+			var timeStart, timeEnd;
+			$("body").on("click", objStart, function () {
+				timeEnd = $(objEnd).val();
+				if (timeEnd == "") {
+					timeEnd = (new Date()).toString("yyyy-MM-dd");
+				}
+				var ths = this;
+				calendar.show({
+					id: this,
+					maxDay: timeEnd.toString("yyyy-MM-dd")
+				});
+			});
+			$("body").on("click", objEnd, function (e) {
+				timeStart = $(objStart).val();
+				var ths = this;
+				calendar.show({
+					id: this,
+					maxDay: (new Date()).toString("yyyy-MM-dd"),
+					minDay: timeStart.toString("yyyy-MM-dd")
+				});
+			});
+		}
+		$(function () {
+			var wxModal = Vue.component({
+				id: '#wxModalTemplate',
+				props: [],
+				data: {
+
+				}
+			});
+			vm = new Vue({
+				el: '#main',
+				data: function () {
+					return {
+						dropdownsState: false,
+						userId: '',
+						wechatId: '',
+						crumbs: [],
+						range: -1,
+						listShow: 0,
+						talkShow: false,
+						audioPlayingId: '',
+						friendsView: {
+							pageCount: 1,
+							page: 1,
+							overviews: []
+						},
+						chatRoomsView: {
+							pageCount: 1,
+							page: 1,
+							overviews: []
+						},
+						talkerList: [],
+						friendId: '',
+
+						recordSearch: '',
+						recordShow: false,
+						talkerSearch: '',
+						talkerShow: false,
+						scrollTop: 0
+					}
+				},
+				methods: {
+					dropdowns: function () {
+						this.$data.dropdownsState = !this.$data.dropdownsState;
+					},
+					setRange: function (range) {
+						this.$data.range = range;
+						this.getFriendsView(range, 1);
+						this.getChatRoomsView(range, 1);
+					},
+					getCrumbs: function () {
+						var _self = this;
+						// $.post(ip+"wechat/salesRoute", {
+						$.get("../json/salesRoute.json", {
+							userId: _self.$data.userId
+						}, function (result) {
+							if (result.success == true) {
+								_self.$data.crumbs = result.data;
+							}
+						});
+					},
+					setFriendsPage: function (page) {
+						this.getFriendsView(this.$data.range, page);
+					},
+					getFriendsView: function (range, page) {
+						var _self = this;
+						if (range == null || range == undefined || range == '') {
+							range = -1;
+						}
+						if (page == null || page == undefined || page == '') {
+							page = 1;
+						}
+						_self.$data.friendsView.page = page;
+
+						// $.post(ip+"wechat/friendsOverview", {
+						$.get("../json/friendView.json", {
+							range: range,
+							wechatId: _self.$data.wechatId,
+							page: page
+						}, function (result) {
+							if (result.success == true) {
+								// _self.$data.friendsView = result.data;
+								_self.$data.friendsView.pageCount = result.data.pageCount;
+								_self.$data.friendsView.overviews = result.data.overviews;
+							}
+						});
+					},
+					setChatRoomsPage: function (page) {
+						this.getChatRoomsView(this.$data.range, page);
+					},
+					getChatRoomsView: function (range, page) {
+						var _self = this;
+						if (range == null || range == undefined || range == '') {
+							range = -1;
+						}
+						if (page == null || page == undefined || page == '') {
+							page = 1;
+						}
+						_self.$data.chatRoomsView.page = page;
+
+						// $.post(ip+"wechat/chatRoomsOverview", {
+						$.get("../json/chatRoomsOverview.json", {
+							range: range,
+							wechatId: _self.$data.wechatId,
+							page: page
+						}, function (result) {
+							if (result.success == true) {
+								// _self.$data.friendsView = result.data;
+								_self.$data.chatRoomsView.pageCount = result.data.pageCount;
+								_self.$data.chatRoomsView.overviews = result.data.overviews;
+							}
+						});
+					},
+					getTalkerList: function () {
+						var _self = this;
+
+						// $.post(ip+"wechat/talkerList", {
+						$.get("../json/talkerList.json", {
+							wechatId: _self.$data.wechatId,
+						}, function (result) {
+							if (result.success == true) {
+								// _self.$data.friendsView = result.data;
+								_self.$data.talkerList = result.data;
+							}
+						});
+					},
+					showTalkDetail: function (friendId) {
+						this.$data.talkShow = true;
+						$(".layer").show();
+						this.$data.friendId = friendId;
+						console.log($(window)[0].scrollY);
+						this.$data.scrollTop = $(window)[0].scrollY;
+						$(window)[0].scrollTo(0, 0);
+						$("body").css({ 'height': '100%', 'overflow': 'hidden' });
+
+					},
+					closeTalkDetail: function () {
+						this.$data.talkShow = false;
+						$(".layer").hide();
+						clearTimeout(setTime);
+						audio1.pause();
+						$(window)[0].scrollTo(0, this.$data.scrollTop);
+						$("body").css({ 'height': '100%', 'overflow': 'auto' });
+					},
+					stopClick: function () {
+						return false;
+					},
+					audioPlay: function (url, id, time) {
+						console.log(url);
+						var _self = this;
+						if (audio1.playing == true && _self.$data.audioPlayingId == id) {
+							_self.$data.audioPlayingId = '';
+							audio1.pause();
+							return false;
+						} else {
+							clearTimeout(setTime);
+							_self.$data.audioPlayingId = id;
+							audio1.load(url);
+							audio1.play();
+							setTime = setTimeout(function () {
+								_self.$data.audioPlayingId = '';
+								audio1.pause();
+							}, time * 1000);
+						}
+					},
+					recordSubmit: function () {
+						if (this.$data.recordSearch.trim() == "") {
+							return false;
+						}
+						this.$data.recordShow = true;
+					},
+					getTalkList: function () {
+						this.$data.recordShow = false;
+					},
+					talkerSubmit: function () {
+						if (this.$data.talkerSearch.trim() == "") {
+							return false;
+						}
+						this.$data.talkerShow = true;
+
+					},
+					getUserRecord: function (friendId) {
+						this.$data.talkerShow = false;
+						this.showTalkDetail(friendId);
+					}
+				},
+				directives: {
+					talkerscroll: {
+						componentUpdated: function (el, data) {
+							if (data.value.friendId == vm.$data.friendId) {
+								$(el).parent().scrollTop(0);
+								$(el).parent().scrollTop($(el).offset().top - $(el).parent().offset().top);
+							};
+						}
+					}
+				},
+				created: function () {
+					var _self = this;
+					_self.$data.userId = getQueryString('userId');
+					_self.$data.wechatId = getQueryString('wechatId');
+					// $.post(ip+"home/postlogin", {
+					//   uid : '13611126225',
+					//   pwd : '111111'
+					// }, function(data) {
+					//   console.log(data);
+					// });
+
+					_self.getCrumbs();
+					_self.getFriendsView();
+					_self.getChatRoomsView();
+					_self.getTalkerList();
+				}
+			});
+
+			$("body").on('click', '.wxModal', function () {
+				vm.$data.talkerShow = false;
+				vm.$data.recordShow = false;
+			});
+
+			timeFiled('#startTime', '#endTime');
+			$(".layer").click(function () {
+				vm.$data.talkShow = false;
+				clearTimeout(setTime);
+				audio1.pause();
+				$(window)[0].scrollTo(0, vm.$data.scrollTop);
+
+				$("body").css({ 'height': '100%', 'overflow': 'auto' });
+			})
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>自定义报表</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="../css/head.css" />
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <link href="../css/hDate.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/hDate.js"></script>
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+
+    <script src="../js/swiper.js"></script>
+    <link rel="stylesheet" href="../css/swiper.css">
+
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/audio.js"></script>
+
+    <script type="text/javascript" src="../js/echarts1.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../css/zTreeStyle.css">
+    <link rel="stylesheet" href="../css/appstatistics.css">
+    <link rel="stylesheet" href="../css/customReport.css">
+    <script src="../js/jquery.ztree.core.js"></script>
+    <!--<script src="../js/jquery.ztree.excheck.js"></script>-->
+    <script src="../js/jquery.ztree.exedit.js"></script>
+    <!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=YxrpSNq6119f9xGsRh4Q5f0a5qgy3k00"></script> -->
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/lodash.min.js"></script>
+</head>
+
+<body>
+    <!--  -->
+    <div class="fixed-right">
+        <ul class="fixed-list">
+            <li class="fixed-li">
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes" title="客服">
+                    <i class="fixed-icon icon-service"></i>
+                </a>
+            </li>
+            <li class="fixed-li">
+                <i class="fixed-icon icon-code"></i>
+                <div class="fixed-box">
+                    <div class="code"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 页面遮罩层 layer -->
+    <div class="layer"></div>
+    <!-- 页面头部 header -->
+    <div class="header">
+        <h1 class="logo fl"></h1>
+        <span class="mar fl">|</span>
+        <span class="fl">
+            <em>团队版</em>[
+            <a href="">点击切换</a>]</span>
+        <ul class="nav">
+            <li>
+                <a href="indexnew2.html" class="current">首页</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="">行动</a>-->
+            <!--</li>-->
+            <li>
+                <a href="customer1.html">客户</a>
+            </li>
+            <li>
+                <a href="download.html">线索</a>
+            </li>
+            <li>
+                <a href="task.html">任务</a>
+            </li>
+            <li>
+                <a href="settings.html" id="top-setting">设置</a>
+            </li>
+        </ul>
+        <ul class="header-right fr">
+            <!-- <li>
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">
+                    <i class="qq"></i>
+                    <div class="service">在线客服</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="add"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="update"></i>
+                </a>
+            </li> -->
+            <li>
+                <a href="javascript:;">
+                    <i class="message"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="user">
+                    <img src="../images/a-1.png" />
+                    <div class="arrow"></div>
+                </a>
+                <div class="quit_down">
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-customer"></div>
+                            客户
+                        </a>
+                    </div>
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-help"></div>
+                            使用说明
+                        </a>
+                    </div>
+
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-exit"></div>
+                            </i>
+                            退出登录
+                        </a>
+                    </div>
+            </li>
+        </ul>
+        </div>
+        <!-- 汇总提示 tipArea -->
+        <div class="tipArea">
+            <div class="wrap">
+                <div class="count_f">
+                    <span class="span-1">数据统计</span>
+                    <span class="span-1 ">手机统计</span>
+                    <span class="span-1 current">客户分析</span>
+                    <span class="span-1">签到统计</span>
+                </div>
+            </div>
+        </div>
+        <!-- 内容部分 contents -->
+        <div class="contents phone-statistics" id="main" v-cloak>
+            <!-- 左侧 -->
+            <div class="leftPage fl">
+                <div class="leftContentBox">
+                    <div class="tlt">选择组员</div>
+                    <div class="indexTree">
+                        <ul id="tree_1" class="ztree department-tree"></ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧 -->
+            <div class="rightPage">
+                <!-- 本周 -->
+                <div class="contentsbox" style="display:block">
+                    <div class="report-wrap">
+                        <div class="report-right fr">
+                            <span class="export-btn" onclick="javascript:void(0);">
+                                <b class="b1"></b>导出</span>
+                            <a class="btn" href="javascript:void(0)" @click="submit">提交</a>
+                        </div>
+                        <div class="report-left">
+                            <div class="report-li">
+                                日期选择：
+                                <div class="select-block" :class="timeActive == true?'active':''">
+                                    <span @click.stop="changTimeActive">{{timeShow}}
+                                        <i class="arrow"></i>
+                                    </span>
+                                    <div class="select-wrap" v-show="timeActive" @click.stop="calendar.colse(); return false;">
+                                        <div class="select-li" @click="timeChange(0)">今日</div>
+                                        <div class="select-li" @click="timeChange(-1)">昨日</div>
+                                        <div class="select-li" @click="timeChange(-7)">最近7天</div>
+                                        <div class="select-li" @click="timeChange(-30)">最近30天</div>
+                                        <div class="select-li select-time">
+                                            <div class="input-time" @click.stop="return false;">
+                                                <input type="text" class="input" id="timetext" />
+                                                <i class="icon-time"></i>
+                                            </div>
+                                            <div class="input-time" @click.stop="return false;">
+                                                <input type="text" class="input" id="timetext1" />
+                                                <i class="icon-time"></i>
+                                            </div>
+                                        </div>
+                                        <div class="select-btn-box">
+                                            <a class="btn" @click="timeSubmit">确认</a>
+                                            <a class="btn btn-cancel" @click="cancelTimeActive">取消</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="report-li" v-if='false'>
+                                报表样式：
+                                <label class="radio-wrap">
+                                    <input type="radio" name="style" value="table" v-model="reportStyle">
+                                    <i class="radio-icon"></i>
+                                    <span>列表</span>
+                                </label>
+                                <label class="radio-wrap">
+                                    <input type="radio" name="style" value="pie" v-model="reportStyle">
+                                    <i class="radio-icon"></i>
+                                    <span>饼图</span>
+                                </label>
+                                <label class="radio-wrap">
+                                    <input type="radio" name="style" value="bar" v-model="reportStyle">
+                                    <i class="radio-icon"></i>
+                                    <span>柱状图</span>
+                                </label>
+                            </div>
+                            <div class="report-li">
+                                <a class="btn custom-btn" :class="customActive == true?'active':''" href="javascript:void(0)" @click.stop="changeCustomActive">自定义字段
+                                    <i class="arrow"></i>
+                                </a>
+                                <form class="field-wrap" v-show="customActive == true" @click.stop="return false;">
+                                    <div class="field-select-wrap">
+                                        <div class="field-select-box">
+                                            <div class="field-title">
+                                                隐藏字段
+                                                <label class="checkbox-box" @click="selectAll('fieldHide',selectAllHide)">
+                                                    <input type="checkbox" v-model="selectAllHide">
+                                                    <i></i>
+                                                    全选
+                                                </label>
+                                            </div>
+                                            <div class="field-select">
+                                                <div class="field-li" v-for="item in fieldHideList">
+                                                    <label class="checkbox-box" :class="reportStyle!='table'&&item.type!='num'?'disabled':''">
+                                                        <input type="checkbox" :value="item.id" v-model="fieldHide">
+                                                        <i></i>
+                                                        {{item.value}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field-middle">
+                                            <div class="field-move-box">
+                                                <a href="javascript:void(0)" class="move move-right" @click="fieldMove('Hide','Show')"></a>
+                                                <a href="javascript:void(0)" class="move move-left" @click="fieldMove('Show','Hide')"></a>
+                                            </div>
+                                        </div>
+                                        <div class="field-select-box">
+                                            <div class="field-title">
+                                                显示字段
+                                                <label class="checkbox-box" @click="selectAll('fieldShow',selectAllShow)">
+                                                    <input type="checkbox" v-model="selectAllShow">
+                                                    <i></i>
+                                                    全选
+                                                </label>
+                                            </div>
+                                            <div class="field-select">
+                                                <div class="field-li" v-for="item in fieldShowList">
+                                                    <label class="checkbox-box" :class="reportStyle!='table'&&item.type!='num'?'disabled':''">
+                                                        <input type="checkbox" :value="item.id" v-model="fieldShow">
+                                                        <i></i>
+                                                        {{item.value}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field-btn-box">
+                                        <input type="button" class="btn" value="确定" @click="submitCustom" />
+                                        <input type="button" class="btn btn-cancel" value="取消" @click="cancelCustomActive" />
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="report-tips">
+                                您得到的数据是30分钟前的数据
+                            </div>
+                        </div>
+                    </div>
+                    <div class="report-content">
+                        <div class="table-wrap" v-if="data.reportStyle=='table'">
+                            <table id="table-list" class="table-list">
+                                <thead>
+                                    <tr>
+                                        <!-- <th>
+                                            <i></i>
+                                        </th> -->
+                                        <th>部门</th>
+                                        <th>跟进人</th>
+                                        <th>数据来源</th>
+                                        <th>分配状态</th>
+                                        <th>电话结果</th>
+                                        <th>销售进度</th>
+                                        <th>创建时间</th>
+                                        <th v-for="th,$index in ['','','','','','','','','','']">字段{{$index+1}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="item,$index in list">
+                                        <!-- <td>
+                                            <i></i>
+                                        </td> -->
+                                        <td>部门{{$index}}</td>
+                                        <td>跟进人{{$index}}</td>
+                                        <td>数据来源{{$index}}</td>
+                                        <td>分配状态{{$index}}</td>
+                                        <td>电话结果{{$index}}</td>
+                                        <td>销售进度{{$index}}</td>
+                                        <td>创建时间{{$index}}</td>
+                                        <td v-for="th,$n in ['','','','','','','','','','']">字段内容{{$index +'__'+ ($n+1)}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="loading-wrap" v-show="loading">
+                                <div class="table-loading">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="table-none" v-if="list.length == 0 && !loading">
+                                <div class="table-none-box">
+                                    <div class="table-none-icon"></div>
+                                    <span>没有相关数据</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="report-bottom" v-if="data.reportStyle=='table'">
+
+                            <ul class="page-ul">
+                                <li>
+                                    <a>&lt;</a>
+                                </li>
+                                <li class="current">
+                                    <a>1</a>
+                                </li>
+                                <li>
+                                    <a href="">2</a>
+                                </li>
+                                <li>
+                                    <a> &gt;</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="report-charts" v-if="data.reportStyle=='bar'">
+                            <div class="table-none" v-if="barValue.data.length==0">
+                                <div class="table-none-box">
+                                    <div class="table-none-icon"></div>
+                                    <span>无法为您展示图形
+                                    </span>
+                                </div>
+                            </div>
+                            <bar-chart ref="barchart" dataid='barcharts' :barvalue="barValue" v-if="barValue.data.length>0"></bar-chart>
+                            <!-- <div class="charts" v-barchart="barValue"></div> -->
+                        </div>
+                        <div class="report-charts" v-if="data.reportStyle == 'pie'">
+                            <div class="table-none" v-if="pieValue.data.length==0">
+                                <div class="table-none-box">
+                                    <div class="table-none-icon"></div>
+                                    <span>无法为您展示图形
+                                    </span>
+                                </div>
+                            </div>
+                            <pie-chart ref="piechart" dataid="piecharts" :pievalue="pieValue" v-if="pieValue.data.length>0"></pie-chart>
+                            <!-- <div class="charts" v-piechart="pieValue"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /本周 -->
+        </div>
+    </div>
+
+    <template id="barCharts">
+        <div class="charts" :id="dataid"></div>
+    </template>
+    <template id="pieCharts">
+        <div class="charts" :id="dataid"></div>
+    </template>
+
+    <script>
+
+
+        var barchart = Vue.extend({
+            template: '#barCharts',
+            props: ['barvalue', 'dataid'],
+            data: function () {
+                return {
+                    chart: '',
+                    option: {
+                        color: ['#3398DB'],
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                            }
+                        },
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: []
+                            }
+                        ],
+                        yAxis: [{ type: 'value' }],
+                        series: [{
+                            name: '客户分析',
+                            type: 'bar',
+                            barMaxWidth: 40,
+                            data: []
+                        }]
+                    },
+                }
+            },
+            watch: {
+                option: {
+                    handler(newVal, oldVal) {
+                        if (this.$data.chart) {
+                            if (newVal) {
+                                this.$data.chart.setOption(newVal);
+                            } else {
+                                this.$data.chart.setOption(oldVal);
+                            }
+                        } else {
+                            this.init();
+                        }
+                    },
+                    deep: true //对象内部属性的监听，关键。
+                },
+                barvalue: {
+                    handler(newVal, oldVal) {
+                        this.setOption();
+                    },
+                    deep: true //对象内部属性的监听，关键。
+                }
+            },
+            methods: {
+                setOption: function () {
+                    console.log("barSetOption");
+                    this.$data.option.xAxis[0].data = this.$props.barvalue.xAxis;
+                    this.$data.option.series[0].data = this.$props.barvalue.data;
+                },
+                init: function () {
+                    this.$data.chart = echarts.init(document.getElementById(this.$props.dataid), "macarons");
+                    this.$data.chart.setOption(this.$data.option);
+                }
+            },
+            mounted: function () {
+                this.setOption();
+                this.init();
+            },
+
+        });
+        var piechart = Vue.extend({
+            template: '#pieCharts',
+            props: ['pievalue', 'dataid'],
+            data: function () {
+                return {
+                    option: {
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        },
+                        series: [
+                            {
+                                type: 'pie',
+                                radius: '55%',
+                                center: ['50%', '50%'],
+                                data: [],
+                                itemStyle: {
+                                    emphasis: {
+                                        shadowBlur: 10,
+                                        shadowOffsetX: 0,
+                                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            watch: {
+                option: {
+                    handler(newVal, oldVal) {
+                        console.log(newVal);
+                        console.log(oldVal);
+                        if (this.$data.chart) {
+                            if (newVal) {
+                                this.$data.chart.setOption(newVal);
+                            } else {
+                                this.$data.chart.setOption(oldVal);
+                            }
+                        } else {
+                            this.init();
+                        }
+                    },
+                    deep: true //对象内部属性的监听，关键。
+                },
+                pievalue: {
+                    handler(newVal, oldVal) {
+                        this.setOption();
+                    },
+                    deep: true //对象内部属性的监听，关键。
+                },
+            },
+            methods: {
+                setOption: function () {
+                    this.$data.option.series[0].name = this.$props.pievalue.name;
+                    this.$data.option.series[0].data = this.$props.pievalue.data;
+                },
+                init: function () {
+                    this.$data.chart = echarts.init(document.getElementById(this.$props.dataid), "macarons");
+                    this.$data.chart.setOption(this.$data.option);
+                }
+            },
+            mounted: function () {
+                this.setOption();
+                this.init();
+            },
+        });
+
+
+        var vm = new Vue({
+            el: "#main",
+            data: function () {
+                return {
+                    timeActive: false,
+                    timeShow: '今日',
+                    fieldShowList: [],
+                    fieldHideList: [],
+                    fieldShow: [],
+                    fieldHide: [],
+                    selectAllShow: false,
+                    selectAllHide: false,
+                    customActive: false,
+                    reportStyle: 'table',
+
+                    list: ['', '', '', '', '', '', '', '', '', ''],
+                    loading: false,
+                    prepare: {
+                        times: '',
+                        field: [],
+                        fieldHide: []
+                    },
+                    data: {
+                        pageIndex: 1,
+                        times: '',
+                        field: [],
+                        reportStyle: 'table'
+                    },
+                    resultValue: [],
+                    pieValue: {
+                        name: '客户分析',
+                        data: []
+                    },
+                    barValue: {
+                        xAxis: [],
+                        data: []
+                    }
+                }
+            },
+            methods: {
+                changTimeActive: function () {
+                    this.$data.timeActive = !this.$data.timeActive;
+                    this.$data.customActive = false;
+                },
+                cancelTimeActive: function () {
+                    this.$data.timeActive = false;
+                },
+                changeCustomActive: function () {
+                    this.$data.customActive = !this.$data.customActive;
+                    this.$data.timeActive = false;
+                },
+                cancelCustomActive: function () {
+
+                    this.$data.fieldShowList = JSON.parse(JSON.stringify(this.$data.prepare.field));
+                    this.$data.fieldHideList = JSON.parse(JSON.stringify(this.$data.prepare.fieldHide));
+                    this.$data.customActive = false;
+                },
+                selectAll: function (type, val) {
+                    var typeList = type + 'List';
+                    var _self = this;
+                    if (val == true) {
+                        _self.$data[type] = [];
+                        var list = _self.$data[typeList];
+                        for (var i = 0; i < list.length; i++) {
+                            // if(list[i].type =='num'&&_self.$data.)
+                            _self.$data[type].push(list[i].id);
+                        }
+                    } else {
+                        _self.$data[type] = [];
+                    }
+                },
+                checkChange: function (type, val) {
+                    var _self = this;
+                    var selectState = 'selectAll' + type;
+                    var typeList = 'field' + type + 'List';
+                    if (val.length < _self.$data[typeList].length) {
+                        _self.$data[selectState] = false;
+                    } else {
+                        _self.$data[selectState] = true;
+                    }
+                },
+                fieldMove: function (from, to) {
+                    var _self = this;
+                    var fromList = 'field' + from + 'List';
+                    var toList = 'field' + to + 'List';
+                    var fromSelect = 'field' + from;
+                    var list = _self.$data[fromSelect];
+                    var indexof = [];
+                    _.forEach(list, function (val) {
+                        indexof.push(_.findIndex(_self.$data[fromList], function (o) { return o.id == val; }));
+                    });
+                    for (var i = indexof.length - 1; i >= 0; i--) {
+
+                        _self.$data[toList].push(_self.$data[fromList][i]);
+                        _self.$data[fromList].splice(i, 1);
+                    }
+                    console.log(this.$data.prepare.field);
+                    console.log(this.$data.fieldShowList);
+                    console.log(this.$data.prepare.fieldHide);
+                    console.log(this.$data.fieldHideList);
+                    _self.$data[fromSelect] = [];
+                    _self.$data['field' + to] = [];
+                },
+                submitCustom: function () {
+                    console.log("自定义字段确定");
+                    this.$data.prepare.field = JSON.parse(JSON.stringify(this.$data.fieldShowList));
+                    this.$data.prepare.fieldHide = JSON.parse(JSON.stringify(this.$data.fieldHideList));
+                    this.$data.customActive = false;
+                },
+                timeChange: function (day) {
+                    console.log(day);
+                    var timeShow = '';
+                    switch (day) {
+                        case 0: timeShow = '今日'; break;
+                        case -1: timeShow = '昨日'; break;
+                        case -7: timeShow = '最近7天'; break;
+                        case -30: timeShow = '最近30天'; break;
+                        default: break;
+                    }
+                    this.$data.timeShow = timeShow;
+                    this.$data.timeActive = false;
+                    this.$data.prepare.times = day;
+
+                },
+                timeSubmit: function () {
+                    if ($("#timetext").val().trim() == '' || $("#timetext1").val().trim() == '') {
+                        return;
+                    }
+                    this.$data.timeShow = $("#timetext").val() + '至' + $("#timetext1").val();
+                    this.$data.timeActive = false;
+                    this.$data.prepare.times = this.$data.timeShow;
+                },
+                submit: function () {
+                    console.log("提交");
+                    this.$data.data.field = JSON.parse(JSON.stringify(this.$data.prepare.field));
+                    this.$data.data.times = JSON.parse(JSON.stringify(this.$data.prepare.times));
+                    this.$data.data.reportStyle = this.$data.reportStyle;
+                    this.getResult();
+                },
+                getResult: function () {
+                    var length = parseInt(Math.random() * 10);
+                    if (this.$data.data.reportStyle == 'pie') {
+                        this.$data.pieValue.data = [];
+                        for (var i = length; i > 0; i--) {
+                            this.$data.pieValue.data.push({
+                                name: i,
+                                value: i
+                            });
+                        }
+                    } else if (this.$data.reportStyle == 'bar') {
+                        this.$data.barValue.data = [];
+                        this.$data.barValue.xAxis = [];
+                        for (var i = length; i > 0; i--) {
+                            this.$data.barValue.data.push(i);
+                            this.$data.barValue.xAxis.push(i);
+                        }
+                    }
+                }
+            },
+            watch: {
+                fieldShow: function (val) {
+                    this.checkChange('Show', val);
+                },
+                fieldHide: function (val) {
+                    this.checkChange('Hide', val);
+                }
+            },
+            mounted: function () {
+                var _self = this;
+                var fieldShow = [
+                    { id: '1', value: '职位', type: 'text' },
+                    { id: '2', value: '性别', type: 'text' },
+                    { id: '3', value: '生日', type: 'radio' },
+                    { id: '4', value: '邮箱', type: 'checkbox' },
+                    { id: '5', value: '微信', type: 'date' },
+                    { id: '6', value: 'QQ', type: 'num' }
+                ];
+                var fieldHide = [
+                    { id: '11', value: '职位1', type: 'text' },
+                    { id: '22', value: '性别1', type: 'text' },
+                    { id: '33', value: '生日1', type: 'radio' },
+                    { id: '44', value: '邮箱1', type: 'checkbox' },
+                    { id: '55', value: '微信1', type: 'date' },
+                    { id: '66', value: 'QQ1', type: 'num' }
+                ];
+                _self.$data.prepare.field = JSON.parse(JSON.stringify(fieldShow));
+                _self.$data.fieldShowList = JSON.parse(JSON.stringify(fieldShow));
+                _self.$data.prepare.fieldHide = JSON.parse(JSON.stringify(fieldHide));
+                _self.$data.fieldHideList = JSON.parse(JSON.stringify(fieldHide));
+            },
+            components: {
+                'barChart': barchart,
+                'pieChart': piechart
+            }
+        });
+
+    </script>
+    <script>
+        $(function () {
+
+            $("body").click(function () {
+                vm.$data.timeActive = false;
+                // vm.$data.customActive = false;
+                vm.cancelCustomActive();
+            });
+            $("#timetext").click(function (e) {
+                var maxday_1 = $("#timetext1").val().trim() == '' ? (new Date()).toString("yyyy-MM-dd") : $("#timetext1").val().trim();
+                calendar.show({
+                    id: this,
+                    maxDay: maxday_1,
+                    ok: function () {
+
+                    }
+                });
+            });
+            $("#timetext + .icon-time").click(function (e) {
+                e.stopPropagation();
+                var maxday_1 = $("#timetext1").val().trim() == '' ? (new Date()).toString("yyyy-MM-dd") : $("#timetext1").val().trim();
+                calendar.show({
+                    id: $(this).prev()[0],
+                    maxDay: maxday_1,
+                    ok: function () {
+
+                    }
+                });
+            });
+            $("#timetext1").click(function (e) {
+                var maxday_1 = (new Date()).toString("yyyy-MM-dd");
+                var minDay = $("#timetext").val().trim();
+                calendar.show({
+                    id: this,
+                    maxDay: maxday_1.toString("yyyy-MM-dd"),
+                    minDay: minDay,
+                    ok: function () {
+
+                    }
+                });
+            });
+            $("#timetext1 + .icon-time").click(function (e) {
+                e.stopPropagation();
+                var maxday_1 = (new Date()).toString("yyyy-MM-dd");
+                var minDay = $("#timetext").val().trim();
+                calendar.show({
+                    id: $(this).prev()[0],
+                    maxDay: maxday_1.toString("yyyy-MM-dd"),
+                    minDay: minDay,
+                    ok: function () {
+
+                    }
+                });
+            });
+            $("#tree_1").css({ "max-height": $(window).height() - $("#tree_1").offset().top - 32, "overflow": "auto" });
+        });
+    </script>
+    <script>
+        var setting = {
+            view:
+            {
+                addDiyDom: addDiyDom,
+                // showLine: false,
+                selectedMulti: false,
+                showIcon: false,
+                fontCss: { 'font-weight': 'bold' }
+            },
+            check: {
+                enable: false,
+
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            callback: {
+                onMouseDown: this.onMouseDown
+            }
+        };
+
+        function addDiyDom(event, treeNode) {
+            if (treeNode.flag != undefined && treeNode.flag == 'user') {
+                var aObj = $("#" + treeNode.tId + "_a");
+                aObj.addClass('staff__user');
+            }
+            // if (treeNode.phone != undefined && treeNode.phone == 1) {
+            //     var aObj = $("#" + treeNode.tId + "_a");
+            //     var editStr = "<span class='phone-mark'></span>";
+            //     aObj.append(editStr);
+            // }
+        }
+
+        //选择部门
+        function onMouseDown(event, treeId, treeNode) {
+            //选中部门
+            console.log(treeNode);
+            //                console.log(treeNode.id);
+        }
+        var zNodes = [
+            {
+                "id": "1",
+                "name": "一级名字",
+                "pId": "0",
+                "flag": "department"
+            },
+            {
+                "id": "2",
+                "name": "二级名字",
+                "pId": "1",
+                "flag": "department"
+            },
+            {
+                "id": "4",
+                "name": "三级名字",
+                "pId": "2",
+                "flag": "department"
+            },
+            {
+                "id": "5",
+                "name": "三级名字",
+                "pId": "2",
+                "flag": "user",
+            },
+            {
+                "id": "3",
+                "name": "二级名字",
+                "pId": "1",
+                "flag": "user",
+            }
+        ];
+        //默认设置树形结构
+        $(document).ready(function () {
+            $.fn.zTree.init($("#tree_1"), setting, zNodes);
+        });
+
+        var selectedkeys;
+
+        function selectCount() {
+            selectedkeys = '';
+            $('#table-list td i.choose-right').each(function () {
+                if (selectedkeys.indexOf($(this).attr("cusid")) == -1) {
+                    selectedkeys += $(this).attr("cusid") + ",";
+                }
+            });
+            if (selectedkeys != "") {
+                $(".checkall-view span").text(
+                    selectedkeys.substring(0, selectedkeys.length - 1).split(",").length);
+            } else {
+                $(".checkall-view span").text(0);
+            }
+        }
+
+        function thClick(event) {
+            $(event).toggleClass('choose-all');
+            if ($(event).hasClass('choosen')) {
+                $('#table-list th i')
+                    .addClass('choose-all')
+                    .removeClass('choosen');
+                $('#table-list td i').addClass('choose-right');
+            } else if ($(event).hasClass('choose-all')) {
+                $('#table-list td i').addClass('choose-right');
+            } else {
+                $('#table-list td i').removeClass('choose-right');
+            }
+            selectCount();
+        }
+
+        function tdClick(event) {
+            $(event).toggleClass('choose-right');
+            var len = $('#table-list td i:not(.tel-icon)').length;
+            var lenCur = $('#table-list td i.choose-right').length;
+
+            if (lenCur > 0) {
+                $('#table-list th i').addClass('choosen');
+            }
+            if (lenCur == 0) {
+                $('#table-list th i').removeClass('choosen');
+            }
+            if (len == lenCur) {
+                $('#table-list th i')
+                    .addClass('choose-all')
+                    .removeClass('choosen');
+            } else {
+                $('#table-list th i').removeClass('choose-all');
+            }
+            if (len > lenCur && lenCur != 0) {
+                $('#table-list th i')
+                    .removeClass('choose-all')
+                    .addClass('choosen');
+            }
+            selectCount();
+        }
+
+    </script>
+</body>
+
+</html>

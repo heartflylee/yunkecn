@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>团队首页</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="../css/head.css" />
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <link href="../css/hDate.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/hDate.js"></script>
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+
+    <script src="../js/swiper.js"></script>
+    <link rel="stylesheet" href="../css/swiper.css">
+
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/audio.js"></script>
+
+    <script type="text/javascript" src="../js/echarts1.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../css/zTreeStyle.css">
+    <script src="../js/jquery.ztree.core.js"></script>
+    <!--<script src="../js/jquery.ztree.excheck.js"></script>-->
+    <script src="../js/jquery.ztree.exedit.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=YxrpSNq6119f9xGsRh4Q5f0a5qgy3k00"></script>
+    <script src="../js/vue.min.js"></script>
+
+    <link rel="stylesheet" href="../css/range.css" />
+    <link rel="stylesheet" href="../css/appstatistics.css">
+    <script src="../js/range.js"></script>
+    <script src="../js/lodash.min.js"></script>
+    <script src="../js/phoneStatistics.js"></script>
+</head>
+
+<body>
+    <!--  -->
+    <div class="fixed-right">
+        <ul class="fixed-list">
+            <li class="fixed-li">
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes" title="客服">
+                    <i class="fixed-icon icon-service"></i>
+                </a>
+            </li>
+            <li class="fixed-li">
+                <i class="fixed-icon icon-code"></i>
+                <div class="fixed-box">
+                    <div class="code"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 页面遮罩层 layer -->
+    <div class="layer"></div>
+    <!-- 页面头部 header -->
+    <div class="header">
+        <h1 class="logo fl"></h1>
+        <span class="mar fl">|</span>
+        <span class="fl">
+            <em>团队版</em>[
+            <a href="">点击切换</a>]</span>
+        <ul class="nav">
+            <li>
+                <a href="indexnew2.html" class="current">首页</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="">行动</a>-->
+            <!--</li>-->
+            <li>
+                <a href="customer1.html">客户</a>
+            </li>
+            <li>
+                <a href="download.html">线索</a>
+            </li>
+            <li>
+                <a href="task.html">任务</a>
+            </li>
+            <li>
+                <a href="settings.html" id="top-setting">设置</a>
+            </li>
+        </ul>
+        <ul class="header-right fr">
+            <!-- <li>
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">
+                    <i class="qq"></i>
+                    <div class="service">在线客服</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="add"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="update"></i>
+                </a>
+            </li> -->
+            <li>
+                <a href="javascript:;">
+                    <i class="message"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="user">
+                    <img src="../images/a-1.png" />
+                    <div class="arrow"></div>
+                </a>
+                <div class="quit_down">
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-customer"></div>
+                            客户
+                        </a>
+                    </div>
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-help"></div>
+                            使用说明
+                        </a>
+                    </div>
+
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-exit"></div>
+                            </i>
+                            退出登录
+                        </a>
+                    </div>
+            </li>
+        </ul>
+        </div>
+        <!-- 汇总提示 tipArea -->
+        <div class="tipArea">
+            <div class="wrap">
+                <div class="count_f">
+                    <span class="span-1">数据统计</span>
+                    <span class="span-1 current">手机统计</span>
+                    <span class="span-1">签到统计</span>
+                </div>
+            </div>
+        </div>
+        <!-- 内容部分 contents -->
+        <div class="contents phone-statistics" id="main" v-cloak>
+
+            <!-- 右侧 -->
+            <div class="rightPage">
+                <!-- 本周 -->
+                <div class="contentsbox" style="display:block">
+                    <div class="tag-box">
+                        <div class="tags-li active">
+                            <a href="phoneStatistics.html">销售地图</a>
+                        </div>
+                        <div class="tags-li">
+                            <a href="salesDetail.html">设备统计</a>
+                        </div>
+                    </div>
+                    <div class="table-tlt">
+                        <i class="i"></i>个人路径
+                        <a class="list-return" href="phoneStatistics.html">
+                            <i></i>返回上级</a>
+                    </div>
+                    <div class="phone-Bmap">
+                        <div class="Bmap-box">
+                            <div class="map" id="map"></div>
+                            <div id="hiddenMap" class="hiddenMap"></div>
+                            <div class="Bmap-route" v-if="list.length>0">
+                                <div class="route-title">
+                                    销售地图
+                                </div>
+                                <div class="route-list" v-for="item,$index in list">
+                                    <div class="route-li-title" :class="$index==0?'active':''">
+                                        {{item.timeDuration}}
+                                        <i class="arrow"></i>
+                                    </div>
+                                    <div class="route-content">
+                                        <div class="route-content-list">
+                                            <!-- <div class="route-text">
+                                                时间：{{itemli.hms}}
+                                            </div> -->
+                                            <div class="route-text">
+                                                地址：{{item.address}}
+                                            </div>
+                                            <div class="route-text">
+                                                停留时间：{{(parseInt(item.duration / 60) > 0 ? parseInt(item.duration / 60) + "小时" : '')+(parseInt(item.duration % 60) > 0 ?
+                                                parseInt(item.duration % 60) + "分" : '')}}
+                                            </div>
+                                            <div class="route-text">
+                                                网络状态：{{item.useState == 1?'在线':'离线'}}
+                                            </div>
+                                            <div class="route-text">
+                                                <div class="route-name">
+                                                    使用状态：
+                                                </div>
+                                                <div class="route-info">
+                                                    <span @click='openWx'>微信：{{item.wechatCount==undefined?0:item.wechatCount}}
+                                                        <div class="wxlist">
+                                                            <div class="wxName" v-for="name in ['','']">
+                                                                <img src="../images/member.png" alt=""> wxName
+                                                            </div>
+                                                        </div>
+                                                    </span>
+                                                    <!-- <span>短信：{{itemli.gjdx}}</span> -->
+                                                    <span @click='openCall'>通话：{{(item.hc == undefined ||item.hr == undefined || item.wjld ==undefined)?0:(item.hc+item.hr+item.wjld)}}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /本周 -->
+            </div>
+        </div>
+
+        <script>
+
+            // var ip = 'http://123.57.222.150:8083/com.yunke_pc.v2/';
+            var ip = '/proxy/com.yunke_pc.v2/';
+            //获取地址栏参数
+            function getQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return "";
+            }
+            //自定义覆盖点
+            function mapSetOverlay(id, point, name, num, nerworkState, time, duration, mileage, type) {
+                this._id = id;
+                this._point = point;
+                this._name = name;
+                this._num = num;
+                this._time = time;
+                this._duration = duration;
+                this._networkState = nerworkState;
+                this._mileage = mileage;
+                this._type = type;
+            }
+            mapSetOverlay.prototype = new BMap.Overlay();
+            mapSetOverlay.prototype.initialize = function (map) {
+                var _self = this;
+                _self._map = map;
+                var div = _self._div = document.createElement('div');
+                var span = document.createElement('span');
+                span.className = 'Bmap-point-num';
+                switch (_self._type) {
+                    case 'start': div.className = 'Bmap-route-point Bmap-point-start'; span.innerText = '起'; div.appendChild(span); break;
+                    case 'end': div.className = 'Bmap-route-point Bmap-point-end'; span.innerText = '终'; div.appendChild(span); break;
+                    default: div.className = 'Bmap-route-point Bmap-point-default'; break;
+                }
+                var label = document.createElement('div');
+                label.className = 'Bmap-point-box';
+                var hour = parseInt(this._duration / 60) > 0 ? parseInt(this._duration / 60) + "小时" : '';
+                var minute = parseInt(this._duration % 60) > 0 ? parseInt(this._duration % 60) + "分" : '';
+                var geoc = new BMap.Geocoder();
+                geoc.getLocation(_self._point, function (rs) {
+                    label.innerHTML = '<div><div class="route-point-name">' + _self._name + '</div><div class="route-point-text">' + _self._time + '</div>' +
+                        '<div class="route-point-text">' + rs.address + '</div></div>' +
+                        '<div class="stay-icon"><i></i>停留时间：' + (hour + minute) + '</div>';
+                });
+
+                div.appendChild(label);
+                map.getPanes().labelPane.appendChild(div);
+                return div;
+            }
+            mapSetOverlay.prototype.draw = function () {
+                var map1 = this._map;
+                var pixel = map1.pointToOverlayPixel(this._point);
+                this._div.style.left = pixel.x - 15 + "px";
+                this._div.style.top = pixel.y - 15 + "px";
+            }
+
+            //自定义覆盖点
+            function mapSetMarker(point, type) {
+                this._point = point;
+                this._type = type;
+            }
+            mapSetMarker.prototype = new BMap.Overlay();
+            mapSetMarker.prototype.initialize = function (map) {
+                var _self = this;
+                _self._map = map;
+                var div = _self._div = document.createElement('div');
+                div.className = 'Bmap-point';
+                map.getPanes().labelPane.appendChild(div);
+                return div;
+            }
+            mapSetMarker.prototype.draw = function () {
+                var map1 = this._map;
+                var pixel = map1.pointToOverlayPixel(this._point);
+                this._div.style.left = pixel.x + 86 + "px";
+                this._div.style.top = pixel.y + 45 + "px";
+            }
+
+            var map, maps, pointArr;
+
+            function showPath(startPoint, EndPoint) {
+                var walking = new BMap.WalkingRoute(maps, { renderOptions: { map: maps, autoViewport: true } });
+                walking.search(startPoint, EndPoint);
+                walking.setSearchCompleteCallback(function (rs) {
+                    var abc = rs;
+                    var pts = walking.getResults().getPlan(0).getRoute(0).getPath();
+                    map.addOverlay(new BMap.Polyline(pts, { strokeColor: "#3385ff", strokeWeight: 4, strokeOpacity: 1 }));
+                });
+            }
+            var vm = new Vue({
+                el: "#main",
+                data: {
+                    id: '',
+                    date: '',
+                    time: '',
+                    wechatId: '',
+                    mileage: [],
+                    points: [],
+                    name: '',
+                    list: []
+                },
+                methods: {
+                    getPoints: function () {
+                        var _self = this;
+                        pointArr = [];
+                        _self.$data.points = _self.$data.mileage[0].point;
+                        for (var i = 1; i < _self.$data.points.length; i++) {
+                            var walking = new BMap.WalkingRoute(map, { renderOptions: { map: map, autoViewport: true } });
+                            var startpoint = new BMap.Point(_self.$data.points[i - 1].lng, _self.$data.points[i - 1].lat);
+                            var endpoint = new BMap.Point(_self.$data.points[i].lng, _self.$data.points[i].lat);
+                            showPath(startpoint, endpoint);
+
+                        }
+                        for (var index = 0; index < _self.$data.points.length; index++) {
+                            var type;
+                            switch (index) {
+                                case 0: type = 'start'; break;
+                                case _self.$data.points.length - 1: type = 'end'; break;
+                                default: type = 'default'; break;
+                            }
+                            var point = new BMap.Point(_self.$data.points[index].lng, _self.$data.points[index].lat);
+                            var div = new mapSetOverlay(_self.$data.points[index].id, point, _self.$data.name, (index + 1), _self.$data.points[index].networkState, _self.$data.points[index].hms, _self.$data.points[index].duration, _self.$data.points[index].mileage, type);
+                            map.addOverlay(div);
+                            pointArr.push(point);
+                        }
+                        mapCenter();
+                        _self.setList();
+                    },
+                    setList: function () {
+                        var _self = this;
+                        // for (var i = 0; i < 24; i++) {
+                        //     var points = [];
+                        //     for (var j = 0; j < _self.$data.points.length; j++) {
+                        //         var o = _self.$data.points[j];
+                        //         if (parseInt(o.hms.split(':')[0]) >= i && parseInt(o.hms.split(':')[0]) < i + 1) {
+                        //             if (o.address == undefined || o.address == '') {
+                        //                 (function (o) {
+                        //                     var geoc = new BMap.Geocoder();
+                        //                     geoc.getLocation(new BMap.Point(o.lng, o.lat), function (rs) {
+                        //                         _self.$set(o, 'address', rs.address);
+                        //                         o = JSON.parse(JSON.stringify(o));
+                        //                     });
+                        //                 })(o);
+
+                        //             }
+                        //             points.push(o);
+                        //         }
+                        //     }
+                        //     if (points.length > 0) {
+                        //         _self.$data.list.push({
+                        //             name: (i < 10 ? '0' + i : i) + ':00-' + (i + 1 < 10 ? '0' + (i + 1) : i + 1) + ":00",
+                        //             points: points
+                        //         });
+                        //     }
+                        // }
+
+                        var points = [];
+                        for (var j = 0; j < _self.$data.points.length; j++) {
+                            var o = _self.$data.points[j];
+                            if (o.address == undefined || o.address == '') {
+                                (function (o) {
+                                    var geoc = new BMap.Geocoder();
+                                    geoc.getLocation(new BMap.Point(o.lng, o.lat), function (rs) {
+                                        _self.$set(o, 'address', rs.address);
+                                        o = JSON.parse(JSON.stringify(o));
+                                    });
+                                })(o);
+                            }
+                            o.timeDuration = o.hms + '-' + o.end.split(' ')[1];
+                            points.push(o);
+                        }
+                        _self.$data.list = points;
+
+                    },
+
+                    getData: function () {
+                        var _self = this;
+
+                        $.post(ip + "appstatistics/newusermap", {
+                            userId: _self.$data.id,
+                            searchDate: _self.$data.date
+                        }, function (data) {
+                            _self.$data.name = data.userName;
+                            if (JSON.stringify(data.locations) != '{}') {
+                                setPoints(_self, data.locations, data.userName, _self.$data.time);
+                            }
+                            if (JSON.stringify(data.locations) != '{}') {
+                                _self.getPoints();
+                                _self.getCount();
+                            }
+                        });
+                    },
+                    getCount: function () {
+                        var _self = this;
+                        var timelist = [];
+                        var list = _self.$data.list;
+                        for (var i = 0; i < list.length; i++) {
+                            timelist.push({
+                                starttime: list[i].time,
+                                endtime: list[i].end,
+                            });
+                        }
+                        if (timelist.length > 0) {
+                            $.ajax({
+                                type: 'post',
+                                url: ip + "appstatistics/getuserstatisticsbytime",
+                                contentType: 'application/json',
+                                data: JSON.stringify({
+                                    userId: _self.$data.id,
+                                    timelist: timelist
+                                }),
+                                success: function (data) {
+                                    var list = _self.$data.list;
+                                    var n = 0;
+                                    for (var i = 0; i < list.length; i++) {
+                                        Vue.set(list[i], 'wechatCount', data[n].wechatCount);
+                                        Vue.set(list[i], 'gjdx', data[n].gjdx);
+                                        Vue.set(list[i], 'hr', data[n].hr);
+                                        Vue.set(list[i], 'hc', data[n].hc);
+                                        Vue.set(list[i], 'wjld', data[n].wjld);
+                                        n++;
+                                    }
+                                }
+                            });
+                        }
+                    },
+                    openCall: function () {
+                        window.location.href = ip + 'appstatistics/callsDayDetail?userId=' + this.$data.id + '&ymd=' + (new Date().Format('yyyy-MM-dd'));
+                    },
+                    openWx: function () {
+                        window.location.href = ip + 'wechat/sales?userId=' + this.$data.id + '&wechatId=' + this.$data.wechatId + '&range=0';
+                    }
+
+
+                },
+                mounted: function () {
+                    var _self = this;
+                    _self.$data.id = getQueryString('id');
+                    _self.$data.date = getQueryString('date');
+                    _self.$data.time = getQueryString('time');
+                    _self.$data.wechatId = getQueryString('wechatId');
+                    creatMap();
+                    _self.getData();
+
+                }
+
+            });
+
+
+            //初始化地图
+            function creatMap() {
+                map = new BMap.Map("map", { enableMapClick: false }); //初始化地图
+                map.centerAndZoom(new BMap.Point(116.404, 39.915), 15); //地图显示位置
+                map.enableDragging();  //拖拽
+                map.enableScrollWheelZoom();//滚轮改变大小
+                var navigationControl = new BMap.NavigationControl();
+                map.addControl(navigationControl);
+                maps = new BMap.Map("hiddenMap", { enableMapClick: false });
+            }
+
+            // //地图居中
+            function mapCenter() {
+                setTimeout(function () {
+                    map.setViewport(pointArr, { margins: [20, 20, 20, 20] });
+                }, 50);
+            }
+
+            $(function () {
+                $("body").on('click', '.route-li-title', function () {
+                    $(this).toggleClass('active');
+                });
+                $("body").on('click', ".Bmap-route-point", function () {
+                    var index = $(this).index();
+                    $(".route-li-title").removeClass('active');
+                    $(".route-list:eq(" + index + ") .route-li-title").addClass('active');
+                });
+            });
+
+
+        </script>
+</body>
+
+</html>

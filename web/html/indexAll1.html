@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>团队首页</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="../css/head.css"/>
+    <link rel="stylesheet" href="../css/cropbox.css"/>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <!--<script type="text/javascript" src="../js/highcharts.js"></script>-->
+
+    <link href="../css/hDate.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../js/hDate.js"></script>
+    <script type="text/javascript" src="../js/cropbox.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+
+    <!--<script type="text/javascript" src="../js/echarts.js"></script>-->
+    <script type="text/javascript" src="../js/echarts1.js"></script>
+    <script type="text/javascript" src="../js/macarons.js"></script>
+
+    <link rel="stylesheet" href="../css/zTreeStyle.css">
+    <script src="../js/jquery.ztree.core.js"></script>
+    <!--<script src="../js/jquery.ztree.excheck.js"></script>-->
+    <script src="../js/jquery.ztree.exedit.js"></script>
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+    <script type="text/javascript" src="../js/vue-resource@1.3.4.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<!-- 页面头部 header -->
+<div class="header">
+    <h1 class="logo fl"></h1>
+    <ul class="nav">
+        <li>
+            <a href="indexnew2.html" class="current">首页</a>
+        </li>
+        <!--<li>-->
+        <!--<a href="">行动</a>-->
+        <!--</li>-->
+        <li>
+            <a href="customer1.html">客户</a>
+        </li>
+        <li>
+            <a href="download.html">线索</a>
+        </li>
+        <li>
+            <a href="task.html">任务</a>
+        </li>
+        <li>
+            <a href="settings.html" id="top-setting">设置</a>
+        </li>
+    </ul>
+    <ul class="header-right fr">
+        <li>
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes"><i class="qq"></i>
+                <div class="service">在线客服</div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;"><i class="add"></i></a>
+        </li>
+        <li>
+            <a href="javascript:;"><i class="update"></i></a>
+        </li>
+        <li>
+            <a href="javascript:;"><i class="message"></i></a>
+        </li>
+        <li>
+            <a href="javascript:;" class="user"><img src="../images/a-1.png"/></a>
+            <div class="quit_down">
+                <div class="code">
+                    <img src="../images/download.png"/>
+                    <span>扫一扫下载云客APP</span>
+                </div>
+                <div class="quit_li">
+                    <a>下载软电话</a>
+                </div>
+                <div class="quit_li">
+                    <a>退出登录</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-- 汇总提示 tipArea -->
+<div class="tipArea">
+    <div class="wrap">
+        <div class="count_f">
+            <span class="span-1 current" id="1">数据统计</span>
+            <span class="span-1" id="2">签到统计</span>
+        </div>
+    </div>
+</div>
+<!-- 内容部分 contents -->
+<div class="contents index-contents" id="app">
+    <!-- 左侧 -->
+    <div class="leftPage fl">
+        <a href="javascript:;" id="edit-com" class="edit-com"></a>
+        <dl class="left-user">
+            <dt><img src="../images/left-photo.png"></dt>
+            <dd>
+                <p>北京联云天下科技有限公司</p>
+                <span>赵科虎，夏云柯</span>
+            </dd>
+        </dl>
+        <div class="leftContentBox">
+            <div class="tlt">选择组员</div>
+            <div class="indexTree">
+                <ul id="tree" class="ztree department-tree"></ul>
+            </div>
+        </div>
+        <div class="leftContentBox">
+            <div class="tlt"><b id="choose-1">有意向客户</b>
+                <a href="javascript:;" class="more" id="a-more"></a>
+            </div>
+            <!-- 筛选条件 -->
+            <div class="choose-term" id="choose-term">
+                <dl id="dl1">
+                    <dt>项目</dt>
+                    <dd>
+                        <a href="javascript:;" class="current">有意向客户<i class="right-icon"></i></a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">电话量<i class="right-icon"></i></a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">成单量<i class="right-icon"></i></a>
+                    </dd>
+                </dl>
+
+            </div>
+            <ul class="sellers" id="sellers">
+                <li><span class="num">1</span><span class="orderForm">成单<em>14</em></span><label class="sellers-name">艾云鹤</label>
+                </li>
+                <li><span class="num">2</span><span class="orderForm">成单<em>14</em></span><label class="sellers-name">艾云鹤</label>
+                </li>
+                <li><span class="num">3</span><span class="orderForm">成单<em>14</em></span><label class="sellers-name">艾云鹤</label>
+                </li>
+                <li><span class="num">4</span><span class="orderForm">成单<em>14</em></span><label class="sellers-name">艾云鹤</label>
+                </li>
+                <li><span class="num">5</span><span class="orderForm">成单<em>14</em></span><label class="sellers-name">艾云鹤</label>
+                </li>
+                <li><span class="num">6</span><span class="orderForm">成单<em>14</em></span><label class="sellers-name">艾云鹤</label>
+                </li>
+                <li><span class="num">7</span><span class="orderForm">成单<em>14</em></span><label class="sellers-name">艾云鹤</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 右侧 -->
+    <div class="rightPage">
+        <div class="tabBox">
+            <ul id="tabBox">
+                <li>
+                    <a href="index.html" class="current">本周</a>
+                </li>
+                <li>
+                    <a href="index-1.html">上周</a>
+                </li>
+                <li>
+                    <a href="index-2.html">近两月</a>
+                </li>
+                <li>
+                    <a href="index-3.html">本月</a>
+                </li>
+                <li>
+                    <a href="index-4.html">上月</a>
+                </li>
+            </ul>
+        </div>
+        <div class="charts-wrap">
+            <div class="charts-box">
+                <div class="charts-main">
+                    <div class="charts-t-box">
+                        <div class="right" id="count-list">
+                            <div class="count-list active">
+                                <div class="count-li">
+                                    <i class="icon-count-num icon"></i>
+                                    <label class="count-name">客户总量</label>
+                                    <label class="count-num">158572</label>
+                                </div>
+                                <div class="count-li">
+                                    <i class="icon-count-up icon"></i>
+                                    <label class="count-name">客户增长总量</label>
+                                    <label class="count-num">+15</label>
+                                </div>
+                            </div>
+                            <div class="count-list">
+                                <div class="count-li">
+                                    <i class="icon-count-num icon"></i>
+                                    <label class="count-name">任务总量</label>
+                                    <label class="count-num">158572</label>
+                                </div>
+                                <div class="count-li">
+                                    <i class="icon-count-up icon"></i>
+                                    <label class="count-name">任务增长总量</label>
+                                    <label class="count-num">+15</label>
+                                </div>
+                            </div>
+                            <div class="count-list">
+                                <div class="count-li">
+                                    <i class="icon-count-num icon"></i>
+                                    <label class="count-name">完成总量</label>
+                                    <label class="count-num">158572</label>
+                                </div>
+                                <div class="count-li">
+                                    <i class="icon-count-up icon"></i>
+                                    <label class="count-name">完成增长总量</label>
+                                    <label class="count-num">+15</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="charts-btn-box" id="lineChartBtn">
+                            <a class="charts-btn active" href="javascript:lineBtn(0);">客户增长量</a>
+                            <a class="charts-btn" href="javascript:lineBtn(1);">任务增长量</a>
+                            <a class="charts-btn" href="javascript:lineBtn(2);">任务完成增长量</a>
+                        </div>
+                    </div>
+                    <div class="charts charts-big" id="charts-line"></div>
+                </div>
+                <div class="charts-main">
+                    <div class="charts-t-box">
+                        <div class="right">
+                            <div class="legend">
+                                <i class="icon-legend legend1"></i>
+                                <label class="legend-text">坐席电话量</label>
+                            </div>
+                            <div class="legend">
+                                <i class="icon-legend legend2"></i>
+                                <label class="legend-text">联系客户数</label>
+                            </div>
+                            <div class="legend">
+                                <i class="icon-legend legend3"></i>
+                                <label class="legend-text">通话时长</label>
+                            </div>
+                        </div>
+                        <div class="charts-btn-box" id="barChartBtn">
+                            <a class="charts-btn active" data-chart="0" href="javascript:barBtn(0);">坐席电话量</a>
+                            <a class="charts-btn" data-chart="1" href="javascript:barBtn(1);">联系客户数</a>
+                            <a class="charts-btn" data-chart="2" href="javascript:barBtn(2);">通话时长</a>
+                        </div>
+                    </div>
+                    <div class="charts charts-big" id="charts-bar"></div>
+                </div>
+                <div class="charts-right">
+                    <div class="charts-li">
+                        <div class="charts-t">接通意向率</div>
+                        <div class="charts" id="chartsPie1"></div>
+                    </div>
+                    <div class="charts-li">
+                        <div class="charts-t">电话结果标签</div>
+                        <div class="charts" id="chartsPie2"></div>
+                    </div>
+                    <div class="charts-li">
+                        <div class="charts-t">销售进度标签</div>
+                        <div class="charts" id="chartsPie3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 页面弹层 -->
+<!-- 编辑公司 -->
+<div class="edit-company" id="edit-company">
+    <a href="javascript:;" class="a-closed"></a>
+    <div class="company-photo-box">
+        <img src="../images/company-photo.png">
+        <a href="javascript:;" class="a-edit-photo"></a>
+    </div>
+    <p class="p1">北京联云天下科技有限公司</p>
+    <p class="p2">赵科虎，夏云柯</p>
+    <form class="companyForm">
+        <input type="text" class="text" name="" placeholder="请输入企业名称">
+        <input type="text" class="text" name="" placeholder="请输入企业简介">
+        <input type="text" class="text" name="" id="asselect" placeholder="请选择所属行业">
+        <i class="select-icon"></i>
+        <div class="selectBox">
+            <a href="javascript:;">行业1</a>
+            <a href="javascript:;">行业2</a>
+            <a href="javascript:;">行业4</a>
+            <a href="javascript:;">行业1</a>
+            <a href="javascript:;">行业1</a>
+        </div>
+        <input type="button" class="btn" value="保存" id="submitBtn">
+    </form>
+</div>
+<!-- 电话量筛选 -->
+<div class="telphone-choose-box" id="telphone-choose-box">
+    <div class="tlt">
+        <i></i> 筛选
+        <span>最多选择8个筛选项</span>
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <div class="tlt-1">有意向</div>
+    <div class="select-box">
+        <span><i class="choose-right"></i><b>销售人员</b></span>
+        <span><i class="choose-null"></i><b>管理人员</b></span>
+        <span><i class="choose-null"></i><b>企业老板</b></span>
+    </div>
+    <div class="tlt-1">无意向</div>
+    <div class="select-box">
+        <span><i class="choose-right"></i><b>销售人员</b></span>
+        <span><i class="choose-null"></i><b>管理人员</b></span>
+        <span><i class="choose-null"></i><b>企业老板</b></span>
+        <span><i class="choose-right"></i><b>销售人员</b></span>
+        <span><i class="choose-null"></i><b>管理人员</b></span>
+        <span><i class="choose-null"></i><b>企业老板</b></span>
+    </div>
+    <div class="tlt-1">资料错误</div>
+    <div class="select-box">
+        <span><i class="choose-right"></i><b>销售人员</b></span>
+        <span><i class="choose-null"></i><b>管理人员</b></span>
+        <span><i class="choose-null"></i><b>企业老板</b></span>
+        <span><i class="choose-right"></i><b>销售人员</b></span>
+        <span><i class="choose-null"></i><b>管理人员</b></span>
+    </div>
+    <div class="tlt-1">二次呼叫</div>
+    <div class="select-box">
+        <span><i class="choose-right"></i><b>销售人员</b></span>
+        <span><i class="choose-null"></i><b>管理人员</b></span>
+        <span><i class="choose-null"></i><b>企业老板</b></span>
+    </div>
+    <div class="screen_btn">
+        <input type="button" class="btn" value="保存" id="chooseBtn-1"/>
+        <input type="button" class="btn1" value="重置"/>
+    </div>
+</div>
+<div class="applyBox edit_photo">
+    <div class="tlt"><i></i>编辑头像
+        <a href="javascript:void(0)" class="a-closed"></a>
+    </div>
+    <div class="container">
+        <div class="imageBox">
+            <div class="thumbBox"></div>
+            <div class="spinner" style="display: none">Loading...</div>
+        </div>
+        <div class="action">
+            <div class="new-contentarea tc">
+                <a href="javascript:void(0)" class="upload-img">
+                    <label for="upload-file">上传图片</label>
+                </a>
+                <input type="file" class="" name="upload-file" id="upload-file"/>
+            </div>
+            <input type="button" id="btnCrop" class="Btnsty_peyton" value="裁切">
+            <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+">
+            <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-">
+        </div>
+        <div class="cropped">
+            <div class="photo_top">
+                图片预览
+            </div>
+            <div class="photo">
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="photo_size">
+            <p>最佳尺寸100×100，可以上传高质量图片进行裁剪</p>
+            <div class="photo_btn">
+                <input type="button" class="cancle" value="取消"/>
+                <input type="button" value="保存"/>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="applyBox powers_over" id="powers_over1">
+    <div class="tlt"><i></i>企业版使用权限已到期
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <div class="custom_f">
+        <div class="email_info">
+            您的企业版使用权限已到期，在此期间暂时无法跟踪该坐席的行为，为保证您正常使用，请
+            <a>联系客服</a>续费
+        </div>
+    </div>
+</div>
+<div class="applyBox powers_over" id="powers_over2">
+    <div class="tlt"><i></i>企业版使用权限已到期
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <div class="custom_f">
+        <div class="email_info">
+            您的企业版使用权限已到期，在此期间暂时无法跟踪该坐席的行为，为保证您正常使用，请尽快
+            <a href="paycenter-1.html">续费</a>
+        </div>
+    </div>
+</div>
+<!--联系客服-->
+<div class="applyBox contact" id="contact">
+    <div class="tlt"><i></i>联系客服
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <div class="custom_f contact_info">
+        您可以拨打客服电话：<label>010-5620 0279</label>或 联系
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">在线客服</a>
+    </div>
+</div>
+
+<!--<div class="tips-main setting-tip" id="setting-tip">
+    <div class="tip-box">
+    </div>
+    <div class="tips-show">
+        <div class="tips-line">
+        </div>
+        <div class="tips-box">
+            <div class="tips-t">
+                欢迎使用云客企业版
+            </div>
+            <div class="tips-c">
+                身为一个团队管理者，首先需要添加几名员工，来“设置”里邀请员工吧
+            </div>
+            <div class="tips-btn">
+                <input type="button" value="关闭" class="btn" />
+            </div>
+        </div>
+    </div>
+</div>-->
+
+
+<script type="text/javascript">
+	$(function () {
+		//			$(".layer").show();
+		//			$("#powers_over1").show();
+
+		$("#powers_over1 .email_info a").click(function () {
+			$("#contact").show();
+		});
+		$(".powers_over a.a-closed").click(function () {
+			$(".powers_over").hide();
+			$(".layer").hide();
+		});
+		$("#contact a.a-closed").click(function () {
+			$(".powers_over").hide();
+			$(".layer").hide();
+			$("#contact").hide();
+		});
+
+		$("#setting-tip").show().addClass("animate");
+		$("#setting-tip").css("left", $("#top-setting").offset().left);
+		$("#setting-tip .btn").click(function () {
+			$("#setting-tip").hide();
+		});
+		$("#setting-tip").click(function () {
+			event.stopPropagation();
+		});
+		$(window).click(function () {
+			$("#setting-tip").hide();
+		});
+
+	});
+</script>
+
+
+<script>
+	var setting = {
+		view: {
+			addDiyDom: addDiyDom,
+			selectedMulti: false,
+			showIcon: false,
+			fontCss: {'font-weight': 'bold'}
+		},
+		check: {
+			enable: false
+		},
+		data: {
+			simpleData: {
+				enable: true
+			}
+		},
+		callback: {
+			onMouseDown: onMouseDown
+		}
+	}
+
+	function addDiyDom (event, treeNode) {
+		if (treeNode.phone != undefined && treeNode.phone == 1) {
+			var aObj = $("#" + treeNode.tId + "_a");
+			var editStr = "<span class='phone-mark'></span>";
+			aObj.append(editStr);
+		}
+	}
+
+	//选择部门
+	function onMouseDown (event, treeId, treeNode) {
+		//选中部门
+		console.log(treeNode);
+//                console.log(treeNode.id);
+	}
+
+	//            var zNodes = [{
+	//                name: "全公司", open: true,
+	//                children: [
+	//                    {
+	//                        name: "销售部",
+	//                        children: [
+	//                            {name: "销售部1",phone:0,id:"234"},
+	//                            {name: "销售部2",phone:1,id:"11"},
+	//                            {name: "销售部3",phone:0},
+	//                            {name: "销售部4",phone:0}
+	//                        ]
+	//                    },
+	//                    {
+	//                        name: "市场部",
+	//                        children: [
+	//                            {name: "市场部1",phone:0},
+	//                            {name: "市场部2",phone:1},
+	//                            {name: "市场部3",phone:0},
+	//                            {name: "市场部4市场部4市场部4市场部4市场部4",phone:1}
+	//                        ]
+	//                    }
+	//                ]
+	//            }];
+
+	//            var zNodes = [{
+	//                name: "全公司", open: true,iconSkin:'bold',
+	//                children: [
+	//                    {
+	//                        name: "销售部",iconSkin:'bold',
+	//                        children: [
+	//                            {name: "销售部1",iconSkin:'bold'},
+	//                            {name: "销售部2",iconSkin:'bold'},
+	//                            {name: "销售部3",iconSkin:'bold'},
+	//                            {name: "销售部4",iconSkin:'bold'}
+	//                        ]
+	//                    },
+	//                    {
+	//                        name: "市场部",iconSkin:'bold',
+	//                        children: [
+	//                            {name: "市场部1",icon:'../images/member.png',phone:0},
+	//                            {name: "市场部2",icon:'../images/member.png',phone:1},
+	//                            {name: "市场部3",icon:'../images/member.png'},
+	//                            {name: "市场部4市场部4市场部4市场部4市场部4",icon:'../images/member.png'}
+	//                        ]
+	//                    }
+	//                ]
+	//            }];
+
+	var zNodes = [
+		{
+			"id": "1",
+			"name": "一级名字",
+			"pId": "0",
+		},
+		{
+			"id": "2",
+			"name": "二级名字",
+			"pId": "1",
+		},
+		{
+			"id": "4",
+			"name": "三级名字",
+			"pId": "2",
+		},
+		{
+			"id": "5",
+			"name": "三级名字",
+			"pId": "2",
+			iconSkin: 'normal',
+			icon: '../images/member.png', phone: 1
+		},
+		{
+			"id": "3",
+			"name": "二级名字",
+			"pId": "1",
+			iconSkin: 'normal',
+			icon: '../images/member.png', phone: 0
+		}
+	];
+	//默认设置树形结构
+	$(document).ready(function () {
+		$.fn.zTree.init($("#tree"), setting, zNodes);
+	});
+
+</script>
+<script>
+	/**
+	 * Created by lixin on 2017/4/27.
+	 */
+
+		//折线图
+
+	var dataLine = [
+			{
+				name: "客户增长量", data: [
+				{value: 6, url: ""},
+				{value: 10, url: ""},
+				{value: 7, url: ""},
+				{value: 4, url: ""},
+				{value: 5, url: ""},
+				{value: 6, url: ""},
+				{value: 4, url: ""}
+			]
+			},
+			{
+				name: "任务增长量", data: [
+				{value: 6, url: ""},
+				{value: 9, url: ""},
+				{value: 3, url: ""},
+				{value: 8, url: ""},
+				{value: 6, url: ""},
+				{value: 2, url: ""},
+				{value: 4, url: ""}
+			]
+			},
+			{
+				name: "任务完成增长量", data: [
+				{value: 3, url: ""},
+				{value: 5, url: ""},
+				{value: 6, url: ""},
+				{value: 9, url: ""},
+				{value: 2, url: ""},
+				{value: 4, url: ""},
+				{value: 2, url: ""}
+			]
+			}
+		];
+	var dataLineX = ["2017-02-15", "2017-02-16", "2017-02-17", "2017-02-18", "2017-02-19", "2017-02-20", "2017-02-21"];
+	var optionLine;
+	var chartsLine;
+	$(function () {
+		optionLine = {
+			tooltip: {
+				trigger: 'axis',
+				// trigger: "item",
+				formatter: "{b} <br/>{a} : {c}"
+			},
+			xAxis: [{
+				type: "category",
+				splitLine: {show: true},
+				data: []
+			}],
+			yAxis: [{
+				type: 'value',
+				name: ''
+			}],
+			series: [{
+				name: "",
+				type: "line",
+				symbolSize: 10,
+				data: []
+			}]
+		};
+		chartsLine = echarts.init(document.getElementById("charts-line"), "macarons");
+		// chartsLine.registerTheme('macarons', theme);
+		optionLine.xAxis[0].data = dataLineX;
+		optionLine.series[0].name = dataLine[0].name;
+		optionLine.series[0].data = dataLine[0].data;
+		chartsLine.setOption(optionLine);
+		chartsLine.on("click", function (data) {
+			console.log(data);
+		})
+	});
+
+	function lineBtn (index) {
+		var $obj = $("#lineChartBtn").find(".charts-btn:eq(" + index + ")");
+		var $countObj = $("#count-list").find(".count-list:eq(" + index + ")");
+		if ($obj.hasClass("active")) {
+			return false;
+		} else {
+			$("#lineChartBtn").find(".charts-btn").removeClass("active");
+			$obj.addClass("active");
+			$("#count-list").find(".count-list").removeClass("active");
+			$countObj.addClass("active");
+		}
+
+		optionLine.xAxis[0].data = dataLineX;
+		optionLine.series[0].name = dataLine[index].name;
+		optionLine.series[0].data = dataLine[index].data;
+		chartsLine.clear();
+		chartsLine.setOption(optionLine);
+	}
+
+	//柱状图
+	var optionBar;
+	var chartsBar;
+	var chartBarX = ['2017-02-15', '2017-02-16', '2017-02-17', '2017-02-18', '2017-02-19', '2017-02-20', '2017-02-21', '2017-02-22'];
+	var dataBarValue = [{
+		data: [
+			{value: 2, url: ""},
+			{value: 5, url: ""},
+			{value: 10, url: ""},
+			{value: 23, url: ""},
+			{value: 15, url: ""},
+			{value: 16, url: ""},
+			{value: 20, url: ""},
+			{value: 16, url: ""}
+		]
+	}, {
+		data: [
+			{value: 3, url: ""},
+			{value: 6, url: ""},
+			{value: 9, url: ""},
+			{value: 16, url: ""},
+			{value: 18, url: ""},
+			{value: 10, url: ""},
+			{value: 15, url: ""},
+			{value: 18, url: ""}
+		]
+	}, {
+		data: [
+			{value: 2, url: ""},
+			{value: 50, url: ""},
+			{value: 14, url: ""},
+			{value: 30, url: ""},
+			{value: 75, url: ""},
+			{value: 60, url: ""},
+			{value: 90, url: ""},
+			{value: 70, url: ""}
+		]
+	}];
+
+	var dataBar = [{
+		name: '坐席电话量',
+		type: 'bar',
+		yAxisIndex: 0,
+		barMaxWidth: 40,
+		itemStyle: {
+			normal: {color: "#2ec7c9"}
+		},
+		data: dataBarValue[0].data
+	}, {
+		name: '联系客户数',
+		type: 'bar',
+		yAxisIndex: 0,
+		barMaxWidth: 40,
+		itemStyle: {
+			normal: {color: "#ffb980"}
+		},
+		data: dataBarValue[1].data
+	}, {
+		name: '通话时长',
+		type: 'bar',
+		yAxisIndex: 1,
+		barMaxWidth: 40,
+		itemStyle: {
+			normal: {color: "#d87a80"}
+		},
+		data: dataBarValue[2].data
+	}];
+	$(function () {
+		optionBar = {
+			tooltip: {
+				trigger: 'axis'
+			},
+			toolbox: {
+				show: true
+			},
+			legend: {
+				show: false,
+				data: []
+			},
+			xAxis: [{
+				type: 'category',
+				data: []
+			}],
+			yAxis: [{
+				type: 'value',
+				// splitArea: {
+				//     show: true,
+				//     areaStyle: {
+				//         color: [
+				//             'rgba(250,250,250,0.3)',
+				//             'rgba(200,200,200,0.3)'
+				//         ]
+				//     }
+				// },
+				axisLabel: {
+					formatter: '{value}'
+				}
+			}, {
+				type: 'value',
+				// splitArea: {
+				//     show: true,
+				//     areaStyle: {
+				//         color: [
+				//             'rgba(250,250,250,0.3)',
+				//             'rgba(200,200,200,0.3)'
+				//         ]
+				//     }
+				// },
+				axisLabel: {
+					formatter: '{value} s'
+				}
+			}],
+			series: []
+		};
+
+		chartsBar = echarts.init(document.getElementById("charts-bar"), "macarons");
+		optionBar.xAxis[0].data = chartBarX;
+		optionBar.series.push(dataBar[0]);
+		chartsBar.setOption(optionBar);
+		chartsBar.on("click", function (data) {
+			console.log(data);
+		})
+	});
+
+	var chartBarData;
+
+	function barBtn (index) {
+		var $obj = $("#barChartBtn").find(".charts-btn:eq(" + index + ")");
+		if ($obj.hasClass("active")) {
+			$obj.removeClass("active");
+		} else {
+			$obj.addClass("active");
+		}
+		var active = $("#barChartBtn").find(".active");
+		chartBarData = [];
+		if (active.length > 0) {
+			for (var i = 0; i < active.length; i++) {
+				chartBarData[i] = dataBar[active[i]['data-chart'] || active[i].dataset.chart];
+			}
+			optionBar.xAxis[0].data = chartBarX;
+			optionBar.series = chartBarData;
+			chartsBar.clear();
+			chartsBar.setOption(optionBar);
+		} else {
+			chartsBar.clear();
+		}
+	}
+
+	window.onresize = function () {
+		chartsLine.resize();
+		chartsBar.resize();
+	}
+
+
+	//初始化环形图option
+	var optionPie = {
+		tooltip: {
+			trigger: 'item',
+			formatter: "{a} <br/>{b} : {c} ({d}%)"
+		},
+		series: [{
+			name: '',
+			type: 'pie',
+			radius: ['68%', '75%'],
+			avoidLabelOverlap: false,
+			label: {
+				normal: {
+					show: false,
+					position: 'center'
+				},
+				emphasis: {
+					show: true,
+					textStyle: {
+						fontSize: '24',
+						fontWeight: 'bold'
+					}
+				}
+			}
+		}]
+	};
+
+	var Pie1 = {
+		"name": "2017-02-22",
+		"data": [
+			{"value": 335, "name": "有意向", "url": ""},
+			{"value": 310, "name": "无意向", "url": ""}
+		]
+	};
+	var Pie2 = {
+		"name": "2017-02-22",
+		"data": [
+			{
+				"value": 335,
+				"name": "加微信",
+				"url": ""
+			},
+			{
+				"value": 310,
+				"name": "打电话",
+				"url": ""
+			},
+			{
+				"value": 310,
+				"name": "发短信",
+				"url": ""
+			},
+			{
+				"value": 310,
+				"name": "发邮件",
+				"url": ""
+			}
+		]
+	};
+	var Pie3 = {
+		"name": "2017-02-22",
+		"data": [
+			{
+				"value": 335,
+				"name": "初步沟通",
+				"url": ""
+			},
+			{
+				"value": 310,
+				"name": "确认需求",
+				"url": ""
+			},
+			{
+				"value": 310,
+				"name": "报价",
+				"url": ""
+			},
+			{
+				"value": 310,
+				"name": "面谈",
+				"url": ""
+			},
+			{
+				"value": 310,
+				"name": "成单",
+				"url": ""
+			}
+		]
+	};
+
+	var chartsPie1 = echarts.init(document.getElementById("chartsPie1"), "macarons");
+	var optionPie1 = optionPie;
+	optionPie1.series[0].name = Pie1.name;
+	optionPie1.series[0].data = Pie1.data;
+	chartsPie1.setOption(optionPie1);
+	chartsPie1.on("click", function (data) {
+		console.log(data);
+	})
+
+	var chartsPie2 = echarts.init(document.getElementById("chartsPie2"), "macarons");
+	var optionPie2 = optionPie;
+	optionPie2.series[0].name = Pie2.name;
+	optionPie2.series[0].data = Pie2.data;
+	chartsPie2.setOption(optionPie2);
+	chartsPie2.on("click", function (data) {
+		console.log(data);
+	})
+	var chartsPie3 = echarts.init(document.getElementById("chartsPie3"), "macarons");
+	var optionPie3 = optionPie;
+	optionPie3.series[0].name = Pie3.name;
+	optionPie3.series[0].data = Pie3.data;
+	chartsPie3.setOption(optionPie3);
+	chartsPie3.on("click", function (data) {
+		console.log(data);
+	})
+
+	//	chartsPies(document.getElementById("chartsPie1"), Pie1);
+	//	chartsPies(document.getElementById("chartsPie2"), Pie2);
+	//	chartsPies(document.getElementById("chartsPie3"), Pie3);
+
+</script>
+</body>
+
+</html>

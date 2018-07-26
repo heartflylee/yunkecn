@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>团队任务-销售任务</title>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../css/head.css"/>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <!--<script type="text/javascript" src="../js/audio1.min.js"></script>-->
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/highcharts.js"></script>
+    <link href="../css/hDate.css" rel="stylesheet"/>
+
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+
+    <script type="text/javascript" src="../js/hDate.js"></script>
+</head>
+
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<div class="layer-1"></div>
+<div class="layer-5"></div>
+<div class="layer-6"></div>
+<!-- 页面头部 header -->
+<div class="header">
+    <h1 class="logo fl"></h1>
+    <ul class="nav">
+        <li>
+            <a href="indexnew2.html">首页</a>
+        </li>
+        <!--<li>-->
+        <!--<a href="">行动</a>-->
+        <!--</li>-->
+        <li>
+            <a href="customer1.html">客户</a>
+        </li>
+        <li>
+            <a href="download.html">线索</a>
+        </li>
+        <li>
+            <a href="task.html" class="current">任务</a>
+        </li>
+        <li>
+            <a href="settings.html" id="top-setting">设置</a>
+        </li>
+    </ul>
+    <ul class="header-right fr">
+        <li>
+            <a href="javascript:void(0)"><i class="add"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"><i class="update"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"><i class="message"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" class="user">刘</a>
+        </li>
+    </ul>
+</div>
+<!-- 汇总提示 tipArea -->
+<div class="tipArea">
+    <div class="wrap">
+        <!--<span class="span-1 fr"><a href="task-applacation.html">员工任务申请</a><b class="b-news"></b></span>-->
+        <!--<span class="fr">|</span>-->
+        <ul class="ul-2">
+            <li>
+                <a href="task.html" class="current">电话任务</a>
+            </li>
+            <li>
+                <a href="task-2.html">短信任务</a>
+            </li>
+            <li>
+                <a href="task-3.html">邮件任务</a>
+            </li>
+            <li>
+                <a href="task-1.html">委派云客</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="contents">
+    <div class="table-tlt">
+        <i class="i"></i>电话任务列表
+        <div class="title-innerBox">
+            <span class="span-1" onclick="filterShow();">筛选<b class="b-icon"></b></span>
+            <div class="position-relative searchBox">
+                <input type="text" placeholder="按任务名称搜索"/>
+                <a class="search-icon"></a>
+            </div>
+        </div>
+        <a class="a" id="add-tasks" style="float: right; cursor: pointer;">新建电话任务</a>
+    </div>
+    <div class="customer">
+        <table class="table-list" id="table-list">
+            <thead>
+            <tr>
+                <th>任务名称</th>
+                <th>任务状态</th>
+                <th>执行人员</th>
+                <th>创建时间</th>
+                <th>开始时间</th>
+                <th>任务周期</th>
+                <th>人均电话量</th>
+                <th>重复次数</th>
+                <th>数据来源</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td><span class="hover-text" data-html="刘宇">刘宇</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>日</td>
+                <td>100</td>
+                <td>不重复</td>
+                <td>12月回访客户</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>陌生拜访</td>
+                <td><label class="label-red">过期未完成</label></td>
+                <td><span class="hover-text" data-html="刘晓辉、刘宇、艾云鹤">刘晓辉、刘宇、艾云鹤</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>周</td>
+                <td>200</td>
+                <td>1次</td>
+                <td>新客户拜访</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                    <a href="javascript:void(0)" class="link red">终止任务</a>
+                </td>
+            </tr>
+            <tr>
+                <td>未接通再分配</td>
+                <td>未开始</td>
+                <td><span class="hover-text" data-html="刘明辉">刘明辉</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>月</td>
+                <td>200</td>
+                <td>2次</td>
+                <td>17年遗留客户</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                    <a href="javascript:void(0)" class="link red">删除任务</a>
+                </td>
+            </tr>
+            <tr>
+                <td>拓客</td>
+                <td>进行中</td>
+                <td><span class="hover-text" data-html="陈博、刘明辉">陈博、刘明辉</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>月</td>
+                <td>200</td>
+                <td>4次</td>
+                <td>17年新客户</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                    <a href="javascript:void(0)" class="link red">终止任务</a>
+                </td>
+            </tr>
+            <tr>
+                <td>回访</td>
+                <td>已终止</td>
+                <td><span class="hover-text" data-html="刘宇、刘明辉">刘宇、刘明辉</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>月</td>
+                <td>200</td>
+                <td>不重复</td>
+                <td>12月回访客户</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                </td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td><span class="hover-text" data-html="刘宇">刘宇</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>日</td>
+                <td>100</td>
+                <td>不重复</td>
+                <td>12月回访客户</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>陌生拜访</td>
+                <td><label class="label-red">过期未完成</label></td>
+                <td><span class="hover-text" data-html="刘晓辉、刘宇、艾云鹤">刘晓辉、刘宇、艾云鹤</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>周</td>
+                <td>200</td>
+                <td>1次</td>
+                <td>新客户拜访</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                    <a href="javascript:void(0)" class="link red">终止任务</a>
+                </td>
+            </tr>
+            <tr>
+                <td>未接通再分配</td>
+                <td>未开始</td>
+                <td><span class="hover-text" data-html="刘明辉">刘明辉</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>月</td>
+                <td>200</td>
+                <td>2次</td>
+                <td>17年遗留客户</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                    <a href="javascript:void(0)" class="link red">删除任务</a>
+                </td>
+            </tr>
+            <tr>
+                <td>拓客</td>
+                <td>进行中</td>
+                <td><span class="hover-text" data-html="陈博、刘明辉">陈博、刘明辉</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>月</td>
+                <td>200</td>
+                <td>4次</td>
+                <td>17年新客户</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                    <a href="javascript:void(0)" class="link red">终止任务</a>
+                </td>
+            </tr>
+            <tr>
+                <td>回访</td>
+                <td>已终止</td>
+                <td><span class="hover-text" data-html="刘宇、刘明辉">刘宇、刘明辉</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>月</td>
+                <td>200</td>
+                <td>不重复</td>
+                <td>12月回访客户</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                </td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td><span class="hover-text" data-html="刘宇">刘宇</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>日</td>
+                <td>100</td>
+                <td>不重复</td>
+                <td>12月回访客户</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>陌生拜访</td>
+                <td><label class="label-red">过期未完成</label></td>
+                <td><span class="hover-text" data-html="刘晓辉、刘宇、艾云鹤">刘晓辉、刘宇、艾云鹤</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>周</td>
+                <td>200</td>
+                <td>1次</td>
+                <td>新客户拜访</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                    <a href="javascript:void(0)" class="link red">终止任务</a>
+                </td>
+            </tr>
+            <tr>
+                <td>未接通再分配</td>
+                <td>未开始</td>
+                <td><span class="hover-text" data-html="刘明辉">刘明辉</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>月</td>
+                <td>200</td>
+                <td>2次</td>
+                <td>17年遗留客户</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                    <a href="javascript:void(0)" class="link red">删除任务</a>
+                </td>
+            </tr>
+            <tr>
+                <td>拓客</td>
+                <td>进行中</td>
+                <td><span class="hover-text" data-html="陈博、刘明辉">陈博、刘明辉</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>月</td>
+                <td>200</td>
+                <td>4次</td>
+                <td>17年新客户</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                    <a href="javascript:void(0)" class="link red">终止任务</a>
+                </td>
+            </tr>
+            <tr>
+                <td>回访</td>
+                <td>已终止</td>
+                <td><span class="hover-text" data-html="刘宇、刘明辉">刘宇、刘明辉</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>月</td>
+                <td>200</td>
+                <td>不重复</td>
+                <td>12月回访客户</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                </td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td><span class="hover-text" data-html="刘宇">刘宇</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>日</td>
+                <td>100</td>
+                <td>不重复</td>
+                <td>12月回访客户</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>陌生拜访</td>
+                <td><label class="label-red">过期未完成</label></td>
+                <td><span class="hover-text" data-html="刘晓辉、刘宇、艾云鹤">刘晓辉、刘宇、艾云鹤</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>周</td>
+                <td>200</td>
+                <td>1次</td>
+                <td>新客户拜访</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                    <a href="javascript:void(0)" class="link red">终止任务</a>
+                </td>
+            </tr>
+            <tr>
+                <td>未接通再分配</td>
+                <td>未开始</td>
+                <td><span class="hover-text" data-html="刘明辉">刘明辉</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>月</td>
+                <td>200</td>
+                <td>2次</td>
+                <td>17年遗留客户</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                    <a href="javascript:void(0)" class="link red">删除任务</a>
+                </td>
+            </tr>
+            <tr>
+                <td>拓客</td>
+                <td>进行中</td>
+                <td><span class="hover-text" data-html="陈博、刘明辉">陈博、刘明辉</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>月</td>
+                <td>200</td>
+                <td>4次</td>
+                <td>17年新客户</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                    <a href="javascript:void(0)" class="link red">终止任务</a>
+                </td>
+            </tr>
+            <tr>
+                <td>回访</td>
+                <td>已终止</td>
+                <td><span class="hover-text" data-html="刘宇、刘明辉">刘宇、刘明辉</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>月</td>
+                <td>200</td>
+                <td>不重复</td>
+                <td>12月回访客户</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                </td>
+            </tr>
+            <tr>
+                <td>客户回访</td>
+                <td>已完成</td>
+                <td><span class="hover-text" data-html="刘宇">刘宇</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>日</td>
+                <td>100</td>
+                <td>不重复</td>
+                <td>12月回访客户</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>陌生拜访</td>
+                <td><label class="label-red">过期未完成</label></td>
+                <td><span class="hover-text" data-html="刘晓辉、刘宇、艾云鹤">刘晓辉、刘宇、艾云鹤</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>周</td>
+                <td>200</td>
+                <td>1次</td>
+                <td>新客户拜访</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                    <a href="javascript:void(0)" class="link red">终止任务</a>
+                </td>
+            </tr>
+            <tr>
+                <td>未接通再分配</td>
+                <td>未开始</td>
+                <td><span class="hover-text" data-html="刘明辉">刘明辉</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>月</td>
+                <td>200</td>
+                <td>2次</td>
+                <td>17年遗留客户</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                    <a href="javascript:void(0)" class="link red">删除任务</a>
+                </td>
+            </tr>
+            <tr>
+                <td>拓客</td>
+                <td>进行中</td>
+                <td><span class="hover-text" data-html="陈博、刘明辉">陈博、刘明辉</span></td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>月</td>
+                <td>200</td>
+                <td>4次</td>
+                <td>17年新客户</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                    <a href="javascript:void(0)" class="link red">终止任务</a>
+                </td>
+            </tr>
+            <tr>
+                <td>回访</td>
+                <td>已终止</td>
+                <td><span class="hover-text"
+                          data-html="刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉刘宇、刘明辉">刘宇、刘明辉</span>
+                </td>
+                <td>2017-12-19</td>
+                <td>2017-12-19</td>
+                <td>月</td>
+                <td>200</td>
+                <td>不重复</td>
+                <td>12月回访客户</td>
+                <td>
+                    <a href="javascript:void(0)" class="link">查看详情</a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <div class="hover-wrap">
+
+        </div>
+    </div>
+    <!-- 分页 -->
+    <p class="page-p">共20条</p>
+    <ul class="page-ul">
+        <li>
+            <
+        </li>
+        <li> 1</li>
+        <li> 2</li>
+        <li> 3</li>
+        <li> ></li>
+    </ul>
+
+</div>
+
+<div class="filter-wrap changer-box" id="filterShow">
+    <div class="tlt"><i></i>筛选
+        <a href="javascript:layerClose('#filterShow')" class="a-closed"></a>
+    </div>
+    <div class="function-content">
+        <div class="filter-row">
+            <div class="filter-li time-box">
+                <label>创建时间</label>
+                <span class="time"><input type="text" id="timetext" readonly="readonly"></span>
+            </div>
+            <div class="filter-li time-box">
+                <label>至</label>
+                <span class="time"><input type="text" id="timetext-2" readonly="readonly"></span>
+            </div>
+            <div class="filter-li time-box">
+                <label style="margin-left:10px;">开始时间</label>
+                <span class="time"><input type="text" id="timetext-1" readonly="readonly"></span>
+            </div>
+            <div class="filter-li time-box">
+                <label>至</label>
+                <span class="time"><input type="text" id="timetext-3" readonly="readonly"></span>
+            </div>
+        </div>
+        <script type="text/javascript">
+					var start = {
+						format: 'YYYY-MM-DD hh:mm:ss',
+						maxDate: $.nowDate(0), //设定最小日期为当前日期
+						minDate: '1900-01-01 00:00:00', //最大日期
+						choosefun: function (elem, datas) {
+							end.minDate = datas; //开始日选好后，重置结束日的最小日期
+						}
+					};
+					var end = {
+						format: 'YYYY-MM-DD hh:mm:ss',
+						maxDate: $.nowDate(0), //设定最小日期为当前日期
+						//  festival:true,
+						minDate: '1900-01-01 00:00:00', //最大日期
+						choosefun: function (elem, datas) {
+							start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+						}
+					};
+					$('#timetext').jeDate(start);
+					$('#timetext-2').jeDate(end);
+
+					var start1 = {
+						format: 'YYYY-MM-DD hh:mm:ss',
+						maxDate: $.nowDate(0), //设定最小日期为当前日期
+						minDate: '1900-01-01 00:00:00', //最大日期
+						choosefun: function (elem, datas) {
+							end1.minDate = datas; //开始日选好后，重置结束日的最小日期
+						}
+					};
+					var end1 = {
+						format: 'YYYY-MM-DD hh:mm:ss',
+						maxDate: $.nowDate(0), //设定最小日期为当前日期
+						//  festival:true,
+						minDate: '1900-01-01 00:00:00', //最大日期
+						choosefun: function (elem, datas) {
+							start1.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+						}
+					};
+					$('#timetext-1').jeDate(start1);
+					$('#timetext-3').jeDate(end1);
+        </script>
+        <div class="filter-row">
+            <div class="filter-li">
+                <label>执行人员</label>
+                <select class="Jselect">
+                    <option>请选择执行人员</option>
+                    <option value="">无</option>
+                    <option value="">刘晓辉</option>
+                    <option value="">刘宇</option>
+                </select>
+            </div>
+            <div class="filter-li">
+                <label>任务状态</label>
+                <select class="Jselect">
+                    <option>请选择任务状态</option>
+                </select>
+            </div>
+            <div class="filter-li">
+                <label>任务周期</label>
+                <select class="Jselect">
+                    <option>请选择任务周期</option>
+                    <option value="">日</option>
+                    <option value="">周</option>
+                    <option value="">月</option>
+                </select>
+            </div>
+        </div>
+        <div class="filter-row">
+            <div class="filter-li">
+                <label>重复次数</label>
+                <select class="Jselect">
+                    <option>请选择重复次数</option>
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+            </div>
+            <div class="filter-li">
+                <label>数据来源</label>
+                <select>
+                    <option>请选择数据来源</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">6</option>
+                    <option value="">9</option>
+                </select>
+            </div>
+        </div>
+        <div class="filter-row">
+            <div class="filter-li">
+                <label>人均电话量</label>
+                <span class="time"><input type="text"></span>
+            </div>
+        </div>
+
+        <div class="manage-btn-wrap">
+            <input type="button" class="manage-btn" value="提交">
+        </div>
+    </div>
+</div>
+
+<div class="applyBox" style="height: auto; margin-top: 0px; position: absolute; top: 0px" id="applyBox-1">
+    <div class="tlt"><i></i>新建任务<a href="javascript:void(0)" class="a-closed"></a></div>
+    <input type="text" id="createplanname1" class="inputBox-1 bg-gray" placeholder="请输入任务名称">
+    <div class="textbox fl">
+        <dl>
+            <dt>任务周期</dt>
+            <dd>
+                <select name="" id="plancycle1" class="inputBox-3 bg-gray">
+                    <option value="0">日</option>
+                    <option value="1">周</option>
+                    <option value="2">月</option>
+                </select>
+            </dd>
+        </dl>
+        <dl>
+            <dt>开始时间</dt>
+            <dd><input id="timetext3" readonly="readonly" type="text" class="inputBox-4 bg-gray" autocomplete="off" placeholder="某日"></dd>
+        </dl>
+        <script type="text/javascript">
+					$("#timetext3").click(function (e) {
+						var ths = this;
+						calendar.show({
+							id: this,
+							minDay:new Date().toString()
+						});
+					});
+        </script>
+        <dl>
+            <dt>人均电话量</dt>
+            <dd><input type="text" id="planperperson1" class="inputBox-3 inputBox-5 bg-gray" autocomplete="off" placeholder="数量"></dd>
+        </dl>
+        <dl class="none">
+            <dt>重复</dt>
+            <dd>
+                <select name="" id="planrepeat" class="inputBox-3 bg-gray">
+                    <option value="0" selected="selected">不重复</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+            </dd>
+        </dl>
+        <div class="tbmember fl addpor">
+            <div class="tbm-tlt">执行人员<label class="red">执行人员不可超过10人</label></div>
+            <ul class="choose-add clearfix" id="selectedmember1">
+                <li class="del-add" id="selectedmemberflag1">
+                    <a href="javascript:void(0)"><img src="../images/all-members.png"><em>选择</em></a>
+                    <div class="adddiv1" id="allmembers1">
+                        <div class=" overy clearfix">
+                            <div class="clear"></div>
+                            <ul class="staff-ul bortop" style="height:253px">
+
+                                <li><a href="javascript:void(0)"><img src="../images/member.png"><span>员工</span><i class="right-icon"></i></a></li>
+
+                            </ul>
+                        </div>
+                        <button class="addBut" type="button">确定</button>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="line"></div>
+    <div class="data-way">
+        <div class="data-t">
+            选择数据方式
+        </div>
+        <div class="data-c clearfix">
+            <div class="data-li">
+                <input type="radio" name="data-way" checked="checked" id="data-way1">
+                <label class="radio-box" for="data-way1">
+                    <i class="radio"></i>
+                    提供数据
+                </label>
+                <div class="row_tip_f">
+                    <i class="row_tip"></i>
+                    <div class="row_tip_con tip_con1">
+                        本次任务的数据将使用管理者指定的数据来源；<br>如数据不足时，需要执行人员自行查找；
+                    </div>
+                </div>
+            </div>
+            <div class="data-li">
+                <input type="radio" name="data-way" id="data-way2">
+                <label class="radio-box" for="data-way2">
+                    <i class="radio"></i>
+                    不提供数据
+                </label>
+                <div class="row_tip_f">
+                    <i class="row_tip"></i>
+                    <div class="row_tip_con tip_con2">
+                        本次任务管理者不提供数据，需要执行人员自行查找
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <select class="selectBox-1" id="cussource1">
+        <option value="企业导入-手动录入">企业导入-手动录入(1)</option>
+    </select>
+    <input type="button" class="btn" value="提交">
+</div>
+<script>
+
+	//关闭弹框
+	function layerClose (obj) {
+		$(obj).hide();
+		$(".layer").hide();
+	}
+
+	function filterShow () {
+		$("#filterShow").show();
+		$(".layer").show();
+	}
+
+	$(function () {
+		$(".customer").height($(window).height() - $(".customer").offset().top - 80);
+		$(".customer").css({
+			"overflow": "auto"
+		});
+		$(".hover-text").hover(function () {
+			$(".hover-wrap").html($(this).data().html);
+			$(".hover-wrap").show();
+			var top = $(this).offset().top - $(".contents").offset().top;
+			if (top + $(".hover-wrap").outerHeight() > $(".contents").offset().top + $(".contents").height()) {
+				top = top - $(".hover-wrap").outerHeight() + $(this).outerHeight();
+			}
+			var left = $(this).offset().left - $(".contents").offset().left + $(this).outerWidth();
+			if (left + $(".hover-wrap").outerWidth() > $(".contents").offset().left + $(".contents").width()) {
+				left = left - $(".hover-wrap").outerWidth() - $(this).outerWidth();
+			}
+			$(".hover-wrap").css({top: top, left: left});
+		}, function () {
+			$(".hover-wrap").hide();
+		});
+
+//			$('#add-tasks').on('click', function() {
+//				$("#taskadd-tip").css({
+//					"top": $("#applyBox-1 .selectBox-1").offset().top - 5,
+//					"left": $("#applyBox-1 .selectBox-1").offset().left - 5
+//				});
+//				$("#taskadd-tip").show().addClass("animate");
+//				event.stopPropagation();
+//				$(window).one("click", function() {
+//					$("#taskadd-tip").hide();
+//				});
+//			});
+
+	});
+</script>
+</body>
+
+</html>

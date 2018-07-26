@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>电话机器人</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <!--<link href="../css/main.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="../css/head.css" />
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+
+    <link href="../css/hDate.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/hDate.js"></script>
+    <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+
+
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/audio.js"></script>
+    <link rel="stylesheet" href="../css/robot.css" />
+    <link rel="stylesheet" href="../css/switch.css">
+    <link rel="stylesheet" href="../css/appstatistics.css">
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+
+    <!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=YxrpSNq6119f9xGsRh4Q5f0a5qgy3k00"></script> -->
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/lodash.min.js"></script>
+    <script src="../js/customer/customer-filed-show.js"></script>
+</head>
+
+<body>
+    <!--  -->
+    <div class="fixed-right">
+        <ul class="fixed-list">
+            <li class="fixed-li">
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes" title="客服">
+                    <i class="fixed-icon icon-service"></i>
+                </a>
+            </li>
+            <li class="fixed-li">
+                <i class="fixed-icon icon-code"></i>
+                <div class="fixed-box">
+                    <div class="code"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 页面遮罩层 layer -->
+    <div class="layer"></div>
+    <!-- 页面头部 header -->
+    <div class="header">
+        <h1 class="logo fl"></h1>
+        <ul class="nav">
+            <li>
+                <a href="indexnew2.html">首页</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="">行动</a>-->
+            <!--</li>-->
+            <li>
+                <a href="customer1.html">客户</a>
+            </li>
+            <li>
+                <a href="download.html">线索</a>
+            </li>
+            <li>
+                <a href="task.html">任务</a>
+            </li>
+            <li>
+                <a href="robotTask.html" class="current">电话机器人</a>
+            </li>
+            <li>
+                <a href="settings.html" id="top-setting">设置</a>
+            </li>
+        </ul>
+        <ul class="header-right fr">
+            <!-- <li>
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">
+                    <i class="qq"></i>
+                    <div class="service">在线客服</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="add"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="update"></i>
+                </a>
+            </li> -->
+            <li>
+                <a href="javascript:;">
+                    <i class="message"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="user">
+                    <img src="../images/a-1.png" />
+                    <div class="arrow"></div>
+                </a>
+                <div class="quit_down">
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-customer"></div>
+                            客户
+                        </a>
+                    </div>
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-help"></div>
+                            使用说明
+                        </a>
+                    </div>
+
+                    <div class="quit_li">
+                        <a>
+                            <div class="quit-icon icon-exit"></div>
+                            </i>
+                            退出登录
+                        </a>
+                    </div>
+            </li>
+        </ul>
+        </div>
+        <!-- 内容部分 contents -->
+        <div class="contents robot-wrap" id="main" v-cloak>
+            <div class="table-tlt robot-title">
+                <i class="i"></i>机器人任务
+                <div class="fr">
+                    <a href="robotAddTask.html" class="btn ">
+                        <i class="icon add"></i> 新建任务</a>
+                </div>
+            </div>
+            <div class="robot-top-box">
+                <div class="robot-search">
+                    <a href="javascript:void(0);" class="filter-btn-gray" @click="filterBtn">
+                        <i class="icon filterGray-icon"></i>筛选</a>
+                    <a href="javascript:void(0);" class="filter-btn-gray" id="custom-header">
+                        自定义表头</a>
+                    <!-- <my-switch size="max" :value="toggle" :disabled="count < 1" color="green" @input="toggleChange" :planid="selectedkeys" ref="switchAll"
+                        v-if="state!=-1&&state!=2"></my-switch> -->
+                    <!-- <div class="robot-btn" v-if="state==2">
+                        <i class="icon icon-delete"></i>
+                        删除
+                    </div> -->
+                </div>
+                <div class="fr robot-tag-box">
+                    <a href="javascript:void(0);" class="robot-tag" :class="state == -1?'robot-tag-active':''" @click="changeState(-1)">全部({{allNum}})</a>
+                    <a href="javascript:void(0);" class="robot-tag" :class="state == 1?'robot-tag-active':''" @click="changeState(1)">进行中({{runningNum}})</a>
+                    <!-- <a href="javascript:void(0);" class="robot-tag" :class="state == 0?'robot-tag-active':''" @click="changeState(0)">暂停({{pauseNum}})</a> -->
+                    <a href="javascript:void(0);" class="robot-tag" :class="state == 2?'robot-tag-active':''" @click="changeState(0)">完成({{stopNum}})</a>
+                    <a href="javascript:void(0);" class="robot-tag" :class="state == 2?'robot-tag-active':''" @click="changeState(2)">终止({{stopNum}})</a>
+                </div>
+            </div>
+            <div class="robot-table">
+                <table class="table-list" id="table-list">
+                    <thead>
+                        <tr>
+                            <!-- <th class="th1" v-if="state != -1">
+                                <i></i>
+                            </th> -->
+                            <th>序号</th>
+                            <th>任务名称</th>
+                            <th v-show="filedShow.creatName">创建人</th>
+                            <th>创建时间</th>
+                            <th v-show="filedShow.startTime">开始执行日期</th>
+                            <th v-show="filedShow.endTime">任务完成日期</th>
+                            <th>已执行天数</th>
+                            <th v-show="filedShow.speechcraftName">话术模板</th>
+                            <th>机器人工作时间段</th>
+                            <th>任务数据文件</th>
+                            <th>机器人数量</th>
+                            <th>任务总数据量</th>
+                            <th>接通量</th>
+                            <th>意向量</th>
+                            <th>任务完成百分比</th>
+                            <th>分配销售</th>
+                            <th>短信发送成功数量</th>
+                            <th>邮件发送成功数量</th>
+                            <th>执行情况</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item,$index in list" :class="item.runState == '2'||item.runState == '0'?'disabled':''">
+                            <!-- <td v-if="state != -1">
+                                <i :cusid="item.robotPlanId"></i>
+                            </td> -->
+                            <td>
+                                {{$index+1}}
+                            </td>
+                            <td>{{item.planName}}</td>
+                            <td v-show="filedShow.creatName">创建人</td>
+                            <td>2018-07-24</td>
+                            <td v-show="filedShow.startTime">2018-07-24</td>
+                            <td v-show="filedShow.endTime">2018-07-24</td>
+                            <td>1</td>
+                            <td v-show="filedShow.speechcraftName">
+                                {{item.speechcraftName}}
+                            </td>
+                            <td>
+                                <div v-for="time in item.workTime.split(',')">{{time}}</div>
+                                <!-- 8:00 - 12:00 -->
+                                <!-- <br/> 13:00 - 18:00 -->
+                            </td>
+                            <td>
+                                {{item.clueGroupNames}}
+                            </td>
+                            <td>
+                                {{item.quantity}}
+                            </td>
+                            <td>
+                                {{item.callsTotal}}
+                            </td>
+                            <td>{{item.dialNum}}</td>
+                            <td>{{item.purposeNum}}</td>
+                            <td>{{ (50/90*100).toFixed(0) + '%'}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{ ['完成','进行中','终止'][item.runState] }}</td>
+                            <td>
+                                <!-- <a :href="item.runState == '2'?'javascript:void(0);':'robotAddTask.html?id=' + item.robotPlanId" class="link" :class="item.runState == '2'?'disabled':''">编辑</a> -->
+                                <a :href="item.runState == '0'?'javascript:void(0);':''" class="link" :class="item.runState == '0'||item.runState == '2'?'disabled':''">终止</a>
+                                <a :href="item.runState == '2'?'javascript:void(0);':''" class="link" :class="item.runState == '0'||item.runState == '2'?'disabled':''">完成</a>
+                                <a :href="'robotDetail.html?id='+item.robotPlanId" class="link">详情</a>
+                                <!-- <my-switch size="max" :value="item.runState == 1" :disabled="item.runState == '2'" :planid="item.robotPlanId" :index="$index"
+                                    color="green" @input="switchChange" ref="switch"></my-switch> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="loading-wrap" v-show="loading">
+                    <div class="table-loading">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="table-none" v-if="list.length == 0 && !loading">
+                    <div class="table-none-box">
+                        <div class="table-none-icon"></div>
+                        <span>没有相关数据</span>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="checkall-view" v-if="state != -1">
+                <div class="check-f" onclick="checkall()">
+                    <i class="checkall"></i>全选</div>
+                <label>已选择
+                    <span class="countRed">{{count}}</span>条</label>
+            </div> -->
+            <!-- 分页 -->
+            <p class="page-p">共{{totalCount}}条</p>
+            <ul class="page-ul">
+                <li @click="setPage(1)">
+                    < </li>
+                        <li v-for="p in pages" v-if="(p>= pageIndex-2 && p<= pageIndex +2) || (pages<=5) ||(pageIndex<3&&p<=5) || (pageIndex > pages-2 && p> pages -5) "
+                            :class="{current:p == pageIndex}" @click="setPage(p)">{{p}}</li>
+
+                        <li @click="setPage(pages)"> ></li>
+            </ul>
+        </div>
+
+        <div class="applyBox filter-box robot-filter-box" id="filter" :style="show == true?'display:block;':'display:none;'">
+            <div class="tlt">
+                <i></i>筛选
+                <a href="javascript:void(0)" class="a-closed" @click="cancle"></a>
+            </div>
+            <div class="filter-content">
+                <div class="filter-list">
+                    <label>任务名称</label>
+                    <input type="text" placeholder="请输入任务名称" v-model="filter.name">
+                </div>
+                <div class="filter-list">
+                    <label>选择模板</label>
+                    <select v-model="filter.speechcraftId">
+                        <option value="">请选择模板</option>
+                        <option v-for="item in speechcraftList" :value="item.id">{{item.name}}</option>
+                    </select>
+                </div>
+                <div class="filter-list">
+                    <label>数据来源</label>
+                    <select v-model="filter.clueGroupIds">
+                        <option value="">请选择数据来源</option>
+                        <option v-for="item in clueGroupList" :value="item.groupId">{{item.groupName}}</option>
+                    </select>
+                </div>
+                <div class="filter-center">
+                    <input type="button" class="btn" value="筛选" @click="filterSubmit" />
+                    <input type="button" class="btn btn-cancel" value="取消" @click="cancle" />
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 自定义表头 customHeader -->
+        <div class="customHeaderBox" id="customHeaderBox">
+            <div class="tlt">
+                <i></i>自定义表头
+                <a href="javascript:;" class="a-closed"></a>
+            </div>
+            <div class="ctdivbox marleft20 fl">
+                <em>隐藏字段</em>
+                <div class="ctchooseBox" id="hiddenField">
+                    <ul id="nofield">
+                    </ul>
+                </div>
+            </div>
+            <i class="remove-icon" id="removeBtn"></i>
+            <i class="add-icon" id="addBtn"></i>
+            <div class="ctdivbox marright40 fr">
+                <em>显示字段</em>
+                <div class="ctchooseBox" id="showField">
+                    <ul id="yesfield">
+                    </ul>
+                </div>
+            </div>
+            <!--
+    <i class="up-icon" id="upBtn"></i>
+    <i class="down-icon" id="downBtn"></i> -->
+            <input type="button" class="btn" onclick="return submithead();" value="提交" id="customBtn">
+        </div>
+
+
+        <template id="mySwitch">
+            <div :class="className" @click="onClick">
+                <span class="open">{{ openName }}</span>
+                <span class="close">{{ closeName }}</span>
+            </div>
+        </template>
+
+        <script>
+            var mySwitch = Vue.extend({
+                template: '#mySwitch',
+                props: {
+                    planid: {
+                        type: String,
+                        default: ''
+                    },
+                    value: {
+                        default: true
+                    },
+                    // sm小 md中 lg大
+                    size: {
+                        type: String,
+                        default: 'md中'
+                    },
+                    // blue red green orange
+                    color: {
+                        type: String,
+                        default: 'green'
+                    },
+                    openName: {
+                        type: String,
+                        default: '开启'
+                    },
+                    closeName: {
+                        type: String,
+                        default: '暂停'
+                    },
+                    disabled: {
+                        type: Boolean,
+                        default: false
+                    },
+                    index: {
+                        type: Number,
+                        default: -1
+                    },
+                },
+                data: function () {
+                    return {
+                        openValue: true,
+                        closeValue: false,
+                        className: {
+                            'vue-switch': true,
+                            'z-on': this.$props.value == true,
+                            'z-disabled': this.$props.disabled == true,
+                            ['s-' + this.$props.size]: true,
+                            ['c-' + this.$props.color]: true
+                        }
+                    }
+                },
+                watch: {
+                    value: function (value) {
+                        this.$data.className['z-on'] = value;
+                    },
+                    disabled: function (val) {
+                        this.$data.className['z-disabled'] = val == true;
+                    }
+                },
+                methods: {
+                    onClick: function () {
+                        if (!this.$props.disabled) {
+                            if (this.$data.openValue == this.$props.value) {
+                                this.$emit('input', { value: this.$data.closeValue, index: this.$props.index, planId: this.$props.planid });
+                            } else {
+                                this.$emit('input', { value: this.$data.openValue, index: this.$props.index, planId: this.$props.planid });
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+
+        <script>
+            var ip = '/proxy/testRobot/';
+            // var ip = 'http://123.57.222.150/testRobot/';
+            var vm = new Vue({
+                el: "#main",
+                data: function () {
+                    return {
+                        toggle: true,
+                        count: 0,
+                        selectedkeys: '',
+                        totalCount: 0,
+                        pages: 1,
+                        pageIndex: 1,
+                        state: -1,
+                        list: [],
+                        filter: {
+                            name: '',
+                            speechcraftId: '',
+                            clueGroupIds: ''
+                        },
+                        loading: false,
+                        allNum: 0,
+                        runningNum: 0,
+                        pauseNum: 0,
+                        stopNum: 0,
+                        filedShow: {
+                            creatName: false,
+                            startTime: false,
+                            endTime: false,
+                            speechcraftName: false
+                        }
+                    }
+                },
+                methods: {
+                    switchChange: function (data) {
+                        this.setSwitch(data.planId, data.value == true ? 1 : 0);
+                        this.$data.list[data.index].runState = data.value == true ? 1 : 0;
+                        console.log(this.$data.selectedkeys);
+                        console.log(data.planId);
+                    },
+                    toggleChange: function (data) {
+                        this.setSwitch(data.planId.substring(0, data.planId.length - 1), data.value == true ? 1 : 0);
+                        this.$data.toggle = data.value;
+                        console.log(this.$data.selectedkeys);
+                    },
+                    setSwitch: function (robotPlanId, state) {
+                        var _self = this;
+                        var robotPlanIds = robotPlanId.split(',');
+                        $.ajax({
+                            type: 'post',
+                            url: ip + "robotPlan/changeRobotPlanState",
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "robotPlanIds": robotPlanIds,
+                                "runState": state
+                            }),
+                            success: function (data) {
+                                if (data.success = true) {
+                                    if (_self.$data.state == 1 || _self.$data.state == 0) {
+                                        for (var i = 0; i < robotPlanIds.length; i++) {
+                                            _self.$data.list.splice(_.findIndex(_self.$data.list, function (n) {
+                                                return n.robotPlanId == robotPlanIds[i];
+                                            }), 1);
+                                        }
+                                    }
+                                    _self.getCount();
+                                }
+                            }
+                        });
+
+                    },
+                    filterBtn: function () {
+                        filterBox.filterState();
+                    },
+                    changeState: function (val) {
+                        if (this.$data.state == val) {
+                            return;
+                        }
+                        this.$data.state = val;
+                        if (val == 1) {
+                            this.$data.toggle = true;
+                        } else if (val == 0) {
+                            this.$data.toggle = false;
+                        }
+                        this.$data.pageIndex = 1;
+                        this.getData();
+                        this.$data.selectedkeys = '';
+                        $("#table-list th i").removeClass('choose-all');
+                    },
+                    getData: function () {
+                        var _self = this;
+                        _self.$data.loading = true;
+                        _self.$data.list = [];
+
+                        $.ajax({
+                            type: 'post',
+                            url: ip + "robotPlan/queryRobotPlansBypage",
+                            // $.post("http://123.57.222.150/testRobot/robotPlan/queryRobotPlansBypage", {
+                            data: JSON.stringify({
+                                planName: _self.$data.filter.name,
+                                speechcraftId: _self.$data.filter.speechcraftId,
+                                clueGroupIds: _self.$data.filter.clueGroupIds,
+                                runState: _self.$data.state == -1 ? '' : _self.$data.state,
+                                "pages": _self.$data.pageIndex,
+                                "pageSize": 20
+                            }),
+                            contentType: 'application/json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.success = true) {
+                                    console.log('机器人列表' + data);
+                                    _self.$data.totalCount = parseInt(data.data.total);
+                                    _self.$data.pages = parseInt(data.data.pages);
+                                    _self.$data.pageIndex = parseInt(data.data.pageNum);
+                                    _self.$data.list = data.data.data;
+                                } else {
+                                    alert("查询失败");
+                                }
+                                _self.$data.loading = false;
+                            }
+                        });
+
+                    },
+                    setPage: function (page) {
+                        if (page == undefined || page == '') {
+                            page = 1;
+                        }
+                        if (page == this.$data.pageIndex) {
+                            return;
+                        }
+                        this.$data.pageIndex = page;
+                        this.getData();
+                    },
+                    getCount: function () {
+                        var _self = this;
+
+                        $.ajax({
+                            type: 'post',
+                            url: ip + "robotPlan/queryRobotPlanCount",
+                            // $.post("http://123.57.222.150/testRobot/robotPlan/queryRobotPlansBypage", {
+                            contentType: 'application/json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.success = true) {
+                                    _self.$data.allNum = data.data.allNum;
+                                    _self.$data.runningNum = data.data.runningNum;
+                                    _self.$data.pauseNum = data.data.pauseNum;
+                                    _self.$data.stopNum = data.data.stopNum;
+                                } else {
+                                    alert("查询失败");
+                                }
+                            }
+                        });
+
+                    }
+                },
+                watch: {
+                    count: function (val) {
+                        if (val > 0) {
+                            this.$data.toggle = this.$data.state == 1 ? true : false;
+                        }
+                    },
+                    selectedkeys: function (val) {
+                        if (val != "") {
+                            this.$data.count = val.substring(0, val.length - 1).split(",").length;
+                        } else {
+                            this.$data.count = 0;
+                            // $(".checkall-view span").text(0);
+                        }
+                    }
+                },
+                mounted: function () {
+                    var _self = this;
+                    $.post(ip + "home/postlogin", {
+                        // $.post("http://123.57.222.150:8080/testRobot/home/postlogin", {
+                        uid: '13611126225',
+                        pwd: '111111'
+                    }, function (data) {
+                        console.log('登录：' + data);
+                    });
+
+                    this.getData();
+                    this.getCount();
+                },
+                directives: {
+                },
+                components: {
+                    'mySwitch': mySwitch
+                }
+            });
+
+            var filterBox = new Vue({
+                el: '#filter',
+                data: function () {
+                    return {
+                        show: false,
+                        filter: {
+                            name: '',
+                            speechcraftId: '',
+                            clueGroupIds: ''
+                        },
+                        clueGroupList: [],
+                        speechcraftList: []
+                    }
+                },
+                methods: {
+                    filterState: function () {
+                        this.$data.show = !this.$data.show;
+                        $(".layer").show();
+                    },
+                    filterSubmit: function () {
+                        this.$data.show = false;
+                        $(".layer").hide();
+                        vm.$data.filter.name = this.$data.filter.name;
+                        vm.$data.filter.speechcraftId = this.$data.filter.speechcraftId;
+                        vm.$data.filter.clueGroupIds = this.$data.filter.clueGroupIds;
+                        vm.$data.pageIndex = 1;
+                        vm.getData();
+                    },
+                    cancle: function () {
+                        this.$data.show = false;
+                        $(".layer").hide();
+                    },
+                    getClue: function () {
+                        var _self = this;
+                        $.ajax({
+                            type: 'post',
+                            url: ip + "/clue/getClueGroup",
+                            contentType: 'application/json',
+                            success: function (data) {
+                                if (data.success == true) {
+                                    _self.$data.clueGroupList = data.data;
+
+                                }
+                            }
+                        });
+                    },
+                    getSpeech: function () {
+                        var _self = this;
+                        $.ajax({
+                            type: 'post',
+                            url: ip + "robotPlan/queryInterlocutions",
+                            contentType: 'application/json',
+                            success: function (data) {
+                                console.log(data);
+                                if (data.success == true) {
+                                    _self.$data.speechcraftList = data.data;
+                                } else {
+                                    alert("查询失败");
+                                }
+                            }
+                        });
+                    }
+                },
+                mounted: function () {
+                    this.getClue();
+                    this.getSpeech();
+                }
+            });
+
+            $(function () {
+                $(".robot-table").height($(window).height() - $(".robot-table").offset().top - 82);
+
+                $('#table-list').on('click', 'td i:not(.tel-icon),th i', function () {
+                    if ($(".check-f").hasClass("checked")) {
+                        $(".check-f").removeClass("checked");
+                    }
+                    $('#table-list td i.choose-right').each(function () {
+                        if (vm.$data.selectedkeys.indexOf($(this).attr("cusid")) == -1) {
+                            vm.$data.selectedkeys += $(this).attr("cusid") + ",";
+                        }
+                    })
+                    $('#table-list td i:not(.tel-icon)').each(function () {
+                        if ($(this).attr("class") == undefined || $(this).attr("class") == "") {
+                            vm.$data.selectedkeys = vm.$data.selectedkeys.replace($(this).attr("cusid") + ",", "");
+                        }
+                    });
+
+                    // vm.$data.selectedkeys = selectedkeys;
+                })
+            });
+            function checkall() {
+                $('#table-list td i.choose-right').each(function () {
+                    $(this).removeClass("choose-right");
+                })
+                $('#table-list th i').removeClass("choosen");
+                $('#table-list th i').removeClass('choose-all');
+
+                if ($(".check-f").hasClass("checked")) {
+                    $(".check-f").removeClass("checked");
+                    vm.$data.count = 0;
+                } else {
+                    $(".check-f").addClass("checked");
+                    vm.$data.count = vm.$data.totalCount;
+                    vm.$data.selectedkeys = '';
+                }
+            }
+
+            $(function () {
+                var tablehead = 'creatName,startTime';
+
+                tablehead = tablehead.split(",");
+
+                var tablekeys = ['creatName', 'startTime', 'endTime', 'speechcraftName'];
+
+                var values = [
+                    '创建人', '开始执行日期', '任务完成日期', '话术模板'];
+                //设置自定义字段
+                //后台传过来的数据
+
+                addTablehead(tablekeys, tablehead, values);
+
+                changeshow(tablehead);
+            });
+            function changeshow(object) {
+                console.log(object);
+                for (var key in vm.$data.filedShow) {
+                    vm.$data.filedShow[key] = false;
+                }
+                for (var i = 0; i < object.length; i++) {
+                    vm.$data.filedShow[object[i]] = true;
+                }
+
+            }
+
+            function submithead() {
+                var head = "";
+                $("#yesfield li").each(function () {
+                    head += $(this).attr("key") + ",";
+                });
+
+                head = head.substring(0, head.length - 1);
+                tablehead = head.split(",")
+                changeshow(tablehead);
+                // $.post("/pc/customer/settablehead", {tablehead: head}, function (data) {
+
+                // })
+            }
+        </script>
+</body>
+
+</html>

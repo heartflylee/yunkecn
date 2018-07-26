@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title></title>
+    <script src="../js/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=nLpN5iKztxIWsPqgwsyrruUG"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btn_Show").click(function () {
+                showMap();
+            });
+        });
+
+        var chartData = [];
+        function showMap() {
+            var startSce = $("#<%=tb_Start.ClientID%>").val();
+            var EndSce = $("#<%=tb_End.ClientID%>").val();
+            var viaArray = $("#<%=tb_via.ClientID%>").val();
+
+            $.ajax({
+                type: "get",
+                data: { startSce: startSce, viaArray: viaArray, EndSce: EndSce },
+                datatype: "json",
+                url: "Handler1.ashx",
+                async: false,
+                success: function (userInfo) {
+                    var abc = $.parseJSON(userInfo);
+                    $.each(abc, function (item, value) {
+                        chartData.push(new BMap.Point(value.lan, value.yan));
+                    })
+                    for (var i = 0; i < chartData.length - 1; i++) {
+                        var startPoint = chartData[i];
+                        var endPoint = chartData[i + 1];
+                        showPath(startPoint, endPoint);
+                    }
+
+                    $.each(abc, function (item, value) {
+                        var firstPoint = new BMap.Point(value.lan, value.yan);
+                        var m1 = new BMap.Marker(firstPoint);
+                        maps.addOverlay(m1);
+                        var lab1 = new BMap.Label(item + 1, { position: firstPoint });
+                        maps.addOverlay(lab1);
+                    });
+
+                }
+            });
+        }
+
+        function showPath(startPoint, EndPoint) {
+            var walking = new BMap.WalkingRoute(map, { renderOptions: { map: map, autoViewport: true } });
+            walking.search(startPoint, EndPoint);
+
+            walking.setSearchCompleteCallback(function (rs) {
+                var abc = rs;
+                var pts = walking.getResults().getPlan(0).getRoute(0).getPath();
+                maps.addOverlay(new BMap.Polyline(pts, { strokeColor: "green", strokeWeight: 2, strokeOpacity: 1 }));
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        起点:
+        <asp:TextBox ID="tb_Start" runat="server"></asp:TextBox>
+        途经点(以"|"进行分隔):
+        <asp:TextBox ID="tb_via" runat="server" Width="295px"></asp:TextBox>
+        终点:
+        <asp:TextBox ID="tb_End" runat="server"></asp:TextBox>
+        <asp:Button ID="Button1" runat="server" Text="确认" OnClick="Button1_Click" />
+        <br />
+        <br /> 结果显示:
+        <asp:Label ID="lb_message" runat="server"></asp:Label>
+    </form>
+    <br />
+    <br />
+    <input id="btn_Show" type="button" value="显示步行路线" /> 步行路径图:
+    <div id="allmap" style=" height:900px; width:1000px">
+
+    </div>
+    <br />
+    <br /> 修改后的路径图:
+    <div id="r-result" style=" height:500px; width:900px">
+    </div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+    var map = new BMap.Map("allmap");
+    map.centerAndZoom(new BMap.Point(118.075367, 24.44583), 15);
+    map.addControl(new BMap.ScaleControl());
+    map.addControl(new BMap.NavigationControl());
+
+
+    var maps = new BMap.Map("r-result");
+    maps.centerAndZoom(new BMap.Point(118.075367, 24.44583), 15);
+    maps.addControl(new BMap.ScaleControl());
+    maps.addControl(new BMap.NavigationControl());
+</script>
