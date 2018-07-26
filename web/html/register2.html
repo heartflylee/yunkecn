@@ -1,126 +1,148 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta http-equiv="x-ua-compatible" content="ie=8" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>团队首页</title>
-		<!--<link rel="stylesheet" href="../css/QapTcha.css" />-->
-		<link rel="stylesheet" href="../css/slide-unlock.css" />
-		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
-		<link href="../css/login.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src="../js/slideunlock.js"></script>
-		<!--[if lt IE 10]>
-		<script src="../js/placeholder.js"></script>
-	<![endif]-->
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>团队首页</title>
+    <!--<link rel="stylesheet" href="../css/QapTcha.css" />-->
+    <link rel="stylesheet" href="../css/slide-unlock.css"/>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/login.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../js/slideunlock.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
 
-	</head>
+</head>
 
-	<body>
-		<div class="login-box reg_box_f">
-			<div class="reg_1">
-				<div class="regist_t">
-					欢迎注册云客企业版
-				</div>
-				<div class="bt_t bt_t1">*为必填项</div>
-				<div class="bt_t error">信息不完整</div>
-				<div class="reg_row">
-					<label class="bt">*</label>
-					<input type="text" placeholder="请输入手机号码" class="f_phone" />
-					<!--<input type="button" class="reg_yzm_btn" value="获取验证码" />-->
-					<label class="phone_red">该手机号已注册，请直接登录</label>
-				</div>
-				<div class="reg_row">
-					<label class="bt">*</label>
-					<input type="text" placeholder="请输入验证码"  />
-					<div class="code-img">
-						<img src=""/>
-					</div>
-				</div>
-				<div class="reg-row">
-					<input type="button" class="btn" value="获取验证码" />
-				</div>
-				<!--<div class="reg_row slider-row">
-					<div id="slider">
-						<div id="slider_bg"></div>
-						<span id="label">>></span> <span id="labelTip">拖动滑块验证</span> </div>
-				</div>-->
-				<div class="reg_row">
-					<label class="bt">*</label>
-					<input type="text" class=" f_yzm" placeholder="请输入手机验证码" />
-				</div>
-				<div class="reg_row">
-					<label class="bt">*</label>
-					<input type="password" placeholder="请输入密码" class="psw f_psw" id="psw" />
-				</div>
-				<div class="reg_row">
-					<label class="bt">*</label>
-					<input type="password" placeholder="请再次输入密码" class="psw1 f_psw1" id="psw1" />
-				</div>
-				<div class="pswerror">两次密码不一致</div>
-				<div class="reg_row">
-					<label class="bt">*</label>
-					<input type="text" placeholder="请输入邀请码" class="" />
-				</div>
-				<div class="statement-check">
-					<input type="checkbox" id="statement" onchange="checkChange(this);" />
-					<label for="statement">
-				<i></i>
-				同意《<a id="statementBtn" href="javascript:;">云客法律声明及隐私权保护协议</a>》
-			</label>
-				</div>
-				<input type="button" class="btn next_btn" id="submit" value="完成注册" />
-				<div class="line"></div>
-				<a class="a-2" href="login.html">已有账号？直接登录</a>
-			</div>
+<body>
+<div class="login-box reg_box_f">
+    <div class="reg_1">
+        <div class="regist_t">
+            欢迎注册云客企业版
+        </div>
+        <div class="bt_t bt_t1">*为必填项</div>
+        <div class="bt_t error">信息不完整</div>
+        <div class="reg_row">
+            <label class="bt">*</label>
+            <input type="text" placeholder="请输入手机号码" class="f_phone"/>
+            <!--<input type="button" class="reg_yzm_btn" value="获取验证码" />-->
+            <label class="phone_red">该手机号已注册，请直接登录</label>
+        </div>
+        <div class="reg_row">
+            <label class="bt">*</label>
+            <input type="text" placeholder="请输入验证码"/>
+            <div class="code-img">
+                <img src=""/>
+            </div>
+        </div>
+        <div class="reg-row">
+            <input type="button" class="btn" value="获取验证码"/>
+        </div>
+        <!--<div class="reg_row slider-row">
+            <div id="slider">
+                <div id="slider_bg"></div>
+                <span id="label">>></span> <span id="labelTip">拖动滑块验证</span> </div>
+        </div>-->
+        <div class="reg_row">
+            <label class="bt">*</label>
+            <input type="text" class=" f_yzm" placeholder="请输入手机验证码"/>
+        </div>
+        <div class="reg_row">
+            <label class="bt">*</label>
+            <input type="text" placeholder="请输入公司名称" id="company"/>
+            <div class="company-list">
+                <a href="javascript:void(0)" class="company-li">北京联云天下科技有限公司</a>
+                <a href="javascript:void(0)" class="company-li">北京联云天下科技有限公司</a>
+                <a href="javascript:void(0)" class="company-li">北京联云天下科技有限公司</a>
+                <a href="javascript:void(0)" class="company-li">北京联云天下科技有限公司</a>
+                <a href="javascript:void(0)" class="company-li">北京联云天下科技有限公司</a>
+                <a href="javascript:void(0)" class="company-li">北京联云天下科技有限公司</a>
+                <a href="javascript:void(0)" class="company-li">北京联云天下科技有限公司</a>
+            </div>
+        </div>
+        <div class="reg_row">
+            <label class="bt">*</label>
+            <input type="password" placeholder="请输入密码" class="psw f_psw" id="psw"/>
+        </div>
+        <div class="reg_row">
+            <label class="bt">*</label>
+            <input type="password" placeholder="请再次输入密码" class="psw1 f_psw1" id="psw1"/>
+        </div>
+        <div class="pswerror">两次密码不一致</div>
+        <div class="reg_row">
+            <label class="bt">*</label>
+            <input type="text" placeholder="请输入邀请码" class=""/>
+        </div>
 
-			<div class="reg_3">
-				<div class="reg_s"></div>
-				<div class="reg_like">
-					<span>恭喜您，注册成功</span>
-				</div>
-				<input type="button" class="btn to_login" value="即刻发现" />
-			</div>
-			<div class="login-tap">
-				-- 找客户，下云客 --
-			</div>
-		</div>
-		<div class="layer"></div>
-		<div class="lay_show statement-f" id="statement-lay">
-			<div class="message_f">
-				<div class="tel-tlt">
-					<i class="i"></i> 云客法律声明及隐私权保护协议
-					<a href="javascript:void(0)" class="a-closed"></a>
-				</div>
-				<div class="statement">
-					<div class="h1">一．产品使用</div>
-					<div class="p">未经云客允许，云客内的任何信息及其任何组成部分不得被重新编辑、复制、仿制、抄袭等用于任何商业活动。如果本公司确认用户行为违法或有损本公司的合法利益，则本公司保留包括但不限于拒绝提供服务、冻结或删除会员帐户、采取相关法律措施的权利。</div>
-					<br />
-					<div class="h1">二．隐私权保护</div>
-					<div class="p">在云客请求用户提供有关个人信息之前，云客会解释这些信息的用途。本公司在合法且经用户同意的前提下，以公平、合法的方式收集必要的用户真实个人资料。</div>
-					<div class="p">本公司有权为安全目的使用您提供的个人资料，诸如监控用户的使用及安全，实施内部控制，以及制备统计数字、进行风险调控。</div>
-					<div class="p">云客将采取合理的安全手段保护用户提供的个人资料，在未得到用户许可之前，不会将用户的任何个人信息提供给任何无关的第三方。</div>
-					<br />
-					<div class="h1">三．信息来源及使用</div>
-					<div class="p">云客中的信息和内容均来源于公开的各大互联网数据平台及用户的授权提供，所有信息都是公开合法且来源可溯，不包括任何个人或企业未公开的私人信息。云客所提供的信息仅供用户参考，不保证信息的准确性、有效性、及时性或完整性，云客不通过数据谋取任何利润。</div>
-					<div class="p">对所有使用云客信息的用户，云客享有监督权。对任何利用云客内部数据从事非法交易，包括但不限于诈骗、骚扰、买卖等形式，一经发现云客有权利立即调查、冻结或删除会员账户，并主动提交公安机关，积极配合公安机关调查。</div>
-					<br />
-					<div class="h1">四．免责声明</div>
-					<div class="p">在法律允许的范围内，本公司不承担用户或任何人士就使用或未能使用云客所提供的信息所引致的任何直接、间接、附带、从属、特殊、惩罚性的损害赔偿（包括但不限于收益、预期利润的损失或失去的业务、未实现预期的节减）。</div>
-					<br/>
-					<div class="p">在法律许可的最大限度内，本公司声明不作出任何明示或暗示的陈述和保证，包括但不限于有关安全性、准确性、完整性、适销性、无侵权的保证。用户应为使用云客承担全部责任和风险。</div>
-				</div>
-			</div>
-		</div>
-		<div class="loading">
+        <div class="statement-check">
+            <input type="checkbox" id="statement" onchange="checkChange(this);"/>
+            <label for="statement">
+                <i></i>
+                同意《<a id="statementBtn" href="javascript:;">云客法律声明及隐私权保护协议</a>》
+            </label>
+        </div>
+        <input type="button" class="btn next_btn" id="submit" value="完成注册"/>
+        <div class="line"></div>
+        <a class="a-2" href="login.html">已有账号？直接登录</a>
+    </div>
 
-		</div>
+    <div class="reg_3">
+        <div class="reg_s"></div>
+        <div class="reg_like">
+            <span>恭喜您，注册成功</span>
+        </div>
+        <input type="button" class="btn to_login" value="即刻发现"/>
+    </div>
+    <div class="login-tap">
+        -- 找客户，下云客 --
+    </div>
+</div>
+<div class="layer"></div>
+<div class="lay_show statement-f" id="statement-lay">
+    <div class="message_f">
+        <div class="tel-tlt">
+            <i class="i"></i> 云客法律声明及隐私权保护协议
+            <a href="javascript:void(0)" class="a-closed"></a>
+        </div>
+        <div class="statement">
+            <div class="h1">一．产品使用</div>
+            <div class="p">
+                未经云客允许，云客内的任何信息及其任何组成部分不得被重新编辑、复制、仿制、抄袭等用于任何商业活动。如果本公司确认用户行为违法或有损本公司的合法利益，则本公司保留包括但不限于拒绝提供服务、冻结或删除会员帐户、采取相关法律措施的权利。
+            </div>
+            <br/>
+            <div class="h1">二．隐私权保护</div>
+            <div class="p">在云客请求用户提供有关个人信息之前，云客会解释这些信息的用途。本公司在合法且经用户同意的前提下，以公平、合法的方式收集必要的用户真实个人资料。</div>
+            <div class="p">本公司有权为安全目的使用您提供的个人资料，诸如监控用户的使用及安全，实施内部控制，以及制备统计数字、进行风险调控。</div>
+            <div class="p">云客将采取合理的安全手段保护用户提供的个人资料，在未得到用户许可之前，不会将用户的任何个人信息提供给任何无关的第三方。</div>
+            <br/>
+            <div class="h1">三．信息来源及使用</div>
+            <div class="p">
+                云客中的信息和内容均来源于公开的各大互联网数据平台及用户的授权提供，所有信息都是公开合法且来源可溯，不包括任何个人或企业未公开的私人信息。云客所提供的信息仅供用户参考，不保证信息的准确性、有效性、及时性或完整性，云客不通过数据谋取任何利润。
+            </div>
+            <div class="p">
+                对所有使用云客信息的用户，云客享有监督权。对任何利用云客内部数据从事非法交易，包括但不限于诈骗、骚扰、买卖等形式，一经发现云客有权利立即调查、冻结或删除会员账户，并主动提交公安机关，积极配合公安机关调查。
+            </div>
+            <br/>
+            <div class="h1">四．免责声明</div>
+            <div class="p">
+                在法律允许的范围内，本公司不承担用户或任何人士就使用或未能使用云客所提供的信息所引致的任何直接、间接、附带、从属、特殊、惩罚性的损害赔偿（包括但不限于收益、预期利润的损失或失去的业务、未实现预期的节减）。
+            </div>
+            <br/>
+            <div class="p">在法律许可的最大限度内，本公司声明不作出任何明示或暗示的陈述和保证，包括但不限于有关安全性、准确性、完整性、适销性、无侵权的保证。用户应为使用云客承担全部责任和风险。</div>
+        </div>
+    </div>
+</div>
+<div class="loading">
 
-		<script type="text/javascript">
-			$(function() {
-				//
-				var setTime;
+</div>
+
+<script type="text/javascript">
+	$(function () {
+		//
+		var setTime;
 //				var slider = new SliderUnlock("#slider", {
 //					successLabelTip: "验证成功"
 //				}, function() {
@@ -145,8 +167,8 @@
 //					}
 //				});
 //				slider.init();
-			
-			
+
+
 //				$(".f_phone").bind("input propertychange", function() {
 //					if($(this).val().length == 11) {
 //						$(".phone_red").show();
@@ -154,127 +176,147 @@
 //						$(".phone_red").hide();
 //					}
 //				});
-				
-				$(".f_phone").blur(function(){
-					if($(this).val().length != 11) {
-						$(".phone_red").show().text("手机号错误，请重新输入");
-					} else {
-						$(".phone_red").hide();
-					}
-				});
 
-				
-				$(".reg_yzm_btn").click(function() {
-					$(".f_phone").removeClass("error");
-					if(!phone_reg.test($(".f_phone").val())) {
-						$(".f_phone").addClass("error");
-						return false;
-					}
-					
+		$(".f_phone").blur(function () {
+			if ($(this).val().length != 11) {
+				$(".phone_red").show().text("手机号错误，请重新输入");
+			} else {
+				$(".phone_red").hide();
+			}
+		});
+
+
+		$(".reg_yzm_btn").click(function () {
+			$(".f_phone").removeClass("error");
+			if (!phone_reg.test($(".f_phone").val())) {
+				$(".f_phone").addClass("error");
+				return false;
+			}
+
 //					$(".slider-row").show();
-					
-				});
 
-				//选择公司名称
-				$(".com_info").click(function() {
-					$(".f_company").val($(this).text());
-					$(".com_f").hide();
-					$(".com_true").show();
-				});
-				//员工选择和取消选择
-				$(".staff li").click(function() {
-					$(this).toggleClass("active");
-				});
-				//下一步
-				var phone_reg = /^1\d{10}$/;
-				$(".next_btn").click(function() {
-					$(".reg_1 input").removeClass("error");
-					$(".pswerror").hide();
-					if($(".psw").val() != $(".psw1").val()) {
-						$(".pswerror").show();
-					}
-					var next_btn_fool = true;
+		});
 
-					if(!phone_reg.test($(".f_phone").val())) {
-						next_btn_fool = false;
-						$(".f_phone").addClass("error");
-					}
-					if($(".f_yzm").val() == "") {
-						next_btn_fool = false;
-						$(".f_yzm").addClass("error");
-					}
+		//选择公司名称
+		$(".com_info").click(function () {
+			$(".f_company").val($(this).text());
+			$(".com_f").hide();
+			$(".com_true").show();
+		});
+		//员工选择和取消选择
+		$(".staff li").click(function () {
+			$(this).toggleClass("active");
+		});
+		//下一步
+		var phone_reg = /^1\d{10}$/;
+		$(".next_btn").click(function () {
+			$(".reg_1 input").removeClass("error");
+			$(".pswerror").hide();
+			if ($(".psw").val() != $(".psw1").val()) {
+				$(".pswerror").show();
+			}
+			var next_btn_fool = true;
 
-					if($(".f_psw").val() == "") {
-						next_btn_fool = false;
-						$(".f_psw").addClass("error");
-					}
-					if($(".f_psw1").val() == "") {
-						next_btn_fool = false;
-						$(".f_psw1").addClass("error");
-					}
-
-					$(".bt_t.bt_t1").show();
-					$(".bt_t.error").hide();
-					if(next_btn_fool) {
-						$(".reg_jindu").addClass("active");
-						$(".reg_1").hide();
-						$(".reg_3").show();
-					} else {
-						$(".bt_t.bt_t1").hide();
-						$(".bt_t.error").show();
-					}
-				});
-
-				//完成注册
-				$(".reg_submit").click(function() {
-					$(".reg_jindu").removeClass("active").addClass("active2");
-					$(".reg_2").hide();
-					$(".reg_3").show();
-				});
-				//查看员工
-				$(".staff_look").click(function() {
-					$(".layer").show();
-					$(".staff_show").show();
-				});
-				$(".layer,.staff_show a.a-closed").click(function() {
-					$(".layer").hide();
-					$(".staff_show").hide();
-				});
-				//即可发现
-				$(".to_login").click(function() {
-					window.location.href = "login.html";
-				});
-
-				$(".layer").click(function() {
-					$(".layer").hide();
-					$(".lay_show").hide();
-				});
-
-				$("#statementBtn").click(function() {
-					console.log("123");
-					$(".layer").show();
-					$("#statement-lay").show();
-				});
-				$("#statement-lay").find("a.a-closed").click(function() {
-					$(".layer").hide();
-					$(".lay_show").hide();
-				});
-			});
-
-			function checkChange(obj) {
-				console.log($(obj).is(":checked"))
-				if(!$(obj).is(":checked")) {
-					$("#submit").addClass("disabled");
-				} else {
-					$("#submit").removeClass("disabled");
-				}
+			if (!phone_reg.test($(".f_phone").val())) {
+				next_btn_fool = false;
+				$(".f_phone").addClass("error");
+			}
+			if ($(".f_yzm").val() == "") {
+				next_btn_fool = false;
+				$(".f_yzm").addClass("error");
 			}
 
-			function clear_row(e) {
-				$(e).parent().remove();
-				$(".add_com").show();
+			if ($(".f_psw").val() == "") {
+				next_btn_fool = false;
+				$(".f_psw").addClass("error");
 			}
-		</script>
-	</body>
+			if ($(".f_psw1").val() == "") {
+				next_btn_fool = false;
+				$(".f_psw1").addClass("error");
+			}
+
+			$(".bt_t.bt_t1").show();
+			$(".bt_t.error").hide();
+			if (next_btn_fool) {
+				$(".reg_jindu").addClass("active");
+				$(".reg_1").hide();
+				$(".reg_3").show();
+			} else {
+				$(".bt_t.bt_t1").hide();
+				$(".bt_t.error").show();
+			}
+		});
+
+		//完成注册
+		$(".reg_submit").click(function () {
+			$(".reg_jindu").removeClass("active").addClass("active2");
+			$(".reg_2").hide();
+			$(".reg_3").show();
+		});
+		//查看员工
+		$(".staff_look").click(function () {
+			$(".layer").show();
+			$(".staff_show").show();
+		});
+		$(".layer,.staff_show a.a-closed").click(function () {
+			$(".layer").hide();
+			$(".staff_show").hide();
+		});
+		//即可发现
+		$(".to_login").click(function () {
+			window.location.href = "login.html";
+		});
+
+		$(".layer").click(function () {
+			$(".layer").hide();
+			$(".lay_show").hide();
+		});
+
+		$("#statementBtn").click(function () {
+			console.log("123");
+			$(".layer").show();
+			$("#statement-lay").show();
+		});
+		$("#statement-lay").find("a.a-closed").click(function () {
+			$(".layer").hide();
+			$(".lay_show").hide();
+		});
+	});
+
+	function checkChange (obj) {
+		console.log($(obj).is(":checked"))
+		if (!$(obj).is(":checked")) {
+			$("#submit").addClass("disabled");
+		} else {
+			$("#submit").removeClass("disabled");
+		}
+	}
+
+	function clear_row (e) {
+		$(e).parent().remove();
+		$(".add_com").show();
+	}
+
+	$(function () {
+		$("#company").click(function (event) {
+			event.stopPropagation();
+		})
+		$("#company").bind("input propertychange", function () {
+			event.stopPropagation();
+			$(".company-list").show();
+		});
+		$("body").on("click", ".company-li", function (event) {
+			event.stopPropagation();
+			$("#company").val($(this).text());
+			$(".company-list").hide();
+		});
+		$("body").click(function () {
+			$(".company-list").hide();
+		})
+
+	})
+
+</script>
+</body>
 
 </html>

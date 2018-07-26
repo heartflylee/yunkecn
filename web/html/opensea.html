@@ -3,19 +3,19 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>企业公海池</title>
+		<title>企业公海</title>
 		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="../css/main.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="../css/head.css" />
 		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
 		<script type="text/javascript" src="../js/main.js"></script>
-		<script type="text/javascript" src="../js/highcharts.js"></script>
+		<!--<script type="text/javascript" src="../js/highcharts.js"></script>-->
 		<link href="../css/hDate.css" rel="stylesheet" />
 		<script type="text/javascript" src="../js/hDate.js"></script>
-		<script type="text/javascript" src="../js/audio.min.js"></script>
-		<script type="text/javascript" src="../js/jquery.audio5js.js"></script>
-		<script type="text/javascript" src="../js/jedate/jedate.min.js" ></script>
-		<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js" ></script>
+		<script type="text/javascript" src="../js/audio.js"></script>
+		<!--<script type="text/javascript" src="../js/jquery.audio5js.js"></script>-->
+		<script type="text/javascript" src="../js/jedate/jedate.js" ></script>
+		<!--<script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js" ></script>-->
 		<!--[if lt IE 10]>
 		<script src="../js/placeholder.js"></script>
 	<![endif]-->
@@ -32,12 +32,24 @@
 			<span class="mar fl">|</span>
 			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
 			<ul class="nav">
-				<li><a href="">首页</a></li>
-				<li><a href="">行动</a></li>
-				<li><a href="" class="current">客户</a></li>
-				<li><a href="">账户</a></li>
-				<li><a href="">任务</a></li>
-				<li><a href="">设置</a></li>
+				<li>
+					<a href="indexnew2.html" >首页</a>
+				</li>
+				<!--<li>-->
+				<!--<a href="">行动</a>-->
+				<!--</li>-->
+				<li>
+					<a href="customer1.html" class="current">客户</a>
+				</li>
+				<li>
+					<a href="download.html" >线索</a>
+				</li>
+				<li>
+					<a href="task.html" >任务</a>
+				</li>
+				<li>
+					<a href="settings.html" id="top-setting">设置</a>
+				</li>
 			</ul>
 			<ul class="header-right fr">
 				<li><a href="javascript:;"><i class="add"></i></a></li>
@@ -46,32 +58,149 @@
 				<li><a href="javascript:;" class="user">刘</a></li>
 			</ul>
 		</div>
+		<!-- 汇总提示 tipArea -->
+		<div class="tipArea">
+			<div class="wrap">
+				<span class="span-1 current" id="filter">筛选<b class="b-icon"></b></span>
+				<span class="span-1" id="custom-header">自定义表头</span>
+				<div class="position-relative searchBox fr">
+					<input type="text" placeholder="请输入姓名、公司、手机号等相关信息" />
+					<a class="search-icon"></a>
+				</div>
+			</div>
+		</div>
+		<!-- 筛选 filterBox -->
+		<div class="filterBox" id="filterBox">
+			<div class="wrap">
+				<p>
+					<label>创建时间</label>
+					<span class="time"><input type="text" id="timetext" readonly="readpnly" /></span>
+					<label>至</label>
+					<span class="time"><input type="text" id="timetext-2" readonly="readpnly" /></span>
+					<label style="margin-left:40px;">联系时间</label>
+					<span class="time"><input type="text" id="timetext-1" readonly="readpnly" /></span>
+					<label>至</label>
+					<span class="time"><input type="text" id="timetext-3" readonly="readpnly" /></span>
+					<!-- <i class="time-icon" id="Text2"></i> -->
+				</p>
+				<script type="text/javascript">
+                    var minday_1;
+                    var maxday_1;
+                    var minday_2;
+                    var maxday_2;
+                    $("#timetext").click(function(e) {
+                        maxday_1 = $("#timetext-2").val();
+                        if (maxday_1 == "") {
+                            maxday_1 = (new Date()).toString("yyyy-MM-dd");
+                        }
+                        var ths = this;
+                        calendar.show({
+                            id: this,
+                            maxDay:maxday_1.toString("yyyy-MM-dd")
+                        });
+                    });
+                    $("#timetext-2").click(function(e) {
+                        minday_1 = $("#timetext").val();
+                        var ths = this;
+                        calendar.show({
+                            id: this,
+                            maxDay:(new Date()).toString("yyyy-MM-dd"),
+                            minDay: minday_1.toString("yyyy-MM-dd")
+                        });
+                    });
+                    $("#timetext-1").click(function(e) {
+                        maxday_2 = $("#timetext-3").val();
+                        if (maxday_2 == "") {
+                            maxday_2 =(new Date()).toString("yyyy-MM-dd");
+                        }
+                        var ths = this;
+                        calendar.show({
+                            id: this,
+                            maxDay:maxday_2.toString("yyyy-MM-dd")
+                        });
+                    });
+
+                    $("#timetext-3").click(function(e) {
+                        minday_2 = $("#timetext-1").val();
+                        var ths = this;
+                        calendar.show({
+                            id: this,
+                            maxDay: (new Date()).toString("yyyy-MM-dd"),
+                            minDay: minday_2.toString("yyyy-MM-dd")
+                        });
+                    });
+				</script>
+				<p>
+					<label>销售进度</label>
+					<select class="Jselect">
+						<option>请选择销售进度</option>
+						<option value="">未沟通</option>
+						<option value="">无需求</option>
+						<option value="">初步沟通</option>
+						<option value="">确认需求</option>
+						<option value="">报价</option>
+						<option value="">面谈</option>
+						<option value="">成交</option>
+						<option value="">输单</option>
+					</select>
+					<label>数据来源</label>
+					<select class="Jselect">
+						<option>请选择数据来源</option>
+					</select>
+					<!--<label>跟进人</label>-->
+					<!--<select class="Jselect">-->
+						<!--<option>请选择跟进人</option>-->
+						<!--<option value="">未分配</option>-->
+						<!--<option value="">艾云鹤</option>-->
+						<!--<option value="">刘晓辉</option>-->
+						<!--<option value="">刘宇</option>-->
+					<!--</select>-->
+				</p>
+				<p>
+					<label>短信状态</label>
+					<select class="Jselect">
+						<option>请选择短信状态</option>
+						<option>销售进度</option>
+						<option>销售进度</option>
+					</select>
+					<label>联系次数</label>
+					<select>
+						<option>请选择联系次数</option>
+						<option value="">1</option>
+						<option value="">2</option>
+						<option value="">6</option>
+						<option value="">9</option>
+					</select>
+					<label>电话结果</label>
+					<select>
+						<option>请选择电话结果</option>
+						<option value="">有意向</option>
+						<option value="">无意向</option>
+						<option value="">资料错误</option>
+						<option value="">二次外呼</option>
+					</select>
+					<label>有意向</label>
+					<select>
+						<option>请选择二级标签</option>
+					</select>
+					<label>超期状态</label>
+					<select>
+						<option>请选择超期状态</option>
+						<option>已超期</option>
+						<option>未超期</option>
+					</select>
+				</p>
+				<input type="button" class="btn" value="保存" id="filterBtn">
+			</div>
+		</div>
 
 		<!-- 内容部分 contents -->
 		<div class="contents">
 			<div class="table-tlt">
-				<a class="return-icon" href=""></a>
-				<i class="i"></i>企业公海池
-				
+				<a class="return-icon" href="customer1.html"></a>
+				<i class="i"></i>企业公海
 				<div class="fr">
-					<div class="position-relative searchBox fl">
-						<input type="text" placeholder="请输入姓名、公司、手机号等相关信息" />
-						<a class="search-icon"></a>
-					</div>
-					<div class="fl source-search-f">
-						<span class="span-4" id="source">来源筛选<b class="b-icon"></b></span>
-						<div class="source-search" id="source-search">
-							<ul>
-								<li>全部<i></i></li>
-								<li>云客推荐<i></i></li>
-								<li>客户导入<i></i></li>
-							</ul>
-						</div>
-					</div>
-					<span class="span-1" id="custom-header">自定义表头</span>
-					<a class="a" id="exporter">导入客户</a>
-					<a class="a" id="add_customer">新建客户</a>
-					<a class="a red" id="deleter">删除</a>
+					<a class="a" >添加到意向池</a>
 				</div>
 			</div>
 			<div class="customer">
@@ -81,400 +210,541 @@
 							<th class="th1"><i></i></th>
 							<th>客户姓名</th>
 							<th>手机号码</th>
-							<th>职位</th>
-							<th>销售进度</th>
-							<th>创建时间</th>
-							<th>跟进人</th>
 							<th>公司名称</th>
-							<th>创建时间</th>
-							<th>跟进人</th>
-							<th>公司名称</th>
+							<th>最后通话</th>
+							<th>通话录音<span class="sort"><b></b></span></th>
+							<th>电话结果</th>
+							<th>电话标签</th>
+							<th>客户备注</th>
+							<th>经营范围</th>
+							<th>沟通状态<span class="overState"></span></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>
-								北京联云天下科技有限公司
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span>
+								<div class="com-tip default">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+								</div>
 							</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-						</tr>
-						<tr>
-							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
+							<td>13300000000</td>
 							<td>
-								北京联云天下科技有限公司
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus2" title="呼出"></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
 							</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+<td>已沟通 <span class="overState"></span></td>
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span><div class="com-tip default">
+								<label class="tip-dian"></label>
+								<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+							</div>
+								<div class="com-tip all">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>客户信息被修改，点击查看详情</span>
+								</div></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus1"  title="呼入未接听" ></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+							</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus3" title="呼入已接听"></span></td>
+							<td></td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span>
+								<div class="com-tip default">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+								</div>
+							</td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus2" title="呼出"></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+							</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span><div class="com-tip default">
+								<label class="tip-dian"></label>
+								<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+							</div>
+								<div class="com-tip all">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>客户信息被修改，点击查看详情</span>
+								</div></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus1"  title="呼入未接听" ></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+							</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus3" title="呼入已接听"></span></td>
+							<td></td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span>
+								<div class="com-tip default">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+								</div>
+							</td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus2" title="呼出"></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+							</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span><div class="com-tip default">
+								<label class="tip-dian"></label>
+								<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+							</div>
+								<div class="com-tip all">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>客户信息被修改，点击查看详情</span>
+								</div></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus1"  title="呼入未接听" ></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+							</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus3" title="呼入已接听"></span></td>
+							<td></td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span>
+								<div class="com-tip default">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+								</div>
+							</td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus2" title="呼出"></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+							</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span><div class="com-tip default">
+								<label class="tip-dian"></label>
+								<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+							</div>
+								<div class="com-tip all">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>客户信息被修改，点击查看详情</span>
+								</div></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus1"  title="呼入未接听" ></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+							</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus3" title="呼入已接听"></span></td>
+							<td></td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span>
+								<div class="com-tip default">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+								</div>
+							</td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus2" title="呼出"></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+							</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span><div class="com-tip default">
+								<label class="tip-dian"></label>
+								<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+							</div>
+								<div class="com-tip all">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>客户信息被修改，点击查看详情</span>
+								</div></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus1"  title="呼入未接听" ></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+							</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus3" title="呼入已接听"></span></td>
+							<td></td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span>
+								<div class="com-tip default">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+								</div>
+							</td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus2" title="呼出"></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+							</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span><div class="com-tip default">
+								<label class="tip-dian"></label>
+								<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+							</div>
+								<div class="com-tip all">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>客户信息被修改，点击查看详情</span>
+								</div></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus1"  title="呼入未接听" ></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+							</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus3" title="呼入已接听"></span></td>
+							<td></td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span>
+								<div class="com-tip default">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+								</div>
+							</td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus2" title="呼出"></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+							</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span><div class="com-tip default">
+								<label class="tip-dian"></label>
+								<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+							</div>
+								<div class="com-tip all">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>客户信息被修改，点击查看详情</span>
+								</div></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus1"  title="呼入未接听" ></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+							</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus3" title="呼入已接听"></span></td>
+							<td></td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span>
+								<div class="com-tip default">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+								</div>
+							</td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus2" title="呼出"></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+							</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span><div class="com-tip default">
+								<label class="tip-dian"></label>
+								<span class="tip-con"><b></b>云客为您补全了客户信息，点击查看详情</span>
+							</div>
+								<div class="com-tip all">
+									<label class="tip-dian"></label>
+									<span class="tip-con"><b></b>客户信息被修改，点击查看详情</span>
+								</div></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus1"  title="呼入未接听" ></span></td>
+							<td>5' 20" <span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label></span>
+							</td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 						<tr>
 							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-						</tr>
-						<tr>
-							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-						</tr>
-						<tr>
-							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-						</tr>
-						<tr>
-							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-						</tr>
-						<tr>
-							<td><i></i></td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>客户姓名</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
-							<td>北京联云天下科技有限公司</td>
+							<td><span class="name" onclick="javascript:showdetail();" style="cursor: pointer;color: #4bc8b9;">徐东成</span></td>
+							<td>13300000000</td>
+							<td>
+								北京联云天下科技有限公司</td>
+							<td>2017-04-24 <span class="callStatus callstatus3" title="呼入已接听"></span></td>
+							<td></td>
+							<td>
+								有意向
+							</td>
+							<td>加微信</td>
+							<td>可视门铃；电子猫眼；监控；楼宇；个人数码；</td>
+							<td>深圳，个人使用，咨询了积分下载客户线索的问题</td>
+							<td>已沟通 <span class="overState"></span></td>
+
 						</tr>
 					</tbody>
 				</table>
+			</div>
+			<div class="checkall-view">
+				<div class="check-f" onclick="checkall();"><i class="checkall"></i>全选</div>
+				<label>已选择<span  style="font-weight:bold;color:red;padding:0 5px 0 5px;">0</span>条</label>
 			</div>
 			<!-- 分页 -->
 			<p class="page-p">共20条</p>
@@ -488,43 +758,7 @@
 			</ul>
 
 		</div>
-		<!-- 导入客户 changer-box -->
-		<div class="changer-box" id="changer-box-2" style="height:330px;">
-			<div class="tlt"><i></i>导入客户
-				<a href="javascript:;" class="a-closed"></a>
-			</div>
-			<input type="text" class="inputBox-1  bg-gray fl" style="height: 28px; width: 450px;" />
-			<div class="resetbox">
-				<input type="file" class="filereset" name="" id="" value="" />
-				<a class="a-resetfile">浏览</a>
-			</div>
-			<div style="clear: both;"></div>
-			<dl class="tip">
-				<dt>使用说明</dt>
-				<dd>1.请上传后缀名为xls的文件；</dd>
-				<dd>2.数据请勿放在合并的单元格中，且导入文件小于2MB；</dd>
-				<dd>3.为保证您导入的客户数据有效，请下载<a href="" class="a-c-gray">客户导入模板</a>，编辑后上传。</dd>
-			</dl>
-			<input type="button" class="btn" value="提交" id="changerBtn-2">
-		</div>
-		<!-- 删除客户 提示 至少选择一项 changer-box -->
-		<div class="changer-box" id="changer-box-3" style=" height: 250px;">
-			<div class="tlt"><i></i>删除客户
-				<a href="javascript:;" class="a-closed"></a>
-			</div>
-			<p class="tip-1">请您至少选择一条数据</p>
-			<input type="button" class="btn" value="确定" id="changerBtn-3">
-		</div>
-		<!-- 删除客户 changer-box -->
-		<div class="changer-box" id="changer-box-1" style=" height: 250px;">
-			<div class="tlt"><i></i>删除客户
-				<a href="javascript:;" class="a-closed"></a>
-			</div>
-			<p class="tip-1">确认要删除所选数据吗？</p>
-			<input type="button" class="btn" value="确定" id="changerBtn-1" style="margin-left: 160px;">
-			<input type="button" class="btn-1" value="取消" id="changerBtn-1-1">
-		</div>
-	
+
 		<!-- 自定义表头 customHeader -->
 		<div class="customHeaderBox" id="customHeaderBox">
 			<div class="tlt"><i></i>自定义表头
@@ -534,13 +768,6 @@
 				<em>隐藏字段</em>
 				<div class="ctchooseBox" id="hiddenField">
 					<ul>
-						<li>创建时间</li>
-						<li>联系时间</li>
-						<li>公司地址</li>
-						<li>公司类型</li>
-						<li>经营范围</li>
-						<li>数据来源</li>
-						<li>备注</li>
 					</ul>
 				</div>
 			</div>
@@ -550,187 +777,777 @@
 				<em>显示字段</em>
 				<div class="ctchooseBox" id="showField">
 					<ul>
-						<li key="customerName">客户姓名</li>
-						<li>手机号</li>
-						<li>职位</li>
-						<li>销售进度</li>
+						<li>姓名</li>
+						<li>手机号码</li>
+						<li>公司名称</li>
+						<li>经营范围</li>
+						<li>客户备注</li>
+						<li>最后通话</li>
+						<li>通话录音</li>
+						<li>电话结果</li>
+						<li>电话标签</li>
 					</ul>
 				</div>
 			</div>
-			<i class="up-icon" id="upBtn"></i>
-			<i class="down-icon" id="downBtn"></i>
+			<!--<i class="up-icon" id="upBtn"></i>-->
+			<!--<i class="down-icon" id="downBtn"></i>-->
 			<input type="button" class="btn" value="提交" id="customBtn">
 		</div>
-		<!-- 客户详情 -->
-		
-		<!--新建客户 -->
-		<div class="applyBox custom_new" id="applyBox-2">
-			<div class="tlt"><i></i>新建客户
-				<a href="javascript:void(0)" class="a-closed"></a>
-			</div>
-			<div class="customer_f">
-				<div class="input_f not_none">
-					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入客户姓名" />
-				</div>
-				<div class="input_f not_none">
-					<input type="text" class="inputBox-1 bg-gray com_input" placeholder="请输入公司名称" />
-					<div class="com_f">
-						<div class="com_info">北京联云天下科技有限公司</div>
-						<div class="com_info">北京联云天下科技有限公司</div>
-						<div class="com_info">北京联云天下科技有限公司</div>
-					</div>
-				</div>
-				<div class="select_city">
-					<select>
-					<option>请选择省市</option>
-					<option>请选择省市</option>
-					<option>请选择省市</option>
-					<option>请选择省市</option>
-					<option>请选择省市</option>
-				</select>
-					<select>
-					<option>请选择城市</option>
-					<option>请选择城市</option>
-					<option>请选择城市</option>
-					<option>请选择城市</option>
-					<option>请选择城市</option>
-				</select>
-					<select>
-					<option>请选择地区</option>
-					<option>请选择地区</option>
-					<option>请选择地区</option>
-					<option>请选择地区</option>
-					<option>请选择地区</option>
-				</select>
-				</div>
-				<div class="input_f">
-					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入详细地址" />
-				</div>
-				<div class="input_f not_none telephone existing">
-					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入手机号码" />
-				</div>
-				<div class="input_f">
-					<input type="text" class="inputBox-1 bg-gray" placeholder="请输入职位" />
-				</div>
-				<div class="add_more">
-					<a>输入更多信息>></a>
-				</div>
-				<div class="custom_more">
-					<div class="input_f">
-						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入手机号码2" />
-					</div>
-					<div class="input_f">
-						<select class="select_row">
-						<option>请选择企业资质</option>
-						<option>请选择企业资质</option>
-						<option>请选择企业资质</option>
-						<option>请选择企业资质</option>
-					</select>
-					</div>
-					<div class="input_f">
-						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入经营范围" />
-					</div>
-					<div class="input_f">
-						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入座机号码" />
-					</div>
-					<div class="input_f">
-						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入邮箱地址" />
-					</div>
-					<div class="input_f">
-						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入QQ号码" />
-					</div>
-					<div class="input_f">
-						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入微信号码" />
-					</div>
-					<div class="input_f">
-						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入生日" />
-					</div>
-					<div class="input_f">
-						<input type="text" class="inputBox-1 bg-gray" placeholder="请输入前台电话号码" />
-					</div>
-					<div class="input_f">
-						<textarea class="textarear_customer" placeholder="请输入备注"></textarea>
-					</div>
-				</div>
-			</div>
-			<input type="button" class="btn" value="提交" id="">
-		</div>
-		
-		<div class="applyBox sea-content" id="sea-content">
-			<div class="tlt"><i></i>公海池变动
-				<a href="javascript:void(0)" class="a-closed"></a>
-			</div>
-			<div class="sea-con">
-				<div class="ser-clues clearfix">
-					<span>昨日被领取线索</span>
-					<div class="cluse-count">
-						<label>300</label>条
-					</div>
-				</div>
-				<div class="ser-clues clearfix">
-					<span>被退回线索</span>
-					<div class="cluse-count return">
-						<label>300</label>条
-					</div>
-				</div>
-					
-			</div>
-			<div class="btn-f">
-				<input type="button" class="btn submit" value="提交" id="">
-				<input type="button" class="btn cancle" value="设置领取权限" id="" />
-			</div>
-			
-		</div>
-		
-		<script type="text/javascript">
+        <!-- 客户详情 -->
+        <div class="introLayerBox" id="introLayerBox">
+            <div class="tel-tlt">
+                <i class="i"></i> 客户详情
+                <div class="time_btn">
+                    <label class="time_modify"><i></i>编辑</label>
+                    <label class="time_save">保存</label>
+                </div>
+                <a href="javascript:;" class="a-closed"></a>
+            </div>
+            <p class="p-infro"><i class="i-user"></i><em>王佳印</em><span class="time_name">姓名：<input type="text" class="time_name_input" value="王佳印" /></span><b>总经理</b><span class="time_marjor">职位：<b></b><input type="text" class="time_marjor_input" value="总经理" /></span>
+                <span class="infro-tab infro-tab4">二次外呼</span>
+            </p>
+            <p class="p-infro"><i class="i-telphone"></i>手机号码：<b><input type="text" class="modify_input" readonly="readonly" value="13601129728" /></b></p>
+            <p class="p-infro"><i class="i-company"></i>公司名称：<b><label class="com-dian"><span class=""></span></label><input type="text" class="modify_input modify-com" readonly="readonly" value="北京联云天下科技有限公司" /></b></p>
+            <div class="time-com-f">
+                <div class="com_info">北京联云天下科技有限公司</div>
+                <div class="com_info">北京联云天下科技有限公司</div>
+                <div class="com_info">北京联云天下科技有限公司</div>
+            </div>
+            <ul class="introTab fl" id="introTab">
+                <li>
+                    <a href="javascript:;" class="current">时间轴</a>
+                </li>
+                <li>
+                    <a href="javascript:;">详细信息</a>
+                </li>
+            </ul>
+            <div class="clear"></div>
+            <div id="timelinediv" class="introContent" style="display: block">
+                <div class='tlt-time'>02-06 星期一</div>
+                <dl class='timeBase-dl'>
+                    <dt>
+                        11:32
+                        <span>上午</span>
+                        <i class='i-t-out'></i>
+                    </dt>
+                    <dd>
+                        <div class='span-2'>
+							<span class="enter">
+								136011129728
+							</span>
+                            进行电话沟通
+                        </div>
+                        <span class='span-3'>
+							<em>通话录音：</em>
+							<span class='audio_f'>
+								<label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label>
+								0' 15"
+							</span>
+						</span>
+                        <span class='span-3'>
+							<em>电话备注： </em>
+							<span>
+									张总你好张总你好张总你好张总你好张总你好张总你好
+							</span>
+						</span>
+                    </dd>
+                </dl>
+                <dl class='timeBase-dl'>
+                    <dt>
+                        11:32
+                        <span>上午</span>
+                        <i class='i-t-in'></i>
+                    </dt>
+                    <dd>
+                        <div class='span-2'>呼入电话</div>
+                        <span class='span-3'>
+							<em>接听人： </em>
+							<span class='mg125'>刘宇</span>
+						</span>
+                        <span class='span-3'><em>通话录音 ：  </em>
+							<span class='audio_f'><label cusname='' cuscompany='' url='http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/tel-record-2017-02-2778EF0A3DE8EA450682CC5E30C47F42CA.mp3' class='play mgr5 audio' title='点击播放'></label>0' 15"</span>
+						</span>
+                        <span class='span-3'>
+							<em>电话备注： </em>
+							<span>公交卡</span>
+						</span>
+                    </dd>
+                </dl>
+                <div class="tlt-time">05-06 Fri</div>
+                <dl class="timeBase-dl">
+                    <dt>
+                        15:46
+                        <span>PM</span>
+                        <i class="i-b"></i>
+                    </dt>
+                    <dd>
+                        <div class="span-2">
+                            <span>刘宇</span>
+                            添加客户备注
+                        </div>
+                        <span class="span-3">
+							<em>备注：</em>
+							<span>
+								备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注
+							</span>
+						</span>
+                    </dd>
+                </dl>
+                <dl class="timeBase-dl">
+                    <dt>
+                        15:46
+                        <span>PM</span>
+                        <i class="i-b"></i>
+                    </dt>
+                    <dd>
+                        <div class="span-2">
+                            <span>刘宇</span>
+                            修改了客户信息
+                        </div>
+                        <span class="span-3">
+							<span class="change-before">"销售进度：初步沟通"</span>
+							修改为
+							<span class="change-after">"销售进度：确认报价"</span>
+						</span>
+                    </dd>
+                </dl>
+                <dl class="timeBase-dl">
+                    <dt>
+                        15:46
+                        <span>PM</span>
+                        <i class="i-m"></i>
+                    </dt>
+                    <dd>
+                        <div class="span-2">
+                            <span class="enter">刘晓辉</span>
+                            发送挂机短信
+                        </div>
+                        <span class="span-3">
+							<em>发送状态：</em>
+							<span class="line-status">发送成功</span>
+						</span>
+                        <span class="span-3">
+							<em>短信标题：</em>
+							<span>拉新短信0502</span>
+						</span>
+                        <span class="span-3">
+							<em>短信内容：</em>
+							<span>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</span>
+						</span>
+                    </dd>
+                </dl>
+                <dl class="timeBase-dl">
+                    <dt>
+                        15:46
+                        <span>PM</span>
+                        <i class="i-m"></i>
+                    </dt>
+                    <dd>
+                        <div class="span-2">
+                            <span>刘晓辉</span>
+                            发送短信
+                        </div>
+                        <span class="span-3">
+							<em>发送状态：</em>
+							<span class="line-status">发送成功</span>
+						</span>
+                        <span class="span-3">
+							<em>发送内容：</em>
+							<span>内容内容内容内容内容内容内容内容内容内容内容内容</span>
+						</span>
+                    </dd>
+                </dl>
+
+                <dl class="timeBase-dl">
+                    <dt>
+                        15:46
+                        <span>PM</span>
+                        <i class="i-b"></i>
+                    </dt>
+                    <dd>
+                        <div class="span-2">
+                            <span>刘宇</span>
+                            添加客户
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="timeBase-dl">
+                    <dt>
+                        15:46
+                        <span>PM</span>
+                        <i class="i-b"></i>
+                    </dt>
+                    <dd>
+                        <div class="span-2">
+                            <span>刘宇</span>
+                            修改了客户信息
+                        </div>
+                        <span class="span-3">
+							<span class="change-before">"公司名称：北京联云"</span>
+							修改为
+							<span class="change-after">"公司名称：北京联云天下科技有限公司"</span>
+						</span>
+                        <span class="span-3">
+							<span class="change-before">"职位：销售"</span>
+							修改为
+							<span class="change-after">"职位：切图师傅"</span>
+						</span>
+                    </dd>
+                </dl>
+                <dl class="timeBase-dl">
+                    <dt>
+                        15:46
+                        <span>PM</span>
+                        <i class="i-m"></i>
+                    </dt>
+                    <dd>
+                        <div class="span-2">
+                            <span class="enter">刘晓辉</span>
+                            收到一条短信
+                        </div>
+                        <span class="span-3">
+							<em>短信内容：</em>
+							<span>内容内容内容内容内容内容内容内容</span>
+						</span>
+                    </dd>
+                </dl>
+                <dl class="timeBase-dl">
+                    <dt>
+                        15:46
+                        <span>PM</span>
+                        <i class="i-t"></i>
+                    </dt>
+                    <dd>
+                        <div class="span-2">
+                            <span class="enter">刘晓辉</span>
+                            未接来电
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="timeBase-dl">
+                    <dt>
+                        15:43
+                        <span>PM</span>
+                        <i class="i-c"></i>
+                    </dt>
+                    <dd>
+                        <div class="span-2">变更跟进人</div>
+                        <span class="span-3">
+							<div>变更前</div>
+							<em>跟进人：</em>
+							<span>刘晓辉</span>
+						</span>
+                        <span class="span-3">
+							<div>变更后</div>
+							<em>跟进人：</em>
+							<span>刘宇</span>
+						</span>
+                    </dd>
+                </dl>
+                <dl class="timeBase-dl">
+                    <dt>
+                        15:43
+                        <span>PM</span>
+                        <i class="i-m"></i>
+                    </dt>
+                    <dd>
+                        <div class="span-2">
+                            群发邮件
+                        </div>
+                        <span class="span-3">
+							<em>邮件标题：</em>
+							<span>拉新邮件0502</span>
+						</span>
+                    </dd>
+                </dl>
+                <dl class="timeBase-dl">
+                    <dt>
+                        15:43
+                        <span>PM</span>
+                        <i class="i-m"></i>
+                    </dt>
+                    <dd>
+                        <div class="span-2">
+                            <span class="enter">刘晓辉</span>
+                            发送邮件
+                        </div>
+                        <span class="span-3">
+							<em>邮件标题：</em>
+							<span>拉新邮件0502</span>
+						</span>
+                    </dd>
+                </dl>
+                <dl class="timeBase-dl">
+                    <dt>
+                        15:43
+                        <span>PM</span>
+                        <i class="i-t"></i>
+                    </dt>
+                    <dd>
+                        <div class="span-2">
+                            <span>刘宇</span>
+                            未接来电
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="timeBase-dl">
+                    <dt>
+                        15:43
+                        <span>PM</span>
+                        <i class="i-d"></i>
+                    </dt>
+                    <dd>
+                        <div class="span-2">
+                            <span>刘宇</span>
+                            删除此客户
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="timeBase-dl">
+                    <dt>
+                        15:43
+                        <span>PM</span>
+                        <i class="i-m"></i>
+                    </dt>
+                    <dd>
+                        <div class="span-2">
+                            群发短信
+                        </div>
+                        <span class="span-3">
+							<em>发送状态：</em>
+							<span class="line-status">发送成功</span>
+						</span>
+                        <span class="span-3">
+							<em>短信标题：</em>
+							<span>拉新短信0502</span>
+						</span>
+                        <span class="span-3">
+							<em>短信内容：</em>
+							<span>内容内容内容内容内容内容内容内容</span>
+						</span>
+                    </dd>
+                </dl>
+            </div>
+            <div class="introContent">
+
+                <div class="message-list">
+                    <div class="message-title">
+                        跟进信息
+                    </div>
+
+                    <dl class="time_li clearfix">
+                        <dt>客户备注：</dt>
+                        <dd><textarea readonly="readonly">收集了企业端客户的基本使用资料</textarea></dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>跟进人:</dt>
+                        <dd>刘宇</dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>创建时间:</dt>
+                        <dd>2017-02-27</dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>销售进度:</dt>
+                        <dd>
+                            <input type="text" value="初步沟通" class="select_t" readonly="readonly" />
+                            <select class="select_c">
+                                <option>请选择销售进度</option>
+                                <option>初步沟通</option>
+                                <option>确认需求</option>
+                                <option>确认报价</option>
+                                <option>拟定合同</option>
+                                <option>成单</option>
+                            </select>
+                        </dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>电话标签:</dt>
+                        <dd>
+                            <input type="text" value="有意向-加微信" class="select_t" readonly="readonly" />
+                            <select class="select_c">
+                                <option>请选择电话标签</option>
+                                <option>有意向-发短信</option>
+                            </select>
+                        </dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>录入人2:</dt>
+                        <dd><input type="text" value="刘晓辉" readonly="readonly" /></dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>录入人3:</dt>
+                        <dd><input type="text" value="陈博" readonly="readonly" /></dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>录入人4:</dt>
+                        <dd><input type="text" value="王克杰" readonly="readonly" /></dd>
+                    </dl>
+                </div>
+
+                <div class="message-list">
+                    <div class="message-title">
+                        个人信息
+                    </div>
+
+                    <dl class="time_li clearfix">
+                        <dt>邮箱地址:</dt>
+                        <dd><input type="text" value="382087754@qq.com" readonly="readonly" /></dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>QQ:</dt>
+                        <dd><input type="text" value="382087754" readonly="readonly" /></dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>微信:</dt>
+                        <dd><input type="text" readonly="readonly" value="13601129728" /></dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>手机号码2：</dt>
+                        <dd><input type="text" value="13601129728" readonly="readonly" /></dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>性别：</dt>
+                        <dd>
+                            <select class="select_c">
+                                <option value="">请选择性别</option>
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>生日:</dt>
+                        <dd><input type="text" readonly="readonly" value="1984年12月13日" /></dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>座机号码:</dt>
+                        <dd><input type="text" readonly="readonly" value="010-55555555" /></dd>
+                    </dl>
+
+                    <dl class="time_li clearfix">
+                        <dt>传真号码:</dt>
+                        <dd><input type="text" readonly="readonly" value="010-55555555" /></dd>
+                    </dl>
+                </div>
+
+                <div class="message-list">
+                    <div class="message-title">
+                        公司信息
+                    </div>
+                    <dl class="time_li clearfix">
+                        <dt>公司地址:</dt>
+                        <dd><textarea readonly="readonly">北京市朝阳区建外soho西区12号楼2704</textarea></dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>公司类型:</dt>
+                        <dd>
+                            <input type="text" value="私营企业" class="select_t" readonly="readonly" />
+                            <select class="select_c">
+                                <option>请选择公司类型</option>
+                                <option>私营企业</option>
+                                <option>国有企业</option>
+                            </select>
+                        </dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>经营范围:</dt>
+                        <dd><textarea readonly="readonly">爬行垫；安全座椅；画板；</textarea></dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>企业法人:</dt>
+                        <dd><input type="text" readonly="readonly" value="刘晓红" /></dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>注册资本:</dt>
+                        <dd><input type="text" readonly="readonly" value="100万人民币" /></dd>
+                    </dl>
+                    <dl class="time_li clearfix">
+                        <dt>前台号码:</dt>
+                        <dd><input type="text" readonly="readonly" value="010-55555555" /></dd>
+                    </dl>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="applyBox  com-completion" id="com-completion">
+            <div class="tlt"><i></i>公司信息补全
+                <a href="javascript:void(0)" class="a-closed"></a>
+            </div>
+            <div class="layer_tip com_tip">
+                <i class="tip-green"></i>云客已为您更新了客户信息，请点击查看
+            </div>
+            <div class="btn-f">
+                <input type="button" class="btn" value="立即查看" id="update-btn">
+                <input type="button" class="btn cancle" value="取消" id=" 5">
+            </div>
+        </div>
+        <div class="applyBox  com-completion" id="com-tips">
+            <div class="tlt"><i></i>公司信息补全
+                <a href="javascript:void(0)" class="a-closed"></a>
+            </div>
+            <div class="layer_tip com_tip">
+                <i class="tip-red"></i>云客为您找到了该客户更全面的信息
+            </div>
+            <div class="btn-f">
+                <input type="button" class="btn" id="com-btn" value="立即查看" />
+                <input type="button" class="btn cancle" value="取消" id=" 4">
+            </div>
+        </div>
+
+        <div class="applyBox  custom_new" id="completion">
+            <div class="tlt"><i></i>公司信息补全
+                <a href="javascript:void(0)" class="a-closed"></a>
+            </div>
+            <div class="customer_f">
+                <div class="message-li clearfix">
+                    <div class="com-l">
+                        姓名：
+                    </div>
+                    <div class="com-r">
+                        刘晓辉
+                    </div>
+                </div>
+                <div class="message-li clearfix">
+                    <div class="com-l">
+                        手机号：
+                    </div>
+                    <div class="com-r">
+                        13601129728
+                    </div>
+                </div>
+                <div class="message-li clearfix">
+                    <div class="com-l">
+                        职位：
+                    </div>
+                    <div class="com-r">
+                        董事长
+                    </div>
+                </div>
+                <div class="message-li clearfix">
+                    <div class="com-l">
+                        邮箱：
+                    </div>
+                    <div class="com-r">
+                        3282087754@qq.com
+                    </div>
+                </div>
+                <div class="message-li clearfix">
+                    <div class="com-l">
+                        公司名称：
+                    </div>
+                    <div class="com-r">
+                        <input type="text" class="com-input" id="com-input" value="联云天下" />
+                        <div class="com-f" id="com-f">
+                            <div class="com-check">
+                                北京联云天下科技有限公司
+                            </div>
+                            <div class="com-check">
+                                北京联云天下科技有限公司
+                            </div>
+                            <div class="com-check">
+                                北京联云天下科技有限公司
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="com-con" id="com-con1">
+                    <div class="com-li clearfix">
+                        <div class="com-l">企业法人：</div>
+                        <div class="com-r">
+                            江燕
+                        </div>
+                    </div>
+                    <div class="com-li clearfix">
+                        <div class="com-l">注册资本：</div>
+                        <div class="com-r">
+                            30万人民币
+                        </div>
+                    </div>
+                    <div class="com-li clearfix">
+                        <div class="com-l">企业类型：</div>
+                        <div class="com-r">
+                            有限责任公司（自然人独资）
+                        </div>
+                    </div>
+                    <div class="com-li clearfix">
+                        <div class="com-l">经营范围：</div>
+                        <div class="com-r">
+                            技术开发、技术转让、技术服务、技术咨询；市场调查；经济贸易咨询；教育咨询；文化咨询；计算机技术培训；维修仪器仪表、维修办公设备；销售电子产品、家用电器、计算机、然间及辅助设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bt-btn-f">
+                <input type="button" class="btn" value="保存" id=" 3">
+            </div>
+        </div>
+        <div class="applyBox  custom_new" id="com-update">
+            <div class="tlt"><i></i>公司信息更新
+                <a href="javascript:void(0)" class="a-closed"></a>
+            </div>
+            <div class="customer_f">
+                <div class="com-con update-f">
+                    <div class="com-li clearfix">
+                        <div class="com-l">公司名称：</div>
+                        <div class="com-r">
+                            北京希林宇森电子技术有限公司
+                        </div>
+                    </div>
+                    <div class="com-li clearfix">
+                        <div class="com-l">公司地址：</div>
+                        <div class="com-r">
+                            北京市海淀区北洼路90号16号楼1103室
+                        </div>
+                    </div>
+                    <div class="com-li clearfix">
+                        <div class="com-l">企业法人：</div>
+                        <div class="com-r">
+                            江燕
+                        </div>
+                    </div>
+                    <div class="com-li clearfix">
+                        <div class="com-l">注册资本：</div>
+                        <div class="com-r">
+                            30万人民币
+                        </div>
+                    </div>
+                    <div class="com-li clearfix">
+                        <div class="com-l">企业类型：</div>
+                        <div class="com-r">
+                            有限责任公司（自然人独资）
+                        </div>
+                    </div>
+                    <div class="com-li clearfix">
+                        <div class="com-l">经营范围：</div>
+                        <div class="com-r">
+                            技术开发、技术转让、技术服务、技术咨询；市场调查；经济贸易咨询；教育咨询；文化咨询；计算机技术培训；维修仪器仪表、维修办公设备；销售电子产品、家用电器、计算机、然间及辅助设备、通讯设备。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bt-btn-f">
+                <input type="button" class="btn" value="替换" id=" 2">
+                <input type="button" class="btn cancle" value="取消" id=" 1">
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+
+            function checkall() {
+                if($(".check-f").hasClass("checked")) {
+                    $(".check-f").removeClass("checked");
+                } else {
+                    $(".check-f").addClass("checked");
+                }
+            }
 			$(function() {
-				
-//				new tqEditor('e2',{toolbar:'full',width:'100%',resize:false,height:"150px"});
-				
+
 				$(".customer").height($(window).height()-$(".customer").offset().top-80);
 				$(".customer").css({"overflow":"auto"});
-				
-				$("#add_customer").click(function() {
-					$(".layer").show();
-					$("#applyBox-2").show();
-				});
-				$(".add_more a").click(function() {
-					$(".custom_more").show();
-					$(".add_more").hide();
-				});
-			
-			//来源筛选
-			$("#source").click(function(){
-				$("#source-search").show();
+
 			});
-			$(window).click(function(){
-				$("#source-search").hide();
-			});
-			$("#source,#source-search").click(function(){
-				event.stopPropagation();
-			});
-		
-			
-			$("#source-search li").click(function(){
-				$("#source-search li").removeClass("active");
-				$(this).addClass("active");
-			});
-				
-			//公海池变动
-			$("#sea-content").show();
-			$(".layer").show();
-			
-			//公海池变动的关闭和提交
-			$("#sea-content a.a-closed,#sea-content .btn.submit").click(function(){
-				$("#sea-content").hide();
-				$(".layer").hide();
-			});
-				
-				$("#sea-content .btn.cancle").click(function(){
-					window.location.href="";
-				});
-				
-			});
+
+            function showdetail(){
+                $("#introLayerBox").show();
+                $('.layer').show();
+            }
+
+
+            $(".com_input").bind("input propertychange", function() {
+                if($(this).val().length > 0) {
+                    $(".com_f").show();
+                } else {
+                    $(".com_f").hide();
+                }
+            });
+            $(window).click(function() {
+                $(".com_f").hide();
+            });
+            $(".com_f,.com_input").click(function() {
+                event.stopPropagation();
+            });
+            //选择公司
+            $(".com_f .com_info").click(function() {
+                $(".com_input").val($(this).text().trim());
+                $(".com_f").hide();
+                $("#com-con").show();
+            });
+
+            $(".com-tip.all .tip-dian").click(function() {
+                $(".layer-6").show();
+                $("#com-tips").show();
+            });
+
+            $(".com-tip.default .tip-dian").click(function() {
+                //时间轴
+                $(".introLayerBox").show();
+                $(".layer").show();
+
+//					$(".layer-6").show();
+//					$("#com-completion").show();
+            });
+
+            $(".layer-6,.com-completion a.a-closed,.com-completion .btn.cancle").click(function() {
+                $(".layer-6").hide();
+                $(".com-completion").hide();
+                $(".custom_new").hide();
+            });
+
+            $(".modify-com").bind("input propertychange", function() {
+                if($(this).val().length > 0) {
+                    $(".time-com-f").show();
+                } else {
+                    $(".time-com-f").hide();
+                }
+            });
+            $(window).click(function() {
+                $(".time-com-f").hide();
+            });
+            $(".time-com-f,.modify-com").click(function() {
+                event.stopPropagation();
+            });
+            //选择公司
+            $(".time-com-f .com_info").click(function() {
+                $(".modify-com").val($(this).text().trim());
+                $(".time-com-f").hide();
+            });
+
+            //立即查看
+            $("#com-btn").click(function() {
+                $("#completion").show();
+                $("#com-tips").hide();
+                $("#com-input").focus();
+                $("#com-f").show();
+                $("#com-con1").hide();
+            });
+            //选择公司并显示公司信息
+            $("#com-f .com-check").click(function() {
+                $("#com-input").val($(this).text().trim());
+                $("#com-f").hide();
+                $("#com-con1").show();
+            });
+
+            //关闭补全信息弹框
+            $("#completion a.a-closed").click(function() {
+                $("#completion").hide();
+                $(".layer-6").hide();
+            });
+
+            //更新公司信息的立即查看
+            $("#update-btn").click(function() {
+                $("#com-completion").hide();
+                $("#com-update").show();
+            });
+            $("#com-update a.a-closed,#com-update .btn.cancle").click(function() {
+                $("#com-update").hide();
+                $(".layer-6").hide();
+            });
+
 		</script>
 	</body>
 </html>

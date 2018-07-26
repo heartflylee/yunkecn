@@ -64,7 +64,7 @@
 					b.loadingClass);
 				g[h].helpers.addClass(this.wrapper, b.errorClass);
 				//				a.innerHTML = 'Error loading: "' + this.mp3 + '"'
-				a.innerHTML = '加载失败'
+				a.innerHTML = '正在上传，请稍后'
 			},
 			init: function() {
 				g[h].helpers.addClass(this.wrapper, this.settings.createPlayer.loadingClass)

@@ -162,6 +162,7 @@ window.console && (console = console || {log : function(){return;}});
 		this.opts = opts;
 		this.valCell = elem;
 		this.init();
+        // jeDate.init();
 	}
 	var jedfn = jeDate.prototype;
 	jedfn.init = function(){
@@ -209,7 +210,7 @@ window.console && (console = console || {log : function(){return;}});
 	jedfn.orien = function(obj, self, pos) {
 		var tops, leris, ortop, orleri, rect = jet.fixed ? self[0].getBoundingClientRect() : obj[0].getBoundingClientRect();
 		if(jet.fixed) {
-			leris = rect.right + obj.outerWidth() / 1.5 >= jet.winarea(1) ? rect.right - obj.outerWidth() : rect.left + (pos ? 0 : jet.docScroll(1));
+			leris = rect.right + obj.outerWidth() >= jet.winarea(1) ? rect.right - obj.outerWidth() : rect.left + (pos ? 0 : jet.docScroll(1));
 			tops = rect.bottom + obj.outerHeight() / 1 <= jet.winarea() ? rect.bottom - 1 : rect.top > obj.outerHeight() / 1.5 ? rect.top - obj.outerHeight() - 1 : jet.winarea() - obj.outerHeight();
 			ortop = Math.max(tops + (pos ? 0 :jet.docScroll()) + 1, 1) + "px", orleri = leris + "px";
 		}else{
@@ -519,6 +520,7 @@ window.console && (console = console || {log : function(){return;}});
 				tipDiv.html(tiphtml + tiptext);
 				//获取并设置农历提示框出现的位置
 				var tipPos = jedfn.nongliorien(tipDiv, _this);
+			
 				tipDiv.css({"z-index":  (opts.zIndex == undefined ? 2099 + 5 : opts.zIndex + 5),top:tipPos.top,left:tipPos.left,position:"absolute",display:"block"});
 			}).on( "mouseout", function () { //鼠标移除提示框消失
 				if($("#jedatetipscon").length > 0) $("#jedatetipscon").remove();
@@ -704,7 +706,9 @@ window.console && (console = console || {log : function(){return;}});
 				var toTime = [ newDate.getFullYear(), newDate.getMonth() + 1, newDate.getDate(), newDate.getHours(), newDate.getMinutes(), newDate.getSeconds() ],
 					gettoDate = jet.parse([ toTime[0], toTime[1], toTime[2] ], [ toTime[3], toTime[4], toTime[5] ], jet.format);
 				that.createDaysHtml(toTime[0], toTime[1], opts);
-				jet.isValHtml(elemCell) ? elemCell.val(gettoDate) :jet.text(gettoDate);
+				console.log(gettoDate);
+				console.log(elemCell);
+				jet.isValHtml(elemCell) ? elemCell.val(gettoDate) :elemCell.text(gettoDate);
 				that.dateClose();
 				if ($.isFunction(opts.choosefun) || opts.choosefun != null) opts.choosefun(elemCell,gettoDate);
 				if (!isYYMM) that.chooseDays(opts);
@@ -809,7 +813,7 @@ window.console && (console = console || {log : function(){return;}});
 
 			jet.isValHtml(elemCell) ? elemCell.val(okVal) :elemCell.text(okVal);
 			that.dateClose();
-			if ($.isFunction(opts.okfun) || opts.okfun != null) opts.okfun(jet.elemCell,okVal);
+			if ($.isFunction(opts.okfun) || opts.okfun != null) opts.okfun(elemCell,okVal);
 		});
 		//点击空白处隐藏
 		$(document).on("mouseup", function(ev) {
