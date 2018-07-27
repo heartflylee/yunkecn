@@ -1,888 +1,892 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>团队首页</title>
-		<link type="image/x-icon" href="../images/favicon.ico" rel="icon">
-		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>团队首页</title>
+    <link type="image/x-icon" href="../images/favicon.ico" rel="icon">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
 
-		<link href="../css/main1214.css" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="../css/head.css" />
-		<link rel="stylesheet" href="../css/cropbox.css" />
-		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
-		<script type="text/javascript" src="../js/main.js"></script>
-		<script type="text/javascript" src="../js/highcharts.js"></script>
-		<link href="../css/hDate.css" rel="stylesheet" />
-		<script type="text/javascript" src="../js/hDate.js"></script>
-		<script type="text/javascript" src="../js/cropbox.js"></script>
-		<script type="text/javascript" src="../js/index.js"></script>
-		<script type="text/javascript" src="../js/layer/layer.js"></script>
-		<!--[if lt IE 10]>
-		<script src="../js/placeholder.js"></script>
-	<![endif]-->
-	</head>
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../css/head.css"/>
+    <link rel="stylesheet" href="../css/cropbox.css"/>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/highcharts.js"></script>
+    <link href="../css/hDate.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../js/hDate.js"></script>
+    <script type="text/javascript" src="../js/cropbox.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+</head>
 
-	<body>
-		<!-- 页面遮罩层 layer -->
-		<div class="layer"></div>
-		<!-- 页面头部 header -->
-		<div class="header">
-			<h1 class="logo fl"></h1>
-			<span class="mar fl">|</span>
-			<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
-			<ul class="nav">
-				<li>
-					<a href="" class="current">首页</a>
-				</li>
-				<li>
-					<a href="">行动</a>
-				</li>
-				<li>
-					<a href="">客户</a>
-				</li>
-				<li>
-					<a href="">账户</a>
-				</li>
-				<li>
-					<a href="">任务</a>
-				</li>
-				<li>
-					<a href="" id="top-setting">设置</a>
-				</li>
-			</ul>
-			<ul class="header-right fr">
-				<li>
-					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes"><i class="qq"></i>
-						<div class="service">在线客服</div>
-					</a>
-				</li>
-				<li>
-					<a href="javascript:;"><i class="add"></i></a>
-				</li>
-				<li>
-					<a href="javascript:;"><i class="update"></i></a>
-				</li>
-				<li>
-					<a href="javascript:;"><i class="message"></i></a>
-				</li>
-				<li>
-					<a href="javascript:;" class="user"><img src="../images/a-1.png" /></a>
-					<div class="quit_down">
-						<div class="code">
-							<img src="../images/download.png" />
-							<span>扫一扫下载云客APP</span>
-						</div>
-						<div class="quit_li">
-							<a>下载软电话</a>
-						</div>
-						<div class="quit_li">
-							<a>退出登录</a>
-						</div>
-					</div>
-				</li>
-			</ul>
-		</div>
-		<!-- 汇总提示 tipArea -->
-		<div class="tipArea">
-			<div class="wrap">
-				<div class="count_f">
-					<span class="span-1 current" id="">数据统计</span>
-					<span class="span-1" id="">签到统计</span>
-				</div>
-				<!--<span class="span">完成行动：<em class="blue">95</em></span>
-				<span class="span">延迟行动：<em class="red">95</em></span>
-				<span class="span">未处理行动：<em class="orange">95</em></span>
-				<span class="span">注册时长：<em>95天</em></span>-->
-				<!--<a href="" class="ta fr">周报</a>-->
-			</div>
-		</div>
-		<!-- 内容部分 contents -->
-		<div class="contents">
-			<!-- 左侧 -->
-			<div class="leftPage fl">
-				<a href="javascript:;" id="edit-com" class="edit-com"></a>
-				<dl class="left-user">
-					<dt><img src="../images/left-photo.png"></dt>
-					<dd>
-						<p>北京联云天下科技有限公司</p>
-						<span>赵科虎，夏云柯</span>
-					</dd>
-				</dl>
-				<div class="leftContentBox">
-					<div class="tlt">选择组员</div>
-					<ul class="choose-members">
-						<li>
-							<a href="" class="current"><img src="../images/member.png"><em>艾云鹤</em></a>
-						</li>
-						<li>
-							<a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
-						</li>
-						<li>
-							<a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
-						</li>
-						<li>
-							<a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
-						</li>
-						<li>
-							<a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
-						</li>
-						<li>
-							<a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
-						</li>
-						<li>
-							<a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
-						</li>
+<body>
+<!-- 页面遮罩层 layer -->
+<div class="layer"></div>
+<!-- 页面头部 header -->
+<div class="header">
+    <h1 class="logo fl"></h1>
+    <span class="mar fl">|</span>
+    <span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+    <ul class="nav">
+        <li>
+            <a href="" class="current">首页</a>
+        </li>
+        <li>
+            <a href="">行动</a>
+        </li>
+        <li>
+            <a href="">客户</a>
+        </li>
+        <li>
+            <a href="">账户</a>
+        </li>
+        <li>
+            <a href="">任务</a>
+        </li>
+        <li>
+            <a href="" id="top-setting">设置</a>
+        </li>
+    </ul>
+    <ul class="header-right fr">
+        <li>
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes"><i class="qq"></i>
+                <div class="service">在线客服</div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;"><i class="add"></i></a>
+        </li>
+        <li>
+            <a href="javascript:;"><i class="update"></i></a>
+        </li>
+        <li>
+            <a href="javascript:;"><i class="message"></i></a>
+        </li>
+        <li>
+            <a href="javascript:;" class="user"><img src="../images/a-1.png"/></a>
+            <div class="quit_down">
+                <div class="code">
+                    <img src="../images/download.png"/>
+                    <span>扫一扫下载云客APP</span>
+                </div>
+                <div class="quit_li">
+                    <a>下载软电话</a>
+                </div>
+                <div class="quit_li">
+                    <a>退出登录</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-- 汇总提示 tipArea -->
+<div class="tipArea">
+    <div class="wrap">
+        <div class="count_f">
+            <span class="span-1 current" id="">数据统计</span>
+            <span class="span-1" id="">签到统计</span>
+        </div>
+        <!--<span class="span">完成行动：<em class="blue">95</em></span>
+        <span class="span">延迟行动：<em class="red">95</em></span>
+        <span class="span">未处理行动：<em class="orange">95</em></span>
+        <span class="span">注册时长：<em>95天</em></span>-->
+        <!--<a href="" class="ta fr">周报</a>-->
+    </div>
+</div>
+<!-- 内容部分 contents -->
+<div class="contents">
+    <!-- 左侧 -->
+    <div class="leftPage fl">
+        <a href="javascript:;" id="edit-com" class="edit-com"></a>
+        <dl class="left-user">
+            <dt><img src="../images/left-photo.png"></dt>
+            <dd>
+                <p>北京联云天下科技有限公司</p>
+                <span>赵科虎，夏云柯</span>
+            </dd>
+        </dl>
+        <div class="leftContentBox">
+            <div class="tlt">选择组员</div>
+            <ul class="choose-members">
+                <li>
+                    <a href="" class="current"><img src="../images/member.png"><em>艾云鹤</em></a>
+                </li>
+                <li>
+                    <a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
+                </li>
+                <li>
+                    <a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
+                </li>
+                <li>
+                    <a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
+                </li>
+                <li>
+                    <a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
+                </li>
+                <li>
+                    <a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
+                </li>
+                <li>
+                    <a href=""><img src="../images/member.png"><em>艾云鹤</em></a>
+                </li>
 
-						<li>
-							<a href=""><img src="../images/all-members.png"><em>全部</em></a>
-						</li>
-					</ul>
-				</div>
-				<div class="leftContentBox">
-					<div class="tlt"><b id="choose-1">有意向客户</b>
-						<a href="javascript:;" class="more" id="a-more"></a>
-					</div>
-					<!-- 筛选条件 -->
-					<div class="choose-term" id="choose-term">
-						<dl id="dl1">
-							<dt>项目</dt>
-							<dd>
-								<a href="javascript:;" class="current">有意向客户<i class="right-icon"></i></a>
-							</dd>
-							<dd>
-								<a href="javascript:;">电话量<i class="right-icon"></i></a>
-							</dd>
-							<dd>
-								<a href="javascript:;">成单量<i class="right-icon"></i></a>
-							</dd>
-						</dl>
+                <li>
+                    <a href=""><img src="../images/all-members.png"><em>全部</em></a>
+                </li>
+            </ul>
+        </div>
+        <div class="leftContentBox">
+            <div class="tlt"><b id="choose-1">有意向客户</b>
+                <a href="javascript:;" class="more" id="a-more"></a>
+            </div>
+            <!-- 筛选条件 -->
+            <div class="choose-term" id="choose-term">
+                <dl id="dl1">
+                    <dt>项目</dt>
+                    <dd>
+                        <a href="javascript:;" class="current">有意向客户<i class="right-icon"></i></a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">电话量<i class="right-icon"></i></a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">成单量<i class="right-icon"></i></a>
+                    </dd>
+                </dl>
 
-					</div>
-					<ul class="sellers" id="sellers">
-						<li class="cur"><span class="num">1</span>艾云鹤<i class="reward"></i><span class="orderForm">成单<em>14</em></span></li>
-						<li class="cur"><span class="num">2</span>艾云鹤<i class="reward"></i><span class="orderForm">成单<em>14</em></span></li>
-						<li class="cur"><span class="num">3</span>艾云鹤<i class="reward"></i><span class="orderForm">成单<em>14</em></span></li>
-						<li><span class="num">4</span>艾云鹤<span class="orderForm">成单<em>14</em></span></li>
-						<li><span class="num">5</span>艾云鹤<span class="orderForm">成单<em>14</em></span></li>
-						<li><span class="num">6</span>艾云鹤<span class="orderForm">成单<em>14</em></span></li>
-						<li><span class="num">7</span>艾云鹤<span class="orderForm">成单<em>14</em></span></li>
-					</ul>
-				</div>
-			</div>
-			<!-- 右侧 -->
-			<div class="rightPage">
-				<div class="tabBox">
-					<ul id="tabBox">
-						<li>
-							<a href="index.html" class="current">本周</a>
-						</li>
-						<li>
-							<a href="index-1.html">上周</a>
-						</li>
-						<li>
-							<a href="index-2.html">近两月</a>
-						</li>
-						<li>
-							<a href="index-3.html">本月</a>
-						</li>
-						<li>
-							<a href="index-4.html">上月</a>
-						</li>
-					</ul>
-					<div class="qujian">
-						<label>筛选区间：</label>
-						<span class="time"><input type="text" id="timetext" /></span>
-						<label>至</label>
-						<span class="time"><input type="text" id="timetext-1" /></span>
-						<script type="text/javascript">
-							var minday;
-							var maxday;
-							$("#timetext").click(function(e) {
-								maxday = $("#timetext-1").val();
-								if(maxday == "") {
-									maxday = (new Date()).toString("yyyy-MM-dd");
-								}
-								var ths = this;
-								calendar.show({
-									id: this,
-									maxDay: maxday.toString("yyyy-MM-dd")
-								});
-							});
-							$("#timetext-1").click(function(e) {
-								minday = $("#timetext").val();
-								var ths = this;
-								calendar.show({
-									id: this,
-									maxDay: (new Date()).toString("yyyy-MM-dd"),
-									minDay: minday
-								});
-							});
-						</script>
-					</div>
-					<a href="" class="ta fr week">周报</a>
-				</div>
-				<!-- 本周 -->
-				<div class="contentsbox" style="display:block">
-					<!--  -->
-					<div class="totalbox">
-						<div class="itemsbox" id="itemsbox-1">
-							<script type="text/javascript">
-								$(function() {
-									$('#itemsbox-1').highcharts({
+            </div>
+            <ul class="sellers" id="sellers">
+                <li class="cur"><span class="num">1</span>艾云鹤<i class="reward"></i><span class="orderForm">成单<em>14</em></span>
+                </li>
+                <li class="cur"><span class="num">2</span>艾云鹤<i class="reward"></i><span class="orderForm">成单<em>14</em></span>
+                </li>
+                <li class="cur"><span class="num">3</span>艾云鹤<i class="reward"></i><span class="orderForm">成单<em>14</em></span>
+                </li>
+                <li><span class="num">4</span>艾云鹤<span class="orderForm">成单<em>14</em></span></li>
+                <li><span class="num">5</span>艾云鹤<span class="orderForm">成单<em>14</em></span></li>
+                <li><span class="num">6</span>艾云鹤<span class="orderForm">成单<em>14</em></span></li>
+                <li><span class="num">7</span>艾云鹤<span class="orderForm">成单<em>14</em></span></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 右侧 -->
+    <div class="rightPage">
+        <div class="tabBox">
+            <ul id="tabBox">
+                <li>
+                    <a href="index.html" class="current">本周</a>
+                </li>
+                <li>
+                    <a href="index-1.html">上周</a>
+                </li>
+                <li>
+                    <a href="index-2.html">近两月</a>
+                </li>
+                <li>
+                    <a href="index-3.html">本月</a>
+                </li>
+                <li>
+                    <a href="index-4.html">上月</a>
+                </li>
+            </ul>
+            <div class="qujian">
+                <label>筛选区间：</label>
+                <span class="time"><input type="text" id="timetext"/></span>
+                <label>至</label>
+                <span class="time"><input type="text" id="timetext-1"/></span>
+                <script type="text/javascript">
+									var minday;
+									var maxday;
+									$('#timetext').click(function (e) {
+										maxday = $('#timetext-1').val();
+										if (maxday == '') {
+											maxday = (new Date()).toString('yyyy-MM-dd');
+										}
+										var ths = this;
+										calendar.show({
+											id: this,
+											maxDay: maxday.toString('yyyy-MM-dd'),
+										});
+									});
+									$('#timetext-1').click(function (e) {
+										minday = $('#timetext').val();
+										var ths = this;
+										calendar.show({
+											id: this,
+											maxDay: (new Date()).toString('yyyy-MM-dd'),
+											minDay: minday,
+										});
+									});
+                </script>
+            </div>
+            <a href="" class="ta fr week">周报</a>
+        </div>
+        <!-- 本周 -->
+        <div class="contentsbox" style="display:block">
+            <!--  -->
+            <div class="totalbox">
+                <div class="itemsbox" id="itemsbox-1">
+                    <script type="text/javascript">
+											$(function () {
+												$('#itemsbox-1').highcharts({
+													title: {
+														text: '有意向客户数',
+														style: {
+															fontSize: '14px',
+														},
+													},
+													subtitle: {
+														text: '108',
+														style: {
+															fontSize: '20px',
+															fontWeight: 'bold',
+														},
+													},
+													xAxis: {
+														type: 'datetime',
+														title: {
+															text: null,
+														},
+														labels: {
+															enabled: false,
+														},
+														lineWidth: 0,
+													},
+													yAxis: {
+														title: {
+															text: '',
+														},
+														gridLineWidth: 0,
+														labels: {
+															enabled: false,
+														},
+														min: 0,
+														minInterval: 1,
+													},
+													tooltip: {
+														shared: true,
+													},
+													legend: {
+														enabled: false,
+													},
+													plotOptions: {
+														area: {
+															fillColor: {
+																linearGradient: {
+																	x1: 0,
+																	y1: 0,
+																	x2: 1,
+																	y2: 1,
+																},
+																stops: [
+																	[0, Highcharts.getOptions().colors[0]],
+																	[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')],
+																],
+															},
+															lineWidth: 1,
+															marker: {
+																enabled: false,
+															},
+															shadow: false,
+															states: {
+																hover: {
+																	lineWidth: 1,
+																},
+															},
+															threshold: null,
+														},
+														series: {
+															marker: {
+																enabled: false,
+															},
+														},
+													},
+													chart: {
+														type: 'areaspline',
+													},
+													tooltip: {
+														shared: true,
+														//											valueSuffix: ' units'
+														useHTML: true,
+														headerFormat: '',
+														pointFormat: '<tr><td style="color: {series.color}">All: </td>' +
+														'<td style="text-align: right"><b>{point.y}</b></td></tr>',
+														footerFormat: '</table>',
+													},
+													credits: {
+														enabled: false,
+													},
+													series: [{
+														name: 'John',
+														data: [0, 2, 3],
+													}],
+												});
+											});
+                    </script>
+                </div>
+                <div class="itemsbox" id="itemsbox-2">
+                    <script type="text/javascript">
+											$(function () {
+												$('#itemsbox-2').highcharts({
+													title: {
+														text: '呼出电话总量',
+														style: {
+															fontSize: '14px',
+														},
+													},
+													subtitle: {
+														text: '108',
+														style: {
+															fontSize: '20px',
+															fontWeight: 'bold',
+														},
+													},
+													xAxis: {
+														type: 'datetime',
+														title: {
+															text: null,
+														},
+														labels: {
+															enabled: false,
+														},
+														lineWidth: 0,
+													},
+													yAxis: {
+														title: {
+															text: '',
+														},
+														gridLineWidth: 0,
+														labels: {
+															enabled: false,
+														},
+														min: 0,
+													},
+													tooltip: {
+														shared: true,
+													},
+													legend: {
+														enabled: false,
+													},
+													plotOptions: {
+														area: {
+															fillColor: {
+																linearGradient: {
+																	x1: 0,
+																	y1: 0,
+																	x2: 1,
+																	y2: 1,
+																},
+																stops: [
+																	[0, Highcharts.getOptions().colors[0]],
+																	[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')],
+																],
+															},
+															lineWidth: 1,
+															marker: {
+																enabled: false,
+															},
+															shadow: false,
+															states: {
+																hover: {
+																	lineWidth: 1,
+																},
+															},
+															threshold: null,
+														},
+														series: {
+															marker: {
+																enabled: false,
+															},
+														},
+													},
+													chart: {
+														type: 'areaspline',
+													},
+													tooltip: {
+														shared: true,
+														//											valueSuffix: ' units'
+														useHTML: true,
+														headerFormat: '',
+														pointFormat: '<tr><td style="color: {series.color}">All: </td>' +
+														'<td style="text-align: right"><b>{point.y}</b></td></tr>',
+														footerFormat: '</table>',
+													},
+													credits: {
+														enabled: false,
+													},
+													series: [{
+														name: 'John',
+														data: [0, 0.2, 1],
+													}],
+												});
+											});
+                    </script>
+                </div>
+                <div class="itemsbox" id="itemsbox-3">
+                    <script type="text/javascript">
+											$(function () {
+												$('#itemsbox-3').highcharts({
+													title: {
+														text: '分配电话总量',
+														style: {
+															fontSize: '14px',
+														},
+													},
+													subtitle: {
+														text: '108',
+														style: {
+															fontSize: '20px',
+															fontWeight: 'bold',
+														},
+													},
+													xAxis: {
+														type: 'datetime',
+														title: {
+															text: null,
+														},
+														labels: {
+															enabled: false,
+														},
+														lineWidth: 0,
+													},
+													yAxis: {
+														title: {
+															text: '',
+														},
+														gridLineWidth: 0,
+														labels: {
+															enabled: false,
+														},
+														min: 0,
+													},
+													tooltip: {
+														shared: true,
+													},
+													legend: {
+														enabled: false,
+													},
+													plotOptions: {
+														area: {
+															fillColor: {
+																linearGradient: {
+																	x1: 0,
+																	y1: 0,
+																	x2: 1,
+																	y2: 1,
+																},
+																stops: [
+																	[0, Highcharts.getOptions().colors[0]],
+																	[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')],
+																],
+															},
+															lineWidth: 1,
+															marker: {
+																enabled: false,
+															},
+															shadow: false,
+															states: {
+																hover: {
+																	lineWidth: 1,
+																},
+															},
+															threshold: null,
+														},
+														series: {
+															marker: {
+																enabled: false,
+															},
+														},
+													},
+													chart: {
+														type: 'areaspline',
+													},
+													tooltip: {
+														shared: true,
+														//											valueSuffix: ' units'
+														useHTML: true,
+														headerFormat: '',
+														pointFormat: '<tr><td style="color: {series.color}">All: </td>' +
+														'<td style="text-align: right"><b>{point.y}</b></td></tr>',
+														footerFormat: '</table>',
+													},
+													credits: {
+														enabled: false,
+													},
+													series: [{
+														name: 'John',
+														data: [0, 0.2, 1],
+													}],
+												});
+											});
+                    </script>
+                </div>
+            </div>
+            <!--  -->
+            <div class="tlt"><i></i>组员电话量统计</div>
+            <div id="chartsbox-0" class="chartsbox">
+                <script type="text/javascript">
+									$(function () {
+										$('#chartsbox-0').highcharts({
+											chart: {
+												type: 'column',
+											},
+											title: {
+												text: '',
+											},
+											xAxis: {
+												categories: ['打电话', '发短息', '发邮件', '约见面', '吃饭'],
+											},
+											yAxis: {
+												min: 0,
+												title: {
+													text: '',
+												},
+												stackLabels: {
+													enabled: true,
+													style: {
+														fontWeight: 'bold',
+														color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray',
+													},
+												},
+											},
+											legend: {
+												align: 'right',
+												x: -70,
+												verticalAlign: 'top',
+												y: 10,
+												floating: true,
+												backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
+												borderColor: '#CCC',
+												borderWidth: 1,
+												shadow: false,
+												layout: 'vertical',
+											},
+											tooltip: {
+												formatter: function () {
+													return '<b>' + this.x + '</b><br/>' +
+														this.series.name + ': ' + this.y + '<br/>' +
+														'Total: ' + this.point.stackTotal;
+												},
+											},
+											plotOptions: {
+												column: {
+													stacking: 'normal',
+													dataLabels: {
+														enabled: true,
+														color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+													},
+												},
+											},
+											series: [{
+												name: '呼出电话总量',
+												data: [5, 3, 4, 7, 2],
+											}, {
+												name: '有意向客户量',
+												data: [2, 2, 3, 2, 1],
+											}, {
+												name: '有效电话量',
+												data: [3, 4, 4, 2, 5],
+											}],
+										});
+									});
+                </script>
+            </div>
+            <!--  -->
+            <div class="tlt"><i></i>销售状态标签统计</div>
+            <div id="chartsbox-1" class="chartsbox-1">
+                <script type="text/javascript">
+									$(function () {
+										$('#chartsbox-1').highcharts({
+											chart: {
+												plotBackgroundColor: null,
+												plotBorderWidth: null,
+												plotShadow: false,
+											},
+											title: {
+												text: '',
+											},
+											tooltip: {
+												pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+											},
+											plotOptions: {
+												pie: {
+													allowPointSelect: true,
+													cursor: 'pointer',
+													dataLabels: {
+														enabled: true,
+														color: '#000000',
+														connectorColor: '#000000',
+														format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+													},
+												},
+											},
+											series: [{
+												type: 'pie',
+												name: 'Browser share',
+												data: [
+													['未沟通', 45.0],
+													['拟订合同', 26.8], {
+														name: '未沟通',
+														y: 12.8,
+														sliced: true,
+														selected: true,
+													},
+													['未沟通', 8.5],
+													['未沟通', 6.2],
+													['未沟通', 0.7],
+												],
+											}],
+										});
+									});
+                </script>
+            </div>
+            <!--  -->
+            <div class="tlt"><i></i>电话沟通结果标签统计</div>
+            <div id="chartsbox-2" class="chartsbox-1">
+                <script type="text/javascript">
+									var options = {
+										chart: {
+											plotBackgroundColor: null,
+											plotBorderWidth: null,
+											plotShadow: false,
+										},
 										title: {
-											text: '有意向客户数',
-											style: {
-												fontSize: "14px"
-											}
-										},
-										subtitle: {
-											text: '108',
-											style: {
-												fontSize: "20px",
-												fontWeight: "bold"
-											}
-										},
-										xAxis: {
-											type: 'datetime',
-											title: {
-												text: null
-											},
-											labels: {
-												enabled: false
-											},
-											lineWidth: 0
-										},
-										yAxis: {
-											title: {
-												text: ''
-											},
-											gridLineWidth: 0,
-											labels: {
-												enabled: false
-											},
-											min: 0,
-											 minInterval: 1
+											text: '',
 										},
 										tooltip: {
-											shared: true
-										},
-										legend: {
-											enabled: false
+											pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
 										},
 										plotOptions: {
-											area: {
-												fillColor: {
-													linearGradient: {
-														x1: 0,
-														y1: 0,
-														x2: 1,
-														y2: 1
-													},
-													stops: [
-														[0, Highcharts.getOptions().colors[0]],
-														[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-													]
+											pie: {
+												allowPointSelect: true,
+												cursor: 'pointer',
+												dataLabels: {
+													enabled: true,
+													color: '#000000',
+													connectorColor: '#000000',
+													format: '<b>{point.name}</b>: {point.percentage:.1f} %',
 												},
-												lineWidth: 1,
-												marker: {
-													enabled: false
-												},
-												shadow: false,
-												states: {
-													hover: {
-														lineWidth: 1
-													}
-												},
-												threshold: null
 											},
-											series: {
-												marker: {
-													enabled: false
-												}
-											}
-										},
-										chart: {
-											type: 'areaspline'
-										},
-										tooltip: {
-											shared: true,
-											//											valueSuffix: ' units'
-											useHTML: true,
-											headerFormat: '',
-											pointFormat: '<tr><td style="color: {series.color}">All: </td>' +
-												'<td style="text-align: right"><b>{point.y}</b></td></tr>',
-											footerFormat: '</table>',
-										},
-										credits: {
-											enabled: false
 										},
 										series: [{
-											name: 'John',
-											data: [0, 2, 3]
-										}]
+											type: 'pie',
+											name: 'Browser share',
+											data: [
+												['二次沟通', 45.0],
+												['资料错误', 26.8], {
+													name: '无意',
+													y: 20.2,
+													sliced: true,
+													selected: true,
+												},
+												['有意', 8.5],
+											],
+										}],
+									};
+									$(function () {
+										$('#chartsbox-2').highcharts(options);
 									});
-								});
-							</script>
-						</div>
-						<div class="itemsbox" id="itemsbox-2">
-							<script type="text/javascript">
-								$(function() {
-									$('#itemsbox-2').highcharts({
-										title: {
-											text: '呼出电话总量',
-											style: {
-												fontSize: "14px"
-											}
-										},
-										subtitle: {
-											text: '108',
-											style: {
-												fontSize: "20px",
-												fontWeight: "bold"
-											}
-										},
-										xAxis: {
-											type: 'datetime',
-											title: {
-												text: null
-											},
-											labels: {
-												enabled: false
-											},
-											lineWidth: 0
-										},
-										yAxis: {
-											title: {
-												text: ''
-											},
-											gridLineWidth: 0,
-											labels: {
-												enabled: false
-											},
-											min: 0
-										},
-										tooltip: {
-											shared: true
-										},
-										legend: {
-											enabled: false
-										},
-										plotOptions: {
-											area: {
-												fillColor: {
-													linearGradient: {
-														x1: 0,
-														y1: 0,
-														x2: 1,
-														y2: 1
-													},
-													stops: [
-														[0, Highcharts.getOptions().colors[0]],
-														[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-													]
-												},
-												lineWidth: 1,
-												marker: {
-													enabled: false
-												},
-												shadow: false,
-												states: {
-													hover: {
-														lineWidth: 1
-													}
-												},
-												threshold: null
-											},
-											series: {
-												marker: {
-													enabled: false
-												}
-											}
-										},
-										chart: {
-											type: 'areaspline'
-										},
-										tooltip: {
-											shared: true,
-											//											valueSuffix: ' units'
-											useHTML: true,
-											headerFormat: '',
-											pointFormat: '<tr><td style="color: {series.color}">All: </td>' +
-												'<td style="text-align: right"><b>{point.y}</b></td></tr>',
-											footerFormat: '</table>',
-										},
-										credits: {
-											enabled: false
-										},
-										series: [{
-											name: 'John',
-											data: [0, 0.2, 1]
-										}]
-									});
-								});
-							</script>
-						</div>
-						<div class="itemsbox" id="itemsbox-3">
-							<script type="text/javascript">
-								$(function() {
-									$('#itemsbox-3').highcharts({
-										title: {
-											text: '分配电话总量',
-											style: {
-												fontSize: "14px"
-											}
-										},
-										subtitle: {
-											text: '108',
-											style: {
-												fontSize: "20px",
-												fontWeight: "bold"
-											}
-										},
-										xAxis: {
-											type: 'datetime',
-											title: {
-												text: null
-											},
-											labels: {
-												enabled: false
-											},
-											lineWidth: 0
-										},
-										yAxis: {
-											title: {
-												text: ''
-											},
-											gridLineWidth: 0,
-											labels: {
-												enabled: false
-											},
-											min: 0
-										},
-										tooltip: {
-											shared: true
-										},
-										legend: {
-											enabled: false
-										},
-										plotOptions: {
-											area: {
-												fillColor: {
-													linearGradient: {
-														x1: 0,
-														y1: 0,
-														x2: 1,
-														y2: 1
-													},
-													stops: [
-														[0, Highcharts.getOptions().colors[0]],
-														[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-													]
-												},
-												lineWidth: 1,
-												marker: {
-													enabled: false
-												},
-												shadow: false,
-												states: {
-													hover: {
-														lineWidth: 1
-													}
-												},
-												threshold: null
-											},
-											series: {
-												marker: {
-													enabled: false
-												}
-											}
-										},
-										chart: {
-											type: 'areaspline'
-										},
-										tooltip: {
-											shared: true,
-											//											valueSuffix: ' units'
-											useHTML: true,
-											headerFormat: '',
-											pointFormat: '<tr><td style="color: {series.color}">All: </td>' +
-												'<td style="text-align: right"><b>{point.y}</b></td></tr>',
-											footerFormat: '</table>',
-										},
-										credits: {
-											enabled: false
-										},
-										series: [{
-											name: 'John',
-											data: [0, 0.2, 1]
-										}]
-									});
-								});
-							</script>
-						</div>
-					</div>
-					<!--  -->
-					<div class="tlt"><i></i>组员电话量统计</div>
-					<div id="chartsbox-0" class="chartsbox">
-						<script type="text/javascript">
-							$(function() {
-								$('#chartsbox-0').highcharts({
-									chart: {
-										type: 'column'
-									},
-									title: {
-										text: ''
-									},
-									xAxis: {
-										categories: ['打电话', '发短息', '发邮件', '约见面', '吃饭']
-									},
-									yAxis: {
-										min: 0,
-										title: {
-											text: ''
-										},
-										stackLabels: {
-											enabled: true,
-											style: {
-												fontWeight: 'bold',
-												color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-											}
-										}
-									},
-									legend: {
-										align: 'right',
-										x: -70,
-										verticalAlign: 'top',
-										y: 10,
-										floating: true,
-										backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
-										borderColor: '#CCC',
-										borderWidth: 1,
-										shadow: false,
-										layout: "vertical"
-									},
-									tooltip: {
-										formatter: function() {
-											return '<b>' + this.x + '</b><br/>' +
-												this.series.name + ': ' + this.y + '<br/>' +
-												'Total: ' + this.point.stackTotal;
-										}
-									},
-									plotOptions: {
-										column: {
-											stacking: 'normal',
-											dataLabels: {
-												enabled: true,
-												color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
-											}
-										}
-									},
-									series: [{
-										name: '呼出电话总量',
-										data: [5, 3, 4, 7, 2]
-									}, {
-										name: '有意向客户量',
-										data: [2, 2, 3, 2, 1]
-									}, {
-										name: '有效电话量',
-										data: [3, 4, 4, 2, 5]
-									}]
-								});
-							});
-						</script>
-					</div>
-					<!--  -->
-					<div class="tlt"><i></i>销售状态标签统计</div>
-					<div id="chartsbox-1" class="chartsbox-1">
-						<script type="text/javascript">
-							$(function() {
-								$('#chartsbox-1').highcharts({
-									chart: {
-										plotBackgroundColor: null,
-										plotBorderWidth: null,
-										plotShadow: false
-									},
-									title: {
-										text: ''
-									},
-									tooltip: {
-										pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-									},
-									plotOptions: {
-										pie: {
-											allowPointSelect: true,
-											cursor: 'pointer',
-											dataLabels: {
-												enabled: true,
-												color: '#000000',
-												connectorColor: '#000000',
-												format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-											}
-										}
-									},
-									series: [{
-										type: 'pie',
-										name: 'Browser share',
-										data: [
-											['未沟通', 45.0],
-											['拟订合同', 26.8], {
-												name: '未沟通',
-												y: 12.8,
-												sliced: true,
-												selected: true
-											},
-											['未沟通', 8.5],
-											['未沟通', 6.2],
-											['未沟通', 0.7]
-										]
-									}]
-								});
-							});
-						</script>
-					</div>
-					<!--  -->
-					<div class="tlt"><i></i>电话沟通结果标签统计</div>
-					<div id="chartsbox-2" class="chartsbox-1">
-						<script type="text/javascript">
-							var options = {
-								chart: {
-									plotBackgroundColor: null,
-									plotBorderWidth: null,
-									plotShadow: false
-								},
-								title: {
-									text: ''
-								},
-								tooltip: {
-									pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-								},
-								plotOptions: {
-									pie: {
-										allowPointSelect: true,
-										cursor: 'pointer',
-										dataLabels: {
-											enabled: true,
-											color: '#000000',
-											connectorColor: '#000000',
-											format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-										}
-									}
-								},
-								series: [{
-									type: 'pie',
-									name: 'Browser share',
-									data: [
-										['二次沟通', 45.0],
-										['资料错误', 26.8], {
-											name: '无意',
-											y: 20.2,
-											sliced: true,
-											selected: true
-										},
-										['有意', 8.5],
-									]
-								}]
-							};
-							$(function() {
-								$('#chartsbox-2').highcharts(options);
-							});
-						</script>
-					</div>
-				</div>
-				<!-- /本周 -->
+                </script>
+            </div>
 
-			</div>
-		</div>
-		<!-- 页面弹层 -->
-		<!-- 编辑公司 -->
-		<div class="edit-company" id="edit-company">
-			<a href="javascript:;" class="a-closed"></a>
-			<div class="company-photo-box">
-				<img src="../images/company-photo.png">
-				<a href="javascript:;" class="a-edit-photo"></a>
-			</div>
-			<p class="p1">北京联云天下科技有限公司</p>
-			<p class="p2">赵科虎，夏云柯</p>
-			<form class="companyForm">
-				<input type="text" class="text" name="" placeholder="请输入企业名称">
-				<input type="text" class="text" name="" placeholder="请输入企业简介">
-				<input type="text" class="text" name="" id="asselect" placeholder="请选择所属行业">
-				<i class="select-icon"></i>
-				<div class="selectBox">
-					<a href="javascript:;">行业1</a>
-					<a href="javascript:;">行业2</a>
-					<a href="javascript:;">行业4</a>
-					<a href="javascript:;">行业1</a>
-					<a href="javascript:;">行业1</a>
-				</div>
-				<input type="button" class="btn" value="保存" id="submitBtn">
-			</form>
-		</div>
-		<!-- 电话量筛选 -->
-		<div class="telphone-choose-box" id="telphone-choose-box">
-			<div class="tlt">
-				<i></i> 筛选
-				<span>最多选择8个筛选项</span>
-				<a href="javascript:;" class="a-closed"></a>
-			</div>
-			<div class="tlt-1">有意向</div>
-			<div class="select-box">
-				<span><i class="choose-right"></i><b>销售人员</b></span>
-				<span><i class="choose-null"></i><b>管理人员</b></span>
-				<span><i class="choose-null"></i><b>企业老板</b></span>
-			</div>
-			<div class="tlt-1">无意向</div>
-			<div class="select-box">
-				<span><i class="choose-right"></i><b>销售人员</b></span>
-				<span><i class="choose-null"></i><b>管理人员</b></span>
-				<span><i class="choose-null"></i><b>企业老板</b></span>
-				<span><i class="choose-right"></i><b>销售人员</b></span>
-				<span><i class="choose-null"></i><b>管理人员</b></span>
-				<span><i class="choose-null"></i><b>企业老板</b></span>
-			</div>
-			<div class="tlt-1">资料错误</div>
-			<div class="select-box">
-				<span><i class="choose-right"></i><b>销售人员</b></span>
-				<span><i class="choose-null"></i><b>管理人员</b></span>
-				<span><i class="choose-null"></i><b>企业老板</b></span>
-				<span><i class="choose-right"></i><b>销售人员</b></span>
-				<span><i class="choose-null"></i><b>管理人员</b></span>
-			</div>
-			<div class="tlt-1">二次呼叫</div>
-			<div class="select-box">
-				<span><i class="choose-right"></i><b>销售人员</b></span>
-				<span><i class="choose-null"></i><b>管理人员</b></span>
-				<span><i class="choose-null"></i><b>企业老板</b></span>
-			</div>
-			<div class="screen_btn">
-				<input type="button" class="btn" value="保存" id="chooseBtn-1" />
-				<input type="button" class="btn1" value="重置" />
-			</div>
-		</div>
-		<div class="applyBox edit_photo">
-			<div class="tlt"><i></i>编辑头像
-				<a href="javascript:void(0)" class="a-closed"></a>
-			</div>
-			<div class="container">
-				<div class="imageBox">
-					<div class="thumbBox"></div>
-					<div class="spinner" style="display: none">Loading...</div>
-				</div>
-				<div class="action">
-					<div class="new-contentarea tc">
-						<a href="javascript:void(0)" class="upload-img">
-							<label for="upload-file">上传图片</label>
-						</a>
-						<input type="file" class="" name="upload-file" id="upload-file" />
-					</div>
-					<input type="button" id="btnCrop" class="Btnsty_peyton" value="裁切">
-					<input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+">
-					<input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-">
-				</div>
-				<div class="cropped">
-					<div class="photo_top">
-						图片预览
-					</div>
-					<div class="photo">
-					</div>
-				</div>
-				<div class="clear"></div>
-				<div class="photo_size">
-					<p>最佳尺寸100×100，可以上传高质量图片进行裁剪</p>
-					<div class="photo_btn">
-						<input type="button" class="cancle" value="取消" />
-						<input type="button" value="保存" />
-					</div>
-				</div>
-			</div>
+        </div>
+        <!-- /本周 -->
 
-		</div>
+    </div>
+</div>
+<!-- 页面弹层 -->
+<!-- 编辑公司 -->
+<div class="edit-company" id="edit-company">
+    <a href="javascript:;" class="a-closed"></a>
+    <div class="company-photo-box">
+        <img src="../images/company-photo.png">
+        <a href="javascript:;" class="a-edit-photo"></a>
+    </div>
+    <p class="p1">北京联云天下科技有限公司</p>
+    <p class="p2">赵科虎，夏云柯</p>
+    <form class="companyForm">
+        <input type="text" class="text" name="" placeholder="请输入企业名称">
+        <input type="text" class="text" name="" placeholder="请输入企业简介">
+        <input type="text" class="text" name="" id="asselect" placeholder="请选择所属行业">
+        <i class="select-icon"></i>
+        <div class="selectBox">
+            <a href="javascript:;">行业1</a>
+            <a href="javascript:;">行业2</a>
+            <a href="javascript:;">行业4</a>
+            <a href="javascript:;">行业1</a>
+            <a href="javascript:;">行业1</a>
+        </div>
+        <input type="button" class="btn" value="保存" id="submitBtn">
+    </form>
+</div>
+<!-- 电话量筛选 -->
+<div class="telphone-choose-box" id="telphone-choose-box">
+    <div class="tlt">
+        <i></i> 筛选
+        <span>最多选择8个筛选项</span>
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <div class="tlt-1">有意向</div>
+    <div class="select-box">
+        <span><i class="choose-right"></i><b>销售人员</b></span>
+        <span><i class="choose-null"></i><b>管理人员</b></span>
+        <span><i class="choose-null"></i><b>企业老板</b></span>
+    </div>
+    <div class="tlt-1">无意向</div>
+    <div class="select-box">
+        <span><i class="choose-right"></i><b>销售人员</b></span>
+        <span><i class="choose-null"></i><b>管理人员</b></span>
+        <span><i class="choose-null"></i><b>企业老板</b></span>
+        <span><i class="choose-right"></i><b>销售人员</b></span>
+        <span><i class="choose-null"></i><b>管理人员</b></span>
+        <span><i class="choose-null"></i><b>企业老板</b></span>
+    </div>
+    <div class="tlt-1">资料错误</div>
+    <div class="select-box">
+        <span><i class="choose-right"></i><b>销售人员</b></span>
+        <span><i class="choose-null"></i><b>管理人员</b></span>
+        <span><i class="choose-null"></i><b>企业老板</b></span>
+        <span><i class="choose-right"></i><b>销售人员</b></span>
+        <span><i class="choose-null"></i><b>管理人员</b></span>
+    </div>
+    <div class="tlt-1">二次呼叫</div>
+    <div class="select-box">
+        <span><i class="choose-right"></i><b>销售人员</b></span>
+        <span><i class="choose-null"></i><b>管理人员</b></span>
+        <span><i class="choose-null"></i><b>企业老板</b></span>
+    </div>
+    <div class="screen_btn">
+        <input type="button" class="btn" value="保存" id="chooseBtn-1"/>
+        <input type="button" class="btn1" value="重置"/>
+    </div>
+</div>
+<div class="applyBox edit_photo">
+    <div class="tlt"><i></i>编辑头像
+        <a href="javascript:void(0)" class="a-closed"></a>
+    </div>
+    <div class="container">
+        <div class="imageBox">
+            <div class="thumbBox"></div>
+            <div class="spinner" style="display: none">Loading...</div>
+        </div>
+        <div class="action">
+            <div class="new-contentarea tc">
+                <a href="javascript:void(0)" class="upload-img">
+                    <label for="upload-file">上传图片</label>
+                </a>
+                <input type="file" class="" name="upload-file" id="upload-file"/>
+            </div>
+            <input type="button" id="btnCrop" class="Btnsty_peyton" value="裁切">
+            <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+">
+            <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-">
+        </div>
+        <div class="cropped">
+            <div class="photo_top">
+                图片预览
+            </div>
+            <div class="photo">
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="photo_size">
+            <p>最佳尺寸100×100，可以上传高质量图片进行裁剪</p>
+            <div class="photo_btn">
+                <input type="button" class="cancle" value="取消"/>
+                <input type="button" value="保存"/>
+            </div>
+        </div>
+    </div>
 
-		<div class="applyBox powers_over" id="powers_over1">
-			<div class="tlt"><i></i>企业版使用权限已到期
-				<a href="javascript:;" class="a-closed"></a>
-			</div>
-			<div class="custom_f">
-				<div class="email_info">
-					您的企业版使用权限已到期，在此期间暂时无法跟踪该坐席的行为，为保证您正常使用，请
-					<a>联系客服</a>续费
-				</div>
-			</div>
-		</div>
-		<div class="applyBox powers_over" id="powers_over2">
-			<div class="tlt"><i></i>企业版使用权限已到期
-				<a href="javascript:;" class="a-closed"></a>
-			</div>
-			<div class="custom_f">
-				<div class="email_info">
-					您的企业版使用权限已到期，在此期间暂时无法跟踪该坐席的行为，为保证您正常使用，请尽快
-					<a href="paycenter-1.html">续费</a>
-				</div>
-			</div>
-		</div>
-		<!--联系客服-->
-		<div class="applyBox contact" id="contact">
-			<div class="tlt"><i></i>联系客服
-				<a href="javascript:;" class="a-closed"></a>
-			</div>
-			<div class="custom_f contact_info">
-				您可以拨打客服电话：<label>010-5620 0279</label>或 联系
-				<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">在线客服</a>
-			</div>
-		</div>
+</div>
 
-		<div class="tips-main setting-tip" id="setting-tip">
-			<div class="tip-box">
-			</div>
-			<div class="tips-show">
-				<div class="tips-line">
-				</div>
-				<div class="tips-box">
-					<div class="tips-t">
-						欢迎使用云客企业版
-					</div>
-					<div class="tips-c">
-						身为一个团队管理者，首先需要添加几名员工，来“设置”里邀请员工吧
-					</div>
-					<div class="tips-btn">
-						<input type="button" value="关闭" class="btn" />
-					</div>
-				</div>
-			</div>
-		</div>
-		<script type="text/javascript">
-			$(function() {
-				//			$(".layer").show();
-				//			$("#powers_over1").show();
+<div class="applyBox powers_over" id="powers_over1">
+    <div class="tlt"><i></i>企业版使用权限已到期
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <div class="custom_f">
+        <div class="email_info">
+            您的企业版使用权限已到期，在此期间暂时无法跟踪该坐席的行为，为保证您正常使用，请
+            <a>联系客服</a>续费
+        </div>
+    </div>
+</div>
+<div class="applyBox powers_over" id="powers_over2">
+    <div class="tlt"><i></i>企业版使用权限已到期
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <div class="custom_f">
+        <div class="email_info">
+            您的企业版使用权限已到期，在此期间暂时无法跟踪该坐席的行为，为保证您正常使用，请尽快
+            <a href="paycenter-1.html">续费</a>
+        </div>
+    </div>
+</div>
+<!--联系客服-->
+<div class="applyBox contact" id="contact">
+    <div class="tlt"><i></i>联系客服
+        <a href="javascript:;" class="a-closed"></a>
+    </div>
+    <div class="custom_f contact_info">
+        您可以拨打客服电话：<label>010-5620 0279</label>或 联系
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">在线客服</a>
+    </div>
+</div>
 
-				$("#powers_over1 .email_info a").click(function() {
-					$("#contact").show();
-				});
-				$(".powers_over a.a-closed").click(function() {
-					$(".powers_over").hide();
-					$(".layer").hide();
-				});
-				$("#contact a.a-closed").click(function() {
-					$(".powers_over").hide();
-					$(".layer").hide();
-					$("#contact").hide();
-				});
+<div class="tips-main setting-tip" id="setting-tip">
+    <div class="tip-box">
+    </div>
+    <div class="tips-show">
+        <div class="tips-line">
+        </div>
+        <div class="tips-box">
+            <div class="tips-t">
+                欢迎使用云客企业版
+            </div>
+            <div class="tips-c">
+                身为一个团队管理者，首先需要添加几名员工，来“设置”里邀请员工吧
+            </div>
+            <div class="tips-btn">
+                <input type="button" value="关闭" class="btn"/>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	$(function () {
+		//			$(".layer").show();
+		//			$("#powers_over1").show();
 
-				$("#setting-tip").show().addClass("animate");
-				$("#setting-tip").css("left", $("#top-setting").offset().left);
-				$("#setting-tip .btn").click(function() {
-					$("#setting-tip").hide();
-				});
-				$("#setting-tip").click(function() {
-					event.stopPropagation();
-				});
-				$(window).click(function() {
-					$("#setting-tip").hide();
-				});
-			});
-		</script>
+		$('#powers_over1 .email_info a').click(function () {
+			$('#contact').show();
+		});
+		$('.powers_over a.a-closed').click(function () {
+			$('.powers_over').hide();
+			$('.layer').hide();
+		});
+		$('#contact a.a-closed').click(function () {
+			$('.powers_over').hide();
+			$('.layer').hide();
+			$('#contact').hide();
+		});
 
-	</body>
+		$('#setting-tip').show().addClass('animate');
+		$('#setting-tip').css('left', $('#top-setting').offset().left);
+		$('#setting-tip .btn').click(function () {
+			$('#setting-tip').hide();
+		});
+		$('#setting-tip').click(function () {
+			event.stopPropagation();
+		});
+		$(window).click(function () {
+			$('#setting-tip').hide();
+		});
+	});
+</script>
+
+</body>
 
 </html>

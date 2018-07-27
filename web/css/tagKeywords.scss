@@ -331,29 +331,7 @@
 .tags-tip-text {
   color: #bbb;
 }
-.form-row {
-  overflow: hidden;
-  margin: 15px auto;
-  line-height: 40px;
-}
-.form-name {
-  float: left;
-  width: 130px;
-  text-align: right;
-}
-.form-info {
-  margin-left: 150px;
-  &.bold {
-    font-weight: bold;
-  }
-  .input {
-    padding: 0 10px;
-    border: 1px solid #ddd;
-    width: 80%;
-    height: 40px;
-    border-radius: 4px;
-  }
-}
+
 .right-content {
   position: absolute;
   top: 42px;

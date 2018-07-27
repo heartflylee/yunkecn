@@ -36,6 +36,7 @@
     <script src="../js/echarts.js"></script>
     <link rel="stylesheet" href="../css/customReport.css">
     <link rel="stylesheet" href="../css/wxStyle.css">
+    <link rel="stylesheet" href="../css/switch.css">
 
 </head>
 
@@ -177,6 +178,9 @@
                         <div class="tags-li active">
                             <a href="wechat-9.html">敏感词操作</a>
                         </div>
+                        <div class="tags-li ">
+                            <a href="wechat-10.html">敏感词设置</a>
+                        </div>
                     </div>
                     <div class="right-content">
                         <div class="wxtable-wrap">
@@ -193,7 +197,9 @@
                                         <tr v-for="item,$index in ['','','','','','','','','','','','','']">
                                             <td>{{$index}}</td>
                                             <td>打开摄像头</td>
-                                            <td>1234元</td>
+                                            <td>
+                                                <my-switch size="max" :value="$index" :disabled="$index%2==0" color="green" @input="switchChange" ref="switchAll"></my-switch>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -206,7 +212,85 @@
             </div>
             <!-- /本周 -->
         </div>
+        <template id="mySwitch">
+            <div :class="className" @click="onClick">
+                <span class="open">{{ openName }}</span>
+                <span class="close">{{ closeName }}</span>
+            </div>
+        </template>
 
+        <script>
+            var mySwitch = Vue.extend({
+                template: '#mySwitch',
+                props: {
+                    planid: {
+                        type: String,
+                        default: ''
+                    },
+                    value: {
+                        default: true
+                    },
+                    // sm小 md中 lg大
+                    size: {
+                        type: String,
+                        default: 'md中'
+                    },
+                    // blue red green orange
+                    color: {
+                        type: String,
+                        default: 'green'
+                    },
+                    openName: {
+                        type: String,
+                        default: '开启'
+                    },
+                    closeName: {
+                        type: String,
+                        default: '暂停'
+                    },
+                    disabled: {
+                        type: Boolean,
+                        default: false
+                    },
+                    index: {
+                        type: Number,
+                        default: -1
+                    },
+                },
+                data: function () {
+                    return {
+                        openValue: true,
+                        closeValue: false,
+                        className: {
+                            'vue-switch': true,
+                            'z-on': this.$props.value == true,
+                            'z-disabled': this.$props.disabled == true,
+                            ['s-' + this.$props.size]: true,
+                            ['c-' + this.$props.color]: true
+                        }
+                    }
+                },
+                watch: {
+                    value: function (value) {
+                        this.$data.className['z-on'] = value;
+                    },
+                    disabled: function (val) {
+                        this.$data.className['z-disabled'] = val == true;
+                    }
+                },
+                methods: {
+                    onClick: function () {
+                        if (!this.$props.disabled) {
+                            if (this.$data.openValue == this.$props.value) {
+                                this.$emit('input', { value: this.$data.closeValue, index: this.$props.index, planId: this.$props.planid });
+                            } else {
+                                this.$emit('input', { value: this.$data.openValue, index: this.$props.index, planId: this.$props.planid });
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
         <script>
 
 
@@ -219,9 +303,16 @@
                     }
                 },
                 methods: {
-
+                    switchChange: function (data) {
+                        // this.setSwitch(data.planId, data.value == true ? 1 : 0);
+                        // this.$data.list[data.index].runState = data.value == true ? 1 : 0;
+                        // console.log(this.$data.selectedkeys);
+                        // console.log(data.planId);
+                    },
                 },
-
+                components: {
+                    'mySwitch': mySwitch
+                }
             });
 
         </script>

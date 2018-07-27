@@ -19,9 +19,6 @@
     <!-- <link type="text/css" rel="stylesheet" href="../js/jedate-6.5.0/skin/jedate.css">
     <script src="../js/jedate-6.5.0/src/jedate.js"></script> -->
 
-    <link rel="stylesheet" href="../css/hDate.css">
-    <script src="../js/hDate.js"></script>
-
     <script src="../js/swiper.js"></script>
     <link rel="stylesheet" href="../css/swiper.css">
 
@@ -39,6 +36,7 @@
     <script src="../js/echarts.js"></script>
     <link rel="stylesheet" href="../css/customReport.css">
     <link rel="stylesheet" href="../css/wxStyle.css">
+    <link rel="stylesheet" href="../css/switch.css">
 
 </head>
 
@@ -171,98 +169,31 @@
                         <div class="tags-li ">
                             <a href="wechat-2.html">微信列表</a>
                         </div>
-                        <div class="tags-li active">
+                        <div class="tags-li ">
                             <a href="wechat-4.html">敏感操作</a>
                         </div>
                         <div class="tags-li">
                             <a href="wechat-6.html">红包转账统计</a>
                         </div>
                         <div class="tags-li ">
-                            <a href="wechat-9.html">敏感词操作设置</a>
+                            <a href="wechat-9.html">敏感词操作</a>
                         </div>
-                        <div class="tags-li ">
+                        <div class="tags-li active">
                             <a href="wechat-10.html">敏感词设置</a>
                         </div>
                     </div>
                     <div class="right-content">
                         <div class="tabBox">
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0);" :class="range==0?'current':''" @click="changeRange(0)">今日</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" :class="range==1?'current':''" @click="changeRange(1)">昨日</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" :class="range==7?'current':''" @click="changeRange(7)">最近7天</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" :class="range==30?'current':''" @click="changeRange(30)">最近30天</a>
-                                </li>
-                            </ul>
-                            <div class="time-range-box">
-                                <div class="input-time">
-                                    <input type="text" id="timeStart" placeholder="yyyy-MM-dd" readonly="readonly" class="input">
-                                    <i class="icon icon-time"></i>
-                                    <i class="icon-times">&times;</i>
-                                </div>
-                                <span>至</span>
-                                <div class="input-time">
-                                    <input type="text" id="timeEnd" placeholder="yyyy-MM-dd" readonly="readonly" class="input">
-                                    <i class="icon icon-time"></i>
-                                    <i class="icon-times">&times;</i>
-                                </div>
-                            </div>
-                            <script type="text/javascript">
-                                $(function () {
-                                    var minday_1;
-                                    var maxday_1;
-                                    var minday_2;
-                                    var maxday_2;
-                                    $("body").on('click', '#timeStart, #timeStart+.icon-time', function (e) {
-                                        maxday_1 = $("#timeEnd").val();
-                                        if (maxday_1 == "") {
-                                            maxday_1 = (new Date()).toString("yyyy-MM-dd");
-                                        }
-                                        var ths = this;
-                                        if ($(this)[0].tagName.toLocaleLowerCase() != 'input') {
-                                            ths = $(this)[0].previousElementSibling;
-                                        }
-                                        calendar.show({
-                                            id: ths,
-                                            maxDay: maxday_1.toString("yyyy-MM-dd"),
-                                            ok: function () {
-                                                $(".tabBox a").removeClass('current');
-                                            }
-                                        });
-                                        return false;
-                                    });
-                                    $("body").on('click', '#timeEnd, #timeEnd+.icon-time', function (e) {
-                                        minday_1 = $("#timeStart").val();
-                                        var ths = this;
-                                        if ($(this)[0].tagName.toLocaleLowerCase() != 'input') {
-                                            ths = $(this)[0].previousElementSibling;
-                                        }
-                                        calendar.show({
-                                            id: ths,
-                                            maxDay: (new Date()).toString("yyyy-MM-dd"),
-                                            minDay: minday_1.toString("yyyy-MM-dd"),
-                                            ok: function () {
-                                                $(".tabBox a").removeClass('current');
-                                            }
-                                        });
-                                        return false;
-                                    });
-                                    $("body").on('click', '.input-time .icon-times', function () {
-                                        $(this).parent().find('input').val("");
-                                    });
-                                });
-                            </script>
+                            <a href="javascript:initSensitive();" style="margin-left: 10px;" class="btn">+ 新增敏感词</a>
                             <div class="fr">
                                 <div class="form-control">
+                                    <span class="form-name">用户分类:</span>
                                     <div class="form-info">
-                                        <input type="text" class="input" placeholder="请搜索操作人">
-                                        <i class="icon icon-search"></i>
+                                        <select class="select">
+                                            <option value="">选择用户分类</option>
+                                            <option value="">员工</option>
+                                            <option value="">管理员</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-control">
@@ -275,41 +206,27 @@
                                 <table class="table-list" id="table-list">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>操作人</th>
-                                            <th>微信</th>
+                                            <th>序号</th>
                                             <th>敏感词</th>
-                                            <th>时间</th>
+                                            <th>优先级</th>
+                                            <th>操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr v-for="item,$index in ['','','','','','','','','','','','','']" style="cursor: pointer;" onclick="window.location.href='wechat-5.html';">
-                                            <td>0001</td>
-                                            <td>李四</td>
+                                        <tr v-for="item,$index in ['','','','','','','','','','','','','']">
+                                            <td>{{$index}}</td>
+                                            <td>打开摄像头</td>
+                                            <td>高</td>
                                             <td>
-                                                <p>微信号：fakelove</p>
-                                                <p>昵称：张三的歌</p>
+                                                <a href="javascript:initSensitive('id111','打开摄像头','高');" class="href">编辑</a>
+                                                <a href="javascript:void(0);" class="href">删除</a>
                                             </td>
-                                            <td class="td-tagBox">
-                                                <span class="tag tag-warning">敏感</span>
-                                                <span class="tag tag-warning">敏感</span>
-                                            </td>
-                                            <td>2018-06-20 10:45</td>
                                         </tr>
                                     </tbody>
                                 </table>
 
                             </div>
-                            <div class="page clearfix">
-                                <p class="page-p">共1条</p>
-                                <ul class="page-ul">
-                                    <li>
-                                        < </li>
-                                            <li v-for="p,$index in ['','','','']">{{$index+1}}</li>
 
-                                            <li> ></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -317,51 +234,96 @@
             <!-- /本周 -->
         </div>
 
+        <!--新建敏感词-->
+        <div class="modal " id="insertSensitive">
+            <div class="modal-top">
+                <i></i>新增/編輯敏感词
+                <a href="javascript:layerClose('#insertSensitive');" class="closed"></a>
+            </div>
+            <form class="function-content" @submit.prevent="submit">
+                <div class="form-row">
+                    <label class="form-name">
+                        敏感词
+                    </label>
+                    <div class="form-info">
+                        <input type="text" class="input" v-model="sensitive">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-name">
+                        级别
+                    </label>
+                    <div class="form-info">
+                        <select class="select" v-model="level">
+                            <option value="">选择级别</option>
+                            <option value="高">高</option>
+                            <option value="中">中</option>
+                            <option value="低">低</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-bottom">
+                    <input type="submit" class="btn" onclick="" value="保存" />
+                    <input type="button" class="btn btn-cancel" onclick="layerClose('#insertSensitive')" value="取消" />
+                </div>
+            </form>
+        </div>
+        <!--新建标签-->
+
         <script>
 
 
+            var insertSensitive = new Vue({
+                el: "#insertSensitive",
+                data: function () {
+                    return {
+                        sensitive: '',
+                        level: '',
+                        id: ''
+                    }
+                },
+                methods: {
+                    submit: function () {
+                        var _self = this;
+                        layerClose('#insertSensitive');
+                    }
+                }
+            });
+            //关闭弹框
+            function layerClose(obj) {
+                $(obj).hide();
+                $(".layer").hide();
+            }
+            function sensitiveShow() {
+                $(".layer").show();
+                $("#insertSensitive").show();
+            }
+            function initSensitive(id, sensitive, level) {
+
+                insertSensitive.$data.id = id != undefined ? id : '';
+                insertSensitive.$data.sensitive = sensitive != undefined ? sensitive : '';
+                insertSensitive.$data.level = level != undefined ? level : '';
+                sensitiveShow();
+            }
+            $(function () {
+                $("body").on('click', '.layer', function () {
+                    $(".modal").hide();
+                });
+
+            });
 
             var vm = new Vue({
                 el: '#main',
                 data: function () {
                     return {
-                        range: 0,
-                        time: '',
+
                     }
                 },
                 methods: {
-                    changeRange: function (val) {
-                        this.$data.range = val;
-                        this.$data.time = '';
-                    },
-                    changeTag: function (val) {
-                        if (val == this.$data.tag) {
-                            return;
-                        }
-                        this.$data.tag = val;
-                    },
-                },
-                watch: {
-                    time: function (val) {
-                        if (val != '') {
-                            this.$data.range = -1;
-                        }
-                    }
+
                 },
             });
-            // $(function () {
-            //     jeDate("#timeRange", {
-            //         theme: { bgcolor: "#50d2c2", color: "#ffffff", pnColor: "#50d2c2" },
-            //         format: "YYYY-MM-DD",
-            //         multiPane: false,
-            //         isClear: false,
-            //         range: " ~ ",
-            //         donefun: function (val) {
-            //             console.log(val);
-            //             $("#timeRange")[0].dispatchEvent(new Event('input'));
-            //         }
-            //     });
-            // })
+
         </script>
         <script>
             var setting = {
@@ -411,10 +373,6 @@
                 var data = [{ "id": "AEBDBABAC02D4755A37EB2631345B6E4", "pId": "5A15ED6E169C486DB2739D5D1962E320", "name": "红米", "flag": "user", "cellphone": "13436457169", "phone": 1, "imei": "867397033384928", "wechatNo": "LiKaiBanBu" }, { "id": "188F26F953B5411BAD01E2350A886C96", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "陈博", "flag": "user", "cellphone": "15601313049", "phone": 1, "imei": "111", "wechatNo": "wxid_9u51i27dr2z322" }, { "id": "DB904379778D4948A770E5D01E1951D5", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "刘", "flag": "user", "cellphone": "17712345678", "phone": 1, "imei": "351641091428611", "wechatNo": "" }, { "id": "FBEDC571AF55426B9EAFE1E98E8ECD48", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "张洁", "flag": "user", "cellphone": "13426091878", "phone": 1, "imei": "867397036869826", "headImg": "/2018/02big/A59DF23D209B4C68A5F04F4C88979E6BiOS_0.jpg", "wechatNo": "wxid_67f53x60kl4x22" }, { "id": "BD5A1AE8B5E6407B80CF2662BA60D7DA", "pId": "6B9E9BF70BBE4CD1BA613CFB80772F82", "name": "15577746741", "flag": "user", "cellphone": "15577746741", "phone": 1, "imei": "358914060044997", "wechatNo": "" }, { "id": "03E652EEBE3B4D4E8D416F3E1C6DB6F8", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "丽丽", "flag": "user", "cellphone": "15703412808", "phone": 1, "imei": "867397032271464", "headImg": "/2018/06big/26CE47D5C036420BA13B508A0C0ADF81list.png", "wechatNo": "wxid_0v5ij2tqa2lp22" }, { "id": "00D250B670B24F91A6F5BF271B922262", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "牟美娜", "flag": "user", "cellphone": "18410340049", "phone": 1, "imei": "351641091428835", "wechatNo": "wxid_9u51i27dr2z322" }, { "id": "C27D64A49FB64307A19AB77D2152B8B1", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "贾鹏丽", "flag": "user", "cellphone": "15330273073", "phone": 1, "imei": "351641091432274", "headImg": "/2018/06big/7DFB93D9E70144DCB2F4035339540CABPhotoeb962fd8-ce29-4b16-bfe1-24a2fc92d383.jpg", "wechatNo": "wxid_age6g7evptdb22" }, { "id": "1449D46A22454E9793F7D1F405DB753A", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "张伯阳", "flag": "user", "cellphone": "17612256497", "phone": 1, "imei": "358914060044948", "headImg": "/2018/06big/E772780684724B9F80FEC3E9046C0030Photo2bd84db9-2600-4f16-8c37-0683fcce2392.jpg", "wechatNo": "wxid_ets8v4dshgzj22" }, { "id": "E53756C02755413C970150AB0EE6720D", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "18012256575", "flag": "user", "cellphone": "18012256575", "phone": 1, "imei": "866764031311016", "wechatNo": "wxid_w2xsmzv4ezeg22" }, { "id": "9C67E767094742DFBD342C9E2072AED5", "pId": "5A15ED6E169C486DB2739D5D1962E320", "name": "艾云鹤", "flag": "user", "cellphone": "13699273847", "phone": 1, "imei": "351641091428538", "headImg": "/2017/10big/ab87919630a949eca2f0284c884766e0_head.jpg", "wechatNo": "" }, { "id": "21C805EDEE4844E39434BF49239898DF", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "13439660347", "flag": "user", "cellphone": "13439660347", "phone": 1, "imei": "867400020316622", "wechatNo": "" }, { "id": "44D4227BE98E449CA1ADA3E3BA7D5AC4", "pId": "5A15ED6E169C486DB2739D5D1962E320", "name": "HK0", "flag": "user", "cellphone": "18703422761", "phone": 1, "imei": "358914060044799", "headImg": "/2018/06big/E285F205BE9F4419A8B0AAECF7F97911Photo33d6edf2-4b79-4950-aa54-9485b248ff3b.jpg", "wechatNo": "" }, { "id": "E8B63FF5BB1840EABB9BEB2F9DCCA731", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "王克杰", "flag": "user", "cellphone": "18588883666", "phone": 1, "imei": "11111", "headImg": "/2018/06big/4F4BB4F18BC64CC7826F2E1C000BEF0DiOS_0.jpg", "wechatNo": "" }, { "id": "57D2EA489E244FD39975C881A5C72880", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "贾琢", "flag": "user", "cellphone": "13439069006", "phone": 1, "imei": "351641091428512", "wechatNo": "" }, { "id": "7123C141DFAE445281781B97AC76CD5X", "pId": "0D9F395280E44700BAB3D8A3E80AC0DE", "name": "乔", "flag": "user", "cellphone": "13910803474", "phone": 1, "imei": "358914060044963", "headImg": "", "wechatNo": "" }, { "id": "0FCEF72742CC4AA6ADF6F0238D65A38B", "pId": "", "name": "北京联云天下科技", "flag": "department" }, { "id": "D793BAFF725D4DC086BFF5D3175D17AF", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "北京", "flag": "department" }, { "id": "5A15ED6E169C486DB2739D5D1962E320", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "天津", "flag": "department" }, { "id": "0D9F395280E44700BAB3D8A3E80AC0DE", "pId": "D793BAFF725D4DC086BFF5D3175D17AF", "name": "海淀校区", "flag": "department" }, { "id": "E440F9110ADC4AF890F26853143CE00A", "pId": "D793BAFF725D4DC086BFF5D3175D17AF", "name": "朝阳校区", "flag": "department" }, { "id": "6B9E9BF70BBE4CD1BA613CFB80772F82", "pId": "0D9F395280E44700BAB3D8A3E80AC0DE", "name": "五道口校区", "flag": "department" }, { "id": "E450BAACDFAB44CCB17E8D02F03B8E67", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "上海", "flag": "department" }, { "id": "A0F66F9EC47549A5906546479D19ABBE", "pId": "D793BAFF725D4DC086BFF5D3175D17AF", "name": "昌平校区", "flag": "department" }, { "id": "910A97D873264641B000A787BF20FCFD", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "测试1", "flag": "department" }];
                 $.fn.zTree.init($("#tree"), setting, data);
 
-                // $.post(ip + 'appstatistics/getDepartmentTreeNodeWithoutIcon', function (data) {
-                //
-                //     $.fn.zTree.init($("#tree"), setting, data);
-                // });
             });
 
         </script>

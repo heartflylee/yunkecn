@@ -13,11 +13,6 @@
 .tag-li .href{margin-right:10px}
 .tag-double .tag-li{width:45%}
 .tags-tip-text{color:#bbb}
-.form-row{overflow:hidden;margin:15px auto;line-height:40px}
-.form-name{float:left;width:130px;text-align:right}
-.form-info{margin-left:150px}
-.form-info.bold{font-weight:700}
-.form-info .input{padding:0 10px;border:1px solid #ddd;width:80%;height:40px;border-radius:4px}
 .right-content{position:absolute;top:42px;left:0;right:0;bottom:0;overflow:auto}
 
 /*# sourceMappingURL=tagKeywords.css.map */

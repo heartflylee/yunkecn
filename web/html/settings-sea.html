@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="../css/head.css" />
 	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
+	<script src="../js/audio.js"></script>
 </head>
 <body>
 <!-- 页面遮罩层 layer -->
@@ -19,12 +20,24 @@
 	<span class="mar fl">|</span>
 	<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
 	<ul class="nav">
-		<li><a href="">首页</a></li>
-		<li><a href="">行动</a></li>
-		<li><a href="">客户</a></li>
-		<li><a href="">账户</a></li>
-		<li><a href="">任务</a></li>
-		<li><a href="" class="current">设置</a></li>
+		<li>
+			<a href="indexnew2.html" >首页</a>
+		</li>
+		<!--<li>-->
+		<!--<a href="">行动</a>-->
+		<!--</li>-->
+		<li>
+			<a href="customer1.html" >客户</a>
+		</li>
+		<li>
+			<a href="download.html">线索</a>
+		</li>
+		<li>
+			<a href="task.html">任务</a>
+		</li>
+		<li>
+			<a href="settings.html" id="top-setting"  class="current">设置</a>
+		</li>
 	</ul>
 	<ul class="header-right fr">
 		<li><a href="javascript:;"><i class="add"></i></a></li>
@@ -43,25 +56,25 @@
 			<li><a href="settings-email.html">邮件账户设置</a></li>
 			<li><a href="settings-email1.html">邮件模板设置</a></li>
 			<li><a href="settings-call.html">挂机时间设置</a></li>
-			<li><a href="settings-sea.html">企业公海设置</a></li>
-			<li><a href="settings-task.html" class="current">云电销设置</a></li>
+			<li><a href="settings-sea.html" class="current">企业公海设置</a></li>
+			<li><a href="settings-task.html" >云电销设置</a></li>
 		</ul>	
 	</div>
 </div>
 <!-- 内容部分 contents -->
 <div class="contents">
 			<div class="table-tlt">
-				<i class="i"></i>云电销设置
+				<i class="i"></i>企业公海设置 <label class="text-normal">销售部</label>
 			</div>
 			<div class="template setting_call">
 				<div class="sea-t">
-					<!--公海使用权设置
+					使用权设置
 					<div class="sea-tip">
 						什么是公海
 						<div class="sea-tip-con">
 							企业所有客户中未被分配的客户统一称为公海
 						</div>
-					</div>-->
+					</div>
 				</div>
 				<div class="sea-ul">
 					<div class="sea-li">
@@ -73,7 +86,7 @@
 								<input type="checkbox" id="customer1" />
 								<label class="sea-checkbox" for="customer1">
 									<i></i>
-									设为云电销
+									公海
 								</label>
 							</div>
 					</div>
@@ -86,7 +99,7 @@
 								<input type="checkbox" id="customer2" />
 								<label class="sea-checkbox" for="customer2">
 									<i></i>
-									设为云电销
+									公海
 								</label>
 							</div>
 					</div>
@@ -99,7 +112,7 @@
 								<input type="checkbox" id="customer3" />
 								<label class="sea-checkbox" for="customer3">
 									<i></i>
-									设为云电销
+									公海
 								</label>
 							</div>
 					</div>
@@ -112,7 +125,7 @@
 								<input type="checkbox" id="customer4" />
 								<label class="sea-checkbox" for="customer4">
 									<i></i>
-									设为云电销
+									公海
 								</label>
 							</div>
 					</div>
@@ -126,10 +139,20 @@
 								<input type="checkbox" id="customer5" />
 								<label class="sea-checkbox" for="customer5">
 									<i></i>
-									设为云电销
+									公海
 								</label>
 							</div>
 					</div>
+				</div>
+				<div class="line"></div>
+				<div class="sea-t">
+					消息提醒
+				</div>
+				<div class="sea-message">
+					<!--<label>-->
+						<!--<input type="checkbox" id="message" checked="checked"><i></i>-->
+					<!--</label>-->
+					意向池中的客户 <input type="text" id="time" value="30" /> 分钟未跟进,推送给管理者(需安装云客-企业版APP)
 				</div>
 				<Div class="sea-btn-f">
 					<input type="button" class="s_call_btn" value="保存" />
@@ -138,7 +161,14 @@
 		</div>
 		<script type="text/javascript">
 	$(function(){
-		
+		$("#message").change(function(){
+		    if($(this).is(":checked")){
+				$("#time").removeAttr("disabled");
+			}
+			else {
+		        $("#time").attr("disabled","disabled");
+			}
+		})
 	});
 </script>
 </body>

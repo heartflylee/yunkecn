@@ -567,6 +567,9 @@ $wxICon: (
     ul {
       display: inline-block;
     }
+    & + .wxtable-wrap > .table {
+      top: 70px;
+    }
   }
 }
 .cell-wrap {
@@ -662,44 +665,6 @@ $wxICon: (
 // .talkingCharts {
 // margin: 10px 0;
 // }
-.form-control {
-  display: inline-block;
-  margin-right: 10px;
-  font-size: 14px;
-  color: #333;
-  line-height: 34px;
-  input[type='submit'],
-  input[type='button'] {
-    width: auto;
-  }
-}
-.form-info {
-  display: inline-block;
-  position: relative;
-  input[type='text'] {
-    width: 205px;
-    height: 34px;
-    padding: 0 10px;
-    border: 1px solid #e7e7e7;
-    border-radius: 3px;
-    box-sizing: border-box;
-    + i.icon {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      &.icon-search {
-        width: 16px;
-        height: 16px;
-        background: url(../images/search-icon.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-      }
-    }
-    &.wxContext-search {
-      width: 220px;
-    }
-  }
-}
 .form-select {
   display: inline-block;
   position: relative;
@@ -775,8 +740,8 @@ $wxICon: (
   // margin-top: 15px;
   .table {
     position: absolute;
-    width: 100%;
-    top: 70px;
+    width: 100%; // top: 70px;
+    top: 0;
     bottom: 58px;
     overflow: auto;
     border-top: 2px solid #50d2c2;
