@@ -174,7 +174,10 @@ $wxICon: (
   }
 }
 .contentSelect {
-  margin: 20px 0;
+  // margin: 20px 0;
+  padding: 0 20px;
+  font-weight: normal;
+  font-size: 14px;
 }
 .dropList {
   display: inline-block;
@@ -215,7 +218,7 @@ $wxICon: (
   &__menu {
     position: absolute;
     display: none;
-    left: 0;
+    right: 0;
     top: 32px;
     padding: 5px 0;
     min-width: 150px;
@@ -260,6 +263,7 @@ $wxICon: (
   max-height: 42px;
   margin: 10px 0;
   vertical-align: middle;
+  border-radius: 30px;
 }
 .wxModal {
   width: 980px;
@@ -665,65 +669,6 @@ $wxICon: (
 // .talkingCharts {
 // margin: 10px 0;
 // }
-.form-select {
-  display: inline-block;
-  position: relative;
-  min-width: 100px;
-  white-space: nowrap;
-  span {
-    position: relative;
-    display: block;
-    padding: 0 20px 0 10px;
-    border: 1px solid #e7e7e7;
-    border-radius: 3px;
-    font-size: 12px;
-    line-height: 32px;
-    color: #999;
-    cursor: pointer;
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      right: 10px;
-      border-width: 6px 6px 0;
-      border-style: solid;
-    }
-    &::before {
-      top: 14px;
-      border-color: #333 transparent transparent;
-    }
-    &::after {
-      top: 13px;
-      border-color: #fff transparent transparent;
-    }
-  }
-  &.active span {
-    &:before,
-    &:after {
-      border-width: 0 6px 6px;
-    }
-    &::before {
-      top: 13px;
-      border-color: transparent transparent #333;
-    }
-    &::after {
-      top: 14px;
-      border-color: transparent transparent #fff;
-    }
-  }
-  .select-options {
-    position: absolute;
-    z-index: 9;
-    min-width: 100%;
-    right: 0;
-    background: #fff;
-    border-radius: 3px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  }
-  .select-option {
-    padding: 0 10px;
-  }
-}
 .icon-state {
   display: inline-block;
   width: 14px;
@@ -1166,6 +1111,62 @@ $wxlinePadding: 10px;
   opacity: 1;
   animation: load 2s;
 }
+// .circle-chart {
+// width: 150px;
+// height: 150px;
+// }
+// .circle-chart__circle {
+// stroke: #00acc1;
+// stroke-width: 2;
+// stroke-linecap: square;
+// fill: none;
+// animation: circle-chart-fill 2s reverse;
+// transform: rotate(-90deg);
+// transform-origin: center;
+// }
+// .circle-chart__circle--negative {
+// transform: rotate(-90deg) scale(1, -1);
+// }
+// .circle-chart__background {
+// stroke: #fff;
+// stroke-width: 1;
+// fill: none;
+// }
+// .circle-chart__info {
+// animation: circle-chart-appear 2s forwards;
+// opacity: 0;
+// transform: translateY(0.3em);
+// }
+// .circle-chart__percent {
+// alignment-baseline: central;
+// text-anchor: middle;
+// font-size: 8px;
+// }
+// .circle-chart__subline {
+// alignment-baseline: central;
+// text-anchor: middle;
+// font-size: 3px;
+// }
+// .famale-stroke {
+// stroke: #ff9f7e;
+// }
+// .male-stroke {
+// stroke: #32abff;
+// }
+// .unknown-stroke {
+// stroke: #909090;
+// }
+// @keyframes circle-chart-fill {
+// to {
+// stroke-dasharray: 0 100;
+// }
+// }
+// @keyframes circle-chart-appear {
+// to {
+// opacity: 1;
+// transform: translateY(0);
+// }
+// }
 .friend-top {
   display: flex;
   margin: 0 -10px;
@@ -1246,6 +1247,11 @@ $wxlinePadding: 10px;
 }
 @keyframes load {
   0% {
+    stroke-dashoffset: 0;
+  }
+}
+/* @keyframes load {
+  0% {
     transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
   }
@@ -1253,7 +1259,7 @@ $wxlinePadding: 10px;
     transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
   }
-}
+} */
 .wxLoad {
   position: absolute;
   bottom: 25px;
@@ -1265,4 +1271,28 @@ $wxlinePadding: 10px;
   &.refreshLoad {
     animation: load 1s linear infinite;
   }
+}
+.wechatAdd {
+  color: #56d1c2;
+}
+.wx-table-editor {
+  display: block;
+  box-sizing: border-box;
+  // text-align: center;
+}
+.wechat-icon-editor {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  vertical-align: middle;
+  background: url(../images/edit-com.png) no-repeat;
+  background-size: contain;
+}
+.wx-input {
+  width: 80%;
+  min-width: 50px;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
 }

@@ -1,312 +1,360 @@
-@import "common/common";
-@import "common/bodyCommon";
+// @import "common/common";
+// @import "common/bodyCommon";
 
-@font-face {
-    font-family: "iconfont";
-    src: url('../fonts/iconfont1.eot'); /* IE9*/
-    src: url('../fonts/iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('../fonts/iconfont1.woff') format('woff'), /* chrome, firefox */
-    url('../fonts/iconfont1.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-    url('../fonts/iconfont1.svg#iconfont') format('svg'); /* iOS 4.1- */
+// @font-face {
+//     font-family: "iconfont";
+//     src: url('../fonts/iconfont1.eot'); /* IE9*/
+//     src: url('../fonts/iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//     url('../fonts/iconfont1.woff') format('woff'), /* chrome, firefox */
+//     url('../fonts/iconfont1.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+//     url('../fonts/iconfont1.svg#iconfont') format('svg'); /* iOS 4.1- */
+// }
+
+// .login-wrap {
+//     position: relative;
+//     background: url("../images/login-bg.jpg");
+//     background-size: cover;
+//     font-family: 'Microsoft YaHei';
+// }
+
+// //登录
+// .signIn-wrap {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate3d(-50%, -50%, 0);
+
+// }
+
+// .s-logo {
+//     height: 37px;
+//     margin-bottom: 24px;
+//     background-image: url("../images/s-logo.png");
+//     background-repeat: no-repeat;
+// }
+
+// .s-main {
+//     width: 780px;
+//     padding: 25px;
+//     background: rgba(0, 0, 0, 0.5);
+//     border-radius: 8px;
+// }
+
+// .input-box {
+//     display: inline-block;
+//     margin-left: 20px;
+//     &:first-child {
+//         margin-left: 0;
+//     }
+// }
+// .input{
+//     font-family: 'microsoft yahei';
+// }
+
+// .l-phone {
+//     width: 300px;
+// }
+
+// .l-pwd {
+//     //width: 190px;
+//     width: 150px;
+// }
+
+// .l-submit {
+//     width: 170px;
+//     height: 42px;
+// }
+
+// .l-bottom {
+//     margin-top: 21px;
+//     @include clearfix;
+//     color: #fff;
+
+// }
+
+// a.a-btn {
+//     display: inline-block;
+//     margin: 0 7px;
+//     text-decoration: underline;
+//     color: #fff;
+// }
+
+// .l-download {
+//     display: inline-block;
+//     margin-left: 15px;
+//     label {
+//         display: inline-block;
+//         margin-right: 10px;
+//     }
+// }
+
+// .code-wrap {
+//     position: absolute;
+//     display: none;
+//     top: 35px;
+//     left: 50%;
+//     padding: 10px;
+//     transform: translate3d(-50%, 0, 0);
+//     background: #fff;
+//     &:after {
+//         content: "";
+//         display: inline-block;
+//         position: absolute;
+//         top: -8px;
+//         left: 50%;
+//         transform: translate3d(-50%, 0, 0);
+//         @include triangle(top, 8px, #fff);
+//     }
+//     .icon:hover & {
+//         display: block;
+//     }
+// }
+
+// .code {
+//     @include icon;
+//     width: 152px;
+//     height: 152px;
+//     background-image: url("../images/down-code.jpg");
+//     background-size: contain;
+// }
+
+// .icon {
+//     position: relative;
+//     display: inline-block;
+//     margin: 0 10px;
+//     //height: 20px;
+//     cursor: pointer;
+//     i {
+//         &:after {
+//             font-family: iconfont;
+//             font-style: normal;
+//             font-size: 25px;
+//             color: #fff;
+//             line-height: 1;
+//         }
+//         &.android:after {
+//             content: "\e655";
+//         }
+//         &.ios:after {
+//             content: "\e656";
+//         }
+//     }
+// }
+
+// .signUp-wrap {
+//     padding: 30px;
+//     background: #f5f5f5;
+//     &:before {
+//         content: "";
+//         position: absolute;
+//         top: 2px;
+//         left: 2px;
+//         bottom: 2px;
+//         right: 2px;
+//         border: 2px solid #252834;
+//     }
+//     .active & {
+//         animation-name: layerDown;
+//         animation-duration: 0.5s;
+//         animation-timing-function: ease-in-out;
+//     }
+// }
+
+// .signUp-close {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     width: 60px;
+//     height: 60px;
+//     text-align: center;
+//     line-height: 60px;
+//     overflow: hidden;
+//     cursor: pointer;
+//     &:before {
+//         content: "";
+//         position: absolute;
+//         z-index: 0;
+//         top: 0;
+//         left: 0;
+//         width: 200%;
+//         height: 100%;
+//         transform: rotate(45deg) translate3d(-26px, -8px, 0);
+//         background: #252834;
+//     }
+//     i {
+//         color: #fff;
+//         position: absolute;
+//         font-size: 35px;
+//         top: -7px;
+//         left: 30px;
+//     }
+// }
+
+// .signUp-main {
+//     padding: 10px 30px 20px;
+// }
+
+// .s-title {
+//     margin-bottom: 30px;
+//     text-align: center;
+//     font-size: 22px;
+//     font-weight: bold;
+// }
+
+// .s-box {
+//     width: 360px;
+//     margin: 0 auto;
+// }
+
+// .s-input-box {
+//     position: relative;
+//     margin-bottom: 20px;
+// }
+
+// .yzm-input {
+//     padding-right: 142px;
+// }
+
+// .yzm-btn {
+//     position: absolute;
+//     top: 5px;
+//     right: 8px;
+//     width: 120px;
+//     height: 32px;
+//     line-height: 32px;
+//     font-size: 12px;
+//     color: #fff;
+//     text-align: center;
+//     text-decoration: none;
+//     &.active {
+//         background: #d4d4d4;
+//         border-color: #d4d4d4;
+//         cursor: default;
+//     }
+// }
+
+// a.yzm-btn {
+//     color: #fff;
+//     text-decoration: none;
+// }
+
+// a.href {
+//     color: #50D2C2;
+//     text-decoration: none;
+// }
+
+// .signUp-submit {
+//     display: block;
+//     width: 100%;
+//     height: 40px;
+// }
+
+// .company-input {
+//     padding-right: 122px;
+// }
+
+// @import "bootstrap/variables";
+// @import "bootstrap/mixins";
+// //@import "bootstrap/buttons";
+
+// .btn {
+//     display: inline-block;
+//     margin-bottom: 0; // For input.btn
+//     font-weight: $btn-font-weight;
+//     text-align: center;
+//     vertical-align: middle;
+//     touch-action: manipulation;
+//     cursor: pointer;
+//     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+//     border: 1px solid transparent;
+//     white-space: nowrap;
+//     @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-small, $line-height-base, $btn-border-radius-base);
+//     @include user-select(none);
+
+//     &,
+//     &:active,
+//     &.active {
+//         &:focus,
+//         &.focus {
+//             @include tab-focus;
+//         }
+//     }
+
+//     &:hover,
+//     &:focus,
+//     &.focus {
+//         //color: $btn-default-color;
+//         text-decoration: none;
+//     }
+
+//     &:active,
+//     &.active {
+//         outline: 0;
+//         background-image: none;
+//         //@include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+//     }
+
+//     &.disabled,
+//     &[disabled],
+//     fieldset[disabled] & {
+//         cursor: $cursor-disabled;
+//         @include opacity(.65);
+//         @include box-shadow(none);
+//     }
+
+//     // [converter] extracted a& to a.btn
+// }
+
+// .btn-primary {
+//     @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+// }
+
+/*---------------------------------------------------20180822------------------------------------------------------------**/
+body,
+html {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: '微软雅黑';
 }
-
 .login-wrap {
-    position: relative;
-    background: url("../images/login-bg.jpg");
-    background-size: cover;
-    font-family: 'Microsoft YaHei';
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: url(../images/loginBg.jpg);
+  background-size: cover;
+  background-position: center;
 }
-
-//登录
 .signIn-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 30px;
+  width: 400px;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.m-title {
+  text-align: center;
+  font-size: 26px;
+  line-height: 52px;
+}
+.login-row {
+  position: relative;
+  margin: 10px 0;
+  i {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-
-}
-
-.s-logo {
-    height: 37px;
-    margin-bottom: 24px;
-    background-image: url("../images/s-logo.png");
-    background-repeat: no-repeat;
-}
-
-.s-main {
-    width: 780px;
-    padding: 25px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-}
-
-.input-box {
-    display: inline-block;
-    margin-left: 20px;
-    &:first-child {
-        margin-left: 0;
-    }
-}
-.input{
-    font-family: 'microsoft yahei';
-}
-
-.l-phone {
-    width: 300px;
-}
-
-.l-pwd {
-    //width: 190px;
-    width: 150px;
-}
-
-.l-submit {
-    width: 170px;
-    height: 42px;
-}
-
-.l-bottom {
-    margin-top: 21px;
-    @include clearfix;
-    color: #fff;
-
-}
-
-a.a-btn {
-    display: inline-block;
-    margin: 0 7px;
-    text-decoration: underline;
-    color: #fff;
-}
-
-.l-download {
-    display: inline-block;
-    margin-left: 15px;
-    label {
-        display: inline-block;
-        margin-right: 10px;
-    }
-}
-
-.code-wrap {
-    position: absolute;
-    display: none;
-    top: 35px;
-    left: 50%;
-    padding: 10px;
-    transform: translate3d(-50%, 0, 0);
-    background: #fff;
-    &:after {
-        content: "";
-        display: inline-block;
-        position: absolute;
-        top: -8px;
-        left: 50%;
-        transform: translate3d(-50%, 0, 0);
-        @include triangle(top, 8px, #fff);
-    }
-    .icon:hover & {
-        display: block;
-    }
-}
-
-.code {
-    @include icon;
-    width: 152px;
-    height: 152px;
-    background-image: url("../images/down-code.jpg");
-    background-size: contain;
-}
-
-.icon {
-    position: relative;
-    display: inline-block;
-    margin: 0 10px;
-    //height: 20px;
-    cursor: pointer;
-    i {
-        &:after {
-            font-family: iconfont;
-            font-style: normal;
-            font-size: 25px;
-            color: #fff;
-            line-height: 1;
-        }
-        &.android:after {
-            content: "\e655";
-        }
-        &.ios:after {
-            content: "\e656";
-        }
-    }
-}
-
-
-.signUp-wrap {
-    padding: 30px;
-    background: #f5f5f5;
-    &:before {
-        content: "";
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        bottom: 2px;
-        right: 2px;
-        border: 2px solid #252834;
-    }
-    .active & {
-        animation-name: layerDown;
-        animation-duration: 0.5s;
-        animation-timing-function: ease-in-out;
-    }
-}
-
-.signUp-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    line-height: 60px;
-    overflow: hidden;
-    cursor: pointer;
-    &:before {
-        content: "";
-        position: absolute;
-        z-index: 0;
-        top: 0;
-        left: 0;
-        width: 200%;
-        height: 100%;
-        transform: rotate(45deg) translate3d(-26px, -8px, 0);
-        background: #252834;
-    }
-    i {
-        color: #fff;
-        position: absolute;
-        font-size: 35px;
-        top: -7px;
-        left: 30px;
-    }
-}
-
-.signUp-main {
-    padding: 10px 30px 20px;
-}
-
-.s-title {
-    margin-bottom: 30px;
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.s-box {
-    width: 360px;
-    margin: 0 auto;
-}
-
-.s-input-box {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.yzm-input {
-    padding-right: 142px;
-}
-
-.yzm-btn {
-    position: absolute;
-    top: 5px;
-    right: 8px;
-    width: 120px;
-    height: 32px;
-    line-height: 32px;
-    font-size: 12px;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    &.active {
-        background: #d4d4d4;
-        border-color: #d4d4d4;
-        cursor: default;
-    }
-}
-
-a.yzm-btn {
-    color: #fff;
-    text-decoration: none;
-}
-
-a.href {
-    color: #50D2C2;
-    text-decoration: none;
-}
-
-.signUp-submit {
-    display: block;
+  }
+  input {
     width: 100%;
+    box-sizing: border-box;
+    padding-left: 30px;
+
     height: 40px;
-}
-
-.company-input {
-    padding-right: 122px;
-}
-
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
-//@import "bootstrap/buttons";
-
-
-.btn {
-    display: inline-block;
-    margin-bottom: 0; // For input.btn
-    font-weight: $btn-font-weight;
-    text-align: center;
-    vertical-align: middle;
-    touch-action: manipulation;
-    cursor: pointer;
-    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-    border: 1px solid transparent;
-    white-space: nowrap;
-    @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-small, $line-height-base, $btn-border-radius-base);
-    @include user-select(none);
-
-    &,
-    &:active,
-    &.active {
-        &:focus,
-        &.focus {
-            @include tab-focus;
-        }
-    }
-
-    &:hover,
-    &:focus,
-    &.focus {
-        //color: $btn-default-color;
-        text-decoration: none;
-    }
-
-    &:active,
-    &.active {
-        outline: 0;
-        background-image: none;
-        //@include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
-    }
-
-    &.disabled,
-    &[disabled],
-    fieldset[disabled] & {
-        cursor: $cursor-disabled;
-        @include opacity(.65);
-        @include box-shadow(none);
-    }
-
-    // [converter] extracted a& to a.btn
-}
-
-.btn-primary {
-    @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
 }

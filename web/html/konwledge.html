@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>设置</title>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/head.css" />
+    <link rel="stylesheet" href="../css/select.css" />
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script src="../js/audio.js"></script>
+
+    <!-- <link rel="stylesheet" href="../css/zTreeStyle.css"> -->
+
+    <!-- <script src="../js/jquery.ztree.core.js"></script> -->
+    <!--<script src="../js/jquery.ztree.excheck.js"></script>-->
+    <!-- <script src="../js/jquery.ztree.exedit.js"></script> -->
+
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/vue-resource@1.3.4.js"></script>
+    <!-- <script src="../js/Sortable.min.js"></script> -->
+    <!-- <script src="../js/sortable.js"></script> -->
+    <!-- <script src="../js/vuedraggable.js"></script> -->
+    <script src="../js/lodash.min.js"></script>
+    <!-- <script src="../js/toastr.js"></script> -->
+    <!-- <link rel="stylesheet" href="../css/toastr.css"> -->
+    <!-- <link rel="stylesheet" href="../css/tagKeywords.css"> -->
+    <link rel="stylesheet" href="../css/konwledge.css">
+
+    <script src="../js/sortable.js"></script>
+    <script src="../js/vuedraggable.js"></script>
+</head>
+
+<body>
+    <!-- 页面遮罩层 layer -->
+    <div class="layer"></div>
+    <div class="layer-1"></div>
+    <!-- 页面头部 header -->
+    <div class="header">
+        <h1 class="logo fl"></h1>
+        <span class="mar fl">|</span>
+        <span class="fl">
+            <em>团队版</em>[
+            <a href="">点击切换</a>]</span>
+        <ul class="nav">
+            <li>
+                <a href="indexnew2.html">首页</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="">行动</a>-->
+            <!--</li>-->
+            <li>
+                <a href="customer1.html">客户</a>
+            </li>
+            <li>
+                <a href="download.html">线索</a>
+            </li>
+            <li>
+                <a href="task.html">任务</a>
+            </li>
+            <li>
+                <a href="robotTask.html">机器人</a>
+            </li>
+            <li>
+                <a href="konwledge.html" class="current">办公</a>
+            </li>
+            <li>
+                <a href="settings.html" id="top-setting">设置</a>
+            </li>
+        </ul>
+        <ul class="header-right fr">
+            <li>
+                <a href="javascript:;">
+                    <i class="add"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="update"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="message"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="user">刘</a>
+            </li>
+        </ul>
+    </div>
+    <!-- 汇总提示 tipArea -->
+    <div class="tipArea">
+        <div class="wrap">
+            <ul class="ul-2">
+                <li>
+                    <a href="konwledge.html" class="current">知识库</a>
+                </li>
+                <li>
+                    <a>网盘</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 内容部分 contents -->
+    <div class="contents content-fixed" id="main" v-cloak>
+        <div class="tag-box">
+            <div class="tags-li" :class="plateId==''?'active':''" @click="selectPlate()">
+                <a href="javascript:;">全部文档</a>
+            </div>
+            <div class="tags-li" v-for="(item,$index) in Plate" v-if="$index<2" @click="selectPlate(item.plateid,$index,item.name)" :class="plateId==item.plateid?'active':''">
+                <a href="javascript:;">{{item.name}}</a>
+            </div>
+            <div class="tags-li" :class="plateIndex>=2?'active':''">
+                <a href="javascript:void(0);" class="knowledge-tag-more">{{plateIndex>=2?plateText:'更多板块'}}</a>
+                <div class="tag-dropdown">
+                    <a href="javascript:;" class="tag-dropdown-li" v-for="(item,$index) in Plate" v-if="$index>=2" @click="selectPlate(item.plateid,$index,item.name)">{{item.name}}</a>
+                    <a href="javascript:layerShow('#plateManage')" class="tag-dropdown-li">板块管理</a>
+                </div>
+            </div>
+        </div>
+        <div class="knowledge-main">
+            <div class="knowledge-top">
+                <a href="konwledgeNew.html" class="btn">+ 新建文档</a>
+                <div class="fr">
+                    <div class="form-control form-default">
+                        <label class="form-name">排序：</label>
+                        <div class="form-info">
+                            <div class="form-select" @click.stop="return false;" :class="sortShow?'active':''">
+                                <span @click="sortChange">更新时间倒序</span>
+                                <div class="select-options" v-show="sortShow">
+                                    <div class="select-option">
+                                        创建时间倒序
+                                    </div>
+                                    <div class="select-option">
+                                        阅读次数倒序
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-control form-default">
+                        <div class="form-info">
+                            <input type="text" class="input" placeholder="">
+                            <i class="icon icon-search"></i>
+                        </div>
+                    </div>
+                    <div class="form-control form-default">
+                        <input type="button" value="查询" class="btn">
+                    </div>
+                </div>
+            </div>
+            <div class="knowledge-tags">
+                常用标签：
+                <label class="active">全部标签</label>
+                <label>产品</label>
+                <label>手机定价</label>
+            </div>
+            <div class="knowledge-list">
+                <div class="knowledge-li" v-for="item in ['','','','','','']">
+                    <div class="knowledge-sign">
+                        修改中
+                    </div>
+                    <div class="knowledge-title">
+                        <a href="konwledgeDetail.html" class="href">云客产品</a>
+                    </div>
+                    <div class="knowledge-sub">
+                        <i class="icon icon-label"></i>
+                        <a href="" class="href">产品资料</a>
+                        <span>张三</span>
+                        <span>时间：2018-07-26 11:00</span>
+                        <span>浏览：1234人</span>
+                    </div>
+                    <div class="knowledge-content">
+                        {{subShow('北京联云天下科技有限公司（简称：云客）专注于B2B销售服务领域。依托互联网，利用人工智能+大数据发现潜在客户线索，并采用人+平台的创新服务模式为企业输出销售机会。 其旗下的云客平台可主动挖掘、筛选、补全全网企业信息建立庞大数据储备。机器学习模块可对企业销售行进行分析，并自动建立量化目标客户模型，帮助企业找到更多相似客户。通过专业的电销团队，为企业进行探客服务，输出销售机会提升销售业绩。')}}
+                    </div>
+                    <div class="kl-file">
+                        <a href="javascript:;" class="knowledge-file" v-for="file in ['','','','','','','','','','','','','','','']">云客产品介绍.pdf</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分页 -->
+            <p class="page-p">共{{totalCount}}条</p>
+            <ul class="page-ul">
+                <li @click="setPage(1)">
+                    < </li>
+                        <li v-for="p in pages" v-if="(p>= pageIndex-2 && p<= pageIndex +2) || (pages<=5) ||(pageIndex<3&&p<=5) || (pageIndex > pages-2 && p> pages -5) "
+                            :class="{current:p == pageIndex}" @click="setPage(p)">{{p}}</li>
+
+                        <li @click="setPage(pages)"> ></li>
+            </ul>
+
+
+        </div>
+    </div>
+
+    <div class="modal" id="plateManage">
+        <div class="modal-top">
+            <i></i>板块管理
+            <a href="javascript:layerClose('#plateManage');" class="closed"></a>
+        </div>
+        <div class="modal-body">
+            <div class="plate-table">
+                <div class="plate-row">
+                    <div class="plate-name">
+                        板块名称
+                    </div>
+                    <div class="plate-setting">
+                        操作
+                    </div>
+                    <div class="plate-sort">
+                        排序
+                    </div>
+                </div>
+                <ul>
+                    <draggable v-model="plate" :options="{draggable:'.plate-row'}">
+                        <li class="plate-row plate-content" v-for="(item,$index) in plate">
+                            <div class="plate-name">
+                                <span v-if="!item.editor">{{item.name}}</span>
+                                <input type="text" class="plateInput" v-if="item.editor" v-model="editorname" placeholder="请输入板块名称" />
+                            </div>
+                            <div class="plate-setting">
+                                <a href="javascript:void(0)" class="href" @click="editorBtn($index)" v-text="item.editor==true?'保存':'编辑'">编辑</a>
+                                <a href="javascript:void(0)" class="href" @click="deletePlate($index)">删除</a>
+                            </div>
+                            <div class="plate-sort">
+                                <i class="tag-move"></i>
+                            </div>
+                        </li>
+                    </draggable>
+                </ul>
+                <div class="plate-row addPlate">
+                    <a href="javascript:;" class="href" @click="addPlate">添加板块+</a>
+                </div>
+            </div>
+        </div>
+        <div class="modal-bottom">
+            <input type="submit" class="btn" onclick="" value="保存" />
+            <input type="button" class="btn btn-cancel" onclick="layerClose('#plateManage')" value="取消" />
+        </div>
+    </div>
+
+
+    <script>
+
+        //关闭弹框
+        function layerClose(obj) {
+            $(obj).hide();
+            $(".layer").hide();
+        }
+        function layerShow(obj) {
+            $(obj).show();
+            $(".layer").show();
+        }
+        $("body").on('click', '.layer', function () {
+            $(".modal").hide();
+        });
+
+        function subShow(text) {
+            if (text.length > 100) {
+                return text.substring(0, 100) + '...';
+            } else {
+                return text;
+            }
+        }
+
+        var modal = new Vue({
+            el: '#plateManage',
+            data: function () {
+                return {
+                    plate: [],
+                    editorname: ''
+                }
+            },
+            methods: {
+                editorBtn: function (index) {
+                    if (!this.isOldEditor(index)) {
+                        return false;
+                    }
+                    this.$data.plate[index].editor = !this.$data.plate[index].editor;
+                    this.$data.editorname = this.$data.plate[index].name;
+
+                },
+                saveName: function (index) {
+                    if (this.$data.editorname == '') {
+                        alert("板块名称不能为空");
+                        return false;
+                    }
+                    this.$data.plate[index].name = this.$data.editorname;
+                    return true;
+                },
+                isOldEditor: function (index) {
+                    var oldIndex = _.findIndex(this.$data.plate, ['editor', true]);
+                    if (oldIndex >= 0) {
+                        if (!this.saveName(oldIndex)) {
+                            return false;
+                        }
+                        if (index != oldIndex) {
+                            this.$data.plate[oldIndex].editor = false;
+                        }
+                    }
+                    this.$data.editorname = '';
+                    return true;
+                },
+                addPlate: function () {
+                    if (!this.isOldEditor()) {
+                        return false;
+                    }
+                    this.$data.plate.push({
+                        name: '',
+                        editor: true,
+                        plateid: ''
+                    });
+                },
+                deletePlate: function (index) {
+                    this.$data.plate.splice(index, 1);
+                },
+
+            },
+            mounted: function () {
+                this.$data.plate = [
+                    { name: '公司简介', editor: false, plateid: '0' },
+                    { name: '简介1', editor: false, plateid: '1' },
+                    { name: '公司简介2', editor: false, plateid: '2' },
+                    { name: '公司简介3', editor: false, plateid: '3' },
+                ];
+            },
+        });
+
+
+        var vm = new Vue({
+            el: '#main',
+            data: function () {
+                return {
+                    Plate: [],
+                    plateId: '',
+                    plateIndex: -1,
+                    plateText: '',
+                    sortShow: false,
+                    pageIndex: 1,
+                    pages: 8,
+                    totalCount: 80
+                }
+            },
+            methods: {
+                selectPlate: function (id, index, name) {
+                    if (id == undefined || id == "") {
+                        this.$data.plateId = "";
+                        this.$data.plateIndex = -1;
+                        this.$data.plateText = '';
+                    }
+                    else {
+                        this.$data.plateId = id;
+                        this.$data.plateIndex = index;
+                        this.$data.plateText = name;
+                    }
+                },
+                sortChange: function () {
+                    this.$data.sortShow = !this.$data.sortShow;
+                },
+                setPage: function (p) {
+                    this.$data.pageIndex = p;
+                }
+            },
+            mounted: function () {
+                var _self = this;
+                _self.$data.Plate = [
+                    { name: '公司简介', editor: false, plateid: '0' },
+                    { name: '简介1', editor: false, plateid: '1' },
+                    { name: '公司简介2', editor: false, plateid: '2' },
+                    { name: '公司简介3', editor: false, plateid: '3' },
+                ];
+            }
+        });
+    </script>
+</body>
+
+</html>

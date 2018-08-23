@@ -1,7 +1,5 @@
-.dropList__menu,.dropdowns__menu{z-index:9;box-shadow:0 0 15px rgba(0,0,0,.5);white-space:nowrap}
-.dropList__menu,.dropdowns__menu,.wxModal{box-shadow:0 0 15px rgba(0,0,0,.5)}
-.wxModal__left,.wxModal__right{overflow:auto;height:100%;position:relative}
-.crumbs,.dropList__menu,.dropdowns__menu,.form-select,.wxtable-wrap td,.wxtable-wrap th{white-space:nowrap}
+.dropList__menu,.dropdowns__menu,.wxModal{right:0;box-shadow:0 0 15px rgba(0,0,0,.5)}
+.crumbs,.dropList__menu,.dropdowns__menu,.wxtable-wrap td,.wxtable-wrap th{white-space:nowrap}
 .wxCount__itemTitle.totalbox .item-title{width:24%;border-width:1px;text-align:left;padding:25px 15px;display:-webkit-inline-box;display:-webkit-inline-flex;display:-moz-inline-box;display:-ms-inline-flexbox;display:inline-flex;-moz-box-sizing:border-box;box-sizing:border-box;line-height:50px;cursor:default}
 .wxCount__itemTitle.totalbox .item-title .item-num{font-size:16px;font-weight:400}
 .wxCount__itemTitle .item-name{display:inline-block}
@@ -10,7 +8,7 @@
 .crumbs,.dropdowns__btn{display:inline-block;font-size:14px;line-height:30px}
 .crumbs{color:#999}
 .crumbs a:after{content:'>';display:inline-block;margin-left:5px;color:#999}
-.dropList__btn label:after,.dropList__btn label:before,.form-select span:after,.form-select span:before,.message:after,.message:before,.tag-bot-li.active:after,.wxLine-li:before,.wxLine-time:after{content:''}
+.dropList__btn label:after,.dropList__btn label:before,.message:after,.message:before,.tag-bot-li.active:after,.wxLine-li:before,.wxLine-time:after{content:''}
 .wxCount__tabBox.tabBox ul{float:right}
 .wxCount__tabBox.tabBox ul li a{min-width:27px;padding:0 15px;background:#f2f3f7;color:#999;border-radius:15px}
 .wxCount__tabBox.tabBox ul li a.current,.wxCount__tabBox.tabBox ul li a:hover{background:#50d2c2;color:#fff}
@@ -26,7 +24,7 @@
 .dropdowns__btn span:after,.dropdowns__btn span:before{content:'';position:absolute;border-style:solid;left:3px;border-width:5px 5px 0}
 .dropdowns__btn span:after{top:11px;border-color:#50d2c2 transparent}
 .dropdowns__btn span:before{top:13px;border-color:#fff transparent transparent}
-.dropdowns__menu{position:absolute;display:none;right:0;top:32px;padding:5px 0;min-width:150px;background:#fff;font-size:12px;color:#666;line-height:32px;border-radius:5px}
+.dropdowns__menu{position:absolute;display:none;top:32px;padding:5px 0;min-width:150px;z-index:9;background:#fff;font-size:12px;color:#666;line-height:32px;border-radius:5px}
 .dropList,.dropList__btn{position:relative}
 .dropdowns__menu li{padding:0 15px;cursor:pointer}
 .dropdowns__menu li.active,.dropdowns__menu li:hover{background:#edf0f3}
@@ -36,27 +34,27 @@
 .dropdowns--active .dropdowns__btn span:after{top:13px;border-color:#50d2c2 transparent}
 .dropdowns--active .dropdowns__btn span:before{top:11px;border-color:transparent transparent #fff}
 .crumbs+.searchBox{margin-top:0;margin-left:10px;vertical-align:top}
-.contentSelect{margin:20px 0}
+.contentSelect{padding:0 20px;font-weight:400;font-size:14px}
 .dropList__btn{min-width:30px;padding:0 30px 0 10px;color:#383838;font-size:14px;line-height:30px;-moz-box-sizing:border-box;box-sizing:border-box}
 .dropList__btn label{position:absolute;right:0;top:0;width:20px;height:100%}
 .dropList__btn label:after,.dropList__btn label:before{position:absolute;border-style:solid;left:3px;border-width:5px 5px 0}
 .dropList__btn label:after{top:11px;border-color:#fff transparent}
 .dropList__btn label:before{top:13px;border-color:#777 transparent transparent}
-.dropList__menu{position:absolute;display:none;left:0;top:32px;padding:5px 0;min-width:150px;background:#fff;font-size:12px;color:#666;line-height:32px;border-radius:5px}
+.dropList__menu{position:absolute;display:none;top:32px;padding:5px 0;min-width:150px;z-index:9;background:#fff;font-size:12px;color:#666;line-height:32px;border-radius:5px}
 .dropList__menu li{padding:0 15px}
 .dropList__menu li.active,.dropList__menu li:hover{background:#edf0f3}
 .dropList--active .dropList__menu{display:block}
 .dropList--active .dropList__btn label:after,.dropList--active .dropList__btn label:before{border-width:0 5px 5px}
 .dropList--active .dropList__btn label:after{top:13px;border-color:#fff transparent}
 .dropList--active .dropList__btn label:before{top:11px;border-color:transparent transparent #777}
-.listHead{max-width:42px;max-height:42px;margin:10px 0;vertical-align:middle}
+.listHead{max-width:42px;max-height:42px;margin:10px 0;vertical-align:middle;border-radius:30px}
 .talkUserHead,.wxModal__user .wxHead,.wxUserList .user .wxHead{max-width:40px;max-height:40px}
-.wxModal{width:980px;min-height:550px;height:80%;position:fixed;z-index:999;top:0;bottom:0;left:0;right:0;margin:auto;background:#fff;border-radius:5px}
+.wxModal{width:980px;min-height:550px;height:80%;position:fixed;z-index:999;top:0;bottom:0;left:0;margin:auto;background:#fff;border-radius:5px}
 .wxModal__close{position:absolute;z-index:9;top:15px;right:15px;color:#000;font-size:24px;line-height:.6}
-.wxModal__left{width:280px;float:left;border-right:1px solid #eceff9}
+.wxModal__left{width:280px;position:relative;float:left;height:100%;overflow:auto;border-right:1px solid #eceff9}
 .wxModal__left .form-info input[type=text]{width:180px}
 .wxModal__left .form-control:last-child{margin-right:0}
-.wxModal__right{margin-left:280px}
+.wxModal__right{position:relative;margin-left:280px;height:100%;overflow:auto}
 .wxModal__user{margin:15px 20px;vertical-align:bottom}
 .wxModal__user .wxHead{vertical-align:middle;border-radius:4px}
 .wxModal__user span{line-height:40px;margin-left:10px}
@@ -106,13 +104,12 @@
 .right-content{position:absolute;top:42px;left:0;right:0;bottom:0;overflow:auto}
 .wechatWrap{display:block}
 .wechatWrap .tabBox{border-bottom:0}
-.cell-title,.tag-bot{border-bottom:1px solid #e7e7e7}
-.border-wrap,.cell-content,.form-select span{border:1px solid #e7e7e7}
+.cell-title,.tag-bot,.wechatWrap .table-tlt{border-bottom:1px solid #e7e7e7}
 .wechatWrap .tabBox ul{display:inline-block}
 .wechatWrap .tabBox+.wxtable-wrap>.table{top:70px}
 .cell-wrap{margin:20px auto;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex}
 .cell-box{-webkit-box-flex:1;-webkit-flex:1;-moz-box-flex:1;-ms-flex:1;flex:1;padding:0 10px;box-sizing:border-box}
-.cell-content{height:100%;box-sizing:border-box}
+.cell-content{height:100%;box-sizing:border-box;border:1px solid #e7e7e7}
 .cell-title{position:relative;padding-left:50px;line-height:49px;font-size:16px;font-weight:700}
 .cell-title .icon{position:absolute;top:12px;left:15px;width:24px;height:24px;background-repeat:no-repeat;background-size:contain}
 .icon-cell1{background-image:url(../images/wxIcon1.png)}
@@ -121,23 +118,13 @@
 .icon-cell4{background-image:url(../images/wxIcon4.png);width:26px}
 .icon-cell5{background-image:url(../images/wxIcon5.png);width:26px}
 .cell-main{padding:15px;line-height:30px;font-size:14px;color:#333}
-.border-wrap{padding:0 15px}
+.border-wrap{padding:0 15px;border:1px solid #e7e7e7}
 .right-content .tag-bot{margin:10px}
 .tag-bot-li{display:inline-block;position:relative;padding:0 20px;font-size:14px;line-height:55px;color:#666;cursor:pointer}
 .tag-bot-li.active{color:#50d2c2}
 .tag-bot-li.active:after{position:absolute;bottom:-1px;left:0;width:100%;height:2px;background:#50d2c2}
 .chart-box{position:relative;height:400px}
 .chart-box .charts{height:100%}
-.form-select{display:inline-block;position:relative;min-width:100px}
-.form-select span{position:relative;display:block;padding:0 20px 0 10px;border-radius:3px;font-size:12px;line-height:32px;color:#999;cursor:pointer}
-.form-select span:after,.form-select span:before{position:absolute;right:10px;border-width:6px 6px 0;border-style:solid}
-.form-select span::before{top:14px;border-color:#333 transparent transparent}
-.form-select span::after{top:13px;border-color:#fff transparent transparent}
-.form-select.active span:after,.form-select.active span:before{border-width:0 6px 6px}
-.form-select.active span::before{top:13px;border-color:transparent transparent #333}
-.form-select.active span::after{top:14px;border-color:transparent transparent #fff}
-.form-select .select-options{position:absolute;z-index:9;min-width:100%;right:0;background:#fff;border-radius:3px;box-shadow:0 0 5px rgba(0,0,0,.5)}
-.form-select .select-option{padding:0 10px}
 .icon-state{display:inline-block;width:14px;height:14px;margin-right:5px;vertical-align:middle;border-radius:7px;background:#999}
 .icon-state.state-on{background:#ffb358}
 .wxtable-wrap .table{position:absolute;width:100%;top:0;bottom:58px;overflow:auto;border-top:2px solid #50d2c2}
@@ -152,7 +139,6 @@
 .wxtable-wrap .td-normal{white-space:normal;min-width:150px}
 .state-on{color:#ffb358}
 .state-off{color:#999}
-.wechatWrap .table-tlt{border-bottom:1px solid #e7e7e7}
 .wxmain{top:0;left:0;right:0}
 .wxleft-wrap{top:0;left:0;width:70px;font-size:18px;text-align:center;color:#fff;background:#414549}
 .wxright-wrap{position:relative;margin-left:70px;height:100%}
@@ -225,8 +211,6 @@
 .friend-img img{max-width:100%;max-height:100%;vertical-align:middle}
 @-webkit-keyframes load{0%{stroke-dashoffset:0}
 }
-@keyframes load{0%{stroke-dashoffset:0}
-}
 .progress{position:relative;padding:0;margin-bottom:20px}
 .progress>li{position:relative;color:#333;max-width:166px;width:32%}
 .progress>li:before{content:attr(data-name);position:absolute;width:100%;bottom:-16px;font-size:14px}
@@ -250,10 +234,13 @@
 .wxmap-city{position:absolute;-moz-box-sizing:border-box;box-sizing:border-box;width:50px;height:50px;padding:5px 0;border-radius:30px;background:#56d1c2;color:#fff;font-size:12px;line-height:20px}
 .wxmap-city span{display:block}
 .wxmap-city:hover{background:rgba(193,39,45,.7);z-index:99999999!important}
-@keyframes load{0%{transform:rotate(0);-webkit-transform:rotate(0)}
-100%{transform:rotate(360deg);-webkit-transform:rotate(360deg)}
+@keyframes load{0%{stroke-dashoffset:0}
 }
 .wxLoad{position:absolute;bottom:25px;left:20px;width:25px;height:25px;background:url(../images/refresh.png) no-repeat;background-size:contain}
 .wxLoad.refreshLoad{-webkit-animation:load 1s linear infinite;animation:load 1s linear infinite}
+.wechatAdd{color:#56d1c2}
+.wx-table-editor{display:block;-moz-box-sizing:border-box;box-sizing:border-box}
+.wechat-icon-editor{display:inline-block;width:19px;height:19px;vertical-align:middle;background:url(../images/edit-com.png) no-repeat;background-size:contain}
+.wx-input{width:80%;min-width:50px;padding:5px 10px;border:1px solid #ddd;border-radius:5px;-moz-box-sizing:border-box;box-sizing:border-box}
 
 /*# sourceMappingURL=wxStyle.css.map */

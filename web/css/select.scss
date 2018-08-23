@@ -1,0 +1,88 @@
+@charset "UTF-8";
+/*--------单位-----------*/
+/*----------字体--------*/
+/*-----------兼容-------------*/
+/*--------cleafix---------*/
+/*-----------计算---------------*/
+/*--------div居中---------*/
+/*-------定位----------*/
+/*设置不同浏览器宽度字体的大小*/
+/*设置不同皮肤*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+.wrap .Jselect {
+  float: left;
+  margin-top: 30px;
+  margin: 26px 40px 0 10px;
+}
+.Jselect .select_text:after {
+  background: url('../img/navall.png') no-repeat;
+}
+
+.Jselect .select_text:after {
+  height: 6px;
+  width: 11px;
+  background-position: 0 0;
+}
+
+/*navall*/
+/*check*/
+.Jselect {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  text-align: left;
+  border: 1px solid #d4d4d4;
+  background: #f9f9f9;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+}
+.Jselect .select_text {
+  position: relative; /*padding: 0 20px; */
+  line-height: 30px;
+}
+.Jselect .select_text:after {
+  position: absolute;
+  content: '';
+  display: inline-block;
+  top: 13px;
+  right: 8px;
+}
+.Jselect.select-row {
+  width: 100%;
+}
+
+.select_ul {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: -1px;
+  width: 100%;
+  z-index: 9;
+  border: 1px solid #d4d4d4;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  background: #fff;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.select_ul li {
+  line-height: 42px;
+  cursor: pointer; /*padding: 0 20px; */
+  text-align: left;
+}
+
+.select_ul li:hover {
+  color: #a4a4a4;
+  background: #f0f0f0;
+}
+
+.select_ul li.cur {
+  color: #a4a4a4;
+  background: #f0f0f0;
+}
+
+/*20180731*/

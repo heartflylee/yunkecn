@@ -6,22 +6,179 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="js/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="css/test.css">
 </head>
 
-<body>
-    <div class="" style="padding: 80px 20px;">
-        <iframe name="frame" src="https://www.dianping.com/shop/507576" frameborder="0" width="100%" height="900px"></iframe>
+<body style="min-height: 1000px;background: #f0f0f0;">
+
+    <style>
+        .fixed-box,
+        .fixed-li:hover .fixed-show-box {
+            display: block
+        }
+
+        .fixed-wrap {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            -webkit-transform: translate(0, -50%);
+            -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            border: 1px solid #fff;
+            z-index: 99999999
+        }
+
+        .fixed-li {
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            background: #4fd2c2;
+            line-height: 0;
+            position: relative;
+            border-bottom: 1px solid #fff
+        }
+
+        .fixed-li:last-child {
+            border-bottom: 0
+        }
+
+        .fixed-li:hover {
+            background: #94ddd2
+        }
+
+        .fixed-box {
+            cursor: pointer;
+            text-decoration: none !important;
+            padding: 7px 0
+        }
+
+        .fixed-box.goTop {
+            padding: 0;
+            line-height: 60px
+        }
+
+        .fixedImg {
+            margin: 0 auto;
+            width: 28px;
+            vertical-align: middle;
+            line-height: 40px
+        }
+
+        .fixedImg+label {
+            font-size: 12px;
+            display: block;
+            text-align: center;
+            color: #fff;
+            line-height: 20px
+        }
+
+        .fixed-show-box {
+            display: none;
+            min-width: 160px;
+            padding: 10px;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            right: 62px;
+            text-align: center;
+            line-height: 0;
+            background: #4fd2c2;
+            color: #fff;
+            white-space: nowrap
+        }
+
+        .fixed-show-box p {
+            margin: 0;
+            padding: 0;
+            line-height: 30px;
+            font-size: 14px;
+            text-align: left
+        }
+
+        .wechatCode {
+            width: 140px;
+            margin: 0 auto
+        }
+    </style>
+    <div class="fixed-wrap">
+        <div class="fixed-li">
+            <div class="fixed-box">
+                <img class="fixedImg" src="http://www.yunkecn.com/androidQY/yunkeAI/img/wechat.png" />
+                <label>微信咨询</label>
+            </div>
+            <div class="fixed-show-box">
+                <img class="wechatCode" src="http://www.yunkecn.com/androidQY/yunkeAI/img/wechatCode.jpg" />
+            </div>
+        </div>
+        <div class="fixed-li">
+            <a class="fixed-box" target="_blank" href="http://p.qiao.baidu.com/cps/chat?siteId=9055730&amp;amp;amp;userId=20779631">
+                <img class="fixedImg" src="http://www.yunkecn.com/androidQY/yunkeAI/img/message.png" />
+                <label>在线咨询</label>
+            </a>
+        </div>
+        <div class="fixed-li">
+            <div class="fixed-box">
+                <img class="fixedImg" src="http://www.yunkecn.com/androidQY/yunkeAI/img/phone.png" />
+                <label>电话咨询</label>
+            </div>
+            <div class="fixed-show-box">
+                <p>客服电话</p>
+                <p>400-626-9560</p>
+            </div>
+        </div>
+        <div class="fixed-li">
+            <div class="fixed-box">
+                <img class="fixedImg" src="http://www.yunkecn.com/androidQY/yunkeAI/img/time.png" />
+                <label>服务时间</label>
+            </div>
+            <div class="fixed-show-box">
+                <p>服务时间</p>
+                <p>周一至周五 9:00-18:00</p>
+            </div>
+        </div>
+        <div class="fixed-li">
+            <a href="javascript:gotoTop();" class="fixed-box goTop">
+                <img class="fixedImg" src="http://www.yunkecn.com/androidQY/yunkeAI/img/uparrow.png" />
+            </a>
+        </div>
     </div>
     <script>
-        $(function () {
-            setTimeout(function () {
-                console.log($("iframe"));
-                // console.log(window.frames["frame"].document);
-                console.log($("iframe").contents().find("body").html());
-            }, 5000);
-            // console.log($("iframe")[0].find("#basic-info"));
-        });
+        function gotoTop(acceleration, stime) {
+            acceleration = acceleration || 0.1;
+            stime = stime || 10;
+            var x1 = 0;
+            var y1 = 0;
+            var x2 = 0;
+            var y2 = 0;
+            var x3 = 0;
+            var y3 = 0;
+            if (document.documentElement) {
+                x1 = document.documentElement.scrollLeft || 0;
+                y1 = document.documentElement.scrollTop || 0;
+            }
+            if (document.body) {
+                x2 = document.body.scrollLeft || 0;
+                y2 = document.body.scrollTop || 0;
+            }
+            var x3 = window.scrollX || 0;
+            var y3 = window.scrollY || 0;
+
+            // 滚动条到页面顶部的水平距离
+            var x = Math.max(x1, Math.max(x2, x3));
+            // 滚动条到页面顶部的垂直距离
+            var y = Math.max(y1, Math.max(y2, y3));
+
+            // 滚动距离 = 目前距离 / 速度, 因为距离原来越小, 速度是大于 1 的数, 所以滚动距离会越来越小
+            var speeding = 1 + acceleration;
+            window.scrollTo(Math.floor(x / speeding), Math.floor(y / speeding));
+
+            // 如果距离不为零, 继续调用函数
+            if (x > 0 || y > 0) {
+                var run = "gotoTop(" + acceleration + ", " + stime + ")";
+                window.setTimeout(run, stime);
+            }
+        }
     </script>
 </body>
 

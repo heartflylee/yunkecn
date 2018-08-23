@@ -259,7 +259,7 @@
                                 });
                             </script>
                             <div class="fr">
-                                <div class="form-control">
+                                <div class="form-control form-default">
                                     <label class="form-name">状态：</label>
                                     <div class="form-info">
                                         <div class="form-select" @click.stop="return false;" :class="stateShow?'active':''">
@@ -277,13 +277,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-control">
+                                <div class="form-control form-default">
                                     <div class="form-info">
                                         <input type="text" class="input" placeholder="请搜索销售员/微信号">
                                         <i class="icon icon-search"></i>
                                     </div>
                                 </div>
-                                <div class="form-control">
+                                <div class="form-control form-default">
                                     <input type="button" value="查询" class="btn">
                                 </div>
                             </div>
@@ -293,9 +293,9 @@
                                 <table class="table-list" id="table-list">
                                     <thead>
                                         <tr>
-                                            <th>微信号</th>
-                                            <th>微信昵称</th>
                                             <th>销售员</th>
+                                            <th>微信昵称</th>
+                                            <th>微信号</th>
                                             <th>联系人数</th>
                                             <th>微信群数</th>
                                             <th>会话数</th>
@@ -306,12 +306,14 @@
                                     </thead>
                                     <tbody>
                                         <tr v-for="item,$index in ['','','','','','','','','','','','','']">
-                                            <td>fakelove</td>
-                                            <td>李四</td>
                                             <td>张三
                                                 <span :class="$index%2==0?'state-on':'state-off'">[{{$index%2==0?'在线':'离线'}}]</span>
                                             </td>
-                                            <td>723</td>
+                                            <td>李四</td>
+                                            <td>fakelove</td>
+                                            <td>723
+                                                <span class="wechatAdd">+23</span>
+                                            </td>
                                             <td>327</td>
                                             <td>
                                                 <p>总数：1234</p>
@@ -324,8 +326,8 @@
                                             </td>
                                             <td>2018-06-20 10:45</td>
                                             <td>
-                                                <a class="href" href="wechat-3.html">联系人</a>
-                                                <a class="href" href="wechat-7.html" target="_blank">微信群</a>
+                                                <a class="href" target="_blank" href="wechat-3.html">联系人</a>
+                                                <a class="href" target="_blank" href="wechat-3.html?type=1">微信群</a>
                                                 <!-- <a class="href">朋友圈</a> -->
                                             </td>
                                         </tr>

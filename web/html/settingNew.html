@@ -20,6 +20,8 @@
     <script src="../js/jquery.ztree.core.js"></script>
     <!--<script src="../js/jquery.ztree.excheck.js"></script>-->
     <script src="../js/jquery.ztree.exedit.js"></script>
+    <script src="../js/jquery.ztree.exhide.js"></script>
+    <script src="../js/jquery.ztree.fuzzysearch.js"></script>
 </head>
 
 <body>
@@ -127,6 +129,11 @@
             <div class="manage-block">
                 <div class="manage-left">
                     <div class="department-search">
+                        <div class="form-control form-default ztree-search">
+                            <div class="form-info"><input type="text" placeholder="销售/部门" class="input" id="ztreeSearch"
+                                />
+                                <a class="icon icon-search"></a></div>
+                        </div>
                     </div>
                     <div class="tree-wrap">
                         <ul id="tree" class="ztree department-tree"></ul>
@@ -800,6 +807,7 @@
         //默认设置树形结构
         $(document).ready(function () {
             $.fn.zTree.init($("#tree"), setting, zNodes);
+            fuzzySearch('tree', '#ztreeSearch', null, true);
             $.fn.zTree.init($("#depart-tree"), departSetting, zNodes);
         });
 

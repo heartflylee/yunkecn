@@ -1,7 +1,7 @@
 .tag-li .href.disabled,.tag-li.tag-disabled .href{cursor:default;color:#bbb}
 .tagBtnBox{padding:20px}
 .tagBtnBox .select-box{margin:0;float:right;height:30px}
-.tag-list{border-top:2px solid #56d1c2;line-height:52px;font-size:14px}
+.tag-list{border-top:2px solid #56d1c2;line-height:52px;font-size:14px;background:#fff}
 .tag-row{position:relative;overflow:hidden;border-bottom:1px solid #e7e7e7}
 .tag-row:hover{background:#f7fdfc}
 .tag-row:hover .tag-move{display:block}
@@ -10,6 +10,7 @@
 .tag-row-box div{min-height:5px}
 .tag-move{display:none;position:absolute;width:18px;height:18px;right:5%;top:17px;background:url(../images/tag-move.png) no-repeat;background-size:contain}
 .tag-li{display:inline-block;width:30%;padding:0 10px;-moz-box-sizing:border-box;box-sizing:border-box}
+.tag-custom .tag-li{width:24%}
 .tag-li .href{margin-right:10px}
 .tag-double .tag-li{width:45%}
 .tags-tip-text{color:#bbb}

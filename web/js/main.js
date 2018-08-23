@@ -110,29 +110,6 @@ $(function() {
     );
   });
 
-  // 左侧筛选
-  $('#a-more').on('click', function(event) {
-    $('#choose-term').toggle();
-    $('body').one('click', function() {
-      $('#choose-term').hide();
-    });
-    event.stopPropagation();
-  });
-  $('#choose-term').click(function(event) {
-    event.stopPropagation();
-  });
-  $('#choose-term #dl1 dd').on('click', function() {
-    $('#choose-term #dl1 dd a').removeClass('current');
-    $(this)
-      .find('a')
-      .addClass('current');
-  });
-  $('#choose-term #dl2 dd').on('click', function() {
-    $('#choose-term #dl2 dd a').removeClass('current');
-    $(this)
-      .find('a')
-      .addClass('current');
-  });
 
   // 电话量筛选
   $('#tel-choose').on('click', function() {
@@ -1520,3 +1497,10 @@ $(function() {
 });
 
 // Load in the first track
+  //获取地址栏参数
+  function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]);
+    return "";
+}

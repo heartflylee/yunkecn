@@ -185,9 +185,9 @@
                     <div class="right-content">
                         <div class="tabBox">
                             <a href="javascript:initSensitive();" style="margin-left: 10px;" class="btn">+ 新增敏感词</a>
-                            <div class="fr">
-                                <div class="form-control">
-                                    <span class="form-name">用户分类:</span>
+                            <!-- <div class="fr">
+                                <div class="form-control form-default">
+                                    <span class="form-name">用户分类：</span>
                                     <div class="form-info">
                                         <select class="select">
                                             <option value="">选择用户分类</option>
@@ -196,10 +196,10 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-control">
+                                <div class="form-control form-default">
                                     <input type="button" value="查询" class="btn">
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="wxtable-wrap">
                             <div class="table">
@@ -207,6 +207,7 @@
                                     <thead>
                                         <tr>
                                             <th>序号</th>
+                                            <th>敏感词分组</th>
                                             <th>敏感词</th>
                                             <th>优先级</th>
                                             <th>操作</th>
@@ -215,16 +216,16 @@
                                     <tbody>
                                         <tr v-for="item,$index in ['','','','','','','','','','','','','']">
                                             <td>{{$index}}</td>
+                                            <td>分组</td>
                                             <td>打开摄像头</td>
                                             <td>高</td>
                                             <td>
-                                                <a href="javascript:initSensitive('id111','打开摄像头','高');" class="href">编辑</a>
+                                                <a href="javascript:initSensitive('id111','分组','打开摄像头','高');" class="href">编辑</a>
                                                 <a href="javascript:void(0);" class="href">删除</a>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-
                             </div>
 
                         </div>
@@ -237,10 +238,18 @@
         <!--新建敏感词-->
         <div class="modal " id="insertSensitive">
             <div class="modal-top">
-                <i></i>新增/編輯敏感词
+                <i></i>新增/编辑敏感词
                 <a href="javascript:layerClose('#insertSensitive');" class="closed"></a>
             </div>
             <form class="function-content" @submit.prevent="submit">
+                <div class="form-row">
+                    <label class="form-name">
+                        敏感词分组
+                    </label>
+                    <div class="form-info">
+                        <input type="text" class="input" v-model="sensitiveGroup">
+                    </div>
+                </div>
                 <div class="form-row">
                     <label class="form-name">
                         敏感词
@@ -277,6 +286,7 @@
                 el: "#insertSensitive",
                 data: function () {
                     return {
+                        sensitiveGroup: '',
                         sensitive: '',
                         level: '',
                         id: ''
@@ -298,9 +308,9 @@
                 $(".layer").show();
                 $("#insertSensitive").show();
             }
-            function initSensitive(id, sensitive, level) {
-
+            function initSensitive(id, sensitiveGroup, sensitive, level) {
                 insertSensitive.$data.id = id != undefined ? id : '';
+                insertSensitive.$data.sensitiveGroup = sensitiveGroup != undefined ? sensitiveGroup : '';
                 insertSensitive.$data.sensitive = sensitive != undefined ? sensitive : '';
                 insertSensitive.$data.level = level != undefined ? level : '';
                 sensitiveShow();

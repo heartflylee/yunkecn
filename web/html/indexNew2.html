@@ -31,8 +31,9 @@
 	<script src="../js/jedate-6.5.0/src/jedate.js"></script>
 	<link rel="stylesheet" href="../css/zTreeStyle.css">
 	<script src="../js/jquery.ztree.core.js"></script>
+	<script src="../js/jquery.ztree.exhide.js"></script>
 	<script src="../js/jquery.ztree.excheck.js"></script>
-	<!-- <script src="../js/jquery.ztree.exedit.js"></script> -->
+	<script src="../js/jquery.ztree.fuzzysearch.js"></script>
 
 	<!--[if lt IE 10]>
 		<script src="../js/placeholder.js"></script>
@@ -139,22 +140,38 @@
 				</dd>
 			</dl>
 			<div class="leftContentBox">
-				<div class="tlt">选择组员</div>
+				<div class="tlt">选择组员
+					<!-- <form class="search-wrap" onsubmit="return false;">
+						<input type="text" class="input" placeholder="名称/部门" />
+						<a type="submit" href="javascript:;" class="search-icon"></a>
+					</form> -->
+					<div class="form-control form-default ztree-search">
+						<div class="form-info"><input type="text" placeholder="销售/部门" class="input" id="zteeSearch"> <a class="icon icon-search"></a></div>
+					</div>
+				</div>
 				<div class="indexTree">
 					<ul id="tree" class="ztree department-tree"></ul>
 				</div>
 			</div>
 			<div class="leftContentBox">
-				<div class="tlt">
+				<div class="tabs-box" id="choose-tabs">
+					<label class="tabs-label active">
+						有意向客户
+					</label>
+					<label class="tabs-label">
+						电话量
+					</label>
+					<label class="tabs-label">
+						成单量
+					</label>
+				</div>
+				<!-- <div class="tlt">
 					<b id="choose-1">今日</b>
 					<span id="choose-2">成单量</span>
-					<a href="javascript:;" class="more" id="a-more"></a>
 				</div>
-				<!-- 筛选条件 -->
 				<div class="choose-term" id="choose-term">
 					<div class="line"></div>
 					<dl id="dl2">
-						<dt>项目</dt>
 						<dd>
 							<a flag="ranktype" href="javascript:;">有意向客户
 								<i class="right-icon"></i>
@@ -171,8 +188,43 @@
 							</a>
 						</dd>
 					</dl>
-					<input type="button" class="btn marleft47" value="保存" id="chooseBtn">
-				</div>
+				</div> -->
+
+				<script>
+					$(function () {
+						$('#choose-2').on('click', function (event) {
+							$('#choose-term').toggle();
+							$(this).toggleClass("active");
+							$("body").one("click", function () {
+								$('#choose-term').hide();
+								$("#choose-2").removeClass("active");
+							});
+							event.stopPropagation();
+						});
+						$('#choose-term').click(function (event) {
+							event.stopPropagation();
+						});
+						$('#choose-term #dl1 dd').on('click', function () {
+							$('#choose-term #dl1 dd a').removeClass('current');
+							$(this)
+								.find('a')
+								.addClass('current');
+						});
+						$('#choose-term #dl2 dd').on('click', function () {
+							$('#choose-term #dl2 dd a').removeClass('current');
+							$(this)
+								.find('a')
+								.addClass('current');
+						});
+
+
+						$('#choose-tabs .tabs-label').on('click', function () {
+							$('#choose-tabs .tabs-label').removeClass('active');
+							$(this)
+								.addClass('active');
+						});
+					});
+				</script>
 				<ul class="sellers" id="sellers">
 					<li>
 						<span class="num">1</span>
@@ -263,6 +315,8 @@
 						<i class="icon icon-time"></i>
 						<i class="icon-times">&times;</i>
 					</div>
+					<!-- <input type="text" class="btn" value="查询"> -->
+					<a href="javascript:void(0)" class="btn">查询</a>
 				</div>
 				<script type="text/javascript">
 					$(function () {
@@ -1343,7 +1397,64 @@
 		<div class="modal-body">
 			<div class="index-export-text">
 				当前导出数据时间
-				<span>2018-07-09~2018-07-13</span>
+				<!-- <span>2018-07-09~2018-07-13</span> -->
+				<div class="time-range-box">
+					<div class="input-time">
+						<input type="text" id="exportTimeStart" placeholder="yyyy-MM-dd" readonly="readonly" class="input">
+						<i class="icon icon-time"></i>
+						<i class="icon-times">&times;</i>
+					</div>
+					<span>至</span>
+					<div class="input-time">
+						<input type="text" id="exportTimeEnd" placeholder="yyyy-MM-dd" readonly="readonly" class="input">
+						<i class="icon icon-time"></i>
+						<i class="icon-times">&times;</i>
+					</div>
+					<!-- <input type="text" class="btn" value="查询"> -->
+					<!-- <a href="javascript:void(0)" class="btn">查询</a> -->
+				</div>
+				<script type="text/javascript">
+					$(function () {
+						var minday_1;
+						var maxday_1;
+						var minday_2;
+						var maxday_2;
+						$("body").on('click', '#exportTimeStart, #exportTimeStart+.icon-time', function (e) {
+							maxday_1 = $("#exportTimeEnd").val();
+							if (maxday_1 == "") {
+								maxday_1 = (new Date()).toString("yyyy-MM-dd");
+							}
+							var ths = this;
+							if ($(this)[0].tagName.toLocaleLowerCase() != 'input') {
+								ths = $(this)[0].previousElementSibling;
+							}
+							calendar.show({
+								id: ths,
+								maxDay: maxday_1.toString("yyyy-MM-dd"),
+								ok: function () {
+									$(".tabBox a").removeClass('current');
+								}
+							});
+							return false;
+						});
+						$("body").on('click', '#exportTimeEnd, #exportTimeEnd+.icon-time', function (e) {
+							minday_1 = $("#exportTimeStart").val();
+							var ths = this;
+							if ($(this)[0].tagName.toLocaleLowerCase() != 'input') {
+								ths = $(this)[0].previousElementSibling;
+							}
+							calendar.show({
+								id: ths,
+								maxDay: (new Date()).toString("yyyy-MM-dd"),
+								minDay: minday_1.toString("yyyy-MM-dd"),
+								ok: function () {
+									$(".tabBox a").removeClass('current');
+								}
+							});
+							return false;
+						});
+					});
+				</script>
 			</div>
 			<div class="index-checkbox">
 				<label class="radio-label">
@@ -1429,14 +1540,14 @@
 			$(".modal").hide();
 		});
 		var departSetting = {
-			// view:
-			// {
-			// 	// addDiyDom: this.addDiyDom,
-			// 	// showLine: false,
-			// 	selectedMulti: false,
-			// 	showIcon: false,
-			// 	fontCss: { 'font-weight': 'bold' }
-			// },
+			view:
+			{
+				// addDiyDom: addDiyDom,
+				// showLine: false,
+				// selectedMulti: false,
+				// showIcon: false,
+				// fontCss: { 'font-weight': 'bold' }
+			},
 
 			check: {
 				enable: true,
@@ -1453,6 +1564,17 @@
 
 		};
 
+		// function addDiyDom(event, treeNode) {
+		// 	if (treeNode.flag == 'user') {
+		// 		var aObj = $("#" + treeNode.tId);
+		// 		aObj.hide();
+		// 		var treeObj = $.fn.zTree.getZTreeObj("exportZtree");
+		// 		// var nodes = treeObj.getNodes();
+		// 		treeObj.hideNode(treeNode);
+		// 	}
+		// }
+
+
 		// chkboxType = { "Y" : "s", "N" : "ps" }
 		function onMouseDown(event, treeId, treeNode) {
 			//选中部门
@@ -1468,27 +1590,10 @@
 		}
 
 		$("body").on('change', 'input[name=exportRadio]', function () {
-			var zTree = $.fn.zTree.getZTreeObj("exportZtree");
-			if ($("input[name=exportRadio]:checked")[0].value == "1") {
-				zTree.setting.check.chkboxType = { "Y": "s", "N": "ps" };
-				zTree.checkAllNodes(true);
-				zTree.expandAll(true);
-			} else {
-				zTree.setting.check.chkboxType = { "Y": "", "N": "" };
-				var nodes = zTree.getNodesByFilter(function (node) { return node.level == 0 });
-				zTree.checkAllNodes(false);
-				zTree.expandAll(false);
-				if (nodes.length > 0) {
-					for (var i = 0; i < nodes.length; i++) {
-						zTree.checkNode(nodes[i], true);
-					}
-				}
-
-			}
-
+			exportTree();
 		});
 
-		var zNodes = [
+		/*var zNodes = [
 			{ id: 1, pId: 0, name: "随意勾选 1", checked: true, },
 			{ id: 11, pId: 1, name: "随意勾选 1-1", },
 			{ id: 111, pId: 11, name: "随意勾选 1-1-1" },
@@ -1502,12 +1607,114 @@
 			{ id: 221, pId: 22, name: "随意勾选 2-2-1", },
 			{ id: 222, pId: 22, name: "随意勾选 2-2-2" },
 			{ id: 23, pId: 2, name: "随意勾选 2-3" }
+		];*/
+
+		// var zNodes = [
+		// 	{ id: 1, pId: 0, name: "随意勾选 1" },
+		// 	{ id: 11, pId: 1, name: "随意勾选 1-1", },
+		// 	{ id: 111, pId: 11, name: "随意勾选 1-1-1" },
+		// 	{ id: 112, pId: 11, name: "随意勾选 1-1-2" },
+		// 	{ id: 12, pId: 1, name: "随意勾选 1-2", },
+		// 	{ id: 121, pId: 12, name: "随意勾选 1-2-1" },
+		// 	{ id: 122, pId: 12, name: "随意勾选 1-2-2" },
+		// 	{ id: 2, pId: 1, name: "随意勾选 2" },
+		// 	{ id: 21, pId: 2, name: "随意勾选 2-1" },
+		// 	{ id: 22, pId: 2, name: "随意勾选 2-2", },
+		// 	{ id: 221, pId: 22, name: "随意勾选 2-2-1", },
+		// 	{ id: 222, pId: 22, name: "随意勾选 2-2-2" },
+		// 	{ id: 23, pId: 2, name: "随意勾选 2-3" }
+		// ];
+
+		var zNodes = [
+			{ "id": "00D250B670B24F91A6F5BF271B922262", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "牟美娜", "flag": "user", "cellphone": "18410340049", "phone": 0, "imei": "", "headImg": "/2018/08big/32505cb7b04443e89d47594099f723bf_880ED69797CB498A89142406446CE26Aschedule-icon.png", "iconSkin": "normal", "userType": 0 }
+			, { "id": "00E18A8782A64F9F83459A03A2492340", "pId": "B44E5F5002E44CC6BBEE45A382BA6E9E", "name": "阶级", "flag": "user", "cellphone": "18901154881", "phone": 1, "imei": "867787035389182", "headImg": "/2018/08big/f4aafd886f3e4f30a9eb500aeb27046c_B476C127D3DD4732B4F98D28737865BDPhoto99e971a2-220b-44d6-a556-2a8b51d5d64d.jpg", "iconSkin": "normal", "userType": 0 }
+			, { "id": "025FE6CEB556485FB69AE2F5905F19B1", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "13078083843", "flag": "user", "cellphone": "13078083843", "phone": 0, "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "11BE4E702E114F9FA7735124A0E5C97B", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "销售2", "flag": "user", "cellphone": "18599999999", "phone": 0, "imei": "", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "1389223EB08D45CAB40C4565F97706D7", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "13146816793", "flag": "user", "cellphone": "13146816793", "phone": 0, "imei": "", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "1449D46A22454E9793F7D1F405DB753A", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "张伯阳", "flag": "user", "cellphone": "17612256497", "phone": 1, "imei": "867397032271464", "headImg": "/2018/06big/E772780684724B9F80FEC3E9046C0030Photo2bd84db9-2600-4f16-8c37-0683fcce2392.jpg", "iconSkin": "normal", "icon": "http://yunkecn.com/fileupload/fileupload/2018/06big/E772780684724B9F80FEC3E9046C0030Photo2bd84db9-2600-4f16-8c37-0683fcce2392.jpg", "userType": 0 }
+			, { "id": "188F26F953B5411BAD01E2350A886C96", "pId": "3661BD8AABCC4CDE89D01FE852416101", "name": "陈博", "flag": "user", "cellphone": "15601313049", "phone": 0, "imei": "", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "1E4644E6392C4541B11153CF21716EF0", "pId": "D784DD31CA634D299F5BD62EB68CDDC9", "name": "123", "flag": "user", "cellphone": "13716302192", "phone": 1, "imei": "868661033217134", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "21C805EDEE4844E39434BF49239898DF", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "13439660347", "flag": "user", "cellphone": "13439660347", "phone": 1, "imei": "867400020316622", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "21E89B99EE9F48D7992EF428D2D3676D", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "18811076155", "flag": "user", "cellphone": "18811076155", "phone": 0, "imei": "", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "294B30BE68C24BC18D148F312440A394", "pId": "282D23A31C9C4AEFBAE6F1BDE8B90933", "name": "销售1", "flag": "user", "cellphone": "18734722387", "phone": 0, "imei": "", "headImg": "/2016/11big/58be86e6b7734f1094f6c14b041dc4b0_head.jpg", "iconSkin": "normal", "icon": "http://yunkecn.com/fileupload/fileupload/2016/11big/58be86e6b7734f1094f6c14b041dc4b0_head.jpg", "userType": 0 }
+			, { "id": "30F60A32F57C40908E0939E05BAB6E8E", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "13522303798", "flag": "user", "cellphone": "13522303798", "phone": 1, "imei": "864105031571682", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "34B0F376BC944BA2A5C6C6FC5236266A", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "15112492385", "flag": "user", "cellphone": "15112492385", "phone": 0, "imei": "", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "3F7AC24AAC2141F78E745AB119D0252F", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "张by", "flag": "user", "cellphone": "18511872523", "phone": 0, "imei": "", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "44D4227BE98E449CA1ADA3E3BA7D5AC4", "pId": "2C398407E07744D9BF6A0323943D7ADE", "name": "ok", "flag": "user", "cellphone": "18703422799", "phone": 0, "imei": "", "headImg": "/2018/06big/E285F205BE9F4419A8B0AAECF7F97911Photo33d6edf2-4b79-4950-aa54-9485b248ff3b.jpg", "iconSkin": "normal", "icon": "http://yunkecn.com/fileupload/fileupload/2018/06big/E285F205BE9F4419A8B0AAECF7F97911Photo33d6edf2-4b79-4950-aa54-9485b248ff3b.jpg", "userType": 2 }
+			, { "id": "54A05E302E9142F3B1E902389CDF4B48", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "18210234783", "flag": "user", "cellphone": "18210234783", "phone": 0, "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 2 }
+			, { "id": "57D2EA489E244FD39975C881A5C72880", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "贾琢", "flag": "user", "cellphone": "13439069006", "phone": 1, "imei": "351641091428512", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "5ABEE4F4F18F42D0B277BA018CF97206", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "17600976613", "flag": "user", "cellphone": "17600976613", "phone": 0, "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "5CB439185DE34C83AA29F876572F65D8", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "18513523390", "flag": "user", "cellphone": "18513523390", "phone": 0, "imei": "", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "5CF21C78B7034AD482A20EA134D04717", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "苗辉", "flag": "user", "cellphone": "18911947785", "phone": 1, "imei": "867787033890207", "headImg": "/2018/08big/c7f28ca417af474d82152b4597dd52d3_A3E774A1F4C54666A2D9ECC7695A354Bcover.png", "iconSkin": "normal", "icon": "http://yunkecn.com/fileupload/fileupload/2018/08big/c7f28ca417af474d82152b4597dd52d3_A3E774A1F4C54666A2D9ECC7695A354Bcover.png", "userType": 0 }
+			, { "id": "5FF90EE65B1F42CFBF3B7FFE3FA25B6A", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "电话", "flag": "user", "cellphone": "15602463426", "phone": 0, "imei": "", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "7123C141DFAE445281781B97AC76CD5X", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "牟", "flag": "user", "cellphone": "13910803474", "phone": 1, "imei": "351641091428835", "headImg": "", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "8C78A98DA6424EDFADA62240F127E56E", "pId": "3661BD8AABCC4CDE89D01FE852416101", "name": "15703412808", "flag": "user", "cellphone": "15703412808", "phone": 1, "imei": "867397036869826", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "91909CF40FCC4BFCB6ED511FF96114D4", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "冯德林", "flag": "user", "cellphone": "18600755063", "phone": 0, "imei": "", "headImg": "/2018/04big/23782E614C9C44BCA50F04324F8C39F3c68313df-65d8-4182-85a2-3d11f2763386.jpg", "iconSkin": "normal", "icon": "http://yunkecn.com/fileupload/fileupload/2018/04big/23782E614C9C44BCA50F04324F8C39F3c68313df-65d8-4182-85a2-3d11f2763386.jpg", "userType": 2 }
+			, { "id": "9C67E767094742DFBD342C9E2072AED5", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "刘晓辉", "flag": "user", "cellphone": "13699273847", "phone": 1, "imei": "358914060044799", "headImg": "/2017/10big/ab87919630a949eca2f0284c884766e0_head.jpg", "iconSkin": "normal", "icon": "http://yunkecn.com/fileupload/fileupload/2017/10big/ab87919630a949eca2f0284c884766e0_head.jpg", "userType": 0 }
+			, { "id": "AEBDBABAC02D4755A37EB2631345B6E4", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "红米", "flag": "user", "cellphone": "13436457169", "phone": 1, "imei": "867397033384928", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 3 }
+			, { "id": "B8C315FDE5EE4AC7ADD2ADFF44424A6C", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "云客企业2762", "flag": "user", "cellphone": "18703422762", "phone": 0, "headImg": "/2018/03big/96972c35bdf04f989133505643921380_head.jpg", "iconSkin": "normal", "icon": "http://yunkecn.com/fileupload/fileupload/2018/03big/96972c35bdf04f989133505643921380_head.jpg", "userType": 0 }
+			, { "id": "BD5A1AE8B5E6407B80CF2662BA60D7DA", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "15577746741", "flag": "user", "cellphone": "15577746741", "phone": 1, "imei": "358914060044997", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "C27D64A49FB64307A19AB77D2152B8B1", "pId": "D784DD31CA634D299F5BD62EB68CDDC9", "name": "贾鹏丽", "flag": "user", "cellphone": "15330273073", "phone": 1, "imei": "868947030209905", "headImg": "/2018/06big/7DFB93D9E70144DCB2F4035339540CABPhotoeb962fd8-ce29-4b16-bfe1-24a2fc92d383.jpg", "iconSkin": "normal", "icon": "http://yunkecn.com/fileupload/fileupload/2018/06big/7DFB93D9E70144DCB2F4035339540CABPhotoeb962fd8-ce29-4b16-bfe1-24a2fc92d383.jpg", "userType": 0 }
+			, { "id": "C88C8EC1ABC1405B84E87B29B3420633", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "胡总", "flag": "user", "cellphone": "15167178752", "phone": 0, "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "D154B4F7E01B40B1B0FD64B33A5F4EFC", "pId": "3661BD8AABCC4CDE89D01FE852416101", "name": "销售3", "flag": "user", "cellphone": "18510611064", "phone": 0, "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "DB904379778D4948A770E5D01E1951D5", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "刘", "flag": "user", "cellphone": "17712345678", "phone": 1, "imei": "351641091428611", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 3 }
+			, { "id": "DC45A296D43F42F9A1BD5715FE6D8837", "pId": "3661BD8AABCC4CDE89D01FE852416101", "name": "15640444971", "flag": "user", "cellphone": "15640444971", "phone": 1, "imei": "868947030032943", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 2 }
+			, { "id": "E169C661ACD245119D5A1AF4DB436911", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "rena", "flag": "user", "cellphone": "13146869301", "phone": 0, "imei": "", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "E53756C02755413C970150AB0EE6720D", "pId": "D784DD31CA634D299F5BD62EB68CDDC9", "name": "18012256575", "flag": "user", "cellphone": "18012256575", "phone": 1, "imei": "866764031311016", "headImg": "/2018/08big/07a00fb8fa1f4f1e87ad4a6afcafe049_EB50FE7653B34ECFACE6CA3882D3AC1Bcover.png", "iconSkin": "normal", "icon": "http://yunkecn.com/fileupload/fileupload/2018/08big/07a00fb8fa1f4f1e87ad4a6afcafe049_EB50FE7653B34ECFACE6CA3882D3AC1Bcover.png", "userType": 0 }
+			, { "id": "E86DF88687CC40DD8F46DB5D29F7A9F3", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "17310666387", "flag": "user", "cellphone": "17310666387", "phone": 1, "imei": "358914060044948", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "E8B63FF5BB1840EABB9BEB2F9DCCA731", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "王克杰", "flag": "user", "cellphone": "18588883666", "phone": 0, "imei": "", "headImg": "/2018/06big/4F4BB4F18BC64CC7826F2E1C000BEF0DiOS_0.jpg", "iconSkin": "normal", "icon": "http://yunkecn.com/fileupload/fileupload/2018/06big/4F4BB4F18BC64CC7826F2E1C000BEF0DiOS_0.jpg", "userType": 0 }
+			, { "id": "F19C41AAB897432F888726E6A864FB80", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "13041283801", "flag": "user", "cellphone": "13041283801", "phone": 0, "imei": "", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "FBEDC571AF55426B9EAFE1E98E8ECD48", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "张洁", "flag": "user", "cellphone": "13426091878", "phone": 1, "imei": "867397030213526", "headImg": "/2018/02big/A59DF23D209B4C68A5F04F4C88979E6BiOS_0.jpg", "iconSkin": "normal", "icon": "http://yunkecn.com/fileupload/fileupload/2018/02big/A59DF23D209B4C68A5F04F4C88979E6BiOS_0.jpg", "userType": 2 }
+			, { "id": "FD804AAC8A294572855851275B723C45", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "微信", "flag": "user", "cellphone": "18703422763", "phone": 0, "imei": "", "iconSkin": "normal", "icon": "/pc/resources/images/member.png", "userType": 0 }
+			, { "id": "0FCEF72742CC4AA6ADF6F0238D65A38B", "pId": "", "name": "北京联云天下科技", "flag": "department" }
+			, { "id": "E2EAEDB79E734EA39F945DD0605B0291", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "测试", "flag": "department" }
+			, { "id": "3661BD8AABCC4CDE89D01FE852416101", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "销售一", "flag": "department" }
+			, { "id": "282D23A31C9C4AEFBAE6F1BDE8B90933", "pId": "3661BD8AABCC4CDE89D01FE852416101", "name": "销售1.1", "flag": "department" }
+			, { "id": "D784DD31CA634D299F5BD62EB68CDDC9", "pId": "282D23A31C9C4AEFBAE6F1BDE8B90933", "name": "销售1.1.1", "flag": "department" }
+			, { "id": "5D27AC61A1C34C649ABE55E55A886BCE", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "定位测试", "flag": "department" }
+			, { "id": "2C398407E07744D9BF6A0323943D7ADE", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "销售二部", "flag": "department" }
+			, { "id": "AB7333A26C2E4966BEBDAA5B7E6D1FF1", "pId": "5D27AC61A1C34C649ABE55E55A886BCE", "name": "测试1", "flag": "department" }
+			, { "id": "04CE1AFB49084AFD83B7954A04FDEE53", "pId": "AB7333A26C2E4966BEBDAA5B7E6D1FF1", "name": "测试1.1", "flag": "department" }
+			, { "id": "4514FBD7D8724FF384BF5C754202175E", "pId": "AB7333A26C2E4966BEBDAA5B7E6D1FF1", "name": "测试2", "flag": "department" }
+			, { "id": "B44E5F5002E44CC6BBEE45A382BA6E9E", "pId": "4514FBD7D8724FF384BF5C754202175E", "name": "测试2.1", "flag": "department" }
+			, { "id": "0FE683CC9E4D4EF1A17B2731A92F686C", "pId": "04CE1AFB49084AFD83B7954A04FDEE53", "name": "测试1.2", "flag": "department" }
+			, { "id": "78083BD43F3E47E49038AF6DED013A14", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "销售三部", "flag": "department" }
 		];
 
 		$.fn.zTree.init($("#exportZtree"), departSetting, zNodes);
 
+		exportTree();
 
 
+		function exportTree() {
+			var zTree = $.fn.zTree.getZTreeObj("exportZtree");
+			if ($("input[name=exportRadio]:checked")[0].value == "1") {
+				zTree.setting.check.chkboxType = { "Y": "s", "N": "ps" };
+				zTree.checkAllNodes(true);
+				zTree.expandAll(true);
+
+				var nodesHide = zTree.getNodesByParam('flag', 'user', null); // 查找节点集合
+				zTree.showNodes(nodesHide);
+			} else {
+				zTree.setting.check.chkboxType = { "Y": "", "N": "" };
+				var nodes = zTree.getNodesByFilter(function (node) { return (node.level == 0 || node.level == 1) && node.falg != 'user' });
+				zTree.checkAllNodes(false);
+				zTree.expandAll(false);
+				var nodesDefault = zTree.getNodesByFilter(function (node) { return node.level == 0 });
+				if (nodesDefault.length > 0) {
+					zTree.expandNode(nodesDefault[0], true, false, false);
+				}
+				if (nodes.length > 0) {
+					for (var i = 0; i < nodes.length; i++) {
+						zTree.checkNode(nodes[i], true);
+					}
+				}
+
+				var nodesHide = zTree.getNodesByParam('flag', 'user', null); // 查找节点集合
+				console.log(nodesHide);
+				zTree.hideNodes(nodesHide);
+			}
+		}
 
 	</script>
 	<!-- <script>

@@ -271,6 +271,7 @@
   border-top: 2px solid #56d1c2;
   line-height: 52px;
   font-size: 14px;
+  background: #fff;
 }
 .tag-row {
   position: relative;
@@ -311,6 +312,9 @@
   width: 30%;
   padding: 0 10px;
   box-sizing: border-box;
+  .tag-custom & {
+    width: 24%;
+  }
   &.tag-disabled {
     .href {
       color: #bbb;

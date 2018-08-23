@@ -26,6 +26,8 @@
 .ztree li span.button.chk.checkbox_true_part{background-image:url(../images/choose-all.gif)}
 .ztree li span.button.chk.checkbox_true_part_focus{background-image:url(../images/choose-all.gif)}
 .ztree li span.button.chk.checkbox_true_disable{background-image:url(../images/ztree-checked-disabled.png)}
+.ztree li span.button.chk.radio_false_full,.ztree li span.button.chk.radio_false_full_focus{background-image:url(../images/radio_1.png)}
+.ztree li span.button.chk.radio_true_full,.ztree li span.button.chk.radio_true_full_focus{background-image:url(../images/radio_2.png)}
 .ztree li span.button.switch{width:18px;height:24px;float:left}
 .ztree li span.button.add,.ztree li span.button.edit,.ztree li span.button.remove{width:12px;height:25px;vertical-align:top}
 .ztree li span.button.root_open{background-image:url(../images/ztree-up.png)}
@@ -54,5 +56,6 @@ span.tmpzTreeMove_arrow{width:16px;height:16px;display:inline-block;padding:0;ma
 ul.ztree.zTreeDragUL{margin:0;padding:0;width:auto;height:auto;overflow:hidden;border:1px dotted #00b83f}
 .zTreeMask{z-index:10000;opacity:0;filter:alpha(opacity=0)}
 .node_name{display:inline-block;vertical-align:top}
+.ztree ul.line{height:auto;overflow:visible;width:auto;background:0 0}
 
 /*# sourceMappingURL=zTreeStyle.css.map */

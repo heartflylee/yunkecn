@@ -170,22 +170,27 @@
   },
   L: function(e) {
     var l = 0;
-    while (e) {
-      l += e.offsetLeft;
-      e = e.offsetParent;
-    }
+    console.log(e);
+    // while (e) {
+    //   console.log(e.offsetLeft);
+    //   console.log(e.offsetParent);
+    //   console.log(e.offsetTop);
+    //   l += e.offsetLeft;
+    //   e = e.offsetParent;
+    // }
+
     // var l = 0;
-    // l += $(e).offset().left;
+    l += $(e).offset().left;
     return l;
   },
   T: function(e) {
     var t = 0;
-    while (e) {
-      t += e.offsetTop;
-      e = e.offsetParent;
-    }
+    // while (e) {
+    //   t += e.offsetTop;
+    //   e = e.offsetParent;
+    // }
     // var t = 0;
-    // t += $(e).offset().top;
+    t += $(e).offset().top;
     return t;
   },
   colse: function() {
