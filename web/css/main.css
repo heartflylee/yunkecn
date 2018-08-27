@@ -1777,7 +1777,7 @@ table.intention-table td.red span{display:inline-block;width:110px}
 .function-name{float:left;width:80px}
 .depart-top,.search-btn{float:right}
 .function-info{position:relative;margin-left:80px}
-.function-info .input,.function-info .textarea,.function-info select{width:100%;padding:0 10px;background:#f9f9f9;border:1px solid #d4d4d4;border-radius:3px;-moz-box-sizing:border-box;box-sizing:border-box}
+.function-info .input,.function-info .textarea,.function-info select{width:100%;padding:0 10px;background:0 0;border:1px solid #d4d4d4;border-radius:3px;-moz-box-sizing:border-box;box-sizing:border-box}
 .function-info .input{height:30px}
 .function-info .textarea{height:150px;padding:5px 10px;line-height:20px;resize:none}
 .function-info select{height:30px}
@@ -2289,7 +2289,7 @@ a.btn.filter-btn i.filter-icon{display:inline-block;position:static;vertical-ali
 .modal-top{border-bottom:1px solid #e7e7e7;padding:10px;font-size:18px;line-height:32px}
 .modal-top>i{display:inline-block;width:5px;height:18px;margin-right:10px;background:#50d2c2;vertical-align:middle}
 .modal-top a.closed{display:block;width:14px;height:14px;background:url(../images/a-closed-1.png);background-size:100% 100%;position:absolute;top:22px;right:16px}
-.modal-body{max-height:450px;overflow:auto}
+.modal-body{max-height:450px;overflow:auto;padding:10px}
 .modal-bottom{padding:20px;border-top:1px solid #e7e7e7;text-align:right}
 .modal-bottom a.btn,.modal-bottom button.btn,.modal-bottom input.btn{margin:0 5px;border:1px solid #56d1c2;min-width:120px;padding:0 10px;background:#56d1c2;border-radius:4px;color:#fff;line-height:30px}
 .modal-bottom a.btn.btn-cancel,.modal-bottom button.btn.btn-cancel,.modal-bottom input.btn.btn-cancel{color:#666;background:#fff;border-color:#ddd}

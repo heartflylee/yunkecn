@@ -11241,7 +11241,9 @@ table.intention-table {
   .input, .textarea, select {
     width: 100%;
     padding: 0 10px;
-    background: #f9f9f9;
+    // background: #f9f9f9;
+
+    background: transparent;
     border: 1px solid #d4d4d4;
     border-radius: 3px;
     box-sizing: border-box;
@@ -14422,6 +14424,7 @@ vertical-align: middle;
 .modal-body{
   max-height:450px;
   overflow: auto;
+  padding: 10px;
 }
 .modal-bottom{
   padding:20px;

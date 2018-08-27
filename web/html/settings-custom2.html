@@ -76,10 +76,10 @@
     <!-- 内容部分 contents -->
     <div class="contents content-fixed" id="main">
         <div class="tag-box">
-            <div class="tags-li active">
+            <div class="tags-li ">
                 <a href="settings-custom1.html">个人信息</a>
             </div>
-            <div class="tags-li">
+            <div class="tags-li active">
                 <a href="settings-custom2.html">公司信息</a>
             </div>
             <div class="tags-li">
@@ -201,11 +201,7 @@
                                 <label class="validate-text">还可输入<span>{{10-item.text.length}}</span>字</label>
                             </div>
                         </div>
-                        <div class="function-row">
-                            <div class="function-info">
-                                <a href="javascript:void(0);" class="link" id="customBtn" @click="addValidate">+添加选项</a>
-                            </div>
-                        </div>
+                        <a href="javascript:void(0);" class="link marleft20" id="customBtn" @click="addValidate">+添加选项</a>
                     </div>
                 </div>
             </div>
@@ -524,16 +520,21 @@
             },
             mounted: function () {
                 this.$data.list = [
-                    { id: 1, name: '姓名', showname: '姓名', show: true, require: true, type: 0, systemId: 1, isDelete: 0, disabled: true },
-                    { id: 2, name: '手机号', showname: '手机号', show: true, require: true, type: 0, systemId: 1, isDelete: 0, disabled: true },
-                    { id: 3, name: '邮箱', showname: '邮箱', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
-                    { id: 4, name: 'QQ', showname: 'QQ', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
-                    { id: 5, name: '微信', showname: '微信', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
-                    { id: 6, name: '职位', showname: '职位', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
-                    { id: 7, name: '生日', showname: '生日', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
-                    { id: 8, name: '性别', showname: '性别', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
-                    { id: 9, name: '群组', showname: '群组', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
-                    { id: 10, name: '123', showname: '123', show: true, require: true, type: 0, systemId: 0, isDelete: 0 },
+                    { id: 1, name: '企业名称', showname: '企业名称', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
+                    { id: 2, name: '注册地址', showname: '注册地址', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
+                    { id: 3, name: '办公地址', showname: '办公地址', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
+                    { id: 4, name: '企业性质', showname: '企业性质', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
+                    { id: 5, name: '经营范围', showname: '经营范围', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
+                    { id: 6, name: '注册资本', showname: '注册资本', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
+                    { id: 7, name: '企业法人', showname: '企业法人', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
+                    { id: 8, name: '成立时间', showname: '成立时间', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
+                    { id: 9, name: '人员规模', showname: '人员规模', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
+                    { id: 10, name: '企业座机', showname: '企业座机', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
+                    { id: 11, name: '企业类型', showname: '企业类型', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
+                    { id: 12, name: '行业分类', showname: '行业分类', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
+                    { id: 13, name: '主营产品', showname: '主营产品', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
+                    { id: 14, name: '公司简介', showname: '公司简介', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
+                    { id: 15, name: '456', showname: '456', show: true, require: true, type: 0, systemId: 0, isDelete: 0 },
                 ];
             },
         });
