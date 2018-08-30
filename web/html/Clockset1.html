@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>团队客户</title>
+	<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+	<link href="../css/main.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="../css/head.css" />
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/highcharts.js"></script>
+	<link href="../css/hDate.css" rel="stylesheet" />
+	<script type="text/javascript" src="../js/hDate.js"></script>
+	<script type="text/javascript" src="../js/audio.js"></script>
+	<script type="text/javascript" src="../js/jquery.audio5js.js"></script>
+	<script type="text/javascript" src="../js/jedate/jedate.js"></script>
+	<script type="text/javascript" src="../js/jquery.select.js"></script>
+	<link rel="stylesheet" href="../css/clock.css">
+
+	<script src="../js/vue.min.js"></script>
+	<!-- <script src="../js/vue-resource@1.3.4.js"></script> -->
+
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=YxrpSNq6119f9xGsRh4Q5f0a5qgy3k00"></script>
+
+	<!--[if lt IE 10]>
+		<script src="../js/placeholder.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<!-- 页面遮罩层 layer -->
+	<div class="layer"></div>
+	<div class="layer-1"></div>
+	<div class="layer-6"></div>
+	<!-- 页面头部 header -->
+	<div class="header">
+		<h1 class="logo fl"></h1>
+		<span class="mar fl">|</span>
+		<span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+		<ul class="nav">
+			<li>
+				<a href="">首页</a>
+			</li>
+			<li>
+				<a href="">行动</a>
+			</li>
+			<li>
+				<a href="" class="current">客户</a>
+			</li>
+			<li>
+				<a href="">账户</a>
+			</li>
+			<li>
+				<a href="">任务</a>
+			</li>
+			<li>
+				<a href="">设置</a>
+			</li>
+		</ul>
+		<ul class="header-right fr">
+			<li>
+				<a href="javascript:;"><i class="add"></i></a>
+			</li>
+			<li>
+				<a href="javascript:;"><i class="update"></i></a>
+			</li>
+			<li>
+				<a href="javascript:;"><i class="message"></i></a>
+			</li>
+			<li>
+				<a href="javascript:;" class="user">刘</a>
+			</li>
+		</ul>
+	</div>
+	<div class="tipArea">
+		<div class="wrap">
+			<ul class="ul-2">
+				<li>
+					<a href="settings.html">团队设置</a>
+				</li>
+				<li>
+					<a href="settings-1.html">外呼标签设置</a>
+				</li>
+				<li>
+					<a href="settings-2.html">短信模板设置</a>
+				</li>
+				<li>
+					<a href="settings-email.html">邮件账户设置</a>
+				</li>
+				<li>
+					<a href="settings-email1.html">邮件模板设置</a>
+				</li>
+				<li>
+					<a href="settings-call.html">挂机时间设置</a>
+				</li>
+				<li>
+					<a href="settings-sea.html">企业公海设置</a>
+				</li>
+				<li>
+					<a href="Clockset.html" class="current">打卡设置</a>
+				</li>
+				<li>
+					<a href="Recommend.html">推荐系统设置</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="contents" id="main">
+		<div class="table-tlt">
+			<i class="i"></i>常规打卡设置
+		</div>
+		<div class="clockset-f">
+			<div class="clock-li clearfix">
+				<div class="clock-name">
+					工作日设置
+				</div>
+				<div class="clock-con" id="time">
+					<div class="clockadd">
+						<input type="button" class="btn-grey" onclick="layerShow('#timeset')" value="添加" />
+					</div>
+					<div class="clock-set">
+						<label class="clockdate">
+							周一,周二,周三,周四,周五
+						</label>
+						<label class="clock-btn">
+							<a href="javascript:;" onclick="modifytime();">编辑</a><a href="javascript:;" onclick="deletetime();">删除</a>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="clock-li clearfix">
+				<div class="clock-name">
+					时间设置
+				</div>
+				<div class="clock-con">
+					<div class="clock-radio">
+						<label class="radio-label">
+							<input type="radio" name="frequency" value="1" v-model="frequency">
+							<i class="radio-icon"></i>一天1次上下班
+						</label>
+						<label class="radio-label">
+							<input type="radio" name="frequency" value="2" v-model="frequency">
+							<i class="radio-icon"></i>一天2次上下班
+						</label>
+						<label class="radio-label">
+							<input type="radio" name="frequency" value="3" v-model="frequency">
+							<i class="radio-icon"></i>一天3次上下班
+						</label>
+					</div>
+					<div class="clock-box">
+						<div class="clock-frequency" v-for="item,$index in clockTime">
+							<span class="name">第{{$index + 1}}次</span>
+							<time-select ref="timeSelect" :time="item.start" :option="'{\'type\':\'start\',\'index\':'+$index+'}'" @submit="timeSubmit"></time-select>
+							<span>-</span>
+							<time-select ref="timeSelect" :time="item.end" :option="'{\'type\':\'end\',\'index\':'+$index+'}'" @submit="timeSubmit"></time-select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clock-li clearfix">
+				<div class="clock-name">
+					打卡提醒
+				</div>
+				<div class="clock-con">
+					<div class="clock-remind">
+						上班提醒
+						<select class="remind">
+							<option value="">提前10分钟</option>
+							<option value="">提前5分钟</option>
+						</select>
+					</div>
+					<div class="clock-remind">
+						下班提醒
+						<div>
+							准时
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="clock-li clearfix">
+				<div class="clock-name">
+					打卡地点
+				</div>
+				<div class="clock-con" id="address">
+					<div class="clearfix">
+						根据办公地点考勤（可添加多个考勤地点）
+						<div class="fr">
+							<div class="form-control form-default">
+								<label class="form-name">有效范围：</label>
+								<div class="form-info">
+									<div class="form-select" @click.stop="return false;" :class="state?'active':''">
+										<span @click="changeState">300米</span>
+										<div class="select-options" v-show="state">
+											<div class="select-option">
+												300米
+											</div>
+											<div class="select-option">
+												100米
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clock-box">
+						<div class="clock-address">
+							<div class="address-li" v-for="item,$index in clockAddress">
+								{{item.name}}
+								<div class="fr">
+									<a href="javascript:;" class="link">修改</a>
+									<a href="javascript:;" class="link" @click="removeAddress($index)">删除</a>
+								</div>
+							</div>
+						</div>
+						<div class="addressAdd">
+							<a href="javascript:;" class="link" onclick="layerShow('#search-inner-f')">+ 添加考勤地点</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clock-save">
+				<input type="button" class="btn" value="保存" />
+			</div>
+		</div>
+	</div>
+	<div class="applyBox timeset" id="timeset">
+		<div class="tlt"><i></i>打卡时间设置
+			<a href="javascript:void(0)" class="a-closed" onclick="layerClose('#timeset')"></a>
+		</div>
+		<div class="timemodify">
+			<div class="li clearfix">
+				<div class="li-name">
+					工作日:
+				</div>
+				<div class="li-con">
+					<div class="time-week">
+						<input type="checkbox" class="checkbox" name="check" value="1" id="week0" />
+						<label for="week0" class="checklabel">
+							<i></i>
+							周一
+						</label>
+					</div>
+					<div class="time-week">
+						<input type="checkbox" class="checkbox" name="check" value="2" id="week1" />
+						<label for="week1" class="checklabel">
+							<i></i>
+							周二
+						</label>
+					</div>
+					<div class="time-week">
+						<input type="checkbox" class="checkbox" name="check" value="3" id="week2" />
+						<label for="week2" class="checklabel">
+							<i></i>
+							周三
+						</label>
+					</div>
+					<div class="time-week">
+						<input type="checkbox" class="checkbox" name="check" value="4" id="week3" />
+						<label for="week3" class="checklabel">
+							<i></i>
+							周四
+						</label>
+					</div>
+					<div class="time-week">
+						<input type="checkbox" class="checkbox" name="check" value="5" id="week4" />
+						<label for="week4" class="checklabel">
+							<i></i>
+							周五
+						</label>
+					</div>
+					<div class="time-week">
+						<input type="checkbox" class="checkbox" name="check" value="6" id="week5" />
+						<label for="week5" class="checklabel">
+							<i></i>
+							周六
+						</label>
+					</div>
+					<div class="time-week">
+						<input type="checkbox" class="checkbox" name="check" value="7" id="week6" />
+						<label for="week6" class="checklabel">
+							<i></i>
+							周日
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="li clearfix">
+				<div class="btn-f">
+					<input type="button" class="btn" value="保存" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal" id="search-inner-f">
+		<div class="modal-top">
+			<i></i>添加考勤地点
+			<a href="javascript:layerClose('#search-inner-f');" class="closed"></a>
+		</div>
+		<div class="modal-body">
+			<div class="addressf">
+				<form class="address-search" onsubmit="searchAddress(); return false;">
+					请输入地址：
+					<div>
+						<input type="text" id="searchText" />
+					</div>
+				</form>
+				<div class="clock-map" id="map"></div>
+			</div>
+		</div>
+		<div class="modal-bottom">
+			<input type="submit" class="btn" onclick="" value="保存" />
+			<input type="button" class="btn btn-cancel" onclick="layerClose('#search-inner-f')" value="取消" />
+		</div>
+	</div>
+
+
+
+	<template id="timeSelect">
+		<div class="clock-select" @click.stop="return false;">
+			<input type="text" v-model="time" readonly @click="changeShow(true)" />
+			<i class="icon-clock"></i>
+			<div class="cs-box" v-if="show">
+				<div class="clearfix">
+					<div class="cs-left">
+						<div class="cs-title">
+							小时
+						</div>
+						<ul class="cs-time" ref="h">
+							<li v-for="$i in 24" :class="$i-1 == h?'active':''" @click="timeClick('h',$i-1)">{{ ($i-1)
+								< 10 ? '0'+($i-1) : ($i-1) }}</li>
+						</ul>
+					</div>
+					<div class="cs-left">
+						<div class="cs-title">
+							分钟
+						</div>
+						<ul class="cs-time" ref="m">
+							<li v-for="$i in 60" :class="$i-1 == m?'active':''" @click="timeClick('m',$i-1)">{{ ($i-1)
+								< 10 ? '0'+($i-1) : ($i-1) }}</li>
+						</ul>
+					</div>
+				</div>
+				<div class="cs-bottom">
+					<input type="button" class="btn" @click="submit" value="确定" />
+				</div>
+			</div>
+		</div>
+	</template>
+	<script>
+		var timeSelect = Vue.extend({
+			template: '#timeSelect',
+			props: ['time', 'option'],
+			data: function () {
+				return {
+					show: false,
+					h: 0,
+					m: 0
+				}
+			},
+			methods: {
+				changeShow: function (val) {
+					timeSelectHide();
+					this.$data.show = val;
+					this.clockScroll();
+				},
+				clockScroll: function () {
+					console.log(this);
+					console.log(this.$refs);
+					console.log(this.$refs.h);
+					console.log(this.$refs.m);
+					console.log($(this.$refs.h));
+					// this.$refs.h.scrollTop(50);
+
+				},
+				timeClick: function (type, val) {
+					this.$data[type] = val;
+				},
+				submit: function () {
+					var h = this.$data.h;
+					var m = this.$data.m;
+					h = h < 10 ? '0' + h : h;
+					m = m < 10 ? '0' + m : m;
+					option = JSON.parse(this.$props.option.replace(new RegExp(/\'/, "gm"), '"'));
+					this.$emit('submit', h + ":" + m, option);
+					this.$data.show = false;
+				}
+			},
+			mounted: function () {
+				if (this.$props.time != '') {
+					this.$data.h = this.$props.time.split(':')[0];
+					this.$data.m = this.$props.time.split(':')[1];
+				}
+			}
+		});
+		function timeSelectHide() {
+			for (var i = 0; i < vm.$refs.timeSelect.length; i++) {
+				vm.$refs.timeSelect[i].$data.show = false;
+			}
+		}
+		$("body").on('click', function (e) {
+			e.stopPropagation();
+			timeSelectHide();
+		});
+	</script>
+
+
+	<script type="text/javascript">
+		$(function () {
+
+			//提交打卡时间设置
+			$("#timeset .btn").click(function () {
+				$("#timeset").hide();
+				$(".layer").hide();
+				$("#time .clockadd").hide();
+				$("#time .clock-set").show();
+				var timeset = '<label class="clockdate">\
+									周一,周二\
+								</label>\
+							<label class="clock-btn">\
+									<a href="javascript:;" onclick="modifytime();">编辑</a><a href="javascript:;" onclick="deletetime();">删除</a>\
+								</label>';
+				$("#time .clock-set").html(timeset);
+				console.log($("input[name='check']:checked"));
+
+
+			});
+
+		});
+
+
+		//编辑打卡时间
+		function modifytime() {
+			$(".layer").show();
+			$("#timeset").show();
+		}
+		//删除打卡时间
+		function deletetime() {
+			$("#time .clockadd").show();
+			$("#time .clock-set").html("");
+			$("#time .clock-set").hide();
+		}
+		//点击搜索出来的结果
+		function searchsubmit(obj) {
+			$("#address").find(".clockadd").hide();
+			$("#address .clock-address").show();
+			var address = $(obj).find(".search-address").text().trim();
+			var addressdetail = $(obj).find(".search-detail").text().trim();
+			var searchresult = '<span class="address">\
+								'+ address + '\
+							</span>\
+							<span class="addressdetail">'+ addressdetail + '\
+							</span>\
+							<label class="clock-btn">\
+								<a href="javascript:;" onclick="modifyaddress();">编辑</a>|<a href="javascript:;" onclick="deleteaddress();">删除</a>\
+							</label>';
+			$("#address .clock-address").html(searchresult);
+			$("#search-inner-f").hide();
+			$(".layer").hide();
+		}
+		function modifyaddress() {
+			$("#search-inner-f").show();
+			$(".layer").show();
+		}
+		function deleteaddress() {
+			$("#address .clock-address").html("");
+			$("#address").find(".clockadd").show();
+			$("#address .clock-address").hide();
+		}
+
+
+
+		var vm = new Vue({
+			el: '#main',
+			data: function () {
+				return {
+					clockDate: [],
+					frequency: 0,
+					clockTime: [],
+					remind: '',
+					distance: '',
+					clockAddress: [],
+					state: false
+				}
+			},
+			watch: {
+				frequency: function (val) {
+					this.changeFrequency(val);
+				}
+			},
+			methods: {
+				changeState: function () {
+					this.$data.state = !this.$data.state;
+				},
+				changeFrequency: function (val) {
+					var _self = this;
+					if (_self.$data.clockTime.length > val) {
+						for (var i = _self.$data.clockTime.length - 1; i >= val; i--) {
+							_self.$data.clockTime.splice(i, 1);
+						}
+					} else {
+						for (var j = _self.$data.clockTime.length; j < val; j++) {
+							_self.$data.clockTime.push({
+								start: '',
+								end: '',
+							});
+						}
+					}
+				},
+				timeSubmit: function (val, option) {
+					this.$data.clockTime[option.index][option.type] = val;
+				},
+				removeAddress: function (index) {
+					this.$data.clockAddress.splice(index, 1);
+				}
+			},
+			mounted: function () {
+				this.$data.frequency = 1;
+				this.$data.clockAddress = [{
+					name: '爱工厂文化产业园',
+					city: '北京市朝阳区'
+				}];
+			},
+			components: {
+				"timeSelect": timeSelect
+			}
+		});
+
+
+
+		$(function () {
+
+			map = new BMap.Map("map", { enableMapClick: false }); //初始化地图
+			map.centerAndZoom(new BMap.Point(116.404, 39.915), 15); //地图显示位置
+			map.enableScrollWheelZoom();//滚轮改变大小
+			var navigationControl = new BMap.NavigationControl();
+			map.addControl(navigationControl);
+			map.enableDragging();  //拖拽
+
+		});
+
+		//关闭弹框
+		function layerClose(obj) {
+			$(obj).hide();
+			$(".layer").hide();
+		}
+		function layerShow(obj) {
+			$(obj).show();
+			$(".layer").show();
+		}
+		$("body").on('click', '.layer', function () {
+			$(".modal").hide();
+		});
+
+
+		//自定义覆盖点
+		function mapSetOverlay(uid, point, name, city, num) {
+			this._uid = uid;
+			this._point = point;
+			this._name = name;
+			this._city = city;
+			this._num = num;
+		}
+		mapSetOverlay.prototype = new BMap.Overlay();
+		mapSetOverlay.prototype.initialize = function (map) {
+			var _self = this;
+			_self._map = map;
+			var div = _self._div = document.createElement('div');
+			div.className = 'Bmap-point';
+			div.id = 'Bmap-point-' + _self._uid;
+			div.setAttribute('data-id', _self._uid);
+			div.setAttribute('data-name', _self._name);
+			div.setAttribute('data-city', _self._city);
+			var span = document.createElement('span');
+			span.innerHTML = _self._num;
+			// if (_self._name.length > 0) {
+			// 	if ((/[a-zA-Z]/).test(_self._name[0])) {
+			// 		span.innerHTML = _self._name.substr(0, 3);
+			// 	} else {
+			// 		span.innerHTML = _self._name.substr(0, 1);
+			// 	}
+			// }
+			span.className = 'Bmap-point-num';
+			div.appendChild(span);
+			var label = document.createElement('div');
+			label.className = 'Bmap-point-box';
+
+			label.innerHTML = '<div class="Bmap-point-name">' + _self._name + '</div>' +
+				'<div>' + _self._city + '</div>';
+
+			div.appendChild(label);
+			map.getPanes().labelPane.appendChild(div);
+			return div;
+		}
+		mapSetOverlay.prototype.draw = function () {
+			var map1 = this._map;
+			var pixel = map1.pointToOverlayPixel(this._point);
+			this._div.style.left = pixel.x - 15 + "px";
+			this._div.style.top = pixel.y - 15 + "px";
+		}
+		$("body").on('click', '.Bmap-point', function () {
+			console.log($(this));
+			console.log($(this).data());
+			vm.$data.clockAddress.push(
+				{
+					name: $(this).data().name,
+					city: $(this).data().city,
+				}
+			);
+		});
+		var ip = "/proxy/test";
+
+		$(function () {
+			$.post(ip + "/home/postlogin", {
+				uid: "13611126225",
+				pwd: "111111"
+			}, function (data) {
+
+			});
+		});
+		var pointArr = [];
+		/*查询地址*/
+		function searchAddress() {
+			var searchText = $("#searchText").val();
+
+			$.get(ip + "/setup/getAddress",
+				{ searchAddress: searchText },
+				function (data) {
+					console.log(data);
+
+					map.clearOverlays();//清空地图上标注点
+					pointArr = [];
+					for (var index = 0; index < data.length; index++) {
+						var point = new BMap.Point(data[index].location.lng, data[index].location.lat);
+						pointArr.push(point);
+						var div = new mapSetOverlay(data[index].uid, point, data[index].name, data[index].city + data[index].district, index + 1);
+						map.addOverlay(div);
+					}
+					mapCenter();
+				});
+		}
+
+		// //地图居中
+		function mapCenter() {
+			setTimeout(function () {
+				map.setViewport(pointArr, { margins: [140, 80, 20, 80] });
+			}, 50);
+		}
+	</script>
+</body>
+
+</html>

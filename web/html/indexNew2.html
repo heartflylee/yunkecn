@@ -1681,6 +1681,13 @@
 			, { "id": "78083BD43F3E47E49038AF6DED013A14", "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B", "name": "销售三部", "flag": "department" }
 		];
 
+		for (var i = 0; i < zNodes.length; i++) {
+			if (zNodes[i].flag == "department") {
+				zNodes[i]['isParent'] = true;
+			}
+		}
+
+
 		$.fn.zTree.init($("#exportZtree"), departSetting, zNodes);
 
 		exportTree();

@@ -335,7 +335,7 @@ $wxICon: (
     padding: 0 18px;
     height: 28px;
     border: 1px solid #d4d4d4;
-    border-radius: 14px;
+    border-radius: 5px;
     box-sizing: border-box;
   }
   a.search-icon {
@@ -613,7 +613,7 @@ $wxICon: (
     background-size: contain;
   }
 }
-@for $index from 1 through 5 {
+@for $index from 1 through 6 {
   .icon-cell#{$index} {
     background-image: url(../images/wxIcon#{$index}.png);
     @if ($index>=4) {
@@ -1245,12 +1245,12 @@ $wxlinePadding: 10px;
     z-index: 99999999 !important;
   }
 }
-@keyframes load {
-  0% {
-    stroke-dashoffset: 0;
-  }
-}
 /* @keyframes load {
+ 0% {
+ stroke-dashoffset: 0;
+  }
+} */
+@keyframes refreshLoad {
   0% {
     transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
@@ -1259,7 +1259,7 @@ $wxlinePadding: 10px;
     transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
   }
-} */
+}
 .wxLoad {
   position: absolute;
   bottom: 25px;
@@ -1269,7 +1269,7 @@ $wxlinePadding: 10px;
   background: url(../images/refresh.png) no-repeat;
   background-size: contain;
   &.refreshLoad {
-    animation: load 1s linear infinite;
+    animation: refreshLoad 1s linear infinite;
   }
 }
 .wechatAdd {

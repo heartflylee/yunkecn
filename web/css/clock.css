@@ -1,0 +1,64 @@
+.Bmap-point-box:after,.Bmap-point-box:before,.Bmap-point-default:before,.Bmap-point:before{content:''}
+.btn-grey{margin:0;padding:0;border:1px solid #ddd;border-radius:4px;line-height:34px;font-size:12px;background:0 0;-moz-box-sizing:border-box;box-sizing:border-box}
+.clockset-f{background:#fff;font-size:14px}
+.clock-li{padding:10px 0;line-height:30px;color:#3d3d3d}
+.clock-name{float:left;width:120px;text-align:right}
+.Bmap-point,.addressAdd,.cs-bottom,.cs-left{text-align:center}
+.clock-con{margin-left:145px;width:600px}
+.clock-con input[type=button]{width:61px}
+.clock-con .form-control{margin:0}
+.clock-con label{display:inline-block;margin-right:20px}
+.clock-con label.clock-btn a{display:inline-block;padding:0 5px;color:#56d1c2}
+.clock-con select.remind{width:159px;line-height:40px;height:40px;background:0 0;margin:0 5px;border:1px solid #d4d4d4;border-radius:5px}
+.clock-con .clockcheck{width:0;height:0;overflow:hidden;display:none;margin:0;padding:0}
+.clock-con .c-check{position:relative;display:inline-block;padding-left:22px;cursor:pointer}
+.clock-con .c-check i{top:7px;left:0;display:inline-block;position:absolute;width:16px;height:16px;background:url(../images/choose-null.gif)}
+.clock-con input[type=checkbox].clockcheck:checked+label>i{background:url(../images/choose-right.gif)}
+.clock-con .addressdetail,.clock-con .clock-tip{color:#bdbdbd;margin:0 20px}
+.clock-save{margin-left:145px;padding:30px 0}
+.clock-save .clock-tip{color:#bdbdbd;margin:0 20px}
+.clock-set{display:none}
+.clock-box .name,.clock-remind,.clock-select,.icon-clock{display:inline-block}
+.clock-box{padding:20px;background:#f6f6f6;line-height:40px;margin:20px 0}
+.clock-box .name{width:90px}
+.clock-select{position:relative;width:160px}
+.clock-select input[type=text]{width:100%;padding:0 40px 0 10px;border:1px solid #ddd;border-radius:4px;line-height:40px;-moz-box-sizing:border-box;box-sizing:border-box}
+.address-li,.cs-title{border-bottom:1px solid #e7e7e7}
+.icon-clock{position:absolute;top:13px;right:12px;width:16px;height:16px;background:url(../images/clock.png) center no-repeat;background-size:contain}
+.cs-box{position:absolute;z-index:9;top:40px;width:100%;background:#fff;box-shadow:0 0 5px rgba(0,0,0,.5)}
+.cs-left{float:left;width:50%;border-right:1px solid #e7e7e7;font-size:12px;line-height:28px;color:#333;-moz-box-sizing:border-box;box-sizing:border-box}
+.cs-title{color:#666;margin:0 10px;line-height:32px}
+.cs-time{height:198px;overflow:auto}
+.cs-time li{cursor:pointer}
+.cs-time li.active,.cs-time li:hover{background:#e7e7e7}
+.cs-bottom{padding:10px 0;border-top:1px solid #e7e7e7}
+.clock-frequency{margin:10px 0}
+.clock-remind{margin-right:15px;vertical-align:top;font-size:12px;color:#666}
+.clock-remind select.remind{display:block;margin:15px 0 0}
+.clock-remind>div{margin:15px 0 0;line-height:40px;font-size:14px;color:#333}
+.addressAdd{font-size:14px}
+.clock-map{margin:15px;height:356px}
+.addressf{position:relative}
+.address-search{position:absolute;top:10px;right:20px;padding:10px;z-index:9;font-size:14px;background:#fff;color:#333;border:1px solid #ccc}
+.address-search input[type=text]{border:1px solid #ddd;height:30px;margin-top:10px;padding:0 10px}
+.Bmap-point,.Bmap-point-default{border-radius:50%;position:absolute}
+.Bmap-point{z-index:1;color:#fff;font-size:12px;line-height:32px;height:32px;min-width:32px}
+.Bmap-point:before{position:absolute;bottom:-10px;left:0;border-width:22px 16px 0;border-style:solid}
+.Bmap-point:hover .Bmap-point-box{display:block}
+.Bmap-point,.Bmap-point-end{background:#f34235}
+.Bmap-point-end:before,.Bmap-point:before{border-color:#f34235 transparent transparent}
+.Bmap-point-start{background:#4ed2c1}
+.Bmap-point-start:before{border-color:#4ed2c1 transparent transparent}
+.Bmap-point-default{width:10px;height:10px;background:#4ed2c1}
+.Bmap-point-default:before{position:absolute;bottom:12px;left:-8px;width:26px;height:26px;background:url(../images/pass.png) no-repeat;background-size:contain;border:0}
+.Bmap-point-default .Bmap-point-box{top:-42px}
+.Bmap-point-box{position:absolute;left:50%;top:-15px;min-width:50px;-webkit-transform:translate3d(-50%,-100%,0);transform:translate3d(-50%,-100%,0);z-index:9999;padding:10px;line-height:20px;color:#383838;white-space:nowrap;background:#fff;border:1px solid #d4d4d4;border-radius:4px;text-align:left;display:none}
+.Bmap-point-box:after,.Bmap-point-box:before{position:absolute;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);border-width:12px 12px 0;border-style:solid}
+.Bmap-point-box:before{bottom:-12px;border-color:#d4d4d4 transparent transparent}
+.Bmap-point-box:after{bottom:-11px;border-color:#fff transparent transparent}
+.Bmap-point-num{position:relative;min-width:32px;display:inline-block;z-index:9}
+.Bmap-point-name{font-size:14px;font-weight:700}
+.Bmap-point:hover{background:#50d2c2;z-index:999}
+.Bmap-point:hover:before{border-color:#50d2c2 transparent transparent}
+
+/*# sourceMappingURL=clock.css.map */

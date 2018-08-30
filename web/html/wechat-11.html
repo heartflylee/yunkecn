@@ -178,59 +178,85 @@
                         <div class="tags-li ">
                             <a href="wechat-9.html">敏感词操作</a>
                         </div>
-                        <div class="tags-li active">
+                        <div class="tags-li">
                             <a href="wechat-10.html">敏感词设置</a>
                         </div>
-                        <div class="tags-li">
+                        <div class="tags-li active">
                             <a href="wechat-11.html">微信排重</a>
                         </div>
                     </div>
                     <div class="right-content">
                         <div class="tabBox">
-                            <a href="javascript:initSensitive();" style="margin-left: 10px;" class="btn">+ 新增敏感词</a>
-                            <!-- <div class="fr">
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0);" class="current">全部</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">未处理</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">忽略</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">已处理</a>
+                                </li>
+                            </ul>
+
+                            <div class="fr">
                                 <div class="form-control form-default">
-                                    <span class="form-name">用户分类：</span>
                                     <div class="form-info">
-                                        <select class="select">
-                                            <option value="">选择用户分类</option>
-                                            <option value="">员工</option>
-                                            <option value="">管理员</option>
-                                        </select>
+                                        <input type="text" class="input wxContext-search" placeholder="请搜索跟进人/微信号">
+                                        <i class="icon icon-search"></i>
                                     </div>
                                 </div>
                                 <div class="form-control form-default">
                                     <input type="button" value="查询" class="btn">
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                         <div class="wxtable-wrap">
                             <div class="table">
                                 <table class="table-list" id="table-list">
                                     <thead>
                                         <tr>
-                                            <th>序号</th>
-                                            <th>敏感词分组</th>
-                                            <th>敏感词</th>
-                                            <th>优先级</th>
+                                            <th>微信昵称</th>
+                                            <th>微信号</th>
+                                            <th>客户姓名</th>
+                                            <th>客户手机号</th>
+                                            <th>跟进人</th>
+                                            <th>状态</th>
                                             <th>操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr v-for="item,$index in ['','','','','','','','','','','','','']">
-                                            <td>{{$index}}</td>
-                                            <td>分组</td>
-                                            <td>打开摄像头</td>
-                                            <td>高</td>
+                                        <tr v-for="item,$index in list">
+                                            <td>云客客服</td>
+                                            <td>surui9876</td>
+                                            <td>张三</td>
+                                            <td>18912341234</td>
+                                            <td>李四、王五</td>
+                                            <td :class="item.state == 1?'state-on':''">{{state[item.state]}}</td>
                                             <td>
-                                                <a href="javascript:initSensitive('id111','分组','打开摄像头','高');" class="href">编辑</a>
-                                                <a href="javascript:void(0);" class="href">删除</a>
+                                                <a href="javascript:void(0);" class="href" v-if="item.state!=1">去处理</a>
+                                                <a href="javascript:void(0);" class="href" v-if="item.state!=1&&item.state!=0">未处理</a>
+                                                <a href="javascript:void(0);" class="href" v-if="item.state!=1&&item.state!=2">忽略</a>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="page clearfix">
+                                <p class="page-p">共1条</p>
+                                <ul class="page-ul">
+                                    <li>首页</li>
+                                    <li>
+                                        < </li>
+                                            <li v-for="p,$index in ['','','','']">{{$index+1}}</li>
 
+                                            <li> ></li>
+                                            <li>尾页</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -238,102 +264,41 @@
             <!-- /本周 -->
         </div>
 
-        <!--新建敏感词-->
-        <div class="modal " id="insertSensitive">
-            <div class="modal-top">
-                <i></i>新增/编辑敏感词
-                <a href="javascript:layerClose('#insertSensitive');" class="closed"></a>
-            </div>
-            <form class="function-content" @submit.prevent="submit">
-                <div class="form-row">
-                    <label class="form-name">
-                        敏感词分组
-                    </label>
-                    <div class="form-info">
-                        <input type="text" class="input" v-model="sensitiveGroup">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <label class="form-name">
-                        敏感词
-                    </label>
-                    <div class="form-info">
-                        <input type="text" class="input" v-model="sensitive">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <label class="form-name">
-                        级别
-                    </label>
-                    <div class="form-info">
-                        <select class="select" v-model="level">
-                            <option value="">选择级别</option>
-                            <option value="高">高</option>
-                            <option value="中">中</option>
-                            <option value="低">低</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-bottom">
-                    <input type="submit" class="btn" onclick="" value="保存" />
-                    <input type="button" class="btn btn-cancel" onclick="layerClose('#insertSensitive')" value="取消" />
-                </div>
-            </form>
-        </div>
-        <!--新建标签-->
 
         <script>
-
-
-            var insertSensitive = new Vue({
-                el: "#insertSensitive",
-                data: function () {
-                    return {
-                        sensitiveGroup: '',
-                        sensitive: '',
-                        level: '',
-                        id: ''
-                    }
-                },
-                methods: {
-                    submit: function () {
-                        var _self = this;
-                        layerClose('#insertSensitive');
-                    }
-                }
-            });
-            //关闭弹框
-            function layerClose(obj) {
-                $(obj).hide();
-                $(".layer").hide();
-            }
-            function sensitiveShow() {
-                $(".layer").show();
-                $("#insertSensitive").show();
-            }
-            function initSensitive(id, sensitiveGroup, sensitive, level) {
-                insertSensitive.$data.id = id != undefined ? id : '';
-                insertSensitive.$data.sensitiveGroup = sensitiveGroup != undefined ? sensitiveGroup : '';
-                insertSensitive.$data.sensitive = sensitive != undefined ? sensitive : '';
-                insertSensitive.$data.level = level != undefined ? level : '';
-                sensitiveShow();
-            }
-            $(function () {
-                $("body").on('click', '.layer', function () {
-                    $(".modal").hide();
-                });
-
-            });
-
+            var state = ["未处理", '已处理', '忽略'];
             var vm = new Vue({
                 el: '#main',
                 data: function () {
                     return {
-
+                        list: []
                     }
                 },
                 methods: {
 
+                },
+                mounted: function () {
+                    this.$data.list = [
+                        { state: 0 },
+                        { state: 1 },
+                        { state: 2 },
+                        { state: 0 },
+                        { state: 1 },
+                        { state: 2 },
+                        { state: 0 },
+                        { state: 1 },
+                        { state: 2 },
+                        { state: 0 },
+                        { state: 1 },
+                        { state: 2 },
+                        { state: 0 },
+                        { state: 1 },
+                        { state: 2 },
+                        { state: 0 },
+                        { state: 1 },
+                        { state: 2 },
+
+                    ];
                 },
             });
 

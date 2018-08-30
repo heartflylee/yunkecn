@@ -43,7 +43,7 @@
 </head>
 
 <body>
-    <div class="wxmain" id="main">
+    <div class="wxmain" id="main" v-cloak>
         <div class="wxleft-wrap">
             <div class="wxleft-head" style="background-image: url(../images/wxHead.png)"></div>
             <div class="wxleft-name">
@@ -785,6 +785,13 @@
         <audio></audio>
     </div>
     <script>
+        //获取地址栏参数
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return "";
+        }
 
 
         var setTime;
@@ -843,6 +850,12 @@
             },
             watch: {
 
+            },
+            mounted: function () {
+                if (getQueryString("modify")) {
+                    this.getUserMessage(true);
+                    this.changeEditor();
+                }
             },
         });
 

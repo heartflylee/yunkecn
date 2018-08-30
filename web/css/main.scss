@@ -12,7 +12,7 @@ $tableHeadBg: #eefaf9;
 //$staffSelect: #e25956; //96dfd6
 //$tagColor: #d25956; //78dcd0
 //$tableHeadBg: #fdf7f8; //#eefaf9
-$aLinkColor: #50d2c2;
+$aLinkColor: #56d1c2;
 
 @import "common/common";
 
@@ -3411,7 +3411,8 @@ i.yuyin {
 }
 
 .page-ul li {
-  min-width: 26px;
+  // min-width: 26px;
+  padding:0 8px;
   height: 26px;
   line-height: 26px;
   font-size: 14px;
@@ -3629,8 +3630,8 @@ i.choose-right {
   text-align: center;
   width: 80px;
   &.checkBtn{
-    border:1px solid #50d2c2;
-    color:#50d2c2;
+    border:1px solid $color;
+    color:$color;
     background:#fff;
   }
 }
@@ -8373,7 +8374,7 @@ a.unlike {
   }
 }
 
-$weight: #c11920 #ffb258 #50d2c2 #383838 #d4d4d4; /*$weightstyle: weight-h weight-m weight-l weight-z weight-n;*/
+$weight: #c11920 #ffb258 $color #383838 #d4d4d4; /*$weightstyle: weight-h weight-m weight-l weight-z weight-n;*/
 $weightstyle: weight-4 weight-3 weight-2 weight-1 weight-0;
 .weight-mark {
   /*  float: right;*/
@@ -8562,94 +8563,6 @@ $weightstyle: weight-4 weight-3 weight-2 weight-1 weight-0;
 }
 
 /*推荐系统设置*/
-.clockset-f {
-  background: #fff;
-  font-size: 14px;
-}
-
-.clock-li {
-  padding: 20px 0;
-  line-height: 30px;
-  color: #3d3d3d;
-}
-
-.clock-name {
-  float: left;
-  width: 77px;
-  text-align: right;
-}
-
-.clock-con {
-  margin-left: 95px;
-  input[type="button"] {
-    width: 61px;
-  }
-  label {
-    display: inline-block;
-    margin-right: 20px;
-    &.clock-btn {
-      a {
-        display: inline-block;
-        padding: 0 5px;
-      }
-    }
-  }
-  select.remind {
-    width: 129px;
-    line-height: 30px;
-    height: 30px;
-    background: #f9f9f9;
-    margin: 0 5px;
-    border: 1px solid #D4D4D4;
-    @include borderradius(5px);
-  }
-  .clockcheck {
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    display: none;
-    margin: 0;
-    padding: 0;
-  }
-  .c-check {
-    position: relative;
-    display: inline-block;
-    padding-left: 22px;
-    cursor: pointer;
-    i {
-      top: 7px;
-      left: 0;
-      display: inline-block;
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      background: url("../images/choose-null.gif");
-    }
-  }
-  input[type="checkbox"].clockcheck:checked + label > i {
-    background: url("../images/choose-right.gif");
-  }
-  .addressdetail,
-  .clock-tip {
-    color: #bdbdbd;
-    margin: 0 20px;
-  }
-}
-
-.clock-save {
-  margin-left: 95px;
-  padding: 30px 0;
-  .clock-tip {
-    color: #bdbdbd;
-    margin: 0 20px;
-  }
-}
-
-.clock-address,
-.clock-set {
-  display: none;
-}
-
 .time-week {
   display: inline-block;
 }
@@ -9639,9 +9552,9 @@ a.guide-btn {
   // background: $color;
   cursor: pointer;
   // color: #fff;
-  border:1px solid #50d2c2;
+  border:1px solid $color;
   border-radius:4px;
-  color:#50d2c2;
+  color:$color;
   position:relative;
   box-sizing:border-box;
   &:before,&:after{
@@ -9656,7 +9569,7 @@ a.guide-btn {
       border-width:8px 8px 0;
     }
     &:before{
-      border-color:#50d2c2 transparent transparent;
+      border-color:$color transparent transparent;
       top:10px;
     }
     &:after{
@@ -9669,7 +9582,7 @@ a.guide-btn {
       border-width:0 8px 8px;
     }
     &:before{
-      border-color: transparent transparent #50d2c2;
+      border-color: transparent transparent $color;
       top:8px;
     }
     &:after{
@@ -9681,7 +9594,7 @@ a.guide-btn {
 .title-down{
   position:relative;
   padding:0 26px 0 0;
-  color:#50d2c2;
+  color:$color;
   &:before,&:after{
     position:absolute;
     right:5px;
@@ -9690,7 +9603,7 @@ a.guide-btn {
       border-width:8px 8px 0;
   }
     &:before{
-      border-color:#50d2c2 transparent transparent;
+      border-color:$color transparent transparent;
       top:10px;
     }
     &:after{
@@ -9702,7 +9615,7 @@ a.guide-btn {
       border-width:0 8px 8px;
     }
     &:before{
-      border-color: transparent transparent #50d2c2;
+      border-color: transparent transparent $color;
       top:8px;
     }
     &:after{
@@ -11241,8 +11154,6 @@ table.intention-table {
   .input, .textarea, select {
     width: 100%;
     padding: 0 10px;
-    // background: #f9f9f9;
-
     background: transparent;
     border: 1px solid #d4d4d4;
     border-radius: 3px;
@@ -13495,7 +13406,7 @@ a.link + a.link {
     line-height: 28px;
     text-align: center;
     border-radius: 14px;
-    border: solid 1px #50d2c2;
+    border: solid 1px $color;
   }
   select {
     width: 150px;
@@ -13809,7 +13720,7 @@ font-weight:bolder;
     top:12px;
     left:10px;
     height:15px;
-    border-left:4px solid #50d2c2;
+    border-left:4px solid $color;
   }
 }
 .keyword-history-list{
@@ -14208,7 +14119,7 @@ a.btn.filter-btn{
 .page-ul{
   li {
     a{
-      color:#50d2c2;
+      color:$color;
     }
     &.current,&:hover{
       a{
@@ -14390,7 +14301,7 @@ vertical-align:middle;
   left:50%;
   top:50%;
   // transform:translate3d(-50%,-50%,0);
-  transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%) translateZ(0);
   min-height: 200px;
   font-size:14px;
   background:#fff;
@@ -14407,7 +14318,7 @@ display:inline-block;
 width: 5px;
 height: 18px;
 margin-right:10px;
-background: #50d2c2;
+background: $color;
 vertical-align: middle;
   }
   a.closed{
@@ -14745,7 +14656,7 @@ top:11px;
   }
   &:before {
     top: 1px;
-    border-color: #50d2c2 transparent transparent;
+    border-color: $color transparent transparent;
 
   }
   &:after {
@@ -14760,7 +14671,7 @@ top:11px;
     }
     &:before{
         top: 0;
-        border-color: transparent transparent #50d2c2;
+        border-color: transparent transparent $color;
     }
     &:after {
       top: 1px;

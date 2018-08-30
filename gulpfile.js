@@ -140,9 +140,10 @@ gulp.task('sasstest', function() {
 });
 
 var proxy1 = proxy(['/proxy'], {
-  // target: 'http://123.57.222.150',
-  target: 'http://123.57.222.150:8083',
+  target: 'http://123.57.222.150',
+  // target: 'http://123.57.222.150:8083',
   // target: 'https://www.dianping.com',
+  // target: 'http://www.yunkecn.com/',
   changeOrigin: true,
   pathRewrite: { '^/proxy': '' },
 });
@@ -154,7 +155,7 @@ gulp.task('serve', function() {
     },
     port: 7561,
     // https: true,
-    // middleware: [proxy1],
+    middleware: [proxy1],
   });
 });
 

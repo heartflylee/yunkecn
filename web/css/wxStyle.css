@@ -59,7 +59,7 @@
 .wxModal__user .wxHead{vertical-align:middle;border-radius:4px}
 .wxModal__user span{line-height:40px;margin-left:10px}
 .wxSearch{margin:0 20px;position:relative}
-.wxSearch input[type=text]{width:100%;padding:0 18px;height:28px;border:1px solid #d4d4d4;border-radius:14px;-moz-box-sizing:border-box;box-sizing:border-box}
+.wxSearch input[type=text]{width:100%;padding:0 18px;height:28px;border:1px solid #d4d4d4;border-radius:5px;-moz-box-sizing:border-box;box-sizing:border-box}
 .wxSearch a.search-icon{z-index:88;display:block;width:15px;height:15px;background:url(../images/search-icon.png) no-repeat;position:absolute;right:10px;top:8px}
 .wxUserList{position:absolute;width:100%;bottom:0;left:0;top:110px;overflow:auto}
 .wxUserList .user{padding:10px 20px}
@@ -117,6 +117,7 @@
 .icon-cell3{background-image:url(../images/wxIcon3.png)}
 .icon-cell4{background-image:url(../images/wxIcon4.png);width:26px}
 .icon-cell5{background-image:url(../images/wxIcon5.png);width:26px}
+.icon-cell6{background-image:url(../images/wxIcon6.png);width:26px}
 .cell-main{padding:15px;line-height:30px;font-size:14px;color:#333}
 .border-wrap{padding:0 15px;border:1px solid #e7e7e7}
 .right-content .tag-bot{margin:10px}
@@ -211,6 +212,8 @@
 .friend-img img{max-width:100%;max-height:100%;vertical-align:middle}
 @-webkit-keyframes load{0%{stroke-dashoffset:0}
 }
+@keyframes load{0%{stroke-dashoffset:0}
+}
 .progress{position:relative;padding:0;margin-bottom:20px}
 .progress>li{position:relative;color:#333;max-width:166px;width:32%}
 .progress>li:before{content:attr(data-name);position:absolute;width:100%;bottom:-16px;font-size:14px}
@@ -234,10 +237,14 @@
 .wxmap-city{position:absolute;-moz-box-sizing:border-box;box-sizing:border-box;width:50px;height:50px;padding:5px 0;border-radius:30px;background:#56d1c2;color:#fff;font-size:12px;line-height:20px}
 .wxmap-city span{display:block}
 .wxmap-city:hover{background:rgba(193,39,45,.7);z-index:99999999!important}
-@keyframes load{0%{stroke-dashoffset:0}
+@-webkit-keyframes refreshLoad{0%{transform:rotate(0);-webkit-transform:rotate(0)}
+100%{transform:rotate(360deg);-webkit-transform:rotate(360deg)}
+}
+@keyframes refreshLoad{0%{transform:rotate(0);-webkit-transform:rotate(0)}
+100%{transform:rotate(360deg);-webkit-transform:rotate(360deg)}
 }
 .wxLoad{position:absolute;bottom:25px;left:20px;width:25px;height:25px;background:url(../images/refresh.png) no-repeat;background-size:contain}
-.wxLoad.refreshLoad{-webkit-animation:load 1s linear infinite;animation:load 1s linear infinite}
+.wxLoad.refreshLoad{-webkit-animation:refreshLoad 1s linear infinite;animation:refreshLoad 1s linear infinite}
 .wechatAdd{color:#56d1c2}
 .wx-table-editor{display:block;-moz-box-sizing:border-box;box-sizing:border-box}
 .wechat-icon-editor{display:inline-block;width:19px;height:19px;vertical-align:middle;background:url(../images/edit-com.png) no-repeat;background-size:contain}
