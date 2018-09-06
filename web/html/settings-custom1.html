@@ -2,542 +2,638 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>设置</title>
-    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="../css/head.css" />
-    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
-    <script type="text/javascript" src="../js/main.js"></script>
-    <script src="../js/audio.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>设置</title>
+  <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="../css/main.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="../css/head.css" />
+  <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+  <script type="text/javascript" src="../js/main.js"></script>
+  <script src="../js/audio.js"></script>
 
-    <script src="../js/vue.min.js"></script>
-    <script src="../js/vue-resource@1.3.4.js"></script>
-    <!-- <script src="../js/Sortable.min.js"></script> -->
-    <script src="../js/sortable.js"></script>
-    <script src="../js/vuedraggable.js"></script>
-    <script src="../js/lodash.min.js"></script>
+  <script src="../js/vue.min.js"></script>
+  <script src="../js/vue-resource@1.3.4.js"></script>
+  <!-- <script src="../js/Sortable.min.js"></script> -->
+  <script src="../js/sortable.js"></script>
+  <script src="../js/vuedraggable.js"></script>
+  <script src="../js/lodash.min.js"></script>
 
-    <link rel="stylesheet" href="../css/tagKeywords.css">
+  <link rel="stylesheet" href="../css/tagKeywords.css">
 </head>
 
 <body>
-    <!-- 页面遮罩层 layer -->
-    <div class="layer"></div>
-    <div class="layer-1"></div>
-    <!-- 页面头部 header -->
-    <div class="header">
-        <h1 class="logo fl"></h1>
-        <span class="mar fl">|</span>
-        <span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
-        <ul class="nav">
-            <li>
-                <a href="indexnew2.html">首页</a>
-            </li>
-            <!--<li>-->
-            <!--<a href="">行动</a>-->
-            <!--</li>-->
-            <li>
-                <a href="customer1.html">客户</a>
-            </li>
-            <li>
-                <a href="download.html">线索</a>
-            </li>
-            <li>
-                <a href="task.html">任务</a>
-            </li>
-            <li>
-                <a href="settings.html" id="top-setting" class="current">设置</a>
-            </li>
-        </ul>
-        <ul class="header-right fr">
-            <li><a href="javascript:;"><i class="add"></i></a></li>
-            <li><a href="javascript:;"><i class="update"></i></a></li>
-            <li><a href="javascript:;"><i class="message"></i></a></li>
-            <li><a href="javascript:;" class="user">刘</a></li>
-        </ul>
+  <!-- 页面遮罩层 layer -->
+  <div class="layer"></div>
+  <div class="layer-1"></div>
+  <!-- 页面头部 header -->
+  <div class="header">
+    <h1 class="logo fl"></h1>
+    <span class="mar fl">|</span>
+    <span class="fl"><em>团队版</em>[<a href="">点击切换</a>]</span>
+    <ul class="nav">
+      <li>
+        <a href="indexnew2.html">首页</a>
+      </li>
+      <!--<li>-->
+      <!--<a href="">行动</a>-->
+      <!--</li>-->
+      <li>
+        <a href="customer1.html">客户</a>
+      </li>
+      <li>
+        <a href="download.html">线索</a>
+      </li>
+      <li>
+        <a href="task.html">任务</a>
+      </li>
+      <li>
+        <a href="settings.html" id="top-setting" class="current">设置</a>
+      </li>
+    </ul>
+    <ul class="header-right fr">
+      <li><a href="javascript:;"><i class="add"></i></a></li>
+      <li><a href="javascript:;"><i class="update"></i></a></li>
+      <li><a href="javascript:;"><i class="message"></i></a></li>
+      <li><a href="javascript:;" class="user">刘</a></li>
+    </ul>
+  </div>
+  <!-- 汇总提示 tipArea -->
+  <div class="tipArea">
+    <div class="wrap">
+      <ul class="ul-2">
+        <li><a href="settings.html">团队设置</a></li>
+        <li><a href="settings-1.html">外呼标签设置</a></li>
+        <li><a href="settings-2.html">短信模板设置</a></li>
+        <li><a href="settings-email.html">邮件账户设置</a></li>
+        <li><a href="settings-email1.html">邮件模板设置</a></li>
+        <li><a href="settings-call.html">挂机时间设置</a></li>
+        <li><a href="settings-sea.html">企业公海设置</a></li>
+        <li><a href="settings-custom.html" class="current">自定义字段</a></li>
+        <li><a href="settings-task.html">云电销设置</a></li>
+      </ul>
     </div>
-    <!-- 汇总提示 tipArea -->
-    <div class="tipArea">
-        <div class="wrap">
-            <ul class="ul-2">
-                <li><a href="settings.html">团队设置</a></li>
-                <li><a href="settings-1.html">外呼标签设置</a></li>
-                <li><a href="settings-2.html">短信模板设置</a></li>
-                <li><a href="settings-email.html">邮件账户设置</a></li>
-                <li><a href="settings-email1.html">邮件模板设置</a></li>
-                <li><a href="settings-call.html">挂机时间设置</a></li>
-                <li><a href="settings-sea.html">企业公海设置</a></li>
-                <li><a href="settings-custom.html" class="current">自定义字段</a></li>
-                <li><a href="settings-task.html">云电销设置</a></li>
+  </div>
+  <!-- 内容部分 contents -->
+  <div class="contents content-fixed" id="main">
+    <div class="tag-box">
+      <div class="tags-li active">
+        <a href="settings-custom1.html">个人信息</a>
+      </div>
+      <div class="tags-li">
+        <a href="settings-custom2.html">公司信息</a>
+      </div>
+      <div class="tags-li">
+        <a href="settings-custom3.html">其他信息</a>
+      </div>
+    </div>
+    <div class="right-content">
+      <div class="table-tlt">
+        <a class="a" href="javascript:addTag();">+ 新建字段</a>
+        <a class="a" href="javascript:;">保存</a>
+      </div>
+      <div class="customer">
+
+        <div class="tag-list tag-custom">
+          <div class="tag-row tag-row-title">
+            <div class="tag-li">
+              字段名称
+            </div>
+            <div class="tag-li">
+              启用
+            </div>
+            <div class="tag-li">
+              必填
+            </div>
+            <div class="tag-li">
+              操作
+            </div>
+            <div class="tag-li">
+              统计图标
+            </div>
+          </div>
+          <div class="tag-type">
+            <ul class="tag-row-box">
+              <draggable v-model="list" :options="{draggable:'.tag-row',forceFallback: true }" @end="end">
+                <li class="tag-row" v-for="item,$index in list">
+                  <div class="tag-li">
+                    {{item.showname}}
+                  </div>
+                  <div class="tag-li">
+                    <label class="checkbox-label">
+                      <input type="checkbox" v-model="item.show" value="true" :disabled="item.disabled">
+                      <i></i>
+                    </label>
+                  </div>
+                  <div class="tag-li">
+                    <label class="checkbox-label">
+                      <input type="checkbox" v-model="item.require" value="true" :disabled="item.disabled">
+                      <i></i>
+                    </label>
+                  </div>
+                  <div class="tag-li">
+                    <a href="javascript:;" @click="editor(item)" class="href">编辑</a>
+                    <a href="javascript:;" v-if="item.systemId == 0" @click="removed(item,$index)" class="href">删除</a>
+                    <span class="tags-tip-text" v-if="item.disabled">(启用和必填不可修改)</span>
+                  </div>
+                  <div class="tag-li">
+                    <a href="javascript:chartShow();" class="href">生成图表</a>
+                    <a href="javascript:;" class="href red">删除图表</a>
+                  </div>
+                  <div class="tag-move"></div>
+                </li>
+              </draggable>
             </ul>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- 内容部分 contents -->
-    <div class="contents content-fixed" id="main">
-        <div class="tag-box">
-            <div class="tags-li active">
-                <a href="settings-custom1.html">个人信息</a>
-            </div>
-            <div class="tags-li">
-                <a href="settings-custom2.html">公司信息</a>
-            </div>
-            <div class="tags-li">
-                <a href="settings-custom3.html">其他信息</a>
-            </div>
-        </div>
-        <div class="right-content">
-            <div class="table-tlt">
-                <a class="a" href="javascript:addTag();">+ 新建字段</a>
-                <a class="a" href="javascript:;">保存</a>
-            </div>
-            <div class="customer">
+  </div>
 
-                <div class="tag-list tag-custom">
-                    <div class="tag-row tag-row-title">
-                        <div class="tag-li">
-                            字段名称
-                        </div>
-                        <div class="tag-li">
-                            启用
-                        </div>
-                        <div class="tag-li">
-                            必填
-                        </div>
-                        <div class="tag-li">
-                            操作
-                        </div>
-                    </div>
-                    <div class="tag-type">
-                        <ul class="tag-row-box">
-                            <draggable v-model="list" :options="{draggable:'.tag-row',forceFallback: true }" @end="end">
-                                <li class="tag-row" v-for="item,$index in list">
-                                    <div class="tag-li">
-                                        {{item.showname}}
-                                    </div>
-                                    <div class="tag-li">
-                                        <label class="checkbox-label">
-                                            <input type="checkbox" v-model="item.show" value="true" :disabled="item.disabled">
-                                            <i></i>
-                                        </label>
-                                    </div>
-                                    <div class="tag-li">
-                                        <label class="checkbox-label">
-                                            <input type="checkbox" v-model="item.require" value="true" :disabled="item.disabled">
-                                            <i></i>
-                                        </label>
-                                    </div>
-                                    <div class="tag-li">
-                                        <a href="javascript:;" @click="editor(item)" class="href">编辑</a>
-                                        <a href="javascript:;" v-if="item.systemId == 0" @click="removed(item,$index)" class="href">删除</a>
-                                        <span class="tags-tip-text" v-if="item.disabled">(启用和必填不可修改)</span>
-                                    </div>
-                                    <div class="tag-move"></div>
-                                </li>
-                            </draggable>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+  <!--新建标签-->
+  <div class="modal " id="insertTag">
+    <div class="modal-top">
+      <i></i>新建/编辑字段
+      <a href="javascript:layerClose('#insertTag');" class="closed"></a>
     </div>
-
-
-    <!--新建标签-->
-    <div class="modal " id="insertTag">
-        <div class="modal-top">
-            <i></i>新建/编辑字段
-            <a href="javascript:layerClose('#insertTag');" class="closed"></a>
-        </div>
-        <form class="function-content" @submit.prevent="submit">
-            <div class="modal-body custom-box">
-                <div class="function-content">
-                    <div class="function-row">
-                        <div class="function-name">
-                            字段类型
-                        </div>
-                        <div class="function-info">
-                            <label class="radio-label"><input type="radio" name="fieldType" v-model="type" :disabled="checkDisabled"
-                                    data-value="2" value="2">
-                                <i class="radio-icon"></i>单选</label>
-                            <label class="radio-label"><input type="radio" name="fieldType" v-model="type" :disabled="checkDisabled"
-                                    data-value="3" value="3">
-                                <i class="radio-icon"></i>多选</label>
-                            <label class="radio-label"><input type="radio" name="fieldType" v-model="type" :disabled="checkDisabled"
-                                    data-value="0" value="0">
-                                <i class="radio-icon"></i>文本</label>
-                            <label class="radio-label"><input type="radio" name="fieldType" v-model="type" :disabled="checkDisabled"
-                                    data-value="1" value="1">
-                                <i class="radio-icon"></i>数字</label>
-                            <label class="radio-label"><input type="radio" name="fieldType" v-model="type" :disabled="checkDisabled"
-                                    data-value="4" value="4">
-                                <i class="radio-icon"></i>日期</label>
-                        </div>
-                    </div>
-                    <div class="function-row">
-                        <div class="function-name">
-                            显示名称
-                        </div>
-                        <div class="function-info">
-                            <input type="text" class="input validate-input" data-max="6" maxlength="6" v-model="showname">
-                            <label class="validate-text">还可输入<span>{{6-name.length}}</span>字</label>
-                        </div>
-                    </div>
-
-                    <div class="hidden" id="validate" v-if="type==2 || type ==3">
-                        <div class="function-row" v-for="item,$index in validate">
-                            <div class="function-name">
-                                选项{{$index+1}}
-                            </div>
-                            <a href="javascript:void(0);" v-if="$index!=0" @click="removeRow($index)" class="function-close">&times;</a>
-                            <div class="function-right" v-if="type==2">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" v-model="item.check"><i></i>
-                                    添加文本框
-                                </label>
-                            </div>
-                            <div class="function-info">
-                                <input type="text" class="input validate-input" data-max="10" maxlength="10" v-model="item.text">
-                                <label class="validate-text">还可输入<span>{{10-item.text.length}}</span>字</label>
-                            </div>
-                        </div>
-                        <div class="function-row">
-                            <div class="function-info">
-                                <a href="javascript:void(0);" class="link" id="customBtn" @click="addValidate">+添加选项</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-bottom">
-                <input type="submit" class="btn" onclick="" value="保存" />
-                <input type="button" class="btn btn-cancel" onclick="layerClose('#insertTag')" value="取消" />
-            </div>
-        </form>
-    </div>
-    <!--新建标签-->
-
-
-
-    <!--新建标签-->
-    <div class="modal " id="insertTag1">
-        <div class="modal-top">
-            <i></i>编辑字段
-            <a href="javascript:layerClose('#insertTag1');" class="closed"></a>
-        </div>
-        <form class="function-content" @submit.prevent="submit">
-            <div class="modal-body custom-box">
-                <div class="function-content">
-
-                    <div class="function-row">
-                        <div class="function-name">
-                            系统名称
-                        </div>
-                        <div class="function-info">
-                            <input type="text" class="input validate-input" disabled data-max="6" v-model="name">
-                        </div>
-                    </div>
-                    <div class="function-row">
-                        <div class="function-name">
-                            显示名称
-                        </div>
-                        <div class="function-info">
-                            <input type="text" class="input validate-input" data-max="6" v-model="showname">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="modal-bottom">
-                <input type="submit" class="btn" onclick="" value="保存" />
-                <input type="button" class="btn btn-cancel" onclick="layerClose('#insertTag1')" value="取消" />
-            </div>
-        </form>
-    </div>
-    <!--新建标签-->
-
-    <!--生成图表-->
-    <div class="changer-box custom-box" id="chart">
-        <div class="tlt"><i></i>生成图表
-            <a href="javascript:layerClose('#chart');" class="a-closed"></a>
-        </div>
+    <form class="function-content" @submit.prevent="submit">
+      <div class="modal-body custom-box">
         <div class="function-content">
+          <div class="function-row">
+            <div class="function-name">
+              字段类型
+            </div>
+            <div class="function-info">
+              <label class="radio-label"><input type="radio" name="fieldType" v-model="type" :disabled="checkDisabled"
+                  data-value="2" value="2">
+                <i class="radio-icon"></i>单选</label>
+              <label class="radio-label"><input type="radio" name="fieldType" v-model="type" :disabled="checkDisabled"
+                  data-value="3" value="3">
+                <i class="radio-icon"></i>多选</label>
+              <label class="radio-label"><input type="radio" name="fieldType" v-model="type" :disabled="checkDisabled"
+                  data-value="0" value="0">
+                <i class="radio-icon"></i>文本</label>
+              <label class="radio-label"><input type="radio" name="fieldType" v-model="type" :disabled="checkDisabled"
+                  data-value="1" value="1">
+                <i class="radio-icon"></i>数字</label>
+              <label class="radio-label"><input type="radio" name="fieldType" v-model="type" :disabled="checkDisabled"
+                  data-value="4" value="4">
+                <i class="radio-icon"></i>日期</label>
+            </div>
+          </div>
+          <div class="function-row">
+            <div class="function-name">
+              显示名称
+            </div>
+            <div class="function-info">
+              <input type="text" class="input validate-input" data-max="6" maxlength="6" v-model="showname">
+              <label class="validate-text">还可输入<span>{{6-name.length}}</span>字</label>
+            </div>
+          </div>
+
+          <div class="hidden" id="validate" v-if="type==2 || type ==3">
+            <div class="function-row" v-for="item,$index in validate">
+              <div class="function-name">
+                选项{{$index+1}}
+              </div>
+              <a href="javascript:void(0);" v-if="$index!=0" @click="removeRow($index)" class="function-close">&times;</a>
+              <div class="function-right" v-if="type==2">
+                <label class="checkbox-label">
+                  <input type="checkbox" v-model="item.check"><i></i>
+                  添加文本框
+                </label>
+              </div>
+              <div class="function-info">
+                <input type="text" class="input validate-input" data-max="10" maxlength="10" v-model="item.text">
+                <label class="validate-text">还可输入<span>{{10-item.text.length}}</span>字</label>
+              </div>
+            </div>
             <div class="function-row">
-                <div class="function-name">
-                    图表名称
-                </div>
-                <div class="function-info">
-                    <input type="text" class="input">
-                </div>
+              <div class="function-info">
+                <a href="javascript:void(0);" class="link" id="customBtn" @click="addValidate">+添加选项</a>
+              </div>
             </div>
-            <div class="manage-btn-wrap">
-                <input type="button" class="manage-btn" value="确定">
-            </div>
+          </div>
         </div>
+      </div>
+      <div class="modal-bottom">
+        <input type="submit" class="btn" onclick="" value="保存" />
+        <input type="button" class="btn btn-cancel" onclick="layerClose('#insertTag')" value="取消" />
+      </div>
+    </form>
+  </div>
+  <!--新建标签-->
+
+
+
+  <!--新建标签-->
+  <div class="modal " id="insertTag1">
+    <div class="modal-top">
+      <i></i>编辑字段
+      <a href="javascript:layerClose('#insertTag1');" class="closed"></a>
     </div>
-    <!--生成图表-->
-    <!--删除字段-->
-    <div class="changer-box custom-box" id="deleteCustom">
-        <div class="tlt"><i></i>删除字段
-            <a href="javascript:layerClose('#deleteCustom');" class="a-closed"></a>
-        </div>
+    <form class="function-content" @submit.prevent="submit">
+      <div class="modal-body custom-box">
         <div class="function-content">
-            <div class="layer_tip com_tip">
-                删除字段后不可恢复，是否继续
+
+          <div class="function-row">
+            <div class="function-name">
+              系统名称
             </div>
-            <div class="manage-btn-wrap">
-                <input type="button" class="manage-btn cancel" onclick="layerClose('#deleteCustom');" value="取消">
-                <input type="button" class="manage-btn" value="确定">
+            <div class="function-info">
+              <input type="text" class="input validate-input" disabled data-max="6" v-model="name">
             </div>
+          </div>
+          <div class="function-row">
+            <div class="function-name">
+              显示名称
+            </div>
+            <div class="function-info">
+              <input type="text" class="input validate-input" data-max="6" v-model="showname">
+            </div>
+          </div>
+
         </div>
+      </div>
+      <div class="modal-bottom">
+        <input type="submit" class="btn" onclick="" value="保存" />
+        <input type="button" class="btn btn-cancel" onclick="layerClose('#insertTag1')" value="取消" />
+      </div>
+    </form>
+  </div>
+  <!--新建标签-->
+
+  <!--生成图表-->
+  <div class="changer-box custom-box" id="chart">
+    <div class="tlt"><i></i>生成图表
+      <a href="javascript:layerClose('#chart');" class="a-closed"></a>
     </div>
-    <!--删除字段-->
-    <!--删除字段-->
-    <div class="changer-box custom-box" id="noSelectDel">
-        <div class="tlt"><i></i>删除字段
-            <a href="javascript:layerClose('#noSelectDel');" class="a-closed"></a>
+    <div class="function-content">
+      <div class="function-row">
+        <div class="function-name">
+          图表名称
         </div>
-        <div class="function-content">
-            <div class="layer_tip com_tip">
-                未选择字段
-            </div>
-            <div class="manage-btn-wrap">
-                <input type="button" class="manage-btn" onclick="layerClose('#noSelectDel');" value="确定">
-            </div>
+        <div class="function-info">
+          <input type="text" class="input">
         </div>
+      </div>
+      <div class="manage-btn-wrap">
+        <input type="button" class="manage-btn" value="确定">
+      </div>
     </div>
-    <!--删除字段-->
+  </div>
+  <!--生成图表-->
+  <!--删除字段-->
+  <div class="changer-box custom-box" id="deleteCustom">
+    <div class="tlt"><i></i>删除字段
+      <a href="javascript:layerClose('#deleteCustom');" class="a-closed"></a>
+    </div>
+    <div class="function-content">
+      <div class="layer_tip com_tip">
+        删除字段后不可恢复，是否继续
+      </div>
+      <div class="manage-btn-wrap">
+        <input type="button" class="manage-btn cancel" onclick="layerClose('#deleteCustom');" value="取消">
+        <input type="button" class="manage-btn" value="确定">
+      </div>
+    </div>
+  </div>
+  <!--删除字段-->
+  <!--删除字段-->
+  <div class="changer-box custom-box" id="noSelectDel">
+    <div class="tlt"><i></i>删除字段
+      <a href="javascript:layerClose('#noSelectDel');" class="a-closed"></a>
+    </div>
+    <div class="function-content">
+      <div class="layer_tip com_tip">
+        未选择字段
+      </div>
+      <div class="manage-btn-wrap">
+        <input type="button" class="manage-btn" onclick="layerClose('#noSelectDel');" value="确定">
+      </div>
+    </div>
+  </div>
+  <!--删除字段-->
 
 
-    <script type="text/javascript">
-        //关闭弹框
-        function layerClose(obj) {
-            $(obj).hide();
-            $(".layer").hide();
+  <script type="text/javascript">
+    //关闭弹框
+    function layerClose(obj) {
+      $(obj).hide();
+      $(".layer").hide();
+    }
+
+    //打开弹框
+    function layerShow(obj) {
+      $(obj).show();
+      $(".layer").show();
+    }
+
+
+    //新建字段
+    function newCustom() {
+      $(".layer").show();
+      $("#custom-add").show();
+    }
+
+    //生成图表
+    function chartShow() {
+      $(".layer").show();
+      $("#chart").show();
+    }
+
+
+
+    var tagId = 0;
+    var insertTag = new Vue({
+      el: "#insertTag",
+      data: function () {
+        return {
+          checkDisabled: false,
+          type: '',
+          showname: "",
+          show: false,
+          require: false,
+          id: "",
+          validate: [],
+          systemId: 0
+
         }
-
-        //打开弹框
-        function layerShow(obj) {
-            $(obj).show();
-            $(".layer").show();
+      },
+      watch: {
+        type: function (val, oldVal) {
+          var _self = this;
+          if (val != 2 && val != 3) {
+            _self.$data.validate = [];
+            // $("#validate").hide();
+            // $("#customBtn").prevAll().remove();
+            return;
+          } else if (val != oldVal) {
+            _self.$data.validate = [];
+            this.addValidate();
+          }
         }
+      },
+      methods: {
+        addValidate: function () {
+          this.$data.validate.push({
+            showname: '',
+            check: false,
+            text: ''
+          });
+        },
+        removeRow: function (index) {
+          this.$data.validate.splice(index, 1);
+        },
+        submit: function () {
+          var _self = this;
+          // var type = _self.$data.data.type;
 
-
-        //新建字段
-        function newCustom() {
-            $(".layer").show();
-            $("#custom-add").show();
-        }
-
-        //生成图表
-        function chartShow() {
-            $(".layer").show();
-            $("#chart").show();
-        }
-
-
-
-        var tagId = 0;
-        var insertTag = new Vue({
-            el: "#insertTag",
-            data: function () {
-                return {
-                    checkDisabled: false,
-                    type: '',
-                    showname: "",
-                    show: false,
-                    require: false,
-                    id: "",
-                    validate: [],
-                    systemId: 0
-
-                }
-            },
-            watch: {
-                type: function (val, oldVal) {
-                    var _self = this;
-                    if (val != 2 && val != 3) {
-                        _self.$data.validate = [];
-                        // $("#validate").hide();
-                        // $("#customBtn").prevAll().remove();
-                        return;
-                    } else if (val != oldVal) {
-                        _self.$data.validate = [];
-                        this.addValidate();
-                    }
-                }
-            },
-            methods: {
-                addValidate: function () {
-                    this.$data.validate.push(
-                        {
-                            showname: '',
-                            check: false,
-                            text: ''
-                        }
-                    );
-                },
-                removeRow: function (index) {
-                    this.$data.validate.splice(index, 1);
-                },
-                submit: function () {
-                    var _self = this;
-                    // var type = _self.$data.data.type;
-
-                    var index = _.findIndex(vm.list, function (o) {
-                        return o.showname == _self.$data.showname && o.id != _self.$data.id;
-                    });
-                    if (index >= 0) {
-                        alert("该标签名称已存在，请修改");
-                        return;
-                    }
-                    if (_self.$data.id == "add") {
-                        _self.$data.id = "null" + tagId;
-                        tagId++;
-                        vm.$data.list.push(JSON.parse(JSON.stringify(_self.$data)));
-                    } else {
-                        index = _.findIndex(vm.list, function (o) {
-                            return o.id == _self.$data.id;
-                        });
-                        if (index >= 0) {
-                            vm.$data.list.splice(index, 1, JSON.parse(JSON.stringify(_self.$data)));
-                        }
-                    }
-                    layerClose('#insertTag');
-                }
+          var index = _.findIndex(vm.list, function (o) {
+            return o.showname == _self.$data.showname && o.id != _self.$data.id;
+          });
+          if (index >= 0) {
+            alert("该标签名称已存在，请修改");
+            return;
+          }
+          if (_self.$data.id == "add") {
+            _self.$data.id = "null" + tagId;
+            tagId++;
+            vm.$data.list.push(JSON.parse(JSON.stringify(_self.$data)));
+          } else {
+            index = _.findIndex(vm.list, function (o) {
+              return o.id == _self.$data.id;
+            });
+            if (index >= 0) {
+              vm.$data.list.splice(index, 1, JSON.parse(JSON.stringify(_self.$data)));
             }
-        });
+          }
+          layerClose('#insertTag');
+        }
+      }
+    });
 
 
-        var insertTag1 = new Vue({
-            el: '#insertTag1',
-            data: function () {
-                return {
-                    id: '',
-                    name: '',
-                    showname: ''
-                }
-            },
-            methods: {
-                submit: function () {
-                    console.log("编辑固定字段成功");
-                    var _self = this;
-                    var index = _.findIndex(vm.$data.list, function (o) {
-                        return o.id == _self.$data.id;
-                    });
-                    if (index >= 0) {
-                        vm.$data.list[index].showname = _self.$data.showname;
-                    }
-                    layerClose("#insertTag1");
-                    return false;
-                }
+    var insertTag1 = new Vue({
+      el: '#insertTag1',
+      data: function () {
+        return {
+          id: '',
+          name: '',
+          showname: ''
+        }
+      },
+      methods: {
+        submit: function () {
+          console.log("编辑固定字段成功");
+          var _self = this;
+          var index = _.findIndex(vm.$data.list, function (o) {
+            return o.id == _self.$data.id;
+          });
+          if (index >= 0) {
+            vm.$data.list[index].showname = _self.$data.showname;
+          }
+          layerClose("#insertTag1");
+          return false;
+        }
+      }
+    })
+
+
+    //关闭弹框
+    function layerClose(obj) {
+      $(obj).hide();
+      $(".layer").hide();
+    }
+
+    function insertShow() {
+      // insertTag.$data.data.type = type;
+      $("#insertTag").show();
+      $(".layer").show();
+    }
+
+    function addTag() {
+      insertTag.$data.id = "add";
+      insertTag.$data.showname = "";
+      insertTag.$data.checkDisabled = false;
+      insertTag.$data.show = true;
+      insertTag.$data.type = 2;
+      insertTag.$data.validate = [];
+      insertShow();
+    }
+
+    function editorTag(item) {
+      if (item.systemId == 0) {
+        insertTag.$data.id = item.id;
+        insertTag.$data.showname = item.showname;
+        insertTag.$data.checkDisabled = true;
+        insertTag.$data.type = item.type;
+        insertTag.$data.validate = item.validate;
+        insertShow();
+      } else {
+        insertTag1.$data.id = item.id;
+        insertTag1.$data.name = item.name;
+        insertTag1.$data.showname = item.showname;
+        layerShow('#insertTag1');
+      }
+    }
+
+    function coverTags() {
+      var _self = vm;
+      layerClose('#coverTag');
+    }
+    $("body").on('click', '.layer', function () {
+      $(".modal").hide();
+    });
+
+    var vm = new Vue({
+      el: '#main',
+      data: function () {
+        return {
+          list: []
+        }
+      },
+      watch: {
+        list: {
+          handler: function (newVal, oldVal) {
+            console.log('newVal', newVal)
+            console.log('oldVal', oldVal)
+
+            for (var i = 0; i < newVal.length; i++) {
+              if (this.list[i].show == false) {
+                this.list[i].require = false;
+              }
             }
-        })
-
-
-        //关闭弹框
-        function layerClose(obj) {
-            $(obj).hide();
-            $(".layer").hide();
+          },
+          deep: true
         }
-
-        function insertShow() {
-            // insertTag.$data.data.type = type;
-            $("#insertTag").show();
-            $(".layer").show();
+      },
+      methods: {
+        editor: function (data) {
+          console.log(data);
+          editorTag(data);
+        },
+        end: function (evt) {
+          console.log("调整顺序");
+          // toastr.success('标签顺序调整成功');
+        },
+        removed: function (item, index) {
+          console.log(item);
+          console.log(index);
+          if (item.id == undefined || item.id.indexOf("null") == 0) {
+            this.$data.list.splice(index, 1);
+          } else {
+            this.$data.lsit[index].isDelete = 1;
+          }
         }
-
-        function addTag() {
-            insertTag.$data.id = "add";
-            insertTag.$data.showname = "";
-            insertTag.$data.checkDisabled = false;
-            insertTag.$data.show = true;
-            insertTag.$data.type = 2;
-            insertTag.$data.validate = [];
-            insertShow();
-        }
-
-        function editorTag(item) {
-            if (item.systemId == 0) {
-                insertTag.$data.id = item.id;
-                insertTag.$data.showname = item.showname;
-                insertTag.$data.checkDisabled = true;
-                insertTag.$data.type = item.type;
-                insertTag.$data.validate = item.validate;
-                insertShow();
-            } else {
-                insertTag1.$data.id = item.id;
-                insertTag1.$data.name = item.name;
-                insertTag1.$data.showname = item.showname;
-                layerShow('#insertTag1');
-            }
-        }
-
-        function coverTags() {
-            var _self = vm;
-            layerClose('#coverTag');
-        }
-        $("body").on('click', '.layer', function () {
-            $(".modal").hide();
-        });
-
-        var vm = new Vue({
-            el: '#main',
-            data: function () {
-                return {
-                    list: []
-                }
-            },
-            watch: {
-                list: {
-                    handler: function (newVal, oldVal) {
-                        console.log('newVal', newVal)
-                        console.log('oldVal', oldVal)
-
-                        for (var i = 0; i < newVal.length; i++) {
-                            if (this.list[i].show == false) {
-                                this.list[i].require = false;
-                            }
-                        }
-                    },
-                    deep: true
-                }
-            },
-            methods: {
-                editor: function (data) {
-                    console.log(data);
-                    editorTag(data);
-                },
-                end: function (evt) {
-                    console.log("调整顺序");
-                    // toastr.success('标签顺序调整成功');
-                },
-                removed: function (item, index) {
-                    console.log(item);
-                    console.log(index);
-                    if (item.id == undefined || item.id.indexOf("null") == 0) {
-                        this.$data.list.splice(index, 1);
-                    } else {
-                        this.$data.lsit[index].isDelete = 1;
-                    }
-                }
-            },
-            mounted: function () {
-                this.$data.list = [
-                    { id: 1, name: '姓名', showname: '姓名', show: true, require: true, type: 0, systemId: 1, isDelete: 0, disabled: true },
-                    { id: 2, name: '手机号', showname: '手机号', show: true, require: true, type: 0, systemId: 1, isDelete: 0, disabled: true },
-                    { id: 3, name: '邮箱', showname: '邮箱', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
-                    { id: 4, name: 'QQ', showname: 'QQ', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
-                    { id: 5, name: '微信', showname: '微信', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
-                    { id: 6, name: '职位', showname: '职位', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
-                    { id: 7, name: '生日', showname: '生日', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
-                    { id: 8, name: '性别', showname: '性别', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
-                    { id: 9, name: '群组', showname: '群组', show: true, require: true, type: 0, systemId: 1, isDelete: 0 },
-                    { id: 10, name: '123', showname: '123', show: true, require: true, type: 0, systemId: 0, isDelete: 0 },
-                ];
-            },
-        });
-    </script>
+      },
+      mounted: function () {
+        this.$data.list = [{
+            id: 1,
+            name: '姓名',
+            showname: '姓名',
+            show: true,
+            require: true,
+            type: 0,
+            systemId: 1,
+            isDelete: 0,
+            disabled: true
+          },
+          {
+            id: 2,
+            name: '手机号',
+            showname: '手机号',
+            show: true,
+            require: true,
+            type: 0,
+            systemId: 1,
+            isDelete: 0,
+            disabled: true
+          },
+          {
+            id: 3,
+            name: '邮箱',
+            showname: '邮箱',
+            show: true,
+            require: true,
+            type: 0,
+            systemId: 1,
+            isDelete: 0
+          },
+          {
+            id: 4,
+            name: 'QQ',
+            showname: 'QQ',
+            show: true,
+            require: true,
+            type: 0,
+            systemId: 1,
+            isDelete: 0
+          },
+          {
+            id: 5,
+            name: '微信',
+            showname: '微信',
+            show: true,
+            require: true,
+            type: 0,
+            systemId: 1,
+            isDelete: 0
+          },
+          {
+            id: 6,
+            name: '职位',
+            showname: '职位',
+            show: true,
+            require: true,
+            type: 0,
+            systemId: 1,
+            isDelete: 0
+          },
+          {
+            id: 7,
+            name: '生日',
+            showname: '生日',
+            show: true,
+            require: true,
+            type: 0,
+            systemId: 1,
+            isDelete: 0
+          },
+          {
+            id: 8,
+            name: '性别',
+            showname: '性别',
+            show: true,
+            require: true,
+            type: 0,
+            systemId: 1,
+            isDelete: 0
+          },
+          {
+            id: 9,
+            name: '群组',
+            showname: '群组',
+            show: true,
+            require: true,
+            type: 0,
+            systemId: 1,
+            isDelete: 0
+          },
+          {
+            id: 10,
+            name: '123',
+            showname: '123',
+            show: true,
+            require: true,
+            type: 0,
+            systemId: 0,
+            isDelete: 0
+          },
+        ];
+      },
+    });
+  </script>
 </body>
 
 </html>

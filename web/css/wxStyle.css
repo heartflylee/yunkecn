@@ -249,5 +249,6 @@
 .wx-table-editor{display:block;-moz-box-sizing:border-box;box-sizing:border-box}
 .wechat-icon-editor{display:inline-block;width:19px;height:19px;vertical-align:middle;background:url(../images/edit-com.png) no-repeat;background-size:contain}
 .wx-input{width:80%;min-width:50px;padding:5px 10px;border:1px solid #ddd;border-radius:5px;-moz-box-sizing:border-box;box-sizing:border-box}
+.ws-Normal{white-space:normal}
 
 /*# sourceMappingURL=wxStyle.css.map */
