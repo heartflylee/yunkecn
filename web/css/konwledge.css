@@ -64,7 +64,7 @@
 .kl-btn i.icon.icon-setTop{background-image:url(../images/setTop.png)}
 .kl-btn i.icon.icon-delete{background-image:url(../images/konwDelete.png)}
 .kl-btn i.icon.icon-editor{background-image:url(../images/editor.png)}
-.manage-info.kl-content{top:55px;left:0;right:0}
+.manage-info.kl-content{top:55px}
 .manage-con-top input.btn-red{height:auto;border:1px solid}
 .file-box+.tag-default{margin-top:15px}
 .KLM-name{font-weight:700;font-size:20px}

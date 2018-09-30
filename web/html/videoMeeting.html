@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>设置</title>
+  <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="../css/main.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="../css/head.css" />
+  <link rel="stylesheet" href="../css/select.css" />
+  <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+  <script type="text/javascript" src="../js/main.js"></script>
+  <script src="../js/audio.js"></script>
+
+  <link rel="stylesheet" href="../css/zTreeStyle.css">
+
+  <script src="../js/jquery.ztree.core.js"></script>
+  <script src="../js/vue.min.js"></script>
+  <script src="../js/vue-resource@1.3.4.js"></script>
+  <script src="../js/lodash.min.js"></script>
+
+  <link rel="stylesheet" href="../css/videoconferences.css">
+
+  <script src="https://sqimg.qq.com/expert_qq/webrtc/2.6.2/WebRTCAPI.min.js"></script>
+  <script src="../js/swiper.js"></script>
+  <link rel="stylesheet" href="../css/swiper.css">
+  <script>
+    var _mtac = {
+        "senseHash": 0
+      };
+      (function () {
+        var mta = document.createElement("script");
+        mta.src = "//pingjs.qq.com/h5/stats.js";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500538821");
+        mta.setAttribute("cid", "500538834");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+      })();
+    </script>
+
+  <script src="../js/videoMeeting.js"></script>
+
+
+</head>
+
+<body>
+  <div class="videoMeeting">
+    <input type="hidden" id="userId">
+    <input type="hidden" id="roomid">
+    <div class="video-body">
+      <div class="video-speaker" id="speaker">
+        <div class="video-box">
+          <video src=""></video>
+          <div class="video-name">小明 <span>管理员授权主讲</span></div>
+        </div>
+      </div>
+      <div class="video-list">
+
+        <div class="video-button-down"></div>
+        <div class="video-button-up"></div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="video-box">
+                <video src=""></video>
+                <a href="javascript:;" class="noMicrophone"></a>
+                <div class="video-name">张三</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="video-box">
+                <video src=""></video>
+                <div class="video-name">李四</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="video-box">
+                <video src=""></video>
+                <div class="video-name">王五</div>
+              </div>
+            </div>
+          </div>
+          <!-- Add Arrows -->
+        </div>
+      </div>
+    </div>
+    <div class="video-bottom">
+      <div class="fl">
+        <a href="javascript:;" class="video-bottom-li" id="bottom-more">
+          <i class="video-icon video-icon-more"></i>
+          更多
+        </a>
+        <div class="video-dropdown">
+          <a href="javascript:;" class="">开会提示发送</a>
+          <a href="javascript:boxLayerToggle('conferenc-content');" class="">会议信息</a>
+        </div>
+        <a href="javascript:boxLayerToggle('conferenc-attendee');" class="video-bottom-li">
+          <i class="video-icon video-icon-attendee"></i>
+          参会人
+        </a>
+        <a href="javascript:;" class="video-bottom-li">
+          <i class="video-icon video-icon-share"></i>
+          共享
+        </a>
+        <a href="javascript:;" class="video-bottom-li">
+          <i class="video-icon video-icon-layout"></i>
+          屏幕布局
+        </a>
+      </div>
+      <div class="fr">
+        <a href="javascript:;" class="video-bottom-li">
+          <i class="video-icon video-icon-voice"></i>
+          关闭扬声器
+        </a>
+        <a href="javascript:;" class="video-bottom-li">
+          <i class="video-icon video-icon-camera"></i>
+          关闭摄像头
+        </a>
+        <a href="javascript:;" class="video-bottom-li">
+          <i class="video-icon video-icon-microphone"></i>
+          关闭麦克风
+        </a>
+        <a href="javascript:;" class="video-bottom-li">
+          <i class="video-icon video-icon-logout"></i>
+          退出
+        </a>
+      </div>
+    </div>
+    <div class="box-layer" id="conferenc-content">
+      <div class="box-layer-body">
+        <div class="box-title">会议信息</div>
+        <div class="box-right-info">
+          <div class="box-row">
+            <div class="box-name">会议名称：</div>
+            <div class="box-content">
+              视频会议名称
+            </div>
+          </div>
+          <div class="box-row">
+            <div class="box-name">会议主题：</div>
+            <div class="box-content">
+              主题主题主题 主题主题主题主题主题主题主题主题主题 主题主题主题
+            </div>
+          </div>
+          <div class="box-row">
+            <div class="box-name">在线人数：</div>
+            <div class="box-content">
+              12
+            </div>
+          </div>
+          <div class="box-row">
+            <div class="box-name">可参会人数：</div>
+            <div class="box-content">
+              35
+            </div>
+          </div>
+          <div class="box-row">
+            <div class="box-name">用户角色：</div>
+            <div class="box-content">
+              参会人
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-layer" id="conferenc-attendee">
+      <div class="box-layer-body">
+        <div class="box-title">参会人员
+          <a href="javascript:;" class="link fr">全部静音</a>
+        </div>
+        <div class="box-right-info">
+          <div class="box-top">
+            <span>已入会（23）</span>
+            <div class="fr">
+              <div class="form-control form-default">
+                <div class="form-info">
+                  <input type="text" placeholder="" class="input">
+                  <i class="icon icon-search"></i>
+                </div>
+              </div>
+              <div class="form-control form-default">
+                <input type="button" value="查询" class="btn">
+              </div>
+            </div>
+          </div>
+          <div class="attendee">
+            <img src="../images/member.png" alt="">
+            <span>张三</span>
+            <span>我</span>
+            <span>(电脑)</span>
+            <label class="tag tag-manage">管理员</label>
+            <label class="tag tag-speaker">主讲</label>
+            <div class="fr">
+              <a href="javascript:;" class="">
+                <i class="video-icon-speaker-close"></i>
+              </a>
+              <i class="video-icon-microphone-open"></i>
+              <i class="video-icon-camera-open"></i>
+            </div>
+          </div>
+          <div class="attendee">
+            <img src="../images/member.png" alt="">
+            <span>张三</span>
+            <span>(电脑)</span>
+            <label class="tag tag-manage">管理员</label>
+            <div class="fr">
+              <a href="javascript:;" class="">
+                <i class="video-icon-speaker-open"></i>
+              </a>
+              <i class="video-icon-microphone-open"></i>
+              <i class="video-icon-camera-open"></i>
+            </div>
+          </div>
+          <div class="attendee">
+            <img src="../images/member.png" alt="">
+            <span>张三张三张三张三</span>
+            <span>(手机)</span>
+            <div class="fr">
+              <a href="javascript:;" class="">
+                <i class="video-icon-speaker-open"></i>
+              </a>
+              <i class="video-icon-microphone-close"></i>
+              <i class="video-icon-camera-close"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(function () {
+      $("#userId").val("lystest");
+      $("#roomid").val("113355");
+      // push();
+
+
+      var swiper = new Swiper('.swiper-container', {
+        // pagination: '.swiper-pagination',
+        // paginationClickable: true,
+        direction: 'vertical',
+        nextButton: '.video-button-down',
+        prevButton: '.video-button-up',
+        slidesPerView: 3,
+        autoplay: 2500,
+        // loop: true,
+        // loopAdditionalSlides: 0
+      });
+
+      $("#bottom-more").click(function (e) {
+        e.stopPropagation();
+        $(".video-dropdown").toggle();
+      });
+      $("body").on('click', function () {
+        $(".video-dropdown").hide();
+      });
+      // conferenc-content
+
+      $(".box-layer").click(function () {
+        $(this).hide();
+      });
+      $(".box-layer-body").click(function (e) {
+        e.stopPropagation();
+      })
+    });
+
+    function boxLayerToggle(id) {
+      $("#" + id).toggle();
+    }
+  </script>
+</body>
+
+</html>

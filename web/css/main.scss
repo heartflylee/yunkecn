@@ -15232,7 +15232,7 @@ a.btn.filter-btn {
 
   .form-count {
     display: block;
-    margin-top: -15px;
+    // margin-top: -15px;
   }
 }
 
@@ -15264,7 +15264,7 @@ a.btn.filter-btn {
 
   .form-info {
     float: left;
-    width: 100%;
+    // width: 100%;
   }
 }
 
@@ -15584,4 +15584,127 @@ input.btn:disabled {
   &+.tree-wrap {
     top: 40px;
   }
+}
+
+
+
+.form-row {
+  padding: 10px;
+  line-height: 40px;
+  font-size: 14px
+}
+
+.form-name {
+  float: left;
+  text-align: right;
+  width: 140px
+}
+
+.form-name.required:after {
+  content: '*';
+  color: red
+}
+
+.form-row {
+  .form-info {
+    margin-left: 155px;
+    position: relative;
+  }
+
+  .form-info input[type=text],
+  .form-info select,
+  .form-info textarea {
+    padding: 10px;
+    width: 350px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px
+  }
+
+  .memberDetail {
+
+    .form-info input[type=text][readonly],
+    .form-info select[disabled],
+    .form-info textarea[readonly] {
+      border-color: transparent;
+    }
+  }
+
+  .form-info .input-time {
+    width: auto
+  }
+
+  .form-info .input-select select,
+  .form-info .input-time input[type=text] {
+    width: 159px
+  }
+
+  .form-info .input-time .icon-time {
+    top: 12px
+  }
+
+  .form-info .interval {
+    margin: 0 5px
+  }
+
+  .form-info .input-select {
+    display: inline-block
+  }
+
+  .form-info .input-time:hover .icon-times {
+    display: block
+  }
+
+  .form-info .input-time .icon-times {
+    display: none;
+    position: absolute;
+    top: 12px;
+    right: 33px;
+    font-size: 20px;
+    background: #d4d4d4;
+    line-height: 16px;
+    width: 18px;
+    border-radius: 10px;
+    text-align: center;
+    height: 18px;
+    color: #fff;
+    cursor: pointer
+  }
+
+  .form-info.error select {
+    border-color: red
+  }
+}
+
+.form-row .bootstrap-select.btn-group {
+  width: 350px !important;
+  margin: 0;
+}
+
+.form-row .bootstrap-select.btn-group .btn {
+  line-height: 28px;
+  border: 1px solid #ddd;
+}
+
+.form-row .time-input {
+  background: url(../images/calendar-icon.png);
+  background-repeat: no-repeat;
+  background-position: right 10px top 10px;
+}
+
+
+.form-title {
+  margin: 10px 56px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form-info .dropdown-toggle.selectpicker.btn-default.disabled {
+  border-color: transparent;
+}
+
+.btn.btn-red {
+  background: #c1272d;
 }

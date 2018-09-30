@@ -44,15 +44,15 @@ sourcemaps = require('gulp-sourcemaps');
 
 replace = require('gulp-replace');
 var proxy = require('http-proxy-middleware');
-gulp.task('default', function(callback) {
+gulp.task('default', function (callback) {
   return runSequence(['build'], ['serve', 'watch'], callback);
 });
 
-gulp.task('build', function(callback) {
+gulp.task('build', function (callback) {
   return runSequence(['sassCss'], callback);
 });
 
-gulp.task('sassCss', function() {
+gulp.task('sassCss', function () {
   gulp
     .src('./web/css/*.scss')
     .pipe(plumber())
@@ -109,7 +109,7 @@ gulp.task('sassCss', function() {
     .pipe(gulp.dest('./web/js/'));
 });
 
-gulp.task('sasstest', function() {
+gulp.task('sasstest', function () {
   gulp
     .src('./web/css/test.scss')
     .pipe(plumber())
@@ -140,15 +140,18 @@ gulp.task('sasstest', function() {
 });
 
 var proxy1 = proxy(['/proxy'], {
-  target: 'http://123.57.222.150',
+  // target: 'http://123.57.222.150',
   // target: 'http://123.57.222.150:8083',
   // target: 'https://www.dianping.com',
   // target: 'http://www.yunkecn.com/',
+  target: 'http://114.55.145.65:8080/',
   changeOrigin: true,
-  pathRewrite: { '^/proxy': '' },
+  pathRewrite: {
+    '^/proxy': ''
+  },
 });
 
-gulp.task('serve', function() {
+gulp.task('serve', function () {
   return browserSync.init({
     server: {
       baseDir: './web',
@@ -159,14 +162,14 @@ gulp.task('serve', function() {
   });
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', function () {
   return gulp.watch(['./web/css/*.scss'], ['sassCss']);
 });
 
-gulp.task('reload', function(callback) {
+gulp.task('reload', function (callback) {
   return runSequence(['build'], ['reload-browser'], callback);
 });
 
-gulp.task('reload-browser', function() {
+gulp.task('reload-browser', function () {
   return browserSync.reload();
 });

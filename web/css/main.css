@@ -1853,14 +1853,14 @@ table.intention-table td.red span{display:inline-block;width:110px}
 .tab-info{margin-left:80px}
 .tab-info.edit{line-height:0}
 .tab-info .input,.tab-info .textarea{width:100%;padding:0;border:1px solid #d4d4d4;background:#f0f0f0;border-radius:3px;-moz-box-sizing:border-box;box-sizing:border-box;line-height:27px}
+.com-title-box,.distribute{-moz-box-sizing:border-box}
 .tab-info .textarea{padding:2px 0}
 .tab-more{text-align:center}
 .component-box{font-size:14px;line-height:30px;border-bottom:1px solid #e5e6e7}
 .company-count{margin-top:10px;background:#f8f8f8;border-radius:3px;font-size:12px}
 .company-count .com-count{float:left;width:20%;padding:8px 0;text-align:center;line-height:18px}
 .distribution-box{margin-top:20px}
-.distribute{float:left;width:273px;margin-right:10px;border:1px solid #f0f0f0;border-radius:5px;-moz-box-sizing:border-box;box-sizing:border-box}
-.cell-row,.com-title-box{-moz-box-sizing:border-box}
+.distribute{float:left;width:273px;margin-right:10px;border:1px solid #f0f0f0;border-radius:5px;box-sizing:border-box}
 .distribute:last-child{margin-right:0}
 @media screen and (max-width:1366px){.distribute{width:310px;margin-top:10px}
 .distribute:nth-child(2n){margin-right:0}
@@ -1949,7 +1949,7 @@ table.intention-table td.red span{display:inline-block;width:110px}
 .reDetail-title a.right-link{float:right;color:#56d1c2;font-size:14px}
 .index_point_hover,.map_point{color:#fff;white-space:nowrap}
 .reCom-detail-main{padding:20px 0}
-.cell-row{box-sizing:border-box;line-height:24px}
+.cell-row{-moz-box-sizing:border-box;box-sizing:border-box;line-height:24px}
 .cell{padding:5px 0;font-size:14px;line-height:34px}
 .cell:after{display:table;clear:both}
 .cell .input,.cell .textarea{border:1px solid #d4d4d4;background:#f0f0f0;border-radius:3px}
@@ -2019,6 +2019,7 @@ table.intention-table td.red span{display:inline-block;width:110px}
 .manage-main .manage-left{width:260px;position:relative}
 .manage-main .manage-content{margin-left:260px}
 .leftbindcompayNew{position:absolute;bottom:0;width:100%;height:auto;-moz-box-sizing:border-box;box-sizing:border-box;border:0;border-top:1px solid #f4f4f4}
+.input-row,.introLayerBox{-moz-box-sizing:border-box}
 .leftbindcompayNew p.p{line-height:45px}
 .leftbindcompayNew input.text{padding:0 10px;height:30px;margin-bottom:0}
 .leftbindcompayNew input.left-phone{width:120px}
@@ -2030,7 +2031,7 @@ table.intention-table td.red span{display:inline-block;width:110px}
 .text-normal,.ztree li a span.button.normal_ico_docu+.node_name{font-weight:400}
 .phone-mark1{display:inline-block;margin:-5px 10px;width:12px;height:19px;background:url(../images/phone-mark1.png)}
 a.link-red{color:#b51729}
-.input-row{width:100%;padding:0 10px;height:45px;border:1px solid #f4f4f4;border-radius:3px;background:#f9f9f9;-moz-box-sizing:border-box;box-sizing:border-box}
+.input-row{width:100%;padding:0 10px;height:45px;border:1px solid #f4f4f4;border-radius:3px;background:#f9f9f9;box-sizing:border-box}
 .departNew-wrap{height:225px;margin-top:-113px}
 .function-row .text-red{display:inline-block;color:#b51729;visibility:hidden}
 .function-row .text-red.show{visibility:visible}
@@ -2122,7 +2123,7 @@ a.link+a.link{padding-left:10px}
 .time-icon{display:none;width:0;height:0;padding:10px;overflow:hidden;background:url(../images/time-icon-1.gif);vertical-align:text-bottom}
 td.ellipsis-box{position:relative}
 .ellipsis-td .ellipsis{margin-right:0}
-.introLayerBox{padding-top:60px;-moz-box-sizing:border-box;box-sizing:border-box}
+.introLayerBox{padding-top:60px;box-sizing:border-box}
 .introLayerBox .tel-tlt{position:fixed;top:80px;z-index:9;width:514px;background:#fff}
 .audioLoading,.tipArea .wrap{position:relative}
 .tipArea+.wrap{width:1025px}
@@ -2299,17 +2300,17 @@ a.btn.filter-btn i.filter-icon{display:inline-block;position:static;vertical-ali
 .form-info input[type=text]+.icon{position:absolute;right:8px;top:10px}
 .form-info input[type=text]+.icon.icon-search{width:16px;height:16px;background:url(../images/search-icon.png) no-repeat;background-size:contain}
 .form-info input[type=text].wxContext-search{width:220px}
-.form-row{overflow:visible;margin:15px auto;line-height:40px}
+.form-row{overflow:visible;margin:15px auto}
 .form-info .input,.form-info .select{padding:0 30px 0 10px;border:1px solid #ddd;width:100%;height:40px;vertical-align:top;border-radius:4px;-moz-box-sizing:border-box;box-sizing:border-box}
 .form-control .form-info .input,.form-control .form-info .select{height:34px}
 .form-info textarea{width:60%;padding:5px 10px;line-height:26px;border:1px solid #ddd;border-radius:5px}
-.form-info .form-count{display:block;margin-top:-15px}
+.form-info .form-count{display:block}
 .modal .form-name{float:left;width:130px;text-align:right}
 .modal .form-info{margin-left:150px}
 .modal .form-info .input,.modal .form-info .select{width:80%}
 .form-default{display:inline-table;vertical-align:middle}
 .form-default .form-name{display:table-cell;vertical-align:middle}
-.form-default .form-info{float:left;width:100%}
+.form-default .form-info{float:left}
 .form-select{display:inline-block;position:relative;min-width:70px;white-space:nowrap}
 .form-select span{position:relative;display:block;padding:0 30px 0 10px;border:1px solid #e7e7e7;border-radius:3px;font-size:12px;line-height:32px;color:#999;cursor:pointer}
 .form-select span:after,.form-select span:before{position:absolute;right:10px;border-width:6px 6px 0;border-style:solid}
@@ -2321,8 +2322,8 @@ a.btn.filter-btn i.filter-icon{display:inline-block;position:static;vertical-ali
 .form-select .select-options{position:absolute;z-index:9;min-width:100%;right:0;background:#fff;border-radius:3px}
 .form-select .select-option{padding:0 10px}
 .error-text{padding:10px;font-size:16px;text-align:center;line-height:30px}
+.error-box .more-right,.form-name{text-align:right}
 .error-box{margin:10px 20px;color:#333;line-height:30px;border:1px solid #e7e7e7;border-radius:5px}
-.error-box .more-right{text-align:right}
 .error-box .more{position:relative;padding-right:20px}
 .error-box .more i{position:absolute;right:0;top:11px}
 .error-box .more i:after,.error-box .more i:before{content:'';position:absolute;right:0;border-width:6px 6px 0;border-style:solid}
@@ -2344,13 +2345,14 @@ a.btn.filter-btn i.filter-icon{display:inline-block;position:static;vertical-ali
 input.btn:disabled{background:#f7f9fa;color:silver;border-color:#ddd;cursor:default}
 .form-layer{padding:20px}
 .form-layer .form-control{width:260px;margin:6px 0;line-height:30px}
+.form-row,.tabs-box{line-height:40px;font-size:14px}
 .form-layer .form-control.form-row{width:525px}
 .form-layer .form-name{width:80px;text-align:right}
 .form-layer .form-info .input,.form-layer .form-info .select{height:30px;font-size:14px}
 .form-info .tagsinput>div:first-child{width:100%}
 .form-info .tagsinput input{width:100%!important;-moz-box-sizing:border-box;box-sizing:border-box;margin:0;height:30px;border-radius:5px;border:1px solid #ddd}
 .filter-layer{height:380px;margin-top:-190px}
-.tabs-box{padding:0 5px;font-size:14px;line-height:40px;border-bottom:1px solid #f0f1f1}
+.tabs-box{padding:0 5px;border-bottom:1px solid #f0f1f1}
 .tabs-box .tabs-label{display:inline-block;position:relative;margin:0 5px;cursor:pointer}
 .tabs-box .tabs-label.active:after{position:absolute;width:100%;bottom:0;left:0;height:3px;background:#56d1c2}
 .ztree-search{width:120px;float:right;margin-right:10px;margin-top:3px}
@@ -2358,5 +2360,25 @@ input.btn:disabled{background:#f7f9fa;color:silver;border-color:#ddd;cursor:defa
 .department-search:after{display:table;content:"";clear:both}
 .department-search .form-control{margin:0;width:100%;-moz-box-sizing:border-box;box-sizing:border-box}
 .department-search+.tree-wrap{top:40px}
+.form-row{padding:10px}
+.form-name{float:left;width:140px}
+.form-name.required:after{content:'*';color:red}
+.form-row .form-info{margin-left:155px;position:relative}
+.form-row .form-info input[type=text],.form-row .form-info select,.form-row .form-info textarea{padding:10px;width:350px;-moz-box-sizing:border-box;box-sizing:border-box;line-height:20px;border:1px solid #ddd;border-radius:5px}
+.form-row .memberDetail .form-info input[type=text][readonly],.form-row .memberDetail .form-info select[disabled],.form-row .memberDetail .form-info textarea[readonly]{border-color:transparent}
+.form-row .form-info .input-time{width:auto}
+.form-row .form-info .input-select select,.form-row .form-info .input-time input[type=text]{width:159px}
+.form-row .form-info .input-time .icon-time{top:12px}
+.form-row .form-info .interval{margin:0 5px}
+.form-row .form-info .input-select{display:inline-block}
+.form-row .form-info .input-time:hover .icon-times{display:block}
+.form-row .form-info .input-time .icon-times{display:none;position:absolute;top:12px;right:33px;font-size:20px;background:#d4d4d4;line-height:16px;width:18px;border-radius:10px;text-align:center;height:18px;color:#fff;cursor:pointer}
+.form-row .form-info.error select{border-color:red}
+.form-row .bootstrap-select.btn-group{width:350px!important;margin:0}
+.form-row .bootstrap-select.btn-group .btn{line-height:28px;border:1px solid #ddd}
+.form-row .time-input{background:url(../images/calendar-icon.png) right 10px top 10px no-repeat}
+.form-title{margin:10px 56px;font-size:18px;font-weight:700}
+.form-info .dropdown-toggle.selectpicker.btn-default.disabled{border-color:transparent}
+.btn.btn-red{background:#c1272d}
 
 /*# sourceMappingURL=main.css.map */
