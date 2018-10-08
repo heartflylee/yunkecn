@@ -149,10 +149,21 @@ function push() {
 }
 
 function createVideoElement(id, isLocal) {
-  var videoDiv = document.createElement("div");
-  videoDiv.className = "video-box";
-  videoDiv.innerHTML = '<video id="' + id + '" autoplay ' + (isLocal ? 'muted' : '') + ' playsinline ></video>';
-  document.querySelector("#speaker").appendChild(videoDiv);
+  var videoDiv;
+  var video = '<video id="' + id + '" autoplay ' + (isLocal ? 'muted' : '') + ' playsinline ></video>';
+  if (isLocal) {
+    videoDiv = document.createElement("div");
+    videoDiv.className = "video-box";
+    videoDiv.innerHTML = video + '<div class="video-name">小明 <span>管理员授权主讲</span></div>';
+    document.querySelector("#speaker").innerHTML = '';
+    document.querySelector("#speaker").appendChild(videoDiv);
+  } else {
+    videoDiv = document.createElement("div");
+    videoDiv.className = "swiper-slide";
+
+    videoDiv.innerHTML = '<div class="video-box">' + video + '<a href = "javascript:;" class="noMicrophone"></a><div class="video-name">张三</div></div>';
+    document.querySelector("#swiper-wrap").appendChild(videoDiv);
+  }
   return document.getElementById(id);
 }
 
@@ -168,3 +179,43 @@ function findUserToken(userid) {
   }
   return userToken;
 }
+
+function audioToggle() {
+
+}
+
+//是否关闭麦克风
+function microphoneToggle(obj) {
+  if ($(obj).hasClass('disabled')) {
+    RTC.openAudio();
+    $(obj).find("span").text("关闭麦克风");
+  } else {
+    RTC.closeAudio();
+    $(obj).find("span").text("打开麦克风");
+  }
+  $(obj).toggleClass('disabled');
+}
+
+//是否关闭摄像头
+function cameraToggle(obj) {
+  if ($(obj).hasClass('disabled')) {
+    RTC.openVideo();
+    $(obj).find("span").text("关闭摄像头");
+  } else {
+    RTC.closeVideo();
+    $(obj).find("span").text("打开摄像头");
+  }
+  $(obj).toggleClass('disabled');
+}
+
+// //是否关闭扬声器
+// function audioToggle(obj) {
+//   if ($(obj).hasClass('disabled')) {
+//     //   RTC.openAudio();
+//     $(obj).find("span").text("关闭扬声器");
+//   } else {
+//     //   RTC.closeAudio();
+//     $(obj).find("span").text("打开扬声器");
+//   }
+//   $(obj).toggleClass('disabled');
+// }

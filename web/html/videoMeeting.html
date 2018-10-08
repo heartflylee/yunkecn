@@ -50,17 +50,14 @@
     <input type="hidden" id="roomid">
     <div class="video-body">
       <div class="video-speaker" id="speaker">
-        <div class="video-box">
-          <video src=""></video>
-          <div class="video-name">小明 <span>管理员授权主讲</span></div>
-        </div>
+
       </div>
       <div class="video-list">
 
         <div class="video-button-down"></div>
         <div class="video-button-up"></div>
         <div class="swiper-container">
-          <div class="swiper-wrapper">
+          <div class="swiper-wrapper" id="swiper-wrap">
             <div class="swiper-slide">
               <div class="video-box">
                 <video src=""></video>
@@ -72,6 +69,12 @@
               <div class="video-box">
                 <video src=""></video>
                 <div class="video-name">李四</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="video-box">
+                <video src=""></video>
+                <div class="video-name">王五</div>
               </div>
             </div>
             <div class="swiper-slide">
@@ -109,21 +112,21 @@
         </a>
       </div>
       <div class="fr">
-        <a href="javascript:;" class="video-bottom-li">
+        <a href="javascript:;" onclick="" class="video-bottom-li">
           <i class="video-icon video-icon-voice"></i>
-          关闭扬声器
+          <span>关闭扬声器</span>
         </a>
-        <a href="javascript:;" class="video-bottom-li">
+        <a href="javascript:;" onclick="cameraToggle(this)" class="video-bottom-li">
           <i class="video-icon video-icon-camera"></i>
-          关闭摄像头
+          <span>关闭摄像头</span>
         </a>
-        <a href="javascript:;" class="video-bottom-li">
+        <a href="javascript:;" onclick="microphoneToggle(this)" class="video-bottom-li">
           <i class="video-icon video-icon-microphone"></i>
-          关闭麦克风
+          <span>关闭麦克风</span>
         </a>
         <a href="javascript:;" class="video-bottom-li">
           <i class="video-icon video-icon-logout"></i>
-          退出
+          <span>退出</span>
         </a>
       </div>
     </div>
@@ -230,8 +233,18 @@
   </div>
 
   <script>
+    //获取地址栏参数
+    function getQueryString(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) return unescape(r[2]);
+      return "";
+    }
+
     $(function () {
-      $("#userId").val("lystest");
+
+      // $("#userId").val("Web_trtc_04");
+      $("#userId").val(getQueryString('user'));
       $("#roomid").val("113355");
       // push();
 

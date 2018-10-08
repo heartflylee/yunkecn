@@ -5,7 +5,7 @@
 .video-main{position:absolute;padding:0;top:42px;left:0;right:0;bottom:0;overflow:auto;background:#fff}
 .top-box{margin:15px}
 .top-box+.table-main{margin-top:10px}
-.form-row .form-info input[type=text].repeatText{width:50px;padding:4px;margin-right:10px}
+.form-row .form-info input.repeatText{width:50px;padding:4px;margin-right:10px}
 .select-person{width:350px;padding:10px;margin:0;line-height:20px;text-align:right;border:1px solid #ddd;border-radius:5px;color:#999;-moz-box-sizing:border-box;box-sizing:border-box}
 .form-info.search-info{margin:0}
 .form-info.search-info input.input{width:100%}
@@ -16,7 +16,7 @@
 .depart-box:last-child{border-bottom-color:transparent}
 .depart-box .checkbox-label{display:block}
 .depart-member{display:inline-block}
-.depart-member>img{width:39px;height:39px;margin-right:10px;border-radius:20px}
+.depart-member>img{display:inline-block;width:39px;height:39px;margin-right:10px;border-radius:20px}
 .depart-member .member-info{display:inline-block}
 .depart-member .member-info span{display:inline-block;margin-right:5px;max-width:100px;overflow:hidden;vertical-align:middle}
 .depart-member .member-info .position{color:#fff;display:inline-block;padding:5px;line-height:18px;border-radius:5px;font-size:12px;background:#56d1c2}
@@ -68,6 +68,12 @@
 .video-bottom-li:hover .video-icon-logout{background-image:url(../images/video-icon-logout-active.png)}
 .video-icon-microphone{background-image:url(../images/video-icon-microphone.png)}
 .video-bottom-li:hover .video-icon-microphone{background-image:url(../images/video-icon-microphone-active.png)}
+.video-bottom-li.disabled .video-icon-voice{background-image:url(../images/video-icon-voice-disabled.png)}
+.video-bottom-li.disabled:hover .video-icon-voice{background-image:url(../images/video-icon-voice-disabled-active.png)}
+.video-bottom-li.disabled .video-icon-camera{background-image:url(../images/video-icon-camera-disabled.png)}
+.video-bottom-li.disabled:hover .video-icon-camera{background-image:url(../images/video-icon-camera-disabled-active.png)}
+.video-bottom-li.disabled .video-icon-microphone{background-image:url(../images/video-icon-microphone-disabled.png)}
+.video-bottom-li.disabled:hover .video-icon-microphone{background-image:url(../images/video-icon-microphone-disabled-active.png)}
 .video-list{position:absolute;top:30px;right:0;bottom:30px;width:25%}
 .video-list .swiper-slide{background:0 0;border-radius:0;border-top:1px solid #d0d0d0;-moz-box-sizing:border-box;box-sizing:border-box}
 .noMicrophone{position:absolute;top:10px;right:10px;width:20px;height:20px;display:inline-block;background:url(../images/video-icon-microphone-close.png) center no-repeat;background-size:contain}

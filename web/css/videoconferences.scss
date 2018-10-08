@@ -20,7 +20,7 @@
   }
 }
 
-.form-row .form-info input[type='text'].repeatText {
+.form-row .form-info input.repeatText {
   width: 50px;
   padding: 4px;
   margin-right: 10px;
@@ -120,6 +120,7 @@
   vertical-align: middle;
 
   >img {
+    display: inline-block;
     vertical-align: middle;
     width: 39px;
     height: 39px;
@@ -403,6 +404,7 @@
 }
 
 $video-icons: 'more''share''attendee''layout''voice''camera''logout''microphone';
+$video-disabled: 'voice''camera''microphone';
 
 @each $icon in $video-icons {
   .video-icon-#{$icon} {
@@ -413,7 +415,22 @@ $video-icons: 'more''share''attendee''layout''voice''camera''logout''microphone'
         background-image: url(../images/video-icon-#{$icon}-active.png)
       }
     }
+
+
   }
+}
+
+@each $icon in $video-disabled {
+  .video-bottom-li.disabled {
+    .video-icon-#{$icon} {
+      background-image: url(../images/video-icon-#{$icon}-disabled.png)
+    }
+
+    &:hover .video-icon-#{$icon} {
+      background-image: url(../images/video-icon-#{$icon}-disabled-active.png)
+    }
+  }
+
 }
 
 .video-list {

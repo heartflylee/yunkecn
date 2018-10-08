@@ -317,7 +317,6 @@
       </div>
       <div class="ztree-depart video-ztree">
         <ul class="ztree department-tree" id="depart"></ul>
-        <ul class="ztree" id="departMember"></ul>
       </div>
     </div>
     <div class="modal-bottom">
@@ -663,7 +662,7 @@
           }
         }
         if (type == 'depart') {
-          personCount -= nodes[index].uerNum;
+          departCount -= nodes[index].userNum;
         } else {
           personCount--;
         }
@@ -775,22 +774,22 @@
       $("#manager-wrap").on('change', 'input[type=checkbox]', function () {
         var obj = $(this);
         if (obj.attr("checked") == "checked") {
-          $("#manageCheck").append('<span class="tags" data-id="' + obj.parents(".depart-box")
-            .index() +
+          $("#manageCheck").append('<span class="tags" data-id="' + obj.attr("id") +
             '" data-name="' + obj.parent().find(".manage-name").text() +
             '" >' + obj.parent().find(".manage-name").text() +
-            '<a href="javascript:;" onclick="manageDelete(this)" data-index="' + obj.parents(".depart-box")
-            .index() +
+            '<a href="javascript:;" onclick="manageDelete(this)" data-index="' + obj.attr("id") +
             '" class="close">&times;</a></span>');
           manageCount++;
         } else {
-          $("#manageCheck").find("a.close[data-index = " + obj.parents(".depart-box").index() + "]").parents(
+          $("#manageCheck").find("a.close[data-index = " + obj.parents(".depart-box").attr('id') + "]").parents(
             ".tags").remove();
           manageCount--;
         }
         manageCountText();
       })
     });
+
+
 
     function manageDelete(obj) {
       var index = $(obj).data().index;
@@ -834,6 +833,11 @@
       manageCount = manageCount < 0 ? 0 : manageCount;
       $("#manageCount").text(manageCount);
     }
+
+
+
+
+
 
     var zNodes = [{
       "id": "00D250B670B24F91A6F5BF271B922262",
@@ -1373,10 +1377,226 @@
     var userzNodes = JSON.parse(JSON.stringify(zNodes));
     var departzNodes = JSON.parse(JSON.stringify(depart));
 
-    // $.fn.zTree.init($("#depart"), settings, zNodes);
     $.fn.zTree.init($("#depart"), settings, departzNodes);
     fuzzySearch('depart', '#searchDepart', null, true); //初始化模糊搜索方法
     changeZtree();
+
+    $(function () {
+      var departs = ["E2EAEDB79E734EA39F945DD0605B0291",
+        "AB7333A26C2E4966BEBDAA5B7E6D1FF1", "0FE683CC9E4D4EF1A17B2731A92F686C",
+        "4514FBD7D8724FF384BF5C754202175E", "B44E5F5002E44CC6BBEE45A382BA6E9E"
+      ];
+
+      var members = ["11BE4E702E114F9FA7735124A0E5C97B", "21C805EDEE4844E39434BF49239898DF",
+        "30F60A32F57C40908E0939E05BAB6E8E"
+      ];
+
+      setPerson(departs, members);
+
+    });
+
+    function setPerson(departs, members) {
+      var setDeparts = [];
+      var setUsers = [];
+      for (var i = 0; i < departs.length; i++) {
+        var departIndex = _.findIndex(departzNodes, function (o) {
+          return o.id == departs[i];
+        });
+        if (departIndex >= 0) {
+          departzNodes[departIndex].checked = true;
+          setDeparts.push(departzNodes[departIndex]);
+        }
+      }
+      for (var i = 0; i < members.length; i++) {
+        var memberIndex = _.findIndex(userzNodes, function (o) {
+          return o.id == members[i];
+        });
+        if (memberIndex >= 0) {
+          setUsers.push(userzNodes[memberIndex]);
+        }
+      }
+
+      selectDeparts = appendCheck('depart', setDeparts, 'department');
+      selectUsers = appendCheck('member', setUsers, 'user');
+      settings.check.chkboxType = {
+        "Y": "s",
+        "N": "s"
+      };
+      setZtreeCheck('depart');
+      savePerson();
+    }
+
+    setManage();
+
+    function setManage() {
+      var data = [{
+        "id": "00D250B670B24F91A6F5BF271B922262",
+        "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B",
+        "name": "牟美娜",
+        "flag": "user",
+        "cellphone": "18410340049",
+        "phone": 0,
+        "imei": "",
+        "headImg": "/2018/08big/32505cb7b04443e89d47594099f723bf_880ED69797CB498A89142406446CE26Aschedule-icon.png",
+        "iconSkin": "normal",
+        "userType": 0
+      }, {
+        "id": "1449D46A22454E9793F7D1F405DB753A",
+        "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B",
+        "name": "张伯阳",
+        "flag": "user",
+        "cellphone": "17612256497",
+        "phone": 1,
+        "imei": "867397032271464",
+        "headImg": "/2018/06big/E772780684724B9F80FEC3E9046C0030Photo2bd84db9-2600-4f16-8c37-0683fcce2392.jpg",
+        "iconSkin": "normal",
+        "icon": "http://yunkecn.com/fileupload/fileupload/2018/06big/E772780684724B9F80FEC3E9046C0030Photo2bd84db9-2600-4f16-8c37-0683fcce2392.jpg",
+        "userType": 0
+      }, {
+        "id": "188F26F953B5411BAD01E2350A886C96",
+        "pId": "3661BD8AABCC4CDE89D01FE852416101",
+        "name": "陈博",
+        "flag": "user",
+        "cellphone": "15601313049",
+        "phone": 0,
+        "imei": "",
+        "iconSkin": "normal",
+        "icon": "/pc/resources/images/member.png",
+        "userType": 0
+      }, {
+        "id": "5CF21C78B7034AD482A20EA134D04717",
+        "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B",
+        "name": "苗辉",
+        "flag": "user",
+        "cellphone": "18911947785",
+        "phone": 1,
+        "imei": "867787033890207",
+        "headImg": "/2018/08big/c7f28ca417af474d82152b4597dd52d3_A3E774A1F4C54666A2D9ECC7695A354Bcover.png",
+        "iconSkin": "normal",
+        "icon": "http://yunkecn.com/fileupload/fileupload/2018/08big/c7f28ca417af474d82152b4597dd52d3_A3E774A1F4C54666A2D9ECC7695A354Bcover.png",
+        "userType": 0
+      }, {
+        "id": "91909CF40FCC4BFCB6ED511FF96114D4",
+        "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B",
+        "name": "冯德林",
+        "flag": "user",
+        "cellphone": "18600755063",
+        "phone": 0,
+        "imei": "",
+        "headImg": "/2018/04big/23782E614C9C44BCA50F04324F8C39F3c68313df-65d8-4182-85a2-3d11f2763386.jpg",
+        "iconSkin": "normal",
+        "icon": "http://yunkecn.com/fileupload/fileupload/2018/04big/23782E614C9C44BCA50F04324F8C39F3c68313df-65d8-4182-85a2-3d11f2763386.jpg",
+        "userType": 2
+      }, {
+        "id": "9C67E767094742DFBD342C9E2072AED5",
+        "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B",
+        "name": "刘晓辉",
+        "flag": "user",
+        "cellphone": "13699273847",
+        "phone": 1,
+        "imei": "358914060044799",
+        "headImg": "/2017/10big/ab87919630a949eca2f0284c884766e0_head.jpg",
+        "iconSkin": "normal",
+        "icon": "http://yunkecn.com/fileupload/fileupload/2017/10big/ab87919630a949eca2f0284c884766e0_head.jpg",
+        "userType": 0
+      }, {
+        "id": "AEBDBABAC02D4755A37EB2631345B6E4",
+        "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B",
+        "name": "红米",
+        "flag": "user",
+        "cellphone": "13436457169",
+        "phone": 1,
+        "imei": "867397033384928",
+        "iconSkin": "normal",
+        "icon": "/pc/resources/images/member.png",
+        "userType": 3
+      }, {
+        "id": "C27D64A49FB64307A19AB77D2152B8B1",
+        "pId": "D784DD31CA634D299F5BD62EB68CDDC9",
+        "name": "贾鹏丽",
+        "flag": "user",
+        "cellphone": "15330273073",
+        "phone": 1,
+        "imei": "868947030209905",
+        "headImg": "/2018/06big/7DFB93D9E70144DCB2F4035339540CABPhotoeb962fd8-ce29-4b16-bfe1-24a2fc92d383.jpg",
+        "iconSkin": "normal",
+        "icon": "http://yunkecn.com/fileupload/fileupload/2018/06big/7DFB93D9E70144DCB2F4035339540CABPhotoeb962fd8-ce29-4b16-bfe1-24a2fc92d383.jpg",
+        "userType": 0
+      }, {
+        "id": "DB904379778D4948A770E5D01E1951D5",
+        "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B",
+        "name": "刘",
+        "flag": "user",
+        "cellphone": "17712345678",
+        "phone": 1,
+        "imei": "351641091428611",
+        "iconSkin": "normal",
+        "icon": "/pc/resources/images/member.png",
+        "userType": 3
+      }, {
+        "id": "FBEDC571AF55426B9EAFE1E98E8ECD48",
+        "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B",
+        "name": "张洁",
+        "flag": "user",
+        "cellphone": "13426091878",
+        "phone": 1,
+        "imei": "867397030213526",
+        "headImg": "/2018/02big/A59DF23D209B4C68A5F04F4C88979E6BiOS_0.jpg",
+        "iconSkin": "normal",
+        "icon": "http://yunkecn.com/fileupload/fileupload/2018/02big/A59DF23D209B4C68A5F04F4C88979E6BiOS_0.jpg",
+        "userType": 2
+      }, {
+        "id": "FD804AAC8A294572855851275B723C45",
+        "pId": "0FCEF72742CC4AA6ADF6F0238D65A38B",
+        "name": "微信",
+        "flag": "user",
+        "cellphone": "18703422763",
+        "phone": 0,
+        "imei": "",
+        "iconSkin": "normal",
+        "icon": "/pc/resources/images/member.png",
+        "userType": 0
+      }];
+      $("#manager-wrap").html('');
+      for (var i = 0; i < data.length; i++) {
+        $("#manager-wrap").append('<div class="depart-box">' +
+          '<label class="checkbox-label">' +
+          '<input type="checkbox" value="' + data[i].id + '">' +
+          '            <i></i>' +
+          '            <div class="depart-member">' +
+          '<img src="' + data[i].icon + '" alt="">' +
+          '              <div class="member-info">' +
+          '<span class="manage-name">' + data[i].name + '</span>' +
+          '                <span class="position">' + data[i].flag + '</span>' +
+          '</div>' +
+          '</div>' +
+          '</label>' +
+          '</div>');
+      }
+
+      getManageNames(data);
+    }
+
+    function getManageNames(data) {
+      var managers = ['FBEDC571AF55426B9EAFE1E98E8ECD48', 'FD804AAC8A294572855851275B723C45'];
+      for (var i = 0; i < managers.length; i++) {
+        var index = _.findIndex(data, function (o) {
+          return o.id == managers[i];
+        })
+        if (index >= 0) {
+          $("#manageCheck").append('<span class="tags" data-id="' + data[index].id +
+            '" data-name="' + data[index].name +
+            '" >' + data[index].name +
+            '<a href="javascript:;" onclick="manageDelete(this)" data-index="' + data[index].id +
+            '" class="close">&times;</a></span>');
+          manageCount++;
+        }
+        $("#manager-wrap").find('input[type="checkbox"][value="' + managers[i] + '"]').attr("checked", "checked");
+      }
+      manageCountText();
+
+      saveManage();
+    }
   </script>
 </body>
 

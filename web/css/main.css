@@ -2364,7 +2364,7 @@ input.btn:disabled{background:#f7f9fa;color:silver;border-color:#ddd;cursor:defa
 .form-name{float:left;width:140px}
 .form-name.required:after{content:'*';color:red}
 .form-row .form-info{margin-left:155px;position:relative}
-.form-row .form-info input[type=text],.form-row .form-info select,.form-row .form-info textarea{padding:10px;width:350px;-moz-box-sizing:border-box;box-sizing:border-box;line-height:20px;border:1px solid #ddd;border-radius:5px}
+.form-row .form-info input[type=number],.form-row .form-info input[type=text],.form-row .form-info select,.form-row .form-info textarea{padding:10px;width:350px;-moz-box-sizing:border-box;box-sizing:border-box;line-height:20px;border:1px solid #ddd;border-radius:5px}
 .form-row .memberDetail .form-info input[type=text][readonly],.form-row .memberDetail .form-info select[disabled],.form-row .memberDetail .form-info textarea[readonly]{border-color:transparent}
 .form-row .form-info .input-time{width:auto}
 .form-row .form-info .input-select select,.form-row .form-info .input-time input[type=text]{width:159px}
