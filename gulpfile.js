@@ -44,6 +44,9 @@ sourcemaps = require('gulp-sourcemaps');
 
 replace = require('gulp-replace');
 var proxy = require('http-proxy-middleware');
+
+var connect = require('gulp-connect');
+
 gulp.task('default', function (callback) {
   return runSequence(['build'], ['serve', 'watch'], callback);
 });
@@ -159,6 +162,14 @@ gulp.task('serve', function () {
     port: 7561,
     // https: true,
     middleware: [proxy1],
+  });
+});
+
+gulp.task('servetest', function () {
+  connect.server({
+    port: 7561,
+    root: 'web',
+    livereload: true
   });
 });
 

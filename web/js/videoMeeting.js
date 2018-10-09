@@ -75,7 +75,7 @@ function onRemoteStreamRemove(info) {
   var videoNode = document.getElementById(info.videoId);
   if (videoNode) {
     videoNode.srcObject = null;
-    document.getElementById(info.videoId).parentElement.removeChild(videoNode);
+    document.getElementById(info.videoId).parentElement.parentElement.remove();
   }
 }
 

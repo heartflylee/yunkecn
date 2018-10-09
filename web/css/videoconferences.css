@@ -26,12 +26,20 @@
 .video-ztree .ztree li ul{padding-left:22px}
 .memberShip{float:left;max-width:300px;overflow:hidden}
 .conferences-UTitle{margin:10px 20px;font-size:16px;font-weight:700}
-.conferences-room{position:relative;display:inline-block;width:250px;height:186px;margin:10px;font-size:12px;border:1px solid #ddd;line-height:24px;border-radius:4px;background-position:center;background-repeat:no-repeat;cursor:pointer}
+.conferences-room{position:relative;display:inline-block;width:250px;height:186px;margin:10px;font-size:12px;color:#fff;border:1px solid #ddd;line-height:24px;border-radius:4px;background-position:center;background-repeat:no-repeat;cursor:pointer}
+.conferences-room:nth-child(1){background:url(../images/roomBg1.jpg)}
+.conferences-room:nth-child(2){background:url(../images/roomBg2.jpg)}
+.conferences-room:nth-child(3){background:url(../images/roomBg3.jpg)}
+.conferences-room:nth-child(4){background:url(../images/roomBg4.jpg)}
+.conferences-room:nth-child(5){background:url(../images/roomBg5.jpg)}
+.conferences-room:nth-child(6){background:url(../images/roomBg6.jpg)}
 .conferences-room:hover .conferences-default{display:none}
 .conferences-room:hover .conferences-hover{display:block}
 .conferences-default{text-align:center;position:absolute;width:100%;top:50%;font-size:18px;line-height:40px;-webkit-transform:translate(0,-50%);-ms-transform:translate(0,-50%);transform:translate(0,-50%)}
 .conferences-hover{display:none;position:absolute;width:100%;height:100%;padding:5px;overflow:hidden;-moz-box-sizing:border-box;box-sizing:border-box}
 .conferences-info,.videoMeeting{-moz-box-sizing:border-box;width:100%}
+.conferences-hover span>span:first-child:before{content:"("}
+.conferences-hover span>span:last-child:after{content:")"}
 .conferences-hover .conferences-arrow{position:absolute;color:#fff;top:0;right:0;padding:0 4px;z-index:9}
 .conferences-hover .conferences-arrow:before{position:absolute;content:'';top:0;right:0;z-index:-1;border-width:0 73px 42px 0;border-style:solid;border-color:#56d1c2 #56d1c2 transparent transparent}
 .conferences-title{font-weight:700;text-align:center}
