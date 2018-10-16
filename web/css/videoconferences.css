@@ -10,7 +10,7 @@
 .form-info.search-info{margin:0}
 .form-info.search-info input.input{width:100%}
 .tags-wrap{padding:4px 0}
-.tags-wrap .tags{display:inline-block;margin-right:5px;margin-bottom:4px;padding:5px;border:1px solid #ddd;border-radius:4px;line-height:20px}
+.tags-wrap .tags{display:inline-block;margin-right:5px;margin-bottom:4px;padding:5px;border:1px solid #ddd;border-radius:4px;line-height:20px;color:initial}
 .tags-wrap .tags a.close{margin-left:5px}
 .depart-box{padding:3px 0;border-bottom:1px solid #ddd;float:left;width:50%}
 .depart-box:last-child{border-bottom-color:transparent}
@@ -42,23 +42,29 @@
 .conferences-hover span>span:last-child:after{content:")"}
 .conferences-hover .conferences-arrow{position:absolute;color:#fff;top:0;right:0;padding:0 4px;z-index:9}
 .conferences-hover .conferences-arrow:before{position:absolute;content:'';top:0;right:0;z-index:-1;border-width:0 73px 42px 0;border-style:solid;border-color:#56d1c2 #56d1c2 transparent transparent}
+.video-dropdown,.video-name{z-index:9;text-align:center}
 .conferences-title{font-weight:700;text-align:center}
 .conferences-title .conferences-hover{font-size:14px}
 .conferences-link{display:inline-block;padding:0 4px;border:1px solid #56d1c2;border-radius:4px;color:#56d1c2;position:absolute;bottom:10px;left:50%;-webkit-transform:translate(-50%,0);-ms-transform:translate(-50%,0);transform:translate(-50%,0)}
 .video-body,.video-list{border-bottom:1px solid #d0d0d0}
-.video-dropdown,.video-name{z-index:9;border:1px solid #d0d0d0;text-align:center}
 .conferences-info{position:absolute;max-height:120px;padding:0 4px;left:0;top:47%;box-sizing:border-box;-webkit-transform:translate(0,-50%);-ms-transform:translate(0,-50%);transform:translate(0,-50%)}
 .videoMeeting{position:relative;height:100%;box-sizing:border-box}
-.video-body{position:absolute;width:100%;top:0;left:0;bottom:70px}
+.video-body{position:absolute;width:100%;top:0;left:0;bottom:70px;overflow:auto}
+.meetingLayout .video-body,.video-body.video-layout{display:none}
+.meetingLayout .video-body.video-layout{display:block}
+.video-box video,.video-box video.mute+.noMicrophone{display:inline-block}
+.video-layout{text-align:center}
+.video-layout .video-box{display:inline-block;position:relative;height:200px;width:300px;margin:10px;border:1px solid #d0d0d0}
 .video-bottom{position:absolute;bottom:0;width:100%}
 .video-speaker{position:absolute;left:0;top:0;bottom:0;width:75%;border-right:1px solid #d0d0d0}
 .video-box{height:100%}
-.video-box video{display:inline-block;width:100%;height:100%}
-.video-name{position:absolute;bottom:10px;left:10px;display:inline-block;font-size:12px;line-height:24px;padding:0 5px;background:#fff;min-width:40px}
+.video-box video{width:100%;height:100%}
+.video-box>.noMicrophone{display:none}
+.video-name{position:absolute;bottom:10px;left:10px;display:inline-block;font-size:12px;line-height:24px;border:1px solid #d0d0d0;padding:0 5px;background:#fff;min-width:40px}
 .video-name>span{position:absolute;right:0;top:0;white-space:nowrap;-webkit-transform:translate(108%,0);-ms-transform:translate(108%,0);transform:translate(108%,0)}
 .video-bottom-li{display:inline-block;line-height:30px;font-size:14px;padding:4px 10px}
 .video-bottom-li i.video-icon{display:block;height:30px;background-repeat:no-repeat;background-position:center;background-size:contain}
-.video-dropdown{display:none;position:absolute;left:0;bottom:70px;padding:10px;background:#fff;font-size:14px;line-height:30px}
+.video-dropdown{display:none;position:absolute;left:0;bottom:70px;padding:10px;background:#fff;font-size:14px;border:1px solid #d0d0d0;line-height:30px}
 .video-dropdown>a{display:block}
 .video-dropdown>a:hover{color:#56d1c2}
 .video-icon-more{background-image:url(../images/video-icon-more.png)}
@@ -113,8 +119,8 @@
 .video-icon-microphone-close{background-image:url(../images/video-icon-microphone-close.png)}
 .attendee{padding:5px 10px;line-height:40px}
 .attendee .tag{display:inline-block;line-height:24px;border:1px solid #d0d0d0;margin:auto 2px;padding:0 5px;font-size:12px;border-radius:4px}
-.attendee .tag.tag-manager{background:#ffb258;color:#fff;border-color:#ffb258}
-.attendee .tag .tag-speaker{background:#56d1c2;color:#fff;border-color:#56d1c2}
+.attendee .tag.tag-manage{background:#ffb258;color:#fff;border-color:#ffb258}
+.attendee .tag.tag-speaker{background:#56d1c2;color:#fff;border-color:#56d1c2}
 .attendee>span{margin-right:5px;display:inline-block;max-width:70px;overflow:hidden}
 .attendee>img{width:40px;height:40px}
 .attendee>.fr{margin-top:8px}

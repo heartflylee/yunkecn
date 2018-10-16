@@ -178,9 +178,9 @@ gulp.task('watch', function () {
 });
 
 gulp.task('reload', function (callback) {
-  // return runSequence(['build'], ['reload-browser'], callback);
+  return runSequence(['build'], ['reload-browser'], callback);
 });
 
 gulp.task('reload-browser', function () {
-  // return browserSync.reload();
+  return browserSync.reload();
 });

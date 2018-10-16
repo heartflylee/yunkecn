@@ -15709,3 +15709,19 @@ input.btn:disabled {
 .btn.btn-red {
   background: #c1272d;
 }
+
+.introContent .form-name,
+.customerCallField .form-name {
+  width: auto;
+  padding-left: 10px;
+}
+
+.introContent .form-info,
+.customerCallField .form-info {
+  margin-left: 0;
+}
+
+.introContent .form-row,
+.customerCallField .form-row {
+  padding: 5px 10px;
+}

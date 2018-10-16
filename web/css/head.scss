@@ -50,7 +50,9 @@ i.white-tel {
 }
 
 .nav {
-  width: 550px;
+  // width: 550px;
+  width: 70%;
+  min-width: 650px;
   margin: 0 auto;
   text-align: center;
 }
@@ -72,6 +74,7 @@ i.white-tel {
   line-height: 52px;
   /**/
 }
+
 /**/
 
 //
@@ -94,7 +97,8 @@ i.white-tel {
 .header-right li {
   width: 59px;
   height: 57px;
-  position: relative; /*border-left: 1px solid #434343;*/
+  position: relative;
+  /*border-left: 1px solid #434343;*/
   float: left;
 }
 

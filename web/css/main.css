@@ -2380,5 +2380,8 @@ input.btn:disabled{background:#f7f9fa;color:silver;border-color:#ddd;cursor:defa
 .form-title{margin:10px 56px;font-size:18px;font-weight:700}
 .form-info .dropdown-toggle.selectpicker.btn-default.disabled{border-color:transparent}
 .btn.btn-red{background:#c1272d}
+.customerCallField .form-name,.introContent .form-name{width:auto;padding-left:10px}
+.customerCallField .form-info,.introContent .form-info{margin-left:0}
+.customerCallField .form-row,.introContent .form-row{padding:5px 10px}
 
 /*# sourceMappingURL=main.css.map */
