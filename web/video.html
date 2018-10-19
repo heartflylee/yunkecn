@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="id_video_container" style="width:100%;height:1px;"></div>
+  <!-- <video id="id_video_container" style="width:100%;height:1px;"></video> -->
+  <script src="http://qzonestyle.gtimg.cn/open/qcloud/video/live/h5/live_connect.js" charset="utf-8"></script>
+  <script>
+    (function () {
+      var player = new qcVideo.Player(
+        "id_video_container", //页面放置播放位置的元素 ID
+        {
+          "width": 640, //播放器宽度，单位像素(必选参数)
+          "height": 480, //播放器高度，单位像素(必选参数)
+          "live_url": "rtmp://33720.liveplay.myqcloud.com/live/33720_34e5ef0ec924930a4b87cf664a29df09", //直播地址，支持 hls 和 rtmp 、flv 三种格式(必选参数)
+          // "live_url2": "http://http://xxx.liveplay.qcloud.com/live/xxx.m3u8" //直播地址，同上，（可选参数）
+        }
+      );
+    })();
+  </script>
+</body>
+
+</html>

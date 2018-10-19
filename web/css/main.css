@@ -2365,7 +2365,7 @@ input.btn:disabled{background:#f7f9fa;color:silver;border-color:#ddd;cursor:defa
 .form-name.required:after{content:'*';color:red}
 .form-row .form-info{margin-left:155px;position:relative}
 .form-row .form-info input[type=number],.form-row .form-info input[type=text],.form-row .form-info select,.form-row .form-info textarea{padding:10px;width:350px;-moz-box-sizing:border-box;box-sizing:border-box;line-height:20px;border:1px solid #ddd;border-radius:5px}
-.form-row .memberDetail .form-info input[type=text][readonly],.form-row .memberDetail .form-info select[disabled],.form-row .memberDetail .form-info textarea[readonly]{border-color:transparent}
+.form-row .form-info input[type=text][readonly],.form-row .form-info select[disabled],.form-row .form-info textarea[readonly]{border-color:transparent}
 .form-row .form-info .input-time{width:auto}
 .form-row .form-info .input-select select,.form-row .form-info .input-time input[type=text]{width:159px}
 .form-row .form-info .input-time .icon-time{top:12px}
@@ -2377,7 +2377,7 @@ input.btn:disabled{background:#f7f9fa;color:silver;border-color:#ddd;cursor:defa
 .form-row .bootstrap-select.btn-group{width:350px!important;margin:0}
 .form-row .bootstrap-select.btn-group .btn{line-height:28px;border:1px solid #ddd}
 .form-row .time-input{background:url(../images/calendar-icon.png) right 10px top 10px no-repeat}
-.form-title{margin:10px 56px;font-size:18px;font-weight:700}
+.form-title{margin:10px 20px;font-size:18px;font-weight:700}
 .form-info .dropdown-toggle.selectpicker.btn-default.disabled{border-color:transparent}
 .btn.btn-red{background:#c1272d}
 .customerCallField .form-name,.introContent .form-name{width:auto;padding-left:10px}

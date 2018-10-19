@@ -15624,13 +15624,10 @@ input.btn:disabled {
     border-radius: 5px
   }
 
-  .memberDetail {
-
-    .form-info input[type=text][readonly],
-    .form-info select[disabled],
-    .form-info textarea[readonly] {
-      border-color: transparent;
-    }
+  .form-info input[type=text][readonly],
+  .form-info select[disabled],
+  .form-info textarea[readonly] {
+    border-color: transparent;
   }
 
   .form-info .input-time {
@@ -15697,7 +15694,7 @@ input.btn:disabled {
 
 
 .form-title {
-  margin: 10px 56px;
+  margin: 10px 20px;
   font-size: 18px;
   font-weight: bold;
 }

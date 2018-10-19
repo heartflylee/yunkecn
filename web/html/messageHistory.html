@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>团队客户</title>
+  <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="../css/main.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="../css/head.css" />
+  <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+  <script type="text/javascript" src="../js/main.js"></script>
+
+  <!--<script type="text/javascript" src="../js/audio.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.audio5js.js"></script>-->
+  <script type="text/javascript" src="../js/audio.js"></script>
+  <script type="text/javascript" src="../js/highcharts.js"></script>
+  <!--<link rel="stylesheet" href="../css/jedate.css" />-->
+  <link href="../css/hDate.css" rel="stylesheet" />
+  <script type="text/javascript" src="../js/hDate.js"></script>
+  <script type="text/javascript" src="../js/jedate/jedate.js"></script>
+  <!-- <script type="text/javascript" src="../js/TQEditor.2.3.8.min/TQEditor.min.js"></script> -->
+  <!-- <link rel="stylesheet" href="../css/ios6switch.css" />
+    <script type="text/javascript" src="../js/ios6switch.min.js"></script> -->
+  <link rel="stylesheet" href="../css/select.css" />
+  <script type="text/javascript" src="../js/jquery.select.js"></script>
+  <script src="../js/bootstrap.js"></script>
+  <script src="../js/bootstrap-select.js"></script>
+  <link rel="stylesheet" href="../css/bootstrap-select.css">
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <script src="../js/vue.min.js"></script>
+  <!--[if lt IE 10]>
+    <script src="../js/placeholder.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <!-- 页面遮罩层 layer -->
+  <div class="layer"></div>
+  <div class="layer-1"></div>
+  <div class="layer-6"></div>
+  <div class="layer-3"></div>
+  <!-- 页面头部 header -->
+  <div class="header">
+    <h1 class="logo fl"></h1>
+    <span class="mar fl">|</span>
+    <span class="fl">
+      <em>团队版</em>[
+      <a href="">点击切换</a>]</span>
+    <ul class="nav">
+      <li>
+        <a href="indexnew2.html">首页</a>
+      </li>
+      <!--<li>-->
+      <!--<a href="">行动</a>-->
+      <!--</li>-->
+      <li>
+        <a href="customer1.html" class="current">客户</a>
+      </li>
+      <li>
+        <a href="download.html">线索</a>
+      </li>
+      <li>
+        <a href="task.html">任务</a>
+      </li>
+      <li>
+        <a href="settings.html" id="top-setting">设置</a>
+      </li>
+    </ul>
+    <ul class="header-right fr">
+      <li>
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2656862203&site=qq&menu=yes">
+          <i class="qq"></i>
+          <div class="service">在线客服</div>
+        </a>
+      </li>
+      <!--<li>-->
+      <!--<a href="javascript:guide1Show();"><i class="nav-tip"></i>-->
+      <!--<div class="service">继续引导</div>-->
+      <!--</a>-->
+      <!--</li>-->
+      <!--<li>-->
+      <!--<a href="javascript:;"><i class="update"></i></a>-->
+      <!--</li>-->
+      <li class="active">
+        <a href="news.html">
+          <i class="message"></i>
+          <i class="message-tip">29</i>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;" class="user">刘</a>
+      </li>
+    </ul>
+  </div>
+  <!-- 汇总提示 tipArea -->
+  <div class="tipArea">
+    <div class="wrap">
+      <ul class="ul-2">
+        <li>
+          <a class="current">短信历史</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- 内容部分 contents -->
+  <div class="contents">
+    <div class="table-tlt">
+      <i class="i"></i>短信历史
+    </div>
+    <div class="customer">
+      <table class="table-list" id="table-list">
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>手机号</th>
+            <th>公司名称</th>
+            <th>发送时间</th>
+            <th>短信内容</th>
+            <th>发送人</th>
+            <th>跟进人</th>
+            <th>所属部门</th>
+            <th>短信结果</th>
+            <th>销售进度</th>
+            <th>接收/发送</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="name" style="cursor: pointer;color: #50d2c2;">徐东成</span>
+            </td>
+            <td>13300000000</td>
+            <td>
+              <span class="table-company" title="北京联云天下科技有限公司">北京联云天下科技有限公司</span>
+              <span class="label-btn">公司报告</span>
+            </td>
+            <td>2018-09-25 15:36</td>
+            <td class="ellipsis-box ellipsis-td">
+              <div class="ellipsis">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+              <div class="ellipsis-all">110108131111111111
+                110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111110108131111111111
+              </div>
+            </td>
+            <td>李四</td>
+            <td>
+              王五
+            </td>
+            <td>销售部
+            </td>
+            <td>有意向</td>
+            <td>需要面谈</td>
+            <td>
+              接收
+            </td>
+            <td>
+              <a href="" class="link">移至公海</a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 分页 -->
+    <p class="page-p">共20条</p>
+    <ul class="page-ul">
+      <li>
+        << </li> <li>
+          < </li> <li> 1
+      </li>
+      <li> 2</li>
+      <li class="page-d">...</li>
+      <li> 3</li>
+      <li> ></li>
+      <li>>></li>
+    </ul>
+
+  </div>
+
+  <div class="introLayerBox" id="introLayerBoxlys">
+    <form id="cusdetailform" class="customField">
+      <input type="hidden" name="id" id="PlanCustomerId">
+      <div class="tel-tlt">
+        <i class="i"></i>客户详情<a href="javascript:closedetail();" class="a-closed"></a>
+        <div class="time_btn">
+          <label class="time_modify"><i></i>编辑</label>
+          <label class="time_save" onclick="submitCusDetail()">保存</label>
+        </div>
+      </div>
+      <div id="staticDetail">
+        <p class="p-infro form-row" data-id="customerName" data-name="姓名+名字" data-fieldtype="0" data-define="0"
+          data-requireds="1"><i class="i-user"></i>
+          <span class="inputName">姓名+名字：</span><b><input type="text" id="detail-field-customerName" class="modify_input modify-com"
+              name="customerName" readonly="readonly" value="188****6155"></b>
+        </p>
+        <p class="p-infro form-row" data-id="cellPhone" data-name="手机号" data-fieldtype="1" data-define="0"
+          data-requireds="1"><i class="i-telphone"></i><span class="inputName">手机号：</span>
+          <b id="cellPhonedetail">18811076155</b>
+          <input type="hidden" name="detail-field-cellPhone" id="detail-field-cellPhone" value="18811076155">
+        </p>
+        <p class="p-infro form-row" data-id="position" data-name="职位" data-fieldtype="0" data-define="0" data-requireds="0"><i
+            class="i-position"></i><span class="inputName">职位：</span><b><input type="text" class="modify_input" id="detail-field-position"
+              name="position" readonly="readonly" value=""></b>
+        </p>
+        <p></p>
+        <p class="p-infro form-row" data-id="company" data-name="企业名称" data-fieldtype="0" data-define="0"
+          data-requireds="0"><i class="i-company"></i><span class="inputName">企业名称：</span><b><input type="text" class="modify_input modify-com"
+              id="detail-field-company" name="company" readonly="readonly" value=""></b>
+        </p>
+        <p class="p-infro form-row" data-id="actionType" data-name="电话结果" data-fieldtype="0" data-define="0"
+          data-requireds="0"><span class="inputName">电话结果：</span><b><label>有意向</label></b>
+        </p>
+        <div class="comprehensive-row">
+          <div class="comprehensive-li">
+            <span>综合评分:</span>
+            <div class="star">
+              <div id="detailScoreTyc" class="star-progress" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="comprehensive-li">
+            <span>匹配度:</span>
+            <div class="star">
+              <div id="detailScoreMatch" class="star-progress" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="comprehensive-li">
+            <span>活跃度:</span>
+            <div class="star">
+              <div id="detailScoreActive" class="star-progress" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="comprehensive-li">
+            <span>有效性:</span>
+            <div class="star">
+              <div id="detailScoreValidity" class="star-progress" style="width:0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-com-f" id="com_info_div">
+
+      </div>
+      <ul class="introTab fl" id="introTab">
+        <li><a href="javascript:;" class="">时间轴</a></li>
+        <li><a href="javascript:;" class="current">详细信息</a></li>
+      </ul>
+      <div class="clear"></div>
+      <div id="timelinediv" class="introContent" style="display: none;">
+        <div class="tlt-time">10-17 星期三</div>
+        <dl class="timeBase-dl"><dt>04:28<span>下午</span><i class="i-b"></i></dt>
+          <dd>
+            <div class="span-2"><span class="enter">刘</span>添加客户</div>
+          </dd>
+        </dl>
+        <dl class="timeBase-dl"><dt>04:27<span>下午</span><i class="i-t-out"></i></dt>
+          <dd>
+            <div class="span-2"><span class="enter">刘</span>进行电话沟通</div><span class="span-3"><em>通话录音：</em><span class="audio_f"><label
+                  cusname="" cuscompany="" url="http://yunke-pcfile.oss-cn-beijing.aliyuncs.com/cellPhone-record-通话录音@贾鹏丽(15330273073)_20181017162711.mp3"
+                  class="play mgr5 audio" title="点击播放"></label>0'47"</span></span><span class="span-3"><em>电话备注： </em><span></span></span>
+          </dd>
+        </dl>
+      </div>
+      <div class="introContent">
+        <div id="staticRunDetail">
+          <div class="form-title">跟进信息</div>
+          <div class="form-row " data-id="userName" data-name="跟进人" data-fieldtype="0" data-define="0" data-requireds="0"><label
+              class="form-name">跟进人：</label>
+            <div class="form-info"><label>刘</label></div>
+          </div>
+          <div class="form-row " data-id="progress" data-name="销售进度" data-fieldtype="2" data-define="0" data-requireds="0"><label
+              class="form-name">销售进度：</label>
+            <div class="form-info"><select class="selectpicker" disabled="disabled" name="detail-field-single-progress"
+                id="detail-field-progress">
+                <option value="">请选择销售进度</option>
+                <option value="4">需要面谈</option>
+                <option value="3">原来是bj</option>
+                <option selected="" value="1">签约项目</option>
+                <option value="6">无需求</option>
+                <option value="7">需要输单</option>
+                <option value="5">成单</option>
+                <option value="2">确认需求</option>
+                <option value="8">放弃</option>
+              </select>
+
+            </div>
+          </div>
+          <div class="form-row " data-id="createdTime" data-name="创建时间" data-fieldtype="0" data-define="0"
+            data-requireds="0"><label class="form-name">创建时间：</label>
+            <div class="form-info"><label>2018-10-17 16:27:55</label></div>
+          </div>
+          <div class="form-row " data-id="remark" data-name="备注" data-fieldtype="0" data-define="0" data-requireds="0"><label
+              class="form-name">备注：</label>
+            <div class="form-info"><input type="text" readonly="readonly" id="detail-field-remark" value="" placeholder="请输入备注"></div>
+          </div>
+        </div>
+        <div id="customerDetail">
+          <div class="form-title">个人信息</div>
+          <div class="form-row " data-id="qq" data-name="QQ" data-fieldtype="1" data-define="0" data-requireds="0"><label
+              class="form-name">QQ：</label>
+            <div class="form-info"><input type="text" readonly="readonly" id="detail-field-qq" value="" placeholder="请输入QQ"></div>
+          </div>
+          <div class="form-row " data-id="wechatID" data-name="微信" data-fieldtype="0" data-define="0" data-requireds="0"><label
+              class="form-name">微信：</label>
+            <div class="form-info"><input type="text" readonly="readonly" id="detail-field-wechatID" value=""
+                placeholder="请输入微信"></div>
+          </div>
+          <div class="form-row " data-id="birthday" data-name="生日" data-fieldtype="4" data-define="0" data-requireds="0"><label
+              class="form-name">生日：</label>
+            <div class="form-info"><input type="text" class="time-input" readonly="readonly" id="detail-field-birthday"
+                placeholder="请输入生日" value=""></div>
+          </div>
+          <div class="form-row " data-id="gender" data-name="性别" data-fieldtype="2" data-define="0" data-requireds="0"><label
+              class="form-name">性别：</label>
+            <div class="form-info"><select class="selectpicker" disabled="disabled" name="detail-field-single-gender"
+                id="detail-field-gender">
+                <option value="">请选择性别</option>
+                <option value="男">男</option>
+                <option value="女">女</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row " data-id="563" data-name="采购日期" data-fieldtype="4" data-define="1" data-requireds="0"><label
+              class="form-name">采购日期：</label>
+            <div class="form-info"><input type="text" class="time-input" readonly="readonly" id="detail-field-563"
+                placeholder="请输入采购日期" value=""></div>
+          </div>
+          <div class="form-row " data-id="566" data-name="证件类型" data-fieldtype="2" data-define="1" data-requireds="0"><label
+              class="form-name">证件类型：</label>
+            <div class="form-info"><select class="selectpicker" disabled="disabled" name="detail-field-single-566" id="detail-field-566">
+                <option value="">无</option>
+                <option data-id="1126" data-input="true" value="学生证">学生证</option>
+                <option data-id="1127" data-input="true" value="身份证">身份证</option>
+              </select>
+
+              <div class="row-dd radio-input"><input type="text" class="validate-input" readonly="readonly" data-max="20"
+                  maxlength="20" id="detail-text-566" value=""><label class="validate-text">还可输入<span>20</span>字</label></div>
+            </div>
+          </div>
+          <div class="form-row " data-id="591" data-name="多选" data-fieldtype="3" data-define="1" data-requireds="0"><label
+              class="form-name">多选：</label>
+            <div class="form-info"><select class="selectpicker" disabled="disabled" name="detail-field-multi-591"
+                multiple="" id="detail-field-591">
+                <option data-value="123" value="123">123</option>
+                <option data-value="456" value="456">456</option>
+                <option data-value="789" value="789">789</option>
+                <option data-value="100" value="100">100</option>
+                <option data-value="200" value="200">200</option>
+                <option data-value="300" value="300">300</option>
+                <option data-value="400" value="400">400</option>
+                <option data-value="500" value="500">500</option>
+                <option data-value="600" value="600">600</option>
+                <option data-value="700" value="700">700</option>
+                <option data-value="890" value="890">890</option>
+                <option data-value="698" value="698">698</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row " data-id="593" data-name="微信号" data-fieldtype="0" data-define="1" data-requireds="0"><label
+              class="form-name">微信号：</label>
+            <div class="form-info"><textarea class="validate-input" readonly="readonly" data-max="200" maxlength="200"
+                id="detail-field-593" placeholder="请输入微信号"></textarea><label class="validate-text">还可输入<span>200</span>字</label></div>
+          </div>
+          <div class="form-row " data-id="601" data-name="单选123" data-fieldtype="2" data-define="1" data-requireds="0"><label
+              class="form-name">单选123：</label>
+            <div class="form-info"><select class="selectpicker" disabled="disabled" name="detail-field-single-601" id="detail-field-601">
+                <option value="">无</option>
+                <option data-id="1210" data-input="true" value="1">1</option>
+                <option data-id="1211" value="2">2</option>
+                <option data-id="1212" value="3">3</option>
+              </select>
+
+              <div class="row-dd radio-input"><input type="text" class="validate-input" readonly="readonly" data-max="20"
+                  maxlength="20" id="detail-text-601" value=""><label class="validate-text">还可输入<span>20</span>字</label></div>
+            </div>
+          </div>
+        </div>
+        <div id="companyDetail">
+          <div class="form-title">公司信息</div>
+          <div class="form-row " data-id="comAdress" data-name="办公地址" data-fieldtype="0" data-define="0" data-requireds="0"><label
+              class="form-name">办公地址：</label>
+            <div class="form-info"><input type="text" readonly="readonly" id="detail-field-comAdress" value=""
+                placeholder="请输入办公地址"></div>
+          </div>
+          <div class="form-row " data-id="econKind" data-name="企业性质" data-fieldtype="0" data-define="0" data-requireds="0"><label
+              class="form-name">企业性质：</label>
+            <div class="form-info"><input type="text" readonly="readonly" id="detail-field-econKind" value=""
+                placeholder="请输入企业性质"></div>
+          </div>
+          <div class="form-row " data-id="scope" data-name="经营范围" data-fieldtype="0" data-define="0" data-requireds="0"><label
+              class="form-name">经营范围：</label>
+            <div class="form-info"><input type="text" readonly="readonly" id="detail-field-scope" value="" placeholder="请输入经营范围"></div>
+          </div>
+          <div class="form-row " data-id="registCapi" data-name="注册资本" data-fieldtype="0" data-define="0"
+            data-requireds="0"><label class="form-name">注册资本：</label>
+            <div class="form-info"><input type="text" readonly="readonly" id="detail-field-registCapi" value=""
+                placeholder="请输入注册资本"></div>
+          </div>
+          <div class="form-row " data-id="operName" data-name="企业法人" data-fieldtype="0" data-define="0" data-requireds="0"><label
+              class="form-name">企业法人：</label>
+            <div class="form-info"><input type="text" readonly="readonly" id="detail-field-operName" value=""
+                placeholder="请输入企业法人"></div>
+          </div>
+          <div class="form-row " data-id="employeesNum" data-name="人员规模" data-fieldtype="0" data-define="0"
+            data-requireds="0"><label class="form-name">人员规模：</label>
+            <div class="form-info"><input type="text" readonly="readonly" id="detail-field-employeesNum" value=""
+                placeholder="请输入人员规模"></div>
+          </div>
+          <div class="form-row " data-id="telephone" data-name="企业座机" data-fieldtype="0" data-define="0" data-requireds="0"><label
+              class="form-name">企业座机：</label>
+            <div class="form-info"><input type="text" readonly="readonly" id="detail-field-telephone" value=""
+                placeholder="请输入企业座机"></div>
+          </div>
+          <div class="form-row " data-id="comType" data-name="企业类型" data-fieldtype="0" data-define="0" data-requireds="0"><label
+              class="form-name">企业类型：</label>
+            <div class="form-info"><input type="text" readonly="readonly" id="detail-field-comType" value=""
+                placeholder="请输入企业类型"></div>
+          </div>
+          <div class="form-row " data-id="industry" data-name="行业分类" data-fieldtype="0" data-define="0" data-requireds="0"><label
+              class="form-name">行业分类：</label>
+            <div class="form-info"><input type="text" readonly="readonly" id="detail-field-industry" value=""
+                placeholder="请输入行业分类"></div>
+          </div>
+          <div class="form-row " data-id="mainProduce" data-name="主营产品" data-fieldtype="0" data-define="0"
+            data-requireds="0"><label class="form-name">主营产品：</label>
+            <div class="form-info"><input type="text" readonly="readonly" id="detail-field-mainProduce" value=""
+                placeholder="请输入主营产品"></div>
+          </div>
+          <div class="form-row " data-id="comInfo" data-name="公司简介" data-fieldtype="0" data-define="0" data-requireds="0"><label
+              class="form-name">公司简介：</label>
+            <div class="form-info"><input type="text" readonly="readonly" id="detail-field-comInfo" value=""
+                placeholder="请输入公司简介"></div>
+          </div>
+          <div class="form-row " data-id="568" data-name="第三方" data-fieldtype="0" data-define="1" data-requireds="0"><label
+              class="form-name">第三方：</label>
+            <div class="form-info"><textarea class="validate-input" readonly="readonly" data-max="200" maxlength="200"
+                id="detail-field-568" placeholder="请输入第三方"></textarea><label class="validate-text">还可输入<span>200</span>字</label></div>
+          </div>
+          <div class="form-row " data-id="570" data-name="统计" data-fieldtype="2" data-define="1" data-requireds="0"><label
+              class="form-name">统计：</label>
+            <div class="form-info"><select class="selectpicker" disabled="disabled" name="detail-field-single-570" id="detail-field-570">
+                <option value="">无</option>
+                <option data-id="1128" value="报表统计">报表统计</option>
+              </select>
+
+              <div class="row-dd radio-input"><input type="text" class="validate-input" readonly="readonly" data-max="20"
+                  maxlength="20" id="detail-text-570" value=""><label class="validate-text">还可输入<span>20</span>字</label></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="runDetail">
+
+        </div>
+      </div>
+    </form>
+  </div>
+  <script type="text/javascript">
+    $(function () {
+      $('.customer').height($(window).height() - $('.customer').offset().top - 80);
+      $('.customer').css({
+        'overflow': 'auto'
+      });
+    });
+
+    $(function () {
+      $("body").on("mouseover", ".ellipsis", function (event) {
+        if ($(this).width() < 250 || $(this).text().length <= 17) {
+          return false;
+        }
+        if ($(this).next().css("display") == "block") {
+          $(this).next().hide();
+        } else {
+          $(".ellipsis-all").hide();
+          $(this).next().css({
+            "top": "auto",
+            "right": "-400px"
+          }).show();
+          var chosen_top = 0;
+          var chosen_left = 0;
+          if ($(this).next().offset().top + $(".customer").scroll()[0].scrollTop - $(".customer").offset().top -
+            40 + $(this).next().outerHeight() > ($(".customer table").height() > $(".customer").height() ? $(
+              ".customer table").height() : $(".customer").height())) {
+            chosen_top = -1 * $(this).next().outerHeight() + 20;
+          } else {
+            chosen_top = 0;
+          }
+          console.log($(this).next().offset().left + $(this).next().outerWidth());
+          if ($(this).next().offset().left + $(this).next().outerWidth() >= $(".customer").width()) {
+            chosen_left = 270;
+          } else {
+            chosen_left = -1 * $(this).next().outerWidth();
+          }
+          console.log(chosen_left);
+          $(this).next().css({
+            "top": chosen_top,
+            "right": chosen_left
+          }).show();
+        }
+        event.stopPropagation();
+      });
+      $("body").on("mouseout", ".ellipsis", function (event) {
+        $(".ellipsis-all").hide();
+
+      });
+      $(window).click(function () {
+        $(".ellipsis-all").hide();
+      });
+      $("body").on("click", ".ellipsis-all", function (event) {
+        event.stopPropagation();
+      });
+    });
+
+    $(function () {
+      $("body").on('click', '.name', function () {
+        $(".layer").show();
+        $("#introLayerBoxlys").show();
+      });
+    });
+  </script>
+</body>
+
+</html>
